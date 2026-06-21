@@ -1,0 +1,26 @@
+{
+  "id": "workplace-invoice-payment-pressure-001",
+  "title": "Urgent Invoice",
+  "edition": "workplace",
+  "section": "C",
+  "difficulty": "easy",
+  "scenario": "A supplier emails an urgent invoice and instructs you to pay immediately via a new bank account. The email claims the request is time-sensitive and will be processed today only if you act now.",
+  "answers": {
+    "A": "Pay immediately to avoid delays.",
+    "B": "Use the new bank account details as provided.",
+    "C": "Verify the invoice and bank details using a known contact method.",
+    "D": "Escalate to finance and confirm via the company’s official payment process."
+  },
+  "scores": {
+    "A": 1,
+    "B": 1,
+    "C": 3,
+    "D": 4
+  },
+  "safeActions": ["C", "D"],
+  "explanation": "Payment-pressure scams often redirect payments to fraudulent accounts. Confirm changes through established internal processes and known contacts.",
+  "proTip": "When bank details change, verify through a trusted workflow—not the email sender.",
+  "tags": ["invoice", "payment-pressure", "bank-fraud"],
+  "active": true
+}
+

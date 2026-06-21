@@ -1,0 +1,26 @@
+{
+  "id": "travelsafe-airport-sms-001",
+  "title": "Airport SMS Link",
+  "edition": "travelsafe",
+  "section": "B",
+  "difficulty": "easy",
+  "scenario": "Before your flight, you get an SMS saying you must re-verify your boarding pass and pay a small fee using a link.",
+  "answers": {
+    "A": "Tap the link and pay the fee to board.",
+    "B": "Forward the SMS to a friend for advice.",
+    "C": "Open the airline app/website and check your boarding pass there.",
+    "D": "Call the airline using the number from their official website."
+  },
+  "scores": {
+    "A": 0,
+    "B": 1,
+    "C": 4,
+    "D": 4
+  },
+  "safeActions": ["C", "D"],
+  "explanation": "SMS payment/verification links are frequently used for phishing and scam fees. Verify in official apps or by calling official contact numbers.",
+  "proTip": "Don’t pay or enter information from messages with urgency or fees.",
+  "tags": ["travel", "airport", "sms", "phishing"],
+  "active": true
+}
+

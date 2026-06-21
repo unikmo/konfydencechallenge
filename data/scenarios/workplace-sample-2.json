@@ -1,0 +1,26 @@
+{
+  "id": "workplace-phishing-email-001",
+  "title": "Phishing Reset Email",
+  "edition": "workplace",
+  "section": "A",
+  "difficulty": "easy",
+  "scenario": "An email says your account will be locked unless you reset your password. It includes a link to a login page.",
+  "answers": {
+    "A": "Click the link and reset the password now.",
+    "B": "Copy the link to check where it goes.",
+    "C": "Go to the official company login page/app and reset via the verified workflow.",
+    "D": "Report the email and do not interact with it."
+  },
+  "scores": {
+    "A": 0,
+    "B": 1,
+    "C": 4,
+    "D": 4
+  },
+  "safeActions": ["C", "D"],
+  "explanation": "Account-lock phishing uses urgency to steal credentials. Use official login flows and report suspicious messages.",
+  "proTip": "Never use password-reset links from unsolicited emails.",
+  "tags": ["phishing", "account-access"],
+  "active": true
+}
+

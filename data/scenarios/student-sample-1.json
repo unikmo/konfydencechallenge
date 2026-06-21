@@ -1,0 +1,26 @@
+{
+  "id": "student-job-posting-001",
+  "title": "Fake Internship Message",
+  "edition": "student",
+  "section": "B",
+  "difficulty": "easy",
+  "scenario": "You receive a message about an internship. It asks you to click a form link and enter your login credentials to confirm your application.",
+  "answers": {
+    "A": "Enter my login details to confirm right away.",
+    "B": "Reply with my username only.",
+    "C": "Check the offer through official university career channels.",
+    "D": "Ignore it and report the message to the university/security team."
+  },
+  "scores": {
+    "A": 0,
+    "B": 1,
+    "C": 3,
+    "D": 4
+  },
+  "safeActions": ["C", "D"],
+  "explanation": "Login/credential requests are a common scam pattern. Verify using official university channels and report suspicious messages.",
+  "proTip": "Never share credentials in response to unsolicited messages—use official portals.",
+  "tags": ["student", "internship", "credential-phishing"],
+  "active": true
+}
+

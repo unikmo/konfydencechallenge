@@ -1,0 +1,26 @@
+{
+  "id": "travelsafe-refund-email-001",
+  "title": "Refund Email",
+  "edition": "travelsafe",
+  "section": "A",
+  "difficulty": "easy",
+  "scenario": "An email from your airline says your flight was cancelled. It offers an instant refund if you click a link and confirm your bank details immediately.",
+  "answers": {
+    "A": "Click to get your money back fast.",
+    "B": "Reply with your bank info.",
+    "C": "Check your booking on the official app or website.",
+    "D": "Call the airline using the number on their official website."
+  },
+  "scores": {
+    "A": 0,
+    "B": 0,
+    "C": 4,
+    "D": 4
+  },
+  "safeActions": ["C", "D"],
+  "explanation": "Airline refund messages should be verified through official booking channels. Scammers use refund urgency to make you click links and share bank details.",
+  "proTip": "Never use links or phone numbers from the message. Use the official app, website, or known contact channel.",
+  "tags": ["travel", "refund", "airline", "phishing", "payment-pressure", "official-channel"],
+  "active": true
+}
+

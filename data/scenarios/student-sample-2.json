@@ -1,0 +1,26 @@
+{
+  "id": "student-housing-marketplace-001",
+  "title": "Rental Deposit Scam",
+  "edition": "student",
+  "section": "C",
+  "difficulty": "easy",
+  "scenario": "A landlord lists housing on a marketplace. They ask for a deposit immediately through a payment app and refuse any viewing or official paperwork.",
+  "answers": {
+    "A": "Send the deposit immediately to secure the room.",
+    "B": "Send the deposit, but only if the price is a good deal.",
+    "C": "Request viewing/contract and verify the listing through official university resources.",
+    "D": "Walk away and report the listing if it cannot be verified."
+  },
+  "scores": {
+    "A": 0,
+    "B": 1,
+    "C": 3,
+    "D": 4
+  },
+  "safeActions": ["C", "D"],
+  "explanation": "Rental deposit scams rely on urgency and lack of verifiable agreements. Verify through trusted channels and avoid irreversible payments.",
+  "proTip": "If they refuse contracts and verification, assume it’s risky.",
+  "tags": ["housing", "marketplace", "deposit-scam"],
+  "active": true
+}
+

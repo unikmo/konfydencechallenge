@@ -4,7 +4,6 @@ import { PrismaClient } from "@prisma/client";
 
 type Edition = "travelsafe" | "student" | "workplace";
 
-
 const prisma = new PrismaClient();
 
 type ScenarioJson = {
@@ -26,7 +25,6 @@ type ScenarioJson = {
 };
 
 const SECTION_SET = new Set(["A", "B", "C", "D"]);
-const SCORE_KEYS = ["A", "B", "C", "D"] as const;
 
 function clampScore0to4(n: unknown): number {
   const num = typeof n === "number" ? n : Number(n);
@@ -34,7 +32,7 @@ function clampScore0to4(n: unknown): number {
   return Math.max(0, Math.min(4, Math.trunc(num)));
 }
 
-function normalizeEdition(raw: string | undefined): "travelsafe" | "student" | "workplace" {
+function normalizeEdition(raw: string | undefined): Edition {
   const s = (raw ?? "").toLowerCase();
   if (s.includes("travel")) return "travelsafe";
   if (s.includes("student")) return "student";
@@ -47,6 +45,12 @@ function normalizeSection(raw: string | undefined): "A" | "B" | "C" | "D" {
   const s = (raw ?? "").toUpperCase();
   if (!SECTION_SET.has(s)) return "A";
   return s as "A" | "B" | "C" | "D";
+}
+
+function listToCsv(v: unknown): string | null {
+  if (v == null) return null;
+  if (Array.isArray(v)) return v.map(String).join(",");
+  return String(v);
 }
 
 async function main() {
@@ -74,7 +78,6 @@ async function main() {
 
       const answers = item.answers ?? {};
       const prompt = item.prompt ?? item.scenario ?? "";
-
       const scores = item.scores ?? {};
 
       const answersA = answers.A ?? "";
@@ -86,6 +89,9 @@ async function main() {
       const scoresB = clampScore0to4(scores.B);
       const scoresC = clampScore0to4(scores.C);
       const scoresD = clampScore0to4(scores.D);
+
+      const safeActionsCsv = listToCsv(item.safeActions);
+      const tagsCsv = listToCsv(item.tags);
 
       await prisma.scenario.upsert({
         where: { externalId },
@@ -103,10 +109,10 @@ async function main() {
           scoresB,
           scoresC,
           scoresD,
-          safeActions: item.safeActions ? (item.safeActions as unknown as any) : null,
+          safeActions: safeActionsCsv,
           explanation: item.explanation ?? null,
           proTip: item.proTip ?? null,
-          tags: item.tags ? (item.tags as unknown as any) : null,
+          tags: tagsCsv,
           active: typeof item.active === "boolean" ? item.active : true,
         },
         create: {
@@ -123,10 +129,10 @@ async function main() {
           scoresB,
           scoresC,
           scoresD,
-          safeActions: item.safeActions ? (item.safeActions as unknown as any) : null,
+          safeActions: safeActionsCsv,
           explanation: item.explanation ?? null,
           proTip: item.proTip ?? null,
-          tags: item.tags ? (item.tags as unknown as any) : null,
+          tags: tagsCsv,
           active: typeof item.active === "boolean" ? item.active : true,
         },
       });
