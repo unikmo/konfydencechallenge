@@ -1,0 +1,142 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+// V1 foundation (SQLite): avoid enums and Json types.
+
+model User {
+  id        String   @id @default(cuid())
+  email     String   @unique
+  createdAt DateTime @default(now())
+
+  sessions  ChallengeSession[]
+}
+
+model Scenario {
+  id          String @id @default(cuid())
+  externalId String @unique
+
+  // "travelsafe" | "student" | "workplace"
+  edition String
+
+  // "A" | "B" | "C" | "D"
+  section String
+
+  title  String?
+  prompt String
+
+  answersA String
+  answersB String
+  answersC String
+  answersD String
+
+  // normalized 0..4 (import clamps)
+  scoresA Int
+  scoresB Int
+  scoresC Int
+  scoresD Int
+
+  // For V1 we keep safeActions/tags as comma-separated strings.
+  safeActions String? // e.g. "C,D"
+  tags         String? // e.g. "travel,phishing"
+
+  explanation String?
+  proTip      String?
+
+  active Boolean @default(true)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  responses   ChallengeAnswerResponse[]
+  sessionCards ChallengeSessionSectionCard[]
+}
+
+model ChallengeSession {
+  id        String @id @default(cuid())
+  userId    String
+  user      User   @relation(fields: [userId], references: [id])
+
+  // "travelsafe" | "student" | "workplace"
+  edition String
+
+  // "IN_PROGRESS" | "COMPLETED"
+  status String @default("IN_PROGRESS")
+
+  completedAt DateTime?
+
+  sections ChallengeSessionSection[]
+  answers  ChallengeAnswerResponse[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model ChallengeSessionSection {
+  id        String @id @default(cuid())
+  sessionId String
+  session   ChallengeSession @relation(fields: [sessionId], references: [id], onDelete: Cascade)
+
+  // "A" | "B" | "C" | "D"
+  section String
+
+  // ordered scenario cards persisted so refresh doesn't reshuffle mid-game
+  cards ChallengeSessionSectionCard[]
+
+  // persisted state
+  currentIndex Int @default(0)
+  sectionScoreTotal Int @default(0)
+  sectionScoreMax   Int @default(0)
+
+  // stored as comma-separated scenario ids so we can recover if needed
+  completedScenarioIds String @default("")
+
+  createdAt DateTime @default(now())
+
+  @@unique([sessionId, section])
+}
+
+model ChallengeSessionSectionCard {
+  id        String @id @default(cuid())
+
+  sectionId String
+  section   ChallengeSessionSection @relation(fields: [sectionId], references: [id], onDelete: Cascade)
+
+  scenarioId String
+  scenario   Scenario @relation(fields: [scenarioId], references: [id])
+
+  orderIndex Int
+
+  @@unique([sectionId, orderIndex])
+  @@index([scenarioId])
+}
+
+model ChallengeAnswerResponse {
+  id        String @id @default(cuid())
+
+  sessionId String
+  session   ChallengeSession @relation(fields: [sessionId], references: [id], onDelete: Cascade)
+
+  scenarioId String
+  scenario   Scenario @relation(fields: [scenarioId], references: [id])
+
+  // "A" | "B" | "C" | "D"
+  section String
+
+  selectedAnswerKey String // "A" | "B" | "C" | "D"
+  score Int // 0..4
+
+  explanation String?
+  proTip      String?
+
+  createdAt DateTime @default(now())
+
+  @@index([sessionId])
+  @@index([scenarioId])
+}
+
