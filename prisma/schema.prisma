@@ -24,8 +24,12 @@ model Scenario {
   // "travelsafe" | "student" | "workplace"
   edition String
 
-  // "A" | "B" | "C" | "D"
+  // "A" | "B" | "C" | "D" (legacy sequencing bucket)
   section String
+
+  // HACK circle trigger key: "H" | "A" | "C" | "K"
+  hackKey String
+
 
   title  String?
   prompt String

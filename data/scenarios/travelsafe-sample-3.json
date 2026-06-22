@@ -1,0 +1,20 @@
+﻿{
+  "id": "travelsafe-visa-assistance-001",
+  "title": "Visa Assistance Fee",
+  "edition": "travelsafe",
+  "section": "C",
+  "difficulty": "medium",
+  "scenario": "Two weeks before your trip, a website that looks official says your destination now requires an urgent travel authorization. It asks you to upload your passport and pay a high processing fee today.",
+  "answers": {
+    "A": "Upload my passport and pay before the deadline.",
+    "B": "Pay first, then check whether the site is real later.",
+    "C": "Check entry rules on the official government or embassy website.",
+    "D": "Use the official visa or travel authorization portal linked by the government site."
+  },
+  "scores": { "A": 0, "B": 1, "C": 4, "D": 4 },
+  "safeActions": ["C", "D"],
+  "explanation": "Fake visa and travel authorization sites copy official language and use deadline pressure to collect passport data and inflated fees. Always verify requirements through official government or embassy channels.",
+  "proTip": "Search for the official government entry-rule page first, then follow only links from that page.",
+  "tags": ["travel", "visa", "passport", "identity-theft", "official-channel"],
+  "active": true
+}

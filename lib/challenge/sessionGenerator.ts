@@ -1,7 +1,8 @@
 import { prisma } from "@/lib/prisma";
 
-export type ChallengeEdition = "travelsafe" | "student" | "workplace";
+export type ChallengeEdition = "travelsafe" | "student" | "workplace" | "home";
 export type SectionKey = "A" | "B" | "C" | "D";
+
 
 const SECTION_ORDER: SectionKey[] = ["A", "B", "C", "D"];
 
@@ -40,18 +41,13 @@ export async function generateChallengeSessionPlan(edition: ChallengeEdition): P
       select: { id: true },
     });
 
-    if (candidates.length === 0) {
-      // Clear error; caller can catch and show a user-friendly message.
-      throw new Error(`No active scenarios found for edition="${edition}" section="${section}"`);
-    }
-
     const ids = shuffleInPlace(candidates.map((c) => c.id));
 
-    // Ensure all scenario scores are valid 0..4 (defensive; importer clamps already).
-    // We do a lightweight check by querying one sample set if needed.
-    // For V1 correctness, we keep this simple and only enforce at scoring time.
+    // V1: Home & Family may be "planned" initially.
+    // If an edition doesn't have content yet, keep the section empty and let the UI show "Coming soon".
     sections.push({ section, scenarioIds: ids });
   }
+
 
   return { edition, sections };
 }

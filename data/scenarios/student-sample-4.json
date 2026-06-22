@@ -1,0 +1,20 @@
+﻿{
+  "id": "student-scholarship-fee-001",
+  "title": "Scholarship Processing Fee",
+  "edition": "student",
+  "section": "D",
+  "difficulty": "medium",
+  "scenario": "A message says you were selected for a scholarship, but you must pay a processing fee today and upload your ID before the award can be released.",
+  "answers": {
+    "A": "Pay the fee quickly so I do not lose the scholarship.",
+    "B": "Upload my ID but wait before paying.",
+    "C": "Verify the scholarship through official university or scholarship-provider channels.",
+    "D": "Do not pay fees or upload ID until the offer is confirmed as legitimate."
+  },
+  "scores": { "A": 0, "B": 1, "C": 4, "D": 4 },
+  "safeActions": ["C", "D"],
+  "explanation": "Scholarship scams often ask for upfront fees or identity documents. Legitimate awards should be verifiable through official channels.",
+  "proTip": "Real scholarships rarely require urgent processing fees paid through message links.",
+  "tags": ["student", "scholarship", "identity-theft", "advance-fee-scam"],
+  "active": true
+}

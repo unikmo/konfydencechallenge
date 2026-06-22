@@ -1,0 +1,20 @@
+﻿{
+  "id": "student-tuition-payment-001",
+  "title": "Tuition Payment Warning",
+  "edition": "student",
+  "section": "A",
+  "difficulty": "easy",
+  "scenario": "You receive an email saying your tuition payment failed and your enrollment will be cancelled unless you pay immediately through a link in the message.",
+  "answers": {
+    "A": "Click the link and pay immediately.",
+    "B": "Reply to the email asking for payment details.",
+    "C": "Log in through the official student portal to check my account.",
+    "D": "Contact the university finance office using the official website contact details."
+  },
+  "scores": { "A": 0, "B": 1, "C": 4, "D": 4 },
+  "safeActions": ["C", "D"],
+  "explanation": "Tuition scams use fear of losing enrollment to push students into fake payment links. Always verify through the official student portal or finance office.",
+  "proTip": "Do not pay from email links when the message threatens urgent account consequences.",
+  "tags": ["student", "tuition", "payment-pressure", "phishing"],
+  "active": true
+}

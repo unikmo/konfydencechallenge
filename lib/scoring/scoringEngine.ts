@@ -15,13 +15,13 @@ export type ChallengeScore = {
   pass: boolean;
 };
 
-const LEVELS = [
-  { min: 0, max: 49, label: "At Risk" },
-  { min: 50, max: 69, label: "Learning Zone" },
-  { min: 70, max: 84, label: "Confident & Aware" },
-  { min: 85, max: 94, label: "Scam-Resistant" },
-  { min: 95, max: 100, label: "Konfydence Elite" },
+const READINESS_LEVELS = [
+  { min: 0, max: 54, label: "High Risk Under Pressure" },
+  { min: 55, max: 74, label: "Pressure Vulnerable" },
+  { min: 75, max: 89, label: "Street Smart" },
+  { min: 90, max: 100, label: "Scam Sharp" },
 ] as const;
+
 
 export function clampTo0to4(score: number): number {
   if (!Number.isFinite(score)) return 0;
@@ -31,11 +31,12 @@ export function clampTo0to4(score: number): number {
 
 export function computeLevel(totalPercent: number): string {
   const pct = Math.max(0, Math.min(100, totalPercent));
-  for (const l of LEVELS) {
+  for (const l of READINESS_LEVELS) {
     if (pct >= l.min && pct <= l.max) return l.label;
   }
-  return "At Risk";
+  return "High Risk Under Pressure";
 }
+
 
 export function getPassThreshold(edition: ChallengeEdition): number {
   if (edition === "workplace") return 75;
@@ -77,4 +78,5 @@ export function computeChallengeTotals(params: {
     pass,
   };
 }
+
 

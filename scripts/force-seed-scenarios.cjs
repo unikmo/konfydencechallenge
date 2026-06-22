@@ -1,6 +1,6 @@
-import fs from "fs";
-import path from "path";
-import { PrismaClient } from "@prisma/client";
+﻿const fs = require("fs");
+const path = require("path");
+const { PrismaClient } = require("@prisma/client");
 
 const prisma = new PrismaClient();
 
@@ -14,12 +14,18 @@ async function main() {
     .filter((file) => !file.includes("example"));
 
   console.log("Scenario files found:", files.length);
-  console.log(files);
 
   for (const file of files) {
     const fullPath = path.join(dir, file);
-    const raw = fs.readFileSync(fullPath, "utf8");
-    const s = JSON.parse(raw);
+    const raw = fs.readFileSync(fullPath, "utf8").replace(/^\uFEFF/, "");
+
+    let s;
+    try {
+      s = JSON.parse(raw);
+    } catch (error) {
+      console.error("Invalid JSON file:", file);
+      throw error;
+    }
 
     console.log(`Importing ${file}: ${s.id} / ${s.edition} / ${s.section}`);
 
@@ -29,7 +35,7 @@ async function main() {
         title: s.title,
         edition: s.edition,
         section: s.section,
-        prompt: s.prompt ?? s.scenario ?? "",
+        prompt: s.prompt || s.scenario || "",
         answersA: s.answers.A,
         answersB: s.answers.B,
         answersC: s.answers.C,
@@ -39,22 +45,17 @@ async function main() {
         scoresC: s.scores.C,
         scoresD: s.scores.D,
         safeActions: Array.isArray(s.safeActions) ? s.safeActions.join(",") : null,
-        explanation: s.explanation ?? null,
-        proTip: s.proTip ?? null,
+        explanation: s.explanation || null,
+        proTip: s.proTip || null,
         tags: Array.isArray(s.tags) ? s.tags.join(",") : null,
-
-        active: s.active ?? true,
+        active: s.active !== false
       },
       create: {
-        // Required by current Prisma schema; derive a placeholder from sample fields.
-        // TODO: remove once real HACK extraction is wired into the scenario JSON.
-        hackKey: (s.hackKey ?? s.hack ?? s.section) as any,
         externalId: s.id,
-
         title: s.title,
         edition: s.edition,
         section: s.section,
-        prompt: s.prompt ?? s.scenario ?? "",
+        prompt: s.prompt || s.scenario || "",
         answersA: s.answers.A,
         answersB: s.answers.B,
         answersC: s.answers.C,
@@ -64,11 +65,11 @@ async function main() {
         scoresC: s.scores.C,
         scoresD: s.scores.D,
         safeActions: Array.isArray(s.safeActions) ? s.safeActions.join(",") : null,
-        explanation: s.explanation ?? null,
-        proTip: s.proTip ?? null,
+        explanation: s.explanation || null,
+        proTip: s.proTip || null,
         tags: Array.isArray(s.tags) ? s.tags.join(",") : null,
-        active: s.active ?? true,
-      },
+        active: s.active !== false
+      }
     });
   }
 

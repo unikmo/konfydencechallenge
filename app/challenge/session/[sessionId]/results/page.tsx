@@ -7,6 +7,8 @@ import {
   getPassThreshold,
 } from "@/lib/scoring/scoringEngine";
 import type { ChallengeEdition } from "@/lib/challenge/sessionGenerator";
+import { EDITION_LABELS, SECTION_LABELS, type SectionKey } from "@/lib/challenge/labels";
+
 
 const styles: Record<string, React.CSSProperties> = {
   page: {
@@ -103,6 +105,44 @@ export default async function ResultsPage({ params }: { params: { sessionId: str
   const completedAll = sections.every((s) => s.currentIndex >= s.cards.length);
   const certificateEligible = completedAll && totals.pass;
 
+  const readinessScorePoints = totals.totalScoreTotal;
+  const readinessMaxPoints = totals.totalScoreMax;
+  const readinessPercentage = totals.totalPercent;
+
+  const readinessInterpretation = (() => {
+    const pct = readinessPercentage;
+    if (pct >= 90) return "Stay sharp. Your instincts hold up under pressure.";
+    if (pct >= 75) return "You’re street smart. A safer rhythm will make you even stronger.";
+    if (pct >= 55) return "Pressure is getting to you. Slow the moment that feels rushed.";
+    return "High risk under pressure. Assume urgency is a scam signal.";
+  })();
+
+  const hackBreakdown: Array<{ section: SectionKey; label: string; pct: number }> = ([
+    "A",
+    "B",
+    "C",
+    "D",
+  ] as SectionKey[]).map((section) => {
+
+    const row = sections.find((s) => s.section === section);
+    const sectionCards = row?.cards?.length ?? 0;
+    const max = row?.sectionScoreMax ?? sectionCards * 4;
+    const total = row?.sectionScoreTotal ?? 0;
+    const pct = max > 0 ? Math.max(0, Math.min(100, (total / max) * 100)) : 0;
+
+    const hackLabel = section === "A"
+      ? "Hurry"
+      : section === "B"
+        ? "Authority"
+        : section === "C"
+          ? "Comfort"
+          : "Kill-Switch";
+
+    return { section, label: hackLabel, pct };
+  });
+
+
+
   // Mark session completed when fully finished
   if (completedAll && session.status !== "COMPLETED") {
     await prisma.challengeSession.update({
@@ -126,34 +166,33 @@ export default async function ResultsPage({ params }: { params: { sessionId: str
 
           <div style={{ display: "flex", flexWrap: "wrap", gap: 12, alignItems: "center" }}>
             <div>
-              <div style={styles.muted as React.CSSProperties}>Final score</div>
-              <div style={{ fontWeight: 1000, fontSize: 40 }}>{totals.totalPercent.toFixed(0)}%</div>
+              <div style={styles.muted as React.CSSProperties}>Readiness Score</div>
+              <div style={{ fontWeight: 1000, fontSize: 40 }}>
+                {readinessScorePoints} / {readinessMaxPoints}
+              </div>
+              <div style={{ color: "#344a5e", fontWeight: 900, marginTop: 6 }}>{readinessPercentage.toFixed(0)}%</div>
             </div>
             <div style={styles.badge}>{totals.level}</div>
           </div>
 
           <p style={{ marginTop: 10, marginBottom: 0, color: "#344a5e" }}>
-            Pass threshold: {requiredThreshold}% • Status: <strong>{certificateEligible ? "Passed" : "Not yet"}</strong>
+            {readinessInterpretation}
           </p>
 
           <div style={{ marginTop: 16 }}>
-            <div style={{ fontWeight: 950 }}>Section summary</div>
-            {sections
-              .slice()
-              .sort((a, b) => a.section.localeCompare(b.section))
-              .map((s) => {
-                const max = s.sectionScoreMax || s.cards.length * 4;
-                const pct = max > 0 ? Math.max(0, Math.min(100, (s.sectionScoreTotal / max) * 100)) : 0;
-                return (
-                  <div key={s.section} style={styles.sectionRow}>
-                    <div style={styles.sectionKey}>Section {s.section}</div>
-                    <div className="" style={styles.muted}>
-                      {pct.toFixed(0)}% ({s.currentIndex}/{s.cards.length})
-                    </div>
-                  </div>
-                );
-              })}
+            <div style={{ fontWeight: 950 }}>HACK breakdown</div>
+            {(hackBreakdown ?? []).map((h) => (
+              <div key={h.section} style={styles.sectionRow}>
+                <div style={styles.sectionKey}>
+                  {h.section}: {h.label}
+                </div>
+                <div className="" style={styles.muted}>
+                  {h.pct.toFixed(0)}%
+                </div>
+              </div>
+            ))}
           </div>
+
 
           <div style={{ marginTop: 14 }}>
             <Link className="" style={styles.secondary} href={`/challenge/session/${sessionId}/certificate`}>

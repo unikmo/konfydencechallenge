@@ -3,26 +3,37 @@ import Link from "next/link";
 const editions = [
   {
     edition: "travelsafe",
-    label: "TravelSafe Challenge",
+    label: "TravelSafe",
+
     description:
       "Spot travel scams before they cost you money, identity access, or peace of mind.",
     price: "$4.99",
   },
   {
     edition: "student",
-    label: "Student Challenge",
+    label: "University & Students",
+
     description:
       "Practice real decisions around tuition, housing, jobs, campus messages, and AI scams.",
     price: "$1 per student / year",
   },
   {
     edition: "workplace",
-    label: "Workplace Challenge",
+    label: "Workplace",
+
     description:
       "Train employees to slow down, verify requests, and resist phishing, payment pressure, impersonation, and AI threats.",
     price: "$5 per employee / year",
   },
+  {
+    edition: "home",
+    label: "Home & Family",
+    description:
+      "Strengthen everyday decision-making against impersonation, payment pressure, and identity scams at home.",
+    price: "Planned V1",
+  },
 ] as const;
+
 
 export default function ChallengeLandingPage() {
   return (
@@ -44,11 +55,13 @@ export default function ChallengeLandingPage() {
       <section style={styles.grid} aria-label="Available challenges">
         {editions.map((item) => (
           <article key={item.edition} style={styles.card}>
+
             <div>
               <p style={styles.price}>{item.price}</p>
               <h2 style={styles.cardTitle}>{item.label}</h2>
               <p style={styles.cardText}>{item.description}</p>
             </div>
+
 
             <Link
               href={`/challenge/${item.edition}/start`}

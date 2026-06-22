@@ -1,0 +1,20 @@
+﻿{
+  "id": "workplace-ceo-gift-card-001",
+  "title": "Manager Gift Card Request",
+  "edition": "workplace",
+  "section": "B",
+  "difficulty": "easy",
+  "scenario": "A message appears to come from your manager. It says they are in a meeting and need you to buy gift cards urgently, then send photos of the codes.",
+  "answers": {
+    "A": "Buy the cards because the manager sounds urgent.",
+    "B": "Reply asking which gift card amount they need.",
+    "C": "Verify the request through a known company channel before acting.",
+    "D": "Report the message as suspected impersonation."
+  },
+  "scores": { "A": 0, "B": 1, "C": 4, "D": 4 },
+  "safeActions": ["C", "D"],
+  "explanation": "Impersonation scams often use urgency, secrecy, and unusual payment methods. Gift card code requests are a major red flag.",
+  "proTip": "Urgent money or gift card requests should always be verified out-of-band.",
+  "tags": ["workplace", "impersonation", "gift-card", "manager-scam"],
+  "active": true
+}

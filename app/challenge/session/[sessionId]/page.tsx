@@ -2,9 +2,11 @@ import React from "react";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { prisma } from "@/lib/prisma";
+import { EDITION_LABELS, type SectionKey } from "@/lib/challenge/labels";
 
-const SECTION_ORDER = ["A", "B", "C", "D"] as const;
+const SECTION_ORDER: SectionKey[] = ["A", "B", "C", "D"];
 const ANSWER_KEYS = ["A", "B", "C", "D"] as const;
+
 
 export default async function SessionPage({ params }: { params: { sessionId: string } }) {
   const sessionId = params.sessionId;
@@ -18,14 +20,14 @@ export default async function SessionPage({ params }: { params: { sessionId: str
 
   if (session.status !== "IN_PROGRESS") {
     return (
-      <div style={styles.page}>
-        <div style={styles.card}>
-          <p style={{ marginTop: 0 }}>This session is completed.</p>
-          <Link style={styles.link} href={`/challenge/session/${sessionId}/results`}>
+      <main className="page">
+        <section className="card">
+          <p>This session is completed.</p>
+          <Link className="link" href={`/challenge/session/${sessionId}/results`}>
             View results
           </Link>
-        </div>
-      </div>
+        </section>
+      </main>
     );
   }
 
@@ -34,34 +36,50 @@ export default async function SessionPage({ params }: { params: { sessionId: str
     select: {
       section: true,
       currentIndex: true,
-      cards: { select: { scenarioId: true, orderIndex: true }, orderBy: { orderIndex: "asc" } },
+      cards: {
+        select: { scenarioId: true, orderIndex: true },
+        orderBy: { orderIndex: "asc" },
+      },
     },
   });
 
-  const currentSection = SECTION_ORDER.find((s) => {
-    const row = sections.find((x) => x.section === s);
+  const currentSection = SECTION_ORDER.find((section) => {
+    const row = sections.find((item) => item.section === section);
     return row ? row.currentIndex < row.cards.length : false;
   });
 
+  const totalQuestions = sections.reduce((sum, s) => sum + (s.cards?.length ?? 0), 0);
+
+  const answeredSoFarInTotal = sections.reduce((sum, s) => {
+    const isCurrent = s.section === currentSection;
+    if (isCurrent) return sum;
+    return sum + Math.max(0, s.cards.length - (s.currentIndex ?? 0));
+  }, 0);
+
+  const overallIndex =
+    answeredSoFarInTotal +
+    (currentSection ? (sections.find((s) => s.section === currentSection)?.currentIndex ?? 0) : 0);
+
   if (!currentSection) {
+
     return (
-      <div style={styles.page}>
-        <div style={styles.card}>
-          <p style={{ marginTop: 0 }}>No remaining scenarios. Continue to results.</p>
-          <Link style={styles.link} href={`/challenge/session/${sessionId}/results`}>
+      <main className="page">
+        <section className="card">
+          <p>No remaining scenarios. Continue to results.</p>
+          <Link className="link" href={`/challenge/session/${sessionId}/results`}>
             Results
           </Link>
-        </div>
-      </div>
+        </section>
+      </main>
     );
   }
 
-  const sectionRow = sections.find((x) => x.section === currentSection)!;
-  const idx = sectionRow.currentIndex;
-  const card = sectionRow.cards[idx];
+  const sectionRow = sections.find((item) => item.section === currentSection)!;
+  const currentIndex = sectionRow.currentIndex;
+  const currentCard = sectionRow.cards[currentIndex];
 
   const scenario = await prisma.scenario.findUnique({
-    where: { id: card.scenarioId },
+    where: { id: currentCard.scenarioId },
     select: {
       id: true,
       title: true,
@@ -73,120 +91,272 @@ export default async function SessionPage({ params }: { params: { sessionId: str
     },
   });
 
+
   if (!scenario) notFound();
 
-  const progress = { current: idx + 1, total: sectionRow.cards.length };
-
-  const answers: Record<(typeof ANSWER_KEYS)[number], string> = {
+  const answers = {
     A: scenario.answersA,
     B: scenario.answersB,
     C: scenario.answersC,
     D: scenario.answersD,
   };
 
+
   return (
-    <div style={styles.page}>
-      <div style={styles.shell}>
-        <div style={styles.header}>
-          <div style={styles.headerTitle}>Konfydence Challenge</div>
-          <Link style={styles.smallLink} href="/challenge">
+    <main className="page">
+      <section className="shell">
+        <header className="header">
+          <strong>Konfydence Challenge</strong>
+          <Link className="navLink" href="/challenge">
             Choose edition
           </Link>
-        </div>
+        </header>
 
-        <div style={styles.card}>
-          <div style={styles.meta}>
-            Edition: <strong style={{ color: "#0b1b2b" }}>{session.edition}</strong> • Section:{" "}
-            <span style={styles.pill}>{currentSection}</span> • Progress: {progress.current}/{progress.total}
+        <section className="card">
+
+          <div className="meta">
+            <span>{(EDITION_LABELS as Record<string, string>)[session.edition] ?? session.edition}</span>
+
+            <span>
+              Question {overallIndex + 1} of {totalQuestions}
+            </span>
+
           </div>
 
-          <h2 style={{ marginTop: 0, marginBottom: 8 }}>{scenario.title ?? `Scenario ${idx + 1}`}</h2>
 
-          <div style={styles.prompt}>{scenario.prompt}</div>
+          <div className="progressWrap">
+            <div className="progressTop">
+              <span className="progressText">
+                Question {currentIndex + 1} of {sectionRow.cards.length} in this section
+              </span>
+              <span className="progressText">
+                Overall progress {Math.min(100, Math.max(0, Math.round(((overallIndex + 1) / Math.max(1, totalQuestions)) * 100)))}%
+              </span>
+            </div>
+            <div className="progressBar" aria-label="Full challenge progress">
+              <div className="progressFill" style={{ width: `${
+                Math.min(100, Math.max(0, ((overallIndex + 1) / Math.max(1, totalQuestions)) * 100))
+              }%` }} />
+            </div>
+          </div>
 
-          <form action={`/challenge/session/${sessionId}/submit`}>
-            <div style={styles.answers}>
-              {ANSWER_KEYS.map((k) => (
-                <label key={k} style={styles.answer}>
-                  <input type="radio" name="selectedAnswerKey" value={k} required style={styles.hidden} />
-                  <div style={styles.answerKey}>{k}</div>
-                  <div style={styles.answerText}>{answers[k]}</div>
+
+          <h1>{scenario.title ?? `Scenario ${currentIndex + 1}`}</h1>
+          <p className="prompt">{scenario.prompt}</p>
+
+          <form method="post" action={`/challenge/session/${sessionId}/submit`}>
+            <div className="answers">
+              {ANSWER_KEYS.map((key) => (
+                <label key={key} className="answer">
+                  <input type="radio" name="selectedAnswerKey" value={key} required />
+                  <span className="answerKey">{key}</span>
+                  <span className="answerText">{answers[key]}</span>
                 </label>
               ))}
             </div>
 
-            <button type="submit" style={styles.submit}>
-              Submit answer
-            </button>
-
             <input type="hidden" name="scenarioId" value={scenario.id} />
             <input type="hidden" name="section" value={currentSection} />
+
+            <button type="submit">Submit answer</button>
           </form>
-        </div>
-      </div>
-    </div>
+        </section>
+      </section>
+
+      <style>{`
+        .page {
+          min-height: 100vh;
+          background: #0b1f3a;
+          color: #ffffff;
+          padding: 24px 16px;
+          display: flex;
+          justify-content: center;
+        }
+
+        .shell {
+          width: 100%;
+          max-width: 860px;
+        }
+
+        .header {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          margin-bottom: 16px;
+          font-size: 16px;
+        }
+
+        .navLink,
+        .link {
+          color: #dbeafe;
+          font-weight: 700;
+          text-decoration: none;
+        }
+
+        .card {
+          background: #ffffff;
+          color: #0f172a;
+          border-radius: 14px;
+          padding: 24px;
+          box-shadow: 0 18px 40px rgba(0, 0, 0, 0.22);
+        }
+
+        .meta {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 8px;
+          margin-bottom: 14px;
+          font-size: 13px;
+          color: #475569;
+        }
+
+        .meta span {
+          border: 1px solid #bfdbfe;
+          background: #eff6ff;
+          color: #1d4ed8;
+          border-radius: 999px;
+          padding: 5px 10px;
+          font-weight: 800;
+        }
+
+        h1 {
+          margin: 0 0 10px;
+          font-size: 28px;
+          line-height: 1.15;
+          letter-spacing: -0.02em;
+        }
+
+        .prompt {
+          margin: 0 0 18px;
+          font-size: 17px;
+          line-height: 1.55;
+          color: #0f172a;
+        }
+
+        .progressWrap {
+          margin: 10px 0 18px;
+          background: #f8fafc;
+          border: 1px solid #e2e8f0;
+          border-radius: 12px;
+          padding: 12px 14px;
+        }
+
+        .progressTop {
+          display: flex;
+          gap: 12px;
+          flex-wrap: wrap;
+          justify-content: space-between;
+          margin-bottom: 10px;
+        }
+
+        .progressText {
+          font-size: 13px;
+          font-weight: 900;
+          color: #0f172a;
+        }
+
+        .progressBar {
+          height: 10px;
+          background: #e2e8f0;
+          border-radius: 999px;
+          overflow: hidden;
+        }
+
+        .progressFill {
+          height: 100%;
+          background: #1d4ed8;
+          border-radius: 999px;
+          transition: width 180ms ease;
+        }
+
+
+        .answers {
+          display: grid;
+          gap: 10px;
+        }
+
+        .answer {
+          display: grid;
+          grid-template-columns: 34px 1fr;
+          gap: 12px;
+          align-items: center;
+          border: 1px solid #cbd5e1;
+          border-radius: 10px;
+          padding: 13px 14px;
+          cursor: pointer;
+          background: #ffffff;
+          transition: border-color 120ms ease, background 120ms ease, box-shadow 120ms ease;
+        }
+
+        .answer:hover {
+          border-color: #1d4ed8;
+          background: #eff6ff;
+        }
+
+        .answer:has(input:checked) {
+          border-color: #1d4ed8;
+          background: #dbeafe;
+          box-shadow: 0 0 0 3px rgba(29, 78, 216, 0.16);
+        }
+
+        .answer input {
+          position: absolute;
+          opacity: 0;
+          pointer-events: none;
+        }
+
+        .answerKey {
+          width: 28px;
+          height: 28px;
+          border-radius: 999px;
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          background: #eff6ff;
+          color: #1d4ed8;
+          font-weight: 900;
+        }
+
+        .answer:has(input:checked) .answerKey {
+          background: #1d4ed8;
+          color: #ffffff;
+        }
+
+        .answerText {
+          font-weight: 700;
+          line-height: 1.35;
+        }
+
+        button {
+          width: 100%;
+          margin-top: 16px;
+          border: 0;
+          border-radius: 10px;
+          background: #1d4ed8;
+          color: #ffffff;
+          padding: 13px 16px;
+          font-weight: 900;
+          cursor: pointer;
+        }
+
+        button:hover {
+          background: #1e40af;
+        }
+
+        @media (max-width: 640px) {
+          .page {
+            padding: 14px;
+          }
+
+          .card {
+            padding: 18px;
+          }
+
+          h1 {
+            font-size: 24px;
+          }
+        }
+      `}</style>
+    </main>
   );
 }
-
-const styles: Record<string, React.CSSProperties> = {
-  page: {
-    minHeight: "100vh",
-    background: "linear-gradient(180deg, #071421, #0b2237)",
-    padding: 18,
-    color: "white",
-    display: "flex",
-    justifyContent: "center",
-  },
-  shell: { width: "100%", maxWidth: 980 },
-  header: { display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 14 },
-  headerTitle: { fontWeight: 950, color: "white" },
-  smallLink: { color: "#ffffffcc", fontSize: 13, fontWeight: 700, textDecoration: "none" },
-  card: {
-    background: "white",
-    color: "#0b1b2b",
-    borderRadius: 14,
-    padding: 18,
-    boxShadow: "0 14px 40px rgba(0,0,0,0.25)",
-  },
-  meta: { fontSize: 13, color: "#344a5e", marginBottom: 10 },
-  pill: {
-    display: "inline-flex",
-    alignItems: "center",
-    gap: 8,
-    borderRadius: 999,
-    padding: "6px 10px",
-    border: "1px solid rgba(255,198,0,0.35)",
-    background: "rgba(255,198,0,0.08)",
-    fontWeight: 900,
-    color: "#6a4b00",
-  },
-  prompt: { fontSize: 16, lineHeight: 1.6, margin: "8px 0 14px" },
-  answers: { display: "grid", gridTemplateColumns: "1fr", gap: 10 },
-  answer: {
-    display: "grid",
-    gridTemplateColumns: "48px 1fr",
-    gap: 10,
-    padding: "12px 12px",
-    borderRadius: 12,
-    border: "1px solid rgba(11,27,43,0.14)",
-    background: "#fff",
-    cursor: "pointer",
-    alignItems: "start",
-  },
-  answerKey: { fontWeight: 950, color: "#6a4b00", marginTop: 2 },
-  answerText: { fontWeight: 800, color: "#0b1b2b" },
-  hidden: { display: "none" },
-  submit: {
-    marginTop: 16,
-    width: "100%",
-    padding: "12px 14px",
-    borderRadius: 12,
-    background: "#ffc600",
-    border: "1px solid rgba(0,0,0,0.05)",
-    fontWeight: 950,
-    cursor: "pointer",
-    color: "#0b1b2b",
-  },
-  link: { color: "#0b1b2b", fontWeight: 900 },
-};
-

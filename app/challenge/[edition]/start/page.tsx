@@ -1,12 +1,15 @@
 import { notFound, redirect } from "next/navigation";
-import type { ChallengeEdition } from "@/lib/challenge/sessionGenerator";
+import type { ChallengeEdition } from "@/lib/challenge/labels";
 import { createPlaceholderUserAndSession } from "@/lib/challenge/startSessionUtil";
+import { EDITION_LABELS } from "@/lib/challenge/labels";
 
 const EDITIONS: Record<ChallengeEdition, { label: string }> = {
-  travelsafe: { label: "TravelSafe Challenge" },
-  student: { label: "Student Challenge" },
-  workplace: { label: "Workplace Challenge" },
+  travelsafe: { label: EDITION_LABELS.travelsafe },
+  student: { label: EDITION_LABELS.student },
+  workplace: { label: EDITION_LABELS.workplace },
+  home: { label: EDITION_LABELS.home },
 };
+
 
 export function generateStaticParams() {
   return Object.keys(EDITIONS).map((edition) => ({ edition }));

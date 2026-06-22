@@ -1,0 +1,20 @@
+﻿{
+  "id": "workplace-payroll-document-001",
+  "title": "Payroll Document Link",
+  "edition": "workplace",
+  "section": "D",
+  "difficulty": "medium",
+  "scenario": "You receive a message claiming HR needs you to review a payroll document. The link opens a login page that looks like your company portal but the web address is unfamiliar.",
+  "answers": {
+    "A": "Log in because payroll documents are important.",
+    "B": "Try my password and change it later if something looks wrong.",
+    "C": "Close the page and open the HR portal from the official company bookmark.",
+    "D": "Report the suspicious link to IT or security."
+  },
+  "scores": { "A": 0, "B": 0, "C": 4, "D": 4 },
+  "safeActions": ["C", "D"],
+  "explanation": "Fake HR and payroll pages are used to steal employee credentials. The safest move is to use the official portal and report the suspicious link.",
+  "proTip": "A familiar-looking login page is not enough. The domain and access path must also be trusted.",
+  "tags": ["workplace", "hr", "payroll", "credential-phishing"],
+  "active": true
+}

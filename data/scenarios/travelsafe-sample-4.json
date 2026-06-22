@@ -1,0 +1,20 @@
+﻿{
+  "id": "travelsafe-taxi-qr-payment-001",
+  "title": "Taxi QR Payment",
+  "edition": "travelsafe",
+  "section": "D",
+  "difficulty": "medium",
+  "scenario": "After arriving abroad, a driver says the card terminal is broken and asks you to scan a QR code to pay. The page asks for your card number, security code, and online banking login.",
+  "answers": {
+    "A": "Enter all details because the ride is already finished.",
+    "B": "Ask the driver to wait while I try the QR payment.",
+    "C": "Refuse to enter banking credentials and use a safer payment method.",
+    "D": "Use an official taxi app, receipt process, or trusted payment terminal instead."
+  },
+  "scores": { "A": 0, "B": 1, "C": 4, "D": 4 },
+  "safeActions": ["C", "D"],
+  "explanation": "QR payment scams can send travelers to fake payment pages. A payment page should never ask for online banking login credentials.",
+  "proTip": "If a payment flow asks for more than normal card/payment approval details, stop and switch to a trusted method.",
+  "tags": ["travel", "taxi", "qr-code", "payment-scam", "banking"],
+  "active": true
+}
