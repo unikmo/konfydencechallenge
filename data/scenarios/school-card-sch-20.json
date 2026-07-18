@@ -1,0 +1,34 @@
+{
+  "id": "school-school-photo-link-SCH-20",
+  "title": "School Photo Link",
+  "edition": "school",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Online Safety",
+  "scenario": "A link says your school photos are ready but asks for social media login first.",
+  "answers": {
+    "A": "Click the link or follow the instruction quickly so you do not miss out.",
+    "B": "Ask a trusted adult or school staff through a known channel.",
+    "C": "Report/block it and do not share private details.",
+    "D": "Ask the sender in the same chat to prove it is real."
+  },
+  "scores": {
+    "A": 0,
+    "B": 4,
+    "C": 4,
+    "D": 1
+  },
+  "safeActions": [
+    "B",
+    "C"
+  ],
+  "explanation": "School Photo Link: the trap is to get access to an account, code, password, or permission. The safer move is to ask a trusted adult or school staff, not to act before verifying.",
+  "proTip": "Photo services do not need your social media password.",
+  "hackKey": "C",
+  "hackTrigger": "Connection",
+  "tags": [
+    "school",
+    "online-safety"
+  ],
+  "active": true
+}

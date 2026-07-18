@@ -21,7 +21,7 @@ The user should feel:
 
 ## Primary Rule
 
-Consumer / Student:
+Consumer / University:
 
 > Pause → Verify → Ask
 
@@ -32,6 +32,10 @@ Workplace:
 TravelSafe:
 
 > Pause → Verify → Use Official Channels
+
+School (ages 12–18):
+
+> Pause → Verify → Tell a Trusted Adult
 
 ## V1 Scope
 

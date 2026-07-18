@@ -1,0 +1,34 @@
+{
+  "id": "travelsafe-hotel-front-desk-scam-TRA-23",
+  "title": "Hotel Front Desk Scam",
+  "edition": "travelsafe",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Identity/Documents",
+  "scenario": "A late-night caller says they are front desk and need your card again.",
+  "answers": {
+    "A": "Click/pay immediately to avoid losing the booking or offer.",
+    "B": "Forward it to a fellow traveller and ask what they think.",
+    "C": "Check inside the official app, booking, provider, or government site.",
+    "D": "Ignore/report the message and use a known contact route."
+  },
+  "scores": {
+    "A": 0,
+    "B": 1,
+    "C": 4,
+    "D": 4
+  },
+  "safeActions": [
+    "C",
+    "D"
+  ],
+  "explanation": "Hotel Front Desk Scam: the trap is to collect private data, images, or documents under pressure. The safer move is to verify through an official or approved channel, not to click or follow the risky request.",
+  "proTip": "Go to reception or call the front desk number yourself.",
+  "hackKey": "A",
+  "hackTrigger": "Authority",
+  "tags": [
+    "travelsafe",
+    "identity-documents"
+  ],
+  "active": true
+}

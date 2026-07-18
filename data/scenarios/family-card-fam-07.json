@@ -1,0 +1,34 @@
+{
+  "id": "family-shared-streaming-reset-FAM-07",
+  "title": "Shared Streaming Reset",
+  "edition": "family",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Home/Utility",
+  "scenario": "A streaming email says the family account is locked and asks for card details.",
+  "answers": {
+    "A": "Pay or share the requested details immediately to avoid trouble.",
+    "B": "Check through the official provider or saved family contact.",
+    "C": "Ask the caller or sender for more details before deciding.",
+    "D": "Stop, save evidence, and discuss with a trusted family member."
+  },
+  "scores": {
+    "A": 0,
+    "B": 4,
+    "C": 1,
+    "D": 4
+  },
+  "safeActions": [
+    "B",
+    "D"
+  ],
+  "explanation": "Shared Streaming Reset: the trap is to make money or value leave before the story is verified. The safer move is to confirm through a trusted person outside the message, not to send money or pay under pressure.",
+  "proTip": "Subscription changes should be checked in the official app.",
+  "hackKey": "C",
+  "hackTrigger": "Connection",
+  "tags": [
+    "family",
+    "home-utility"
+  ],
+  "active": true
+}

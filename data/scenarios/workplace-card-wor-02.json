@@ -1,0 +1,34 @@
+{
+  "id": "workplace-vendor-bank-change-WOR-02",
+  "title": "Vendor Bank Change",
+  "edition": "workplace",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Access/Data",
+  "scenario": "A supplier email says their bank account changed for the next invoice.",
+  "answers": {
+    "A": "Act immediately because the request sounds urgent and important.",
+    "B": "Use the approved company system or verified process.",
+    "C": "Reply to the sender asking them to confirm the request.",
+    "D": "Escalate to IT, finance, HR, legal, or your manager through official channels."
+  },
+  "scores": {
+    "A": 0,
+    "B": 4,
+    "C": 1,
+    "D": 4
+  },
+  "safeActions": [
+    "B",
+    "D"
+  ],
+  "explanation": "Vendor Bank Change: the trap is to make money or value leave before the story is verified. The safer move is to verify through an official or approved channel, not to act before verifying.",
+  "proTip": "Bank changes require independent verification with known contacts.",
+  "hackKey": "A",
+  "hackTrigger": "Authority",
+  "tags": [
+    "workplace",
+    "access-data"
+  ],
+  "active": true
+}

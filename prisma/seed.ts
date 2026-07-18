@@ -14,66 +14,46 @@ async function main() {
     .filter((file) => !file.includes("example"));
 
   console.log("Scenario files found:", files.length);
-  console.log(files);
 
   for (const file of files) {
     const fullPath = path.join(dir, file);
-    const raw = fs.readFileSync(fullPath, "utf8");
+    const raw = fs.readFileSync(fullPath, "utf8").replace(/^\uFEFF/, "");
     const s = JSON.parse(raw);
 
-    console.log(`Importing ${file}: ${s.id} / ${s.edition} / ${s.section}`);
+    const data = {
+      title: s.title,
+      edition: s.edition,
+      category: s.category ?? null,
+      cardType: s.cardType ?? "scenario",
+      scored: s.scored ?? true,
+      section: s.section ?? null,
+      hackKey: s.hackKey ?? null,
+      prompt: s.prompt ?? s.scenario ?? "",
+      answersA: s.answers.A,
+      answersB: s.answers.B,
+      answersC: s.answers.C,
+      answersD: s.answers.D,
+      scoresA: s.scores.A,
+      scoresB: s.scores.B,
+      scoresC: s.scores.C,
+      scoresD: s.scores.D,
+      safeActions: Array.isArray(s.safeActions) ? s.safeActions.join(",") : null,
+      explanation: s.explanation ?? null,
+      proTip: s.proTip ?? null,
+      tags: Array.isArray(s.tags) ? s.tags.join(",") : null,
+      active: s.active ?? true,
+    };
 
     await prisma.scenario.upsert({
       where: { externalId: s.id },
-      update: {
-        title: s.title,
-        edition: s.edition,
-        section: s.section,
-        prompt: s.prompt ?? s.scenario ?? "",
-        answersA: s.answers.A,
-        answersB: s.answers.B,
-        answersC: s.answers.C,
-        answersD: s.answers.D,
-        scoresA: s.scores.A,
-        scoresB: s.scores.B,
-        scoresC: s.scores.C,
-        scoresD: s.scores.D,
-        safeActions: Array.isArray(s.safeActions) ? s.safeActions.join(",") : null,
-        explanation: s.explanation ?? null,
-        proTip: s.proTip ?? null,
-        tags: Array.isArray(s.tags) ? s.tags.join(",") : null,
-
-        active: s.active ?? true,
-      },
-      create: {
-        // Required by current Prisma schema; derive a placeholder from sample fields.
-        // TODO: remove once real HACK extraction is wired into the scenario JSON.
-        hackKey: (s.hackKey ?? s.hack ?? s.section) as any,
-        externalId: s.id,
-
-        title: s.title,
-        edition: s.edition,
-        section: s.section,
-        prompt: s.prompt ?? s.scenario ?? "",
-        answersA: s.answers.A,
-        answersB: s.answers.B,
-        answersC: s.answers.C,
-        answersD: s.answers.D,
-        scoresA: s.scores.A,
-        scoresB: s.scores.B,
-        scoresC: s.scores.C,
-        scoresD: s.scores.D,
-        safeActions: Array.isArray(s.safeActions) ? s.safeActions.join(",") : null,
-        explanation: s.explanation ?? null,
-        proTip: s.proTip ?? null,
-        tags: Array.isArray(s.tags) ? s.tags.join(",") : null,
-        active: s.active ?? true,
-      },
+      update: data,
+      create: { externalId: s.id, ...data },
     });
   }
 
   const count = await prisma.scenario.count();
-  console.log("Scenario count after import:", count);
+  const scoredCount = await prisma.scenario.count({ where: { scored: true } });
+  console.log("Scenario count after import:", count, "(scored:", scoredCount, ")");
 }
 
 main()

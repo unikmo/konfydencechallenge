@@ -1,0 +1,34 @@
+{
+  "id": "university-ai-study-tool-login-UNI-05",
+  "title": "AI Study Tool Login",
+  "edition": "university",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Social/Travel",
+  "scenario": "A student Discord post offers premium AI study access if you use your university login.",
+  "answers": {
+    "A": "Click/apply/pay quickly before the deadline passes.",
+    "B": "Verify inside the official university/account system.",
+    "C": "Contact the relevant office using published contact details.",
+    "D": "Reply to the message and ask the sender for proof."
+  },
+  "scores": {
+    "A": 0,
+    "B": 4,
+    "C": 4,
+    "D": 1
+  },
+  "safeActions": [
+    "B",
+    "C"
+  ],
+  "explanation": "AI Study Tool Login: the trap is to get access to an account, code, password, or permission. The safer move is to verify through an official or approved channel, not to act before verifying.",
+  "proTip": "School credentials should only be entered on official systems.",
+  "hackKey": "C",
+  "hackTrigger": "Connection",
+  "tags": [
+    "university",
+    "social-travel"
+  ],
+  "active": true
+}

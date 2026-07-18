@@ -1,0 +1,34 @@
+{
+  "id": "travelsafe-baggage-fee-waiver-text-TRA-04",
+  "title": "Baggage Fee Waiver Text",
+  "edition": "travelsafe",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Payments",
+  "scenario": "At the airport, a text offers a baggage fee waiver if you confirm your upgrade.",
+  "answers": {
+    "A": "Check inside the official app, booking, provider, or government site.",
+    "B": "Click/pay immediately to avoid losing the booking or offer.",
+    "C": "Forward it to a fellow traveller and ask what they think.",
+    "D": "Ignore/report the message and use a known contact route."
+  },
+  "scores": {
+    "A": 4,
+    "B": 0,
+    "C": 1,
+    "D": 4
+  },
+  "safeActions": [
+    "A",
+    "D"
+  ],
+  "explanation": "Baggage Fee Waiver Text: the trap is to make money or value leave before the story is verified. The safer move is to verify through an official or approved channel, not to click or follow the risky request.",
+  "proTip": "Airport urgency plus links is a common travel trap.",
+  "hackKey": "H",
+  "hackTrigger": "Hurry",
+  "tags": [
+    "travelsafe",
+    "payments"
+  ],
+  "active": true
+}

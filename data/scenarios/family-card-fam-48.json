@@ -1,0 +1,34 @@
+{
+  "id": "family-house-sale-wire-change-FAM-48",
+  "title": "House Sale Wire Change",
+  "edition": "family",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Money",
+  "scenario": "An email says the solicitor changed the account for a house deposit.",
+  "answers": {
+    "A": "Pay or share the requested details immediately to avoid trouble.",
+    "B": "Ask the caller or sender for more details before deciding.",
+    "C": "Check through the official provider or saved family contact.",
+    "D": "Stop, save evidence, and discuss with a trusted family member."
+  },
+  "scores": {
+    "A": 0,
+    "B": 1,
+    "C": 4,
+    "D": 4
+  },
+  "safeActions": [
+    "C",
+    "D"
+  ],
+  "explanation": "House Sale Wire Change: the trap is to make money or value leave before the story is verified. The safer move is to confirm through a trusted person outside the message, not to send money or pay under pressure.",
+  "proTip": "Property payment changes require voice confirmation with known contacts.",
+  "hackKey": "K",
+  "hackTrigger": "Kill-Switch",
+  "tags": [
+    "family",
+    "money"
+  ],
+  "active": true
+}

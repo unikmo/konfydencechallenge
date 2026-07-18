@@ -1,0 +1,34 @@
+{
+  "id": "university-group-project-attachment-UNI-13",
+  "title": "Group Project Attachment",
+  "edition": "university",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Housing/Jobs",
+  "scenario": "A teammate you barely know sends a file titled 'final presentation' from a personal link.",
+  "answers": {
+    "A": "Click/apply/pay quickly before the deadline passes.",
+    "B": "Reply to the message and ask the sender for proof.",
+    "C": "Verify inside the official university/account system.",
+    "D": "Contact the relevant office using published contact details."
+  },
+  "scores": {
+    "A": 0,
+    "B": 1,
+    "C": 4,
+    "D": 4
+  },
+  "safeActions": [
+    "C",
+    "D"
+  ],
+  "explanation": "Group Project Attachment: the trap is to move you from a trusted channel to a fake page. The safer move is to verify through an official or approved channel, not to act before verifying.",
+  "proTip": "Unexpected files should be scanned and verified before opening.",
+  "hackKey": "C",
+  "hackTrigger": "Connection",
+  "tags": [
+    "university",
+    "housing-jobs"
+  ],
+  "active": true
+}

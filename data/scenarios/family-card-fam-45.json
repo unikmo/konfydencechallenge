@@ -1,0 +1,34 @@
+{
+  "id": "family-fake-dna-match-FAM-45",
+  "title": "Fake DNA Match",
+  "edition": "family",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Shared Devices",
+  "scenario": "An email says you have a close DNA relative and must pay to unlock details.",
+  "answers": {
+    "A": "Pay or share the requested details immediately to avoid trouble.",
+    "B": "Check through the official provider or saved family contact.",
+    "C": "Stop, save evidence, and discuss with a trusted family member.",
+    "D": "Ask the caller or sender for more details before deciding."
+  },
+  "scores": {
+    "A": 0,
+    "B": 4,
+    "C": 4,
+    "D": 1
+  },
+  "safeActions": [
+    "B",
+    "C"
+  ],
+  "explanation": "Fake DNA Match: the trap is to make money or value leave before the story is verified. The safer move is to confirm through a trusted person outside the message, not to send money or pay under pressure.",
+  "proTip": "Genetic-service messages should be checked inside the official account.",
+  "hackKey": "K",
+  "hackTrigger": "Kill-Switch",
+  "tags": [
+    "family",
+    "shared-devices"
+  ],
+  "active": true
+}

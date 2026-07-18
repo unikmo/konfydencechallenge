@@ -1,0 +1,34 @@
+{
+  "id": "workplace-wire-transfer-deadline-WOR-14",
+  "title": "Wire Transfer Deadline",
+  "edition": "workplace",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "HR/Payroll",
+  "scenario": "A deal team message says a payment must be sent before banks close.",
+  "answers": {
+    "A": "Use the approved company system or verified process.",
+    "B": "Act immediately because the request sounds urgent and important.",
+    "C": "Reply to the sender asking them to confirm the request.",
+    "D": "Escalate to IT, finance, HR, legal, or your manager through official channels."
+  },
+  "scores": {
+    "A": 4,
+    "B": 0,
+    "C": 1,
+    "D": 4
+  },
+  "safeActions": [
+    "A",
+    "D"
+  ],
+  "explanation": "Wire Transfer Deadline: the trap is to make money or value leave before the story is verified. The safer move is to verify through an official or approved channel, not to act before verifying.",
+  "proTip": "Deadlines cannot bypass payment controls.",
+  "hackKey": "H",
+  "hackTrigger": "Hurry",
+  "tags": [
+    "workplace",
+    "hr-payroll"
+  ],
+  "active": true
+}

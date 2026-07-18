@@ -1,0 +1,34 @@
+{
+  "id": "family-baby-photo-contest-FAM-40",
+  "title": "Baby Photo Contest",
+  "edition": "family",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Shared Devices",
+  "scenario": "A contest asks parents to upload baby photos and pay for votes.",
+  "answers": {
+    "A": "Pay or share the requested details immediately to avoid trouble.",
+    "B": "Check through the official provider or saved family contact.",
+    "C": "Stop, save evidence, and discuss with a trusted family member.",
+    "D": "Ask the caller or sender for more details before deciding."
+  },
+  "scores": {
+    "A": 0,
+    "B": 4,
+    "C": 4,
+    "D": 1
+  },
+  "safeActions": [
+    "B",
+    "C"
+  ],
+  "explanation": "Baby Photo Contest: the trap is to make money or value leave before the story is verified. The safer move is to confirm through a trusted person outside the message, not to send money or pay under pressure.",
+  "proTip": "Vote-buying contests often exploit family emotions.",
+  "hackKey": "C",
+  "hackTrigger": "Connection",
+  "tags": [
+    "family",
+    "shared-devices"
+  ],
+  "active": true
+}

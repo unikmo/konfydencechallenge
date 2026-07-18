@@ -14,21 +14,32 @@ model User {
   email     String   @unique
   createdAt DateTime @default(now())
 
-  sessions  ChallengeSession[]
+  sessions      ChallengeSession[]
+  entitlements  Entitlement[]
 }
 
 model Scenario {
   id          String @id @default(cuid())
   externalId String @unique
 
-  // "travelsafe" | "student" | "workplace"
+  // "travelsafe" | "university" | "workplace" | "school" | "family"
   edition String
 
-  // "A" | "B" | "C" | "D" (legacy sequencing bucket)
-  section String
+  // Deck-specific content grouping (e.g. "Gaming/Social", "Money"). Free text, deck-defined.
+  category String?
 
-  // HACK circle trigger key: "H" | "A" | "C" | "K"
-  hackKey String
+  // "scenario" (scored, V1 solo web) | "wild" (host-mode only, excluded from V1 solo scoring)
+  cardType String @default("scenario")
+
+  // Whether this card counts toward KRS scoring. Wild cards are false.
+  scored Boolean @default(true)
+
+  // Legacy sequencing bucket, unused by the flat 50-card deck model. Kept for backward compatibility.
+  section String?
+
+  // HACK trigger key: "H" (Hurry) | "A" (Authority) | "C" (Connection) | "K" (Kill-Switch).
+  // Null for non-scored (wild) cards.
+  hackKey String?
 
 
   title  String?
@@ -57,8 +68,7 @@ model Scenario {
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
-  responses   ChallengeAnswerResponse[]
-  sessionCards ChallengeSessionSectionCard[]
+  sessionCards ChallengeSessionCard[]
 }
 
 model ChallengeSession {
@@ -66,81 +76,66 @@ model ChallengeSession {
   userId    String
   user      User   @relation(fields: [userId], references: [id])
 
-  // "travelsafe" | "student" | "workplace"
+  // "travelsafe" | "university" | "workplace" | "school" | "family"
   edition String
+
+  // "diagnostic" (5 scored cards, free) | "full" (up to 50 scored cards, paid)
+  mode String @default("full")
+
+  // 1-based attempt count for this user+edition+mode. Counting only — does not
+  // itself enforce the "5 replay runs included" entitlement (see HANDOFF.md §2.6/§4.2).
+  runNumber Int @default(1)
 
   // "IN_PROGRESS" | "COMPLETED"
   status String @default("IN_PROGRESS")
 
+  // flat pointer into `cards` ordered by orderIndex — no section grouping (HANDOFF.md §2.8)
+  currentIndex Int @default(0)
+  scoreTotal   Int @default(0)
+  scoreMax     Int @default(0)
+
   completedAt DateTime?
 
-  sections ChallengeSessionSection[]
-  answers  ChallengeAnswerResponse[]
+  cards ChallengeSessionCard[]
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 }
 
-model ChallengeSessionSection {
+model ChallengeSessionCard {
   id        String @id @default(cuid())
+
   sessionId String
   session   ChallengeSession @relation(fields: [sessionId], references: [id], onDelete: Cascade)
-
-  // "A" | "B" | "C" | "D"
-  section String
-
-  // ordered scenario cards persisted so refresh doesn't reshuffle mid-game
-  cards ChallengeSessionSectionCard[]
-
-  // persisted state
-  currentIndex Int @default(0)
-  sectionScoreTotal Int @default(0)
-  sectionScoreMax   Int @default(0)
-
-  // stored as comma-separated scenario ids so we can recover if needed
-  completedScenarioIds String @default("")
-
-  createdAt DateTime @default(now())
-
-  @@unique([sessionId, section])
-}
-
-model ChallengeSessionSectionCard {
-  id        String @id @default(cuid())
-
-  sectionId String
-  section   ChallengeSessionSection @relation(fields: [sectionId], references: [id], onDelete: Cascade)
 
   scenarioId String
   scenario   Scenario @relation(fields: [scenarioId], references: [id])
 
+  // position in the flat deck order, persisted so refresh doesn't reshuffle mid-game
   orderIndex Int
 
-  @@unique([sectionId, orderIndex])
-  @@index([scenarioId])
-}
-
-model ChallengeAnswerResponse {
-  id        String @id @default(cuid())
-
-  sessionId String
-  session   ChallengeSession @relation(fields: [sessionId], references: [id], onDelete: Cascade)
-
-  scenarioId String
-  scenario   Scenario @relation(fields: [scenarioId], references: [id])
-
-  // "A" | "B" | "C" | "D"
-  section String
-
-  selectedAnswerKey String // "A" | "B" | "C" | "D"
-  score Int // 0..4
-
-  explanation String?
-  proTip      String?
+  answered          Boolean @default(false)
+  selectedAnswerKey String? // "A" | "B" | "C" | "D"
+  score             Int?    // 0..4, set once answered
 
   createdAt DateTime @default(now())
 
-  @@index([sessionId])
+  @@unique([sessionId, orderIndex])
   @@index([scenarioId])
+  @@index([sessionId])
+}
+
+model Entitlement {
+  id             String   @id @default(cuid())
+  userId         String
+  user           User     @relation(fields: [userId], references: [id])
+  tier           String   // "single" | "unlimited"
+  edition        String?  // set when tier = "single"; null covers all editions
+  source         String   @default("shopify")
+  shopifyOrderId String   @unique
+  status         String   @default("active") // "active" | "revoked"
+  createdAt      DateTime @default(now())
+
+  @@index([userId])
 }
 

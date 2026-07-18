@@ -1,0 +1,34 @@
+{
+  "id": "workplace-shared-drive-permission-WOR-08",
+  "title": "Shared Drive Permission",
+  "edition": "workplace",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "IT Security",
+  "scenario": "A contractor asks for full shared-drive access to finish a small task.",
+  "answers": {
+    "A": "Act immediately because the request sounds urgent and important.",
+    "B": "Reply to the sender asking them to confirm the request.",
+    "C": "Use the approved company system or verified process.",
+    "D": "Escalate to IT, finance, HR, legal, or your manager through official channels."
+  },
+  "scores": {
+    "A": 0,
+    "B": 1,
+    "C": 4,
+    "D": 4
+  },
+  "safeActions": [
+    "C",
+    "D"
+  ],
+  "explanation": "Shared Drive Permission: the trap is to pull you away from the normal verification path. The safer move is to verify through an official or approved channel, not to act before verifying.",
+  "proTip": "Access should be least-privilege and time-limited.",
+  "hackKey": "K",
+  "hackTrigger": "Kill-Switch",
+  "tags": [
+    "workplace",
+    "it-security"
+  ],
+  "active": true
+}

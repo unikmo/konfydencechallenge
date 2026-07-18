@@ -1,0 +1,34 @@
+{
+  "id": "workplace-m-a-rumor-link-WOR-33",
+  "title": "M&A Rumor Link",
+  "edition": "workplace",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "IT Security",
+  "scenario": "An anonymous email says confidential acquisition details are leaked in a document.",
+  "answers": {
+    "A": "Act immediately because the request sounds urgent and important.",
+    "B": "Reply to the sender asking them to confirm the request.",
+    "C": "Use the approved company system or verified process.",
+    "D": "Escalate to IT, finance, HR, legal, or your manager through official channels."
+  },
+  "scores": {
+    "A": 0,
+    "B": 1,
+    "C": 4,
+    "D": 4
+  },
+  "safeActions": [
+    "C",
+    "D"
+  ],
+  "explanation": "M&A Rumor Link: the trap is to collect private data, images, or documents under pressure. The safer move is to verify through an official or approved channel, not to act before verifying.",
+  "proTip": "Curiosity links can target executives and deal teams.",
+  "hackKey": "K",
+  "hackTrigger": "Kill-Switch",
+  "tags": [
+    "workplace",
+    "it-security"
+  ],
+  "active": true
+}

@@ -1,0 +1,34 @@
+{
+  "id": "university-library-fine-threat-UNI-12",
+  "title": "Library Fine Threat",
+  "edition": "university",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "IT/Credentials",
+  "scenario": "A text says unpaid library fines will block graduation unless you pay by card now.",
+  "answers": {
+    "A": "Click/apply/pay quickly before the deadline passes.",
+    "B": "Verify inside the official university/account system.",
+    "C": "Reply to the message and ask the sender for proof.",
+    "D": "Contact the relevant office using published contact details."
+  },
+  "scores": {
+    "A": 0,
+    "B": 4,
+    "C": 1,
+    "D": 4
+  },
+  "safeActions": [
+    "B",
+    "D"
+  ],
+  "explanation": "Library Fine Threat: the trap is to make money or value leave before the story is verified. The safer move is to verify through an official or approved channel, not to act before verifying.",
+  "proTip": "Check fines inside your official library or student portal.",
+  "hackKey": "A",
+  "hackTrigger": "Authority",
+  "tags": [
+    "university",
+    "it-credentials"
+  ],
+  "active": true
+}

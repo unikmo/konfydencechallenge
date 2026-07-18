@@ -1,18 +1,20 @@
-export type SectionKey = "A" | "B" | "C" | "D";
-
-export const SECTION_LABELS: Record<SectionKey, string> = {
-  A: "Spot the Signal",
-  B: "Verify Safely",
-  C: "Protect Money & Identity",
-  D: "Respond Under Pressure",
-};
-
-export type ChallengeEdition = "travelsafe" | "student" | "workplace" | "home";
+export type ChallengeEdition = "school" | "university" | "family" | "travelsafe" | "workplace";
 
 export const EDITION_LABELS: Record<ChallengeEdition, string> = {
+  school: "School Edition",
+  university: "University Edition",
+  family: "Family Edition",
   travelsafe: "TravelSafe",
-  student: "University & Students",
   workplace: "Workplace",
-  home: "Home & Family",
+};
+
+export type HackTrigger = "H" | "A" | "C" | "K";
+
+export const HACK_LABELS: Record<HackTrigger, { internal: string; public: string }> = {
+  H: { internal: "Hurry", public: "Hurry" },
+  A: { internal: "Authority", public: "Authority" },
+  C: { internal: "Connection", public: "Connection" },
+  // Public dashboards must not use "Kill-Switch" (avoid hacking jargon); admin views may use the internal label.
+  K: { internal: "Kill-Switch", public: "Critical Action Moment" },
 };
 

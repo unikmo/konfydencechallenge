@@ -1,0 +1,34 @@
+{
+  "id": "school-fake-report-card-portal-SCH-14",
+  "title": "Fake Report Card Portal",
+  "edition": "school",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Privacy",
+  "scenario": "An email says your grades were updated and sends a new portal link not used by your school.",
+  "answers": {
+    "A": "Ask a trusted adult or school staff through a known channel.",
+    "B": "Click the link or follow the instruction quickly so you do not miss out.",
+    "C": "Ask the sender in the same chat to prove it is real.",
+    "D": "Report/block it and do not share private details."
+  },
+  "scores": {
+    "A": 4,
+    "B": 0,
+    "C": 1,
+    "D": 4
+  },
+  "safeActions": [
+    "A",
+    "D"
+  ],
+  "explanation": "Fake Report Card Portal: the trap is to make money or value leave before the story is verified. The safer move is to ask a trusted adult or school staff, not to act before verifying.",
+  "proTip": "Grade checks belong in the official school system.",
+  "hackKey": "K",
+  "hackTrigger": "Kill-Switch",
+  "tags": [
+    "school",
+    "privacy"
+  ],
+  "active": true
+}

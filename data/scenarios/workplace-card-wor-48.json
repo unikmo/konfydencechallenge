@@ -1,0 +1,34 @@
+{
+  "id": "workplace-fake-customer-complaint-WOR-48",
+  "title": "Fake Customer Complaint",
+  "edition": "workplace",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "IT Security",
+  "scenario": "A link claims a public complaint names your employee and asks for login to respond.",
+  "answers": {
+    "A": "Act immediately because the request sounds urgent and important.",
+    "B": "Reply to the sender asking them to confirm the request.",
+    "C": "Use the approved company system or verified process.",
+    "D": "Escalate to IT, finance, HR, legal, or your manager through official channels."
+  },
+  "scores": {
+    "A": 0,
+    "B": 1,
+    "C": 4,
+    "D": 4
+  },
+  "safeActions": [
+    "C",
+    "D"
+  ],
+  "explanation": "Fake Customer Complaint: the trap is to get access to an account, code, password, or permission. The safer move is to verify through an official or approved channel, not to act before verifying.",
+  "proTip": "Reputation alerts should be checked through approved monitoring tools.",
+  "hackKey": "K",
+  "hackTrigger": "Kill-Switch",
+  "tags": [
+    "workplace",
+    "it-security"
+  ],
+  "active": true
+}

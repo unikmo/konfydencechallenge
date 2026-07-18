@@ -1,0 +1,34 @@
+{
+  "id": "school-fake-homework-helper-SCH-02",
+  "title": "Fake Homework Helper",
+  "edition": "school",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "School Systems",
+  "scenario": "A Discord post offers free answers for tomorrow’s test if you enter your school account.",
+  "answers": {
+    "A": "Click the link or follow the instruction quickly so you do not miss out.",
+    "B": "Ask a trusted adult or school staff through a known channel.",
+    "C": "Ask the sender in the same chat to prove it is real.",
+    "D": "Report/block it and do not share private details."
+  },
+  "scores": {
+    "A": 0,
+    "B": 4,
+    "C": 1,
+    "D": 4
+  },
+  "safeActions": [
+    "B",
+    "D"
+  ],
+  "explanation": "Fake Homework Helper: the trap is to get access to an account, code, password, or permission. The safer move is to ask a trusted adult or school staff, not to act before verifying.",
+  "proTip": "Study tools should not ask for your school password through chat links.",
+  "hackKey": "H",
+  "hackTrigger": "Hurry",
+  "tags": [
+    "school",
+    "school-systems"
+  ],
+  "active": true
+}

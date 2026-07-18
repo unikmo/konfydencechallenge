@@ -1,0 +1,34 @@
+{
+  "id": "travelsafe-taxi-card-skimmer-TRA-50",
+  "title": "Taxi Card Skimmer",
+  "edition": "travelsafe",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Public Networks",
+  "scenario": "A driver says card failed and asks you to tap again on a handheld device.",
+  "answers": {
+    "A": "Click/pay immediately to avoid losing the booking or offer.",
+    "B": "Check inside the official app, booking, provider, or government site.",
+    "C": "Ignore/report the message and use a known contact route.",
+    "D": "Forward it to a fellow traveller and ask what they think."
+  },
+  "scores": {
+    "A": 0,
+    "B": 4,
+    "C": 4,
+    "D": 1
+  },
+  "safeActions": [
+    "B",
+    "C"
+  ],
+  "explanation": "Taxi Card Skimmer: the trap is to make money or value leave before the story is verified. The safer move is to verify through an official or approved channel, not to click or follow the risky request.",
+  "proTip": "Ask for receipt and monitor duplicate charges.",
+  "hackKey": "A",
+  "hackTrigger": "Authority",
+  "tags": [
+    "travelsafe",
+    "public-networks"
+  ],
+  "active": true
+}

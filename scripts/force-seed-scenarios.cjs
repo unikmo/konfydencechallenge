@@ -1,4 +1,4 @@
-﻿const fs = require("fs");
+const fs = require("fs");
 const path = require("path");
 const { PrismaClient } = require("@prisma/client");
 
@@ -27,49 +27,34 @@ async function main() {
       throw error;
     }
 
-    console.log(`Importing ${file}: ${s.id} / ${s.edition} / ${s.section}`);
+    const data = {
+      title: s.title,
+      edition: s.edition,
+      category: s.category || null,
+      cardType: s.cardType || "scenario",
+      scored: s.scored !== false,
+      section: s.section || null,
+      hackKey: s.hackKey || null,
+      prompt: s.prompt || s.scenario || "",
+      answersA: s.answers.A,
+      answersB: s.answers.B,
+      answersC: s.answers.C,
+      answersD: s.answers.D,
+      scoresA: s.scores.A,
+      scoresB: s.scores.B,
+      scoresC: s.scores.C,
+      scoresD: s.scores.D,
+      safeActions: Array.isArray(s.safeActions) ? s.safeActions.join(",") : null,
+      explanation: s.explanation || null,
+      proTip: s.proTip || null,
+      tags: Array.isArray(s.tags) ? s.tags.join(",") : null,
+      active: s.active !== false
+    };
 
     await prisma.scenario.upsert({
       where: { externalId: s.id },
-      update: {
-        title: s.title,
-        edition: s.edition,
-        section: s.section,
-        prompt: s.prompt || s.scenario || "",
-        answersA: s.answers.A,
-        answersB: s.answers.B,
-        answersC: s.answers.C,
-        answersD: s.answers.D,
-        scoresA: s.scores.A,
-        scoresB: s.scores.B,
-        scoresC: s.scores.C,
-        scoresD: s.scores.D,
-        safeActions: Array.isArray(s.safeActions) ? s.safeActions.join(",") : null,
-        explanation: s.explanation || null,
-        proTip: s.proTip || null,
-        tags: Array.isArray(s.tags) ? s.tags.join(",") : null,
-        active: s.active !== false
-      },
-      create: {
-        externalId: s.id,
-        title: s.title,
-        edition: s.edition,
-        section: s.section,
-        prompt: s.prompt || s.scenario || "",
-        answersA: s.answers.A,
-        answersB: s.answers.B,
-        answersC: s.answers.C,
-        answersD: s.answers.D,
-        scoresA: s.scores.A,
-        scoresB: s.scores.B,
-        scoresC: s.scores.C,
-        scoresD: s.scores.D,
-        safeActions: Array.isArray(s.safeActions) ? s.safeActions.join(",") : null,
-        explanation: s.explanation || null,
-        proTip: s.proTip || null,
-        tags: Array.isArray(s.tags) ? s.tags.join(",") : null,
-        active: s.active !== false
-      }
+      update: data,
+      create: { externalId: s.id, ...data }
     });
   }
 

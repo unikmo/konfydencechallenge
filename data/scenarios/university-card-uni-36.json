@@ -1,0 +1,34 @@
+{
+  "id": "university-whatsapp-class-rep-impersonation-UNI-36",
+  "title": "WhatsApp Class Rep Impersonation",
+  "edition": "university",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Campus Finance",
+  "scenario": "A new number claims to be the class rep collecting exam fees.",
+  "answers": {
+    "A": "Verify inside the official university/account system.",
+    "B": "Click/apply/pay quickly before the deadline passes.",
+    "C": "Contact the relevant office using published contact details.",
+    "D": "Reply to the message and ask the sender for proof."
+  },
+  "scores": {
+    "A": 4,
+    "B": 0,
+    "C": 4,
+    "D": 1
+  },
+  "safeActions": [
+    "A",
+    "C"
+  ],
+  "explanation": "WhatsApp Class Rep Impersonation: the trap is to make money or value leave before the story is verified. The safer move is to verify through an official or approved channel, not to act before verifying.",
+  "proTip": "Payment requests from new numbers need independent verification.",
+  "hackKey": "C",
+  "hackTrigger": "Connection",
+  "tags": [
+    "university",
+    "campus-finance"
+  ],
+  "active": true
+}

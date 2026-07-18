@@ -1,0 +1,34 @@
+{
+  "id": "school-fake-sports-kit-sale-SCH-30",
+  "title": "Fake Sports Kit Sale",
+  "edition": "school",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Online Safety",
+  "scenario": "A page sells team hoodies with your school logo at a one-day discount.",
+  "answers": {
+    "A": "Click the link or follow the instruction quickly so you do not miss out.",
+    "B": "Ask a trusted adult or school staff through a known channel.",
+    "C": "Report/block it and do not share private details.",
+    "D": "Ask the sender in the same chat to prove it is real."
+  },
+  "scores": {
+    "A": 0,
+    "B": 4,
+    "C": 4,
+    "D": 1
+  },
+  "safeActions": [
+    "B",
+    "C"
+  ],
+  "explanation": "Fake Sports Kit Sale: the trap is to make borrowed authority feel safer than checking. The safer move is to ask a trusted adult or school staff, not to act before verifying.",
+  "proTip": "School merchandise should be verified with the team or school office.",
+  "hackKey": "H",
+  "hackTrigger": "Hurry",
+  "tags": [
+    "school",
+    "online-safety"
+  ],
+  "active": true
+}

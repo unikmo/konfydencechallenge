@@ -1,0 +1,34 @@
+{
+  "id": "travelsafe-airline-refund-email-TRA-01",
+  "title": "Airline Refund Email",
+  "edition": "travelsafe",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Airline/Hotel",
+  "scenario": "An airline email offers an instant refund if you confirm bank details through a link.",
+  "answers": {
+    "A": "Check inside the official app, booking, provider, or government site.",
+    "B": "Click/pay immediately to avoid losing the booking or offer.",
+    "C": "Ignore/report the message and use a known contact route.",
+    "D": "Forward it to a fellow traveller and ask what they think."
+  },
+  "scores": {
+    "A": 4,
+    "B": 0,
+    "C": 4,
+    "D": 1
+  },
+  "safeActions": [
+    "A",
+    "C"
+  ],
+  "explanation": "Airline Refund Email: the trap is to make money or value leave before the story is verified. The safer move is to verify through an official or approved channel, not to click or follow the risky request.",
+  "proTip": "Refunds should be checked in the official booking app or airline site.",
+  "hackKey": "A",
+  "hackTrigger": "Authority",
+  "tags": [
+    "travelsafe",
+    "airline-hotel"
+  ],
+  "active": true
+}

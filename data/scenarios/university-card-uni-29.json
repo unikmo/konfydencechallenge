@@ -1,0 +1,34 @@
+{
+  "id": "university-bank-account-for-student-society-UNI-29",
+  "title": "Bank Account for Student Society",
+  "edition": "university",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Identity",
+  "scenario": "A society treasurer asks you to receive funds temporarily because their account is frozen.",
+  "answers": {
+    "A": "Verify inside the official university/account system.",
+    "B": "Click/apply/pay quickly before the deadline passes.",
+    "C": "Reply to the message and ask the sender for proof.",
+    "D": "Contact the relevant office using published contact details."
+  },
+  "scores": {
+    "A": 4,
+    "B": 0,
+    "C": 1,
+    "D": 4
+  },
+  "safeActions": [
+    "A",
+    "D"
+  ],
+  "explanation": "Bank Account for Student Society: the trap is to get access to an account, code, password, or permission. The safer move is to verify through an official or approved channel, not to act before verifying.",
+  "proTip": "Do not move money for clubs or friends through personal accounts.",
+  "hackKey": "A",
+  "hackTrigger": "Authority",
+  "tags": [
+    "university",
+    "identity"
+  ],
+  "active": true
+}

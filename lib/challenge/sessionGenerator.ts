@@ -1,10 +1,14 @@
 import { prisma } from "@/lib/prisma";
 
-export type ChallengeEdition = "travelsafe" | "student" | "workplace" | "home";
-export type SectionKey = "A" | "B" | "C" | "D";
+export type ChallengeEdition = "school" | "university" | "family" | "travelsafe" | "workplace";
+export type ChallengeMode = "diagnostic" | "full";
 
-
-const SECTION_ORDER: SectionKey[] = ["A", "B", "C", "D"];
+// Free diagnostic: 10 questions, max 40 points. Full deck: up to 50 scored questions, max 200 points.
+// docs/DEV_BRIEF_DIAGNOSTIC_UPGRADE.md §1-2 (overrides PRODUCT_SPEC_V1.md §6's 5-question/max-20 diagnostic).
+const MODE_CARD_COUNT: Record<ChallengeMode, number> = {
+  diagnostic: 10,
+  full: 50,
+};
 
 function shuffleInPlace<T>(arr: T[], rng: () => number = Math.random): T[] {
   for (let i = arr.length - 1; i > 0; i--) {
@@ -14,127 +18,76 @@ function shuffleInPlace<T>(arr: T[], rng: () => number = Math.random): T[] {
   return arr;
 }
 
-function clampScore(score: number): number {
-  // Defensive: V1 says clamp negatives to 0.
-  if (!Number.isFinite(score)) return 0;
-  return Math.max(0, Math.min(4, Math.trunc(score)));
-}
-
 export type GeneratedSessionPlan = {
   edition: ChallengeEdition;
-  sections: {
-    section: SectionKey;
-    scenarioIds: string[];
-  }[];
+  mode: ChallengeMode;
+  scenarioIds: string[];
 };
 
-export async function generateChallengeSessionPlan(edition: ChallengeEdition): Promise<GeneratedSessionPlan> {
-  const sections: GeneratedSessionPlan["sections"] = [];
+// Flat pool of scored cards for an edition — no A/B/C/D section grouping (HANDOFF.md §2.8).
+// Wild cards (cardType "wild", scored: false) are excluded from V1 solo gameplay (HANDOFF.md §2.4).
+export async function generateChallengeSessionPlan(
+  edition: ChallengeEdition,
+  mode: ChallengeMode
+): Promise<GeneratedSessionPlan> {
+  const candidates = await prisma.scenario.findMany({
+    where: { edition, active: true, scored: true },
+    select: { id: true },
+  });
 
-  for (const section of SECTION_ORDER) {
-    const candidates = await prisma.scenario.findMany({
-      where: {
-        edition,
-        section,
-        active: true,
-      },
-      select: { id: true },
-    });
+  const shuffled = shuffleInPlace(candidates.map((c) => c.id));
+  const scenarioIds = shuffled.slice(0, MODE_CARD_COUNT[mode]);
 
-    const ids = shuffleInPlace(candidates.map((c) => c.id));
-
-    // V1: Home & Family may be "planned" initially.
-    // If an edition doesn't have content yet, keep the section empty and let the UI show "Coming soon".
-    sections.push({ section, scenarioIds: ids });
-  }
-
-
-  return { edition, sections };
+  return { edition, mode, scenarioIds };
 }
 
 export async function createChallengeSessionWithCardOrder(params: {
   userId: string;
   edition: ChallengeEdition;
+  mode?: ChallengeMode;
 }): Promise<{ sessionId: string }> {
-  // Create session.
+  const mode = params.mode ?? "full";
+
+  const plan = await generateChallengeSessionPlan(params.edition, mode);
+
+  const priorRuns = await prisma.challengeSession.count({
+    where: { userId: params.userId, edition: params.edition, mode },
+  });
+
   const session = await prisma.challengeSession.create({
     data: {
       userId: params.userId,
       edition: params.edition,
+      mode,
+      runNumber: priorRuns + 1,
       status: "IN_PROGRESS",
+      currentIndex: 0,
+      scoreTotal: 0,
+      scoreMax: plan.scenarioIds.length * 4,
     },
     select: { id: true },
   });
 
-  // Generate plan.
-  const plan = await generateChallengeSessionPlan(params.edition);
-
-  // Persist per-section order.
-  for (const sec of plan.sections) {
-    const sectionRow = await prisma.challengeSessionSection.create({
-      data: {
-        sessionId: session.id,
-        section: sec.section,
-        currentIndex: 0,
-        sectionScoreTotal: 0,
-        sectionScoreMax: 0,
-        completedScenarioIds: "",
-      },
-      select: { id: true },
-    });
-
-    const cardsToCreate = sec.scenarioIds.map((scenarioId, orderIndex) => ({
-      sectionId: sectionRow.id,
+  await prisma.challengeSessionCard.createMany({
+    data: plan.scenarioIds.map((scenarioId, orderIndex) => ({
+      sessionId: session.id,
       scenarioId,
       orderIndex,
-    }));
-
-    await prisma.challengeSessionSectionCard.createMany({
-      data: cardsToCreate,
-    });
-
-    // Compute max score for section.
-    const sectionCards = await prisma.challengeSessionSectionCard.findMany({
-      where: { sectionId: sectionRow.id },
-      select: { scenarioId: true },
-      orderBy: { orderIndex: "asc" },
-    });
-
-    // max per scenario is 4 (normalized). However to support future variations, compute based on
-    // scenario scores for this section (max possible).
-    // In V1 each answer key gives 0..4 so max is 4 per scenario.
-    const sectionScoreMax = sectionCards.length * 4;
-
-    await prisma.challengeSessionSection.update({
-      where: { id: sectionRow.id },
-      data: {
-        sectionScoreMax: sectionScoreMax,
-      },
-    });
-  }
+    })),
+  });
 
   return { sessionId: session.id };
 }
 
-export async function getChallengeSectionCard(params: {
-  sessionId: string;
-  section: SectionKey;
-}): Promise<{
-  sectionRowId: string;
+export async function getCurrentChallengeCard(params: { sessionId: string }): Promise<{
+  cardId: string;
   scenarioId: string;
-  scenarioOrderIndex: number;
   currentIndex: number;
   totalCards: number;
-}> {
-  const sectionRow = await prisma.challengeSessionSection.findUnique({
-    where: {
-      sessionId_section: {
-        sessionId: params.sessionId,
-        section: params.section,
-      },
-    },
+} | null> {
+  const session = await prisma.challengeSession.findUnique({
+    where: { id: params.sessionId },
     select: {
-      id: true,
       currentIndex: true,
       cards: {
         select: { id: true, scenarioId: true, orderIndex: true },
@@ -143,96 +96,58 @@ export async function getChallengeSectionCard(params: {
     },
   });
 
-  if (!sectionRow) {
-    throw new Error(`Missing session section row for sessionId=${params.sessionId} section=${params.section}`);
+  if (!session) {
+    throw new Error(`Missing session for sessionId=${params.sessionId}`);
   }
 
-  const cards = sectionRow.cards;
-  if (cards.length === 0) {
-    throw new Error(`No persisted cards for sessionId=${params.sessionId} section=${params.section}`);
-  }
+  const { cards } = session;
+  if (session.currentIndex >= cards.length) return null;
 
-  const idx = sectionRow.currentIndex;
-  if (idx < 0 || idx >= cards.length) {
-    throw new Error(
-      `CurrentIndex out of range for sessionId=${params.sessionId} section=${params.section} currentIndex=${idx} total=${cards.length}`
-    );
-  }
-
-  const card = cards[idx];
+  const card = cards[session.currentIndex];
 
   return {
-    sectionRowId: sectionRow.id,
+    cardId: card.id,
     scenarioId: card.scenarioId,
-    scenarioOrderIndex: card.orderIndex,
-    currentIndex: idx,
+    currentIndex: session.currentIndex,
     totalCards: cards.length,
   };
 }
 
-export async function advanceChallengeSection(params: {
+export async function advanceChallengeSession(params: {
   sessionId: string;
-  section: SectionKey;
-  scenarioId: string;
-  nextScore: number;
-}): Promise<{ sectionCompleted: boolean }> {
-  // Move currentIndex forward, update totals and completed ids.
-  const sectionRow = await prisma.challengeSessionSection.findUnique({
-    where: {
-      sessionId_section: { sessionId: params.sessionId, section: params.section },
-    },
-    select: {
-      id: true,
-      currentIndex: true,
-      cards: {
-        select: { id: true },
-      },
-      completedScenarioIds: true,
-      sectionScoreTotal: true,
-    },
+  cardId: string;
+  selectedAnswerKey: string;
+  score: number;
+}): Promise<{ sessionCompleted: boolean }> {
+  const session = await prisma.challengeSession.findUnique({
+    where: { id: params.sessionId },
+    select: { currentIndex: true, scoreTotal: true, cards: { select: { id: true } } },
   });
 
-  if (!sectionRow) {
-    throw new Error(`Missing section row to advance for sessionId=${params.sessionId} section=${params.section}`);
+  if (!session) {
+    throw new Error(`Missing session to advance for sessionId=${params.sessionId}`);
   }
 
-  const totalCards = sectionRow.cards.length;
-  const newIndex = sectionRow.currentIndex + 1;
-  const completed = newIndex >= totalCards;
-
-  const completedIds = sectionRow.completedScenarioIds
-    ? sectionRow.completedScenarioIds.split(",").filter(Boolean)
-    : [];
-
-  // Ensure we only append once.
-  if (!completedIds.includes(params.scenarioId)) completedIds.push(params.scenarioId);
-
-  await prisma.challengeSessionSection.update({
-    where: { id: sectionRow.id },
+  await prisma.challengeSessionCard.update({
+    where: { id: params.cardId },
     data: {
-      currentIndex: completed ? sectionRow.currentIndex : newIndex,
-      sectionScoreTotal: sectionRow.sectionScoreTotal + clampScore(params.nextScore),
-      completedScenarioIds: completedIds.join(","),
+      answered: true,
+      selectedAnswerKey: params.selectedAnswerKey,
+      score: params.score,
     },
   });
 
-  return { sectionCompleted: completed };
-}
+  const newIndex = session.currentIndex + 1;
+  const completed = newIndex >= session.cards.length;
 
-export async function getNextSection(params: { sessionId: string }): Promise<SectionKey | null> {
-  const sections = await prisma.challengeSessionSection.findMany({
-    where: { sessionId: params.sessionId },
-    select: { section: true, currentIndex: true, cards: { select: { id: true } } },
+  await prisma.challengeSession.update({
+    where: { id: params.sessionId },
+    data: {
+      currentIndex: newIndex,
+      scoreTotal: session.scoreTotal + params.score,
+      ...(completed ? { status: "COMPLETED", completedAt: new Date() } : {}),
+    },
   });
 
-  const byOrder = SECTION_ORDER.map((s) => sections.find((x) => x.section === s));
-
-  for (const sec of byOrder) {
-    if (!sec) continue;
-    const total = sec.cards.length;
-    if (sec.currentIndex < total) return sec.section as SectionKey;
-  }
-
-  return null;
+  return { sessionCompleted: completed };
 }
-

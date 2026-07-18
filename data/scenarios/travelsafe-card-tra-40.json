@@ -1,0 +1,34 @@
+{
+  "id": "travelsafe-cruise-port-shuttle-TRA-40",
+  "title": "Cruise Port Shuttle",
+  "edition": "travelsafe",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Public Networks",
+  "scenario": "A port text says your shuttle time changed and asks for payment to confirm.",
+  "answers": {
+    "A": "Click/pay immediately to avoid losing the booking or offer.",
+    "B": "Check inside the official app, booking, provider, or government site.",
+    "C": "Ignore/report the message and use a known contact route.",
+    "D": "Forward it to a fellow traveller and ask what they think."
+  },
+  "scores": {
+    "A": 0,
+    "B": 4,
+    "C": 4,
+    "D": 1
+  },
+  "safeActions": [
+    "B",
+    "C"
+  ],
+  "explanation": "Cruise Port Shuttle: the trap is to make money or value leave before the story is verified. The safer move is to verify through an official or approved channel, not to click or follow the risky request.",
+  "proTip": "Transport changes should be checked with cruise/operator accounts.",
+  "hackKey": "K",
+  "hackTrigger": "Kill-Switch",
+  "tags": [
+    "travelsafe",
+    "public-networks"
+  ],
+  "active": true
+}

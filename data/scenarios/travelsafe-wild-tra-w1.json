@@ -1,0 +1,34 @@
+{
+  "id": "travelsafe-travelsafe-red-flag-relay-TRA-W1",
+  "title": "TravelSafe Red-Flag Relay",
+  "edition": "travelsafe",
+  "cardType": "wild",
+  "scored": false,
+  "category": "Online Play",
+  "scenario": "TravelSafe online play: each player has 20 seconds to name one niche red flag from the last TravelSafe card without repeating another player.",
+  "answers": {
+    "A": "Complete the relay with no repeats.",
+    "B": "Pass.",
+    "C": "Challenge one weak answer politely.",
+    "D": "Host reveals the model answer."
+  },
+  "scores": {
+    "A": 4,
+    "B": 0,
+    "C": 2,
+    "D": 0
+  },
+  "safeActions": [
+    "A",
+    "C"
+  ],
+  "explanation": "TravelSafe Red-Flag Relay: the purpose is to turn the last scenario into active recall, not passive reading. It rewards naming a precise safer action instead of giving vague advice.",
+  "proTip": "Use it only after a scenario card, never as a separate mini-game.",
+  "hackKey": null,
+  "hackTrigger": null,
+  "tags": [
+    "travelsafe",
+    "online-play"
+  ],
+  "active": true
+}

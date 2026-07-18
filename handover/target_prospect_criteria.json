@@ -1,0 +1,25 @@
+{
+  "target_demographic": "B2C: Individual travelers age 18-65, budget-conscious, tech-savvy; B2B Education: Universities (student services, orientation), high schools (personal finance courses); B2B Enterprise: Mid-market and large companies, remote-first organizations, financial services firms",
+  "core_pain_points": [
+    "Current compliance training is boring and skippable; employees don't retain scam awareness info",
+    "Universities lack accessible, affordable scam awareness curriculum for students",
+    "Travelers have no interactive way to practice scam response before real situations",
+    "Enterprises need differentiated employee security training; KnowBe4 and peers offer generic phishing sims"
+  ],
+  "recommended_hooks": [
+    "Gamification: Challenge scoring system, certificates, leaderboards (vs. checkbox compliance training)",
+    "Multi-scenario design: Travel scams, student scams, workplace scams, social engineering (broader than phishing-only competitors)",
+    "Affordable B2B pricing: $1 per student (vs. $15-30/employee for enterprise platforms)"
+  ],
+  "financial_projections": {
+    "baseline_revenue_annual": 150000,
+    "stretched_revenue_annual": 1700000,
+    "revenue_gap_delta": 1550000,
+    "key_levers": [
+      "Customer acquisition: Scale TravelSafe from 2K to 15K users (app store optimization, content partnerships)",
+      "B2B education: Enterprise school deals bundling all students (50 universities × $25K = $1.25M)",
+      "Enterprise workplace: Expand from 2.5K to 25K employees (SMB and mid-market focus)",
+      "International: Localize for UK, Canada, Australia (3x market multiplier)"
+    ]
+  }
+}

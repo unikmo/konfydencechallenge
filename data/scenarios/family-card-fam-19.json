@@ -1,0 +1,34 @@
+{
+  "id": "family-charity-after-illness-FAM-19",
+  "title": "Charity After Illness",
+  "edition": "family",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Healthcare",
+  "scenario": "A fundraiser uses a sick child’s photo and asks for donations to a personal wallet.",
+  "answers": {
+    "A": "Check through the official provider or saved family contact.",
+    "B": "Pay or share the requested details immediately to avoid trouble.",
+    "C": "Ask the caller or sender for more details before deciding.",
+    "D": "Stop, save evidence, and discuss with a trusted family member."
+  },
+  "scores": {
+    "A": 4,
+    "B": 0,
+    "C": 1,
+    "D": 4
+  },
+  "safeActions": [
+    "A",
+    "D"
+  ],
+  "explanation": "Charity After Illness: the trap is to pull you away from the normal verification path. The safer move is to confirm through a trusted person outside the message, not to send money or pay under pressure.",
+  "proTip": "Donate through verified charity pages or known organizers.",
+  "hackKey": "C",
+  "hackTrigger": "Connection",
+  "tags": [
+    "family",
+    "healthcare"
+  ],
+  "active": true
+}

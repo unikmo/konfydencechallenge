@@ -1,0 +1,34 @@
+{
+  "id": "university-professor-gift-card-favor-UNI-03",
+  "title": "Professor Gift Card Favor",
+  "edition": "university",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Housing/Jobs",
+  "scenario": "A professor-like email asks you to buy gift cards for a research emergency.",
+  "answers": {
+    "A": "Click/apply/pay quickly before the deadline passes.",
+    "B": "Reply to the message and ask the sender for proof.",
+    "C": "Verify inside the official university/account system.",
+    "D": "Contact the relevant office using published contact details."
+  },
+  "scores": {
+    "A": 0,
+    "B": 1,
+    "C": 4,
+    "D": 4
+  },
+  "safeActions": [
+    "C",
+    "D"
+  ],
+  "explanation": "Professor Gift Card Favor: the trap is to make money or value leave before the story is verified. The safer move is to verify through an official or approved channel, not to act before verifying.",
+  "proTip": "Unexpected money favors from authority figures must be verified offline.",
+  "hackKey": "A",
+  "hackTrigger": "Authority",
+  "tags": [
+    "university",
+    "housing-jobs"
+  ],
+  "active": true
+}

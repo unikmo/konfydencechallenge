@@ -1,0 +1,33 @@
+{
+  "id": "travelsafe-travelsafe-safer-channel-switch-TRA-W2",
+  "title": "TravelSafe Safer-Channel Switch",
+  "edition": "travelsafe",
+  "cardType": "wild",
+  "scored": false,
+  "category": "Online Play",
+  "scenario": "TravelSafe online play: replace the risky channel in the last TravelSafe card with the safest niche verification channel.",
+  "answers": {
+    "A": "Name a specific safer channel.",
+    "B": "Say only 'be careful'.",
+    "C": "Name the original risky channel.",
+    "D": "Ask the host to skip."
+  },
+  "scores": {
+    "A": 4,
+    "B": 1,
+    "C": 1,
+    "D": 0
+  },
+  "safeActions": [
+    "A"
+  ],
+  "explanation": "TravelSafe Safer-Channel Switch: the purpose is to turn the last scenario into active recall, not passive reading. It rewards naming a precise safer action instead of giving vague advice.",
+  "proTip": "Good answers name the exact channel: portal, app, saved number, official office, manager, IT, provider, or platform.",
+  "hackKey": null,
+  "hackTrigger": null,
+  "tags": [
+    "travelsafe",
+    "online-play"
+  ],
+  "active": true
+}

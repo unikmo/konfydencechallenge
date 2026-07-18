@@ -1,0 +1,34 @@
+{
+  "id": "school-fake-esports-tryout-SCH-18",
+  "title": "Fake Esports Tryout",
+  "edition": "school",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Money",
+  "scenario": "A gamer says you made an esports team but need to download a tryout file.",
+  "answers": {
+    "A": "Click the link or follow the instruction quickly so you do not miss out.",
+    "B": "Ask the sender in the same chat to prove it is real.",
+    "C": "Ask a trusted adult or school staff through a known channel.",
+    "D": "Report/block it and do not share private details."
+  },
+  "scores": {
+    "A": 0,
+    "B": 1,
+    "C": 4,
+    "D": 4
+  },
+  "safeActions": [
+    "C",
+    "D"
+  ],
+  "explanation": "Fake Esports Tryout: the trap is to make money or value leave before the story is verified. The safer move is to ask a trusted adult or school staff, not to act before verifying.",
+  "proTip": "Unknown downloads can steal accounts or install malware.",
+  "hackKey": "K",
+  "hackTrigger": "Kill-Switch",
+  "tags": [
+    "school",
+    "money"
+  ],
+  "active": true
+}

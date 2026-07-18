@@ -1,0 +1,34 @@
+{
+  "id": "university-peer-to-peer-ticket-sale-UNI-30",
+  "title": "Peer-to-Peer Ticket Sale",
+  "edition": "university",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Social/Travel",
+  "scenario": "A student sells festival tickets but refuses buyer protection or in-person verification.",
+  "answers": {
+    "A": "Click/apply/pay quickly before the deadline passes.",
+    "B": "Verify inside the official university/account system.",
+    "C": "Contact the relevant office using published contact details.",
+    "D": "Reply to the message and ask the sender for proof."
+  },
+  "scores": {
+    "A": 0,
+    "B": 4,
+    "C": 4,
+    "D": 1
+  },
+  "safeActions": [
+    "B",
+    "C"
+  ],
+  "explanation": "Peer-to-Peer Ticket Sale: the trap is to pull you away from the normal verification path. The safer move is to verify through an official or approved channel, not to act before verifying.",
+  "proTip": "Use protected payment and official ticket transfer systems.",
+  "hackKey": "C",
+  "hackTrigger": "Connection",
+  "tags": [
+    "university",
+    "social-travel"
+  ],
+  "active": true
+}

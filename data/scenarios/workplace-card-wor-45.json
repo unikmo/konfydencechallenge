@@ -1,0 +1,34 @@
+{
+  "id": "workplace-fake-legal-hold-WOR-45",
+  "title": "Fake Legal Hold",
+  "edition": "workplace",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Vendor/Executive Fraud",
+  "scenario": "An email says legal hold requires uploading all project files to a new portal.",
+  "answers": {
+    "A": "Act immediately because the request sounds urgent and important.",
+    "B": "Use the approved company system or verified process.",
+    "C": "Escalate to IT, finance, HR, legal, or your manager through official channels.",
+    "D": "Reply to the sender asking them to confirm the request."
+  },
+  "scores": {
+    "A": 0,
+    "B": 4,
+    "C": 4,
+    "D": 1
+  },
+  "safeActions": [
+    "B",
+    "C"
+  ],
+  "explanation": "Fake Legal Hold: the trap is to get access to an account, code, password, or permission. The safer move is to verify through an official or approved channel, not to act before verifying.",
+  "proTip": "Legal holds must be verified with legal/compliance.",
+  "hackKey": "A",
+  "hackTrigger": "Authority",
+  "tags": [
+    "workplace",
+    "vendor-executive-fraud"
+  ],
+  "active": true
+}

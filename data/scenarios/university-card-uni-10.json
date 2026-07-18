@@ -1,0 +1,34 @@
+{
+  "id": "university-fake-scholarship-office-UNI-10",
+  "title": "Fake Scholarship Office",
+  "edition": "university",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Social/Travel",
+  "scenario": "A message says you won emergency aid but must provide bank details through a form.",
+  "answers": {
+    "A": "Click/apply/pay quickly before the deadline passes.",
+    "B": "Verify inside the official university/account system.",
+    "C": "Contact the relevant office using published contact details.",
+    "D": "Reply to the message and ask the sender for proof."
+  },
+  "scores": {
+    "A": 0,
+    "B": 4,
+    "C": 4,
+    "D": 1
+  },
+  "safeActions": [
+    "B",
+    "C"
+  ],
+  "explanation": "Fake Scholarship Office: the trap is to make money or value leave before the story is verified. The safer move is to verify through an official or approved channel, not to act before verifying.",
+  "proTip": "Scholarship and aid awards should appear in official student accounts.",
+  "hackKey": "C",
+  "hackTrigger": "Connection",
+  "tags": [
+    "university",
+    "social-travel"
+  ],
+  "active": true
+}

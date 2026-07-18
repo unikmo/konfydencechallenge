@@ -1,0 +1,34 @@
+{
+  "id": "workplace-contractor-laptop-return-WOR-46",
+  "title": "Contractor Laptop Return",
+  "edition": "workplace",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Payments",
+  "scenario": "A departing contractor asks for a prepaid label from a personal courier site.",
+  "answers": {
+    "A": "Use the approved company system or verified process.",
+    "B": "Act immediately because the request sounds urgent and important.",
+    "C": "Escalate to IT, finance, HR, legal, or your manager through official channels.",
+    "D": "Reply to the sender asking them to confirm the request."
+  },
+  "scores": {
+    "A": 4,
+    "B": 0,
+    "C": 4,
+    "D": 1
+  },
+  "safeActions": [
+    "A",
+    "C"
+  ],
+  "explanation": "Contractor Laptop Return: the trap is to make money or value leave before the story is verified. The safer move is to verify through an official or approved channel, not to act before verifying.",
+  "proTip": "Asset returns should use approved IT logistics.",
+  "hackKey": "C",
+  "hackTrigger": "Connection",
+  "tags": [
+    "workplace",
+    "payments"
+  ],
+  "active": true
+}

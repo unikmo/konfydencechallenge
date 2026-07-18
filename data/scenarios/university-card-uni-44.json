@@ -1,0 +1,34 @@
+{
+  "id": "university-lost-access-code-UNI-44",
+  "title": "Lost Access Code",
+  "edition": "university",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Identity",
+  "scenario": "A friend asks for a 2FA code because their student email is locked.",
+  "answers": {
+    "A": "Verify inside the official university/account system.",
+    "B": "Click/apply/pay quickly before the deadline passes.",
+    "C": "Reply to the message and ask the sender for proof.",
+    "D": "Contact the relevant office using published contact details."
+  },
+  "scores": {
+    "A": 4,
+    "B": 0,
+    "C": 1,
+    "D": 4
+  },
+  "safeActions": [
+    "A",
+    "D"
+  ],
+  "explanation": "Lost Access Code: the trap is to get access to an account, code, password, or permission. The safer move is to verify through an official or approved channel, not to act before verifying.",
+  "proTip": "Verification codes prove possession and should never be shared.",
+  "hackKey": "C",
+  "hackTrigger": "Connection",
+  "tags": [
+    "university",
+    "identity"
+  ],
+  "active": true
+}

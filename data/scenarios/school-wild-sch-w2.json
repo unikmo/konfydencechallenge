@@ -1,0 +1,33 @@
+{
+  "id": "school-school-safer-channel-switch-SCH-W2",
+  "title": "School Safer-Channel Switch",
+  "edition": "school",
+  "cardType": "wild",
+  "scored": false,
+  "category": "Online Play",
+  "scenario": "School online play: replace the risky channel in the last School card with the safest niche verification channel.",
+  "answers": {
+    "A": "Name a specific safer channel.",
+    "B": "Say only 'be careful'.",
+    "C": "Name the original risky channel.",
+    "D": "Ask the host to skip."
+  },
+  "scores": {
+    "A": 4,
+    "B": 1,
+    "C": 1,
+    "D": 0
+  },
+  "safeActions": [
+    "A"
+  ],
+  "explanation": "School Safer-Channel Switch: the purpose is to turn the last scenario into active recall, not passive reading. It rewards naming a precise safer action instead of giving vague advice.",
+  "proTip": "Good answers name the exact channel: portal, app, saved number, official office, manager, IT, provider, or platform.",
+  "hackKey": null,
+  "hackTrigger": null,
+  "tags": [
+    "school",
+    "online-play"
+  ],
+  "active": true
+}

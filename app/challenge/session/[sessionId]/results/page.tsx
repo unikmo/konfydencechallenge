@@ -2,18 +2,16 @@ import React from "react";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { prisma } from "@/lib/prisma";
-import {
-  computeChallengeTotals,
-  getPassThreshold,
-} from "@/lib/scoring/scoringEngine";
-import type { ChallengeEdition } from "@/lib/challenge/sessionGenerator";
-import { EDITION_LABELS, SECTION_LABELS, type SectionKey } from "@/lib/challenge/labels";
-
+import { computeChallengeTotals, computeHackBreakdown, computeCategoryBreakdown } from "@/lib/scoring/scoringEngine";
+import { HACK_LABELS, type HackTrigger } from "@/lib/challenge/labels";
+import { ResultViewedHook } from "@/components/ResultEventHooks";
+import { CheckoutRedirectButton } from "@/components/commerce/CheckoutRedirectButton";
+import { CrossSellStrip } from "@/components/commerce/CrossSellStrip";
 
 const styles: Record<string, React.CSSProperties> = {
   page: {
     minHeight: "100vh",
-    background: "linear-gradient(180deg, #071421, #0b2237)",
+    background: "linear-gradient(180deg, #08111f, #0b2237)",
     padding: 18,
     color: "white",
     display: "flex",
@@ -30,12 +28,20 @@ const styles: Record<string, React.CSSProperties> = {
     padding: 18,
     boxShadow: "0 14px 40px rgba(0,0,0,0.25)",
   },
+  conversionCard: {
+    background: "#0b1f3a",
+    color: "white",
+    borderRadius: 14,
+    padding: 18,
+    marginTop: 14,
+    border: "2px solid #ffb31d",
+  },
   badge: {
     display: "inline-flex",
     borderRadius: 999,
     padding: "6px 10px",
-    border: "1px solid rgba(255,198,0,0.35)",
-    background: "rgba(255,198,0,0.08)",
+    border: "1px solid rgba(255,179,29,0.35)",
+    background: "rgba(255,179,29,0.08)",
     fontWeight: 950,
   },
   button: {
@@ -45,9 +51,9 @@ const styles: Record<string, React.CSSProperties> = {
     width: "100%",
     padding: "10px 12px",
     borderRadius: 12,
-    background: "#ffc600",
+    background: "#ffb31d",
     border: "1px solid rgba(0,0,0,0.05)",
-    color: "#0b1b2b",
+    color: "#08111f",
     textDecoration: "none",
     fontWeight: 950,
     marginTop: 12,
@@ -66,9 +72,31 @@ const styles: Record<string, React.CSSProperties> = {
     fontWeight: 950,
     marginTop: 10,
   },
-  sectionRow: { display: "flex", justifyContent: "space-between", gap: 10, marginTop: 8 },
-  sectionKey: { fontWeight: 950, color: "#0b1b2b" },
+  outlineButton: {
+    display: "inline-flex",
+    alignItems: "center",
+    justifyContent: "center",
+    width: "100%",
+    padding: "10px 12px",
+    borderRadius: 12,
+    background: "transparent",
+    border: "2px solid rgba(255,179,29,0.7)",
+    color: "#ffffff",
+    textDecoration: "none",
+    fontWeight: 950,
+    marginTop: 10,
+  },
+  hackRow: { display: "flex", justifyContent: "space-between", gap: 10, marginTop: 8 },
+  hackKey: { fontWeight: 950, color: "#0b1b2b" },
   muted: { color: "#344a5e" },
+};
+
+const EDITION_DECK_NAME: Record<string, string> = {
+  school: "School",
+  university: "University",
+  family: "Family",
+  travelsafe: "TravelSafe",
+  workplace: "Workplace",
 };
 
 export default async function ResultsPage({ params }: { params: { sessionId: string } }) {
@@ -76,34 +104,40 @@ export default async function ResultsPage({ params }: { params: { sessionId: str
 
   const session = await prisma.challengeSession.findUnique({
     where: { id: sessionId },
-    select: { id: true, edition: true, status: true, completedAt: true },
+    select: {
+      id: true,
+      edition: true,
+      mode: true,
+      status: true,
+      completedAt: true,
+      currentIndex: true,
+      scoreTotal: true,
+      scoreMax: true,
+    },
   });
 
   if (!session) notFound();
 
-  const sections = await prisma.challengeSessionSection.findMany({
+  const cards = await prisma.challengeSessionCard.findMany({
     where: { sessionId },
-    select: {
-      section: true,
-      currentIndex: true,
-      cards: { select: { id: true } },
-      sectionScoreTotal: true,
-      sectionScoreMax: true,
-    },
+    select: { score: true, scenario: { select: { hackKey: true, category: true } } },
   });
 
-  const totals = computeChallengeTotals({
-    edition: session.edition as ChallengeEdition,
-    sections: sections.map((s) => ({
-      sectionScoreTotal: s.sectionScoreTotal,
-      sectionScoreMax: s.sectionScoreMax || s.cards.length * 4,
-    })),
-  });
+  const totalCards = cards.length;
+  const completedAll = session.currentIndex >= totalCards;
 
-  const requiredThreshold = getPassThreshold(session.edition as ChallengeEdition);
+  const totals = computeChallengeTotals({ scoreTotal: session.scoreTotal, scoreMax: session.scoreMax });
 
-  const completedAll = sections.every((s) => s.currentIndex >= s.cards.length);
-  const certificateEligible = completedAll && totals.pass;
+  const hackBreakdown = computeHackBreakdown(
+    cards.map((c) => ({ hackKey: c.scenario.hackKey, score: c.score }))
+  ).filter((entry) => entry.cardCount > 0);
+
+  const categoryBreakdown = computeCategoryBreakdown(
+    cards.map((c) => ({ category: c.scenario.category, score: c.score }))
+  );
+
+  const weakestTrigger = [...hackBreakdown].sort((a, b) => a.pct - b.pct)[0] ?? null;
+  const bestCategory = categoryBreakdown[0] ?? null;
 
   const readinessScorePoints = totals.totalScoreTotal;
   const readinessMaxPoints = totals.totalScoreMax;
@@ -111,39 +145,22 @@ export default async function ResultsPage({ params }: { params: { sessionId: str
 
   const readinessInterpretation = (() => {
     const pct = readinessPercentage;
-    if (pct >= 90) return "Stay sharp. Your instincts hold up under pressure.";
-    if (pct >= 75) return "You’re street smart. A safer rhythm will make you even stronger.";
-    if (pct >= 55) return "Pressure is getting to you. Slow the moment that feels rushed.";
-    return "High risk under pressure. Assume urgency is a scam signal.";
+    if (pct >= 90) return "You consistently spotted pressure and chose safer actions.";
+    if (pct >= 75) return "You caught most traps, but a few pressure signals still got through.";
+    if (pct >= 55) return "You recognized some signals, but urgency or trust cues still influenced decisions.";
+    return "Scammers could move you too quickly before you verify.";
   })();
 
-  const hackBreakdown: Array<{ section: SectionKey; label: string; pct: number }> = ([
-    "A",
-    "B",
-    "C",
-    "D",
-  ] as SectionKey[]).map((section) => {
+  const hackCoachingNote: Record<HackTrigger, string> = {
+    H: "You are most vulnerable when a message creates urgency, deadlines, or fear of missing out.",
+    A: "You were most at risk when a message looked official or came from someone in charge.",
+    C: "Familiar or trusted-sounding channels reduce your attention — stay objective under pressure.",
+    K: "Pause before the critical action moment: verify the request before you click, pay, share, or reply.",
+  };
 
-    const row = sections.find((s) => s.section === section);
-    const sectionCards = row?.cards?.length ?? 0;
-    const max = row?.sectionScoreMax ?? sectionCards * 4;
-    const total = row?.sectionScoreTotal ?? 0;
-    const pct = max > 0 ? Math.max(0, Math.min(100, (total / max) * 100)) : 0;
+  const deckName = EDITION_DECK_NAME[session.edition] ?? session.edition;
 
-    const hackLabel = section === "A"
-      ? "Hurry"
-      : section === "B"
-        ? "Authority"
-        : section === "C"
-          ? "Comfort"
-          : "Kill-Switch";
-
-    return { section, label: hackLabel, pct };
-  });
-
-
-
-  // Mark session completed when fully finished
+  // Mark session completed when fully finished (belt-and-suspenders; submit route already does this)
   if (completedAll && session.status !== "COMPLETED") {
     await prisma.challengeSession.update({
       where: { id: sessionId },
@@ -151,8 +168,15 @@ export default async function ResultsPage({ params }: { params: { sessionId: str
     });
   }
 
+  const isDiagnostic = session.mode === "diagnostic";
+
+  const krsScore = Math.round(readinessPercentage);
+  const pressurePattern = weakestTrigger ? HACK_LABELS[weakestTrigger.hackKey].public : "None identified";
+
   return (
     <div style={styles.page}>
+      <ResultViewedHook sessionId={sessionId} krsScore={krsScore} pressurePattern={pressurePattern} />
+
       <div style={styles.shell}>
         <div style={styles.header}>
           <div style={styles.headerTitle}>Konfydence Challenge</div>
@@ -162,11 +186,10 @@ export default async function ResultsPage({ params }: { params: { sessionId: str
         </div>
 
         <div style={styles.card}>
-          <h2 style={{ marginTop: 0 }}>Results</h2>
+          <h2 style={{ marginTop: 0 }}>Your Konfydence Readiness Score&trade;</h2>
 
           <div style={{ display: "flex", flexWrap: "wrap", gap: 12, alignItems: "center" }}>
             <div>
-              <div style={styles.muted as React.CSSProperties}>Readiness Score</div>
               <div style={{ fontWeight: 1000, fontSize: 40 }}>
                 {readinessScorePoints} / {readinessMaxPoints}
               </div>
@@ -175,36 +198,113 @@ export default async function ResultsPage({ params }: { params: { sessionId: str
             <div style={styles.badge}>{totals.level}</div>
           </div>
 
-          <p style={{ marginTop: 10, marginBottom: 0, color: "#344a5e" }}>
-            {readinessInterpretation}
-          </p>
+          <div style={{ marginTop: 10 }}>
+            <p style={{ marginTop: 0, marginBottom: 0, color: "#344a5e", fontWeight: 850 }}>
+              {readinessInterpretation}
+            </p>
+            <p style={{ marginTop: 8, marginBottom: 0, color: "#64748b", fontWeight: 800, fontSize: 13 }}>
+              This is a readiness signal, not a guarantee of protection.
+            </p>
+          </div>
 
-          <div style={{ marginTop: 16 }}>
-            <div style={{ fontWeight: 950 }}>HACK breakdown</div>
-            {(hackBreakdown ?? []).map((h) => (
-              <div key={h.section} style={styles.sectionRow}>
-                <div style={styles.sectionKey}>
-                  {h.section}: {h.label}
-                </div>
-                <div className="" style={styles.muted}>
-                  {h.pct.toFixed(0)}%
-                </div>
+          {!isDiagnostic ? (
+            <>
+              <div style={{ marginTop: 18 }}>
+                <div style={{ fontWeight: 950, marginBottom: 8 }}>HACK breakdown</div>
+                {hackBreakdown.map((h) => (
+                  <div key={h.hackKey} style={styles.hackRow}>
+                    <div style={styles.hackKey}>{HACK_LABELS[h.hackKey].public}</div>
+                    <div style={styles.muted}>
+                      {h.scoreEarned} / {h.scoreMax} ({Math.round(h.pct)}%)
+                    </div>
+                  </div>
+                ))}
               </div>
-            ))}
-          </div>
 
+              {bestCategory ? (
+                <div style={{ marginTop: 16, color: "#166534", fontWeight: 850, fontSize: 13, lineHeight: 1.4 }}>
+                  Best category: <strong>{bestCategory.category}</strong> — {Math.round(bestCategory.pct)}% safe
+                  choices. Keep it up.
+                </div>
+              ) : null}
 
-          <div style={{ marginTop: 14 }}>
-            <Link className="" style={styles.secondary} href={`/challenge/session/${sessionId}/certificate`}>
-              {certificateEligible ? "View certificate" : "Certificate (locked)"}
-            </Link>
-            <Link style={styles.button} href={`/challenge/${session.edition}/start`}>
-              Retry challenge
-            </Link>
-          </div>
+              {weakestTrigger ? (
+                <div style={{ marginTop: 14, padding: 14, borderRadius: 12, background: "#fff7ed", border: "1px solid #fed7aa" }}>
+                  <div style={{ fontWeight: 950, marginBottom: 4 }}>
+                    Your weakest pressure pattern: {HACK_LABELS[weakestTrigger.hackKey].public}
+                  </div>
+                  <p style={{ margin: 0, color: "#7c2d12", fontWeight: 750, fontSize: 13, lineHeight: 1.45 }}>
+                    {hackCoachingNote[weakestTrigger.hackKey]}
+                  </p>
+                  <Link
+                    style={{ ...styles.outlineButton, background: "#ffb31d", color: "#08111f", border: "none" }}
+                    href={`/challenge/${session.edition}/start?mode=full`}
+                  >
+                    Train this weakness
+                  </Link>
+                </div>
+              ) : null}
+
+              <div style={{ marginTop: 14 }}>
+                <Link style={styles.secondary} href={`/challenge/session/${sessionId}/certificate`}>
+                  {completedAll ? "View certificate" : "Certificate (locked)"}
+                </Link>
+                <Link style={styles.button} href={`/challenge/${session.edition}/start?mode=full`}>
+                  Retry challenge
+                </Link>
+              </div>
+            </>
+          ) : null}
         </div>
+
+        {isDiagnostic && weakestTrigger ? (
+          <div style={styles.conversionCard}>
+            <h3 style={{ margin: "0 0 8px", fontSize: 20, letterSpacing: "-0.01em" }}>
+              You found your pressure pattern. Now train it.
+            </h3>
+            <p style={{ margin: "0 0 14px", fontWeight: 750, lineHeight: 1.55, color: "#dbeafe" }}>
+              Your free readiness check shows where pressure could catch you. The full challenge gives you 50
+              scenarios, a full KRS dashboard, and a certificate.
+            </p>
+
+            <div style={{ fontWeight: 950, fontSize: 13, textTransform: "uppercase", letterSpacing: "0.04em", color: "#ffb31d", marginBottom: 8 }}>
+              Your weakest pressure pattern: {HACK_LABELS[weakestTrigger.hackKey].public}
+            </div>
+            <p style={{ margin: "0 0 10px", fontWeight: 800, lineHeight: 1.5 }}>{hackCoachingNote[weakestTrigger.hackKey]}</p>
+
+            {bestCategory ? (
+              <p style={{ margin: "0 0 10px", fontWeight: 750, lineHeight: 1.5, color: "#dbeafe" }}>
+                Best answer habit: <strong>{bestCategory.category}</strong> — {Math.round(bestCategory.pct)}% safe
+                choices.
+              </p>
+            ) : null}
+
+            <p style={{ margin: 0, fontWeight: 800, lineHeight: 1.5, color: "#dbeafe" }}>
+              Recommended: unlock the full {deckName} Challenge to train this pattern across 50 real-life scenarios.
+            </p>
+
+            <div style={{ marginTop: 12 }}>
+              <CheckoutRedirectButton
+                sku={`CHAL-SINGLE-${session.edition.toUpperCase()}`}
+                label="Unlock Full Challenge — $4.99"
+              />
+            </div>
+            <div style={{ marginTop: 10 }}>
+              <CheckoutRedirectButton
+                sku="CHAL-UNLIMITED"
+                label="Get All 5 Challenges — $19.99"
+                variant="outline"
+              />
+            </div>
+          </div>
+        ) : null}
+
+        {isDiagnostic && weakestTrigger ? (
+          <div style={{ marginTop: 14 }}>
+            <CrossSellStrip product={Math.random() < 0.5 ? "wallet" : "magnet"} />
+          </div>
+        ) : null}
       </div>
     </div>
   );
 }
-

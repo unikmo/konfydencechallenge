@@ -1,0 +1,34 @@
+{
+  "id": "travelsafe-ride-share-off-app-TRA-32",
+  "title": "Ride-Share Off-App",
+  "edition": "travelsafe",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Transit",
+  "scenario": "A driver asks you to cancel the app ride and pay directly for a discount.",
+  "answers": {
+    "A": "Click/pay immediately to avoid losing the booking or offer.",
+    "B": "Check inside the official app, booking, provider, or government site.",
+    "C": "Forward it to a fellow traveller and ask what they think.",
+    "D": "Ignore/report the message and use a known contact route."
+  },
+  "scores": {
+    "A": 0,
+    "B": 4,
+    "C": 1,
+    "D": 4
+  },
+  "safeActions": [
+    "B",
+    "D"
+  ],
+  "explanation": "Ride-Share Off-App: the trap is to make money or value leave before the story is verified. The safer move is to verify through an official or approved channel, not to click or follow the risky request.",
+  "proTip": "Stay inside the app for tracking and dispute protection.",
+  "hackKey": "K",
+  "hackTrigger": "Kill-Switch",
+  "tags": [
+    "travelsafe",
+    "transit"
+  ],
+  "active": true
+}

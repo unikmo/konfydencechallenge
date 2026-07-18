@@ -1,0 +1,6 @@
+Primary Konfydence market handover files for CAR-5 are stored in the Web repository:
+
+C:\Users\mbanw\carifive_workspace\01.Projects\05.Konfydence\03.Konfydence_web\handover\MARKET_ANALYSIS_Konfydence.md
+C:\Users\mbanw\carifive_workspace\01.Projects\05.Konfydence\03.Konfydence_web\handover\target_prospect_criteria.json
+
+This challenge repository was reviewed as local evidence for the online scenario engine, 5-deck structure, KRS/HACK scoring model, diagnostic upgrade brief, and scenario content status.

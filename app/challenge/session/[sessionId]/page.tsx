@@ -2,18 +2,23 @@ import React from "react";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { prisma } from "@/lib/prisma";
-import { EDITION_LABELS, type SectionKey } from "@/lib/challenge/labels";
+import { EDITION_LABELS } from "@/lib/challenge/labels";
+import { getCurrentChallengeCard } from "@/lib/challenge/sessionGenerator";
+import { SessionEventHooks, AnswerTrackerForm } from "@/components/SessionEventHooks";
 
-const SECTION_ORDER: SectionKey[] = ["A", "B", "C", "D"];
 const ANSWER_KEYS = ["A", "B", "C", "D"] as const;
 
+const MODE_LABEL: Record<string, string> = {
+  diagnostic: "Free diagnostic",
+  full: "Full challenge",
+};
 
 export default async function SessionPage({ params }: { params: { sessionId: string } }) {
   const sessionId = params.sessionId;
 
   const session = await prisma.challengeSession.findUnique({
     where: { id: sessionId },
-    select: { id: true, edition: true, status: true },
+    select: { id: true, edition: true, mode: true, status: true },
   });
 
   if (!session) notFound();
@@ -31,37 +36,9 @@ export default async function SessionPage({ params }: { params: { sessionId: str
     );
   }
 
-  const sections = await prisma.challengeSessionSection.findMany({
-    where: { sessionId },
-    select: {
-      section: true,
-      currentIndex: true,
-      cards: {
-        select: { scenarioId: true, orderIndex: true },
-        orderBy: { orderIndex: "asc" },
-      },
-    },
-  });
+  const current = await getCurrentChallengeCard({ sessionId });
 
-  const currentSection = SECTION_ORDER.find((section) => {
-    const row = sections.find((item) => item.section === section);
-    return row ? row.currentIndex < row.cards.length : false;
-  });
-
-  const totalQuestions = sections.reduce((sum, s) => sum + (s.cards?.length ?? 0), 0);
-
-  const answeredSoFarInTotal = sections.reduce((sum, s) => {
-    const isCurrent = s.section === currentSection;
-    if (isCurrent) return sum;
-    return sum + Math.max(0, s.cards.length - (s.currentIndex ?? 0));
-  }, 0);
-
-  const overallIndex =
-    answeredSoFarInTotal +
-    (currentSection ? (sections.find((s) => s.section === currentSection)?.currentIndex ?? 0) : 0);
-
-  if (!currentSection) {
-
+  if (!current) {
     return (
       <main className="page">
         <section className="card">
@@ -74,12 +51,8 @@ export default async function SessionPage({ params }: { params: { sessionId: str
     );
   }
 
-  const sectionRow = sections.find((item) => item.section === currentSection)!;
-  const currentIndex = sectionRow.currentIndex;
-  const currentCard = sectionRow.cards[currentIndex];
-
   const scenario = await prisma.scenario.findUnique({
-    where: { id: currentCard.scenarioId },
+    where: { id: current.scenarioId },
     select: {
       id: true,
       title: true,
@@ -91,7 +64,6 @@ export default async function SessionPage({ params }: { params: { sessionId: str
     },
   });
 
-
   if (!scenario) notFound();
 
   const answers = {
@@ -101,6 +73,9 @@ export default async function SessionPage({ params }: { params: { sessionId: str
     D: scenario.answersD,
   };
 
+  const questionNumber = current.currentIndex + 1;
+  const progressPercent =
+    current.totalCards > 0 ? Math.max(0, Math.min(100, (current.currentIndex / current.totalCards) * 100)) : 0;
 
   return (
     <main className="page">
@@ -113,38 +88,40 @@ export default async function SessionPage({ params }: { params: { sessionId: str
         </header>
 
         <section className="card">
-
           <div className="meta">
-            <span>{(EDITION_LABELS as Record<string, string>)[session.edition] ?? session.edition}</span>
-
-            <span>
-              Question {overallIndex + 1} of {totalQuestions}
+            <span className="badgeEdition">
+              {(EDITION_LABELS as Record<string, string>)[session.edition] ?? session.edition}
             </span>
-
+            <span className="badgeMode">{MODE_LABEL[session.mode] ?? session.mode}</span>
+            <span className="badgeProgress">
+              Question {questionNumber} of {current.totalCards}
+            </span>
           </div>
-
 
           <div className="progressWrap">
             <div className="progressTop">
-              <span className="progressText">
-                Question {currentIndex + 1} of {sectionRow.cards.length} in this section
-              </span>
-              <span className="progressText">
-                Overall progress {Math.min(100, Math.max(0, Math.round(((overallIndex + 1) / Math.max(1, totalQuestions)) * 100)))}%
-              </span>
+              <span className="progressText">Progress</span>
+              <span className="progressText">{Math.round(progressPercent)}%</span>
             </div>
-            <div className="progressBar" aria-label="Full challenge progress">
-              <div className="progressFill" style={{ width: `${
-                Math.min(100, Math.max(0, ((overallIndex + 1) / Math.max(1, totalQuestions)) * 100))
-              }%` }} />
+            <div className="progressBar" aria-label="Challenge progress">
+              <div className="progressFill" style={{ width: `${progressPercent}%` }} />
             </div>
           </div>
 
+          <h1>{scenario.title ?? `Scenario ${questionNumber}`}</h1>
 
-          <h1>{scenario.title ?? `Scenario ${currentIndex + 1}`}</h1>
           <p className="prompt">{scenario.prompt}</p>
 
-          <form method="post" action={`/challenge/session/${sessionId}/submit`}>
+          <SessionEventHooks
+            sessionId={sessionId}
+            edition={session.edition}
+            mode={session.mode}
+            scenarioIndex={current.currentIndex}
+            totalScenarios={current.totalCards}
+            isFirstScenario={current.currentIndex === 0}
+          />
+
+          <AnswerTrackerForm sessionId={sessionId} scenarioIndex={current.currentIndex}>
             <div className="answers">
               {ANSWER_KEYS.map((key) => (
                 <label key={key} className="answer">
@@ -155,18 +132,18 @@ export default async function SessionPage({ params }: { params: { sessionId: str
               ))}
             </div>
 
+            <input type="hidden" name="cardId" value={current.cardId} />
             <input type="hidden" name="scenarioId" value={scenario.id} />
-            <input type="hidden" name="section" value={currentSection} />
 
             <button type="submit">Submit answer</button>
-          </form>
+          </AnswerTrackerForm>
         </section>
       </section>
 
       <style>{`
         .page {
           min-height: 100vh;
-          background: #0b1f3a;
+          background: #08111f;
           color: #ffffff;
           padding: 24px 16px;
           display: flex;
@@ -213,24 +190,10 @@ export default async function SessionPage({ params }: { params: { sessionId: str
         .meta span {
           border: 1px solid #bfdbfe;
           background: #eff6ff;
-          color: #1d4ed8;
+          color: #035494;
           border-radius: 999px;
           padding: 5px 10px;
           font-weight: 800;
-        }
-
-        h1 {
-          margin: 0 0 10px;
-          font-size: 28px;
-          line-height: 1.15;
-          letter-spacing: -0.02em;
-        }
-
-        .prompt {
-          margin: 0 0 18px;
-          font-size: 17px;
-          line-height: 1.55;
-          color: #0f172a;
         }
 
         .progressWrap {
@@ -264,11 +227,24 @@ export default async function SessionPage({ params }: { params: { sessionId: str
 
         .progressFill {
           height: 100%;
-          background: #1d4ed8;
+          background: #ffb31d;
           border-radius: 999px;
           transition: width 180ms ease;
         }
 
+        h1 {
+          margin: 0 0 10px;
+          font-size: 28px;
+          line-height: 1.15;
+          letter-spacing: -0.02em;
+        }
+
+        .prompt {
+          margin: 0 0 18px;
+          font-size: 17px;
+          line-height: 1.55;
+          color: #0f172a;
+        }
 
         .answers {
           display: grid;
@@ -289,14 +265,14 @@ export default async function SessionPage({ params }: { params: { sessionId: str
         }
 
         .answer:hover {
-          border-color: #1d4ed8;
+          border-color: #035494;
           background: #eff6ff;
         }
 
         .answer:has(input:checked) {
-          border-color: #1d4ed8;
+          border-color: #035494;
           background: #dbeafe;
-          box-shadow: 0 0 0 3px rgba(29, 78, 216, 0.16);
+          box-shadow: 0 0 0 3px rgba(3, 84, 148, 0.16);
         }
 
         .answer input {
@@ -313,12 +289,12 @@ export default async function SessionPage({ params }: { params: { sessionId: str
           align-items: center;
           justify-content: center;
           background: #eff6ff;
-          color: #1d4ed8;
+          color: #035494;
           font-weight: 900;
         }
 
         .answer:has(input:checked) .answerKey {
-          background: #1d4ed8;
+          background: #035494;
           color: #ffffff;
         }
 
@@ -332,15 +308,15 @@ export default async function SessionPage({ params }: { params: { sessionId: str
           margin-top: 16px;
           border: 0;
           border-radius: 10px;
-          background: #1d4ed8;
-          color: #ffffff;
+          background: #ffb31d;
+          color: #08111f;
           padding: 13px 16px;
           font-weight: 900;
           cursor: pointer;
         }
 
         button:hover {
-          background: #1e40af;
+          background: #e6a119;
         }
 
         @media (max-width: 640px) {

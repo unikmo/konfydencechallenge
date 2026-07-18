@@ -1,0 +1,34 @@
+{
+  "id": "travelsafe-award-seat-countdown-TRA-02",
+  "title": "Award Seat Countdown",
+  "edition": "travelsafe",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Transit",
+  "scenario": "A text says premium award seats opened and will disappear unless you click in ten minutes.",
+  "answers": {
+    "A": "Click/pay immediately to avoid losing the booking or offer.",
+    "B": "Check inside the official app, booking, provider, or government site.",
+    "C": "Forward it to a fellow traveller and ask what they think.",
+    "D": "Ignore/report the message and use a known contact route."
+  },
+  "scores": {
+    "A": 0,
+    "B": 4,
+    "C": 1,
+    "D": 4
+  },
+  "safeActions": [
+    "B",
+    "D"
+  ],
+  "explanation": "Award Seat Countdown: the trap is to pull you away from the normal verification path. The safer move is to verify through an official or approved channel, not to click or follow the risky request.",
+  "proTip": "Real award seats appear in official airline searches.",
+  "hackKey": "K",
+  "hackTrigger": "Kill-Switch",
+  "tags": [
+    "travelsafe",
+    "transit"
+  ],
+  "active": true
+}

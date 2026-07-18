@@ -1,0 +1,34 @@
+{
+  "id": "university-campus-marketplace-laptop-UNI-47",
+  "title": "Campus Marketplace Laptop",
+  "edition": "university",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "IT/Credentials",
+  "scenario": "A seller offers a cheap laptop but wants a deposit before showing it.",
+  "answers": {
+    "A": "Click/apply/pay quickly before the deadline passes.",
+    "B": "Verify inside the official university/account system.",
+    "C": "Reply to the message and ask the sender for proof.",
+    "D": "Contact the relevant office using published contact details."
+  },
+  "scores": {
+    "A": 0,
+    "B": 4,
+    "C": 1,
+    "D": 4
+  },
+  "safeActions": [
+    "B",
+    "D"
+  ],
+  "explanation": "Campus Marketplace Laptop: the trap is to make money or value leave before the story is verified. The safer move is to verify through an official or approved channel, not to act before verifying.",
+  "proTip": "Use safe meeting places and protected payments for marketplace deals.",
+  "hackKey": "H",
+  "hackTrigger": "Hurry",
+  "tags": [
+    "university",
+    "it-credentials"
+  ],
+  "active": true
+}

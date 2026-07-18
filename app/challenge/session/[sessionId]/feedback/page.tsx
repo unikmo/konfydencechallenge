@@ -2,117 +2,116 @@ import React from "react";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { prisma } from "@/lib/prisma";
-import { EDITION_LABELS, SECTION_LABELS } from "@/lib/challenge/labels";
-
-const SCORE_TEXT: Record<0 | 1 | 2 | 3 | 4, { eyebrow: string; title: string; tone: "good" | "risk" }> = {
-  4: { tone: "good", eyebrow: "✅ Good call", title: "✅ Good call. You chose the safest path." },
-  3: { tone: "good", eyebrow: "✅ Solid instinct", title: "✅ Solid instinct. One safer step would make this stronger." },
-  2: { tone: "risk", eyebrow: "⚠️ Understandable choice", title: "⚠️ Understandable choice, but this is where scams create pressure." },
-  1: { tone: "risk", eyebrow: "⚠️ Understandable choice", title: "⚠️ Understandable choice, but this is where scams create pressure." },
-  0: { tone: "risk", eyebrow: "⚠️ This is the exact trap", title: "⚠️ This is the exact trap scammers want people to fall into." },
-};
-
 
 export default async function FeedbackPage({ params }: { params: { sessionId: string } }) {
   const sessionId = params.sessionId;
 
-  const last = await prisma.challengeAnswerResponse.findFirst({
-    where: { sessionId },
-    orderBy: { createdAt: "desc" },
+  const session = await prisma.challengeSession.findUnique({
+    where: { id: sessionId },
+    select: { id: true, edition: true, currentIndex: true },
+  });
+
+  if (!session) notFound();
+
+  // The card just answered is the one immediately before the session's current pointer.
+  const answeredOrderIndex = session.currentIndex - 1;
+  if (answeredOrderIndex < 0) notFound();
+
+  const card = await prisma.challengeSessionCard.findUnique({
+    where: { sessionId_orderIndex: { sessionId, orderIndex: answeredOrderIndex } },
     select: {
       selectedAnswerKey: true,
       score: true,
-      section: true,
-      explanation: true,
-      proTip: true,
       scenario: {
         select: {
           safeActions: true,
+          explanation: true,
           answersA: true,
           answersB: true,
           answersC: true,
           answersD: true,
+          scoresA: true,
+          scoresB: true,
+          scoresC: true,
+          scoresD: true,
         },
       },
     },
   });
 
-  if (!last) notFound();
+  if (!card || !card.selectedAnswerKey || card.score === null) notFound();
 
-  const session = await prisma.challengeSession.findUnique({
-    where: { id: sessionId },
-    select: { id: true, edition: true },
-  });
-
-  if (!session) notFound();
-
-  const sections = await prisma.challengeSessionSection.findMany({
-    where: { sessionId },
-    select: {
-      currentIndex: true,
-      cards: { select: { id: true } },
-    },
-  });
-
-  const remaining = sections.reduce(
-    (sum, section) => sum + Math.max(0, section.cards.length - section.currentIndex),
-    0
-  );
-
+  const totalCards = await prisma.challengeSessionCard.count({ where: { sessionId } });
+  const remaining = Math.max(0, totalCards - session.currentIndex);
   const isCompleted = remaining === 0;
 
-  const reinforcementBucket = Math.max(0, Math.min(4, Math.trunc(last.score)));
+  const reinforcementBucket = Math.max(0, Math.min(4, Math.trunc(card.score)));
 
   const answerText: Record<"A" | "B" | "C" | "D", string> = {
-    A: last.scenario.answersA,
-    B: last.scenario.answersB,
-    C: last.scenario.answersC,
-    D: last.scenario.answersD,
+    A: card.scenario.answersA,
+    B: card.scenario.answersB,
+    C: card.scenario.answersC,
+    D: card.scenario.answersD,
   };
 
-  const safeActions = (last.scenario.safeActions ?? "")
+  const answerScore: Record<"A" | "B" | "C" | "D", number> = {
+    A: card.scenario.scoresA,
+    B: card.scenario.scoresB,
+    C: card.scenario.scoresC,
+    D: card.scenario.scoresD,
+  };
+
+  const safeActions = (card.scenario.safeActions ?? "")
     .split(",")
     .map((item) => item.trim())
     .filter((item): item is "A" | "B" | "C" | "D" => ["A", "B", "C", "D"].includes(item));
 
+  const selectedAnswerKey = card.selectedAnswerKey as "A" | "B" | "C" | "D";
+
+  // Best single safe option, ranked by score — used for the 1pt / 2-3pt "SAFER OPTION" (singular).
+  const bestSafeAction = [...safeActions].sort((a, b) => answerScore[b] - answerScore[a])[0] ?? null;
+
+  // Spec §7 (Screen 3 — Feedback card): exact copy per point bucket.
   const reinforcement = (() => {
     switch (reinforcementBucket) {
       case 4:
         return {
           tone: "good" as const,
-          eyebrow: "✅ Good call",
-          title: "✅ Good call. You chose the safest path.",
+          title: "Good call.",
+          scoreLabel: "4 points",
+          body: "You chose the safest option and avoided the pressure trap.",
+          saferMode: "none" as const,
         };
       case 3:
-        return {
-          tone: "good" as const,
-          eyebrow: "✅ Solid instinct",
-          title: "✅ Solid instinct. One safer step would make this stronger.",
-        };
-      case 1:
       case 2:
         return {
           tone: "risk" as const,
-          eyebrow: "⚠️ Understandable choice",
-          title: "⚠️ Understandable choice, but this is where scams create pressure.",
+          title: "Close — but not safest.",
+          scoreLabel: `${reinforcementBucket} points`,
+          body: "This might work, but it still leaves room for impersonation, pressure, or a risky shortcut.",
+          saferMode: "single" as const,
+        };
+      case 1:
+        return {
+          tone: "risk" as const,
+          title: "Still risky.",
+          scoreLabel: "1 point",
+          body: "You noticed something, but the action still leaves you exposed.",
+          saferMode: "single" as const,
         };
       default:
         return {
           tone: "risk" as const,
-          eyebrow: "⚠️ Exact trap",
-          title: "⚠️ This is the exact trap scammers want people to fall into.",
+          title: "Risky choice.",
+          scoreLabel: "0 points",
+          body: "Scammers count on urgency, trust, or fear to make you act before verifying.",
+          saferMode: "all" as const,
         };
     }
   })();
 
   const isStrongChoice = reinforcement.tone === "good";
-
-
-
-
-
-
-
+  const saferKeysToShow = reinforcement.saferMode === "all" ? safeActions : reinforcement.saferMode === "single" && bestSafeAction ? [bestSafeAction] : [];
 
   return (
     <main className="page">
@@ -125,65 +124,60 @@ export default async function FeedbackPage({ params }: { params: { sessionId: st
         </header>
 
         <section className="card">
-          <div className="meta">
-            <span>{session.edition}</span>
-            <span>Section {last.section}</span>
-            <span>{remaining} left</span>
+          <div className="logoArea">
+            <div className="logoCircle" aria-hidden="true">K</div>
           </div>
 
-          <div className={isStrongChoice ? "status good" : "status risk"}>
-            <div>
-              <p className="eyebrow">{isStrongChoice ? "Good decision" : "Risky decision"}</p>
-              <h1>{isStrongChoice ? "You chose a safer action." : "This choice could expose you."}</h1>
+          <div className="statusRow">
+            <div className={isStrongChoice ? "status good" : "status risk"}>
+              <h1 className="title">{reinforcement.title}</h1>
+              <p className="body">{reinforcement.body}</p>
             </div>
-            <div className="score">{last.score}/4</div>
+            <div className="scoreBox">{reinforcement.scoreLabel}</div>
           </div>
 
           <div className="section">
             <p className="label">Your answer</p>
             <div className="answerBox selected">
-              <span>{last.selectedAnswerKey}</span>
-              <strong>{answerText[last.selectedAnswerKey as "A" | "B" | "C" | "D"]}</strong>
-            </div>
-          </div>
-
-          <div className="section">
-            <p className="label">Safer action{safeActions.length > 1 ? "s" : ""}</p>
-            <div className="safeGrid">
-              {safeActions.map((key) => (
-                <div key={key} className="answerBox safe">
-                  <span>{key}</span>
-                  <strong>{answerText[key]}</strong>
-                </div>
-              ))}
+              <span>{selectedAnswerKey}</span>
+              <strong>{answerText[selectedAnswerKey]}</strong>
             </div>
           </div>
 
           <div className="learnBox">
-            <p className="label">Why this matters</p>
-            <p>{last.explanation ?? "No explanation available."}</p>
+            <p className="label">WHY THIS MATTERS</p>
+            <p className="learnText">{card.scenario.explanation ?? "No explanation available."}</p>
           </div>
 
-          {last.proTip ? (
-            <div className="tipBox">
-              <p className="label">Pro tip</p>
-              <p>{last.proTip}</p>
+          {saferKeysToShow.length ? (
+            <div className="section">
+              <div className="subLabel">{reinforcement.saferMode === "all" ? "SAFER OPTIONS" : "SAFER OPTION"}</div>
+              <div className="safeGrid">
+                {saferKeysToShow.map((key) => (
+                  <div key={key} className="answerBox safe">
+                    <span>{key}</span>
+                    <strong>{answerText[key]}</strong>
+                  </div>
+                ))}
+              </div>
             </div>
           ) : null}
 
-          <Link
-            className="button"
-            href={isCompleted ? `/challenge/session/${sessionId}/results` : `/challenge/session/${sessionId}`}
-          >
-            {isCompleted ? "View results" : "Continue"}
-          </Link>
+          <div className="cta">
+            <Link
+              className="button"
+              href={isCompleted ? `/challenge/session/${sessionId}/results` : `/challenge/session/${sessionId}`}
+            >
+              {isCompleted ? "View results" : "Next Question"}
+            </Link>
+          </div>
         </section>
       </section>
 
       <style>{`
         .page {
           min-height: 100vh;
-          background: #0b1f3a;
+          background: #08111f;
           color: #ffffff;
           padding: 24px 16px;
           display: flex;
@@ -210,75 +204,83 @@ export default async function FeedbackPage({ params }: { params: { sessionId: st
         }
 
         .card {
-          background: #ffffff;
-          color: #0f172a;
-          border-radius: 14px;
+          background: #0b1f3a;
+          color: #ffffff;
+          border-radius: 16px;
           padding: 24px;
-          box-shadow: 0 18px 40px rgba(0, 0, 0, 0.22);
+          box-shadow: 0 18px 40px rgba(0, 0, 0, 0.28);
+          border: 3px solid #ffb31d;
         }
 
-        .meta {
+        .logoArea {
           display: flex;
-          flex-wrap: wrap;
-          gap: 8px;
-          margin-bottom: 18px;
+          align-items: center;
+          gap: 12px;
+          margin-bottom: 14px;
         }
 
-        .meta span {
-          border: 1px solid #bfdbfe;
-          background: #eff6ff;
-          color: #1d4ed8;
+        .logoCircle {
+          width: 44px;
+          height: 44px;
           border-radius: 999px;
-          padding: 5px 10px;
-          font-size: 13px;
-          font-weight: 800;
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          background: rgba(255, 179, 29, 0.15);
+          border: 2px solid rgba(255, 179, 29, 0.65);
+          font-weight: 950;
+          color: #ffb31d;
+          letter-spacing: 0.02em;
+        }
+
+        .statusRow {
+          display: flex;
+          justify-content: space-between;
+          gap: 16px;
+          align-items: flex-start;
+          margin-bottom: 16px;
         }
 
         .status {
-          display: flex;
-          justify-content: space-between;
-          gap: 18px;
-          align-items: center;
-          border-radius: 12px;
-          padding: 18px;
-          margin-bottom: 20px;
+          flex: 1;
+          border-radius: 14px;
+          padding: 16px;
+          border: 1px solid rgba(255, 179, 29, 0.35);
         }
 
         .status.good {
-          background: #ecfdf5;
-          border: 1px solid #bbf7d0;
+          background: rgba(236, 253, 245, 0.08);
         }
 
         .status.risk {
-          background: #fff7ed;
-          border: 1px solid #fed7aa;
+          background: rgba(255, 247, 237, 0.06);
         }
 
-        .eyebrow {
-          margin: 0 0 4px;
-          font-size: 13px;
-          font-weight: 900;
-          color: #1d4ed8;
-          text-transform: uppercase;
-          letter-spacing: 0.04em;
-        }
-
-        h1 {
-          margin: 0;
-          font-size: 26px;
+        .title {
+          margin: 0 0 8px;
+          font-size: 24px;
           line-height: 1.15;
           letter-spacing: -0.02em;
         }
 
-        .score {
-          min-width: 70px;
+        .body {
+          margin: 0;
+          font-size: 15px;
+          line-height: 1.5;
+          color: rgba(255, 255, 255, 0.88);
+          font-weight: 700;
+        }
+
+        .scoreBox {
+          min-width: 100px;
           text-align: center;
-          border-radius: 12px;
-          background: #0b1f3a;
-          color: #ffffff;
+          border-radius: 14px;
+          background: rgba(255, 179, 29, 0.12);
+          border: 2px solid rgba(255, 179, 29, 0.65);
           padding: 12px;
-          font-size: 22px;
+          color: #ffffff;
           font-weight: 950;
+          font-size: 16px;
         }
 
         .section {
@@ -287,9 +289,20 @@ export default async function FeedbackPage({ params }: { params: { sessionId: st
 
         .label {
           margin: 0 0 8px;
-          color: #475569;
           font-size: 13px;
-          font-weight: 900;
+          font-weight: 950;
+          text-transform: uppercase;
+          letter-spacing: 0.04em;
+          color: #dbeafe;
+        }
+
+        .subLabel {
+          font-size: 13px;
+          font-weight: 950;
+          text-transform: uppercase;
+          letter-spacing: 0.04em;
+          color: #ffb31d;
+          margin-bottom: 10px;
         }
 
         .answerBox {
@@ -297,9 +310,10 @@ export default async function FeedbackPage({ params }: { params: { sessionId: st
           grid-template-columns: 34px 1fr;
           gap: 12px;
           align-items: center;
-          border-radius: 10px;
-          padding: 13px 14px;
-          line-height: 1.35;
+          border-radius: 14px;
+          padding: 14px;
+          border: 1px solid rgba(255, 179, 29, 0.35);
+          background: rgba(11, 31, 58, 0.4);
         }
 
         .answerBox span {
@@ -310,63 +324,57 @@ export default async function FeedbackPage({ params }: { params: { sessionId: st
           justify-content: center;
           border-radius: 999px;
           font-weight: 950;
+          background: rgba(255, 179, 29, 0.18);
+          color: #ffb31d;
+        }
+
+        .answerBox strong {
+          font-weight: 850;
         }
 
         .selected {
-          border: 1px solid #cbd5e1;
-          background: #f8fafc;
-        }
-
-        .selected span {
-          background: #e2e8f0;
-          color: #0f172a;
-        }
-
-        .safe {
-          border: 1px solid #bfdbfe;
-          background: #eff6ff;
-        }
-
-        .safe span {
-          background: #1d4ed8;
-          color: #ffffff;
+          border-color: rgba(255, 179, 29, 0.95);
+          background: rgba(255, 179, 29, 0.08);
+          box-shadow: 0 0 0 3px rgba(255, 179, 29, 0.12);
         }
 
         .safeGrid {
           display: grid;
+          grid-template-columns: 1fr;
           gap: 10px;
         }
 
-        .learnBox,
-        .tipBox {
-          margin-top: 16px;
-          border-radius: 12px;
-          padding: 16px;
-          line-height: 1.55;
+        .safe {
+          border-color: rgba(255, 179, 29, 0.55);
         }
 
         .learnBox {
-          background: #f8fafc;
-          border: 1px solid #e2e8f0;
+          margin-top: 16px;
+          border-radius: 14px;
+          padding: 16px;
+          border: 1px solid rgba(255, 179, 29, 0.35);
+          background: rgba(255, 255, 255, 0.03);
         }
 
-        .tipBox {
-          background: #eff6ff;
-          border: 1px solid #bfdbfe;
-        }
-
-        .learnBox p,
-        .tipBox p {
+        .learnText {
           margin: 0;
+          line-height: 1.55;
+          color: rgba(255, 255, 255, 0.92);
+          font-weight: 800;
+        }
+
+        .cta {
+          margin-top: 18px;
         }
 
         .button {
-          margin-top: 18px;
           width: 100%;
           display: inline-flex;
           justify-content: center;
-          border-radius: 10px;
-          background: #1d4ed8;
+          align-items: center;
+          border-radius: 16px;
+          background: rgba(255, 179, 29, 0.12);
+          border: 2px solid rgba(255, 179, 29, 0.85);
           color: #ffffff;
           padding: 13px 16px;
           font-weight: 950;
@@ -374,7 +382,7 @@ export default async function FeedbackPage({ params }: { params: { sessionId: st
         }
 
         .button:hover {
-          background: #1e40af;
+          background: rgba(255, 179, 29, 0.18);
         }
 
         @media (max-width: 640px) {
@@ -382,16 +390,16 @@ export default async function FeedbackPage({ params }: { params: { sessionId: st
             padding: 18px;
           }
 
-          .status {
-            align-items: flex-start;
+          .statusRow {
             flex-direction: column;
+            align-items: stretch;
           }
 
-          h1 {
-            font-size: 23px;
+          .title {
+            font-size: 21px;
           }
 
-          .score {
+          .scoreBox {
             width: 100%;
           }
         }

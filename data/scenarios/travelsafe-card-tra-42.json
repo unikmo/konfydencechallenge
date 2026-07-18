@@ -1,0 +1,34 @@
+{
+  "id": "travelsafe-museum-skip-line-qr-TRA-42",
+  "title": "Museum Skip-Line QR",
+  "edition": "travelsafe",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Transit",
+  "scenario": "A QR outside a museum sells skip-line tickets at a discount.",
+  "answers": {
+    "A": "Click/pay immediately to avoid losing the booking or offer.",
+    "B": "Check inside the official app, booking, provider, or government site.",
+    "C": "Forward it to a fellow traveller and ask what they think.",
+    "D": "Ignore/report the message and use a known contact route."
+  },
+  "scores": {
+    "A": 0,
+    "B": 4,
+    "C": 1,
+    "D": 4
+  },
+  "safeActions": [
+    "B",
+    "D"
+  ],
+  "explanation": "Museum Skip-Line QR: the trap is to move you from a trusted channel to a fake page. The safer move is to verify through an official or approved channel, not to click or follow the risky request.",
+  "proTip": "Buy from museum or verified ticket partners.",
+  "hackKey": "K",
+  "hackTrigger": "Kill-Switch",
+  "tags": [
+    "travelsafe",
+    "transit"
+  ],
+  "active": true
+}

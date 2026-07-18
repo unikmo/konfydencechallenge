@@ -1,0 +1,34 @@
+{
+  "id": "university-research-data-request-UNI-45",
+  "title": "Research Data Request",
+  "edition": "university",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Social/Travel",
+  "scenario": "Someone in your course asks for raw survey data with participant names included.",
+  "answers": {
+    "A": "Click/apply/pay quickly before the deadline passes.",
+    "B": "Verify inside the official university/account system.",
+    "C": "Contact the relevant office using published contact details.",
+    "D": "Reply to the message and ask the sender for proof."
+  },
+  "scores": {
+    "A": 0,
+    "B": 4,
+    "C": 4,
+    "D": 1
+  },
+  "safeActions": [
+    "B",
+    "C"
+  ],
+  "explanation": "Research Data Request: the trap is to pull you away from the normal verification path. The safer move is to verify through an official or approved channel, not to act before verifying.",
+  "proTip": "Protect personal data and follow research privacy rules.",
+  "hackKey": "C",
+  "hackTrigger": "Connection",
+  "tags": [
+    "university",
+    "social-travel"
+  ],
+  "active": true
+}

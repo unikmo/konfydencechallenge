@@ -1,24 +1,23 @@
 import { NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
 import { clampTo0to4 } from "@/lib/scoring/scoringEngine";
-import { advanceChallengeSection } from "@/lib/challenge/sessionGenerator";
+import { advanceChallengeSession } from "@/lib/challenge/sessionGenerator";
 
 const ANSWER_KEYS = new Set(["A", "B", "C", "D"]);
-const SECTION_KEYS = new Set(["A", "B", "C", "D"]);
 
 export async function POST(req: Request, { params }: { params: { sessionId: string } }) {
   const sessionId = params.sessionId;
 
   const formData = await req.formData();
   const selectedAnswerKey = String(formData.get("selectedAnswerKey") ?? "");
+  const cardId = String(formData.get("cardId") ?? "");
   const scenarioId = String(formData.get("scenarioId") ?? "");
-  const section = String(formData.get("section") ?? "");
 
   if (!ANSWER_KEYS.has(selectedAnswerKey)) {
     return NextResponse.json({ error: "Invalid answer key" }, { status: 400 });
   }
-  if (!SECTION_KEYS.has(section)) {
-    return NextResponse.json({ error: "Invalid section" }, { status: 400 });
+  if (!cardId) {
+    return NextResponse.json({ error: "Missing cardId" }, { status: 400 });
   }
   if (!scenarioId) {
     return NextResponse.json({ error: "Missing scenarioId" }, { status: 400 });
@@ -32,9 +31,6 @@ export async function POST(req: Request, { params }: { params: { sessionId: stri
       scoresB: true,
       scoresC: true,
       scoresD: true,
-      safeActions: true,
-      explanation: true,
-      proTip: true,
     },
   });
 
@@ -51,30 +47,12 @@ export async function POST(req: Request, { params }: { params: { sessionId: stri
 
   const score0to4 = clampTo0to4(scoreLookup[selectedAnswerKey as "A" | "B" | "C" | "D"]);
 
-  const safeActions = (scenario.safeActions ?? "")
-    .split(",")
-    .map((s) => s.trim())
-    .filter(Boolean);
-
-  await prisma.challengeAnswerResponse.create({
-    data: {
-      sessionId,
-      scenarioId,
-      section,
-      selectedAnswerKey,
-      score: score0to4,
-      explanation: scenario.explanation ?? null,
-      proTip: scenario.proTip ?? null,
-    },
-  });
-
-  await advanceChallengeSection({
+  await advanceChallengeSession({
     sessionId,
-    section: section as "A" | "B" | "C" | "D",
-    scenarioId: scenario.id,
-    nextScore: score0to4,
+    cardId,
+    selectedAnswerKey,
+    score: score0to4,
   });
 
   return NextResponse.redirect(new URL(`/challenge/session/${sessionId}/feedback`, req.url));
 }
-
