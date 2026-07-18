@@ -2,27 +2,5 @@
   "buildCommand": "npm run build",
   "devCommand": "npm run dev",
   "installCommand": "npm install",
-  "env": {
-    "DATABASE_URL": {
-      "description": "SQLite database URL",
-      "value": "file:./dev.db"
-    },
-    "NEXT_PUBLIC_APP_URL": {
-      "description": "Public app URL",
-      "value": "https://konfydence.vercel.app"
-    },
-    "SHOPIFY_STORE_DOMAIN": {
-      "description": "Shopify store domain",
-      "value": "shop.konfydence.com"
-    },
-    "SHOPIFY_STOREFRONT_ACCESS_TOKEN": {
-      "description": "Shopify Storefront API token",
-      "value": ""
-    },
-    "SHOPIFY_WEBHOOK_SECRET": {
-      "description": "Shopify webhook signing secret",
-      "value": ""
-    }
-  },
   "framework": "nextjs"
 }
