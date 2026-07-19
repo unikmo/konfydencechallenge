@@ -3,11 +3,13 @@ generator client {
 }
 
 datasource db {
-  provider = "sqlite"
-  url      = env("DATABASE_URL")
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
 }
 
-// V1 foundation (SQLite): avoid enums and Json types.
+// V1 foundation (Postgres via Supabase): avoid enums and Json types
+// for schema simplicity/back-compat with the original SQLite design.
 
 model User {
   id        String   @id @default(cuid())
