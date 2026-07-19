@@ -1,11 +1,19 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { Suspense, useState, useEffect } from "react";
 import { useSearchParams } from "next/navigation";
 import Link from "next/link";
 import { tokens } from "@/lib/theme/tokens";
 
 export default function ContactPage() {
+  return (
+    <Suspense fallback={null}>
+      <ContactForm />
+    </Suspense>
+  );
+}
+
+function ContactForm() {
   const searchParams = useSearchParams();
   const topic = searchParams.get("topic") || "general";
   const [formData, setFormData] = useState({

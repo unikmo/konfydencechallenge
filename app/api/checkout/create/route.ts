@@ -8,6 +8,8 @@ import { getVariantIds, SHOPIFY_API_VERSION } from "@/lib/shopify/testData";
 // See lib/shopify/testData.ts for setup instructions
 const SKU_TO_VARIANT_GID = getVariantIds();
 
+export const dynamic = "force-dynamic";
+
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json();

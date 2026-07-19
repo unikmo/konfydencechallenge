@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React, { Suspense, useEffect, useState } from "react";
 import { useSearchParams, useRouter } from "next/navigation";
 import { tokens } from "@/lib/theme/tokens";
 
@@ -10,6 +10,14 @@ interface Entitlement {
 }
 
 export default function ClaimPage() {
+  return (
+    <Suspense fallback={null}>
+      <ClaimContent />
+    </Suspense>
+  );
+}
+
+function ClaimContent() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const [entitlements, setEntitlements] = useState<Entitlement[]>([]);
