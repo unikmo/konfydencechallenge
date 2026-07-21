@@ -8,7 +8,12 @@ import { createChallengeSessionForVisitor } from "@/lib/challenge/startSessionUt
 const EDITIONS = new Set<string>(Object.keys(EDITION_LABELS));
 
 const KF_UID_COOKIE_OPTIONS = {
-  httpOnly: false, // Client JS needs to read it (matches api/checkout/create's cookie).
+  // httpOnly: nothing client-side actually reads this cookie (checked — no
+  // document.cookie access anywhere in the app), so there's no reason to expose
+  // it to page JS/XSS. It's the sole identifier behind paid entitlements, so
+  // treat it like a session token: httpOnly + secure.
+  httpOnly: true,
+  secure: process.env.NODE_ENV === "production",
   sameSite: "lax" as const,
   maxAge: 60 * 60 * 24 * 365, // 1 year
   path: "/",

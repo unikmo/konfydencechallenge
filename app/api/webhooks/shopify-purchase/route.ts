@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { createHmac } from "crypto";
+import { createHmac, timingSafeEqual } from "crypto";
 import { prisma } from "@/lib/prisma";
 
 async function verifyWebhookSignature(
@@ -13,7 +13,16 @@ async function verifyWebhookSignature(
   hmac.update(body, "utf8");
   const digest = hmac.digest("base64");
 
-  return digest === signature;
+  // Plain `===` on secret-derived values is vulnerable to timing attacks (an
+  // attacker can statistically infer bytes from response-time differences).
+  // timingSafeEqual needs equal-length buffers, so compare lengths first —
+  // that length check itself is safe to short-circuit on, only the byte
+  // comparison of the digest needs to be constant-time.
+  const digestBuf = Buffer.from(digest, "base64");
+  const signatureBuf = Buffer.from(signature, "base64");
+  if (digestBuf.length !== signatureBuf.length) return false;
+
+  return timingSafeEqual(digestBuf, signatureBuf);
 }
 
 function getEditionFromSku(sku: string): string | null {

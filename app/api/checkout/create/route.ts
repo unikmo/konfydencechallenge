@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { cookies } from "next/headers";
 import { randomUUID } from "crypto";
 import { getVariantIds, SHOPIFY_API_VERSION } from "@/lib/shopify/testData";
+import { rateLimit, getClientIp } from "@/lib/rateLimit";
 
 // SKU to variant GID mapping (Shopify Storefront API)
 // Uses TEST_VARIANT_IDS for development, PRODUCTION_VARIANT_IDS for live
@@ -12,6 +13,13 @@ export const dynamic = "force-dynamic";
 
 export async function POST(request: NextRequest) {
   try {
+    // A legitimate user creates a handful of carts per session at most —
+    // this stops a script from hammering the Shopify Storefront token.
+    const { allowed } = rateLimit(`checkout:${getClientIp(request)}`, 10, 60_000);
+    if (!allowed) {
+      return NextResponse.json({ error: "Too many requests, please try again shortly." }, { status: 429 });
+    }
+
     const body = await request.json();
     const { sku, quantity = 1 } = body;
 
@@ -109,9 +117,13 @@ export async function POST(request: NextRequest) {
     const checkoutUrl = cart.checkoutUrl;
 
     // Set kf_uid cookie in response
+    // httpOnly + secure: this cookie is the sole identifier behind paid
+    // entitlements — nothing client-side reads it, so it should be treated
+    // like a session token, not exposed to page JS/XSS (see start/route.ts).
     const result = NextResponse.json({ checkoutUrl });
     result.cookies.set("kf_uid", kfUid, {
-      httpOnly: false, // Client JS needs to read it
+      httpOnly: true,
+      secure: process.env.NODE_ENV === "production",
       sameSite: "lax",
       maxAge: 60 * 60 * 24 * 365, // 1 year
       path: "/",
