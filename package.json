@@ -16,7 +16,8 @@
     "test": "jest",
     "prisma:generate": "prisma generate",
     "prisma:migrate": "prisma migrate dev",
-    "seed": "ts-node --transpile-only prisma/seed.ts"
+    "seed": "ts-node --transpile-only prisma/seed.ts",
+    "qa:webhooks": "ts-node --transpile-only scripts/qa-webhook-matrix.ts"
   },
   "prisma": {
     "seed": "ts-node --transpile-only prisma/seed.ts"
