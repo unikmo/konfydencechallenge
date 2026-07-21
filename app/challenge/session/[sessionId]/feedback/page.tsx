@@ -130,10 +130,24 @@ export default async function FeedbackPage({ params }: { params: { sessionId: st
 
           <div className="statusRow">
             <div className={isStrongChoice ? "status good" : "status risk"}>
+              <div className="statusIcon" aria-hidden="true">
+                {isStrongChoice ? (
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+                    <circle cx="12" cy="12" r="10" fill="#22C55E" />
+                    <path d="M7.5 12.5l3 3 6-6.5" stroke="#08111F" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" fill="none" />
+                  </svg>
+                ) : (
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+                    <path d="M12 3l10 18H2L12 3z" fill="#FF4D5E" />
+                    <rect x="11" y="9" width="2" height="6" rx="1" fill="#08111F" />
+                    <rect x="11" y="17" width="2" height="2" rx="1" fill="#08111F" />
+                  </svg>
+                )}
+              </div>
               <h1 className="title">{reinforcement.title}</h1>
               <p className="body">{reinforcement.body}</p>
             </div>
-            <div className="scoreBox">{reinforcement.scoreLabel}</div>
+            <div className={isStrongChoice ? "scoreBox good" : "scoreBox risk"}>{reinforcement.scoreLabel}</div>
           </div>
 
           <div className="section">
@@ -246,14 +260,21 @@ export default async function FeedbackPage({ params }: { params: { sessionId: st
           border-radius: 14px;
           padding: 16px;
           border: 1px solid rgba(255, 179, 29, 0.35);
+          border-left-width: 4px;
+        }
+
+        .statusIcon {
+          margin-bottom: 8px;
         }
 
         .status.good {
           background: rgba(236, 253, 245, 0.08);
+          border-left-color: #22c55e;
         }
 
         .status.risk {
           background: rgba(255, 247, 237, 0.06);
+          border-left-color: #ff4d5e;
         }
 
         .title {
@@ -281,6 +302,16 @@ export default async function FeedbackPage({ params }: { params: { sessionId: st
           color: #ffffff;
           font-weight: 950;
           font-size: 16px;
+        }
+
+        .scoreBox.good {
+          background: rgba(34, 197, 94, 0.14);
+          border-color: rgba(34, 197, 94, 0.65);
+        }
+
+        .scoreBox.risk {
+          background: rgba(255, 77, 94, 0.14);
+          border-color: rgba(255, 77, 94, 0.65);
         }
 
         .section {

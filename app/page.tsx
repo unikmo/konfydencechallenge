@@ -7,6 +7,8 @@ import { tokens } from "@/lib/theme/tokens";
 import { CheckoutRedirectButton } from "@/components/commerce/CheckoutRedirectButton";
 import { CrossSellStrip } from "@/components/commerce/CrossSellStrip";
 import { InstitutionalCTA } from "@/components/commerce/InstitutionalCTA";
+import { HeroIllustration } from "@/components/illustrations/HeroIllustration";
+import { FeatureIcon } from "@/components/illustrations/FeatureIcon";
 
 const otherEditions = [
   {
@@ -39,6 +41,29 @@ const otherEditions = [
   },
 ];
 
+const features: { kind: "score" | "framework" | "travel" | "reminder"; title: string; desc: string }[] = [
+  {
+    kind: "score",
+    title: "Shareable Readiness Score",
+    desc: "Your Konfydence Readiness Score™ is persistent and exportable — unlike a free one-off test.",
+  },
+  {
+    kind: "framework",
+    title: "The HACK Framework",
+    desc: "We name the pressure tactics (Hurry, Authority, Connection, Kill-switch) so you recognize them in real life.",
+  },
+  {
+    kind: "travel",
+    title: "Travel-Specific Scenarios",
+    desc: "Real pressure moments travelers actually face — bookings, WiFi, refunds, taxis, SIM cards, rentals.",
+  },
+  {
+    kind: "reminder",
+    title: "Pocket Reminders",
+    desc: "Wallet cards and fridge magnets you keep as daily artifacts — your HACK pressure cues on paper.",
+  },
+];
+
 export default function HomePage() {
   const router = useRouter();
   const [emailCapture, setEmailCapture] = useState("");
@@ -64,27 +89,44 @@ export default function HomePage() {
     <main style={s.page}>
       <section style={s.hero}>
         <div style={s.heroShell}>
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="/brand/LOGO-05.png" alt="Konfydence" style={s.logo} />
+          <div className="hero-grid">
+            <div className="hero-copy">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src="/brand/LOGO-05.png" alt="Konfydence" style={s.logo} />
 
-          <p style={s.heroEyebrow}>Scam-readiness training for travelers</p>
+              <p style={s.heroEyebrow}>Scam-readiness training for travelers</p>
 
-          <h1 style={s.heroHeadline}>
-            Stay scam-safe on your next trip
-          </h1>
+              <h1 style={s.heroHeadline}>
+                Scammers don&apos;t look like scammers.
+                <br />
+                Would you catch it in 3 minutes?
+              </h1>
 
-          <p style={s.heroSub}>
-            TravelSafe is a free 3-minute pressure-scenario game that builds your instincts before you leave.
-            Get your Konfydence Readiness Score™ and discover which scam tactics could catch you unprepared.
-          </p>
+              <p style={s.heroSub}>
+                TravelSafe is a free pressure-scenario game built from real scam scripts. Play it before your next
+                trip, get your Konfydence Readiness Score™, and walk away knowing exactly which pressure tactic
+                could catch you off guard.
+              </p>
 
-          <div style={s.heroCtaContainer}>
-            <button style={s.primaryCta} onClick={handleTravelSafeStart}>
-              Take Free TravelSafe Check
-            </button>
+              <div style={s.heroCtaContainer}>
+                <button className="primary-cta" style={s.primaryCta} onClick={handleTravelSafeStart}>
+                  Take Free TravelSafe Check
+                </button>
+              </div>
+
+              <p style={s.heroTrust}>No lectures. No jargon. Just real choices under travel pressure.</p>
+
+              <div className="trust-strip">
+                <span>Built on real scam scripts</span>
+                <span>The HACK framework</span>
+                <span>3 minutes, no signup</span>
+              </div>
+            </div>
+
+            <div className="hero-art" aria-hidden="true">
+              <HeroIllustration />
+            </div>
           </div>
-
-          <p style={s.heroTrust}>No lectures. No jargon. Just real choices under travel pressure.</p>
         </div>
       </section>
 
@@ -99,7 +141,7 @@ export default function HomePage() {
               { num: 3, title: "Get your score", desc: "See your Readiness Score and your weakest pressure pattern." },
               { num: 4, title: "Unlock the full deck", desc: "Upgrade to the 50-question challenge for a full KRS dashboard." },
             ].map((step) => (
-              <div key={step.num} style={s.howCard}>
+              <div key={step.num} className="how-card" style={s.howCard}>
                 <div style={s.stepNumber}>{step.num}</div>
                 <h3 style={s.howTitle}>{step.title}</h3>
                 <p style={s.howDesc}>{step.desc}</p>
@@ -130,6 +172,7 @@ export default function HomePage() {
               />
               <button
                 type="submit"
+                className="lockscreen-cta"
                 style={s.lockscreenCta}
                 disabled={emailSubmitted}
               >
@@ -145,37 +188,13 @@ export default function HomePage() {
           <h2 style={s.sectionTitle}>Why Konfydence?</h2>
 
           <div style={s.diffGrid}>
-            <div style={s.diffCard}>
-              <div style={s.diffIcon}>📊</div>
-              <h3 style={s.diffCardTitle}>Shareable Readiness Score</h3>
-              <p style={s.diffCardDesc}>
-                Your Konfydence Readiness Score™ is persistent and exportable — unlike a free one-off test.
-              </p>
-            </div>
-
-            <div style={s.diffCard}>
-              <div style={s.diffIcon}>🎯</div>
-              <h3 style={s.diffCardTitle}>The HACK Framework</h3>
-              <p style={s.diffCardDesc}>
-                We name the pressure tactics (Hurry, Authority, Connection, Kill-switch) so you recognize them in real life.
-              </p>
-            </div>
-
-            <div style={s.diffCard}>
-              <div style={s.diffIcon}>✈️</div>
-              <h3 style={s.diffCardTitle}>Travel-Specific Scenarios</h3>
-              <p style={s.diffCardDesc}>
-                Real pressure moments travelers actually face — bookings, WiFi, refunds, taxis, SIM cards, rentals.
-              </p>
-            </div>
-
-            <div style={s.diffCard}>
-              <div style={s.diffIcon}>💳</div>
-              <h3 style={s.diffCardTitle}>Pocket Reminders</h3>
-              <p style={s.diffCardDesc}>
-                Wallet cards and fridge magnets you keep as daily artifacts — your HACK pressure cues on paper.
-              </p>
-            </div>
+            {features.map((feature) => (
+              <div key={feature.title} className="diff-card" style={s.diffCard}>
+                <FeatureIcon kind={feature.kind} />
+                <h3 style={s.diffCardTitle}>{feature.title}</h3>
+                <p style={s.diffCardDesc}>{feature.desc}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -188,7 +207,7 @@ export default function HomePage() {
           </p>
 
           <div style={s.merchGrid}>
-            <div style={s.merchItem}>
+            <div className="merch-item" style={s.merchItem}>
               <h4 style={s.merchName}>KonfyGuard Wallet Card</h4>
               <p style={s.merchPrice}>$14.99</p>
               <p style={s.merchDesc}>HACK pressure reminders in your wallet.</p>
@@ -198,7 +217,7 @@ export default function HomePage() {
               />
             </div>
 
-            <div style={s.merchItem}>
+            <div className="merch-item" style={s.merchItem}>
               <h4 style={s.merchName}>KonfyGuard Fridge Magnet</h4>
               <p style={s.merchPrice}>$9.99</p>
               <p style={s.merchDesc}>Household reminder for the whole family.</p>
@@ -220,7 +239,7 @@ export default function HomePage() {
 
           <div style={s.editionsGrid}>
             {otherEditions.map((edition) => (
-              <article key={edition.edition} style={s.editionCard}>
+              <article key={edition.edition} className="edition-card" style={s.editionCard}>
                 <div>
                   <p style={s.editionPrice}>{edition.price}</p>
                   <h3 style={s.editionTitle}>{edition.label}</h3>
@@ -255,6 +274,115 @@ export default function HomePage() {
           </p>
         </div>
       </footer>
+
+      <style>{`
+        .hero-grid {
+          display: grid;
+          grid-template-columns: 1.1fr 0.9fr;
+          gap: 40px;
+          align-items: center;
+          text-align: left;
+        }
+
+        .hero-copy {
+          text-align: left;
+        }
+
+        .hero-art {
+          display: flex;
+          justify-content: center;
+          animation: hero-float 5s ease-in-out infinite;
+        }
+
+        @keyframes hero-float {
+          0%, 100% { transform: translateY(0px); }
+          50% { transform: translateY(-10px); }
+        }
+
+        .trust-strip {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 10px;
+          margin-top: 20px;
+        }
+
+        .trust-strip span {
+          font-size: 12px;
+          font-weight: 800;
+          color: #cbd5e1;
+          background: rgba(255, 255, 255, 0.06);
+          border: 1px solid rgba(255, 255, 255, 0.12);
+          border-radius: 999px;
+          padding: 6px 12px;
+        }
+
+        .primary-cta:hover {
+          opacity: 0.88;
+          transform: translateY(-1px);
+        }
+
+        .how-card {
+          transition: transform 160ms ease;
+        }
+
+        .how-card:hover {
+          transform: translateY(-3px);
+        }
+
+        .diff-card {
+          transition: transform 160ms ease, border-color 160ms ease, background 160ms ease;
+        }
+
+        .diff-card:hover {
+          transform: translateY(-4px);
+          border-color: rgba(255, 179, 29, 0.4);
+          background: rgba(255, 255, 255, 0.07);
+        }
+
+        .merch-item {
+          transition: transform 160ms ease, border-color 160ms ease;
+        }
+
+        .merch-item:hover {
+          transform: translateY(-4px);
+          border-color: rgba(255, 179, 29, 0.5);
+        }
+
+        .edition-card {
+          transition: transform 160ms ease, border-color 160ms ease, background 160ms ease;
+        }
+
+        .edition-card:hover {
+          transform: translateY(-4px);
+          border-color: rgba(255, 179, 29, 0.4);
+          background: rgba(255, 255, 255, 0.07);
+        }
+
+        .lockscreen-cta:hover {
+          opacity: 0.88;
+        }
+
+        @media (max-width: 860px) {
+          .hero-grid {
+            grid-template-columns: 1fr;
+            text-align: center;
+          }
+
+          .hero-copy {
+            text-align: center;
+          }
+
+          .trust-strip {
+            justify-content: center;
+          }
+
+          .hero-art {
+            order: -1;
+            max-width: 260px;
+            margin: 0 auto;
+          }
+        }
+      `}</style>
     </main>
   );
 }
@@ -262,7 +390,7 @@ export default function HomePage() {
 const s: Record<string, React.CSSProperties> = {
   page: {
     minHeight: "100vh",
-    background: tokens.bgCanvas,
+    background: tokens.gradientHero,
     color: tokens.textOnDark,
     fontFamily: 'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif',
   },
@@ -274,7 +402,7 @@ const s: Record<string, React.CSSProperties> = {
     textAlign: "center",
   },
   heroShell: {
-    maxWidth: 900,
+    maxWidth: 1080,
     margin: "0 auto",
     paddingLeft: 20,
     paddingRight: 20,
@@ -293,25 +421,24 @@ const s: Record<string, React.CSSProperties> = {
     textTransform: "uppercase",
   },
   heroHeadline: {
-    margin: "0 auto 20px",
-    fontSize: "clamp(36px, 6vw, 64px)",
+    margin: "0 0 20px",
+    fontSize: "clamp(32px, 4.6vw, 52px)",
     fontWeight: 900,
     letterSpacing: 0,
-    lineHeight: 1.1,
-    maxWidth: 800,
+    lineHeight: 1.12,
   },
   heroSub: {
-    margin: "0 auto 32px",
+    margin: "0 0 32px",
     fontSize: 18,
     lineHeight: 1.6,
     color: "#cbd5e1",
-    maxWidth: 700,
+    maxWidth: 560,
   },
   heroCtaContainer: {
     marginBottom: 24,
   },
   primaryCta: {
-    padding: "12px 24px",
+    padding: "14px 28px",
     borderRadius: 999,
     fontSize: 15,
     fontWeight: 900,
@@ -319,7 +446,8 @@ const s: Record<string, React.CSSProperties> = {
     background: tokens.accentAmber,
     color: tokens.textOnLight,
     cursor: "pointer",
-    transition: "opacity 0.15s",
+    transition: "opacity 0.15s, transform 0.15s",
+    boxShadow: "0 10px 24px rgba(255, 179, 29, 0.25)",
   },
   heroTrust: {
     margin: 0,
@@ -453,10 +581,6 @@ const s: Record<string, React.CSSProperties> = {
     border: "1px solid rgba(255, 255, 255, 0.08)",
     borderRadius: 12,
     textAlign: "center",
-  },
-  diffIcon: {
-    fontSize: 32,
-    marginBottom: 12,
   },
   diffCardTitle: {
     fontSize: 16,

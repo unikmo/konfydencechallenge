@@ -7,6 +7,9 @@ import { HACK_LABELS, type HackTrigger } from "@/lib/challenge/labels";
 import { ResultViewedHook } from "@/components/ResultEventHooks";
 import { CheckoutRedirectButton } from "@/components/commerce/CheckoutRedirectButton";
 import { CrossSellStrip } from "@/components/commerce/CrossSellStrip";
+import { ScoreRing } from "@/components/illustrations/ScoreRing";
+import { HackIcon } from "@/components/illustrations/HackIcon";
+import { readinessTierColor } from "@/lib/theme/tokens";
 
 const styles: Record<string, React.CSSProperties> = {
   page: {
@@ -172,6 +175,7 @@ export default async function ResultsPage({ params }: { params: { sessionId: str
 
   const krsScore = Math.round(readinessPercentage);
   const pressurePattern = weakestTrigger ? HACK_LABELS[weakestTrigger.hackKey].public : "None identified";
+  const tierColor = readinessTierColor(readinessPercentage);
 
   return (
     <div style={styles.page}>
@@ -188,14 +192,16 @@ export default async function ResultsPage({ params }: { params: { sessionId: str
         <div style={styles.card}>
           <h2 style={{ marginTop: 0 }}>Your Konfydence Readiness Score&trade;</h2>
 
-          <div style={{ display: "flex", flexWrap: "wrap", gap: 12, alignItems: "center" }}>
-            <div>
-              <div style={{ fontWeight: 1000, fontSize: 40 }}>
-                {readinessScorePoints} / {readinessMaxPoints}
+          <div style={{ display: "flex", flexWrap: "wrap", gap: 20, alignItems: "center" }}>
+            <ScoreRing percent={readinessPercentage} color={tierColor}>
+              <div style={{ fontWeight: 1000, fontSize: 26, color: "#0b1b2b" }}>{Math.round(readinessPercentage)}%</div>
+              <div style={{ fontSize: 11, fontWeight: 800, color: "#64748b" }}>
+                {readinessScorePoints}/{readinessMaxPoints}
               </div>
-              <div style={{ color: "#344a5e", fontWeight: 900, marginTop: 6 }}>{readinessPercentage.toFixed(0)}%</div>
+            </ScoreRing>
+            <div style={{ ...styles.badge, borderColor: tierColor, background: `${tierColor}1a`, color: "#0b1b2b" }}>
+              {totals.level}
             </div>
-            <div style={styles.badge}>{totals.level}</div>
           </div>
 
           <div style={{ marginTop: 10 }}>
@@ -230,7 +236,8 @@ export default async function ResultsPage({ params }: { params: { sessionId: str
 
               {weakestTrigger ? (
                 <div style={{ marginTop: 14, padding: 14, borderRadius: 12, background: "#fff7ed", border: "1px solid #fed7aa" }}>
-                  <div style={{ fontWeight: 950, marginBottom: 4 }}>
+                  <div style={{ fontWeight: 950, marginBottom: 4, display: "flex", alignItems: "center", gap: 8 }}>
+                    <HackIcon trigger={weakestTrigger.hackKey} color="#c2410c" size={18} />
                     Your weakest pressure pattern: {HACK_LABELS[weakestTrigger.hackKey].public}
                   </div>
                   <p style={{ margin: 0, color: "#7c2d12", fontWeight: 750, fontSize: 13, lineHeight: 1.45 }}>
@@ -267,7 +274,8 @@ export default async function ResultsPage({ params }: { params: { sessionId: str
               scenarios, a full KRS dashboard, and a certificate.
             </p>
 
-            <div style={{ fontWeight: 950, fontSize: 13, textTransform: "uppercase", letterSpacing: "0.04em", color: "#ffb31d", marginBottom: 8 }}>
+            <div style={{ fontWeight: 950, fontSize: 13, textTransform: "uppercase", letterSpacing: "0.04em", color: "#ffb31d", marginBottom: 8, display: "flex", alignItems: "center", gap: 8 }}>
+              <HackIcon trigger={weakestTrigger.hackKey} color="#ffb31d" size={16} />
               Your weakest pressure pattern: {HACK_LABELS[weakestTrigger.hackKey].public}
             </div>
             <p style={{ margin: "0 0 10px", fontWeight: 800, lineHeight: 1.5 }}>{hackCoachingNote[weakestTrigger.hackKey]}</p>
