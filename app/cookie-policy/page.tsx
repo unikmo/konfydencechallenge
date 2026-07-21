@@ -2,7 +2,8 @@ import Link from "next/link";
 import { tokens } from "@/lib/theme/tokens";
 
 export const metadata = {
-  title: "Cookie Policy - Konfydence",
+  // absolute: stops root layout's title template from double-appending " | Konfydence".
+  title: { absolute: "Cookie Policy - Konfydence" },
   description: "Konfydence Cookie Policy - Information about cookies we use",
 };
 

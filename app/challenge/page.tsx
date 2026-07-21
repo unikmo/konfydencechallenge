@@ -3,7 +3,9 @@ import type { Metadata } from "next";
 
 // SEO metadata — docs/DEV_BRIEF_DIAGNOSTIC_UPGRADE.md §15.
 export const metadata: Metadata = {
-  title: "Konfydence | Scam Readiness Game & Online Scam Training",
+  // absolute: root layout's title template ("%s | Konfydence") would otherwise
+  // double-append onto this page's own full title.
+  title: { absolute: "Konfydence | Scam Readiness Game & Online Scam Training" },
   description:
     "Take a free 3-minute scam-readiness challenge with real-life scenarios, get your Konfydence Readiness Score, and learn which pressure tricks could catch you.",
 };

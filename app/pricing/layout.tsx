@@ -7,7 +7,8 @@ import type { ReactNode } from "react";
 // layout is a server component purely to carry page-specific metadata; it
 // otherwise just passes children through untouched.
 export const metadata: Metadata = {
-  title: "Pricing | Konfydence",
+  // absolute: stops root layout's title template from double-appending " | Konfydence".
+  title: { absolute: "Pricing | Konfydence" },
   description:
     "Unlock the full Konfydence Challenge — 50 real-life scenarios per edition, five complete runs, and your full Konfydence Readiness Score breakdown. $4.99 per edition or go unlimited.",
 };

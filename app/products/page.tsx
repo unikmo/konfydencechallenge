@@ -5,7 +5,8 @@ import { ProductCard } from "@/components/commerce/ProductCard";
 import { CheckoutRedirectButton } from "@/components/commerce/CheckoutRedirectButton";
 
 export const metadata: Metadata = {
-  title: "Konfydence Merch | Wallet Card & Fridge Magnet",
+  // absolute: stops root layout's title template from double-appending " | Konfydence".
+  title: { absolute: "Konfydence Merch | Wallet Card & Fridge Magnet" },
   description:
     "Physical reminders of the HACK framework — a wallet-sized scam-check card and a fridge magnet, built to keep pressure-tactic red flags visible at the moment they matter.",
 };

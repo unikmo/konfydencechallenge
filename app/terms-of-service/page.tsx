@@ -2,7 +2,8 @@ import Link from "next/link";
 import { tokens } from "@/lib/theme/tokens";
 
 export const metadata = {
-  title: "Terms of Service - Konfydence",
+  // absolute: stops root layout's title template from double-appending " | Konfydence".
+  title: { absolute: "Terms of Service - Konfydence" },
   description: "Konfydence Terms of Service",
 };
 

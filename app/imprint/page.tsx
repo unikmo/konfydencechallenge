@@ -2,7 +2,8 @@ import Link from "next/link";
 import { tokens } from "@/lib/theme/tokens";
 
 export const metadata = {
-  title: "Imprint - Konfydence",
+  // absolute: stops root layout's title template from double-appending " | Konfydence".
+  title: { absolute: "Imprint - Konfydence" },
   description: "Konfydence Imprint - Company and legal information",
 };
 

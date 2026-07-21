@@ -2,7 +2,8 @@ import Link from "next/link";
 import { tokens } from "@/lib/theme/tokens";
 
 export const metadata = {
-  title: "Privacy Policy - Konfydence",
+  // absolute: stops root layout's title template from double-appending " | Konfydence".
+  title: { absolute: "Privacy Policy - Konfydence" },
   description: "Konfydence Privacy Policy - How we protect your data",
 };
 
