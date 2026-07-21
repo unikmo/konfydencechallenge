@@ -66,7 +66,7 @@ function sign(body: string): string {
   return createHmac("sha256", SECRET!).update(body, "utf8").digest("base64");
 }
 
-async function postWebhook(topic: string, payload: unknown) {
+async function postWebhook(label: string, topic: string, payload: unknown) {
   const body = JSON.stringify(payload);
   const res = await fetch(WEBHOOK_URL, {
     method: "POST",
@@ -77,7 +77,12 @@ async function postWebhook(topic: string, payload: unknown) {
     },
     body,
   });
-  return { status: res.status, body: await res.text() };
+  const responseBody = await res.text();
+  // Log every call's actual HTTP response — without this, a 401 (bad
+  // signature/secret) and a 500 (server error) both silently look identical
+  // to "nothing happened" in the DB-state assertions below.
+  console.log(`  [${label}] HTTP ${res.status} — ${responseBody}`);
+  return { status: res.status, body: responseBody };
 }
 
 const RUN_ID = `qa-${Date.now()}`;
@@ -109,7 +114,7 @@ async function main() {
       data: { id: tc03KfUid, email: `guest-${tc03KfUid}@local.konfydence` },
     });
 
-    await postWebhook("orders/paid", {
+    await postWebhook("TC-03", "orders/paid", {
       id: tc03OrderId,
       note_attributes: [{ name: "konfydenceUserId", value: tc03KfUid }],
       line_items: [{ sku: "CHAL-SINGLE-SCHOOL" }],
@@ -136,7 +141,7 @@ async function main() {
     createdEmails.push(tc04Email);
     createdOrderIds.push(tc04OrderId);
 
-    await postWebhook("orders/paid", {
+    await postWebhook("TC-04", "orders/paid", {
       id: tc04OrderId,
       customer: { email: tc04Email },
       line_items: [{ sku: "CHAL-SINGLE-UNIVERSITY" }],
@@ -156,7 +161,7 @@ async function main() {
     );
 
     // ---- TC-05: refund/cancel flips entitlement to revoked ----
-    await postWebhook("orders/cancelled", { id: tc03OrderId });
+    await postWebhook("TC-05", "orders/cancelled", { id: tc03OrderId });
     const tc05Entitlement = await prisma.entitlement.findUnique({
       where: { shopifyOrderId: tc03OrderId },
     });
@@ -172,7 +177,7 @@ async function main() {
     createdOrderIds.push(tc07OrderId);
     createdEmails.push(tc07Email);
 
-    await postWebhook("orders/paid", {
+    await postWebhook("TC-07", "orders/paid", {
       id: tc07OrderId,
       customer: { email: tc07Email },
       line_items: [{ sku: "KG-WALLET" }, { sku: "KG-MAGNET" }],
