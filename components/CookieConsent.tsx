@@ -20,6 +20,14 @@ export function CookieConsent() {
     const consentGiven = localStorage.getItem("cookie-consent");
     if (!consentGiven) {
       setShowConsent(true);
+    } else if (consentGiven === "accepted") {
+      // Consent Mode defaults analytics_storage to "denied" on every page load
+      // (see app/layout.tsx) — without this, a returning visitor who already
+      // accepted would still have analytics silently blocked on every visit
+      // after the first, since the "granted" update was only ever sent once.
+      window.gtag?.("consent", "update", {
+        analytics_storage: "granted",
+      });
     }
   }, []);
 

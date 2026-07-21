@@ -26,17 +26,56 @@ export type GeneratedSessionPlan = {
 
 // Flat pool of scored cards for an edition — no A/B/C/D section grouping (HANDOFF.md §2.8).
 // Wild cards (cardType "wild", scored: false) are excluded from V1 solo gameplay (HANDOFF.md §2.4).
+//
+// Avoids repeating scenarios a visitor has already played (across any of their prior
+// sessions in this edition, diagnostic or full) by drawing from the unseen pool first.
+// Only falls back to previously-seen scenarios once the unseen pool runs out — and
+// when it does, it fills in the *oldest*-seen ones first, so repeats are spaced out
+// as much as possible instead of immediately resurfacing last run's cards.
 export async function generateChallengeSessionPlan(
   edition: ChallengeEdition,
-  mode: ChallengeMode
+  mode: ChallengeMode,
+  userId: string
 ): Promise<GeneratedSessionPlan> {
+  const needed = MODE_CARD_COUNT[mode];
+
   const candidates = await prisma.scenario.findMany({
     where: { edition, active: true, scored: true },
     select: { id: true },
   });
 
-  const shuffled = shuffleInPlace(candidates.map((c) => c.id));
-  const scenarioIds = shuffled.slice(0, MODE_CARD_COUNT[mode]);
+  const priorCards = await prisma.challengeSessionCard.findMany({
+    where: { session: { userId, edition } },
+    select: { scenarioId: true },
+    orderBy: { session: { createdAt: "desc" } },
+  });
+
+  // De-duplicate while preserving most-recent-first order.
+  const seenMostRecentFirst: string[] = [];
+  const seenSet = new Set<string>();
+  for (const card of priorCards) {
+    if (!seenSet.has(card.scenarioId)) {
+      seenSet.add(card.scenarioId);
+      seenMostRecentFirst.push(card.scenarioId);
+    }
+  }
+
+  const candidateIds = candidates.map((c) => c.id);
+  const unseen = shuffleInPlace(candidateIds.filter((id) => !seenSet.has(id)));
+
+  const scenarioIds = unseen.slice(0, needed);
+
+  if (scenarioIds.length < needed) {
+    // Pool exhausted for this visitor — top up with previously-seen scenarios,
+    // oldest-seen first (seenMostRecentFirst is most-recent-first, so read from the end).
+    const candidateSet = new Set(candidateIds);
+    for (let i = seenMostRecentFirst.length - 1; i >= 0 && scenarioIds.length < needed; i--) {
+      const id = seenMostRecentFirst[i];
+      if (candidateSet.has(id) && !scenarioIds.includes(id)) {
+        scenarioIds.push(id);
+      }
+    }
+  }
 
   return { edition, mode, scenarioIds };
 }
@@ -48,7 +87,7 @@ export async function createChallengeSessionWithCardOrder(params: {
 }): Promise<{ sessionId: string }> {
   const mode = params.mode ?? "full";
 
-  const plan = await generateChallengeSessionPlan(params.edition, mode);
+  const plan = await generateChallengeSessionPlan(params.edition, mode, params.userId);
 
   const priorRuns = await prisma.challengeSession.count({
     where: { userId: params.userId, edition: params.edition, mode },

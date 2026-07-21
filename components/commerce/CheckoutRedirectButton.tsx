@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import { tokens } from "@/lib/theme/tokens";
+import { trackCheckoutStarted } from "@/lib/events";
 
 type Props = {
   sku: string;
@@ -20,6 +21,7 @@ export function CheckoutRedirectButton({
   const handleClick = async () => {
     setLoading(true);
     setError(null);
+    trackCheckoutStarted(sku, label);
 
     try {
       const response = await fetch("/api/checkout/create", {
