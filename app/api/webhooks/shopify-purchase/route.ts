@@ -2,15 +2,19 @@ import { NextRequest, NextResponse } from "next/server";
 import { createHmac, timingSafeEqual } from "crypto";
 import { prisma } from "@/lib/prisma";
 
-async function verifyWebhookSignature(
-  request: NextRequest,
-  secret: string
-): Promise<boolean> {
-  const signature = request.headers.get("X-Shopify-Hmac-Sha256") || "";
-  const body = await request.text();
-
+// Takes the already-read body text + signature header directly, rather than
+// the NextRequest itself. A Request's body stream can only be consumed ONCE —
+// this function used to call request.text() internally, and the POST handler
+// below separately called request.json() on the same request afterward to
+// get the payload for orders/paid etc. That second read throws ("body stream
+// already read"), which was silently caught by the handler's try/catch and
+// turned into a 500 — meaning EVERY real webhook call (valid signature or
+// not) was failing before any entitlement was ever created or revoked. The
+// QA script (scripts/qa-webhook-matrix.ts) is what surfaced this: TC-03/04/05
+// all failed because handleOrderPaid/handleOrderCancelled never actually ran.
+function verifySignature(bodyText: string, signature: string, secret: string): boolean {
   const hmac = createHmac("sha256", secret);
-  hmac.update(body, "utf8");
+  hmac.update(bodyText, "utf8");
   const digest = hmac.digest("base64");
 
   // Plain `===` on secret-derived values is vulnerable to timing attacks (an
@@ -44,15 +48,20 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // Verify signature BEFORE parsing body
-    const isValid = await verifyWebhookSignature(request, secret);
+    // Read the body ONCE as text — needed for signature verification, and
+    // reused (via JSON.parse below) for the actual payload. Do not call
+    // request.json() separately; see the comment on verifySignature above.
+    const bodyText = await request.text();
+    const signature = request.headers.get("X-Shopify-Hmac-Sha256") || "";
+
+    const isValid = verifySignature(bodyText, signature, secret);
     if (!isValid) {
       console.error("Invalid webhook signature");
       return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
     }
 
     const topic = request.headers.get("X-Shopify-Topic") || "";
-    const body = await request.json();
+    const body = JSON.parse(bodyText);
 
     if (topic === "orders/paid") {
       await handleOrderPaid(body);
@@ -114,6 +123,14 @@ async function handleOrderPaid(order: any) {
   // Process line items
   for (const lineItem of order.line_items || []) {
     const sku = lineItem.sku;
+
+    // Guard against line items with no SKU (custom items, edge cases) —
+    // without this, one bad line item throws and aborts processing of every
+    // other line item in the same order, not just the malformed one.
+    if (!sku || typeof sku !== "string") {
+      console.log("Line item has no sku, skipping:", lineItem);
+      continue;
+    }
 
     if (sku.startsWith("CHAL-")) {
       // Digital challenge - create entitlement
