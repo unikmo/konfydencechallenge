@@ -2,88 +2,56 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <!-- Homepage -->
   <url>
-    <loc>https://www.konfydence.com</loc>
-    <lastmod>2026-07-18</lastmod>
+    <loc>https://konfydence.com</loc>
+    <lastmod>2026-07-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
 
   <!-- Challenge Page -->
   <url>
-    <loc>https://www.konfydence.com/challenge</loc>
-    <lastmod>2026-07-18</lastmod>
+    <loc>https://konfydence.com/challenge</loc>
+    <lastmod>2026-07-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
 
-  <!-- Challenge Editions -->
-  <url>
-    <loc>https://www.konfydence.com/challenge/travelsafe/start</loc>
-    <lastmod>2026-07-18</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://www.konfydence.com/challenge/school/start</loc>
-    <lastmod>2026-07-18</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://www.konfydence.com/challenge/university/start</loc>
-    <lastmod>2026-07-18</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://www.konfydence.com/challenge/family/start</loc>
-    <lastmod>2026-07-18</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://www.konfydence.com/challenge/workplace/start</loc>
-    <lastmod>2026-07-18</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
   <!-- Pricing & Products -->
   <url>
-    <loc>https://www.konfydence.com/pricing</loc>
-    <lastmod>2026-07-18</lastmod>
+    <loc>https://konfydence.com/pricing</loc>
+    <lastmod>2026-07-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.konfydence.com/products</loc>
-    <lastmod>2026-07-18</lastmod>
+    <loc>https://konfydence.com/products</loc>
+    <lastmod>2026-07-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <!-- Contact & Legal -->
   <url>
-    <loc>https://www.konfydence.com/contact</loc>
-    <lastmod>2026-07-18</lastmod>
+    <loc>https://konfydence.com/contact</loc>
+    <lastmod>2026-07-21</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.konfydence.com/privacy-policy</loc>
-    <lastmod>2026-07-18</lastmod>
+    <loc>https://konfydence.com/privacy-policy</loc>
+    <lastmod>2026-07-21</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://www.konfydence.com/cookie-policy</loc>
-    <lastmod>2026-07-18</lastmod>
+    <loc>https://konfydence.com/cookie-policy</loc>
+    <lastmod>2026-07-21</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://www.konfydence.com/terms-of-service</loc>
-    <lastmod>2026-07-18</lastmod>
+    <loc>https://konfydence.com/terms-of-service</loc>
+    <lastmod>2026-07-21</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>

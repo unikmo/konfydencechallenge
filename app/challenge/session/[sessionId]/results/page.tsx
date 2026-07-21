@@ -184,9 +184,14 @@ export default async function ResultsPage({ params }: { params: { sessionId: str
       <div style={styles.shell}>
         <div style={styles.header}>
           <div style={styles.headerTitle}>Konfydence Challenge</div>
-          <Link style={styles.smallLink} href="/challenge">
-            Start over
-          </Link>
+          <div style={{ display: "flex", gap: 16 }}>
+            <Link style={styles.smallLink} href="/dashboard">
+              My Results
+            </Link>
+            <Link style={styles.smallLink} href="/challenge">
+              Start over
+            </Link>
+          </div>
         </div>
 
         <div style={styles.card}>

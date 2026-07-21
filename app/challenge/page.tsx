@@ -75,9 +75,12 @@ export default function ChallengeLandingPage() {
   return (
     <main style={styles.page}>
       <section style={styles.hero}>
-        <div style={styles.brandRow}>
+        <div style={{ ...styles.brandRow, justifyContent: "space-between" }}>
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img src="/brand/LOGO-05.png" alt="Konfydence" style={styles.logoImg} />
+          <Link href="/dashboard" style={{ color: "rgba(255,255,255,0.85)", fontSize: 13, fontWeight: 800, textDecoration: "none" }}>
+            My Results
+          </Link>
         </div>
 
         <h1 style={styles.title}>Think you can&rsquo;t be scammed?</h1>

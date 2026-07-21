@@ -1,10 +1,33 @@
 import React from "react";
 import Script from "next/script";
+import type { Metadata } from "next";
 import { CookieConsent } from "@/components/CookieConsent";
 
-export const metadata = {
-  title: "Konfydence Challenge",
-  description: "Scenario-based decision game",
+// Site-wide default metadata. Acts as the actual metadata for "/" (app/page.tsx
+// is a client component and can't export its own), and as the fallback for any
+// other client-component page that hasn't defined its own metadata.
+export const metadata: Metadata = {
+  metadataBase: new URL("https://konfydence.com"),
+  title: {
+    default: "Konfydence | Scam Readiness Game & Online Scam Training",
+    template: "%s | Konfydence",
+  },
+  description:
+    "Scammers don't look like scammers. Take a free 3-minute scam-readiness challenge with real-life scenarios, get your Konfydence Readiness Score, and learn which pressure tricks could catch you.",
+  openGraph: {
+    title: "Konfydence | Scam Readiness Game & Online Scam Training",
+    description:
+      "Take a free 3-minute scam-readiness challenge built on real scam scripts, and see how you'd hold up under pressure.",
+    url: "https://konfydence.com",
+    siteName: "Konfydence",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Konfydence | Scam Readiness Game & Online Scam Training",
+    description:
+      "Take a free 3-minute scam-readiness challenge built on real scam scripts, and see how you'd hold up under pressure.",
+  },
 };
 
 // Set once real analytics were wired in — see lib/events.ts and CookieConsent.tsx,

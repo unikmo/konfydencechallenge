@@ -91,8 +91,13 @@ export default function HomePage() {
         <div style={s.heroShell}>
           <div className="hero-grid">
             <div className="hero-copy">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="/brand/LOGO-05.png" alt="Konfydence" style={s.logo} />
+              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src="/brand/LOGO-05.png" alt="Konfydence" style={s.logo} />
+                <Link href="/dashboard" style={{ color: "rgba(255,255,255,0.75)", fontSize: 13, fontWeight: 800, textDecoration: "none" }}>
+                  My Results
+                </Link>
+              </div>
 
               <p style={s.heroEyebrow}>Scam-readiness training for travelers</p>
 
