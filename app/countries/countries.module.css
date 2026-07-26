@@ -39,8 +39,8 @@
 .sourceCard p:not(.sourceAuthority) { margin-bottom: 20px; }
 .sourceCard a { color: #12639d; font-weight: 900; text-decoration: none; margin-top: auto; }
 .riskSection { padding: 48px 0 14px; }
-.riskSource { color: #607797; font-size: 12px; line-height: 1.5; margin: 4px 0 0; }
-.riskSource a { color: #12639d; font-weight: 800; }
+.sourceNote { color: #607797; font-size: 12px; line-height: 1.5; margin: 4px 0 0; }
+.sourceNote a { color: #12639d; font-weight: 800; }
 .officialRiskSection { padding: 42px 0 14px; }
 .officialRiskSection h2 { font-size: 30px; margin: 0 0 18px; }
 .officialRiskGrid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
@@ -127,3 +127,6 @@
 .countryCardMediaFallback span { color: #12639d; font-size: 10px; font-weight: 900; letter-spacing: .08em; text-transform: uppercase; }
 .countryCardMediaFallback strong { font-size: 17px; line-height: 1.15; margin-top: 4px; }
 .countryCardMediaFallback small { color: #607797; font-size: 10px; margin-top: 5px; }
+.countryCard { overflow: visible; padding: 22px; }
+.countryCard > div { padding: 0; }
+.countryCard > .countryLink { margin: 24px 0 0; }

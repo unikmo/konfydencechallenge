@@ -3,7 +3,6 @@
 import Link from "next/link";
 import { useMemo, useState } from "react";
 import type { CountryProfile } from "@/lib/countries";
-import CountryCardImage from "./CountryCardImage";
 import styles from "./countries.module.css";
 
 const CONTINENTS = ["North America", "South America", "Europe", "Africa", "Asia", "Oceania"];
@@ -84,18 +83,12 @@ export default function CountryDirectory({ profiles }: { profiles: CountryProfil
           <div className={styles.countryGrid}>
             {group.profiles.map((profile) => (
               <article className={styles.countryCard} key={profile.slug}>
-                <CountryCardImage
-                  countryName={profile.name}
-                  landmark={profile.landmark}
-                  continent={profile.continent}
-                  slug={profile.slug}
-                />
                 <div>
                   <p className={styles.countryRegion}>{profile.region}</p>
                   <h3>{profile.name}</h3>
                 </div>
                 <Link href={"/countries/" + profile.slug} className={styles.countryLink}>
-                  Open risk assessment
+                  Open country alert
                 </Link>
               </article>
             ))}

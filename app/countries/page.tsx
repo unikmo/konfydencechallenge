@@ -14,19 +14,19 @@ export default function CountriesPage() {
           <nav className={styles.navLinks} aria-label="Main navigation">
             <Link href="/challenge">Challenge</Link>
             <Link href="/products">Products</Link>
-            <Link href="/countries" aria-current="page">Travel Scams &amp; Risks</Link>
+            <Link href="/countries" aria-current="page">Country Alert</Link>
           </nav>
         </header>
 
         <section className={styles.hero}>
-          <p className={styles.eyebrow}>Travel Scams &amp; Risks</p>
-          <h1>Know the risk. Spot the pressure.</h1>
+          <p className={styles.eyebrow}>Country Alert</p>
+          <h1>Official travel information. Spot fraud and scams.</h1>
 
         </section>
 
-        <section className={styles.sourceNotice} aria-label="Risk assessment sources">
-          <p className={styles.eyebrow}>Source of risk assessment:</p>
-          <p>The country risk is sourced from official Canadian and New Zealand guidance. Scam risks are compiled by Konfydence from multiple sources. Treat them as useful guides. Konfydence accepts no responsibility for the accuracy of this information. Use government sources for current travel decisions.</p>
+        <section className={styles.sourceNotice} aria-label="Official country information sources">
+          <p className={styles.eyebrow}>Official sources</p>
+          <p>Country information comes from official Canadian and New Zealand travel guidance. We surface the fraud and scam wording those advisories publish, then link you to the original pages. Use government sources for current travel decisions.</p>
         </section>
         <CountryDirectory profiles={profiles} />
 
