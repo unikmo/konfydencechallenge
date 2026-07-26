@@ -4,13 +4,13 @@
   "edition": "travelsafe",
   "cardType": "scenario",
   "scored": true,
-  "category": "Transit",
-  "scenario": "A guide on social media asks for full payment by bank transfer for a popular tour.",
+  "category": "Tours",
+  "scenario": "A guide on social media asks for full bank-transfer payment for a popular tour.",
   "answers": {
-    "A": "Click/pay immediately to avoid losing the booking or offer.",
-    "B": "Check inside the official app, booking, provider, or government site.",
-    "C": "Forward it to a fellow traveller and ask what they think.",
-    "D": "Ignore/report the message and use a known contact route."
+    "A": "Transfer the full amount to reserve the tour today.",
+    "B": "Book through a verified platform with payment protection.",
+    "C": "Send a small deposit first and pay the rest on arrival.",
+    "D": "Meet the guide through a hotel or official tourism referral and confirm the terms."
   },
   "scores": {
     "A": 0,
@@ -22,8 +22,8 @@
     "B",
     "D"
   ],
-  "explanation": "Fake Tour Guide Deposit: the trap is to make money or value leave before the story is verified. The safer move is to verify through an official or approved channel, not to click or follow the risky request.",
-  "proTip": "Use verified tour platforms or protected payment.",
+  "explanation": "A social profile is not proof that a tour exists. Use a protected booking channel and keep the payment tied to clear terms.",
+  "proTip": "A smaller scam is still a scam; protection matters more than deposit size.",
   "hackKey": "C",
   "hackTrigger": "Connection",
   "tags": [

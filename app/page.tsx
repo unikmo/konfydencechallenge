@@ -1,729 +1,109 @@
-"use client";
-
-import React, { useState } from "react";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
-import { tokens } from "@/lib/theme/tokens";
-import { CheckoutRedirectButton } from "@/components/commerce/CheckoutRedirectButton";
-import { CrossSellStrip } from "@/components/commerce/CrossSellStrip";
-import { InstitutionalCTA } from "@/components/commerce/InstitutionalCTA";
-import { HeroIllustration } from "@/components/illustrations/HeroIllustration";
-import { FeatureIcon } from "@/components/illustrations/FeatureIcon";
+import type { Metadata } from "next";
 
-const otherEditions = [
-  {
-    edition: "school",
-    label: "School Edition",
-    audience: "Ages 12–18 · Schools, teachers, parents",
-    description: "Gaming pressure, fake links, group chats, account takeovers, and risky sharing.",
-    price: "$4.99",
-  },
-  {
-    edition: "university",
-    label: "University Edition",
-    audience: "Students 18+ · Universities, student unions",
-    description: "Housing scams, fake jobs, tuition pressure, identity risks, and travel traps.",
-    price: "$4.99",
-  },
-  {
-    edition: "family",
-    label: "Family Edition",
-    audience: "Parents, children, elders · Households",
-    description: "Money requests, elder scams, child accounts, shared devices, and emotional pressure.",
-    price: "$4.99",
-  },
-  {
-    edition: "workplace",
-    label: "Workplace",
-    audience: "Employees, teams, HR/L&D · Companies",
-    description: "Phishing, fake invoices, payroll changes, executive pressure, and AI voice scams.",
-    price: "$4.99",
-  },
+export const metadata: Metadata = {
+  title: { absolute: "Konfydence Challenge | Scam Readiness Games" },
+  description: "Choose a real-life pressure scenario and build the pause habit before the moment is real.",
+};
+
+const games = [
+  ["travelsafe", "TravelSafe", "Travelers and tourists", "Tickets, hotels, taxis, Wi-Fi, refunds, rentals, and tourist traps.", "Start TravelSafe"],
+  ["family", "Family", "Parents, children, and elders", "Money requests, shared devices, emotional pressure, and account risks.", "Start Family"],
+  ["school", "School", "Students ages 12-18", "Fake links, group chats, gaming pressure, and account takeovers.", "Start School"],
+  ["university", "University", "Students and international offices", "Housing, jobs, tuition, identity, campus messages, and travel traps.", "Start University"],
+  ["workplace", "Workplace", "Teams, HR, and managers", "Phishing, invoices, payroll changes, executive pressure, and data requests.", "Start Workplace"],
 ];
 
-const features: { kind: "score" | "framework" | "travel" | "reminder"; title: string; desc: string }[] = [
-  {
-    kind: "score",
-    title: "Shareable Readiness Score",
-    desc: "Your Konfydence Readiness Score™ is persistent and exportable — unlike a free one-off test.",
-  },
-  {
-    kind: "framework",
-    title: "The HACK Framework",
-    desc: "We name the pressure tactics (Hurry, Authority, Connection, Kill-switch) so you recognize them in real life.",
-  },
-  {
-    kind: "travel",
-    title: "Travel-Specific Scenarios",
-    desc: "Real pressure moments travelers actually face — bookings, WiFi, refunds, taxis, SIM cards, rentals.",
-  },
-  {
-    kind: "reminder",
-    title: "Pocket Reminders",
-    desc: "Wallet cards and fridge magnets you keep as daily artifacts — your HACK pressure cues on paper.",
-  },
+const steps = [
+  ["01", "Choose your edition", "Pick the pressure situations closest to your real life."],
+  ["02", "Face the scenario", "Make a decision while urgency and trust are working against you."],
+  ["03", "Get your score", "See your readiness and the pressure pattern to practise next."],
+  ["04", "Build the pause", "Use the safer-action habit before the next real request."],
 ];
 
-export default function HomePage() {
-  const router = useRouter();
-  const [emailCapture, setEmailCapture] = useState("");
-  const [emailSubmitted, setEmailSubmitted] = useState(false);
-
-  const handleLockscreenEmail = (e: React.FormEvent) => {
-    e.preventDefault();
-    // For v1, just show confirmation - email capture logic would be determined later
-    setEmailSubmitted(true);
-    // Download would happen here or in a separate endpoint
-    setTimeout(() => {
-      // Reset after a moment
-      setEmailCapture("");
-      setEmailSubmitted(false);
-    }, 2000);
-  };
-
-  const handleTravelSafeStart = () => {
-    router.push("/challenge/travelsafe/start?mode=diagnostic");
-  };
-
+export default function ChallengeLandingPage() {
   return (
-    <main style={s.page}>
-      <section style={s.hero}>
-        <div style={s.heroShell}>
-          <div className="hero-grid">
-            <div className="hero-copy">
-              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src="/brand/LOGO-05.png" alt="Konfydence" style={s.logo} />
-                <Link href="/dashboard" style={{ color: "rgba(255,255,255,0.75)", fontSize: 13, fontWeight: 800, textDecoration: "none" }}>
-                  My Results
-                </Link>
-              </div>
+    <main className="challenge-page">
+      <header className="site-nav">
+        <Link className="brand" href="/">Konfydence</Link>
+        <nav aria-label="Main navigation">
+          <Link href="/products">Products</Link>
+          <Link href="/pricing">Pricing</Link>
+          <Link href="/countries">Country Alert</Link>
+          <Link href="/contact">Contact</Link>
+          <Link className="nav-cta" href="#games">Choose a game</Link>
+        </nav>
+      </header>
 
-              <p style={s.heroEyebrow}>Scam-readiness training for travelers</p>
-
-              <h1 style={s.heroHeadline}>
-                Scammers don&apos;t look like scammers.
-                <br />
-                Would you catch it in 3 minutes?
-              </h1>
-
-              <p style={s.heroSub}>
-                TravelSafe is a free pressure-scenario game built from real scam scripts. Play it before your next
-                trip, get your Konfydence Readiness Score™, and walk away knowing exactly which pressure tactic
-                could catch you off guard.
-              </p>
-
-              <div style={s.heroCtaContainer}>
-                <button className="primary-cta" style={s.primaryCta} onClick={handleTravelSafeStart}>
-                  Take Free TravelSafe Check
-                </button>
-              </div>
-
-              <p style={s.heroTrust}>No lectures. No jargon. Just real choices under travel pressure.</p>
-
-              <div className="trust-strip">
-                <span>Built on real scam scripts</span>
-                <span>The HACK framework</span>
-                <span>3 minutes, no signup</span>
-              </div>
+      <section className="hero">
+        <div className="hero-copy">
+          <p className="eyebrow">Konfydence Challenge</p>
+          <h1><span className="travel-question">Travelling?</span><br /><strong>What's your Konfydence level?</strong></h1>
+          <p className="lede">Don't let scammers ruin your trip before it starts. Take the free 3-minute TravelSafe check, face realistic travel-scam scenarios, and discover which pressure tactics you should watch for.</p>
+          <div className="actions">
+            <Link className="primary" href="/challenge/travelsafe/start?mode=diagnostic">Take the free check</Link>
+            <Link className="secondary" href="#how-it-works">See how it works</Link>
+          </div>
+          <p className="proof"><span>✓</span> No signup <span>✓</span> 3 minutes <span>✓</span> Immediate readiness score</p>
+        </div>
+        <div className="score-card animated-score" aria-label="Animated example of the TravelSafe readiness check">
+          <div className="demo-stages">
+            <div className="demo-stage stage-before">
+              <small>BEFORE THE TEST</small>
+              <h3>Ready to discover your pressure pattern?</h3>
+              <p>Start the free 3-minute TravelSafe check.</p>
             </div>
-
-            <div className="hero-art" aria-hidden="true">
-              <HeroIllustration />
+            <div className="demo-stage stage-during">
+              <small>DURING THE TEST</small>
+              <h3>Face a real travel-scam scenario.</h3>
+              <p>What would you do when the pressure feels real?</p>
+              <div className="scenario-chip">SCENARIO: <b>HURRY</b></div>
+            </div>
+            <div className="demo-stage stage-after">
+              <small>AFTER THE TEST · EXAMPLE RESULT</small>
+              <h3>TravelSafe Readiness Score</h3>
+              <p>Your result shows what to practise next.</p>
+              <div className="example-score"><b>82</b><span>/ 100</span></div>
             </div>
           </div>
-        </div>
-      </section>
-
-      <section style={s.howItWorks}>
-        <div style={s.container}>
-          <h2 style={s.sectionTitle}>How it works</h2>
-
-          <div style={s.howGrid}>
-            {[
-              { num: 1, title: "Choose TravelSafe", desc: "Or pick another challenge edition that fits your life." },
-              { num: 2, title: "Face real scenarios", desc: "Make decisions under the pressure scammers actually use." },
-              { num: 3, title: "Get your score", desc: "See your Readiness Score and your weakest pressure pattern." },
-              { num: 4, title: "Unlock the full deck", desc: "Upgrade to the 50-question challenge for a full KRS dashboard." },
-            ].map((step) => (
-              <div key={step.num} className="how-card" style={s.howCard}>
-                <div style={s.stepNumber}>{step.num}</div>
-                <h3 style={s.howTitle}>{step.title}</h3>
-                <p style={s.howDesc}>{step.desc}</p>
-              </div>
-            ))}
+          <div className="demo-focus">
+            <small>YOUR FOCUS</small>
+            <div className="focus-stage focus-before">START</div>
+            <div className="focus-stage focus-during">PAUSE</div>
+            <div className="focus-stage focus-after">VERIFY<br />THEN ACT</div>
           </div>
         </div>
       </section>
 
-      <section style={s.lockscreenBlock}>
-        <div style={s.container}>
-          <div style={s.lockscreenInner}>
-            <div>
-              <h2 style={s.lockscreenTitle}>Keep pressure patterns visible</h2>
-              <p style={s.lockscreenText}>
-                Download free phone and computer lockscreens that remind you of the HACK framework wherever you unlock your device. No payment. No account. Just download.
-              </p>
-            </div>
+      <div className="hack-strip">HURRY · AUTHORITY · CONNECTION · KILL-SWITCH</div>
 
-            <form style={s.lockscreenForm} onSubmit={handleLockscreenEmail}>
-              <input
-                type="email"
-                placeholder="your@email.com"
-                value={emailCapture}
-                onChange={(e) => setEmailCapture(e.target.value)}
-                required
-                style={s.emailInput}
-              />
-              <button
-                type="submit"
-                className="lockscreen-cta"
-                style={s.lockscreenCta}
-                disabled={emailSubmitted}
-              >
-                {emailSubmitted ? "Downloading..." : "Get free lockscreens"}
-              </button>
-            </form>
-          </div>
-        </div>
+      <section id="how-it-works" className="section">
+        <p className="section-kicker">How it works</p>
+        <h2>Practise the moment before it matters.</h2>
+        <div className="steps">{steps.map(([number, title, text]) => <article className="step" key={number}><b>{number}</b><h3>{title}</h3><p>{text}</p></article>)}</div>
       </section>
 
-      <section style={s.differentiator}>
-        <div style={s.container}>
-          <h2 style={s.sectionTitle}>Why Konfydence?</h2>
-
-          <div style={s.diffGrid}>
-            {features.map((feature) => (
-              <div key={feature.title} className="diff-card" style={s.diffCard}>
-                <FeatureIcon kind={feature.kind} />
-                <h3 style={s.diffCardTitle}>{feature.title}</h3>
-                <p style={s.diffCardDesc}>{feature.desc}</p>
-              </div>
-            ))}
-          </div>
-        </div>
+      <section id="games" className="section games-section">
+        <p className="section-kicker">Choose your challenge</p>
+        <h2>Which pressure situations feel familiar?</h2>
+        <p className="section-intro">Built from real scam scripts and designed for practical decisions, not lectures. Start with a free diagnostic and see where your pause habit is strongest.</p>
+        <div className="games">{games.map(([edition, title, audience, description, cta]) => <article className="game" key={edition}><div><span className="game-label">{audience}</span><h3>{title}</h3><p>{description}</p></div><Link href={`/challenge/${edition}/start?mode=diagnostic`} className="game-link">{cta}</Link></article>)}</div>
       </section>
 
-      <section style={s.merchStrip}>
-        <div style={s.container}>
-          <h3 style={s.merchTitle}>Build your armor</h3>
-          <p style={s.merchSubtitle}>
-            Wallet cards and fridge magnets you keep as reminders
-          </p>
+      <section className="trust"><b>Why the pause works</b><p>Pressure tactics are built to make people act before they verify. Konfydence helps you recognize hurry, authority, connection, and kill-switch moments while the stakes are still low.</p></section>
 
-          <div style={s.merchGrid}>
-            <div className="merch-item" style={s.merchItem}>
-              <h4 style={s.merchName}>KonfyGuard Wallet Card</h4>
-              <p style={s.merchPrice}>$14.99</p>
-              <p style={s.merchDesc}>HACK pressure reminders in your wallet.</p>
-              <CheckoutRedirectButton
-                sku="KG-WALLET"
-                label="Add to cart"
-              />
-            </div>
-
-            <div className="merch-item" style={s.merchItem}>
-              <h4 style={s.merchName}>KonfyGuard Fridge Magnet</h4>
-              <p style={s.merchPrice}>$9.99</p>
-              <p style={s.merchDesc}>Household reminder for the whole family.</p>
-              <CheckoutRedirectButton
-                sku="KG-MAGNET"
-                label="Add to cart"
-              />
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section style={s.otherEditions}>
-        <div style={s.container}>
-          <h2 style={s.sectionTitle}>Also available</h2>
-          <p style={s.sectionSubtitle}>
-            Coming soon: School, University, Family, and Workplace editions with scenario sets built for their contexts.
-          </p>
-
-          <div style={s.editionsGrid}>
-            {otherEditions.map((edition) => (
-              <article key={edition.edition} className="edition-card" style={s.editionCard}>
-                <div>
-                  <p style={s.editionPrice}>{edition.price}</p>
-                  <h3 style={s.editionTitle}>{edition.label}</h3>
-                  <p style={s.editionAudience}>{edition.audience}</p>
-                  <p style={s.editionDesc}>{edition.description}</p>
-                </div>
-
-                <div>
-                  <Link
-                    href={`/challenge/${edition.edition}/start?mode=diagnostic`}
-                    style={s.editionCta}
-                  >
-                    Try {edition.label}
-                  </Link>
-                </div>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section style={s.institutionalSection}>
-        <div style={s.container}>
-          <InstitutionalCTA />
-        </div>
-      </section>
-
-      <footer style={s.footer}>
-        <div style={s.container}>
-          <p style={s.footerText}>
-            Konfydence is an educational scam-readiness game. It does not guarantee protection from fraud or financial loss.
-          </p>
-        </div>
+      <footer className="footer">
+        <div><b>Konfydence</b><span>Safer digital decisions under pressure.</span></div>
+        <nav><Link href="/">Home</Link><Link href="/products">Products</Link><Link href="/contact">Contact</Link><Link href="/imprint">Imprint</Link><Link href="/privacy-policy">Privacy</Link><Link href="/terms-of-service">Terms</Link><Link href="/cookie-policy">Cookies</Link></nav>
       </footer>
 
       <style>{`
-        .hero-grid {
-          display: grid;
-          grid-template-columns: 1.1fr 0.9fr;
-          gap: 40px;
-          align-items: center;
-          text-align: left;
-        }
-
-        .hero-copy {
-          text-align: left;
-        }
-
-        .hero-art {
-          display: flex;
-          justify-content: center;
-          animation: hero-float 5s ease-in-out infinite;
-        }
-
-        @keyframes hero-float {
-          0%, 100% { transform: translateY(0px); }
-          50% { transform: translateY(-10px); }
-        }
-
-        .trust-strip {
-          display: flex;
-          flex-wrap: wrap;
-          gap: 10px;
-          margin-top: 20px;
-        }
-
-        .trust-strip span {
-          font-size: 12px;
-          font-weight: 800;
-          color: #cbd5e1;
-          background: rgba(255, 255, 255, 0.06);
-          border: 1px solid rgba(255, 255, 255, 0.12);
-          border-radius: 999px;
-          padding: 6px 12px;
-        }
-
-        .primary-cta:hover {
-          opacity: 0.88;
-          transform: translateY(-1px);
-        }
-
-        .how-card {
-          transition: transform 160ms ease;
-        }
-
-        .how-card:hover {
-          transform: translateY(-3px);
-        }
-
-        .diff-card {
-          transition: transform 160ms ease, border-color 160ms ease, background 160ms ease;
-        }
-
-        .diff-card:hover {
-          transform: translateY(-4px);
-          border-color: rgba(255, 179, 29, 0.4);
-          background: rgba(255, 255, 255, 0.07);
-        }
-
-        .merch-item {
-          transition: transform 160ms ease, border-color 160ms ease;
-        }
-
-        .merch-item:hover {
-          transform: translateY(-4px);
-          border-color: rgba(255, 179, 29, 0.5);
-        }
-
-        .edition-card {
-          transition: transform 160ms ease, border-color 160ms ease, background 160ms ease;
-        }
-
-        .edition-card:hover {
-          transform: translateY(-4px);
-          border-color: rgba(255, 179, 29, 0.4);
-          background: rgba(255, 255, 255, 0.07);
-        }
-
-        .lockscreen-cta:hover {
-          opacity: 0.88;
-        }
-
-        @media (max-width: 860px) {
-          .hero-grid {
-            grid-template-columns: 1fr;
-            text-align: center;
-          }
-
-          .hero-copy {
-            text-align: center;
-          }
-
-          .trust-strip {
-            justify-content: center;
-          }
-
-          .hero-art {
-            order: -1;
-            max-width: 260px;
-            margin: 0 auto;
-          }
-        }
-      `}</style>
+        .challenge-page{min-height:100vh;background:#f4f7fb;color:#102344;padding:0 clamp(18px,5vw,64px) 56px;font-family:Arial,Helvetica,sans-serif}.site-nav{max-width:1120px;margin:auto;min-height:72px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #dce5f0}.brand{font-size:22px;font-weight:900;color:#102344;text-decoration:none}.site-nav nav{display:flex;align-items:center;gap:22px}.site-nav nav a,.footer a{font-size:13px;font-weight:700;color:#365477;text-decoration:none}.nav-cta{background:#ff584c!important;color:#fff!important;padding:11px 15px;border-radius:9px}
+        .hero{max-width:1120px;margin:auto;display:grid;grid-template-columns:minmax(280px,500px) minmax(320px,1fr);gap:clamp(32px,5vw,68px);align-items:center;padding:70px 0 46px}.eyebrow,.section-kicker{color:#12639d;font-size:12px;font-weight:900;letter-spacing:.09em;text-transform:uppercase;margin:0 0 14px}.hero h1{font-size:clamp(31px,3.9vw,49px);line-height:1.05;letter-spacing:0;margin:0;font-weight:850}.hero h1 .travel-question{font-size:1.15em}.hero h1 strong{color:#ff584c}.lede{max-width:430px;color:#526b93;font-size:18px;line-height:1.65;margin:24px 0 26px}.actions{display:flex;flex-direction:row;flex-wrap:wrap;align-items:center;gap:12px}.primary,.secondary{display:inline-flex;text-decoration:none;font-weight:850;border-radius:10px;padding:14px 20px}.primary{background:#ff584c;color:#fff;box-shadow:0 4px 0 #d74339}.secondary{background:#fff;color:#102344;border:2px solid #d9e2ef;box-shadow:0 4px 0 #d9e2ef}.proof{display:flex;flex-wrap:wrap;gap:12px;color:#365477;font-size:12px;font-weight:700;margin-top:18px}.proof span{color:#70b923}
+        .score-card{display:flex;width:100%;max-width:520px;min-height:300px;filter:drop-shadow(0 14px 0 #dce4f0);border-radius:22px;overflow:hidden;background:#fff}.score-main{flex:1;padding:34px 26px;display:flex;flex-direction:column;justify-content:center}.score-meta{display:flex;gap:40px;text-transform:uppercase;color:#486187;font-size:10px;line-height:1.6;margin-bottom:22px}.score-meta b{font-size:13px;color:#102344}.route{font-size:16px;font-weight:850;margin:0 0 20px;letter-spacing:.02em}.route b{color:#ff584c;margin:0 8px}.score-main p{color:#486187;font-size:12px;line-height:1.5;margin:0}.score-pill{display:flex;align-items:center;gap:12px;background:#9cff24;border-radius:11px;padding:12px 14px;margin-top:20px;color:#102344}.score-pill>b{font-size:26px}.score-pill span{font-size:11px;font-weight:700;line-height:1.2}.score-pill small{display:block;font-size:9px;font-weight:700;margin-top:5px}.gate{width:124px;background:#102344;color:#9cff24;padding:22px 13px;display:flex;flex-direction:column;justify-content:space-between;font-size:11px}.gate>b{font-size:20px}.gate div{font-size:11px;color:#fff;line-height:1.5;letter-spacing:.08em}
+        .hack-strip{max-width:1120px;margin:auto;background:#102344;color:#fff;border-radius:10px;text-align:center;padding:12px;font-size:12px;font-weight:850;letter-spacing:.04em}.section{max-width:1120px;margin:58px auto 0}.section h2{font-size:clamp(28px,4vw,42px);margin:0 0 22px;line-height:1.08}.section-intro{max-width:680px;color:#526b93;line-height:1.55}.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}.step{border-top:3px solid #dce5f0;padding-top:14px}.step>b{color:#ff584c;font-size:12px}.step h3{font-size:17px;margin:9px 0 6px}.step p,.game p,.trust p{color:#607797;font-size:14px;line-height:1.5;margin:0}.games-section{border-top:1px solid #dce5f0;padding-top:42px}.games{display:grid;grid-template-columns:repeat(5,1fr);gap:14px}.game{min-height:240px;background:#fff;border:1px solid #dce5f0;border-radius:12px;padding:18px;display:flex;flex-direction:column;justify-content:space-between}.game-label{font-size:10px;text-transform:uppercase;font-weight:850;color:#12639d}.game h3{font-size:21px;margin:12px 0 8px}.game-link{display:flex;justify-content:center;text-align:center;background:#ffb31d;color:#102344;text-decoration:none;font-size:13px;font-weight:850;border-radius:9px;padding:11px 8px}.trust{max-width:1120px;margin:42px auto 0;background:#eaf3ff;border:1px solid #cfe1f4;border-radius:12px;padding:22px}.trust b{font-size:18px}.trust p{margin-top:8px}.footer{max-width:1120px;margin:46px auto 0;border-top:1px solid #dce5f0;padding-top:20px;display:flex;justify-content:space-between;gap:20px}.footer div{display:flex;flex-direction:column;gap:6px}.footer span{color:#607797;font-size:12px}.footer nav{display:flex;flex-wrap:wrap;gap:16px;align-content:flex-start}
+        @media(max-width:900px){.games{grid-template-columns:repeat(2,1fr)}.steps{grid-template-columns:repeat(2,1fr)}}@media(max-width:720px){.site-nav nav a:not(.nav-cta){display:none}.hero{grid-template-columns:1fr;padding-top:40px}.score-card{max-width:560px}.footer{flex-direction:column}}@media(max-width:440px){.games{grid-template-columns:1fr}.steps{grid-template-columns:1fr}.gate{width:84px}.score-meta{gap:18px}}
+.animated-score{min-height:330px}.demo-stages{position:relative;flex:1;min-width:0;min-height:330px;background:#fff}.demo-stage{position:absolute;inset:0;padding:38px 30px;opacity:0;animation:demoStage 15s infinite;display:flex;flex-direction:column;justify-content:center}.demo-stage small,.demo-focus small{font-size:10px;font-weight:900;letter-spacing:.06em;color:#526b93}.demo-stage h3{font-size:23px;line-height:1.15;margin:16px 0 10px;color:#102344}.demo-stage p{font-size:14px;line-height:1.5;color:#526b93;margin:0;max-width:280px}.stage-before{animation-delay:0s}.stage-during{animation-delay:5s}.stage-after{animation-delay:10s}.scenario-chip{display:inline-flex;align-self:flex-start;margin-top:20px;padding:9px 12px;border-radius:8px;background:#fff1ed;color:#d94b3f;font-size:11px;font-weight:900}.example-score{display:flex;align-items:baseline;gap:5px;margin-top:18px;color:#102344}.example-score b{font-size:42px}.example-score span{font-size:14px;color:#526b93;font-weight:800}.demo-focus{width:124px;background:#102344;color:#9cff24;padding:28px 16px;display:flex;flex-direction:column;justify-content:space-between}.demo-focus small{color:#9cff24}.focus-stage{font-size:19px;font-weight:900;line-height:1.35;opacity:0;animation:demoStage 15s infinite}.focus-before{animation-delay:0s}.focus-during{animation-delay:5s}.focus-after{animation-delay:10s}@keyframes demoStage{0%,27%{opacity:1;transform:translateY(0)}33%,100%{opacity:0;transform:translateY(5px)}}@media(max-width:420px){.demo-stage{padding:28px 18px}.demo-stage h3{font-size:19px}.demo-focus{width:96px;padding:22px 12px}}      `}</style>
     </main>
   );
 }
-
-const s: Record<string, React.CSSProperties> = {
-  page: {
-    minHeight: "100vh",
-    background: tokens.gradientHero,
-    color: tokens.textOnDark,
-    fontFamily: 'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif',
-  },
-
-  // Hero section
-  hero: {
-    paddingTop: 60,
-    paddingBottom: 80,
-    textAlign: "center",
-  },
-  heroShell: {
-    maxWidth: 1080,
-    margin: "0 auto",
-    paddingLeft: 20,
-    paddingRight: 20,
-  },
-  logo: {
-    height: 40,
-    width: "auto",
-    marginBottom: 32,
-  },
-  heroEyebrow: {
-    margin: "0 0 16px",
-    color: tokens.accentAmber,
-    fontSize: 13,
-    fontWeight: 900,
-    letterSpacing: "0.08em",
-    textTransform: "uppercase",
-  },
-  heroHeadline: {
-    margin: "0 0 20px",
-    fontSize: "clamp(32px, 4.6vw, 52px)",
-    fontWeight: 900,
-    letterSpacing: 0,
-    lineHeight: 1.12,
-  },
-  heroSub: {
-    margin: "0 0 32px",
-    fontSize: 18,
-    lineHeight: 1.6,
-    color: "#cbd5e1",
-    maxWidth: 560,
-  },
-  heroCtaContainer: {
-    marginBottom: 24,
-  },
-  primaryCta: {
-    padding: "14px 28px",
-    borderRadius: 999,
-    fontSize: 15,
-    fontWeight: 900,
-    border: "none",
-    background: tokens.accentAmber,
-    color: tokens.textOnLight,
-    cursor: "pointer",
-    transition: "opacity 0.15s, transform 0.15s",
-    boxShadow: "0 10px 24px rgba(255, 179, 29, 0.25)",
-  },
-  heroTrust: {
-    margin: 0,
-    fontSize: 13,
-    color: tokens.textMuted,
-    lineHeight: 1.6,
-  },
-
-  // Section common
-  container: {
-    maxWidth: 1040,
-    margin: "0 auto",
-    paddingLeft: 20,
-    paddingRight: 20,
-  },
-  sectionTitle: {
-    fontSize: "clamp(28px, 4vw, 42px)",
-    fontWeight: 900,
-    margin: "0 0 24px",
-    textAlign: "center",
-  },
-  sectionSubtitle: {
-    fontSize: 16,
-    color: tokens.textMuted,
-    textAlign: "center",
-    margin: "0 auto 40px",
-    maxWidth: 600,
-    lineHeight: 1.6,
-  },
-
-  // How it works
-  howItWorks: {
-    paddingTop: 60,
-    paddingBottom: 60,
-    borderTop: `1px solid rgba(255, 255, 255, 0.08)`,
-    borderBottom: `1px solid rgba(255, 255, 255, 0.08)`,
-  },
-  howGrid: {
-    display: "grid",
-    gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))",
-    gap: 24,
-  },
-  howCard: {
-    display: "flex",
-    flexDirection: "column",
-    gap: 12,
-    textAlign: "left",
-  },
-  stepNumber: {
-    fontSize: 32,
-    fontWeight: 900,
-    color: tokens.accentAmber,
-  },
-  howTitle: {
-    fontSize: 16,
-    fontWeight: 800,
-    margin: 0,
-  },
-  howDesc: {
-    fontSize: 14,
-    color: tokens.textMuted,
-    margin: 0,
-    lineHeight: 1.5,
-  },
-
-  // Lockscreen block
-  lockscreenBlock: {
-    paddingTop: 60,
-    paddingBottom: 60,
-  },
-  lockscreenInner: {
-    background: "rgba(255, 179, 29, 0.08)",
-    border: `1px solid ${tokens.accentAmber}`,
-    borderRadius: 16,
-    padding: 40,
-    display: "grid",
-    gridTemplateColumns: "1fr 1fr",
-    gap: 40,
-    alignItems: "center",
-  },
-  lockscreenTitle: {
-    fontSize: "clamp(24px, 3vw, 32px)",
-    fontWeight: 900,
-    margin: "0 0 16px",
-  },
-  lockscreenText: {
-    fontSize: 16,
-    lineHeight: 1.6,
-    color: "#cbd5e1",
-    margin: 0,
-  },
-  lockscreenForm: {
-    display: "flex",
-    gap: 12,
-    flexDirection: "column",
-  },
-  emailInput: {
-    padding: "12px 16px",
-    borderRadius: 8,
-    border: `1px solid ${tokens.accentAmber}`,
-    background: "transparent",
-    color: tokens.textOnDark,
-    fontSize: 14,
-    fontFamily: "inherit",
-  },
-  lockscreenCta: {
-    padding: "12px 16px",
-    borderRadius: 8,
-    fontSize: 14,
-    fontWeight: 900,
-    border: "none",
-    background: tokens.accentAmber,
-    color: tokens.textOnLight,
-    cursor: "pointer",
-    transition: "opacity 0.15s",
-  },
-
-  // Differentiation
-  differentiator: {
-    paddingTop: 60,
-    paddingBottom: 60,
-  },
-  diffGrid: {
-    display: "grid",
-    gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))",
-    gap: 24,
-  },
-  diffCard: {
-    padding: 24,
-    background: "rgba(255, 255, 255, 0.04)",
-    border: "1px solid rgba(255, 255, 255, 0.08)",
-    borderRadius: 12,
-    textAlign: "center",
-  },
-  diffCardTitle: {
-    fontSize: 16,
-    fontWeight: 800,
-    margin: "0 0 8px",
-  },
-  diffCardDesc: {
-    fontSize: 14,
-    color: tokens.textMuted,
-    margin: 0,
-    lineHeight: 1.5,
-  },
-
-  // Merch strip
-  merchStrip: {
-    paddingTop: 60,
-    paddingBottom: 60,
-    borderTop: `1px solid rgba(255, 255, 255, 0.08)`,
-    borderBottom: `1px solid rgba(255, 255, 255, 0.08)`,
-  },
-  merchTitle: {
-    fontSize: 24,
-    fontWeight: 900,
-    margin: "0 0 8px",
-    textAlign: "center",
-  },
-  merchSubtitle: {
-    fontSize: 14,
-    color: tokens.textMuted,
-    textAlign: "center",
-    margin: "0 0 32px",
-  },
-  merchGrid: {
-    display: "grid",
-    gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))",
-    gap: 20,
-  },
-  merchItem: {
-    padding: 20,
-    background: tokens.bgCardDark,
-    border: `1px solid rgba(255, 255, 255, 0.12)`,
-    borderRadius: 12,
-    textAlign: "center",
-  },
-  merchName: {
-    fontSize: 16,
-    fontWeight: 800,
-    margin: "0 0 8px",
-  },
-  merchPrice: {
-    fontSize: 18,
-    fontWeight: 900,
-    color: tokens.accentAmber,
-    margin: "0 0 8px",
-  },
-  merchDesc: {
-    fontSize: 13,
-    color: tokens.textMuted,
-    margin: "0 0 16px",
-    lineHeight: 1.4,
-  },
-
-  // Other editions
-  otherEditions: {
-    paddingTop: 60,
-    paddingBottom: 60,
-  },
-  editionsGrid: {
-    display: "grid",
-    gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))",
-    gap: 20,
-  },
-  editionCard: {
-    display: "flex",
-    flexDirection: "column",
-    padding: 20,
-    background: "rgba(255, 255, 255, 0.04)",
-    border: "1px solid rgba(255, 255, 255, 0.08)",
-    borderRadius: 12,
-    minHeight: 280,
-  },
-  editionPrice: {
-    fontSize: 18,
-    fontWeight: 900,
-    color: tokens.accentAmber,
-    margin: "0 0 8px",
-  },
-  editionTitle: {
-    fontSize: 18,
-    fontWeight: 900,
-    margin: "0 0 4px",
-  },
-  editionAudience: {
-    fontSize: 12,
-    color: tokens.textMuted,
-    margin: "0 0 12px",
-    fontWeight: 600,
-  },
-  editionDesc: {
-    fontSize: 14,
-    color: tokens.textMuted,
-    margin: "0 0 auto",
-    lineHeight: 1.5,
-  },
-  editionCta: {
-    marginTop: 16,
-    padding: "10px 14px",
-    borderRadius: 6,
-    fontSize: 13,
-    fontWeight: 800,
-    background: tokens.btnBlack,
-    color: tokens.textOnDark,
-    textDecoration: "none",
-    textAlign: "center",
-    display: "block",
-    transition: "opacity 0.15s",
-  },
-
-  // Institutional
-  institutionalSection: {
-    paddingTop: 40,
-    paddingBottom: 60,
-  },
-
-  // Footer
-  footer: {
-    paddingTop: 40,
-    paddingBottom: 40,
-    borderTop: `1px solid rgba(255, 255, 255, 0.08)`,
-  },
-  footerText: {
-    fontSize: 12,
-    color: tokens.textMuted,
-    textAlign: "center",
-    margin: 0,
-    lineHeight: 1.6,
-    maxWidth: 600,
-    marginLeft: "auto",
-    marginRight: "auto",
-  },
-};

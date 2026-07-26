@@ -25,7 +25,7 @@ export function ProductCard({
     gap: 12,
     padding: "20px 16px",
     borderRadius: 14,
-    background: tokens.bgCardDark,
+    background: "#ffffff",
     border: `1px solid rgba(255, 255, 255, 0.12)`,
   };
 
@@ -39,7 +39,7 @@ export function ProductCard({
   const nameStyle: React.CSSProperties = {
     fontSize: 14,
     fontWeight: 800,
-    color: tokens.textOnDark,
+    color: "#102344",
     margin: 0,
   };
 
@@ -55,7 +55,7 @@ export function ProductCard({
     padding: "4px 8px",
     borderRadius: 6,
     background: tokens.badgeBlue,
-    color: tokens.textOnDark,
+    color: "#102344",
     fontSize: 11,
     fontWeight: 800,
     margin: 0,
@@ -63,7 +63,7 @@ export function ProductCard({
 
   const descriptionStyle: React.CSSProperties = {
     fontSize: 12,
-    color: tokens.textMuted,
+    color: "#526b93",
     margin: 0,
     lineHeight: 1.4,
   };

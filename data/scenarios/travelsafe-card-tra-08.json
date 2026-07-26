@@ -4,13 +4,13 @@
   "edition": "travelsafe",
   "cardType": "scenario",
   "scored": true,
-  "category": "Identity/Documents",
+  "category": "Hotel bookings",
   "scenario": "A hotel email says your reservation will be cancelled unless you re-enter your card.",
   "answers": {
-    "A": "Click/pay immediately to avoid losing the booking or offer.",
-    "B": "Forward it to a fellow traveller and ask what they think.",
-    "C": "Check inside the official app, booking, provider, or government site.",
-    "D": "Ignore/report the message and use a known contact route."
+    "A": "Re-enter your card through the cancellation email.",
+    "B": "Reply to the email and ask for a new payment deadline.",
+    "C": "Open the booking platform or hotel app and check the reservation.",
+    "D": "Call the hotel using the number in your booking confirmation."
   },
   "scores": {
     "A": 0,
@@ -22,8 +22,8 @@
     "C",
     "D"
   ],
-  "explanation": "Hotel Booking Clone: the trap is to collect private data, images, or documents under pressure. The safer move is to verify through an official or approved channel, not to click or follow the risky request.",
-  "proTip": "Booking changes should be confirmed in the hotel or platform account.",
+  "explanation": "Cancellation threats exploit a booking you care about. The reservation record and a known hotel number are safer than the message link.",
+  "proTip": "Never solve a booking problem through the message that created the panic.",
   "hackKey": "H",
   "hackTrigger": "Hurry",
   "tags": [

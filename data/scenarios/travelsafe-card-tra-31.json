@@ -4,13 +4,13 @@
   "edition": "travelsafe",
   "cardType": "scenario",
   "scored": true,
-  "category": "Airline/Hotel",
+  "category": "Baggage",
   "scenario": "A text says your bag was found and requires a customs release fee.",
   "answers": {
-    "A": "Check inside the official app, booking, provider, or government site.",
-    "B": "Click/pay immediately to avoid losing the booking or offer.",
-    "C": "Ignore/report the message and use a known contact route.",
-    "D": "Forward it to a fellow traveller and ask what they think."
+    "A": "Track the bag through the airline official baggage system.",
+    "B": "Pay the customs fee through the text link.",
+    "C": "Ask the baggage desk or airline number on your report.",
+    "D": "Reply with your baggage tag number so they can release it."
   },
   "scores": {
     "A": 4,
@@ -22,8 +22,8 @@
     "A",
     "C"
   ],
-  "explanation": "Lost Luggage Tracker: the trap is to make money or value leave before the story is verified. The safer move is to verify through an official or approved channel, not to click or follow the risky request.",
-  "proTip": "Track baggage through airline baggage systems.",
+  "explanation": "Lost-bag stress makes a fee request feel like good news. Verify the bag through the airline case number and known staff.",
+  "proTip": "A baggage tag is not proof that the person texting you is the airline.",
   "hackKey": "A",
   "hackTrigger": "Authority",
   "tags": [

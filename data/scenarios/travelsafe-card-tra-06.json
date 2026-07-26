@@ -4,13 +4,13 @@
   "edition": "travelsafe",
   "cardType": "scenario",
   "scored": true,
-  "category": "Airline/Hotel",
+  "category": "Airline loyalty",
   "scenario": "A message says your miles expire tonight unless you refresh activity through a link.",
   "answers": {
-    "A": "Check inside the official app, booking, provider, or government site.",
-    "B": "Click/pay immediately to avoid losing the booking or offer.",
-    "C": "Ignore/report the message and use a known contact route.",
-    "D": "Forward it to a fellow traveller and ask what they think."
+    "A": "Check the expiry date in the loyalty app.",
+    "B": "Click the link and buy something to keep the miles alive.",
+    "C": "Open the airline site yourself and review your miles activity.",
+    "D": "Ask a travel companion whether the message looks real."
   },
   "scores": {
     "A": 4,
@@ -22,8 +22,8 @@
     "A",
     "C"
   ],
-  "explanation": "Miles Expiry Panic: the trap is to move you from a trusted channel to a fake page. The safer move is to verify through an official or approved channel, not to click or follow the risky request.",
-  "proTip": "Check expiry dates after logging in directly.",
+  "explanation": "Expiry panic is meant to rush you into a fake page or unnecessary purchase. Check the account directly before acting.",
+  "proTip": "A genuine balance and expiry date are visible after you sign in normally.",
   "hackKey": "A",
   "hackTrigger": "Authority",
   "tags": [

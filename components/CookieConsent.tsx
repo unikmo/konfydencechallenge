@@ -22,7 +22,7 @@ export function CookieConsent() {
       setShowConsent(true);
     } else if (consentGiven === "accepted") {
       // Consent Mode defaults analytics_storage to "denied" on every page load
-      // (see app/layout.tsx) — without this, a returning visitor who already
+      // (see app/layout.tsx) â€” without this, a returning visitor who already
       // accepted would still have analytics silently blocked on every visit
       // after the first, since the "granted" update was only ever sent once.
       window.gtag?.("consent", "update", {
@@ -116,7 +116,7 @@ export function CookieConsent() {
     <div style={containerStyle}>
       <div style={contentStyle}>
         <div style={textStyle}>
-          We use cookies to improve your experience and for analytics. By using our site, you agree to our{" "}
+          Optional analytics cookies are off until you choose Accept All. Choose Accept All or Reject All, or read our{" "}
           <Link href="/privacy-policy" style={linkStyle}>
             Privacy Policy
           </Link>{" "}

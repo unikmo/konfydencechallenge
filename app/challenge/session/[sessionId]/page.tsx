@@ -5,6 +5,7 @@ import { prisma } from "@/lib/prisma";
 import { EDITION_LABELS } from "@/lib/challenge/labels";
 import { getCurrentChallengeCard } from "@/lib/challenge/sessionGenerator";
 import { SessionEventHooks, AnswerTrackerForm } from "@/components/SessionEventHooks";
+import { getScenarioInteraction } from "@/lib/challenge/interactionTypes";
 
 const ANSWER_KEYS = ["A", "B", "C", "D"] as const;
 
@@ -55,6 +56,7 @@ export default async function SessionPage({ params }: { params: { sessionId: str
     where: { id: current.scenarioId },
     select: {
       id: true,
+      externalId: true,
       title: true,
       prompt: true,
       answersA: true,
@@ -65,6 +67,11 @@ export default async function SessionPage({ params }: { params: { sessionId: str
   });
 
   if (!scenario) notFound();
+
+  const interaction = getScenarioInteraction(scenario.externalId);
+  const completionPrompt = interaction.type === "completion"
+    ? scenario.prompt.replace(/[.!?]\\s*$/, "") + " - safest next move: ____"
+    : scenario.prompt;
 
   const answers = {
     A: scenario.answersA,
@@ -110,7 +117,11 @@ export default async function SessionPage({ params }: { params: { sessionId: str
 
           <h1>{scenario.title ?? `Scenario ${questionNumber}`}</h1>
 
-          <p className="prompt">{scenario.prompt}</p>
+          <div className="interactionMeta">
+            {interaction.type === "completion" ? "Complete the safer next move" : "Choose your response"}
+          </div>
+          <p className="prompt">{completionPrompt}</p>
+          {interaction.lightLine ? <p className="lightLine">{interaction.lightLine}</p> : null}
 
           <SessionEventHooks
             sessionId={sessionId}
@@ -143,8 +154,7 @@ export default async function SessionPage({ params }: { params: { sessionId: str
       <style>{`
         .page {
           min-height: 100vh;
-          background: #08111f;
-          color: #ffffff;
+          background: #f4f7fb; color: #102344;
           padding: 24px 16px;
           display: flex;
           justify-content: center;
@@ -165,7 +175,7 @@ export default async function SessionPage({ params }: { params: { sessionId: str
 
         .navLink,
         .link {
-          color: #dbeafe;
+          color: #365477;
           font-weight: 700;
           text-decoration: none;
         }
@@ -175,7 +185,7 @@ export default async function SessionPage({ params }: { params: { sessionId: str
           color: #0f172a;
           border-radius: 14px;
           padding: 24px;
-          box-shadow: 0 18px 40px rgba(0, 0, 0, 0.22);
+          box-shadow: 0 12px 30px rgba(16, 35, 68, 0.1);
         }
 
         .meta {
@@ -244,6 +254,22 @@ export default async function SessionPage({ params }: { params: { sessionId: str
           font-size: 17px;
           line-height: 1.55;
           color: #0f172a;
+        }
+
+        .interactionMeta {
+          margin: 0 0 7px;
+          color: #12639d;
+          font-size: 12px;
+          font-weight: 900;
+          text-transform: uppercase;
+          letter-spacing: .04em;
+        }
+
+        .lightLine {
+          margin: -7px 0 16px;
+          color: #b76500;
+          font-size: 13px;
+          font-weight: 800;
         }
 
         .answers {

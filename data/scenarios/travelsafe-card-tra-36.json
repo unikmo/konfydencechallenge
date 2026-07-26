@@ -4,13 +4,13 @@
   "edition": "travelsafe",
   "cardType": "scenario",
   "scored": true,
-  "category": "Airline/Hotel",
-  "scenario": "A text says mobile key setup requires your hotel login through a shortened link.",
+  "category": "Hotels & apps",
+  "scenario": "A text says mobile-key setup requires your hotel login through a shortened link.",
   "answers": {
-    "A": "Check inside the official app, booking, provider, or government site.",
-    "B": "Click/pay immediately to avoid losing the booking or offer.",
-    "C": "Ignore/report the message and use a known contact route.",
-    "D": "Forward it to a fellow traveller and ask what they think."
+    "A": "Set up the key inside the hotel app or at reception.",
+    "B": "Enter your hotel password through the shortened link.",
+    "C": "Call the hotel using the number in your booking.",
+    "D": "Open the link but use a password you do not use elsewhere."
   },
   "scores": {
     "A": 4,
@@ -22,8 +22,8 @@
     "A",
     "C"
   ],
-  "explanation": "Hotel Room Key App: the trap is to get access to an account, code, password, or permission. The safer move is to verify through an official or approved channel, not to click or follow the risky request.",
-  "proTip": "Set up mobile keys inside the hotel app.",
+  "explanation": "A shortened link hides the destination and can lead to a fake sign-in page. Use the hotel app or staff at reception.",
+  "proTip": "Short links are for hiding destinations, not proving them.",
   "hackKey": "A",
   "hackTrigger": "Authority",
   "tags": [

@@ -4,13 +4,13 @@
   "edition": "travelsafe",
   "cardType": "scenario",
   "scored": true,
-  "category": "Public Networks",
-  "scenario": "A hotel account offers a refund for a bad review if you share booking login.",
+  "category": "Hotel platforms",
+  "scenario": "A hotel account offers a refund for a bad review if you share your booking login.",
   "answers": {
-    "A": "Click/pay immediately to avoid losing the booking or offer.",
-    "B": "Check inside the official app, booking, provider, or government site.",
-    "C": "Ignore/report the message and use a known contact route.",
-    "D": "Forward it to a fellow traveller and ask what they think."
+    "A": "Share your booking password to receive the refund.",
+    "B": "Contact the platform through its official support channel.",
+    "C": "Check the booking message inside the platform before responding.",
+    "D": "Send the booking number but keep the password private."
   },
   "scores": {
     "A": 0,
@@ -22,8 +22,8 @@
     "B",
     "C"
   ],
-  "explanation": "Fake Hotel Review Refund: the trap is to make money or value leave before the story is verified. The safer move is to verify through an official or approved channel, not to click or follow the risky request.",
-  "proTip": "Never share booking-platform passwords.",
+  "explanation": "A refund should be handled in the platform account. A request for login access turns a service complaint into an account-takeover attempt.",
+  "proTip": "A refund can need a booking number; it never needs your password.",
   "hackKey": "A",
   "hackTrigger": "Authority",
   "tags": [

@@ -4,13 +4,13 @@
   "edition": "travelsafe",
   "cardType": "scenario",
   "scored": true,
-  "category": "Transit",
+  "category": "Attractions",
   "scenario": "A QR outside a museum sells skip-line tickets at a discount.",
   "answers": {
-    "A": "Click/pay immediately to avoid losing the booking or offer.",
-    "B": "Check inside the official app, booking, provider, or government site.",
-    "C": "Forward it to a fellow traveller and ask what they think.",
-    "D": "Ignore/report the message and use a known contact route."
+    "A": "Scan and pay because the queue is getting longer.",
+    "B": "Buy tickets from the museum or its verified ticket partner.",
+    "C": "Scan the QR but check the final URL only after entering your card.",
+    "D": "Ask the museum desk whether the QR and seller are official."
   },
   "scores": {
     "A": 0,
@@ -22,8 +22,8 @@
     "B",
     "D"
   ],
-  "explanation": "Museum Skip-Line QR: the trap is to move you from a trusted channel to a fake page. The safer move is to verify through an official or approved channel, not to click or follow the risky request.",
-  "proTip": "Buy from museum or verified ticket partners.",
+  "explanation": "Queues create urgency, but a QR code does not identify the seller. Verify with the museum before paying.",
+  "proTip": "The queue is inconvenient; losing card details is worse.",
   "hackKey": "K",
   "hackTrigger": "Kill-Switch",
   "tags": [

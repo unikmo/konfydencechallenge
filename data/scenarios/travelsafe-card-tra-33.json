@@ -4,13 +4,13 @@
   "edition": "travelsafe",
   "cardType": "scenario",
   "scored": true,
-  "category": "Identity/Documents",
+  "category": "Vacation rentals",
   "scenario": "A host asks you to leave the platform and wire the deposit.",
   "answers": {
-    "A": "Click/pay immediately to avoid losing the booking or offer.",
-    "B": "Forward it to a fellow traveller and ask what they think.",
-    "C": "Check inside the official app, booking, provider, or government site.",
-    "D": "Ignore/report the message and use a known contact route."
+    "A": "Wire the deposit directly to hold the property.",
+    "B": "Send the deposit after checking the host social profile.",
+    "C": "Keep the deposit and messages inside the booking platform.",
+    "D": "Contact platform support before sending anything off-platform."
   },
   "scores": {
     "A": 0,
@@ -22,8 +22,8 @@
     "C",
     "D"
   ],
-  "explanation": "Vacation Rental Deposit: the trap is to collect private data, images, or documents under pressure. The safer move is to verify through an official or approved channel, not to click or follow the risky request.",
-  "proTip": "Off-platform payments remove protection.",
+  "explanation": "Off-platform payment removes the platform protection and makes a fake listing harder to recover. Keep the whole transaction inside the booking system.",
+  "proTip": "A real host can use the platform they listed on.",
   "hackKey": "A",
   "hackTrigger": "Authority",
   "tags": [

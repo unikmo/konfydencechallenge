@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   // absolute: stops root layout's title template from double-appending " | Konfydence".
   title: { absolute: "Konfydence Merch | Wallet Card & Fridge Magnet" },
   description:
-    "Physical reminders of the HACK framework — a wallet-sized scam-check card and a fridge magnet, built to keep pressure-tactic red flags visible at the moment they matter.",
+    "Physical reminders of the HACK framework â€” a wallet-sized scam-check card and a fridge magnet, built to keep pressure-tactic red flags visible at the moment they matter.",
 };
 
 export default function ProductsPage() {
@@ -23,27 +23,27 @@ export default function ProductsPage() {
           <Link href="/challenge" style={styles.link}>Try the Challenge</Link>
         </header>
         <p style={styles.eyebrow}>Konfydence Safety Suite</p>
-        <h1 style={styles.title}>Keep the safer action visible.</h1>
-        <p style={styles.lede}>Practical reminders for homes and workspaces. These products are separate from the Konfydence Challenge game.</p>
+        <h1 style={styles.title}>Keep the pause close when pressure hits.</h1>
+        <p style={styles.lede}>Small, physical cues that help you slow down, verify the request, and protect the people and workspaces that matter to you.</p>
 
         <section style={styles.grid} aria-label="Safety Suite products">
           <ProductCard
             name="KonfyGuard Wallet Card"
             price="$14.99"
-            description="Pocket-sized HACK pressure reminder. Keep it where you keep your credit cards."
+            description="A pocket-sized HACK reminder for the moments a message, call, or payment request feels urgent. Keep the pause within reach."
             variant="paid"
-            cta={<CheckoutRedirectButton sku="KG-WALLET" label="Add to cart — $14.99" />}
+            cta={<CheckoutRedirectButton sku="KG-WALLET" label="Add to cart â€” $14.99" />}
           />
           <ProductCard
             name="KonfyGuard Fridge Magnet"
             price="$9.99"
-            description="A visible household reminder to pause and verify."
+            description="Make the safer question part of the household routine: pause, verify, then act."
             variant="paid"
-            cta={<CheckoutRedirectButton sku="KG-MAGNET" label="Add to cart — $9.99" />}
+            cta={<CheckoutRedirectButton sku="KG-MAGNET" label="Add to cart â€” $9.99" />}
           />
           <ProductCard
             name="Phone Lockscreen"
-            description="A daily prompt to keep safer action visible."
+            description="A quiet daily prompt on the screen you check most: pause before you tap."
             variant="free"
             cta={
               <a href="/assets/lockscreens/konfyguard-phone-lockscreen.pdf" download style={styles.downloadLink}>
@@ -53,7 +53,7 @@ export default function ProductsPage() {
           />
           <ProductCard
             name="Computer Lockscreen"
-            description="A calm reminder for shared workspaces."
+            description="Keep a visible pause cue where work messages and payment requests arrive."
             variant="free"
             cta={
               <a href="/assets/lockscreens/konfyguard-computer-lockscreen.pdf" download style={styles.downloadLink}>
@@ -64,7 +64,7 @@ export default function ProductsPage() {
         </section>
 
         <section style={styles.next}>
-          <div><p style={styles.type}>Separate experience</p><h2 style={styles.nextTitle}>Practise under pressure.</h2><p style={styles.description}>Open the scenario-based decision game when you want to test your response.</p></div>
+          <div><p style={styles.type}>Separate experience</p><h2 style={styles.nextTitle}>Want to practise the pause?</h2><p style={styles.description}>Try realistic pressure scenarios and see how you respond before the moment is real.</p></div>
           <Link href="/challenge" style={styles.button}>Open Challenge</Link>
         </section>
         <footer style={styles.footer}><Link href="/" style={styles.link}>Konfydence home</Link><Link href="/pricing" style={styles.link}>Pricing</Link></footer>
@@ -90,12 +90,12 @@ const styles: Record<string, React.CSSProperties> = {
     display: "inline-flex",
     justifyContent: "center",
     width: "100%",
-    color: tokens.badgeBlue,
+    color: tokens.badgeBlue, background: "#eaf3ff",
     fontWeight: 850,
     textDecoration: "none",
     border: `1px solid ${tokens.badgeBlue}`,
     borderRadius: 999,
-    padding: "10px 14px",
+    padding: "11px 14px",
     fontSize: 13,
   },
   next: { marginTop: 28, padding: 26, background: "#0b1f3a", color: "#fff", borderRadius: 8, display: "flex", alignItems: "center", justifyContent: "space-between", gap: 24, flexWrap: "wrap" },

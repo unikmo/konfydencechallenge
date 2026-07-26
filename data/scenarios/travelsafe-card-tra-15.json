@@ -4,13 +4,13 @@
   "edition": "travelsafe",
   "cardType": "scenario",
   "scored": true,
-  "category": "Public Networks",
-  "scenario": "A rental company message claims damage after return and asks you to pay through a link.",
+  "category": "Car hire",
+  "scenario": "After returning a rental car, a message claims damage and asks you to pay through a link.",
   "answers": {
-    "A": "Click/pay immediately to avoid losing the booking or offer.",
-    "B": "Check inside the official app, booking, provider, or government site.",
-    "C": "Ignore/report the message and use a known contact route.",
-    "D": "Forward it to a fellow traveller and ask what they think."
+    "A": "Pay the claim through the message before the dispute window closes.",
+    "B": "Check the damage claim in the rental company official account.",
+    "C": "Call the rental office using the number on your agreement.",
+    "D": "Send a photo of the car to the message sender for comparison."
   },
   "scores": {
     "A": 0,
@@ -22,8 +22,8 @@
     "B",
     "C"
   ],
-  "explanation": "Rental Car Damage Photo: the trap is to make money or value leave before the story is verified. The safer move is to verify through an official or approved channel, not to click or follow the risky request.",
-  "proTip": "Disputes should be handled through the rental company’s official process.",
+  "explanation": "Damage disputes need the rental company documented process. A payment link can bypass evidence, insurance, and the dispute route.",
+  "proTip": "Use the agreement and official account as your source of truth.",
   "hackKey": "A",
   "hackTrigger": "Authority",
   "tags": [

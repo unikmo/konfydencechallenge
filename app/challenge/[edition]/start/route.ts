@@ -1,32 +1,36 @@
-import { NextRequest, NextResponse } from "next/server";
 import { randomUUID } from "crypto";
+import { NextRequest, NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
 import { EDITION_LABELS, type ChallengeEdition } from "@/lib/challenge/labels";
 import type { ChallengeMode } from "@/lib/challenge/sessionGenerator";
-import { createChallengeSessionForVisitor } from "@/lib/challenge/startSessionUtil";
+import {
+  createChallengeSessionForVisitor,
+  ensureVisitorUser,
+  isGuestEmail,
+} from "@/lib/challenge/startSessionUtil";
 
 const EDITIONS = new Set<string>(Object.keys(EDITION_LABELS));
+const FREE_DIAGNOSTIC_ROUNDS = 2;
 
 const KF_UID_COOKIE_OPTIONS = {
-  // httpOnly: nothing client-side actually reads this cookie (checked — no
-  // document.cookie access anywhere in the app), so there's no reason to expose
-  // it to page JS/XSS. It's the sole identifier behind paid entitlements, so
-  // treat it like a session token: httpOnly + secure.
   httpOnly: true,
   secure: process.env.NODE_ENV === "production",
   sameSite: "lax" as const,
-  maxAge: 60 * 60 * 24 * 365, // 1 year
+  maxAge: 60 * 60 * 24 * 365,
   path: "/",
 };
 
-// This used to be a page.tsx (plain Server Component). It's now a route handler
-// because assigning every visitor a stable kf_uid cookie — the same identifier
-// already used for entitlements/checkout — requires setting a cookie, and Next.js
-// only allows cookie mutation from Route Handlers or Server Actions, not from a
-// page's render. Without a per-visitor id, every free/diagnostic play was being
-// attributed to one shared placeholder user (see startSessionUtil.ts), which broke
-// per-visitor "don't repeat a scenario" logic. The URL shape is unchanged, so no
-// links elsewhere in the app needed updating.
+function redirectWithVisitorCookie(
+  request: NextRequest,
+  destination: string,
+  kfUid: string,
+  existingKfUid: string | undefined
+) {
+  const response = NextResponse.redirect(new URL(destination, request.url));
+  if (!existingKfUid) response.cookies.set("kf_uid", kfUid, KF_UID_COOKIE_OPTIONS);
+  return response;
+}
+
 export async function GET(request: NextRequest, { params }: { params: { edition: string } }) {
   const raw = (params.edition ?? "").toLowerCase();
 
@@ -37,30 +41,101 @@ export async function GET(request: NextRequest, { params }: { params: { edition:
   const edition = raw as ChallengeEdition;
   const modeParam = request.nextUrl.searchParams.get("mode");
   const mode: ChallengeMode = modeParam === "diagnostic" ? "diagnostic" : "full";
-
   const existingKfUid = request.cookies.get("kf_uid")?.value;
   const kfUid = existingKfUid ?? randomUUID();
+  const user = await ensureVisitorUser(kfUid);
 
-  if (mode === "full") {
-    const user = await prisma.user.findUnique({
-      where: { id: kfUid },
-      include: { entitlements: { where: { status: "active" } } },
+  if (mode === "diagnostic") {
+    // Never create a duplicate round when the player has paused or refreshed.
+    const inProgress = await prisma.challengeSession.findFirst({
+      where: { userId: user.id, edition, mode, status: "IN_PROGRESS" },
+      orderBy: { updatedAt: "desc" },
+      select: { id: true },
     });
 
-    const hasAccess = !!user?.entitlements?.some(
-      (e) => e.tier === "unlimited" || (e.tier === "single" && e.edition === edition)
-    );
+    if (inProgress) {
+      return redirectWithVisitorCookie(
+        request,
+        `/challenge/session/${inProgress.id}`,
+        kfUid,
+        existingKfUid
+      );
+    }
 
-    if (!hasAccess) {
-      const res = NextResponse.redirect(new URL(`/pricing?edition=${edition}`, request.url));
-      if (!existingKfUid) res.cookies.set("kf_uid", kfUid, KF_UID_COOKIE_OPTIONS);
-      return res;
+    const diagnosticCount = await prisma.challengeSession.count({
+      where: { userId: user.id, mode: "diagnostic" },
+    });
+
+    if (diagnosticCount >= FREE_DIAGNOSTIC_ROUNDS) {
+      return redirectWithVisitorCookie(
+        request,
+        `/pricing?edition=${edition}&reason=free-limit`,
+        kfUid,
+        existingKfUid
+      );
+    }
+
+    // The second 10-question round is an email-capture benefit, not an
+    // anonymous replay. The first round remains frictionless.
+    if (diagnosticCount >= 1 && isGuestEmail(user.email)) {
+      const next = `/challenge/${edition}/start?mode=diagnostic`;
+      return redirectWithVisitorCookie(
+        request,
+        `/challenge/register?next=${encodeURIComponent(next)}`,
+        kfUid,
+        existingKfUid
+      );
     }
   }
 
-  const { sessionId } = await createChallengeSessionForVisitor({ kfUid, edition, mode });
+  if (mode === "full") {
+    const hasAccess = !!(await prisma.entitlement.findFirst({
+      where: {
+        userId: user.id,
+        status: "active",
+        OR: [
+          { tier: "unlimited" },
+          { tier: "single", edition },
+        ],
+      },
+      select: { id: true },
+    }));
 
-  const res = NextResponse.redirect(new URL(`/challenge/session/${sessionId}`, request.url));
-  if (!existingKfUid) res.cookies.set("kf_uid", kfUid, KF_UID_COOKIE_OPTIONS);
-  return res;
+    if (!hasAccess) {
+      return redirectWithVisitorCookie(
+        request,
+        `/pricing?edition=${edition}`,
+        kfUid,
+        existingKfUid
+      );
+    }
+
+    const inProgress = await prisma.challengeSession.findFirst({
+      where: { userId: user.id, edition, mode, status: "IN_PROGRESS" },
+      orderBy: { updatedAt: "desc" },
+      select: { id: true },
+    });
+
+    if (inProgress) {
+      return redirectWithVisitorCookie(
+        request,
+        `/challenge/session/${inProgress.id}`,
+        kfUid,
+        existingKfUid
+      );
+    }
+  }
+
+  const { sessionId } = await createChallengeSessionForVisitor({
+    kfUid,
+    edition,
+    mode,
+  });
+
+  return redirectWithVisitorCookie(
+    request,
+    `/challenge/session/${sessionId}`,
+    kfUid,
+    existingKfUid
+  );
 }

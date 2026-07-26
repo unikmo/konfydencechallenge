@@ -4,13 +4,13 @@
   "edition": "travelsafe",
   "cardType": "scenario",
   "scored": true,
-  "category": "Transit",
-  "scenario": "A social ad promises a huge points-transfer bonus but sends you to a strange domain.",
+  "category": "Points & banking",
+  "scenario": "A social ad promises a huge points-transfer bonus but sends you to an unfamiliar domain.",
   "answers": {
-    "A": "Click/pay immediately to avoid losing the booking or offer.",
-    "B": "Check inside the official app, booking, provider, or government site.",
-    "C": "Forward it to a fellow traveller and ask what they think.",
-    "D": "Ignore/report the message and use a known contact route."
+    "A": "Enter your login and transfer points before the bonus ends.",
+    "B": "Check the offer on your bank or loyalty programme website.",
+    "C": "Share the ad with a friend and ask if they recognise the domain.",
+    "D": "Ignore the ad and use the issuer's saved contact route."
   },
   "scores": {
     "A": 0,
@@ -22,8 +22,8 @@
     "B",
     "D"
   ],
-  "explanation": "Transfer Bonus Ad: the trap is to pull you away from the normal verification path. The safer move is to verify through an official or approved channel, not to click or follow the risky request.",
-  "proTip": "Bank transfer bonuses should be verified through the issuer’s site.",
+  "explanation": "The unusual domain is the signal. Points bonuses should be confirmed by the issuer, not by an ad-controlled landing page.",
+  "proTip": "Treat an unfamiliar domain as unverified, however large the bonus looks.",
   "hackKey": "C",
   "hackTrigger": "Connection",
   "tags": [

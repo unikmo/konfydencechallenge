@@ -2,6 +2,7 @@ import React from "react";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { prisma } from "@/lib/prisma";
+import { getFeedbackComment } from "@/lib/challenge/feedbackCopy";
 
 export default async function FeedbackPage({ params }: { params: { sessionId: string } }) {
   const sessionId = params.sessionId;
@@ -24,6 +25,7 @@ export default async function FeedbackPage({ params }: { params: { sessionId: st
       score: true,
       scenario: {
         select: {
+          externalId: true,
           safeActions: true,
           explanation: true,
           answersA: true,
@@ -68,10 +70,10 @@ export default async function FeedbackPage({ params }: { params: { sessionId: st
 
   const selectedAnswerKey = card.selectedAnswerKey as "A" | "B" | "C" | "D";
 
-  // Best single safe option, ranked by score — used for the 1pt / 2-3pt "SAFER OPTION" (singular).
+  // Best single safe option, ranked by score ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â used for the 1pt / 2-3pt "SAFER OPTION" (singular).
   const bestSafeAction = [...safeActions].sort((a, b) => answerScore[b] - answerScore[a])[0] ?? null;
 
-  // Spec §7 (Screen 3 — Feedback card): exact copy per point bucket.
+  // Spec Ãƒâ€šÃ‚Â§7 (Screen 3 ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â Feedback card): exact copy per point bucket.
   const reinforcement = (() => {
     switch (reinforcementBucket) {
       case 4:
@@ -86,7 +88,7 @@ export default async function FeedbackPage({ params }: { params: { sessionId: st
       case 2:
         return {
           tone: "risk" as const,
-          title: "Close — but not safest.",
+          title: "Close ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â but not safest.",
           scoreLabel: `${reinforcementBucket} points`,
           body: "This might work, but it still leaves room for impersonation, pressure, or a risky shortcut.",
           saferMode: "single" as const,
@@ -109,6 +111,15 @@ export default async function FeedbackPage({ params }: { params: { sessionId: st
         };
     }
   })();
+
+  const previousCards = await prisma.challengeSessionCard.findMany({
+    where: { sessionId, orderIndex: { lt: answeredOrderIndex }, score: { not: null } },
+    select: { score: true },
+  });
+  const sameScoreOrdinal = previousCards.filter((previousCard) =>
+    previousCard.score !== null && Math.max(0, Math.min(4, Math.trunc(previousCard.score))) === reinforcementBucket,
+  ).length;
+  const feedbackComment = getFeedbackComment(reinforcementBucket, sessionId, sameScoreOrdinal);
 
   const isStrongChoice = reinforcement.tone === "good";
   const saferKeysToShow = reinforcement.saferMode === "all" ? safeActions : reinforcement.saferMode === "single" && bestSafeAction ? [bestSafeAction] : [];
@@ -146,6 +157,7 @@ export default async function FeedbackPage({ params }: { params: { sessionId: st
               </div>
               <h1 className="title">{reinforcement.title}</h1>
               <p className="body">{reinforcement.body}</p>
+              <p className="coachComment">{feedbackComment}</p>
             </div>
             <div className={isStrongChoice ? "scoreBox good" : "scoreBox risk"}>{reinforcement.scoreLabel}</div>
           </div>
@@ -191,8 +203,7 @@ export default async function FeedbackPage({ params }: { params: { sessionId: st
       <style>{`
         .page {
           min-height: 100vh;
-          background: #08111f;
-          color: #ffffff;
+          background: #f4f7fb; color: #102344;
           padding: 24px 16px;
           display: flex;
           justify-content: center;
@@ -212,17 +223,16 @@ export default async function FeedbackPage({ params }: { params: { sessionId: st
         }
 
         .headerLink {
-          color: #dbeafe;
+          color: #365477;
           text-decoration: none;
           font-weight: 800;
         }
 
         .card {
-          background: #0b1f3a;
-          color: #ffffff;
+          background: #ffffff; color: #102344;
           border-radius: 16px;
           padding: 24px;
-          box-shadow: 0 18px 40px rgba(0, 0, 0, 0.28);
+          box-shadow: 0 12px 30px rgba(16, 35, 68, 0.1);
           border: 3px solid #ffb31d;
         }
 
@@ -288,8 +298,16 @@ export default async function FeedbackPage({ params }: { params: { sessionId: st
           margin: 0;
           font-size: 15px;
           line-height: 1.5;
-          color: rgba(255, 255, 255, 0.88);
+          color: #526b93;
           font-weight: 700;
+        }
+
+        .coachComment {
+          margin: 10px 0 0;
+          color: #9a4d00;
+          font-size: 14px;
+          line-height: 1.45;
+          font-weight: 850;
         }
 
         .scoreBox {
@@ -324,7 +342,7 @@ export default async function FeedbackPage({ params }: { params: { sessionId: st
           font-weight: 950;
           text-transform: uppercase;
           letter-spacing: 0.04em;
-          color: #dbeafe;
+          color: #365477;
         }
 
         .subLabel {
@@ -332,8 +350,7 @@ export default async function FeedbackPage({ params }: { params: { sessionId: st
           font-weight: 950;
           text-transform: uppercase;
           letter-spacing: 0.04em;
-          color: #ffb31d;
-          margin-bottom: 10px;
+          color: #b76500; margin-bottom: 10px;
         }
 
         .answerBox {
@@ -344,7 +361,7 @@ export default async function FeedbackPage({ params }: { params: { sessionId: st
           border-radius: 14px;
           padding: 14px;
           border: 1px solid rgba(255, 179, 29, 0.35);
-          background: rgba(11, 31, 58, 0.4);
+          background: #f8fafc;
         }
 
         .answerBox span {
@@ -355,7 +372,7 @@ export default async function FeedbackPage({ params }: { params: { sessionId: st
           justify-content: center;
           border-radius: 999px;
           font-weight: 950;
-          background: rgba(255, 179, 29, 0.18);
+          background: #f2a900;
           color: #ffb31d;
         }
 
@@ -365,7 +382,7 @@ export default async function FeedbackPage({ params }: { params: { sessionId: st
 
         .selected {
           border-color: rgba(255, 179, 29, 0.95);
-          background: rgba(255, 179, 29, 0.08);
+          background: #fff8e7;
           box-shadow: 0 0 0 3px rgba(255, 179, 29, 0.12);
         }
 
@@ -384,13 +401,13 @@ export default async function FeedbackPage({ params }: { params: { sessionId: st
           border-radius: 14px;
           padding: 16px;
           border: 1px solid rgba(255, 179, 29, 0.35);
-          background: rgba(255, 255, 255, 0.03);
+          background: #f8fafc;
         }
 
         .learnText {
           margin: 0;
           line-height: 1.55;
-          color: rgba(255, 255, 255, 0.92);
+          color: #334d72;
           font-weight: 800;
         }
 
@@ -404,16 +421,14 @@ export default async function FeedbackPage({ params }: { params: { sessionId: st
           justify-content: center;
           align-items: center;
           border-radius: 16px;
-          background: rgba(255, 179, 29, 0.12);
-          border: 2px solid rgba(255, 179, 29, 0.85);
-          color: #ffffff;
+          background: #ffb31d; border: 2px solid #ffb31d; color: #102344;
           padding: 13px 16px;
           font-weight: 950;
           text-decoration: none;
         }
 
         .button:hover {
-          background: rgba(255, 179, 29, 0.18);
+          background: #f2a900;
         }
 
         @media (max-width: 640px) {
@@ -430,7 +445,15 @@ export default async function FeedbackPage({ params }: { params: { sessionId: st
             font-size: 21px;
           }
 
-          .scoreBox {
+          .coachComment {
+          margin: 10px 0 0;
+          color: #9a4d00;
+          font-size: 14px;
+          line-height: 1.45;
+          font-weight: 850;
+        }
+
+        .scoreBox {
             width: 100%;
           }
         }

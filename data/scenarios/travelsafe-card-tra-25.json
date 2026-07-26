@@ -4,13 +4,13 @@
   "edition": "travelsafe",
   "cardType": "scenario",
   "scored": true,
-  "category": "Public Networks",
-  "scenario": "A claims email asks for bank login to process a lost-bag payout.",
+  "category": "Travel insurance",
+  "scenario": "A claims email asks for your bank login to process a lost-bag payout.",
   "answers": {
-    "A": "Click/pay immediately to avoid losing the booking or offer.",
-    "B": "Check inside the official app, booking, provider, or government site.",
-    "C": "Ignore/report the message and use a known contact route.",
-    "D": "Forward it to a fellow traveller and ask what they think."
+    "A": "Enter your bank login so the payout can be released.",
+    "B": "Open the insurer app or website yourself and file the claim there.",
+    "C": "Call the insurer using the policy documents or official website.",
+    "D": "Send a screenshot of your bank account without the password."
   },
   "scores": {
     "A": 0,
@@ -22,8 +22,8 @@
     "B",
     "C"
   ],
-  "explanation": "Travel Insurance Claim: the trap is to make money or value leave before the story is verified. The safer move is to verify through an official or approved channel, not to click or follow the risky request.",
-  "proTip": "Insurers never need bank login credentials.",
+  "explanation": "An insurer may need payment details, never your bank login credentials. Use the claim portal you opened independently.",
+  "proTip": "A payout request should never require the key to your bank.",
   "hackKey": "A",
   "hackTrigger": "Authority",
   "tags": [

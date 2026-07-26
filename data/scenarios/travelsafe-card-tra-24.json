@@ -4,13 +4,13 @@
   "edition": "travelsafe",
   "cardType": "scenario",
   "scored": true,
-  "category": "Payments",
+  "category": "Airport services",
   "scenario": "A link sells lounge passes for half price and asks for passport details.",
   "answers": {
-    "A": "Check inside the official app, booking, provider, or government site.",
-    "B": "Click/pay immediately to avoid losing the booking or offer.",
-    "C": "Forward it to a fellow traveller and ask what they think.",
-    "D": "Ignore/report the message and use a known contact route."
+    "A": "Buy lounge access through the airline, card, or lounge operator.",
+    "B": "Upload your passport and pay through the discount link.",
+    "C": "Pay first, then send passport details only if the lounge requests them.",
+    "D": "Check the offer inside your airline or card account."
   },
   "scores": {
     "A": 4,
@@ -22,8 +22,8 @@
     "A",
     "D"
   ],
-  "explanation": "Airport Lounge Pass: the trap is to collect private data, images, or documents under pressure. The safer move is to verify through an official or approved channel, not to click or follow the risky request.",
-  "proTip": "Lounge access should be bought through airline, card, or lounge operator.",
+  "explanation": "Lounge access rarely needs a passport image at checkout. Verify the seller and share only what the operator genuinely needs.",
+  "proTip": "Discount plus unnecessary identity data is not a bargain.",
   "hackKey": "K",
   "hackTrigger": "Kill-Switch",
   "tags": [

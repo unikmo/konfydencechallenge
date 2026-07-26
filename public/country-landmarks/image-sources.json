@@ -1,0 +1,1509 @@
+{
+  "burundi": {
+    "country": "Burundi",
+    "landmark": "Lake Tanganyika",
+    "kind": "country-landmark-photo",
+    "title": "Burundi - Lake Tanganyika fisheries.jpg",
+    "artist": "FRANCESCA ANSALONI",
+    "license": "CC BY 2.0",
+    "sourceUrl": "https://commons.wikimedia.org/?curid=3249363",
+    "asset": "/country-landmarks/countries/burundi.jpg",
+    "referenceQuery": "Lake Tanganyika Burundi"
+  },
+  "burkina-faso": {
+    "country": "Burkina Faso",
+    "landmark": "Grand Mosque of Bobo-Dioulasso",
+    "kind": "country-landmark-photo",
+    "title": "BoboDioulasso-GrandMosqueN.JPG",
+    "artist": "No machine-readable author provided. Semiliki assumed (based on copyright claims).",
+    "license": "CC BY-SA 3.0",
+    "sourceUrl": "https://commons.wikimedia.org/?curid=517766",
+    "asset": "/country-landmarks/countries/burkina-faso.jpg",
+    "referenceQuery": "Grand Mosque of Bobo-Dioulasso Burkina Faso"
+  },
+  "benin": {
+    "country": "Benin",
+    "landmark": "Door of No Return",
+    "kind": "license-free-photo-stored-locally",
+    "title": "Fort William Anomabu - door of no return.jpg",
+    "artist": "Akonu-Atta William",
+    "license": "CC BY-SA 3.0",
+    "sourceUrl": "https://commons.wikimedia.org/?curid=21739702"
+  },
+  "botswana": {
+    "country": "Botswana",
+    "landmark": "Okavango Delta",
+    "kind": "license-free-photo-stored-locally",
+    "title": "Okavango Delta, Botswana.jpg",
+    "artist": "Joachim Huber",
+    "license": "CC BY-SA 2.0",
+    "sourceUrl": "https://commons.wikimedia.org/?curid=4728291"
+  },
+  "algeria": {
+    "country": "Algeria",
+    "landmark": "Casbah of Algiers",
+    "kind": "license-free-photo-stored-locally",
+    "title": "Abricot marché de la casbah d'Alger.JPG",
+    "artist": "Reda Kerbush",
+    "license": "CC BY-SA 3.0",
+    "sourceUrl": "https://commons.wikimedia.org/?curid=28473123"
+  },
+  "angola": {
+    "country": "Angola",
+    "landmark": "Fortress of Sao Miguel",
+    "kind": "license-free-photo-stored-locally",
+    "title": "Fuerte de San Blas, Ponta Delgada, isla de San Miguel, Azores, Portugal, 2020-07-28, DD 14.jpg",
+    "artist": "Diego Delso",
+    "license": "CC BY-SA 4.0",
+    "sourceUrl": "https://commons.wikimedia.org/?curid=93841744"
+  },
+  "republic-of-the-congo": {
+    "country": "Congo (Republic of the Congo)",
+    "landmark": "Odzala-Kokoua National Park",
+    "kind": "license-free-photo-stored-locally",
+    "title": "Primage2.jpg",
+    "artist": "Leighcn",
+    "license": "CC BY-SA 4.0",
+    "sourceUrl": "https://commons.wikimedia.org/?curid=76759709"
+  },
+  "chad": {
+    "country": "Chad",
+    "landmark": "Ennedi Plateau",
+    "kind": "license-free-photo-stored-locally",
+    "title": "Ennedi Mountains - northeastern Chad 015.jpg",
+    "artist": "David Stanley from Nanaimo, Canada",
+    "license": "CC BY 2.0",
+    "sourceUrl": "https://commons.wikimedia.org/?curid=51015403"
+  },
+  "central-african-republic": {
+    "country": "Central African Republic",
+    "landmark": "Bangui Cathedral",
+    "kind": "license-free-photo-stored-locally",
+    "title": "Notre Dame Paris front facade lower.jpg",
+    "artist": "Benh LIEU SONG",
+    "license": "CC BY-SA 3.0",
+    "sourceUrl": "https://commons.wikimedia.org/?curid=2997824"
+  },
+  "comoros": {
+    "country": "Comoros",
+    "landmark": "Mount Karthala",
+    "kind": "license-free-photo-stored-locally",
+    "title": "Lava Flows of Mount Karthala volcano in Grande Comore.jpg",
+    "artist": "David Stanley",
+    "license": "CC BY 3.0",
+    "sourceUrl": "https://commons.wikimedia.org/?curid=53003175"
+  },
+  "cameroon": {
+    "country": "Cameroon",
+    "landmark": "Mount Cameroon",
+    "kind": "country-landmark-photo",
+    "title": "Mount Cameroon from Tiko.jpg",
+    "artist": "Amcaja",
+    "license": "CC BY-SA 3.0",
+    "sourceUrl": "https://commons.wikimedia.org/?curid=230259",
+    "asset": "/country-landmarks/countries/cameroon.jpg",
+    "referenceQuery": "Mount Cameroon Cameroon"
+  },
+  "cabo-verde": {
+    "country": "Cabo Verde",
+    "landmark": "Cidade Velha",
+    "kind": "license-free-photo-stored-locally",
+    "title": "Cidade Velha, Grogue distillery.jpg",
+    "artist": "Ingo Wölbern",
+    "license": "Public domain",
+    "sourceUrl": "https://commons.wikimedia.org/?curid=3174623"
+  },
+  "democratic-republic-of-the-congo": {
+    "country": "Democratic Republic of the Congo",
+    "landmark": "Virunga National Park",
+    "kind": "license-free-photo-stored-locally",
+    "title": "Lava field - Virunga National Park (20439949844).jpg",
+    "artist": "MONUSCO Photos",
+    "license": "CC BY-SA 2.0",
+    "sourceUrl": "https://commons.wikimedia.org/?curid=46293824"
+  },
+  "cote-d-ivoire": {
+    "country": "Cote d'Ivoire",
+    "landmark": "Basilica of Our Lady of Peace",
+    "kind": "license-free-photo-stored-locally",
+    "title": "Cathedral Basilica of Our Lady of Peace interior 02.jpg",
+    "artist": "Farragutful",
+    "license": "CC BY-SA 4.0",
+    "sourceUrl": "https://commons.wikimedia.org/?curid=85776037"
+  },
+  "equatorial-guinea": {
+    "country": "Equatorial Guinea",
+    "landmark": "Malabo National Park",
+    "kind": "generated-regional-fallback",
+    "fallback": "africa.png"
+  },
+  "egypt": {
+    "country": "Egypt",
+    "landmark": "Pyramids of Giza",
+    "kind": "license-free-photo-stored-locally",
+    "title": "All Gizah Pyramids.jpg",
+    "artist": "Ricardo Liberato",
+    "license": "CC BY-SA 2.0",
+    "sourceUrl": "https://commons.wikimedia.org/?curid=2258048"
+  },
+  "djibouti": {
+    "country": "Djibouti",
+    "landmark": "Lake Assal",
+    "kind": "license-free-photo-stored-locally",
+    "title": "Arnisee Lake.JPG",
+    "artist": "Simon Koopmann",
+    "license": "CC BY-SA 2.5",
+    "sourceUrl": "https://commons.wikimedia.org/?curid=1226651"
+  },
+  "eritrea": {
+    "country": "Eritrea",
+    "landmark": "Fiat Tagliero Building",
+    "kind": "license-free-photo-stored-locally",
+    "title": "Fiat Tagliero Building - 2008-10-30.jpg",
+    "artist": "Voice of Clam",
+    "license": "Public domain",
+    "sourceUrl": "https://commons.wikimedia.org/?curid=5173352"
+  },
+  "gambia": {
+    "country": "The Gambia",
+    "landmark": "Kunta Kinteh Island",
+    "kind": "license-free-country-photo-stored-locally",
+    "title": "Makasutu Forest, The Gambia (16223036065).jpg",
+    "artist": "Mark Hodson Photos",
+    "license": "CC BY 2.0",
+    "sourceUrl": "https://commons.wikimedia.org/?curid=57430797",
+    "referenceQuery": "The Gambia landscape"
+  },
+  "ethiopia": {
+    "country": "Ethiopia",
+    "landmark": "Rock-Hewn Churches of Lalibela",
+    "kind": "license-free-photo-stored-locally",
+    "title": "Rock-Hewn Churches, Lalibela-107577.jpg",
+    "artist": "Francesco Bandarin",
+    "license": "CC BY-SA 3.0 igo",
+    "sourceUrl": "https://commons.wikimedia.org/?curid=45806535"
+  },
+  "ghana": {
+    "country": "Ghana",
+    "landmark": "Cape Coast Castle",
+    "kind": "license-free-photo-stored-locally",
+    "title": "Cape coast castle II.JPG",
+    "artist": "Wikimedia Commons contributor",
+    "license": "CC BY-SA 3.0",
+    "sourceUrl": "https://commons.wikimedia.org/?curid=223036"
+  },
+  "eswatini": {
+    "country": "Eswatini",
+    "landmark": "Sibebe Rock",
+    "kind": "license-free-photo-stored-locally",
+    "title": "Granite monolith.jpg",
+    "artist": "theswazigirl",
+    "license": "CC BY-SA 3.0",
+    "sourceUrl": "https://commons.wikimedia.org/?curid=22298403"
+  },
+  "guinea": {
+    "country": "Guinea",
+    "landmark": "Mount Nimba",
+    "kind": "license-free-photo-stored-locally",
+    "title": "Mount Nimba - cloud forests.jpg",
+    "artist": "Yakoo1986",
+    "license": "CC BY-SA 4.0",
+    "sourceUrl": "https://commons.wikimedia.org/?curid=54270043"
+  },
+  "gabon": {
+    "country": "Gabon",
+    "landmark": "Lope National Park",
+    "kind": "license-free-photo-stored-locally",
+    "title": "La-lopé-gabon.jpg",
+    "artist": "Vincent.vaquin",
+    "license": "CC BY-SA 3.0",
+    "sourceUrl": "https://commons.wikimedia.org/?curid=20228638"
+  },
+  "guinea-bissau": {
+    "country": "Guinea-Bissau",
+    "landmark": "Bijagos Archipelago",
+    "kind": "license-free-photo-stored-locally",
+    "title": "Satellite image of Guinea-Bissau in January 2003.jpg",
+    "artist": "Jacques Descloitres, MODIS Rapid Response Team, NASA/GSFC",
+    "license": "Public domain",
+    "sourceUrl": "https://commons.wikimedia.org/?curid=31761"
+  },
+  "libya": {
+    "country": "Libya",
+    "landmark": "Leptis Magna",
+    "kind": "license-free-photo-stored-locally",
+    "title": "Inscription Theatre Leptis Magna Libya.JPG",
+    "artist": "Papageizichta",
+    "license": "CC BY-SA 3.0",
+    "sourceUrl": "https://commons.wikimedia.org/?curid=2878126"
+  },
+  "lesotho": {
+    "country": "Lesotho",
+    "landmark": "Maletsunyane Falls",
+    "kind": "license-free-photo-stored-locally",
+    "title": "Lesotho maletsunyane falls.jpg",
+    "artist": "Tim Sandell",
+    "license": "CC BY-SA 3.0",
+    "sourceUrl": "https://commons.wikimedia.org/?curid=1787933"
+  },
+  "liberia": {
+    "country": "Liberia",
+    "landmark": "Providence Island",
+    "kind": "license-free-country-photo-stored-locally",
+    "title": "Hillside School - geograph.org.uk - 50505.jpg",
+    "artist": "Simon Johnston",
+    "license": "CC BY-SA 2.0",
+    "sourceUrl": "https://commons.wikimedia.org/?curid=9163048",
+    "referenceQuery": "Liberia landmark"
+  },
+  "madagascar": {
+    "country": "Madagascar",
+    "landmark": "Avenue of the Baobabs",
+    "kind": "license-free-photo-stored-locally",
+    "title": "Adansonia grandidieri Pat Hooper.jpg",
+    "artist": "Pat Hooper from Chicago, IL, USA",
+    "license": "CC BY-SA 2.0",
+    "sourceUrl": "https://commons.wikimedia.org/?curid=4522320"
+  },
+  "kenya": {
+    "country": "Kenya",
+    "landmark": "Maasai Mara",
+    "kind": "license-free-photo-stored-locally",
+    "title": "Lions Family Portrait Masai Mara.jpg",
+    "artist": "Benh LIEU SONG",
+    "license": "CC BY-SA 3.0",
+    "sourceUrl": "https://commons.wikimedia.org/?curid=21289377"
+  },
+  "malawi": {
+    "country": "Malawi",
+    "landmark": "Lake Malawi",
+    "kind": "country-landmark-photo",
+    "title": "Monoxylon beach Lake Malawi 1557.jpg",
+    "artist": "Stefan Kraft Stefan7",
+    "license": "CC BY-SA 3.0",
+    "sourceUrl": "https://commons.wikimedia.org/?curid=919716",
+    "asset": "/country-landmarks/countries/malawi.jpg",
+    "referenceQuery": "Lake Malawi Malawi"
+  },
+  "morocco": {
+    "country": "Morocco",
+    "landmark": "Jemaa el-Fnaa",
+    "kind": "license-free-photo-stored-locally",
+    "title": "Jemaa el-Fnaa at night.jpg",
+    "artist": "procsilas",
+    "license": "CC BY 2.0",
+    "sourceUrl": "https://commons.wikimedia.org/?curid=19213221"
+  },
+  "mauritius": {
+    "country": "Mauritius",
+    "landmark": "Le Morne Brabant",
+    "kind": "license-free-country-photo-stored-locally",
+    "title": "Le Morne, Mauritius.JPG",
+    "artist": "Máth Dávid - Mdavid89",
+    "license": "CC0",
+    "sourceUrl": "https://commons.wikimedia.org/?curid=24880772",
+    "referenceQuery": "Mauritius landscape"
+  },
+  "mauritania": {
+    "country": "Mauritania",
+    "landmark": "Chinguetti",
+    "kind": "license-free-photo-stored-locally",
+    "title": "Chinguetti,Versandung.jpg",
+    "artist": "Bertramz",
+    "license": "CC BY-SA 3.0",
+    "sourceUrl": "https://commons.wikimedia.org/?curid=11936397"
+  },
+  "mali": {
+    "country": "Mali",
+    "landmark": "Great Mosque of Djenne",
+    "kind": "license-free-country-photo-stored-locally",
+    "title": "Flame tree mali.jpg",
+    "artist": "Robin Taylor from Bamako, Mali",
+    "license": "CC BY 2.0",
+    "sourceUrl": "https://commons.wikimedia.org/?curid=1108590",
+    "referenceQuery": "Mali landscape"
+  },
+  "mozambique": {
+    "country": "Mozambique",
+    "landmark": "Bazaruto Archipelago",
+    "kind": "country-landmark-photo",
+    "title": "Bazaruto-Island-East-Coast-From-South.jpg",
+    "artist": "Bjørn Christian Tørrissen",
+    "license": "CC BY-SA 3.0",
+    "sourceUrl": "https://commons.wikimedia.org/?curid=14664888",
+    "asset": "/country-landmarks/countries/mozambique.jpg",
+    "referenceQuery": "Bazaruto Archipelago Mozambique"
+  },
+  "namibia": {
+    "country": "Namibia",
+    "landmark": "Sossusvlei",
+    "kind": "license-free-photo-stored-locally",
+    "title": "Sossusvlei Dune Namib Desert Namibia Luca Galuzzi 2004.JPG",
+    "artist": "Luca Galuzzi (Lucag)",
+    "license": "CC BY-SA 2.5",
+    "sourceUrl": "https://commons.wikimedia.org/?curid=1810774"
+  },
+  "rwanda": {
+    "country": "Rwanda",
+    "landmark": "Volcanoes National Park",
+    "kind": "generated-regional-fallback",
+    "fallback": "africa.png"
+  },
+  "niger": {
+    "country": "Niger",
+    "landmark": "Agadez Grand Mosque",
+    "kind": "license-free-landmark-photo-stored-locally",
+    "title": "1997 277-9A Agadez mosque cropped.jpg",
+    "artist": "Dan Lundberg",
+    "license": "CC BY-SA 2.0",
+    "sourceUrl": "https://commons.wikimedia.org/?curid=66183597",
+    "asset": "/country-landmarks/countries/niger.jpg",
+    "referenceQuery": "Agadez Grand Mosque Niger"
+  },
+  "nigeria": {
+    "country": "Nigeria",
+    "landmark": "Zuma Rock",
+    "kind": "generated-regional-fallback",
+    "fallback": "africa.png"
+  },
+  "senegal": {
+    "country": "Senegal",
+    "landmark": "Goree Island",
+    "kind": "license-free-photo-stored-locally",
+    "title": "Goree-island-senegal.png",
+    "artist": "Warren McKenzie",
+    "license": "CC BY-SA 4.0",
+    "sourceUrl": "https://commons.wikimedia.org/?curid=129483355"
+  },
+  "sao-tome-and-principe": {
+    "country": "Sao Tome and Principe",
+    "landmark": "Pico Cao Grande",
+    "kind": "generated-regional-fallback",
+    "fallback": "africa.png"
+  },
+  "seychelles": {
+    "country": "Seychelles",
+    "landmark": "Vallee de Mai",
+    "kind": "generated-regional-fallback",
+    "fallback": "africa.png"
+  },
+  "somalia": {
+    "country": "Somalia",
+    "landmark": "Laas Geel",
+    "kind": "generated-regional-fallback",
+    "fallback": "africa.png"
+  },
+  "sudan": {
+    "country": "Sudan",
+    "landmark": "Meroe Pyramids",
+    "kind": "license-free-photo-stored-locally",
+    "title": "Meröe Pyramids (4) (34732624210).jpg",
+    "artist": "Hans Birger Nilsen",
+    "license": "CC BY-SA 2.0",
+    "sourceUrl": "https://commons.wikimedia.org/?curid=60326253"
+  },
+  "south-sudan": {
+    "country": "South Sudan",
+    "landmark": "The Sudd",
+    "kind": "generated-regional-fallback",
+    "fallback": "africa.png"
+  },
+  "sierra-leone": {
+    "country": "Sierra Leone",
+    "landmark": "Tacugama Chimpanzee Sanctuary",
+    "kind": "license-free-landmark-photo-stored-locally",
+    "title": "West African Chimpanzee.jpg",
+    "artist": "BigMikeSndTech",
+    "license": "CC BY 2.0",
+    "sourceUrl": "https://commons.wikimedia.org/?curid=38733223",
+    "asset": "/country-landmarks/countries/sierra-leone.jpg",
+    "referenceQuery": "Tacugama Chimpanzee Sanctuary"
+  },
+  "south-africa": {
+    "country": "South Africa",
+    "landmark": "Table Mountain",
+    "kind": "license-free-photo-stored-locally",
+    "title": "Cape Town (ZA), Table Mountain -- 2024 -- 2821.jpg",
+    "artist": "Dietmar Rabich",
+    "license": "CC BY-SA 4.0",
+    "sourceUrl": "https://commons.wikimedia.org/?curid=146371150"
+  },
+  "tanzania": {
+    "country": "Tanzania",
+    "landmark": "Mount Kilimanjaro",
+    "kind": "country-landmark-photo",
+    "title": "Mount Kilimanjaro.jpg",
+    "artist": "Muhammad Mahdi Karim",
+    "license": "GFDL 1.2",
+    "sourceUrl": "https://commons.wikimedia.org/?curid=9084438",
+    "asset": "/country-landmarks/countries/tanzania.jpg",
+    "referenceQuery": "Mount Kilimanjaro Tanzania"
+  },
+  "tunisia": {
+    "country": "Tunisia",
+    "landmark": "Amphitheatre of El Jem",
+    "kind": "license-free-photo-stored-locally",
+    "title": "Anfiteatro, El Jem, Túnez, 2016-09-04, DD 35-37 HDR.jpg",
+    "artist": "Diego Delso",
+    "license": "CC BY-SA 4.0",
+    "sourceUrl": "https://commons.wikimedia.org/?curid=51315484"
+  },
+  "zimbabwe": {
+    "country": "Zimbabwe",
+    "landmark": "Great Zimbabwe",
+    "kind": "country-landmark-photo",
+    "title": "Great-Zimbabwe-2.jpg",
+    "artist": "Image taken by Jan Derk in 1997 in Zimbabwe.",
+    "license": "Public domain",
+    "sourceUrl": "https://commons.wikimedia.org/?curid=132172",
+    "asset": "/country-landmarks/countries/zimbabwe.jpg",
+    "referenceQuery": "Great Zimbabwe Zimbabwe"
+  },
+  "zambia": {
+    "country": "Zambia",
+    "landmark": "Victoria Falls",
+    "kind": "generated-regional-fallback",
+    "fallback": "africa.png"
+  },
+  "togo": {
+    "country": "Togo",
+    "landmark": "Koutammakou",
+    "kind": "license-free-photo-stored-locally",
+    "title": "Togo Taberma house 02.jpg",
+    "artist": "Erik Kristensen",
+    "license": "CC BY 2.0",
+    "sourceUrl": "https://commons.wikimedia.org/?curid=993574"
+  },
+  "uganda": {
+    "country": "Uganda",
+    "landmark": "Murchison Falls",
+    "kind": "generated-regional-fallback",
+    "fallback": "africa.png"
+  },
+  "bangladesh": {
+    "country": "Bangladesh",
+    "landmark": "The Sundarbans",
+    "kind": "generated-regional-fallback",
+    "fallback": "asia.png"
+  },
+  "armenia": {
+    "country": "Armenia",
+    "landmark": "Geghard Monastery",
+    "kind": "generated-regional-fallback",
+    "fallback": "asia.png"
+  },
+  "bhutan": {
+    "country": "Bhutan",
+    "landmark": "Tiger's Nest",
+    "kind": "generated-regional-fallback",
+    "fallback": "asia.png"
+  },
+  "bahrain": {
+    "country": "Bahrain",
+    "landmark": "Bahrain Fort",
+    "kind": "generated-regional-fallback",
+    "fallback": "asia.png"
+  },
+  "azerbaijan": {
+    "country": "Azerbaijan",
+    "landmark": "Flame Towers",
+    "kind": "generated-regional-fallback",
+    "fallback": "asia.png"
+  },
+  "afghanistan": {
+    "country": "Afghanistan",
+    "landmark": "Blue Mosque of Mazar-i-Sharif",
+    "kind": "license-free-photo-stored-locally",
+    "title": "Mazar-e sharif - Steve Evans.jpg",
+    "artist": "Steve Evans from Bangalore, India",
+    "license": "CC BY 2.0",
+    "sourceUrl": "https://commons.wikimedia.org/?curid=556678"
+  },
+  "china": {
+    "country": "China",
+    "landmark": "Great Wall of China",
+    "kind": "license-free-landmark-photo-stored-locally",
+    "title": "GreatWall6.jpg",
+    "artist": "Craig Nagy (Frayed), Vancouver, Canada",
+    "license": "CC BY-SA 2.0",
+    "sourceUrl": "https://commons.wikimedia.org/?curid=313171",
+    "asset": "/country-landmarks/countries/china.jpg",
+    "referenceQuery": "Great Wall of China China"
+  },
+  "brunei": {
+    "country": "Brunei",
+    "landmark": "Sultan Omar Ali Saifuddien Mosque",
+    "kind": "country-landmark-photo",
+    "title": "Sultan Omar Ali Saifuddien Mosque; 2002.jpg",
+    "artist": "Daniel Weiss",
+    "license": "CC BY-SA 3.0",
+    "sourceUrl": "https://commons.wikimedia.org/?curid=205859",
+    "asset": "/country-landmarks/countries/brunei.jpg",
+    "referenceQuery": "Sultan Omar Ali Saifuddien Mosque Brunei"
+  },
+  "cambodia": {
+    "country": "Cambodia",
+    "landmark": "Angkor Wat",
+    "kind": "generated-regional-fallback",
+    "fallback": "asia.png"
+  },
+  "india": {
+    "country": "India",
+    "landmark": "Taj Mahal",
+    "kind": "generated-regional-fallback",
+    "fallback": "asia.png"
+  },
+  "indonesia": {
+    "country": "Indonesia",
+    "landmark": "Borobudur Temple",
+    "kind": "generated-regional-fallback",
+    "fallback": "asia.png"
+  },
+  "georgia": {
+    "country": "Georgia",
+    "landmark": "Gergeti Trinity Church",
+    "kind": "generated-regional-fallback",
+    "fallback": "asia.png"
+  },
+  "iran": {
+    "country": "Iran",
+    "landmark": "Nasir al-Mulk Mosque",
+    "kind": "generated-regional-fallback",
+    "fallback": "asia.png"
+  },
+  "japan": {
+    "country": "Japan",
+    "landmark": "Mount Fuji",
+    "kind": "generated-regional-fallback",
+    "fallback": "asia.png"
+  },
+  "iraq": {
+    "country": "Iraq",
+    "landmark": "Erbil Citadel",
+    "kind": "generated-regional-fallback",
+    "fallback": "asia.png"
+  },
+  "jordan": {
+    "country": "Jordan",
+    "landmark": "Petra",
+    "kind": "generated-regional-fallback",
+    "fallback": "asia.png"
+  },
+  "kazakhstan": {
+    "country": "Kazakhstan",
+    "landmark": "Charyn Canyon",
+    "kind": "generated-regional-fallback",
+    "fallback": "asia.png"
+  },
+  "israel": {
+    "country": "Israel",
+    "landmark": "Old City of Jerusalem",
+    "kind": "generated-regional-fallback",
+    "fallback": "asia.png"
+  },
+  "kuwait": {
+    "country": "Kuwait",
+    "landmark": "Kuwait Towers",
+    "kind": "generated-regional-fallback",
+    "fallback": "asia.png"
+  },
+  "kyrgyzstan": {
+    "country": "Kyrgyzstan",
+    "landmark": "Issyk-Kul",
+    "kind": "generated-regional-fallback",
+    "fallback": "asia.png"
+  },
+  "malaysia": {
+    "country": "Malaysia",
+    "landmark": "Petronas Twin Towers",
+    "kind": "license-free-country-photo-stored-locally",
+    "title": "Landmark UMK.jpg",
+    "artist": "Easyrez",
+    "license": "CC BY-SA 3.0",
+    "sourceUrl": "https://commons.wikimedia.org/?curid=19593155",
+    "referenceQuery": "Malaysia landmark"
+  },
+  "laos": {
+    "country": "Laos",
+    "landmark": "Kuang Si Falls",
+    "kind": "generated-regional-fallback",
+    "fallback": "asia.png"
+  },
+  "lebanon": {
+    "country": "Lebanon",
+    "landmark": "Baalbek",
+    "kind": "generated-regional-fallback",
+    "fallback": "asia.png"
+  },
+  "maldives": {
+    "country": "Maldives",
+    "landmark": "Male Waterfront",
+    "kind": "generated-regional-fallback",
+    "fallback": "asia.png"
+  },
+  "mongolia": {
+    "country": "Mongolia",
+    "landmark": "Genghis Khan Equestrian Statue",
+    "kind": "license-free-country-photo-stored-locally",
+    "title": "Spring Sandstorm Scours China 2010-03-20.jpg",
+    "artist": "NASA",
+    "license": "Public domain",
+    "sourceUrl": "https://commons.wikimedia.org/?curid=9814170",
+    "referenceQuery": "Mongolia landmark"
+  },
+  "pakistan": {
+    "country": "Pakistan",
+    "landmark": "Badshahi Mosque",
+    "kind": "country-landmark-photo",
+    "title": "Badshahi Mosque July 1 2005 pic32 by Ali Imran (1).jpg",
+    "artist": "Ali Imran",
+    "license": "CC BY-SA 2.5",
+    "sourceUrl": "https://commons.wikimedia.org/?curid=3953226",
+    "asset": "/country-landmarks/countries/pakistan.jpg",
+    "referenceQuery": "Badshahi Mosque Pakistan"
+  },
+  "myanmar": {
+    "country": "Myanmar",
+    "landmark": "Bagan Temples",
+    "kind": "generated-regional-fallback",
+    "fallback": "asia.png"
+  },
+  "north-korea": {
+    "country": "North Korea",
+    "landmark": "Mount Paektu",
+    "kind": "license-free-country-photo-stored-locally",
+    "title": "Landscape with Mountains in North Korea.JPG",
+    "artist": "Nicor",
+    "license": "CC BY-SA 3.0",
+    "sourceUrl": "https://commons.wikimedia.org/?curid=21478576",
+    "referenceQuery": "North Korea landscape"
+  },
+  "oman": {
+    "country": "Oman",
+    "landmark": "Sultan Qaboos Grand Mosque",
+    "kind": "generated-regional-fallback",
+    "fallback": "asia.png"
+  },
+  "nepal": {
+    "country": "Nepal",
+    "landmark": "Mount Everest",
+    "kind": "generated-regional-fallback",
+    "fallback": "asia.png"
+  },
+  "philippines": {
+    "country": "Philippines",
+    "landmark": "Banaue Rice Terraces",
+    "kind": "country-landmark-photo",
+    "title": "Banaue Philippines Ifugao-Tribesman-01.jpg",
+    "artist": "CEphoto, Uwe Aranas",
+    "license": "CC BY-SA 3.0",
+    "sourceUrl": "https://commons.wikimedia.org/?curid=29328247",
+    "asset": "/country-landmarks/countries/philippines.jpg",
+    "referenceQuery": "Banaue Rice Terraces Philippines"
+  },
+  "singapore": {
+    "country": "Singapore",
+    "landmark": "Marina Bay Sands",
+    "kind": "generated-regional-fallback",
+    "fallback": "asia.png"
+  },
+  "palestine": {
+    "country": "Palestine",
+    "landmark": "Dome of the Rock",
+    "kind": "generated-regional-fallback",
+    "fallback": "asia.png"
+  },
+  "south-korea": {
+    "country": "South Korea",
+    "landmark": "Gyeongbokgung Palace",
+    "kind": "country-landmark-photo",
+    "title": "Gyeonghoeru (Royal Banquet Hall) at Gyeongbokgung Palace, Seoul.jpg",
+    "artist": "Frank Schulenburg",
+    "license": "CC BY-SA 4.0",
+    "sourceUrl": "https://commons.wikimedia.org/?curid=74166237",
+    "asset": "/country-landmarks/countries/south-korea.jpg",
+    "referenceQuery": "Gyeongbokgung Palace South Korea"
+  },
+  "saudi-arabia": {
+    "country": "Saudi Arabia",
+    "landmark": "Al-Ula",
+    "kind": "generated-regional-fallback",
+    "fallback": "asia.png"
+  },
+  "qatar": {
+    "country": "Qatar",
+    "landmark": "Museum of Islamic Art",
+    "kind": "generated-regional-fallback",
+    "fallback": "asia.png"
+  },
+  "thailand": {
+    "country": "Thailand",
+    "landmark": "Grand Palace Bangkok",
+    "kind": "country-landmark-photo",
+    "title": "Grand Palace Bangkok, Thailand.jpg",
+    "artist": "Andy Marchand",
+    "license": "CC BY-SA 3.0",
+    "sourceUrl": "https://commons.wikimedia.org/?curid=25566251",
+    "asset": "/country-landmarks/countries/thailand.jpg",
+    "referenceQuery": "Grand Palace Bangkok Thailand"
+  },
+  "timor-leste": {
+    "country": "Timor-Leste",
+    "landmark": "Cristo Rei Dili",
+    "kind": "country-landmark-photo",
+    "title": "US Navy 110623-F-HS649-551 The amphibious transport dock ship USS Cleveland (LPD 7) is anchored in Dili Harbor below the statue of Cristo Rei, or C.jpg",
+    "artist": "U.S. Air Force photo by Tech. Sgt. Tony Tolley",
+    "license": "Public domain",
+    "sourceUrl": "https://commons.wikimedia.org/?curid=15608587",
+    "asset": "/country-landmarks/countries/timor-leste.jpg",
+    "referenceQuery": "Cristo Rei Dili Timor-Leste"
+  },
+  "syria": {
+    "country": "Syria",
+    "landmark": "Palmyra",
+    "kind": "country-landmark-photo",
+    "title": "Palmyra theater02(js).jpg",
+    "artist": "Jerzy Strzelecki",
+    "license": "CC BY-SA 3.0",
+    "sourceUrl": "https://commons.wikimedia.org/?curid=3278593",
+    "asset": "/country-landmarks/countries/syria.jpg",
+    "referenceQuery": "Palmyra Syria"
+  },
+  "sri-lanka": {
+    "country": "Sri Lanka",
+    "landmark": "Sigiriya",
+    "kind": "country-landmark-photo",
+    "title": "Sigiriya 02.jpg",
+    "artist": "Bernard Gagnon",
+    "license": "CC BY-SA 3.0",
+    "sourceUrl": "https://commons.wikimedia.org/?curid=6720080",
+    "asset": "/country-landmarks/countries/sri-lanka.jpg",
+    "referenceQuery": "Sigiriya Sri Lanka"
+  },
+  "tajikistan": {
+    "country": "Tajikistan",
+    "landmark": "Iskanderkul",
+    "kind": "generated-regional-fallback",
+    "fallback": "asia.png"
+  },
+  "turkey": {
+    "country": "Turkey",
+    "landmark": "Hagia Sophia",
+    "kind": "generated-regional-fallback",
+    "fallback": "asia.png"
+  },
+  "turkmenistan": {
+    "country": "Turkmenistan",
+    "landmark": "Darvaza Gas Crater",
+    "kind": "generated-regional-fallback",
+    "fallback": "asia.png"
+  },
+  "albania": {
+    "country": "Albania",
+    "landmark": "Berat Old Town",
+    "kind": "generated-regional-fallback",
+    "fallback": "europe.png"
+  },
+  "uzbekistan": {
+    "country": "Uzbekistan",
+    "landmark": "Registan Square",
+    "kind": "generated-regional-fallback",
+    "fallback": "asia.png"
+  },
+  "yemen": {
+    "country": "Yemen",
+    "landmark": "Socotra Archipelago",
+    "kind": "country-landmark-photo",
+    "title": "Socotra satview.jpg",
+    "artist": "Wikimedia Commons contributor",
+    "license": "Public domain",
+    "sourceUrl": "https://commons.wikimedia.org/?curid=1538812",
+    "asset": "/country-landmarks/countries/yemen.jpg",
+    "referenceQuery": "Socotra Archipelago Yemen"
+  },
+  "vietnam": {
+    "country": "Vietnam",
+    "landmark": "Ha Long Bay",
+    "kind": "generated-regional-fallback",
+    "fallback": "asia.png"
+  },
+  "united-arab-emirates": {
+    "country": "United Arab Emirates",
+    "landmark": "Burj Khalifa",
+    "kind": "generated-regional-fallback",
+    "fallback": "asia.png"
+  },
+  "andorra": {
+    "country": "Andorra",
+    "landmark": "Vallnord Mountains",
+    "kind": "generated-regional-fallback",
+    "fallback": "europe.png"
+  },
+  "bosnia-and-herzegovina": {
+    "country": "Bosnia and Herzegovina",
+    "landmark": "Mostar Old Bridge",
+    "kind": "license-free-photo-stored-locally",
+    "title": "Mostar Old Town Panorama.jpg",
+    "artist": "Ramirez HUN",
+    "license": "CC BY-SA 3.0",
+    "sourceUrl": "https://commons.wikimedia.org/?curid=2476629"
+  },
+  "austria": {
+    "country": "Austria",
+    "landmark": "Schoenbrunn Palace",
+    "kind": "generated-regional-fallback",
+    "fallback": "europe.png"
+  },
+  "belgium": {
+    "country": "Belgium",
+    "landmark": "Grand Place Brussels",
+    "kind": "generated-regional-fallback",
+    "fallback": "europe.png"
+  },
+  "belarus": {
+    "country": "Belarus",
+    "landmark": "Mir Castle",
+    "kind": "generated-regional-fallback",
+    "fallback": "europe.png"
+  },
+  "bulgaria": {
+    "country": "Bulgaria",
+    "landmark": "Rila Monastery",
+    "kind": "license-free-photo-stored-locally",
+    "title": "Rila Monastery (Рилски манастир) - fresco 2.JPG",
+    "artist": "Pudelek (Marcin Szala)",
+    "license": "CC BY-SA 3.0",
+    "sourceUrl": "https://commons.wikimedia.org/?curid=29000729"
+  },
+  "croatia": {
+    "country": "Croatia",
+    "landmark": "Dubrovnik Old Town",
+    "kind": "license-free-photo-stored-locally",
+    "title": "Casco viejo de Dubrovnik, Croacia, 2014-04-14, DD 07.JPG",
+    "artist": "Diego Delso",
+    "license": "CC BY-SA 3.0",
+    "sourceUrl": "https://commons.wikimedia.org/?curid=32513704"
+  },
+  "czechia": {
+    "country": "Czechia",
+    "landmark": "Charles Bridge",
+    "kind": "license-free-photo-stored-locally",
+    "title": "North view of Charles Bridge from Mánesův most, Prague 20160808 1.jpg",
+    "artist": "DXR",
+    "license": "CC BY-SA 4.0",
+    "sourceUrl": "https://commons.wikimedia.org/?curid=51022139"
+  },
+  "cyprus": {
+    "country": "Cyprus",
+    "landmark": "Petra tou Romiou",
+    "kind": "generated-regional-fallback",
+    "fallback": "europe.png"
+  },
+  "estonia": {
+    "country": "Estonia",
+    "landmark": "Tallinn Old Town",
+    "kind": "license-free-photo-stored-locally",
+    "title": "Tallinn old town model.jpg",
+    "artist": "Jennifer Boyer",
+    "license": "CC BY 2.0",
+    "sourceUrl": "https://commons.wikimedia.org/?curid=14927045"
+  },
+  "finland": {
+    "country": "Finland",
+    "landmark": "Suomenlinna",
+    "kind": "license-free-photo-stored-locally",
+    "title": "Suomenlinna.jpg",
+    "artist": "Michal Pise, Michal.Pise",
+    "license": "CC BY 2.0",
+    "sourceUrl": "https://commons.wikimedia.org/?curid=189327"
+  },
+  "denmark": {
+    "country": "Denmark",
+    "landmark": "Nyhavn Copenhagen",
+    "kind": "license-free-photo-stored-locally",
+    "title": "Nyhavn Copenhagen 2014 10.jpg",
+    "artist": "Julian Herzog (Website)",
+    "license": "CC BY 4.0",
+    "sourceUrl": "https://commons.wikimedia.org/?curid=36697498"
+  },
+  "greece": {
+    "country": "Greece",
+    "landmark": "Acropolis of Athens",
+    "kind": "license-free-landmark-photo-stored-locally",
+    "title": "20101024 Acropolis panoramic view from Areopagus hill Athens Greece.jpg",
+    "artist": "Ggia",
+    "license": "CC BY-SA 3.0",
+    "sourceUrl": "https://commons.wikimedia.org/?curid=11950175",
+    "asset": "/country-landmarks/countries/greece.jpg",
+    "referenceQuery": "Acropolis of Athens"
+  },
+  "germany": {
+    "country": "Germany",
+    "landmark": "Brandenburg Gate",
+    "kind": "license-free-photo-stored-locally",
+    "title": "Brandenburg Gate Quadriga at Night.jpg",
+    "artist": "א (Aleph) Creator: Johann Gottfried Schadow",
+    "license": "CC BY-SA 2.5",
+    "sourceUrl": "https://commons.wikimedia.org/?curid=2120337"
+  },
+  "hungary": {
+    "country": "Hungary",
+    "landmark": "Hungarian Parliament",
+    "kind": "generated-regional-fallback",
+    "fallback": "europe.png"
+  },
+  "france": {
+    "country": "France",
+    "landmark": "Eiffel Tower",
+    "kind": "license-free-photo-stored-locally",
+    "title": "Eiffel Tower and Pont Alexandre III at night.jpg",
+    "artist": "Getfunky Paris",
+    "license": "CC BY 2.0",
+    "sourceUrl": "https://commons.wikimedia.org/?curid=18748369"
+  },
+  "iceland": {
+    "country": "Iceland",
+    "landmark": "Blue Lagoon",
+    "kind": "generated-regional-fallback",
+    "fallback": "europe.png"
+  },
+  "ireland": {
+    "country": "Ireland",
+    "landmark": "Cliffs of Moher",
+    "kind": "generated-regional-fallback",
+    "fallback": "europe.png"
+  },
+  "italy": {
+    "country": "Italy",
+    "landmark": "Colosseum",
+    "kind": "generated-regional-fallback",
+    "fallback": "europe.png"
+  },
+  "liechtenstein": {
+    "country": "Liechtenstein",
+    "landmark": "Vaduz Castle",
+    "kind": "generated-regional-fallback",
+    "fallback": "europe.png"
+  },
+  "malta": {
+    "country": "Malta",
+    "landmark": "Hagar Qim Temples",
+    "kind": "generated-regional-fallback",
+    "fallback": "europe.png"
+  },
+  "lithuania": {
+    "country": "Lithuania",
+    "landmark": "Trakai Island Castle",
+    "kind": "generated-regional-fallback",
+    "fallback": "europe.png"
+  },
+  "latvia": {
+    "country": "Latvia",
+    "landmark": "Riga Old Town",
+    "kind": "generated-regional-fallback",
+    "fallback": "europe.png"
+  },
+  "luxembourg": {
+    "country": "Luxembourg",
+    "landmark": "Luxembourg Old Town",
+    "kind": "generated-regional-fallback",
+    "fallback": "europe.png"
+  },
+  "moldova": {
+    "country": "Moldova",
+    "landmark": "Orheiul Vechi",
+    "kind": "generated-regional-fallback",
+    "fallback": "europe.png"
+  },
+  "north-macedonia": {
+    "country": "North Macedonia",
+    "landmark": "Lake Ohrid",
+    "kind": "generated-regional-fallback",
+    "fallback": "europe.png"
+  },
+  "norway": {
+    "country": "Norway",
+    "landmark": "Geirangerfjord",
+    "kind": "generated-regional-fallback",
+    "fallback": "europe.png"
+  },
+  "montenegro": {
+    "country": "Montenegro",
+    "landmark": "Bay of Kotor",
+    "kind": "generated-regional-fallback",
+    "fallback": "europe.png"
+  },
+  "monaco": {
+    "country": "Monaco",
+    "landmark": "Port Hercules",
+    "kind": "generated-regional-fallback",
+    "fallback": "europe.png"
+  },
+  "netherlands": {
+    "country": "Netherlands",
+    "landmark": "Amsterdam Canals",
+    "kind": "generated-regional-fallback",
+    "fallback": "europe.png"
+  },
+  "poland": {
+    "country": "Poland",
+    "landmark": "Wawel Castle",
+    "kind": "generated-regional-fallback",
+    "fallback": "europe.png"
+  },
+  "portugal": {
+    "country": "Portugal",
+    "landmark": "Belem Tower",
+    "kind": "generated-regional-fallback",
+    "fallback": "europe.png"
+  },
+  "serbia": {
+    "country": "Serbia",
+    "landmark": "Belgrade Fortress",
+    "kind": "license-free-photo-stored-locally",
+    "title": "Kalemegdan fortress, Belgrade, Serbia. One of the gates.jpg",
+    "artist": "Marko Kudjerski",
+    "license": "CC BY 2.0",
+    "sourceUrl": "https://commons.wikimedia.org/?curid=18236302"
+  },
+  "romania": {
+    "country": "Romania",
+    "landmark": "Bran Castle",
+    "kind": "license-free-photo-stored-locally",
+    "title": "Bran Roumanie.jpg",
+    "artist": "Myrabella",
+    "license": "CC BY-SA 3.0",
+    "sourceUrl": "https://commons.wikimedia.org/?curid=20576195"
+  },
+  "russia": {
+    "country": "Russia",
+    "landmark": "Saint Basil's Cathedral",
+    "kind": "generated-regional-fallback",
+    "fallback": "europe.png"
+  },
+  "san-marino": {
+    "country": "San Marino",
+    "landmark": "Guaita Tower",
+    "kind": "license-free-photo-stored-locally",
+    "title": "Fortress of Guaita 2013-09-19.jpg",
+    "artist": "Max_Ryazanov",
+    "license": "CC BY-SA 3.0",
+    "sourceUrl": "https://commons.wikimedia.org/?curid=29853995"
+  },
+  "slovakia": {
+    "country": "Slovakia",
+    "landmark": "Spis Castle",
+    "kind": "license-free-landmark-photo-stored-locally",
+    "title": "Slovakia Spis Castle 8.jpg",
+    "artist": "Jozef Kotulič",
+    "license": "CC BY-SA 3.0",
+    "sourceUrl": "https://commons.wikimedia.org/?curid=2331806",
+    "asset": "/country-landmarks/countries/slovakia.jpg",
+    "referenceQuery": "Spis Castle"
+  },
+  "ukraine": {
+    "country": "Ukraine",
+    "landmark": "Saint Sophia Cathedral Kyiv",
+    "kind": "license-free-photo-stored-locally",
+    "title": "Kijów - Sobór Mądrości Bożej 01.jpg",
+    "artist": "Paweł 'pbm' Szubert (talk)",
+    "license": "CC BY-SA 3.0",
+    "sourceUrl": "https://commons.wikimedia.org/?curid=26354145"
+  },
+  "slovenia": {
+    "country": "Slovenia",
+    "landmark": "Lake Bled",
+    "kind": "license-free-photo-stored-locally",
+    "title": "Bled Overview.JPG",
+    "artist": "Adiel lo",
+    "license": "CC BY-SA 3.0",
+    "sourceUrl": "https://commons.wikimedia.org/?curid=7583872"
+  },
+  "sweden": {
+    "country": "Sweden",
+    "landmark": "Gamla Stan Stockholm",
+    "kind": "generated-regional-fallback",
+    "fallback": "europe.png"
+  },
+  "spain": {
+    "country": "Spain",
+    "landmark": "Sagrada Familia",
+    "kind": "license-free-photo-stored-locally",
+    "title": "Sagrada Familia del pajarito (Murillo).jpg",
+    "artist": "Bartolomé Esteban Murillo",
+    "license": "Public domain",
+    "sourceUrl": "https://commons.wikimedia.org/?curid=17414486"
+  },
+  "switzerland": {
+    "country": "Switzerland",
+    "landmark": "Matterhorn",
+    "kind": "license-free-photo-stored-locally",
+    "title": "GGB Bhe 2-4 Gornergrat.jpg",
+    "artist": "Kabelleger / David Gubler (http://www.bahnbilder.ch)",
+    "license": "CC BY-SA 3.0",
+    "sourceUrl": "https://commons.wikimedia.org/?curid=24830233"
+  },
+  "vatican-city": {
+    "country": "Vatican City",
+    "landmark": "St. Peter's Basilica",
+    "kind": "license-free-photo-stored-locally",
+    "title": "St Peter's Square, Vatican City - April 2007.jpg",
+    "artist": "Diliff",
+    "license": "CC BY-SA 3.0",
+    "sourceUrl": "https://commons.wikimedia.org/?curid=2065989"
+  },
+  "barbados": {
+    "country": "Barbados",
+    "landmark": "Harrison's Cave",
+    "kind": "generated-regional-fallback",
+    "fallback": "north-america.png"
+  },
+  "bahamas": {
+    "country": "Bahamas",
+    "landmark": "Nassau Waterfront",
+    "kind": "generated-regional-fallback",
+    "fallback": "north-america.png"
+  },
+  "united-kingdom": {
+    "country": "United Kingdom",
+    "landmark": "Tower Bridge",
+    "kind": "license-free-photo-stored-locally",
+    "title": "Tower Bridge London Feb 2006.jpg",
+    "artist": "Diliff",
+    "license": "CC BY-SA 3.0",
+    "sourceUrl": "https://commons.wikimedia.org/?curid=564795"
+  },
+  "belize": {
+    "country": "Belize",
+    "landmark": "Great Blue Hole",
+    "kind": "license-free-photo-stored-locally",
+    "title": "Great Blue Hole.jpg",
+    "artist": "U.S. Geological Survey (USGS)",
+    "license": "Public domain",
+    "sourceUrl": "https://commons.wikimedia.org/?curid=1813649"
+  },
+  "antigua-and-barbuda": {
+    "country": "Antigua and Barbuda",
+    "landmark": "Nelson's Dockyard",
+    "kind": "license-free-photo-stored-locally",
+    "title": "Nelson's Dockyard.jpg",
+    "artist": "David Stanley",
+    "license": "CC BY 2.0",
+    "sourceUrl": "https://commons.wikimedia.org/?curid=24985439"
+  },
+  "cuba": {
+    "country": "Cuba",
+    "landmark": "Old Havana",
+    "kind": "generated-regional-fallback",
+    "fallback": "north-america.png"
+  },
+  "canada": {
+    "country": "Canada",
+    "landmark": "Niagara Falls",
+    "kind": "license-free-landmark-photo-stored-locally",
+    "title": "Niagara watervallen canada.jpg",
+    "artist": "Quistnix",
+    "license": "CC BY-SA 3.0",
+    "sourceUrl": "https://commons.wikimedia.org/?curid=185",
+    "asset": "/country-landmarks/countries/canada.jpg",
+    "referenceQuery": "Niagara Falls"
+  },
+  "costa-rica": {
+    "country": "Costa Rica",
+    "landmark": "Arenal Volcano",
+    "kind": "generated-regional-fallback",
+    "fallback": "north-america.png"
+  },
+  "dominica": {
+    "country": "Dominica",
+    "landmark": "Boiling Lake",
+    "kind": "country-landmark-photo",
+    "title": "Dominica boiling lake.jpg",
+    "artist": "No machine-readable author provided. Pembo13 assumed (based on copyright claims).",
+    "license": "Public domain",
+    "sourceUrl": "https://commons.wikimedia.org/?curid=739550",
+    "asset": "/country-landmarks/countries/dominica.jpg",
+    "referenceQuery": "Boiling Lake Dominica"
+  },
+  "dominican-republic": {
+    "country": "Dominican Republic",
+    "landmark": "Punta Cana Coastline",
+    "kind": "generated-regional-fallback",
+    "fallback": "north-america.png"
+  },
+  "el-salvador": {
+    "country": "El Salvador",
+    "landmark": "Santa Ana Volcano",
+    "kind": "generated-regional-fallback",
+    "fallback": "north-america.png"
+  },
+  "grenada": {
+    "country": "Grenada",
+    "landmark": "Grand Anse Beach",
+    "kind": "generated-regional-fallback",
+    "fallback": "north-america.png"
+  },
+  "mexico": {
+    "country": "Mexico",
+    "landmark": "Chichen Itza",
+    "kind": "generated-regional-fallback",
+    "fallback": "north-america.png"
+  },
+  "haiti": {
+    "country": "Haiti",
+    "landmark": "Citadelle Laferriere",
+    "kind": "generated-regional-fallback",
+    "fallback": "north-america.png"
+  },
+  "guatemala": {
+    "country": "Guatemala",
+    "landmark": "Tikal",
+    "kind": "generated-regional-fallback",
+    "fallback": "north-america.png"
+  },
+  "jamaica": {
+    "country": "Jamaica",
+    "landmark": "Dunn's River Falls",
+    "kind": "generated-regional-fallback",
+    "fallback": "north-america.png"
+  },
+  "honduras": {
+    "country": "Honduras",
+    "landmark": "Copan Ruins",
+    "kind": "generated-regional-fallback",
+    "fallback": "north-america.png"
+  },
+  "saint-vincent-and-the-grenadines": {
+    "country": "Saint Vincent and the Grenadines",
+    "landmark": "Tobago Cays",
+    "kind": "generated-regional-fallback",
+    "fallback": "north-america.png"
+  },
+  "trinidad-and-tobago": {
+    "country": "Trinidad and Tobago",
+    "landmark": "Pitch Lake",
+    "kind": "generated-regional-fallback",
+    "fallback": "north-america.png"
+  },
+  "saint-kitts-and-nevis": {
+    "country": "Saint Kitts and Nevis",
+    "landmark": "Brimstone Hill Fortress",
+    "kind": "generated-regional-fallback",
+    "fallback": "north-america.png"
+  },
+  "panama": {
+    "country": "Panama",
+    "landmark": "Panama Canal",
+    "kind": "generated-regional-fallback",
+    "fallback": "north-america.png"
+  },
+  "saint-lucia": {
+    "country": "Saint Lucia",
+    "landmark": "The Pitons",
+    "kind": "country-landmark-photo",
+    "title": "Pitons landview.jpg",
+    "artist": "Wikimedia Commons contributor",
+    "license": "Public domain",
+    "sourceUrl": "https://commons.wikimedia.org/?curid=335124",
+    "asset": "/country-landmarks/countries/saint-lucia.jpg",
+    "referenceQuery": "The Pitons Saint Lucia"
+  },
+  "nicaragua": {
+    "country": "Nicaragua",
+    "landmark": "Ometepe Island",
+    "kind": "generated-regional-fallback",
+    "fallback": "north-america.png"
+  },
+  "united-states": {
+    "country": "United States",
+    "landmark": "Statue of Liberty",
+    "kind": "generated-regional-fallback",
+    "fallback": "north-america.png"
+  },
+  "brazil": {
+    "country": "Brazil",
+    "landmark": "Christ the Redeemer",
+    "kind": "generated-regional-fallback",
+    "fallback": "south-america.png"
+  },
+  "bolivia": {
+    "country": "Bolivia",
+    "landmark": "Salar de Uyuni",
+    "kind": "country-landmark-photo",
+    "title": "Watching Sunset Salar de Uyuni Bolivia Luca Galuzzi 2006.jpg",
+    "artist": "Luca Galuzzi (Lucag)",
+    "license": "CC BY-SA 2.5",
+    "sourceUrl": "https://commons.wikimedia.org/?curid=1810800",
+    "asset": "/country-landmarks/countries/bolivia.jpg",
+    "referenceQuery": "Salar de Uyuni Bolivia"
+  },
+  "chile": {
+    "country": "Chile",
+    "landmark": "Torres del Paine",
+    "kind": "generated-regional-fallback",
+    "fallback": "south-america.png"
+  },
+  "colombia": {
+    "country": "Colombia",
+    "landmark": "Cartagena Old Town",
+    "kind": "generated-regional-fallback",
+    "fallback": "south-america.png"
+  },
+  "argentina": {
+    "country": "Argentina",
+    "landmark": "Perito Moreno Glacier",
+    "kind": "generated-regional-fallback",
+    "fallback": "south-america.png"
+  },
+  "ecuador": {
+    "country": "Ecuador",
+    "landmark": "Galapagos Islands",
+    "kind": "generated-regional-fallback",
+    "fallback": "south-america.png"
+  },
+  "guyana": {
+    "country": "Guyana",
+    "landmark": "Kaieteur Falls",
+    "kind": "generated-regional-fallback",
+    "fallback": "south-america.png"
+  },
+  "paraguay": {
+    "country": "Paraguay",
+    "landmark": "Jesuit Missions of Trinidad",
+    "kind": "generated-regional-fallback",
+    "fallback": "south-america.png"
+  },
+  "peru": {
+    "country": "Peru",
+    "landmark": "Machu Picchu",
+    "kind": "license-free-photo-stored-locally",
+    "title": "99 - Machu Picchu - Juin 2009.edit3.jpg",
+    "artist": "Martin St-Amant (S23678)",
+    "license": "CC BY-SA 3.0",
+    "sourceUrl": "https://commons.wikimedia.org/?curid=8447329"
+  },
+  "suriname": {
+    "country": "Suriname",
+    "landmark": "Paramaribo Historic Centre",
+    "kind": "license-free-photo-stored-locally",
+    "title": "Historic Inner City of Paramaribo-113541.jpg",
+    "artist": "Ron Van Oers",
+    "license": "CC BY-SA 3.0 igo",
+    "sourceUrl": "https://commons.wikimedia.org/?curid=58156008"
+  },
+  "uruguay": {
+    "country": "Uruguay",
+    "landmark": "Palacio Salvo",
+    "kind": "generated-regional-fallback",
+    "fallback": "south-america.png"
+  },
+  "venezuela": {
+    "country": "Venezuela",
+    "landmark": "Angel Falls",
+    "kind": "generated-regional-fallback",
+    "fallback": "south-america.png"
+  },
+  "australia": {
+    "country": "Australia",
+    "landmark": "Sydney Opera House",
+    "kind": "generated-regional-fallback",
+    "fallback": "oceania.png"
+  },
+  "micronesia": {
+    "country": "Micronesia",
+    "landmark": "Nan Madol",
+    "kind": "generated-regional-fallback",
+    "fallback": "oceania.png"
+  },
+  "kiribati": {
+    "country": "Kiribati",
+    "landmark": "Kiritimati",
+    "kind": "license-free-photo-stored-locally",
+    "title": "Kiritimati-EO.jpg",
+    "artist": "NASA",
+    "license": "Public domain",
+    "sourceUrl": "https://commons.wikimedia.org/?curid=326451"
+  },
+  "fiji": {
+    "country": "Fiji",
+    "landmark": "Yasawa Islands",
+    "kind": "generated-regional-fallback",
+    "fallback": "oceania.png"
+  },
+  "marshall-islands": {
+    "country": "Marshall Islands",
+    "landmark": "Bikini Atoll",
+    "kind": "generated-regional-fallback",
+    "fallback": "oceania.png"
+  },
+  "palau": {
+    "country": "Palau",
+    "landmark": "Rock Islands",
+    "kind": "generated-regional-fallback",
+    "fallback": "oceania.png"
+  },
+  "samoa": {
+    "country": "Samoa",
+    "landmark": "To Sua Ocean Trench",
+    "kind": "country-landmark-photo",
+    "title": "To Sua Ocean Trench - Lotofaga village - Samoa.jpg",
+    "artist": "Neil",
+    "license": "CC BY 2.0",
+    "sourceUrl": "https://commons.wikimedia.org/?curid=9406547",
+    "asset": "/country-landmarks/countries/samoa.jpg",
+    "referenceQuery": "To Sua Ocean Trench Samoa"
+  },
+  "solomon-islands": {
+    "country": "Solomon Islands",
+    "landmark": "Marovo Lagoon",
+    "kind": "generated-regional-fallback",
+    "fallback": "oceania.png"
+  },
+  "new-zealand": {
+    "country": "New Zealand",
+    "landmark": "Milford Sound",
+    "kind": "generated-regional-fallback",
+    "fallback": "oceania.png"
+  },
+  "nauru": {
+    "country": "Nauru",
+    "landmark": "Anibare Bay",
+    "kind": "generated-regional-fallback",
+    "fallback": "oceania.png"
+  },
+  "papua-new-guinea": {
+    "country": "Papua New Guinea",
+    "landmark": "Kokoda Track",
+    "kind": "country-landmark-photo",
+    "title": "Kokoda track Papua New Guinea.JPG",
+    "artist": "Luke Brindley",
+    "license": "CC BY-SA 4.0",
+    "sourceUrl": "https://commons.wikimedia.org/?curid=6244606",
+    "asset": "/country-landmarks/countries/papua-new-guinea.jpg",
+    "referenceQuery": "Kokoda Track Papua New Guinea"
+  },
+  "vanuatu": {
+    "country": "Vanuatu",
+    "landmark": "Mount Yasur",
+    "kind": "license-free-photo-stored-locally",
+    "title": "Vanuatu Tanna Yasur.JPG",
+    "artist": "User Bruno.menetrier on fr.wikipedia",
+    "license": "Public domain",
+    "sourceUrl": "https://commons.wikimedia.org/?curid=1339890"
+  },
+  "tonga": {
+    "country": "Tonga",
+    "landmark": "Ha'amonga'a Maui Trilithon",
+    "kind": "generated-regional-fallback",
+    "fallback": "oceania.png"
+  },
+  "tuvalu": {
+    "country": "Tuvalu",
+    "landmark": "Funafuti Lagoon",
+    "kind": "license-free-photo-stored-locally",
+    "title": "Tuvalu Funafuti atoll beach.jpg",
+    "artist": "Stefan Lins",
+    "license": "CC BY-SA 2.0",
+    "sourceUrl": "https://commons.wikimedia.org/?curid=1514523"
+  }
+}

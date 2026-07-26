@@ -4,13 +4,13 @@
   "edition": "travelsafe",
   "cardType": "scenario",
   "scored": true,
-  "category": "Payments",
+  "category": "Police & official fees",
   "scenario": "Someone claiming to be police demands immediate cash for a minor tourist violation.",
   "answers": {
-    "A": "Check inside the official app, booking, provider, or government site.",
-    "B": "Click/pay immediately to avoid losing the booking or offer.",
-    "C": "Forward it to a fellow traveller and ask what they think.",
-    "D": "Ignore/report the message and use a known contact route."
+    "A": "Ask for official identification and the written fine process.",
+    "B": "Hand over cash immediately to avoid trouble.",
+    "C": "Take a photo of the person ID and pay if it looks official.",
+    "D": "Contact your hotel, local authority, or embassy for help while staying calm."
   },
   "scores": {
     "A": 4,
@@ -22,8 +22,8 @@
     "A",
     "D"
   ],
-  "explanation": "Police Fine Abroad: the trap is to make money or value leave before the story is verified. The safer move is to verify through an official or approved channel, not to click or follow the risky request.",
-  "proTip": "Ask for official identification and a station process.",
+  "explanation": "Real enforcement has an identifiable process and receipt. Fear and immediate cash demands are reasons to slow down and seek an independent check.",
+  "proTip": "Stay respectful, keep your documents, and ask for the official process.",
   "hackKey": "A",
   "hackTrigger": "Authority",
   "tags": [

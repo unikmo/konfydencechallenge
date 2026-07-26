@@ -4,13 +4,13 @@
   "edition": "travelsafe",
   "cardType": "scenario",
   "scored": true,
-  "category": "Public Networks",
-  "scenario": "A driver says card failed and asks you to tap again on a handheld device.",
+  "category": "Taxis & cards",
+  "scenario": "A driver says your card failed and asks you to tap again on a handheld device.",
   "answers": {
-    "A": "Click/pay immediately to avoid losing the booking or offer.",
-    "B": "Check inside the official app, booking, provider, or government site.",
-    "C": "Ignore/report the message and use a known contact route.",
-    "D": "Forward it to a fellow traveller and ask what they think."
+    "A": "Tap repeatedly until the payment goes through.",
+    "B": "Ask for a receipt and use one verified terminal once.",
+    "C": "Use the official taxi app or another licensed payment method.",
+    "D": "Tap again while watching the amount on the screen."
   },
   "scores": {
     "A": 0,
@@ -22,8 +22,8 @@
     "B",
     "C"
   ],
-  "explanation": "Taxi Card Skimmer: the trap is to make money or value leave before the story is verified. The safer move is to verify through an official or approved channel, not to click or follow the risky request.",
-  "proTip": "Ask for receipt and monitor duplicate charges.",
+  "explanation": "Repeated taps can create duplicate charges or expose a skimming device. Check the amount, request a receipt, and use a trusted payment route.",
+  "proTip": "One ride, one verified amount, one receipt.",
   "hackKey": "A",
   "hackTrigger": "Authority",
   "tags": [

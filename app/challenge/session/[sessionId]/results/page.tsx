@@ -1,6 +1,7 @@
 import React from "react";
 import { notFound } from "next/navigation";
 import Link from "next/link";
+import { ShareButtons } from "@/components/ShareButtons";
 import { prisma } from "@/lib/prisma";
 import { computeChallengeTotals, computeHackBreakdown, computeCategoryBreakdown } from "@/lib/scoring/scoringEngine";
 import { HACK_LABELS, type HackTrigger } from "@/lib/challenge/labels";
@@ -10,6 +11,7 @@ import { CrossSellStrip } from "@/components/commerce/CrossSellStrip";
 import { ScoreRing } from "@/components/illustrations/ScoreRing";
 import { HackIcon } from "@/components/illustrations/HackIcon";
 import { readinessTierColor } from "@/lib/theme/tokens";
+import { isGuestEmail } from "@/lib/challenge/startSessionUtil";
 
 const styles: Record<string, React.CSSProperties> = {
   page: {
@@ -116,6 +118,7 @@ export default async function ResultsPage({ params }: { params: { sessionId: str
       currentIndex: true,
       scoreTotal: true,
       scoreMax: true,
+      user: { select: { id: true, email: true } },
     },
   });
 
@@ -157,7 +160,7 @@ export default async function ResultsPage({ params }: { params: { sessionId: str
   const hackCoachingNote: Record<HackTrigger, string> = {
     H: "You are most vulnerable when a message creates urgency, deadlines, or fear of missing out.",
     A: "You were most at risk when a message looked official or came from someone in charge.",
-    C: "Familiar or trusted-sounding channels reduce your attention — stay objective under pressure.",
+    C: "Familiar or trusted-sounding channels reduce your attention â€” stay objective under pressure.",
     K: "Pause before the critical action moment: verify the request before you click, pay, share, or reply.",
   };
 
@@ -172,6 +175,14 @@ export default async function ResultsPage({ params }: { params: { sessionId: str
   }
 
   const isDiagnostic = session.mode === "diagnostic";
+  const diagnosticSessions = isDiagnostic
+    ? await prisma.challengeSession.count({ where: { userId: session.user.id, mode: "diagnostic" } })
+    : 0;
+  const isRegistered = isDiagnostic ? !isGuestEmail(session.user.email) : true;
+  const canPlayAnotherFreeRound = isDiagnostic && diagnosticSessions < 2;
+  const freeRoundHref = isRegistered
+    ? "/challenge/" + session.edition + "/start?mode=diagnostic"
+    : "/challenge/register?next=" + encodeURIComponent("/challenge/" + session.edition + "/start?mode=diagnostic");
 
   const krsScore = Math.round(readinessPercentage);
   const pressurePattern = weakestTrigger ? HACK_LABELS[weakestTrigger.hackKey].public : "None identified";
@@ -234,7 +245,7 @@ export default async function ResultsPage({ params }: { params: { sessionId: str
 
               {bestCategory ? (
                 <div style={{ marginTop: 16, color: "#166534", fontWeight: 850, fontSize: 13, lineHeight: 1.4 }}>
-                  Best category: <strong>{bestCategory.category}</strong> — {Math.round(bestCategory.pct)}% safe
+                  Best category: <strong>{bestCategory.category}</strong> â€” {Math.round(bestCategory.pct)}% safe
                   choices. Keep it up.
                 </div>
               ) : null}
@@ -269,14 +280,23 @@ export default async function ResultsPage({ params }: { params: { sessionId: str
           ) : null}
         </div>
 
+        {completedAll ? (
+          <div style={styles.card}>
+            <ShareButtons
+              url={"/challenge/session/" + sessionId + "/results"}
+              title="Konfydence Challenge"
+              text={"I just finished a Konfydence " + deckName + " round. Take the free check and compare your pressure pattern."}
+            />
+          </div>
+        ) : null}
+
         {isDiagnostic && weakestTrigger ? (
           <div style={styles.conversionCard}>
             <h3 style={{ margin: "0 0 8px", fontSize: 20, letterSpacing: "-0.01em" }}>
               You found your pressure pattern. Now train it.
             </h3>
             <p style={{ margin: "0 0 14px", fontWeight: 750, lineHeight: 1.55, color: "#dbeafe" }}>
-              Your free readiness check shows where pressure could catch you. The full challenge gives you 50
-              scenarios, a full KRS dashboard, and a certificate.
+              You have completed a free 10-question round. The full challenge gives you 50 scenarios, a deeper KRS dashboard, and a certificate.
             </p>
 
             <div style={{ fontWeight: 950, fontSize: 13, textTransform: "uppercase", letterSpacing: "0.04em", color: "#ffb31d", marginBottom: 8, display: "flex", alignItems: "center", gap: 8 }}>
@@ -287,7 +307,7 @@ export default async function ResultsPage({ params }: { params: { sessionId: str
 
             {bestCategory ? (
               <p style={{ margin: "0 0 10px", fontWeight: 750, lineHeight: 1.5, color: "#dbeafe" }}>
-                Best answer habit: <strong>{bestCategory.category}</strong> — {Math.round(bestCategory.pct)}% safe
+                Best answer habit: <strong>{bestCategory.category}</strong> â€” {Math.round(bestCategory.pct)}% safe
                 choices.
               </p>
             ) : null}
@@ -296,21 +316,32 @@ export default async function ResultsPage({ params }: { params: { sessionId: str
               Recommended: unlock the full {deckName} Challenge to train this pattern across 50 real-life scenarios.
             </p>
 
+            {canPlayAnotherFreeRound ? (
+              <Link style={{ ...styles.secondary, marginTop: 12, background: "#ffffff", color: "#0b1b2b" }} href={freeRoundHref}>
+                {isRegistered ? "Play one more free round" : "Unlock one more free round"}
+              </Link>
+            ) : (
+              <p style={{ margin: "12px 0 0", fontWeight: 850, lineHeight: 1.45, color: "#dbeafe" }}>
+                Your 20 free questions are complete. Unlock the full challenge to keep practising.
+              </p>
+            )}
             <div style={{ marginTop: 12 }}>
               <CheckoutRedirectButton
                 sku={`CHAL-SINGLE-${session.edition.toUpperCase()}`}
-                label="Unlock Full Challenge — $4.99"
+                label="Unlock Full Challenge â€” $4.99"
               />
             </div>
             <div style={{ marginTop: 10 }}>
               <CheckoutRedirectButton
                 sku="CHAL-UNLIMITED"
-                label="Get All 5 Challenges — $19.99"
+                label="Get All 5 Challenges â€” $19.99"
                 variant="outline"
               />
             </div>
           </div>
         ) : null}
+
+
 
         {isDiagnostic && weakestTrigger ? (
           <div style={{ marginTop: 14 }}>

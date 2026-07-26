@@ -26,8 +26,10 @@ function ContactForm() {
   const [submitted, setSubmitted] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
+  const [consent, setConsent] = useState(false);
 
   const isSchoolsTeams = topic === "schools-teams";
+  const isTravelCheckIn = topic === "travel-check-in";
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -53,6 +55,7 @@ function ContactForm() {
         body: JSON.stringify({
           ...formData,
           topic,
+          consent,
         }),
       });
 
@@ -65,6 +68,7 @@ function ContactForm() {
 
       setSubmitted(true);
       setFormData({ name: "", email: "", organization: "", seatCount: "", message: "" });
+      setConsent(false);
     } catch (err) {
       setError("An error occurred. Please try again.");
       setLoading(false);
@@ -206,7 +210,7 @@ function ContactForm() {
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img src="/brand/LOGO-05.png" alt="Konfydence" style={logoStyle} />
           <h1 style={titleStyle}>
-            {isSchoolsTeams ? "Bring Konfydence to Your School or Organization" : "Get in Touch"}
+            {isTravelCheckIn ? "Travel Check-In interest list" : isSchoolsTeams ? "Bring Konfydence to Your School or Organization" : "Get in Touch"}
           </h1>
           <p style={subtitleStyle}>
             {isSchoolsTeams
@@ -218,13 +222,13 @@ function ContactForm() {
         {submitted ? (
           <>
             <div style={successStyle}>
-              <h2 style={successTitleStyle}>✓ Message received</h2>
+              <h2 style={successTitleStyle}>âœ“ Message received</h2>
               <p style={successTextStyle}>
                 Thank you for reaching out! We'll review your message and get back to you within 1-2 business days.
               </p>
             </div>
             <Link href="/" style={backLinkStyle}>
-              ← Back to home
+              â† Back to home
             </Link>
           </>
         ) : (
@@ -266,7 +270,7 @@ function ContactForm() {
 
               <div style={formGroupStyle}>
                 <label style={labelStyle} htmlFor="organization">
-                  Organization
+                  {isTravelCheckIn ? "Travel context (optional)" : "Organization"}
                 </label>
                 <input
                   type="text"
@@ -319,10 +323,22 @@ function ContactForm() {
               <button type="submit" style={submitStyle} disabled={loading}>
                 {loading ? "Sending..." : "Send message"}
               </button>
-            </form>
+              <label style={{ display: "flex", alignItems: "flex-start", gap: 8, color: tokens.textMuted, fontSize: 13, lineHeight: 1.45 }}>
+                <input
+                  type="checkbox"
+                  checked={consent}
+                  onChange={(event) => setConsent(event.target.checked)}
+                  required
+                  style={{ marginTop: 3, accentColor: tokens.accentAmber }}
+                />
+                <span>
+                  I agree to be contacted about this enquiry and have read the{" "}
+                  <Link href="/privacy-policy" style={{ color: tokens.accentAmber }}>Privacy Policy</Link>.
+                </span>
+              </label>            </form>
 
             <Link href="/" style={backLinkStyle}>
-              ← Back to home
+              â† Back to home
             </Link>
           </>
         )}

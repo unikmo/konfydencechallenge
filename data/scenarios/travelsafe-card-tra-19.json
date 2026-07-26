@@ -4,13 +4,13 @@
   "edition": "travelsafe",
   "cardType": "scenario",
   "scored": true,
-  "category": "Payments",
-  "scenario": "A street exchanger offers a rate far better than official offices.",
+  "category": "Currency exchange",
+  "scenario": "A street exchanger offers a rate far better than official exchange offices.",
   "answers": {
-    "A": "Check inside the official app, booking, provider, or government site.",
-    "B": "Click/pay immediately to avoid losing the booking or offer.",
-    "C": "Forward it to a fellow traveller and ask what they think.",
-    "D": "Ignore/report the message and use a known contact route."
+    "A": "Use a bank, licensed exchange office, or card provider.",
+    "B": "Hand over your cash because the rate is too good to miss.",
+    "C": "Count the notes quickly and accept the exchange if the amount looks close.",
+    "D": "Check the live rate and fees before exchanging a small amount."
   },
   "scores": {
     "A": 4,
@@ -22,8 +22,8 @@
     "A",
     "D"
   ],
-  "explanation": "Currency Exchange Deal: the trap is to make money or value leave before the story is verified. The safer move is to verify through an official or approved channel, not to click or follow the risky request.",
-  "proTip": "Too-good cash exchange rates often involve counterfeit or short-changing.",
+  "explanation": "Street exchanges can involve counterfeit notes, hidden fees, or short-changing. A licensed route gives you a clear rate and recourse.",
+  "proTip": "A bargain rate is not a bargain without a trustworthy counterparty.",
   "hackKey": "H",
   "hackTrigger": "Hurry",
   "tags": [

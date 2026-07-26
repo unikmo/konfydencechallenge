@@ -4,13 +4,13 @@
   "edition": "travelsafe",
   "cardType": "scenario",
   "scored": true,
-  "category": "Airline/Hotel",
+  "category": "Flights & apps",
   "scenario": "A pop-up says you need a new app to display your boarding pass.",
   "answers": {
-    "A": "Check inside the official app, booking, provider, or government site.",
-    "B": "Click/pay immediately to avoid losing the booking or offer.",
-    "C": "Ignore/report the message and use a known contact route.",
-    "D": "Forward it to a fellow traveller and ask what they think."
+    "A": "Open the airline app or website you already use.",
+    "B": "Install the new app from the pop-up and grant it access.",
+    "C": "Ask the airline desk to print or verify the boarding pass.",
+    "D": "Search the app store and install the first result with the airline name."
   },
   "scores": {
     "A": 4,
@@ -22,8 +22,8 @@
     "A",
     "C"
   ],
-  "explanation": "Fake Boarding Pass App: the trap is to move you from a trusted channel to a fake page. The safer move is to verify through an official or approved channel, not to click or follow the risky request.",
-  "proTip": "Use the airline app or official wallet pass.",
+  "explanation": "A boarding pass is already available through the airline known channels. A pop-up can push a fake app or excessive permissions.",
+  "proTip": "Use the airline app you chose, not one a pop-up chooses for you.",
   "hackKey": "A",
   "hackTrigger": "Authority",
   "tags": [

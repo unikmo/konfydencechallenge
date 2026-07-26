@@ -4,13 +4,13 @@
   "edition": "travelsafe",
   "cardType": "scenario",
   "scored": true,
-  "category": "Payments",
-  "scenario": "At the airport, a text offers a baggage fee waiver if you confirm your upgrade.",
+  "category": "Airport fees",
+  "scenario": "At the airport, a text offers to waive your baggage fee if you confirm an upgrade.",
   "answers": {
-    "A": "Check inside the official app, booking, provider, or government site.",
-    "B": "Click/pay immediately to avoid losing the booking or offer.",
-    "C": "Forward it to a fellow traveller and ask what they think.",
-    "D": "Ignore/report the message and use a known contact route."
+    "A": "Check the fee and upgrade inside your airline booking.",
+    "B": "Pay or enter card details through the text link.",
+    "C": "Reply to the text and ask which flight it refers to.",
+    "D": "Ask the staffed airline desk using the number on your boarding pass."
   },
   "scores": {
     "A": 4,
@@ -22,8 +22,8 @@
     "A",
     "D"
   ],
-  "explanation": "Baggage Fee Waiver Text: the trap is to make money or value leave before the story is verified. The safer move is to verify through an official or approved channel, not to click or follow the risky request.",
-  "proTip": "Airport urgency plus links is a common travel trap.",
+  "explanation": "Airport pressure makes a fake fee look plausible. Confirm the charge in your booking or with staff before paying.",
+  "proTip": "Urgency at the airport is exactly when to use a known channel.",
   "hackKey": "H",
   "hackTrigger": "Hurry",
   "tags": [

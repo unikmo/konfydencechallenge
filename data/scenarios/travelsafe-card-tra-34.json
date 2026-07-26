@@ -4,13 +4,13 @@
   "edition": "travelsafe",
   "cardType": "scenario",
   "scored": true,
-  "category": "Payments",
+  "category": "Banking",
   "scenario": "A bank text says your travel card is blocked and asks for full card details.",
   "answers": {
-    "A": "Check inside the official app, booking, provider, or government site.",
-    "B": "Click/pay immediately to avoid losing the booking or offer.",
-    "C": "Forward it to a fellow traveller and ask what they think.",
-    "D": "Ignore/report the message and use a known contact route."
+    "A": "Call the number on the back of the card.",
+    "B": "Send the full card number and security code by text.",
+    "C": "Reply with the last four digits so the bank can identify you.",
+    "D": "Open the banking app yourself and check the card status."
   },
   "scores": {
     "A": 4,
@@ -22,8 +22,8 @@
     "A",
     "D"
   ],
-  "explanation": "Travel Card Blocked: the trap is to make money or value leave before the story is verified. The safer move is to verify through an official or approved channel, not to click or follow the risky request.",
-  "proTip": "Call the number on the card or use the banking app.",
+  "explanation": "A blocked-card message can be used to collect enough data for a second attack. Use the card or app known route.",
+  "proTip": "When a card is involved, trust the card printed number, not the text.",
   "hackKey": "A",
   "hackTrigger": "Authority",
   "tags": [

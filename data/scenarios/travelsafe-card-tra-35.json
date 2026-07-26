@@ -4,13 +4,13 @@
   "edition": "travelsafe",
   "cardType": "scenario",
   "scored": true,
-  "category": "Public Networks",
-  "scenario": "A seller near the venue offers digital tickets and wants instant transfer.",
+  "category": "Events",
+  "scenario": "Near the venue, a seller offers digital tickets and wants an instant transfer.",
   "answers": {
-    "A": "Click/pay immediately to avoid losing the booking or offer.",
-    "B": "Check inside the official app, booking, provider, or government site.",
-    "C": "Ignore/report the message and use a known contact route.",
-    "D": "Forward it to a fellow traveller and ask what they think."
+    "A": "Transfer the full price before the ticket is verified.",
+    "B": "Use the venue box office or official ticket-transfer system.",
+    "C": "Use a protected marketplace with buyer coverage.",
+    "D": "Ask the seller to show the ticket barcode on a video call."
   },
   "scores": {
     "A": 0,
@@ -22,8 +22,8 @@
     "B",
     "C"
   ],
-  "explanation": "Fake Event Ticket Abroad: the trap is to turn convenience into a device or network security risk. The safer move is to verify through an official or approved channel, not to click or follow the risky request.",
-  "proTip": "Use official ticket transfer or box office verification.",
+  "explanation": "A screenshot or live barcode does not prove the ticket can be transferred. Use the venue or a protected marketplace.",
+  "proTip": "A ticket is real when the venue can validate it, not when it looks convincing.",
   "hackKey": "K",
   "hackTrigger": "Kill-Switch",
   "tags": [

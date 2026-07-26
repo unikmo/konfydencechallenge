@@ -4,13 +4,13 @@
   "edition": "travelsafe",
   "cardType": "scenario",
   "scored": true,
-  "category": "Public Networks",
-  "scenario": "An email says your elite status can be extended after updating details through a button.",
+  "category": "Airline loyalty",
+  "scenario": "An email says your elite status can be extended if you update your details through a button.",
   "answers": {
-    "A": "Click/pay immediately to avoid losing the booking or offer.",
-    "B": "Check inside the official app, booking, provider, or government site.",
-    "C": "Ignore/report the message and use a known contact route.",
-    "D": "Forward it to a fellow traveller and ask what they think."
+    "A": "Update your details through the button before the offer closes.",
+    "B": "Open your loyalty account directly and check the status notice.",
+    "C": "Call the loyalty programme using its official website.",
+    "D": "Ask the email sender to send the offer again from another address."
   },
   "scores": {
     "A": 0,
@@ -22,8 +22,8 @@
     "B",
     "C"
   ],
-  "explanation": "Elite Status Extension: the trap is to turn convenience into a device or network security risk. The safer move is to verify through an official or approved channel, not to click or follow the risky request.",
-  "proTip": "Status updates are visible in your official profile.",
+  "explanation": "Status extensions belong in the loyalty account. A button that requests fresh personal data may lead to a fake sign-in page.",
+  "proTip": "Never sign in through an unexpected loyalty email.",
   "hackKey": "C",
   "hackTrigger": "Connection",
   "tags": [

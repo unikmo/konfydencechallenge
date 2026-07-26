@@ -4,13 +4,13 @@
   "edition": "travelsafe",
   "cardType": "scenario",
   "scored": true,
-  "category": "Transit",
-  "scenario": "A text says premium award seats opened and will disappear unless you click in ten minutes.",
+  "category": "Reward flights",
+  "scenario": "A text says premium award seats opened and will disappear unless you click within ten minutes.",
   "answers": {
-    "A": "Click/pay immediately to avoid losing the booking or offer.",
-    "B": "Check inside the official app, booking, provider, or government site.",
-    "C": "Forward it to a fellow traveller and ask what they think.",
-    "D": "Ignore/report the message and use a known contact route."
+    "A": "Click now and pay before the seats disappear.",
+    "B": "Search for the seats inside the airline or loyalty app.",
+    "C": "Forward the text to a travel companion for a second opinion.",
+    "D": "Open the airline site yourself and check the award inventory."
   },
   "scores": {
     "A": 0,
@@ -22,8 +22,8 @@
     "B",
     "D"
   ],
-  "explanation": "Award Seat Countdown: the trap is to pull you away from the normal verification path. The safer move is to verify through an official or approved channel, not to click or follow the risky request.",
-  "proTip": "Real award seats appear in official airline searches.",
+  "explanation": "A countdown is designed to replace checking with reacting. Real award seats can be verified in the account or official search.",
+  "proTip": "A real seat alert can wait while you open the official app.",
   "hackKey": "K",
   "hackTrigger": "Kill-Switch",
   "tags": [

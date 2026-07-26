@@ -4,13 +4,13 @@
   "edition": "travelsafe",
   "cardType": "scenario",
   "scored": true,
-  "category": "Identity/Documents",
-  "scenario": "A restaurant QR menu abroad opens a payment page before showing prices.",
+  "category": "Restaurants & payments",
+  "scenario": "A restaurant QR menu opens a payment page before showing prices.",
   "answers": {
-    "A": "Click/pay immediately to avoid losing the booking or offer.",
-    "B": "Forward it to a fellow traveller and ask what they think.",
-    "C": "Check inside the official app, booking, provider, or government site.",
-    "D": "Ignore/report the message and use a known contact route."
+    "A": "Enter card details before seeing the menu or bill.",
+    "B": "Scan it but stop before entering the card number.",
+    "C": "Ask staff for the menu and pay through the restaurant verified method.",
+    "D": "Check the restaurant official payment instructions before scanning."
   },
   "scores": {
     "A": 0,
@@ -22,8 +22,8 @@
     "C",
     "D"
   ],
-  "explanation": "QR Menu Payment: the trap is to collect private data, images, or documents under pressure. The safer move is to verify through an official or approved channel, not to click or follow the risky request.",
-  "proTip": "Confirm with staff before paying through QR codes.",
+  "explanation": "A menu should not force payment before you know what you are buying. Confirm the QR destination and payment process with staff.",
+  "proTip": "No menu, no payment.",
   "hackKey": "K",
   "hackTrigger": "Kill-Switch",
   "tags": [

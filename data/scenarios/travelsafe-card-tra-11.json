@@ -4,13 +4,13 @@
   "edition": "travelsafe",
   "cardType": "scenario",
   "scored": true,
-  "category": "Airline/Hotel",
-  "scenario": "Free airport WiFi asks for your email password before connecting.",
+  "category": "Airport connectivity",
+  "scenario": "Free airport Wi-Fi asks for your email password before connecting.",
   "answers": {
-    "A": "Check inside the official app, booking, provider, or government site.",
-    "B": "Click/pay immediately to avoid losing the booking or offer.",
-    "C": "Ignore/report the message and use a known contact route.",
-    "D": "Forward it to a fellow traveller and ask what they think."
+    "A": "Use the airport network listed on its official website or signs.",
+    "B": "Enter your email password to get online quickly.",
+    "C": "Use mobile data or a trusted hotspot instead.",
+    "D": "Use a spare password you do not use anywhere important."
   },
   "scores": {
     "A": 4,
@@ -22,8 +22,8 @@
     "A",
     "C"
   ],
-  "explanation": "Airport WiFi Login: the trap is to get access to an account, code, password, or permission. The safer move is to verify through an official or approved channel, not to click or follow the risky request.",
-  "proTip": "WiFi access should not need your email password.",
+  "explanation": "Wi-Fi access should not require an email password. A password still reveals how the network is trying to capture you.",
+  "proTip": "If a network wants your password, choose another route.",
   "hackKey": "A",
   "hackTrigger": "Authority",
   "tags": [

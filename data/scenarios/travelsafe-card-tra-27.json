@@ -4,13 +4,13 @@
   "edition": "travelsafe",
   "cardType": "scenario",
   "scored": true,
-  "category": "Transit",
-  "scenario": "A kiosk offers free charging cables that require installing a profile.",
+  "category": "Device safety",
+  "scenario": "A charging kiosk offers free cables but requires installing a profile first.",
   "answers": {
-    "A": "Click/pay immediately to avoid losing the booking or offer.",
-    "B": "Check inside the official app, booking, provider, or government site.",
-    "C": "Forward it to a fellow traveller and ask what they think.",
-    "D": "Ignore/report the message and use a known contact route."
+    "A": "Install the profile so the free cable will work.",
+    "B": "Use your own cable and a power bank or plain charging socket.",
+    "C": "Install it temporarily and remove it after charging.",
+    "D": "Decline the profile and charge later through a trusted accessory."
   },
   "scores": {
     "A": 0,
@@ -22,8 +22,8 @@
     "B",
     "D"
   ],
-  "explanation": "Public Charging Cable: the trap is to pull you away from the normal verification path. The safer move is to verify through an official or approved channel, not to click or follow the risky request.",
-  "proTip": "Do not install profiles or software for charging.",
+  "explanation": "A device profile can change settings or grant control. Free charging is not worth installing unknown software while travelling.",
+  "proTip": "A cable should deliver power, not demand administrator access.",
   "hackKey": "K",
   "hackTrigger": "Kill-Switch",
   "tags": [

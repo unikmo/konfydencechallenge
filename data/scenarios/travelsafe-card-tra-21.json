@@ -4,13 +4,13 @@
   "edition": "travelsafe",
   "cardType": "scenario",
   "scored": true,
-  "category": "Airline/Hotel",
-  "scenario": "An email claims your embassy needs travel registration payment.",
+  "category": "Embassy & consular",
+  "scenario": "An email claims your embassy needs a travel-registration payment.",
   "answers": {
-    "A": "Check inside the official app, booking, provider, or government site.",
-    "B": "Click/pay immediately to avoid losing the booking or offer.",
-    "C": "Ignore/report the message and use a known contact route.",
-    "D": "Forward it to a fellow traveller and ask what they think."
+    "A": "Find the embassy website through your government site.",
+    "B": "Pay the registration fee through the email link.",
+    "C": "Call the embassy using a number you locate independently.",
+    "D": "Reply with your travel dates so the embassy can match your record."
   },
   "scores": {
     "A": 4,
@@ -22,8 +22,8 @@
     "A",
     "C"
   ],
-  "explanation": "Fake Embassy Email: the trap is to make money or value leave before the story is verified. The safer move is to verify through an official or approved channel, not to click or follow the risky request.",
-  "proTip": "Embassy registrations should be checked through official government sites.",
+  "explanation": "Embassies can provide travel advice, but an unexpected payment request needs independent confirmation. Do not use the email contact path.",
+  "proTip": "Government identity should be verified through a government domain.",
   "hackKey": "A",
   "hackTrigger": "Authority",
   "tags": [

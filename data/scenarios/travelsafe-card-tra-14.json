@@ -4,13 +4,13 @@
   "edition": "travelsafe",
   "cardType": "scenario",
   "scored": true,
-  "category": "Payments",
+  "category": "Cruises",
   "scenario": "A caller offers a cabin upgrade if you pay by gift card before departure.",
   "answers": {
-    "A": "Check inside the official app, booking, provider, or government site.",
-    "B": "Click/pay immediately to avoid losing the booking or offer.",
-    "C": "Forward it to a fellow traveller and ask what they think.",
-    "D": "Ignore/report the message and use a known contact route."
+    "A": "Check upgrade offers inside the cruise booking.",
+    "B": "Buy gift cards and read the codes to the caller.",
+    "C": "Ask the caller to hold the upgrade while you check your booking.",
+    "D": "Call the cruise line using its official number."
   },
   "scores": {
     "A": 4,
@@ -22,8 +22,8 @@
     "A",
     "D"
   ],
-  "explanation": "Cruise Upgrade Call: the trap is to make money or value leave before the story is verified. The safer move is to verify through an official or approved channel, not to click or follow the risky request.",
-  "proTip": "Cruise lines do not use gift cards for upgrades.",
+  "explanation": "Gift cards are not a normal cruise-upgrade payment method. The caller wants value that is hard to recover; verify through the cruise line.",
+  "proTip": "Gift-card payment requests are a full stop, not a special offer.",
   "hackKey": "H",
   "hackTrigger": "Hurry",
   "tags": [

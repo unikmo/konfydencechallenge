@@ -4,13 +4,13 @@
   "edition": "travelsafe",
   "cardType": "scenario",
   "scored": true,
-  "category": "Airline/Hotel",
-  "scenario": "A staff member calls your room asking for your safe code to fix an error.",
+  "category": "Hotels & privacy",
+  "scenario": "A caller claiming to be hotel staff asks for your room safe code to fix an error.",
   "answers": {
-    "A": "Check inside the official app, booking, provider, or government site.",
-    "B": "Click/pay immediately to avoid losing the booking or offer.",
-    "C": "Ignore/report the message and use a known contact route.",
-    "D": "Forward it to a fellow traveller and ask what they think."
+    "A": "Hang up and call the front desk from the room phone or hotel directory.",
+    "B": "Read the safe code back so staff can reset it.",
+    "C": "Go to reception and ask staff to check the safe in person.",
+    "D": "Give only the last digit to prove you are the guest."
   },
   "scores": {
     "A": 4,
@@ -22,8 +22,8 @@
     "A",
     "C"
   ],
-  "explanation": "Hotel Safe Reset: the trap is to get access to an account, code, password, or permission. The safer move is to verify through an official or approved channel, not to click or follow the risky request.",
-  "proTip": "Hotel staff should never ask for your safe code.",
+  "explanation": "A real staff member can verify the safe without asking for its code over an unexpected call. Treat the code as private.",
+  "proTip": "The safe code is for the safe, not for telephone verification.",
   "hackKey": "A",
   "hackTrigger": "Authority",
   "tags": [
