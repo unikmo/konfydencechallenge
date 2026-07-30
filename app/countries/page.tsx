@@ -12,9 +12,11 @@ export default function CountriesPage() {
         <header className={styles.nav}>
           <Link href="/" className={styles.brand}>Konfydence</Link>
           <nav className={styles.navLinks} aria-label="Main navigation">
-            <Link href="/challenge">Challenge</Link>
-            <Link href="/products">Products</Link>
-            <Link href="/countries" aria-current="page">Country Alert</Link>
+            <Link href="/challenge">Challenges</Link>
+            <Link href="/#how-it-works">How It Works</Link>
+            <Link href="/#for-organizations">For Organizations</Link>
+            <Link href="/countries" aria-current="page">Resources</Link>
+            <Link href="/contact">Contact</Link>
           </nav>
         </header>
 
@@ -48,8 +50,8 @@ export default function CountriesPage() {
         </section>
 
         <section className={styles.practice}>
-          <div><p className={styles.eyebrow}>Practise before you travel</p><h2>How would you react under pressure?</h2><p>Take the free TravelSafe check, then unlock the full challenge when you are ready.</p></div>
-          <Link href="/challenge/travelsafe/start?mode=diagnostic" className={styles.primaryLink}>Take the free check</Link>
+          <div><p className={styles.eyebrow}>Practise before you travel</p><h2>How would you react under pressure?</h2><p>Start with the TravelSafe Free Readiness Check, then unlock the Full Challenge when you are ready.</p></div>
+          <Link href="/challenge/travelsafe/start?mode=diagnostic" className={styles.primaryLink}>Start Free Readiness Check</Link>
         </section>
 
         <section className={styles.affiliate}>

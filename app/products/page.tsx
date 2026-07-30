@@ -12,7 +12,6 @@ export const metadata: Metadata = {
 };
 
 export default function ProductsPage() {
-  redirect("/");
   return (
     <main style={styles.page}>
       <div style={styles.shell}>

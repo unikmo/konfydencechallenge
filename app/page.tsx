@@ -2,23 +2,23 @@ import Link from "next/link";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: { absolute: "Konfydence Challenge | Scam Readiness Games" },
+  title: { absolute: "Konfydence Challenge | Scenario-Based Training" },
   description: "Choose a real-life pressure scenario and build the pause habit before the moment is real.",
 };
 
 const games = [
-  ["travelsafe", "TravelSafe", "Travelers and tourists", "Tickets, hotels, taxis, Wi-Fi, refunds, rentals, and tourist traps.", "Start TravelSafe"],
-  ["family", "Family", "Parents, children, and elders", "Money requests, shared devices, emotional pressure, and account risks.", "Start Family"],
-  ["school", "School", "Students ages 12-18", "Fake links, group chats, gaming pressure, and account takeovers.", "Start School"],
-  ["university", "University", "Students and international offices", "Housing, jobs, tuition, identity, campus messages, and travel traps.", "Start University"],
-  ["workplace", "Workplace", "Teams, HR, and managers", "Phishing, invoices, payroll changes, executive pressure, and data requests.", "Start Workplace"],
+  ["travelsafe", "TravelSafe", "Travelers and tourists", "Tickets, hotels, taxis, Wi-Fi, refunds, rentals, and tourist traps.", "Start Free Readiness Check"],
+  ["family", "Family", "Parents, children, and elders", "Money requests, shared devices, emotional pressure, and account risks.", "Start Free Readiness Check"],
+  ["school", "School", "Students ages 12-18", "Fake links, group chats, gaming pressure, and account takeovers.", "Start Free Readiness Check"],
+  ["university", "University", "Students and international offices", "Housing, jobs, tuition, identity, campus messages, and travel traps.", "Start Free Readiness Check"],
+  ["workplace", "Workplace", "Teams, HR, and managers", "Phishing, invoices, payroll changes, executive pressure, and data requests.", "Start Free Readiness Check"],
 ];
 
 const steps = [
   ["01", "Choose your edition", "Pick the pressure situations closest to your real life."],
   ["02", "Face the scenario", "Make a decision while urgency and trust are working against you."],
   ["03", "Get your score", "See your readiness and the pressure pattern to practise next."],
-  ["04", "Build the pause", "Use the safer-action habit before the next real request."],
+  ["04", "Continue with the Full Challenge", "Unlock the complete scenario-based training experience when you are ready."],
 ];
 
 export default function ChallengeLandingPage() {
@@ -27,11 +27,12 @@ export default function ChallengeLandingPage() {
       <header className="site-nav">
         <Link className="brand" href="/">Konfydence</Link>
         <nav aria-label="Main navigation">
-          <Link href="/products">Products</Link>
-          <Link href="/pricing">Pricing</Link>
-          <Link href="/countries">Country Alert</Link>
+          <Link href="/challenge">Challenges</Link>
+          <Link href="/#how-it-works">How It Works</Link>
+          <Link href="/#for-organizations">For Organizations</Link>
+          <Link href="/countries">Resources</Link>
           <Link href="/contact">Contact</Link>
-          <Link className="nav-cta" href="#games">Choose a game</Link>
+          <Link className="nav-cta" href="#challenge-editions">Choose a Challenge</Link>
         </nav>
       </header>
 
@@ -39,9 +40,9 @@ export default function ChallengeLandingPage() {
         <div className="hero-copy">
           <p className="eyebrow">Konfydence Challenge</p>
           <h1><span className="travel-question">Travelling?</span><br /><strong>What's your Konfydence level?</strong></h1>
-          <p className="lede">Don't let scammers ruin your trip before it starts. Take the free 3-minute TravelSafe check, face realistic travel-scam scenarios, and discover which pressure tactics you should watch for.</p>
+          <p className="lede">Don't let scammers ruin your trip before it starts. Start with the 3-minute TravelSafe Free Readiness Check, face realistic travel-scam scenarios, and discover which pressure tactics you should watch for.</p>
           <div className="actions">
-            <Link className="primary" href="/challenge/travelsafe/start?mode=diagnostic">Take the free check</Link>
+            <Link className="primary" href="/challenge/travelsafe/start?mode=diagnostic">Start Free Readiness Check</Link>
             <Link className="secondary" href="#how-it-works">See how it works</Link>
           </div>
           <p className="proof"><span>✓</span> No signup <span>✓</span> 3 minutes <span>✓</span> Immediate readiness score</p>
@@ -51,10 +52,10 @@ export default function ChallengeLandingPage() {
             <div className="demo-stage stage-before">
               <small>BEFORE THE TEST</small>
               <h3>Ready to discover your pressure pattern?</h3>
-              <p>Start the free 3-minute TravelSafe check.</p>
+              <p>Start the 3-minute TravelSafe Free Readiness Check.</p>
             </div>
             <div className="demo-stage stage-during">
-              <small>DURING THE TEST</small>
+              <small>INSIDE THE CHALLENGE</small>
               <h3>Face a real travel-scam scenario.</h3>
               <p>What would you do when the pressure feels real?</p>
               <div className="scenario-chip">SCENARIO: <b>HURRY</b></div>
@@ -83,18 +84,18 @@ export default function ChallengeLandingPage() {
         <div className="steps">{steps.map(([number, title, text]) => <article className="step" key={number}><b>{number}</b><h3>{title}</h3><p>{text}</p></article>)}</div>
       </section>
 
-      <section id="games" className="section games-section">
-        <p className="section-kicker">Choose your challenge</p>
+      <section id="challenge-editions" className="section games-section">
+        <p className="section-kicker">Challenge Editions</p>
         <h2>Which pressure situations feel familiar?</h2>
-        <p className="section-intro">Built from real scam scripts and designed for practical decisions, not lectures. Start with a free diagnostic and see where your pause habit is strongest.</p>
+        <p className="section-intro">Built from real scam scripts and designed for scenario-based training, not lectures. Start with a Free Readiness Check, then unlock the Full Challenge when you want the complete experience.</p>
         <div className="games">{games.map(([edition, title, audience, description, cta]) => <article className="game" key={edition}><div><span className="game-label">{audience}</span><h3>{title}</h3><p>{description}</p></div><Link href={`/challenge/${edition}/start?mode=diagnostic`} className="game-link">{cta}</Link></article>)}</div>
       </section>
 
-      <section className="trust"><b>Why the pause works</b><p>Pressure tactics are built to make people act before they verify. Konfydence helps you recognize hurry, authority, connection, and kill-switch moments while the stakes are still low.</p></section>
+      <section id="for-organizations" className="trust"><b>Scenario-based training for organizations</b><p>Pressure tactics are built to make people act before they verify. Konfydence gives schools, employers, and institutional partners a practical way to rehearse safer decisions while the stakes are still low.</p></section>
 
       <footer className="footer">
         <div><b>Konfydence</b><span>Safer digital decisions under pressure.</span></div>
-        <nav><Link href="/">Home</Link><Link href="/products">Products</Link><Link href="/contact">Contact</Link><Link href="/imprint">Imprint</Link><Link href="/privacy-policy">Privacy</Link><Link href="/terms-of-service">Terms</Link><Link href="/cookie-policy">Cookies</Link></nav>
+        <nav><Link href="/">Home</Link><Link href="/contact">Contact</Link><Link href="/imprint">Imprint</Link><Link href="/privacy-policy">Privacy</Link><Link href="/terms-of-service">Terms</Link><Link href="/cookie-policy">Cookies</Link></nav>
       </footer>
 
       <style>{`

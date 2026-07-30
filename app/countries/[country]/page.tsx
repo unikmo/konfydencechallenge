@@ -18,9 +18,12 @@ export default function CountryPage({ params }: { params: { country: string } })
       <div className={styles.shell}>
         <header className={styles.nav}>
           <Link href="/" className={styles.brand}>Konfydence</Link>
-          <nav className={styles.navLinks}>
-            <Link href="/countries">All countries</Link>
-            <Link href="/challenge">Challenge</Link>
+          <nav className={styles.navLinks} aria-label="Main navigation">
+            <Link href="/challenge">Challenges</Link>
+            <Link href="/#how-it-works">How It Works</Link>
+            <Link href="/#for-organizations">For Organizations</Link>
+            <Link href="/countries">Resources</Link>
+            <Link href="/contact">Contact</Link>
           </nav>
         </header>
 
@@ -53,9 +56,9 @@ export default function CountryPage({ params }: { params: { country: string } })
           <div>
             <p className={styles.eyebrow}>TravelSafe</p>
             <h2>Test your response before the trip.</h2>
-            <p>Face short, travel-framed scenarios and see which pressure tactic needs more practice.</p>
+            <p>Start with the TravelSafe Free Readiness Check, then see which pressure tactic needs more practice before the trip.</p>
           </div>
-          <Link href="/challenge/travelsafe/start?mode=diagnostic" className={styles.primaryLink}>Take the free check</Link>
+          <Link href="/challenge/travelsafe/start?mode=diagnostic" className={styles.primaryLink}>Start Free Readiness Check</Link>
         </section>
 
         <section className={styles.affiliate}>
