@@ -1,0 +1,34 @@
+{
+  "id": "family-fam-19",
+  "title": "Property management changed banks",
+  "edition": "family",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Housing",
+  "scenario": "An email from your property manager says the rent collection account changed after a banking merger. It includes the building address and manager signature and asks you to update the standing order.",
+  "answers": {
+    "A": "Verify the new bank details with the property manager through a known phone number or tenant portal before changing payment instructions.",
+    "B": "Ask for the change to appear in the official tenant portal or formal lease communication.",
+    "C": "Make one small test transfer to the new account before moving the full rent payment."
+  },
+  "scores": {
+    "A": 4,
+    "B": 3,
+    "C": 0
+  },
+  "safeActions": [
+    "A",
+    "B"
+  ],
+  "explanation": "Small test payments only prove the account receives money, not that it belongs to your landlord. Bank-detail changes require identity verification.",
+  "proTip": "Verify ownership before amount.",
+  "hackKey": "A",
+  "hackTrigger": "Authority",
+  "tags": [
+    "family",
+    "a",
+    "rent",
+    "payment-diversion"
+  ],
+  "active": true
+}

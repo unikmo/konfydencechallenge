@@ -1,0 +1,33 @@
+{
+  "id": "travelsafe-tra-07",
+  "title": "Airport eSIM: 70% off for six minutes",
+  "edition": "travelsafe",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Connectivity",
+  "scenario": "A kiosk screen beside baggage claim advertises a “landing-only” eSIM deal with a six-minute countdown. The QR code installs a profile and asks you to sign in with your main email account to activate it.",
+  "answers": {
+    "A": "Buy or install an eSIM through a carrier or provider you independently choose, using its official app or site.",
+    "B": "Ask airport information whether the kiosk is an approved telecom seller before scanning anything.",
+    "C": "Scan it now but deny any permissions that look unrelated to mobile data."
+  },
+  "scores": {
+    "A": 4,
+    "B": 2,
+    "C": 0
+  },
+  "safeActions": [
+    "A"
+  ],
+  "explanation": "A countdown can make an unknown profile feel routine. You should know who controls the software or profile before installing it.",
+  "proTip": "Cheap data is not worth an unknown configuration profile.",
+  "hackKey": "H",
+  "hackTrigger": "Hurry",
+  "tags": [
+    "travelsafe",
+    "h",
+    "esim",
+    "qr"
+  ],
+  "active": true
+}

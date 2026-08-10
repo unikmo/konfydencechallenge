@@ -1,0 +1,34 @@
+{
+  "id": "workplace-wrk-14",
+  "title": "Benefits team needs your login",
+  "edition": "workplace",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "HR",
+  "scenario": "A message from “HR Benefits” says open enrollment data did not migrate correctly and asks employees to reauthenticate through a portal using corporate SSO plus a personal tax/social-security number.",
+  "answers": {
+    "A": "Check the official HR calendar/announcement channel to see whether a migration issue exists.",
+    "B": "Use the portal because benefits enrollment legitimately involves personal identifiers.",
+    "C": "Use the HR system from the company intranet or contact HR through a known channel before entering sensitive data."
+  },
+  "scores": {
+    "A": 3,
+    "B": 0,
+    "C": 4
+  },
+  "safeActions": [
+    "A",
+    "C"
+  ],
+  "explanation": "Legitimate HR processes do involve sensitive data, making impersonation especially effective. Start from the HR system you already trust.",
+  "proTip": "Sensitive context requires a stronger channel, not weaker skepticism.",
+  "hackKey": "A",
+  "hackTrigger": "Authority",
+  "tags": [
+    "workplace",
+    "a",
+    "hr",
+    "identity-phishing"
+  ],
+  "active": true
+}

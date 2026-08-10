@@ -1,0 +1,34 @@
+{
+  "id": "workplace-wrk-26",
+  "title": "The trusted consultant needs OAuth access",
+  "edition": "workplace",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Consultants",
+  "scenario": "A consultant you have worked with for a year says their reporting tool was upgraded and asks you to reconnect your company account. The consent screen now requests broader permissions than before.",
+  "answers": {
+    "A": "Ask for vendor documentation explaining the permission change and whether a least-privilege option exists.",
+    "B": "Approve because the consultant and tool are already trusted vendors.",
+    "C": "Pause and verify the new permission scope with the consultant and internal IT/security before reauthorizing."
+  },
+  "scores": {
+    "A": 3,
+    "B": 0,
+    "C": 4
+  },
+  "safeActions": [
+    "A",
+    "C"
+  ],
+  "explanation": "Trusted vendors can change, be compromised, or request excessive permissions. Prior trust does not automatically extend to new access.",
+  "proTip": "Old vendor, new permissions = new decision.",
+  "hackKey": "C",
+  "hackTrigger": "Connection",
+  "tags": [
+    "workplace",
+    "c",
+    "oauth",
+    "third-party-risk"
+  ],
+  "active": true
+}

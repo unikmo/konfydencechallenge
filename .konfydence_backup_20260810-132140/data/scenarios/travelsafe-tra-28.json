@@ -1,0 +1,33 @@
+{
+  "id": "travelsafe-tra-28",
+  "title": "A forum veteran offers the missing miles",
+  "edition": "travelsafe",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Points & miles",
+  "scenario": "A long-time member of a frequent-flyer forum offers to sell you the 12,000 miles you need for an award ticket. Their account is years old with many helpful posts, but they want payment by a method with no buyer protection.",
+  "answers": {
+    "A": "Use only the loyalty program’s permitted purchase/transfer route or a payment method with meaningful buyer protection.",
+    "B": "Check whether the forum account has recent activity and ask for references from prior transactions before deciding.",
+    "C": "Proceed because the old account and reputation make a takeover unlikely."
+  },
+  "scores": {
+    "A": 4,
+    "B": 2,
+    "C": 0
+  },
+  "safeActions": [
+    "A"
+  ],
+  "explanation": "Reputation accounts can be stolen, and off-platform point sales may also violate program rules. Old trust does not remove transaction risk.",
+  "proTip": "A respected account can still be a rented identity.",
+  "hackKey": "C",
+  "hackTrigger": "Connection",
+  "tags": [
+    "travelsafe",
+    "c",
+    "loyalty",
+    "marketplace"
+  ],
+  "active": true
+}

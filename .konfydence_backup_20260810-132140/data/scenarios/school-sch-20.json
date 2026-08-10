@@ -1,0 +1,34 @@
+{
+  "id": "school-sch-20",
+  "title": "Coach needs a new roster form",
+  "edition": "school",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Sports teams",
+  "scenario": "A message that appears to come from your coach says the team is switching apps. The new roster form asks for your home address, date of birth, emergency contacts and a photo of a parent’s ID.",
+  "answers": {
+    "A": "Show the form to a parent/guardian and let them handle any sensitive identity fields.",
+    "B": "Fill in your own information now and leave the parent ID field for later.",
+    "C": "Ask the coach in person or through the team’s existing app whether the form is genuine before entering information."
+  },
+  "scores": {
+    "A": 3,
+    "B": 0,
+    "C": 4
+  },
+  "safeActions": [
+    "A",
+    "C"
+  ],
+  "explanation": "Teams legitimately collect information, which makes fake forms believable. Sensitive data should follow a verified school/team process.",
+  "proTip": "Real context does not automatically make a new form real.",
+  "hackKey": "A",
+  "hackTrigger": "Authority",
+  "tags": [
+    "school",
+    "a",
+    "team",
+    "identity"
+  ],
+  "active": true
+}

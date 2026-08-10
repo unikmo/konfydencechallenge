@@ -1,0 +1,35 @@
+{
+  "id": "school-sch-32",
+  "title": "Send me the reset code",
+  "edition": "school",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Account recovery",
+  "scenario": "Someone messages that they accidentally entered your phone number while recovering their account. A code arrives and they ask you to forward it so they can finish the reset.",
+  "answers": {
+    "A": "Block the requester and check recent login/recovery activity in your account.",
+    "B": "Send the code if the text does not show your username, because it might really be for them.",
+    "C": "Do not send it; read the message around the code and secure your own account if the code is for you."
+  },
+  "scores": {
+    "A": 3,
+    "B": 0,
+    "C": 4
+  },
+  "safeActions": [
+    "A",
+    "C"
+  ],
+  "explanation": "Recovery codes are often tied to your number or account even if the message is vague. Sharing them can hand over access.",
+  "proTip": "If a code lands on your phone, treat it as yours to protect.",
+  "hackKey": "K",
+  "hackTrigger": "Critical Action",
+  "tags": [
+    "school",
+    "k",
+    "otp",
+    "account-recovery",
+    "diagnostic"
+  ],
+  "active": true
+}

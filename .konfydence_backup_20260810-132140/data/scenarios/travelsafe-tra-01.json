@@ -1,0 +1,35 @@
+{
+  "id": "travelsafe-tra-01",
+  "title": "Your bag has 12 minutes",
+  "edition": "travelsafe",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Airport & baggage",
+  "scenario": "You are already through security when a text says the payment for your checked bag failed. It knows your flight number and warns the bag will be offloaded unless you pay €35 within 12 minutes.",
+  "answers": {
+    "A": "Show the message to airline staff or check the bag status in the airline app you open yourself.",
+    "B": "Search the airline website and call a support number you find there before paying.",
+    "C": "Use the text link but pay with a virtual card so your main card stays protected."
+  },
+  "scores": {
+    "A": 4,
+    "B": 3,
+    "C": 0
+  },
+  "safeActions": [
+    "A",
+    "B"
+  ],
+  "explanation": "A safer card does not make an unverified payment request safe. First confirm that the charge exists through a channel you control.",
+  "proTip": "Real urgency is a reason to verify faster, not skip verification.",
+  "hackKey": "H",
+  "hackTrigger": "Hurry",
+  "tags": [
+    "travelsafe",
+    "h",
+    "smishing",
+    "payments",
+    "diagnostic"
+  ],
+  "active": true
+}

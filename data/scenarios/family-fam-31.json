@@ -1,0 +1,35 @@
+{
+  "id": "family-fam-31",
+  "title": "Support wants to “see the problem”",
+  "edition": "family",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Remote access",
+  "scenario": "A caller claiming to be from your bank says malware may be causing suspicious transfers. They ask you to install a remote-support app so they can inspect your phone while you log in.",
+  "answers": {
+    "A": "Do not install the app; end the call and contact the bank through its official channel, then secure the device separately if needed.",
+    "B": "Use the bank app to freeze transactions first and ask a trusted tech-support provider to inspect the device.",
+    "C": "Install the app but close your banking app before giving them screen access."
+  },
+  "scores": {
+    "A": 4,
+    "B": 3,
+    "C": 0
+  },
+  "safeActions": [
+    "A",
+    "B"
+  ],
+  "explanation": "Remote-control tools can expose passwords, messages and approvals even if the banking app is closed.",
+  "proTip": "If the helper needs control of your screen, verify the helper first.",
+  "hackKey": "K",
+  "hackTrigger": "Critical Action",
+  "tags": [
+    "family",
+    "k",
+    "remote-access",
+    "banking",
+    "diagnostic"
+  ],
+  "active": true
+}

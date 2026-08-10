@@ -1,0 +1,33 @@
+{
+  "id": "travelsafe-tra-18",
+  "title": "The blue-check airline agent",
+  "edition": "travelsafe",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Airline support",
+  "scenario": "You post on social media that check-in is broken. Within two minutes, a verified-looking “Airline Help” account DMs you and asks for your booking code plus the one-time code it just sent “to open the reservation securely.”",
+  "answers": {
+    "A": "Send the one-time code because it arrived on your own phone, which confirms the airline has your number.",
+    "B": "Stop the DM and use the airline app, official site, or support handle linked from the airline’s own website.",
+    "C": "Give the booking code but refuse the one-time code until the account proves it is official."
+  },
+  "scores": {
+    "A": 0,
+    "B": 4,
+    "C": 2
+  },
+  "safeActions": [
+    "B"
+  ],
+  "explanation": "One-time codes often authorize account access; support should not need you to hand over a code that proves you are you.",
+  "proTip": "A code sent to you is usually for you—not for support.",
+  "hackKey": "A",
+  "hackTrigger": "Authority",
+  "tags": [
+    "travelsafe",
+    "a",
+    "social-media",
+    "otp"
+  ],
+  "active": true
+}

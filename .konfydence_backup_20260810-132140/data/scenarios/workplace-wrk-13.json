@@ -1,0 +1,34 @@
+{
+  "id": "workplace-wrk-13",
+  "title": "Your bank’s fraud desk calls finance",
+  "edition": "workplace",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Banking",
+  "scenario": "A caller claiming to be the company’s bank says a wire is being held for fraud review. They know the company name and recent transfer amount and ask for a security code to release the hold.",
+  "answers": {
+    "A": "End the call and contact the bank using the treasury portal or known relationship-manager number.",
+    "B": "Freeze or review the transfer in the bank portal while independently contacting the bank.",
+    "C": "Read the code because the caller already knows the exact transfer amount."
+  },
+  "scores": {
+    "A": 4,
+    "B": 3,
+    "C": 0
+  },
+  "safeActions": [
+    "A",
+    "B"
+  ],
+  "explanation": "Transaction details can leak through compromised email or systems. Security codes may authorize rather than cancel activity.",
+  "proTip": "Knowing the transaction is not the same as controlling the bank.",
+  "hackKey": "A",
+  "hackTrigger": "Authority",
+  "tags": [
+    "workplace",
+    "a",
+    "bank-impostor",
+    "otp"
+  ],
+  "active": true
+}

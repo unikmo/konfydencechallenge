@@ -1,0 +1,35 @@
+{
+  "id": "school-sch-21",
+  "title": "Your best friend needs one tiny favour",
+  "edition": "school",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Friends",
+  "scenario": "Your best friend’s account asks you to help recover their social profile by sending them a code that just arrived on your phone. Their messages sound normal and reference a joke from last week.",
+  "answers": {
+    "A": "Send it because the private joke proves it is really your friend.",
+    "B": "Do not send the code; contact your friend another way and check what the code says it is for.",
+    "C": "Ask your friend to call or video you before doing anything with the code."
+  },
+  "scores": {
+    "A": 0,
+    "B": 4,
+    "C": 3
+  },
+  "safeActions": [
+    "B",
+    "C"
+  ],
+  "explanation": "Compromised accounts include old chats, photos and context. Private history can be read by whoever took the account.",
+  "proTip": "Inside jokes are not two-factor authentication.",
+  "hackKey": "C",
+  "hackTrigger": "Connection",
+  "tags": [
+    "school",
+    "c",
+    "friend-account",
+    "otp",
+    "diagnostic"
+  ],
+  "active": true
+}

@@ -1,0 +1,34 @@
+{
+  "id": "university-uni-04",
+  "title": "Accept your award in 60 minutes",
+  "edition": "university",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Scholarships",
+  "scenario": "A scholarship email says another candidate will receive your award if you do not accept within 60 minutes. Acceptance requires a $25 “identity processing” fee and a photo of your student ID.",
+  "answers": {
+    "A": "Verify the award through the scholarship organization’s official site and your university financial-aid office before paying or uploading ID.",
+    "B": "Ask for formal award terms and whether the fee can be deducted from the scholarship rather than paid upfront.",
+    "C": "Pay the small fee to reserve the award, then verify before sending the ID."
+  },
+  "scores": {
+    "A": 4,
+    "B": 3,
+    "C": 0
+  },
+  "safeActions": [
+    "A",
+    "B"
+  ],
+  "explanation": "Scarcity plus congratulations can bypass skepticism. Legitimate awards should be independently verifiable before money changes hands.",
+  "proTip": "Winning should create funding, not a payment emergency.",
+  "hackKey": "H",
+  "hackTrigger": "Hurry",
+  "tags": [
+    "university",
+    "h",
+    "scholarship",
+    "advance-fee"
+  ],
+  "active": true
+}

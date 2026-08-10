@@ -1,0 +1,34 @@
+{
+  "id": "workplace-wrk-09",
+  "title": "Preserve these files in 30 minutes",
+  "edition": "workplace",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Legal",
+  "scenario": "An email labeled “Legal Hold – Immediate” says the company has 30 minutes to preserve evidence and asks you to upload project files to an external secure-transfer portal. The sender name matches outside counsel.",
+  "answers": {
+    "A": "Upload because legal-hold deadlines can be strict and delaying could create liability.",
+    "B": "Verify the legal hold with internal legal counsel or the known outside-counsel contact before uploading confidential files.",
+    "C": "Preserve the files internally first while the transfer destination is verified."
+  },
+  "scores": {
+    "A": 0,
+    "B": 4,
+    "C": 3
+  },
+  "safeActions": [
+    "B",
+    "C"
+  ],
+  "explanation": "Legal urgency can make unusual data movement seem necessary. Preserve first, transfer only after verifying destination and authority.",
+  "proTip": "A deadline can justify preservation, not an unverified upload.",
+  "hackKey": "H",
+  "hackTrigger": "Hurry",
+  "tags": [
+    "workplace",
+    "h",
+    "legal",
+    "data-exfiltration"
+  ],
+  "active": true
+}

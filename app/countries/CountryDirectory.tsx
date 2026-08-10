@@ -88,7 +88,7 @@ export default function CountryDirectory({ profiles }: { profiles: CountryProfil
                   <h3>{profile.name}</h3>
                 </div>
                 <Link href={"/countries/" + profile.slug} className={styles.countryLink}>
-                  Open country alert
+                  Open Country Scam Alerts
                 </Link>
               </article>
             ))}

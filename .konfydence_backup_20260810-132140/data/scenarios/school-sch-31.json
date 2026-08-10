@@ -1,0 +1,35 @@
+{
+  "id": "school-sch-31",
+  "title": "The poster promises free pizza",
+  "edition": "school",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "QR codes",
+  "scenario": "A QR poster near school says, “Free pizza for students—claim your code.” The page asks you to sign in with your school account and then requests permission to read your profile and contacts.",
+  "answers": {
+    "A": "Do not sign in; verify the promotion through the school or restaurant’s official channel.",
+    "B": "Inspect the destination and ask school staff whether the poster is approved before entering anything.",
+    "C": "Sign in because the school account is only being used to prove you are a student."
+  },
+  "scores": {
+    "A": 4,
+    "B": 3,
+    "C": 0
+  },
+  "safeActions": [
+    "A",
+    "B"
+  ],
+  "explanation": "QR codes hide the destination until after you scan, and “student verification” is an easy excuse to collect credentials or permissions.",
+  "proTip": "Free pizza should not need access to your contacts.",
+  "hackKey": "K",
+  "hackTrigger": "Critical Action",
+  "tags": [
+    "school",
+    "k",
+    "qr",
+    "oauth",
+    "diagnostic"
+  ],
+  "active": true
+}

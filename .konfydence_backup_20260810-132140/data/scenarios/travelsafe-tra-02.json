@@ -1,0 +1,35 @@
+{
+  "id": "travelsafe-tra-02",
+  "title": "The last room, apparently",
+  "edition": "travelsafe",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Accommodation",
+  "scenario": "A booking-site message says your hotel has a payment problem and your room will be released in 20 minutes unless you re-enter your card on an external page. The message appears inside the same thread as your real reservation.",
+  "answers": {
+    "A": "Call the hotel using a number from its official site and ask whether your reservation is at risk.",
+    "B": "Pay through the external page because the message appeared inside your genuine booking thread.",
+    "C": "Open the booking in the platform and contact the hotel or platform through its built-in support tools."
+  },
+  "scores": {
+    "A": 3,
+    "B": 0,
+    "C": 4
+  },
+  "safeActions": [
+    "A",
+    "C"
+  ],
+  "explanation": "Real booking accounts can be compromised, so the location of a message is not proof that its payment link is safe.",
+  "proTip": "A familiar thread can still contain an unfamiliar payment destination.",
+  "hackKey": "H",
+  "hackTrigger": "Hurry",
+  "tags": [
+    "travelsafe",
+    "h",
+    "hotel",
+    "compromised-account",
+    "diagnostic"
+  ],
+  "active": true
+}

@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { rateLimit, getClientIp } from "@/lib/rateLimit";
 
-// Submissions previously only ever hit console.log on Vercel â€” every
+// Submissions previously only ever hit console.log on Vercel — every
 // school/university/workplace inquiry through this form was going nowhere.
 // Guarded by env vars (same pattern as GA4 in app/layout.tsx): if Resend
 // isn't configured yet, this quietly falls back to the old console.log
@@ -30,19 +30,19 @@ async function sendContactEmail(payload: {
 }): Promise<boolean> {
   if (!RESEND_API_KEY || !CONTACT_TO_EMAIL || !CONTACT_FROM_EMAIL) return false;
 
-  // All fields are attacker-controlled input landing in an HTML email body â€”
+  // All fields are attacker-controlled input landing in an HTML email body —
   // escape before interpolating to avoid HTML/content injection in the inbox.
   const safe = {
     name: escapeHtml(payload.name),
     email: escapeHtml(payload.email),
     organization: escapeHtml(payload.organization),
-    seatCount: payload.seatCount ? escapeHtml(payload.seatCount) : "â€”",
+    seatCount: payload.seatCount ? escapeHtml(payload.seatCount) : "—",
     message: escapeHtml(payload.message).replace(/\n/g, "<br/>"),
     topic: payload.topic ? escapeHtml(payload.topic) : "general",
   };
 
   const html = `
-    <h2>New ${safe.topic} inquiry â€” Konfydence contact form</h2>
+    <h2>New ${safe.topic} inquiry — Konfydence contact form</h2>
     <p><strong>Name:</strong> ${safe.name}<br/>
     <strong>Email:</strong> ${safe.email}<br/>
     <strong>Organization:</strong> ${safe.organization}<br/>
@@ -74,7 +74,7 @@ async function sendContactEmail(payload: {
 
 export async function POST(request: NextRequest) {
   try {
-    // Open, unauthenticated POST endpoint â€” cap submissions per IP so it
+    // Open, unauthenticated POST endpoint — cap submissions per IP so it
     // can't be scripted into spamming the business inbox once email is wired.
     const { allowed } = rateLimit(`contact:${getClientIp(request)}`, 5, 10 * 60_000);
     if (!allowed) {

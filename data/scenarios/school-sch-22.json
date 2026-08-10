@@ -1,0 +1,35 @@
+{
+  "id": "school-sch-22",
+  "title": "There is a video of you. Or is there?",
+  "edition": "school",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Deepfakes",
+  "scenario": "A classmate sends a link saying, “Someone made an AI video of you—this is bad.” The preview thumbnail looks like your face, but the site asks you to log in before viewing the full clip.",
+  "answers": {
+    "A": "Do not log in; ask the classmate what they saw and report the situation to a trusted adult/school if needed.",
+    "B": "Search your real social accounts or platform reports without using the link to see whether anything was posted.",
+    "C": "Log in quickly so you can see whether the video is real before more people watch it."
+  },
+  "scores": {
+    "A": 4,
+    "B": 3,
+    "C": 0
+  },
+  "safeActions": [
+    "A",
+    "B"
+  ],
+  "explanation": "Fear and curiosity are powerful click triggers. The safest first step is to protect your account and get help, not feed credentials to the link.",
+  "proTip": "You do not need to risk your account to investigate a rumor.",
+  "hackKey": "C",
+  "hackTrigger": "Connection",
+  "tags": [
+    "school",
+    "c",
+    "deepfake",
+    "phishing",
+    "diagnostic"
+  ],
+  "active": true
+}

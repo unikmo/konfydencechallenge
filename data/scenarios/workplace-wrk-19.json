@@ -1,0 +1,34 @@
+{
+  "id": "workplace-wrk-19",
+  "title": "A board member asks for the cap table",
+  "edition": "workplace",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Board communications",
+  "scenario": "A board member’s personal email asks finance to send the latest cap table and option-grant details to a private address before a flight. The request sounds plausible and time-sensitive.",
+  "answers": {
+    "A": "Verify the request and approved delivery channel through corporate governance/legal processes before sending sensitive data.",
+    "B": "Ask the board member to retrieve the information through the board portal or approved document system.",
+    "C": "Send a password-protected file to the personal email and share the password by text."
+  },
+  "scores": {
+    "A": 4,
+    "B": 3,
+    "C": 0
+  },
+  "safeActions": [
+    "A",
+    "B"
+  ],
+  "explanation": "Encryption does not fix an unverified recipient or unauthorized channel. Governance data should stay inside approved systems.",
+  "proTip": "Protect the identity and channel before protecting the attachment.",
+  "hackKey": "A",
+  "hackTrigger": "Authority",
+  "tags": [
+    "workplace",
+    "a",
+    "board",
+    "data-exfiltration"
+  ],
+  "active": true
+}

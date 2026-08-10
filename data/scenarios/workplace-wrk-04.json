@@ -1,0 +1,34 @@
+{
+  "id": "workplace-wrk-04",
+  "title": "Vendor says shipment leaves in an hour",
+  "edition": "workplace",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Wire transfers",
+  "scenario": "A supplier says a production-critical shipment will miss pickup unless a wire is released within an hour. They attach a revised invoice with new beneficiary details and copy several familiar contacts.",
+  "answers": {
+    "A": "Verify the beneficiary change through a known supplier contact and internal approval process before releasing the wire.",
+    "B": "Escalate the business urgency internally while holding the payment until verification is complete.",
+    "C": "Send part of the wire to secure the shipment while procurement verifies the rest."
+  },
+  "scores": {
+    "A": 4,
+    "B": 3,
+    "C": 0
+  },
+  "safeActions": [
+    "A",
+    "B"
+  ],
+  "explanation": "Operational urgency can make a payment change feel unavoidable. Partial payments are still losses if the destination is fraudulent.",
+  "proTip": "Protect the payment path first; solve the shipping urgency second.",
+  "hackKey": "H",
+  "hackTrigger": "Hurry",
+  "tags": [
+    "workplace",
+    "h",
+    "supplier",
+    "wire-fraud"
+  ],
+  "active": true
+}

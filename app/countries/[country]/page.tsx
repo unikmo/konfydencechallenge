@@ -19,17 +19,17 @@ export default function CountryPage({ params }: { params: { country: string } })
         <header className={styles.nav}>
           <Link href="/" className={styles.brand}>Konfydence</Link>
           <nav className={styles.navLinks} aria-label="Main navigation">
-            <Link href="/challenge">Challenges</Link>
+            <Link href="/travelsafe">TravelSafe</Link>
             <Link href="/#how-it-works">How It Works</Link>
+            <Link href="/country-alerts">Country Scam Alerts</Link>
+            <Link href="/#other-challenges">Other Challenges</Link>
             <Link href="/#for-organizations">For Organizations</Link>
-            <Link href="/countries">Resources</Link>
-            <Link href="/contact">Contact</Link>
           </nav>
         </header>
 
         <section className={styles.hero}>
-          <Link href="/countries" className={styles.back}>Country Alert</Link>
-          <p className={styles.eyebrow}>{profile.continent} Â· {profile.region}</p>
+          <Link href="/country-alerts" className={styles.back}>Country Scam Alerts</Link>
+          <p className={styles.eyebrow}>{profile.continent} / {profile.region}</p>
           <h1>{profile.name}</h1>
 
         </section>

@@ -1,0 +1,34 @@
+{
+  "id": "workplace-wrk-39",
+  "title": "The conference USB says “speaker materials”",
+  "edition": "workplace",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Removable media",
+  "scenario": "After a conference, you find a branded USB drive in your event bag labeled “Speaker Slides + Templates.” Your laptop blocks it and asks whether to allow the device to run setup software.",
+  "answers": {
+    "A": "Allow the setup because the USB came inside an official conference bag.",
+    "B": "Do not run it; obtain materials from the event’s official download site and hand the device to IT/security if required.",
+    "C": "Open it only on an isolated, security-approved analysis system if your role requires investigation."
+  },
+  "scores": {
+    "A": 0,
+    "B": 4,
+    "C": 3
+  },
+  "safeActions": [
+    "B",
+    "C"
+  ],
+  "explanation": "Physical branding and event context can make removable media feel trustworthy. Unknown devices can carry malware or emulate input devices.",
+  "proTip": "Branded plastic is not a trust certificate.",
+  "hackKey": "K",
+  "hackTrigger": "Critical Action",
+  "tags": [
+    "workplace",
+    "k",
+    "usb",
+    "malware"
+  ],
+  "active": true
+}

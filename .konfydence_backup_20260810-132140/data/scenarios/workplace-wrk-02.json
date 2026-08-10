@@ -1,0 +1,35 @@
+{
+  "id": "workplace-wrk-02",
+  "title": "Payroll closes in 20 minutes",
+  "edition": "workplace",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Payroll",
+  "scenario": "An employee emails HR saying they changed banks and need their salary redirected before payroll closes. The message has the employee’s normal signature and mentions their upcoming vacation.",
+  "answers": {
+    "A": "Hold the payroll change and ask the employee to update details through the HR system after identity verification.",
+    "B": "Change it now because delaying salary would harm the employee and the email context is convincing.",
+    "C": "Use the organization’s verified payroll-change process and confirm the employee through a known channel before changing bank details."
+  },
+  "scores": {
+    "A": 3,
+    "B": 0,
+    "C": 4
+  },
+  "safeActions": [
+    "A",
+    "C"
+  ],
+  "explanation": "Attackers use urgency and personal context to redirect salary. Payroll destinations should change only through a controlled identity process.",
+  "proTip": "Payday pressure should strengthen payroll controls, not bypass them.",
+  "hackKey": "H",
+  "hackTrigger": "Hurry",
+  "tags": [
+    "workplace",
+    "h",
+    "payroll",
+    "bec",
+    "diagnostic"
+  ],
+  "active": true
+}

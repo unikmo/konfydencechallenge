@@ -1,0 +1,34 @@
+{
+  "id": "university-uni-28",
+  "title": "Your friend is “stuck at immigration”",
+  "edition": "university",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Friends abroad",
+  "scenario": "A friend studying abroad messages that immigration officers are holding their passport and they need you to pay a “release fee” to a third party. The account contains years of your real conversations.",
+  "answers": {
+    "A": "Contact the friend through another channel and, if necessary, verify with their family, university or consulate before sending money.",
+    "B": "Ask for the name of the authority and case details, then verify them independently.",
+    "C": "Pay because the long message history proves the account belongs to your friend."
+  },
+  "scores": {
+    "A": 4,
+    "B": 3,
+    "C": 0
+  },
+  "safeActions": [
+    "A",
+    "B"
+  ],
+  "explanation": "A compromised account includes all the old history that makes the emergency believable.",
+  "proTip": "Chat history proves the account had a past—not who controls it now.",
+  "hackKey": "C",
+  "hackTrigger": "Connection",
+  "tags": [
+    "university",
+    "c",
+    "account-takeover",
+    "travel-emergency"
+  ],
+  "active": true
+}

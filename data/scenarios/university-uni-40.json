@@ -1,0 +1,34 @@
+{
+  "id": "university-uni-40",
+  "title": "The “credit check” needs your bank login",
+  "edition": "university",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Rentals",
+  "scenario": "A landlord says too many students send fake credit reports, so you must prove affordability through a link that connects directly to your bank account using your online-banking credentials.",
+  "answers": {
+    "A": "Use a recognized tenant-screening method or provide appropriate documents through a verified landlord/platform; do not enter banking credentials into an unknown link.",
+    "B": "Ask the landlord to use a reputable screening service and verify the property before sharing financial data.",
+    "C": "Connect the bank because read-only financial verification is common and faster than sending statements."
+  },
+  "scores": {
+    "A": 4,
+    "B": 3,
+    "C": 0
+  },
+  "safeActions": [
+    "A",
+    "B"
+  ],
+  "explanation": "Bank-connect services can be legitimate, but only when the property, landlord and provider are independently verified. An unknown link is not enough.",
+  "proTip": "Verify the rental before verifying your finances.",
+  "hackKey": "K",
+  "hackTrigger": "Critical Action",
+  "tags": [
+    "university",
+    "k",
+    "rental",
+    "banking"
+  ],
+  "active": true
+}

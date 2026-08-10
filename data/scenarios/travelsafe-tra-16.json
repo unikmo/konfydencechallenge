@@ -1,0 +1,34 @@
+{
+  "id": "travelsafe-tra-16",
+  "title": "The “police report” link",
+  "edition": "travelsafe",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Car rental",
+  "scenario": "A rental-company employee emails after your trip saying local police require an online statement for a traffic incident involving your car. The link asks for your licence, passport and card details before it shows the report.",
+  "answers": {
+    "A": "Open your rental account or contact the rental company through your contract details and ask whether any incident is attached to the rental.",
+    "B": "Ask for the police case number and agency, then verify the case with that agency independently.",
+    "C": "Complete only the identity fields first and stop if the site later asks for payment."
+  },
+  "scores": {
+    "A": 4,
+    "B": 3,
+    "C": 0
+  },
+  "safeActions": [
+    "A",
+    "B"
+  ],
+  "explanation": "A legitimate incident can still be used as bait. Verify the case before uploading a complete identity bundle.",
+  "proTip": "Case number first, documents second.",
+  "hackKey": "A",
+  "hackTrigger": "Authority",
+  "tags": [
+    "travelsafe",
+    "a",
+    "rental-car",
+    "identity"
+  ],
+  "active": true
+}

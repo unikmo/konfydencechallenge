@@ -1,0 +1,34 @@
+{
+  "id": "workplace-wrk-29",
+  "title": "The client says: “Use my Gmail today”",
+  "edition": "workplace",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Client relationships",
+  "scenario": "A long-standing client emails from their normal corporate account saying their document system is down. They ask you to send a confidential customer file to a personal Gmail address “just for today” so a deadline is not missed.",
+  "answers": {
+    "A": "Hold the file until the client can provide an approved alternative channel or your security/privacy team authorizes one.",
+    "B": "Send it because the request came from the client’s real mailbox and the personal address belongs to the same person.",
+    "C": "Verify the request through a known contact and keep the file inside approved secure channels; escalate if the client’s normal system is unavailable."
+  },
+  "scores": {
+    "A": 3,
+    "B": 0,
+    "C": 4
+  },
+  "safeActions": [
+    "A",
+    "C"
+  ],
+  "explanation": "A real relationship does not make an unapproved data destination safe. Compromised mailboxes and genuine users under pressure can both create risky requests.",
+  "proTip": "Trust the relationship; still verify the destination and the data-handling rule.",
+  "hackKey": "C",
+  "hackTrigger": "Connection",
+  "tags": [
+    "workplace",
+    "c",
+    "data-exfiltration",
+    "channel-switch"
+  ],
+  "active": true
+}

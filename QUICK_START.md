@@ -121,7 +121,7 @@ Open `http://localhost:3000` in your browser.
 1. Run `npm run dev`
 2. Visit `http://localhost:3000`
 3. Click "Take Free TravelSafe Check"
-4. Play the 10-question diagnostic
+4. Play the 8-scenario readiness check
 5. See your Readiness Score
 6. (Skip the "Buy" buttons for now)
 

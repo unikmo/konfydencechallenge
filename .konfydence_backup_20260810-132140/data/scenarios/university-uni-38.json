@@ -1,0 +1,34 @@
+{
+  "id": "university-uni-38",
+  "title": "The buyer “accidentally overpaid”",
+  "edition": "university",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Payments",
+  "scenario": "You sell a desk in a student marketplace. The buyer sends a screenshot showing they paid $250 instead of $50 and asks you to return $200 to a different payment handle immediately.",
+  "answers": {
+    "A": "Tell the buyer to cancel/reverse the original transaction through the payment service.",
+    "B": "Refund once the screenshot shows “Completed,” because keeping the money would be wrong.",
+    "C": "Check your actual payment account and do not send a separate refund unless the original payment is genuinely settled and reversible through the provider."
+  },
+  "scores": {
+    "A": 3,
+    "B": 0,
+    "C": 4
+  },
+  "safeActions": [
+    "A",
+    "C"
+  ],
+  "explanation": "Screenshots can be forged and incoming payments may later reverse. Your account ledger is stronger evidence than the buyer’s image.",
+  "proTip": "Your balance beats their screenshot.",
+  "hackKey": "K",
+  "hackTrigger": "Critical Action",
+  "tags": [
+    "university",
+    "k",
+    "marketplace",
+    "overpayment"
+  ],
+  "active": true
+}

@@ -15,7 +15,7 @@ export default function RegisterForReplayPage({
         <p className="eyebrow">One more free round</p>
         <h1>Keep practising without losing your progress.</h1>
         <p className="lede">
-          Enter your email to unlock one additional 10-question round. Your free access ends after 20 questions;
+          Enter your email to unlock one additional 8-scenario readiness check. Your free access ends after 20 questions;
           the full 50-question challenge is available when you are ready.
         </p>
         {error === "already-used" ? (

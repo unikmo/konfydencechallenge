@@ -1,0 +1,34 @@
+{
+  "id": "school-sch-35",
+  "title": "The “cheat” needs device admin",
+  "edition": "school",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Downloads",
+  "scenario": "A friend shares a cheat or mod that supposedly unlocks premium features. The installer asks you to disable security warnings and give it device-admin or accessibility permissions.",
+  "answers": {
+    "A": "Ask a trusted adult or technically knowledgeable person to explain what the requested permissions can do.",
+    "B": "Install it on a spare device first to see whether it works safely.",
+    "C": "Do not install it; remove the file and use only trusted app/game sources."
+  },
+  "scores": {
+    "A": 3,
+    "B": 0,
+    "C": 4
+  },
+  "safeActions": [
+    "A",
+    "C"
+  ],
+  "explanation": "Admin/accessibility permissions can let malicious apps read screens, intercept codes or control settings. A spare device can still expose accounts.",
+  "proTip": "A cheat that needs security disabled is telling you what it is.",
+  "hackKey": "K",
+  "hackTrigger": "Critical Action",
+  "tags": [
+    "school",
+    "k",
+    "malware",
+    "sideloading"
+  ],
+  "active": true
+}

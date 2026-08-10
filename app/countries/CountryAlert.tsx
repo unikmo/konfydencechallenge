@@ -49,7 +49,7 @@ export default function CountryAlert({ country }: { country: string }) {
 
   return (
     <section className={styles.officialRiskSection} aria-labelledby="country-alert-heading">
-      <p className={styles.eyebrow}>Country Alert</p>
+      <p className={styles.eyebrow}>Country Scam Alerts</p>
       <h2 id="country-alert-heading">Fraud and scam alerts</h2>
 
       {!data && !error ? <p className={styles.officialRiskLoading}>Checking official fraud and scam information...</p> : null}

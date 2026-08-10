@@ -1,0 +1,34 @@
+{
+  "id": "university-uni-08",
+  "title": "Emergency grant expires tonight",
+  "edition": "university",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Financial aid",
+  "scenario": "A social post says students affected by rising living costs can claim an emergency grant tonight. The application asks for your banking login so the “grant engine” can verify financial need automatically.",
+  "answers": {
+    "A": "Ask student services or financial aid whether the program is legitimate.",
+    "B": "Apply if the grant is widely shared by students, but change your bank password afterward.",
+    "C": "Check your university, government or recognized aid provider directly for the grant; never give a grant form your banking login."
+  },
+  "scores": {
+    "A": 3,
+    "B": 0,
+    "C": 4
+  },
+  "safeActions": [
+    "A",
+    "C"
+  ],
+  "explanation": "Real hardship creates real urgency, which makes fake aid persuasive. Financial verification does not require handing over online-banking credentials.",
+  "proTip": "Aid applications may ask for documents; they do not need your bank password.",
+  "hackKey": "H",
+  "hackTrigger": "Hurry",
+  "tags": [
+    "university",
+    "h",
+    "financial-aid",
+    "credentials"
+  ],
+  "active": true
+}

@@ -268,7 +268,7 @@ Complete test flows to verify all functionality works correctly.
 ### Steps
 
 1. **Complete diagnostic challenge**
-   - Play 10-question diagnostic
+   - Play 8-scenario readiness check
    - See results and Readiness Score
 
 2. **See cross-sell strip**

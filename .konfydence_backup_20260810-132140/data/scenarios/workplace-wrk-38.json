@@ -1,0 +1,34 @@
+{
+  "id": "workplace-wrk-38",
+  "title": "The CFO is live on video",
+  "edition": "workplace",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Deepfake video",
+  "scenario": "You join a video call where people who look and sound like senior executives discuss a confidential acquisition. They direct you to execute an unusual payment immediately and say written approval will follow.",
+  "answers": {
+    "A": "Ask for the normal written approval and a second independent approver before taking action.",
+    "B": "Proceed because multiple executives are visibly present and the discussion includes confidential company details.",
+    "C": "Do not rely on the call alone; follow established payment approvals and independently verify with known executives or signatories."
+  },
+  "scores": {
+    "A": 3,
+    "B": 0,
+    "C": 4
+  },
+  "safeActions": [
+    "A",
+    "C"
+  ],
+  "explanation": "Deepfake or synthetic video can reproduce faces and voices, while breached data can supply internal context. Process must authenticate the transaction.",
+  "proTip": "Video presence is evidence of pixels, not payment authority.",
+  "hackKey": "K",
+  "hackTrigger": "Critical Action",
+  "tags": [
+    "workplace",
+    "k",
+    "deepfake",
+    "payment-fraud"
+  ],
+  "active": true
+}

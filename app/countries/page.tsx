@@ -12,17 +12,17 @@ export default function CountriesPage() {
         <header className={styles.nav}>
           <Link href="/" className={styles.brand}>Konfydence</Link>
           <nav className={styles.navLinks} aria-label="Main navigation">
-            <Link href="/challenge">Challenges</Link>
+            <Link href="/travelsafe">TravelSafe</Link>
             <Link href="/#how-it-works">How It Works</Link>
+            <Link href="/country-alerts" aria-current="page">Country Scam Alerts</Link>
+            <Link href="/#other-challenges">Other Challenges</Link>
             <Link href="/#for-organizations">For Organizations</Link>
-            <Link href="/countries" aria-current="page">Resources</Link>
-            <Link href="/contact">Contact</Link>
           </nav>
         </header>
 
         <section className={styles.hero}>
-          <p className={styles.eyebrow}>Country Alert</p>
-          <h1>Official travel information. Spot fraud and scams.</h1>
+          <p className={styles.eyebrow}>Country Scam Alerts</p>
+          <h1>Official travel information.<br />Spot fraud and scams.</h1>
 
         </section>
 

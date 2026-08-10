@@ -1,0 +1,34 @@
+{
+  "id": "university-uni-33",
+  "title": "The shared document wants OAuth",
+  "edition": "university",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Cloud apps",
+  "scenario": "A link to a “group project board” asks you to connect your university account and approve permission to read email, files and calendar data. The login page itself is genuine Microsoft/Google.",
+  "answers": {
+    "A": "Approve because the login page is genuinely Microsoft/Google, so your password is safe.",
+    "B": "Do not approve broad permissions; use an approved university tool or ask the sender to share the document normally.",
+    "C": "Review the app publisher and permissions with university IT before connecting it."
+  },
+  "scores": {
+    "A": 0,
+    "B": 4,
+    "C": 3
+  },
+  "safeActions": [
+    "B",
+    "C"
+  ],
+  "explanation": "OAuth scams can use a real provider login screen while asking you to grant a malicious app powerful access.",
+  "proTip": "A real login page can still authorize a bad app.",
+  "hackKey": "K",
+  "hackTrigger": "Critical Action",
+  "tags": [
+    "university",
+    "k",
+    "oauth",
+    "cloud"
+  ],
+  "active": true
+}

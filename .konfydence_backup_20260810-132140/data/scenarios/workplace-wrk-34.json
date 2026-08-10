@@ -1,0 +1,34 @@
+{
+  "id": "workplace-wrk-34",
+  "title": "This extension fixes the broken portal",
+  "edition": "workplace",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Browser extensions",
+  "scenario": "A support article shared in chat says a browser extension fixes a compatibility problem with a critical vendor portal. The extension asks to read and change data on all websites.",
+  "answers": {
+    "A": "Verify the extension and fix with IT/security or the vendor’s official documentation before installing it.",
+    "B": "Use a managed browser or approved workaround until IT validates the extension.",
+    "C": "Install it because the portal is business-critical and the extension has many positive reviews."
+  },
+  "scores": {
+    "A": 4,
+    "B": 3,
+    "C": 0
+  },
+  "safeActions": [
+    "A",
+    "B"
+  ],
+  "explanation": "Extensions can read sessions, forms and credentials across sites. Popularity and urgency are not sufficient approval.",
+  "proTip": "A browser extension can become a silent employee with access to every tab.",
+  "hackKey": "K",
+  "hackTrigger": "Critical Action",
+  "tags": [
+    "workplace",
+    "k",
+    "browser-extension",
+    "supply-chain"
+  ],
+  "active": true
+}

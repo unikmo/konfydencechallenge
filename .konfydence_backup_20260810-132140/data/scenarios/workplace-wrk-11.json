@@ -1,0 +1,35 @@
+{
+  "id": "workplace-wrk-11",
+  "title": "The CEO is on the phone. Sort of.",
+  "edition": "workplace",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Deepfake voice",
+  "scenario": "You receive a call that sounds exactly like the CEO, including familiar speech patterns. They say an acquisition is confidential and instruct you to send a large payment before the market opens.",
+  "answers": {
+    "A": "Ask a second authorized executive to confirm the transaction before doing anything.",
+    "B": "Proceed because the voice, confidential context and timing match a real acquisition rumor inside the company.",
+    "C": "Pause and verify the request through established payment approvals and a separate known channel to the CEO/executive team."
+  },
+  "scores": {
+    "A": 3,
+    "B": 0,
+    "C": 4
+  },
+  "safeActions": [
+    "A",
+    "C"
+  ],
+  "explanation": "Voice cloning can reproduce tone and cadence. High-value decisions need process-based authentication, not voice familiarity.",
+  "proTip": "A convincing voice is not a second approver.",
+  "hackKey": "A",
+  "hackTrigger": "Authority",
+  "tags": [
+    "workplace",
+    "a",
+    "deepfake",
+    "ceo-fraud",
+    "diagnostic"
+  ],
+  "active": true
+}

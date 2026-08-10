@@ -1,0 +1,33 @@
+{
+  "id": "travelsafe-tra-08",
+  "title": "The ship sails. The link expires.",
+  "edition": "travelsafe",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Cruise & excursions",
+  "scenario": "While ashore, a WhatsApp message claiming to be your excursion operator says the return pickup point changed. It asks for a €25 “port access reissue” within ten minutes or your seat will be released.",
+  "answers": {
+    "A": "Ask another person in your booked group whether they received the same change and compare details.",
+    "B": "Pay the small fee so your seat stays protected, then ask for a refund onboard if it was unnecessary.",
+    "C": "Use the excursion voucher or cruise-line app to contact the operator through the number or channel you already had."
+  },
+  "scores": {
+    "A": 2,
+    "B": 0,
+    "C": 4
+  },
+  "safeActions": [
+    "C"
+  ],
+  "explanation": "Being far from the ship magnifies urgency. A real operator change should survive an independent callback through the original booking channel.",
+  "proTip": "When missing the ship is the fear, verify through the booking you already own.",
+  "hackKey": "H",
+  "hackTrigger": "Hurry",
+  "tags": [
+    "travelsafe",
+    "h",
+    "cruise",
+    "whatsapp"
+  ],
+  "active": true
+}

@@ -1,0 +1,34 @@
+{
+  "id": "university-uni-29",
+  "title": "Your lab partner shares a “new analysis tool”",
+  "edition": "university",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Research",
+  "scenario": "A lab partner sends a link to a new AI analysis tool and says the professor wants everyone to connect their university drive before tomorrow’s meeting. The app asks for full file and email access.",
+  "answers": {
+    "A": "Use a test file or separate non-sensitive account if the tool can be evaluated without real research data.",
+    "B": "Approve access because your lab partner is trusted and the meeting is tomorrow.",
+    "C": "Verify with the professor/lab lead and request the approved tool link through a known university channel before granting access."
+  },
+  "scores": {
+    "A": 3,
+    "B": 0,
+    "C": 4
+  },
+  "safeActions": [
+    "A",
+    "C"
+  ],
+  "explanation": "Compromised collaborators and overbroad OAuth permissions can expose research, email and personal files.",
+  "proTip": "A new tool should prove its need before you grant old data.",
+  "hackKey": "C",
+  "hackTrigger": "Connection",
+  "tags": [
+    "university",
+    "c",
+    "oauth",
+    "research"
+  ],
+  "active": true
+}

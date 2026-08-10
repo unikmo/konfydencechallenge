@@ -1,0 +1,34 @@
+{
+  "id": "family-fam-03",
+  "title": "Field trip closes tonight",
+  "edition": "family",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "School payments",
+  "scenario": "A message in a parent chat says the school’s field-trip payment portal is down and shares a new payment link that expires tonight. Several parents react with thumbs-up emojis.",
+  "answers": {
+    "A": "Pay because other parents appear to be using it and the deadline is real.",
+    "B": "Use the school portal or a known school contact to confirm the payment method before paying.",
+    "C": "Ask the chat admin or another parent you know personally whether the school announced a new link."
+  },
+  "scores": {
+    "A": 0,
+    "B": 4,
+    "C": 3
+  },
+  "safeActions": [
+    "B",
+    "C"
+  ],
+  "explanation": "Group-chat momentum can make a fake link feel community-approved. The school’s own channel should confirm any payment change.",
+  "proTip": "Crowd confidence is not payment verification.",
+  "hackKey": "H",
+  "hackTrigger": "Hurry",
+  "tags": [
+    "family",
+    "h",
+    "school",
+    "group-chat"
+  ],
+  "active": true
+}

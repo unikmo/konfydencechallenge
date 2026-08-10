@@ -1,0 +1,34 @@
+{
+  "id": "family-fam-14",
+  "title": "Your doctor needs your insurance login",
+  "edition": "family",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Healthcare",
+  "scenario": "A caller says they are from your clinic’s billing team and a rejected claim can be fixed if you confirm your insurance portal login. They correctly name your doctor and recent appointment.",
+  "answers": {
+    "A": "Offer to provide the insurance member ID through the clinic’s secure portal instead of sharing a login.",
+    "B": "Share the login if the caller can confirm your appointment details.",
+    "C": "End the call and use the clinic portal or known clinic number to ask what information is actually needed."
+  },
+  "scores": {
+    "A": 3,
+    "B": 0,
+    "C": 4
+  },
+  "safeActions": [
+    "A",
+    "C"
+  ],
+  "explanation": "A clinic may need insurance information, but it should not need your insurer password. Familiar medical context can be stolen or guessed.",
+  "proTip": "Organizations may need account data; they do not need your account password.",
+  "hackKey": "A",
+  "hackTrigger": "Authority",
+  "tags": [
+    "family",
+    "a",
+    "healthcare",
+    "credentials"
+  ],
+  "active": true
+}

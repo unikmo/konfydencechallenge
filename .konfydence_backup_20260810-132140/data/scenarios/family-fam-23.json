@@ -1,0 +1,34 @@
+{
+  "id": "family-fam-23",
+  "title": "Dad has a “new number”",
+  "edition": "family",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Messaging",
+  "scenario": "A familiar profile photo appears on WhatsApp from a new number: “Old phone died. Please delete the old contact.” An hour later, “Dad” asks you to pay an invoice because his banking app is still locked.",
+  "answers": {
+    "A": "Ask for a voice or video call and verify something current before trusting the new number.",
+    "B": "Pay if the invoice is for a company or bill you recognize.",
+    "C": "Call your father on a known number or verify with another family member before changing the contact or paying anything."
+  },
+  "scores": {
+    "A": 3,
+    "B": 0,
+    "C": 4
+  },
+  "safeActions": [
+    "A",
+    "C"
+  ],
+  "explanation": "Recognizing the bill does not authenticate the person asking you to pay it. New numbers deserve independent confirmation.",
+  "proTip": "New number + money request = verify the person first.",
+  "hackKey": "C",
+  "hackTrigger": "Connection",
+  "tags": [
+    "family",
+    "c",
+    "whatsapp",
+    "payment-request"
+  ],
+  "active": true
+}

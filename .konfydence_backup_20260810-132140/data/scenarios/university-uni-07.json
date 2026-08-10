@@ -1,0 +1,34 @@
+{
+  "id": "university-uni-07",
+  "title": "Your laptop delivery needs $2.40",
+  "edition": "university",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Deliveries",
+  "scenario": "You are waiting for a new laptop when a text says the courier needs a $2.40 redelivery fee before 3 p.m. The message includes a tracking number that looks similar to your real one.",
+  "answers": {
+    "A": "Check the order and tracking in the retailer/carrier app or website you open yourself.",
+    "B": "Contact the carrier independently if the tracking status is unclear.",
+    "C": "Pay the small fee because the delivery timing and tracking number are close enough."
+  },
+  "scores": {
+    "A": 4,
+    "B": 3,
+    "C": 0
+  },
+  "safeActions": [
+    "A",
+    "B"
+  ],
+  "explanation": "Expected high-value packages make delivery phishing particularly believable. Tiny fees can be bait for card and identity data.",
+  "proTip": "Expected package, unexpected payment path: verify.",
+  "hackKey": "H",
+  "hackTrigger": "Hurry",
+  "tags": [
+    "university",
+    "h",
+    "delivery",
+    "smishing"
+  ],
+  "active": true
+}

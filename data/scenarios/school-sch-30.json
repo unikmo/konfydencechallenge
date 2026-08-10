@@ -1,0 +1,34 @@
+{
+  "id": "school-sch-30",
+  "title": "The shared notes need “extra access”",
+  "edition": "school",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Study groups",
+  "scenario": "A study-group member posts a link to a shared notes folder. When you open it, the site asks to connect to your school cloud account and approve access to email, files and contacts.",
+  "answers": {
+    "A": "Approve it because the study-group member is someone you know and the notes are real.",
+    "B": "Do not approve broad access; ask for the notes through the school’s normal drive or a simple file share.",
+    "C": "Check the app name and permissions with school IT or a trusted adult before connecting anything."
+  },
+  "scores": {
+    "A": 0,
+    "B": 4,
+    "C": 3
+  },
+  "safeActions": [
+    "B",
+    "C"
+  ],
+  "explanation": "The sender’s account may be compromised, and broad OAuth permissions can expose much more than the notes.",
+  "proTip": "A notes folder should not need your inbox.",
+  "hackKey": "C",
+  "hackTrigger": "Connection",
+  "tags": [
+    "school",
+    "c",
+    "oauth",
+    "study-group"
+  ],
+  "active": true
+}

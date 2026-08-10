@@ -1,0 +1,35 @@
+{
+  "id": "workplace-wrk-21",
+  "title": "The email thread is real; the bank account is new",
+  "edition": "workplace",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Suppliers",
+  "scenario": "A supplier replies inside a months-old invoice thread and says future payments should go to a new bank account after a merger. The writing style and signatures match earlier messages.",
+  "answers": {
+    "A": "Trust the change because the attacker would need access to the real thread to reply inside it.",
+    "B": "Verify the bank change through a known supplier contact and approved vendor-master process outside the email thread.",
+    "C": "Ask the supplier to confirm the change in your procurement/vendor portal."
+  },
+  "scores": {
+    "A": 0,
+    "B": 4,
+    "C": 3
+  },
+  "safeActions": [
+    "B",
+    "C"
+  ],
+  "explanation": "Business email compromise often uses genuine compromised mailboxes and real threads. Thread continuity is not payment authentication.",
+  "proTip": "A real thread can carry a fraudulent destination.",
+  "hackKey": "C",
+  "hackTrigger": "Connection",
+  "tags": [
+    "workplace",
+    "c",
+    "bec",
+    "supplier",
+    "diagnostic"
+  ],
+  "active": true
+}

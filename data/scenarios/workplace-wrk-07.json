@@ -1,0 +1,34 @@
+{
+  "id": "workplace-wrk-07",
+  "title": "Quarter-end discount expires tonight",
+  "edition": "workplace",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Procurement",
+  "scenario": "A reseller offers a steep quarter-end discount if you sign a revised order form and pay a deposit today. The rep has worked with your company before, but the payment link goes to a new portal.",
+  "answers": {
+    "A": "Verify the portal and payment instructions through the vendor account team and your procurement process before committing funds.",
+    "B": "Ask for the quote/order to be issued through the vendor’s established customer portal.",
+    "C": "Pay the deposit because the rep and discount are both plausible and procurement can reconcile later."
+  },
+  "scores": {
+    "A": 4,
+    "B": 3,
+    "C": 0
+  },
+  "safeActions": [
+    "A",
+    "B"
+  ],
+  "explanation": "Legitimate sales pressure can be copied by attackers or abused after account compromise. New payment infrastructure deserves independent verification.",
+  "proTip": "A real discount does not make a new portal trustworthy.",
+  "hackKey": "H",
+  "hackTrigger": "Hurry",
+  "tags": [
+    "workplace",
+    "h",
+    "procurement",
+    "vendor"
+  ],
+  "active": true
+}

@@ -1,0 +1,35 @@
+{
+  "id": "school-sch-12",
+  "title": "Your teacher “shared a private file”",
+  "edition": "school",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "School staff",
+  "scenario": "An email that looks like it came from a teacher says, “I added comments to your draft—open before class.” The link asks you to approve a new app to read your school files and email.",
+  "answers": {
+    "A": "Approve the app because the teacher really is reviewing your draft this week.",
+    "B": "Open the school drive/LMS yourself and look for the shared file there, or ask the teacher directly.",
+    "C": "Check the sender address carefully and ask a classmate whether they received the same message."
+  },
+  "scores": {
+    "A": 0,
+    "B": 4,
+    "C": 3
+  },
+  "safeActions": [
+    "B",
+    "C"
+  ],
+  "explanation": "A believable teacher context can hide an OAuth permission request that grants broad access without stealing your password.",
+  "proTip": "“Approve access” can be as powerful as “enter password.”",
+  "hackKey": "A",
+  "hackTrigger": "Authority",
+  "tags": [
+    "school",
+    "a",
+    "oauth",
+    "school-email",
+    "diagnostic"
+  ],
+  "active": true
+}

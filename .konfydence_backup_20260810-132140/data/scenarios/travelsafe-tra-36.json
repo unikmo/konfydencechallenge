@@ -1,0 +1,33 @@
+{
+  "id": "travelsafe-tra-36",
+  "title": "You get an MFA prompt at the gate",
+  "edition": "travelsafe",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Accounts",
+  "scenario": "Right after an airline-support chat, your phone receives a login approval prompt for your airline account. The support agent says, “That’s me—tap Approve so I can fix your booking.”",
+  "answers": {
+    "A": "Approve once because the timing matches the support conversation, then change your password after the booking is fixed.",
+    "B": "Deny the prompt, end the chat, and reopen support through the airline app or site you navigate to yourself.",
+    "C": "Ask the agent to stop the login attempt and explain why account access is necessary before continuing."
+  },
+  "scores": {
+    "A": 0,
+    "B": 4,
+    "C": 2
+  },
+  "safeActions": [
+    "B"
+  ],
+  "explanation": "MFA approval authorizes a login; a support conversation does not make an unexpected login safe.",
+  "proTip": "MFA is a doorbell. Do not buzz in someone because they claim to be maintenance.",
+  "hackKey": "K",
+  "hackTrigger": "Critical Action",
+  "tags": [
+    "travelsafe",
+    "k",
+    "mfa",
+    "account-takeover"
+  ],
+  "active": true
+}

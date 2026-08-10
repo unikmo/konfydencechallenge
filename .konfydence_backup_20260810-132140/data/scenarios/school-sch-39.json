@@ -1,0 +1,34 @@
+{
+  "id": "school-sch-39",
+  "title": "The invoice is in the DM",
+  "edition": "school",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Payments",
+  "scenario": "A seller you follow sends an “invoice” in a DM for a limited hoodie drop. The button opens a payment page asking for your card plus your email password “to confirm the order account.”",
+  "answers": {
+    "A": "Pay if the card page looks secure, but leave the email-password field blank.",
+    "B": "Buy only through the seller’s verified storefront or platform checkout; never enter your email password into a shop payment page.",
+    "C": "Ask the seller to send the product link through their public profile/store instead of the DM."
+  },
+  "scores": {
+    "A": 0,
+    "B": 4,
+    "C": 3
+  },
+  "safeActions": [
+    "B",
+    "C"
+  ],
+  "explanation": "A shop should not need your email password. DM invoices bypass the protections of the normal storefront.",
+  "proTip": "Payment pages need payment data—not your inbox key.",
+  "hackKey": "K",
+  "hackTrigger": "Critical Action",
+  "tags": [
+    "school",
+    "k",
+    "shopping",
+    "credential-phishing"
+  ],
+  "active": true
+}

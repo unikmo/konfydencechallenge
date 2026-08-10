@@ -1,0 +1,34 @@
+{
+  "id": "travelsafe-tra-05",
+  "title": "Sign here—the shuttle is waiting",
+  "edition": "travelsafe",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Car rental",
+  "scenario": "At rental-car return, an employee says a fresh wheel scratch will cost €480 unless you accept a €120 “rapid settlement” before the airport shuttle leaves. They want a signature on a tablet immediately.",
+  "answers": {
+    "A": "Ask a second employee or manager to inspect the damage before you sign anything.",
+    "B": "Accept the cheaper settlement so you do not miss your flight, then challenge it after you get home.",
+    "C": "Photograph the car, ask for the damage record and contract reference, and dispute or settle through the rental company’s official process."
+  },
+  "scores": {
+    "A": 3,
+    "B": 0,
+    "C": 4
+  },
+  "safeActions": [
+    "A",
+    "C"
+  ],
+  "explanation": "Time pressure at return is real, but signing can remove leverage. Preserve evidence and make the charge traceable through the company process.",
+  "proTip": "Your flight clock should not become someone else’s signature clock.",
+  "hackKey": "H",
+  "hackTrigger": "Hurry",
+  "tags": [
+    "travelsafe",
+    "h",
+    "rental-car",
+    "payment-pressure"
+  ],
+  "active": true
+}

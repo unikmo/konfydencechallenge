@@ -1,0 +1,34 @@
+{
+  "id": "school-sch-28",
+  "title": "Can I use your account for one day?",
+  "edition": "school",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Accounts",
+  "scenario": "A friend says they were unfairly banned from a social app and asks to use your account for one day to keep a streak and message their group. They promise not to change anything.",
+  "answers": {
+    "A": "Do not share the account; help them appeal or communicate through another safe channel.",
+    "B": "Offer to send one message on their behalf without giving them login access.",
+    "C": "Let them use it while you stay nearby and watch what they do."
+  },
+  "scores": {
+    "A": 4,
+    "B": 3,
+    "C": 0
+  },
+  "safeActions": [
+    "A",
+    "B"
+  ],
+  "explanation": "Even trusted friends can trigger bans, expose private messages or accidentally change recovery settings.",
+  "proTip": "If the account represents you, keep control of it.",
+  "hackKey": "C",
+  "hackTrigger": "Connection",
+  "tags": [
+    "school",
+    "c",
+    "social-media",
+    "account-sharing"
+  ],
+  "active": true
+}

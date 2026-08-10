@@ -1,0 +1,34 @@
+{
+  "id": "university-uni-19",
+  "title": "Big-name recruiter wants documents now",
+  "edition": "university",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Recruiting",
+  "scenario": "A recruiter claiming to represent a well-known company offers you a remote interview. Before scheduling it, they ask for a driver’s licence, tax number and bank details “to pre-clear onboarding.”",
+  "answers": {
+    "A": "Verify the recruiter and role through the company’s official careers site or HR contact before sharing sensitive information.",
+    "B": "Ask to interview first and provide only the information normally needed at that stage.",
+    "C": "Send the ID but hold back bank details until after the interview."
+  },
+  "scores": {
+    "A": 4,
+    "B": 3,
+    "C": 0
+  },
+  "safeActions": [
+    "A",
+    "B"
+  ],
+  "explanation": "Real employers may need identity and payroll data after hiring, not before they have established a genuine process.",
+  "proTip": "Hiring should get more specific before your data gets more sensitive.",
+  "hackKey": "A",
+  "hackTrigger": "Authority",
+  "tags": [
+    "university",
+    "a",
+    "recruiter",
+    "identity"
+  ],
+  "active": true
+}

@@ -3,31 +3,54 @@
   <!-- Homepage -->
   <url>
     <loc>https://konfydence.com</loc>
-    <lastmod>2026-07-21</lastmod>
+    <lastmod>2026-07-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
 
-  <!-- Challenge Page -->
+  <!-- Crawlable Challenge Editions -->
   <url>
-    <loc>https://konfydence.com/challenge</loc>
-    <lastmod>2026-07-21</lastmod>
+    <loc>https://konfydence.com/travelsafe</loc>
     <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://konfydence.com/family</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://konfydence.com/school</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://konfydence.com/university</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://konfydence.com/workplace</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://konfydence.com/hack-method</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://konfydence.com/country-alerts</loc>
+    <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
 
-  <!-- Pricing & Products -->
+  <!-- Legacy challenge directory -->
   <url>
-    <loc>https://konfydence.com/pricing</loc>
-    <lastmod>2026-07-21</lastmod>
+    <loc>https://konfydence.com/challenge</loc>
+    <lastmod>2026-07-30</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://konfydence.com/products</loc>
-    <lastmod>2026-07-21</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.9</priority>
   </url>
 
   <!-- Contact & Legal -->

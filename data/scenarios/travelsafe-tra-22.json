@@ -1,0 +1,35 @@
+{
+  "id": "travelsafe-tra-22",
+  "title": "Your sister is crying on the phone",
+  "edition": "travelsafe",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Family abroad",
+  "scenario": "While you are abroad, a call from an unknown number sounds like your sister. She says her phone was stolen, she is in trouble, and she needs you to transfer money to a friend immediately before her battery dies.",
+  "answers": {
+    "A": "End the call and contact your sister through a known number, another family member, or a pre-agreed family verification question.",
+    "B": "Keep the caller talking while you message another family member from a second device to verify the story.",
+    "C": "Send a small amount first; if she confirms receipt, send the rest."
+  },
+  "scores": {
+    "A": 4,
+    "B": 3,
+    "C": 0
+  },
+  "safeActions": [
+    "A",
+    "B"
+  ],
+  "explanation": "Voice cloning and spoofed context can make emotional emergencies feel authentic. Independent family verification breaks the pressure loop.",
+  "proTip": "In a family emergency, verify the person—not the emotion.",
+  "hackKey": "C",
+  "hackTrigger": "Connection",
+  "tags": [
+    "travelsafe",
+    "c",
+    "voice-clone",
+    "family",
+    "diagnostic"
+  ],
+  "active": true
+}

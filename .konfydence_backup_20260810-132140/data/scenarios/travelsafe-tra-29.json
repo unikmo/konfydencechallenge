@@ -1,0 +1,33 @@
+{
+  "id": "travelsafe-tra-29",
+  "title": "Your holiday match has an “easy investment”",
+  "edition": "travelsafe",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Romance abroad",
+  "scenario": "Someone you met on a dating app during your trip has been chatting with you daily. After a few weeks they show screenshots of profitable trades and offer to guide you through a small crypto investment “just for fun.”",
+  "answers": {
+    "A": "Research the investment platform independently and ask a financially knowledgeable person you trust before doing anything.",
+    "B": "Try a very small amount first and withdraw it successfully before considering more.",
+    "C": "Keep romance and investing separate; do not fund or connect a wallet based on guidance from a new online relationship."
+  },
+  "scores": {
+    "A": 2,
+    "B": 0,
+    "C": 4
+  },
+  "safeActions": [
+    "C"
+  ],
+  "explanation": "Romance-investment scams often build trust over time and may allow small withdrawals to deepen commitment.",
+  "proTip": "A successful small withdrawal can be part of the script.",
+  "hackKey": "C",
+  "hackTrigger": "Connection",
+  "tags": [
+    "travelsafe",
+    "c",
+    "romance",
+    "investment"
+  ],
+  "active": true
+}

@@ -1,0 +1,33 @@
+{
+  "id": "travelsafe-tra-15",
+  "title": "A “consular officer” has good news",
+  "edition": "travelsafe",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Consular help",
+  "scenario": "After you post online that your passport was stolen, someone messages from an account using your embassy’s seal. They say an emergency travel document can be issued today if you upload a selfie holding your passport copy and pay a courier fee.",
+  "answers": {
+    "A": "Send the selfie first but hold back payment until you receive a document number.",
+    "B": "Contact the embassy or consulate using contact details from the official government site and ask for the emergency-document procedure.",
+    "C": "Ask the account to email you from an official government domain, then compare the instructions with the embassy website."
+  },
+  "scores": {
+    "A": 0,
+    "B": 4,
+    "C": 2
+  },
+  "safeActions": [
+    "B"
+  ],
+  "explanation": "A public post gives impersonators both timing and context. Sensitive identity steps belong inside verified consular channels.",
+  "proTip": "Posting the problem publicly can invite private “official” help.",
+  "hackKey": "A",
+  "hackTrigger": "Authority",
+  "tags": [
+    "travelsafe",
+    "a",
+    "consulate",
+    "identity"
+  ],
+  "active": true
+}

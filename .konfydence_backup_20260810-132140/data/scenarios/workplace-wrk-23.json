@@ -1,0 +1,34 @@
+{
+  "id": "workplace-wrk-23",
+  "title": "A familiar HR partner needs employee data",
+  "edition": "workplace",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "HR relationships",
+  "scenario": "Your usual HR business partner messages asking for a spreadsheet of employee home addresses for an urgent benefits mailing. They use the same friendly tone and reference a real project.",
+  "answers": {
+    "A": "Ask the HR partner to open the request in the standard HR/data process.",
+    "B": "Send it because the requester is someone you work with every week and the project is real.",
+    "C": "Verify the request and data-sharing need through an approved HR channel and send only via the authorized system if legitimate."
+  },
+  "scores": {
+    "A": 3,
+    "B": 0,
+    "C": 4
+  },
+  "safeActions": [
+    "A",
+    "C"
+  ],
+  "explanation": "Compromised accounts and social engineering exploit real relationships. Sensitive employee data should follow process regardless of familiarity.",
+  "proTip": "Familiar person, sensitive data: verify the request, not the tone.",
+  "hackKey": "C",
+  "hackTrigger": "Connection",
+  "tags": [
+    "workplace",
+    "c",
+    "hr",
+    "data-request"
+  ],
+  "active": true
+}

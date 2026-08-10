@@ -1,0 +1,33 @@
+{
+  "id": "family-fam-24",
+  "title": "A relationship becomes an investment club",
+  "edition": "family",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Romance",
+  "scenario": "Someone you met online has talked with you daily for two months. They never pressured you for money, but now they offer to teach you a trading strategy and show screenshots of strong returns.",
+  "answers": {
+    "A": "Try a very small investment and only continue if you can withdraw it.",
+    "B": "Do not invest through a platform or wallet recommended by an online romantic interest; keep the relationship and money separate.",
+    "C": "Research the platform independently and discuss the idea with a trusted financial professional or friend before acting."
+  },
+  "scores": {
+    "A": 0,
+    "B": 4,
+    "C": 2
+  },
+  "safeActions": [
+    "B"
+  ],
+  "explanation": "Long-con romance investment scams build trust first and may allow early withdrawals to increase confidence.",
+  "proTip": "Time invested in a relationship is not due diligence on an investment.",
+  "hackKey": "C",
+  "hackTrigger": "Connection",
+  "tags": [
+    "family",
+    "c",
+    "romance",
+    "investment"
+  ],
+  "active": true
+}

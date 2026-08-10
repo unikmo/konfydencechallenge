@@ -1,0 +1,34 @@
+{
+  "id": "travelsafe-tra-17",
+  "title": "Claims says your bank “failed verification”",
+  "edition": "travelsafe",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Travel insurance",
+  "scenario": "A caller claiming to be from your travel insurer knows your claim amount and date. They say the payout failed and ask you to install a “secure verification” app so an agent can fix the bank details with you.",
+  "answers": {
+    "A": "Ask the caller to note the issue on your claim, then verify it later through your insurer account.",
+    "B": "Install the app but do not grant screen-control permission unless the insurer account shows the same request.",
+    "C": "End the call and open the insurer’s app/site or call the number on your policy to check the claim and payout details."
+  },
+  "scores": {
+    "A": 3,
+    "B": 0,
+    "C": 4
+  },
+  "safeActions": [
+    "A",
+    "C"
+  ],
+  "explanation": "Remote-access tools can turn a plausible service call into account theft. Payout changes should be verified in the insurer’s established channel.",
+  "proTip": "No claim is improved by giving a stranger control of your screen.",
+  "hackKey": "A",
+  "hackTrigger": "Authority",
+  "tags": [
+    "travelsafe",
+    "a",
+    "insurance",
+    "remote-access"
+  ],
+  "active": true
+}

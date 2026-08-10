@@ -62,7 +62,7 @@ Update the free diagnostic to:
 - Weakest pressure pattern
 - Personalized conversion moment
 
-**Reason**: A 10-question diagnostic gives enough variation to identify a
+**Reason**: A 8-scenario readiness check gives enough variation to identify a
 useful pressure pattern without giving away the full 50-question deck. The
 free product should feel valuable, not fake.
 
@@ -196,7 +196,7 @@ analysis appears only after completion. (Same rule as spec §2/§13 — see
 
 ## 10) Pricing copy update
 
-Update the pricing page to reflect the 10-question diagnostic. Price
+Update the pricing page to reflect the 8-scenario readiness check. Price
 points ($0 / $4.99 / $19.99 / Custom) are unchanged from spec §13.
 
 **Free Readiness Check — $0**
@@ -233,7 +233,7 @@ points ($0 / $4.99 / $19.99 / Custom) are unchanged from spec §13.
 
 ## 11) Diagnostic dashboard conversion card
 
-After a free 10-question diagnostic, show a stronger conversion card:
+After a free 8-scenario readiness check, show a stronger conversion card:
 
 **Headline**: You found your pressure pattern. Now train it.
 

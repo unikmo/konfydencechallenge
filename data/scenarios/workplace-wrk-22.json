@@ -1,0 +1,35 @@
+{
+  "id": "workplace-wrk-22",
+  "title": "Your coworker sends a Teams file",
+  "edition": "workplace",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Collaboration",
+  "scenario": "A coworker messages you in Teams: “Can you review this before the meeting?” The link opens a login page and then asks to approve a new app with access to files, messages and contacts.",
+  "answers": {
+    "A": "Ask the coworker through another channel or open the shared workspace directly; do not approve broad app access from the message.",
+    "B": "Check the app publisher and permissions with IT/security before approving anything.",
+    "C": "Approve because the message came from the coworker’s real Teams account."
+  },
+  "scores": {
+    "A": 4,
+    "B": 3,
+    "C": 0
+  },
+  "safeActions": [
+    "A",
+    "B"
+  ],
+  "explanation": "Compromised collaboration accounts are powerful because they inherit trust. OAuth access can be malicious even through a real login page.",
+  "proTip": "Trusted sender, untrusted permission request.",
+  "hackKey": "C",
+  "hackTrigger": "Connection",
+  "tags": [
+    "workplace",
+    "c",
+    "teams",
+    "oauth",
+    "diagnostic"
+  ],
+  "active": true
+}

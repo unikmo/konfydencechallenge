@@ -1,0 +1,34 @@
+{
+  "id": "family-fam-40",
+  "title": "The buyer “overpaid” you",
+  "edition": "family",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Marketplace",
+  "scenario": "You sell a sofa online. The buyer sends a payment screenshot showing they accidentally paid $300 extra and asks you to refund the difference immediately to a different payment handle.",
+  "answers": {
+    "A": "Check your actual account balance and transaction status; do not refund money that has not genuinely settled.",
+    "B": "Tell the buyer to cancel or reverse the payment through the platform/payment provider instead of sending a separate refund.",
+    "C": "Refund the difference once the screenshot shows a completed transaction, because keeping it would be unfair."
+  },
+  "scores": {
+    "A": 4,
+    "B": 3,
+    "C": 0
+  },
+  "safeActions": [
+    "A",
+    "B"
+  ],
+  "explanation": "Screenshots can be fabricated and some payments can later reverse. Never send a separate payment based only on an image.",
+  "proTip": "Your balance beats their screenshot.",
+  "hackKey": "K",
+  "hackTrigger": "Critical Action",
+  "tags": [
+    "family",
+    "k",
+    "marketplace",
+    "overpayment"
+  ],
+  "active": true
+}

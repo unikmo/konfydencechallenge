@@ -1,0 +1,34 @@
+{
+  "id": "travelsafe-tra-20",
+  "title": "The man with the airport badge",
+  "edition": "travelsafe",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Ground transport",
+  "scenario": "At arrivals, someone with an airport lanyard says ride-hailing pickups have moved because of construction. He points to a printed QR code for the “temporary official taxi queue” and says app pickups are being cancelled.",
+  "answers": {
+    "A": "Ask the person where the official taxi rank is and walk there without scanning the code.",
+    "B": "Scan the QR code but compare the fare with your ride-hailing app before paying anything.",
+    "C": "Check the airport signs/app or ask the staffed transport desk where licensed pickups are actually operating."
+  },
+  "scores": {
+    "A": 3,
+    "B": 0,
+    "C": 4
+  },
+  "safeActions": [
+    "A",
+    "C"
+  ],
+  "explanation": "A badge and confident explanation can manufacture authority. Physical transport changes should be confirmed with the airport or operator.",
+  "proTip": "Confidence plus a lanyard is not a transport licence.",
+  "hackKey": "A",
+  "hackTrigger": "Authority",
+  "tags": [
+    "travelsafe",
+    "a",
+    "taxi",
+    "qr"
+  ],
+  "active": true
+}

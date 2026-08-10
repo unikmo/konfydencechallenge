@@ -1,0 +1,34 @@
+{
+  "id": "school-sch-14",
+  "title": "The “game admin” can restore your item",
+  "edition": "school",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Gaming",
+  "scenario": "After an in-game item disappears, someone claiming to be an admin offers to restore it. They ask you to trade them another item first “to verify the inventory system is working.”",
+  "answers": {
+    "A": "Check the game’s official list of moderators/admin procedures before interacting further.",
+    "B": "Send a low-value item first because a real admin should be able to return it instantly.",
+    "C": "Use the game’s official support process and do not transfer items to someone claiming to be staff."
+  },
+  "scores": {
+    "A": 3,
+    "B": 0,
+    "C": 4
+  },
+  "safeActions": [
+    "A",
+    "C"
+  ],
+  "explanation": "Scammers use authority plus your frustration to make a “test trade” feel reasonable. Staff should not need your valuables to prove their tools.",
+  "proTip": "Real support does not need a sacrifice item.",
+  "hackKey": "A",
+  "hackTrigger": "Authority",
+  "tags": [
+    "school",
+    "a",
+    "gaming",
+    "impersonation"
+  ],
+  "active": true
+}

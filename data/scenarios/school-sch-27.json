@@ -1,0 +1,34 @@
+{
+  "id": "school-sch-27",
+  "title": "Your teammate needs gift cards",
+  "edition": "school",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Team money",
+  "scenario": "A teammate messages that they forgot a parent’s birthday and cannot use their bank card. They ask you to buy a $30 gift card and send the code, promising to pay you tomorrow at practice.",
+  "answers": {
+    "A": "Buy it because the amount is small and you see the teammate every week.",
+    "B": "Verify with the teammate in person or by voice/video through a known number before buying anything.",
+    "C": "Offer to help them find another solution without sending a gift-card code."
+  },
+  "scores": {
+    "A": 0,
+    "B": 4,
+    "C": 3
+  },
+  "safeActions": [
+    "B",
+    "C"
+  ],
+  "explanation": "Compromised accounts often ask for small, believable favors. Gift-card codes are cash once shared.",
+  "proTip": "Small favor, irreversible payment: verify the person.",
+  "hackKey": "C",
+  "hackTrigger": "Connection",
+  "tags": [
+    "school",
+    "c",
+    "gift-card",
+    "friend-impostor"
+  ],
+  "active": true
+}

@@ -138,7 +138,7 @@ runs of this challenge."
   explicitly says to delete. This repo is the rebuild target, not
   konfydence.com's current code.
 
-### 2.8 Structural finding — flat 50-card deck, not 4 sections
+### 2.8 Structural finding — 40-scenario bank, not 4 sections
 The old game engine (built earlier in the chat session, before the real
 content existed) assumed every edition had 4 fixed sections (A/B/C/D) with
 scenarios grouped by section, shown as "Section A → B → C → D." **This is

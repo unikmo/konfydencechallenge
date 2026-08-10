@@ -1,0 +1,34 @@
+{
+  "id": "workplace-wrk-40",
+  "title": "Support wants a recovery token",
+  "edition": "workplace",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Cloud admin",
+  "scenario": "A cloud-support contact says an outage corrupted tenant metadata and asks for an admin recovery token so they can restore service. The case number they quote is real.",
+  "answers": {
+    "A": "Do not provide the token; verify the request inside the official support case and use provider-documented recovery procedures with internal security.",
+    "B": "Escalate to your cloud account team/security contacts and ask for a support method that does not disclose reusable credentials.",
+    "C": "Provide a short-lived token because the case number is genuine and service restoration is urgent."
+  },
+  "scores": {
+    "A": 4,
+    "B": 3,
+    "C": 0
+  },
+  "safeActions": [
+    "A",
+    "B"
+  ],
+  "explanation": "Real support cases can be hijacked or referenced by attackers. Recovery/admin tokens are high-impact credentials and should remain under customer control.",
+  "proTip": "A real case number does not authorize secret transfer.",
+  "hackKey": "K",
+  "hackTrigger": "Critical Action",
+  "tags": [
+    "workplace",
+    "k",
+    "cloud-admin",
+    "recovery-token"
+  ],
+  "active": true
+}

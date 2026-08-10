@@ -1,0 +1,35 @@
+{
+  "id": "travelsafe-tra-32",
+  "title": "The SIM kiosk wants two photos",
+  "edition": "travelsafe",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Connectivity",
+  "scenario": "An airport SIM seller says local law requires a passport photo for activation. After taking it, the clerk also asks to photograph both sides of your bank card “for the payment file.”",
+  "answers": {
+    "A": "Use an official carrier shop or app instead if the kiosk cannot explain its data-handling process.",
+    "B": "Allow both photos if the clerk covers the security code on the back of the card.",
+    "C": "Verify what ID is legally required and pay through a normal terminal; do not allow a photo of your payment card."
+  },
+  "scores": {
+    "A": 3,
+    "B": 0,
+    "C": 4
+  },
+  "safeActions": [
+    "A",
+    "C"
+  ],
+  "explanation": "Some countries legitimately require ID for SIM registration, but that does not justify copying unrelated payment credentials.",
+  "proTip": "A legitimate ID requirement does not make every extra data request legitimate.",
+  "hackKey": "K",
+  "hackTrigger": "Critical Action",
+  "tags": [
+    "travelsafe",
+    "k",
+    "sim",
+    "identity",
+    "diagnostic"
+  ],
+  "active": true
+}

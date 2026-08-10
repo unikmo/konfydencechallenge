@@ -1,0 +1,34 @@
+{
+  "id": "workplace-wrk-35",
+  "title": "“Export your vault for recovery”",
+  "edition": "workplace",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Password managers",
+  "scenario": "A message claiming to be from your password-manager provider says a synchronization error could corrupt your vault and asks you to export it to a recovery portal immediately.",
+  "answers": {
+    "A": "Back up using the product’s documented local recovery method only after verifying the issue independently.",
+    "B": "Export the vault but encrypt the file before uploading it to the recovery portal.",
+    "C": "Do not export the vault; open the password manager directly and contact support through its official site/app."
+  },
+  "scores": {
+    "A": 3,
+    "B": 0,
+    "C": 4
+  },
+  "safeActions": [
+    "A",
+    "C"
+  ],
+  "explanation": "A password vault export is a concentrated copy of your credentials. Encryption does not help if the attacker controls the recovery process or key entry.",
+  "proTip": "Your vault is the crown jewels; recovery should never begin from an unsolicited link.",
+  "hackKey": "K",
+  "hackTrigger": "Critical Action",
+  "tags": [
+    "workplace",
+    "k",
+    "password-manager",
+    "phishing"
+  ],
+  "active": true
+}

@@ -1,0 +1,35 @@
+{
+  "id": "university-uni-12",
+  "title": "Your professor’s “quick favor”",
+  "edition": "university",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Jobs",
+  "scenario": "An email from a professor’s display name says they are in a conference session and need you to buy gift cards for visiting speakers. They promise reimbursement from the department tomorrow.",
+  "answers": {
+    "A": "Buy the cards but do not send the codes until the professor confirms later.",
+    "B": "Verify with the professor or department through a known channel before buying anything.",
+    "C": "Ask for the request to go through normal university purchasing or an administrator."
+  },
+  "scores": {
+    "A": 0,
+    "B": 4,
+    "C": 3
+  },
+  "safeActions": [
+    "B",
+    "C"
+  ],
+  "explanation": "Authority plus helpfulness can bypass normal controls. Gift-card requests should still follow university purchasing rules.",
+  "proTip": "A professor’s title does not suspend procurement.",
+  "hackKey": "A",
+  "hackTrigger": "Authority",
+  "tags": [
+    "university",
+    "a",
+    "gift-card",
+    "professor-impostor",
+    "diagnostic"
+  ],
+  "active": true
+}

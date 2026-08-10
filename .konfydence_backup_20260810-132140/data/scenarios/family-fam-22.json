@@ -1,0 +1,35 @@
+{
+  "id": "family-fam-22",
+  "title": "The grandson with a broken phone",
+  "edition": "family",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Grandparent scams",
+  "scenario": "A message from a new number says, “Hi Grandma, dropped my phone in water. This is my temporary number.” The conversation sounds natural and soon asks for help paying an urgent car-repair bill.",
+  "answers": {
+    "A": "Call your grandchild on the old number or contact another family member before sending money.",
+    "B": "Ask a personal question only your grandchild should know, then verify through a second channel.",
+    "C": "Send the money if the answer to your personal question is correct."
+  },
+  "scores": {
+    "A": 4,
+    "B": 3,
+    "C": 0
+  },
+  "safeActions": [
+    "A",
+    "B"
+  ],
+  "explanation": "Personal facts can be learned from social media or prior breaches. A second channel is stronger than trivia-based identity checks.",
+  "proTip": "Family facts are clues, not authentication.",
+  "hackKey": "C",
+  "hackTrigger": "Connection",
+  "tags": [
+    "family",
+    "c",
+    "whatsapp",
+    "family-impostor",
+    "diagnostic"
+  ],
+  "active": true
+}

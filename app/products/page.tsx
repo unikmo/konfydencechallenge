@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   // absolute: stops root layout's title template from double-appending " | Konfydence".
   title: { absolute: "Konfydence Merch | Wallet Card & Fridge Magnet" },
   description:
-    "Physical reminders of the HACK framework â€” a wallet-sized scam-check card and a fridge magnet, built to keep pressure-tactic red flags visible at the moment they matter.",
+    "Physical reminders of the HACK framework — a wallet-sized scam-check card and a fridge magnet, built to keep pressure-tactic red flags visible at the moment they matter.",
 };
 
 export default function ProductsPage() {
@@ -32,14 +32,14 @@ export default function ProductsPage() {
             price="$14.99"
             description="A pocket-sized HACK reminder for the moments a message, call, or payment request feels urgent. Keep the pause within reach."
             variant="paid"
-            cta={<CheckoutRedirectButton sku="KG-WALLET" label="Add to cart â€” $14.99" />}
+            cta={<CheckoutRedirectButton sku="KG-WALLET" label="Add to cart — $14.99" />}
           />
           <ProductCard
             name="KonfyGuard Fridge Magnet"
             price="$9.99"
             description="Make the safer question part of the household routine: pause, verify, then act."
             variant="paid"
-            cta={<CheckoutRedirectButton sku="KG-MAGNET" label="Add to cart â€” $9.99" />}
+            cta={<CheckoutRedirectButton sku="KG-MAGNET" label="Add to cart — $9.99" />}
           />
           <ProductCard
             name="Phone Lockscreen"

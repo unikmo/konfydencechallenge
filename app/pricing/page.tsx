@@ -9,7 +9,7 @@ import { CheckoutRedirectButton } from "@/components/commerce/CheckoutRedirectBu
 import { InstitutionalCTA } from "@/components/commerce/InstitutionalCTA";
 
 // Pricing copy per docs/DEV_BRIEF_DIAGNOSTIC_UPGRADE.md §10 (price points unchanged
-// from PRODUCT_SPEC_V1.md §13; free-tier copy updated for the 10-question diagnostic).
+// from PRODUCT_SPEC_V1.md §13; free-tier copy updated for the 8-scenario readiness check).
 // Never say "one play only" — say "Includes 5 complete runs of this challenge."
 
 const EDITIONS = [
@@ -66,7 +66,7 @@ function PricingContent() {
         <div style={styles.grid}>
           <PricingCard
             name="Free Readiness Check"
-            price="€0"
+            price="Free"
             includes={[
               "10 real-life scam scenarios",
               "Mini Konfydence Readiness Score™",
@@ -98,7 +98,7 @@ function PricingContent() {
                 />
               ) : (
                 <div>
-                  <p style={styles.pickEditionNote}>Pick an edition to unlock:</p>
+                  <p style={styles.pickEditionNote}>Choose an edition. Each Full Challenge is $4.99:</p>
                   <div style={styles.pillRow}>
                     {EDITIONS.map((e) => (
                       <button
@@ -107,7 +107,7 @@ function PricingContent() {
                         onClick={() => setSelectedEdition(e.key)}
                         style={styles.pill}
                       >
-                        {e.label}
+                        {e.label} - $4.99
                       </button>
                     ))}
                   </div>
@@ -130,9 +130,9 @@ function PricingContent() {
           />
 
           <PricingCard
-            name="Schools & Teams"
-            price="Custom"
-            includes={["Classrooms", "Workplaces", "Onboarding", "Compliance training", "Workshops"]}
+            name="Schools & Workplace Groups"
+            price="Contact us"
+            includes={["School and Workplace editions", "Classroom and team access", "Onboarding", "Compliance training", "Workshops"]}
             cta={<InstitutionalCTA />}
           />
         </div>

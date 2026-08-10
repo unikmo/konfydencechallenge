@@ -1,0 +1,33 @@
+{
+  "id": "family-fam-06",
+  "title": "Refund expires at midnight",
+  "edition": "family",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Taxes",
+  "scenario": "An email says a tax refund adjustment is waiting but must be claimed before midnight. The page asks you to confirm bank details and a government ID number.",
+  "answers": {
+    "A": "Enter the bank details now but leave the ID field blank until the refund status updates.",
+    "B": "Ignore the link and check your tax account or tax authority through its official site and normal communication process.",
+    "C": "Ask your tax preparer or accountant whether such a refund process is legitimate."
+  },
+  "scores": {
+    "A": 0,
+    "B": 4,
+    "C": 2
+  },
+  "safeActions": [
+    "B"
+  ],
+  "explanation": "Refund urgency is designed to turn good news into rushed disclosure. Tax authorities have established channels for account changes.",
+  "proTip": "Unexpected money deserves the same skepticism as unexpected debt.",
+  "hackKey": "H",
+  "hackTrigger": "Hurry",
+  "tags": [
+    "family",
+    "h",
+    "tax",
+    "phishing"
+  ],
+  "active": true
+}

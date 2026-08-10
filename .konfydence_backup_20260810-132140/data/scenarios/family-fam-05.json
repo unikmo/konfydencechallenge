@@ -1,0 +1,34 @@
+{
+  "id": "family-fam-05",
+  "title": "The toll doubles tomorrow",
+  "edition": "family",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Driving",
+  "scenario": "A text says you owe $6.40 in unpaid tolls and warns the fee becomes $75 tomorrow and may affect vehicle registration. You drove on toll roads last week.",
+  "answers": {
+    "A": "Call the toll agency using a known number and ask them to search your plate/account.",
+    "B": "Pay through the text link because the amount is plausible and you did use toll roads.",
+    "C": "Use your toll account or the toll agency website you navigate to independently to check for an actual balance."
+  },
+  "scores": {
+    "A": 3,
+    "B": 0,
+    "C": 4
+  },
+  "safeActions": [
+    "A",
+    "C"
+  ],
+  "explanation": "Real-world context makes toll smishing effective. The toll authority can verify debt without using the text link.",
+  "proTip": "Recent driving makes the story plausible, not authenticated.",
+  "hackKey": "H",
+  "hackTrigger": "Hurry",
+  "tags": [
+    "family",
+    "h",
+    "toll",
+    "smishing"
+  ],
+  "active": true
+}

@@ -1,0 +1,34 @@
+{
+  "id": "school-sch-19",
+  "title": "“Apple/Google Support” found a charge",
+  "edition": "school",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "App stores",
+  "scenario": "A pop-up says your app-store account bought $149 of game currency. A support chat opens automatically and asks you to install a profile so they can cancel the purchase.",
+  "answers": {
+    "A": "Close the pop-up and check purchase history in your actual app-store account; contact support from there if needed.",
+    "B": "Ask a parent or trusted adult to help review the account before installing anything.",
+    "C": "Install the profile but remove it after the refund is complete."
+  },
+  "scores": {
+    "A": 4,
+    "B": 3,
+    "C": 0
+  },
+  "safeActions": [
+    "A",
+    "B"
+  ],
+  "explanation": "Fake purchase alerts create urgency and borrow a trusted brand. Configuration profiles can grant powerful device access.",
+  "proTip": "Refunds do not require surrendering device control.",
+  "hackKey": "A",
+  "hackTrigger": "Authority",
+  "tags": [
+    "school",
+    "a",
+    "tech-support",
+    "device-profile"
+  ],
+  "active": true
+}

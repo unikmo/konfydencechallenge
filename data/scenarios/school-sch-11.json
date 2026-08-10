@@ -1,0 +1,35 @@
+{
+  "id": "school-sch-11",
+  "title": "A “Discord mod” needs verification",
+  "edition": "school",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Gaming",
+  "scenario": "A user with a moderator-style badge says your account was flagged for underage access and asks you to “verify ownership” by signing into a page they send. They say refusing may lock your server access.",
+  "answers": {
+    "A": "Ask a server owner or trusted moderator you already know whether the person is legitimate.",
+    "B": "Open the link if the badge looks official and the page uses the correct branding.",
+    "C": "Use Discord/game support through the official app or site and ignore verification links sent by another user."
+  },
+  "scores": {
+    "A": 3,
+    "B": 0,
+    "C": 4
+  },
+  "safeActions": [
+    "A",
+    "C"
+  ],
+  "explanation": "Badges and roles can be faked or copied. Account verification should happen in official settings, not a user-sent page.",
+  "proTip": "A badge is not a password-reset department.",
+  "hackKey": "A",
+  "hackTrigger": "Authority",
+  "tags": [
+    "school",
+    "a",
+    "discord",
+    "credential-phishing",
+    "diagnostic"
+  ],
+  "active": true
+}

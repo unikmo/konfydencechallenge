@@ -1,0 +1,34 @@
+{
+  "id": "university-uni-18",
+  "title": "The property manager changed the rent account",
+  "edition": "university",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Housing",
+  "scenario": "Your building manager emails that rent must go to a new bank account after a “payment processor migration.” The message includes your unit number and the manager’s usual signature.",
+  "answers": {
+    "A": "Send a small test payment first to make sure the account works.",
+    "B": "Confirm the new bank details through the tenant portal or a known phone number before changing your payment.",
+    "C": "Ask for the change to be posted in the formal tenant system or lease communication."
+  },
+  "scores": {
+    "A": 0,
+    "B": 4,
+    "C": 3
+  },
+  "safeActions": [
+    "B",
+    "C"
+  ],
+  "explanation": "A test transfer proves only that the destination receives money. Payment-detail changes are a classic point for independent verification.",
+  "proTip": "Verify the owner of the account, not its ability to receive money.",
+  "hackKey": "A",
+  "hackTrigger": "Authority",
+  "tags": [
+    "university",
+    "a",
+    "rent",
+    "payment-diversion"
+  ],
+  "active": true
+}

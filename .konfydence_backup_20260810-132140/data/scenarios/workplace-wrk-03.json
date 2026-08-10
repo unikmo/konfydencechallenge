@@ -1,0 +1,34 @@
+{
+  "id": "workplace-wrk-03",
+  "title": "The CEO needs gift cards between flights",
+  "edition": "workplace",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Executive requests",
+  "scenario": "A message from the CEO’s display name says they are boarding a flight and need 20 gift cards for client thank-yous within 30 minutes. They ask you to send the codes by text and promise to explain later.",
+  "answers": {
+    "A": "Buy the cards now but keep the codes until the CEO lands and confirms.",
+    "B": "Verify the request through a known executive assistant/CEO channel and follow procurement policy before purchasing anything.",
+    "C": "Ask for the request to be placed through the normal purchasing workflow, even if that means missing the deadline."
+  },
+  "scores": {
+    "A": 0,
+    "B": 4,
+    "C": 3
+  },
+  "safeActions": [
+    "B",
+    "C"
+  ],
+  "explanation": "Executive urgency and secrecy are classic social-engineering levers. Holding the codes still creates unnecessary exposure and sunk-cost pressure.",
+  "proTip": "Urgent executive requests still belong inside normal controls.",
+  "hackKey": "H",
+  "hackTrigger": "Hurry",
+  "tags": [
+    "workplace",
+    "h",
+    "ceo-fraud",
+    "gift-card"
+  ],
+  "active": true
+}

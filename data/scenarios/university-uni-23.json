@@ -1,0 +1,33 @@
+{
+  "id": "university-uni-23",
+  "title": "Your new campus friend has a “sure thing”",
+  "edition": "university",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Investments",
+  "scenario": "A student you met through an international-student group is friendly and helpful. After several weeks they introduce you to a crypto platform that supposedly helped them cover tuition and offer to coach you through it.",
+  "answers": {
+    "A": "Check whether the platform is regulated/recognized where you live and whether withdrawals are independently reported.",
+    "B": "Try a small amount first and continue only if you can withdraw it successfully.",
+    "C": "Do not invest through a platform introduced by a new relationship; research independently and seek advice from someone you already trust."
+  },
+  "scores": {
+    "A": 2,
+    "B": 0,
+    "C": 4
+  },
+  "safeActions": [
+    "C"
+  ],
+  "explanation": "Investment scams often build relationships first and may allow small withdrawals to deepen trust.",
+  "proTip": "A helpful person can still be leading you into an unhelpful platform.",
+  "hackKey": "C",
+  "hackTrigger": "Connection",
+  "tags": [
+    "university",
+    "c",
+    "investment",
+    "relationship-scam"
+  ],
+  "active": true
+}

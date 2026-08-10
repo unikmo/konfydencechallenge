@@ -1,0 +1,34 @@
+{
+  "id": "school-sch-17",
+  "title": "The tournament organizer needs your login",
+  "edition": "school",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Esports",
+  "scenario": "An esports organizer emails saying your team passed qualifiers but your game account must be linked for anti-cheat checks. The link asks for your game username, password and an MFA code.",
+  "answers": {
+    "A": "Ask your coach/team lead to confirm the organizer and anti-cheat requirements.",
+    "B": "Link the account because anti-cheat systems legitimately need deep access.",
+    "C": "Verify the tournament on the official organizer/game site and use only its documented account-linking process."
+  },
+  "scores": {
+    "A": 3,
+    "B": 0,
+    "C": 4
+  },
+  "safeActions": [
+    "A",
+    "C"
+  ],
+  "explanation": "Real anti-cheat tools may need software or account permissions, but they should not ask you to hand over credentials through an email link.",
+  "proTip": "Legitimate deep access still comes through legitimate installation paths.",
+  "hackKey": "A",
+  "hackTrigger": "Authority",
+  "tags": [
+    "school",
+    "a",
+    "esports",
+    "credentials"
+  ],
+  "active": true
+}

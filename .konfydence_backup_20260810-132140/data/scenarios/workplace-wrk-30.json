@@ -1,0 +1,34 @@
+{
+  "id": "workplace-wrk-30",
+  "title": "The assistant’s invite has a login button",
+  "edition": "workplace",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Calendars",
+  "scenario": "A familiar executive assistant sends a calendar invite for a rescheduled leadership meeting. The description says “agenda restricted—authenticate to view” and links to a Microsoft-looking sign-in page.",
+  "answers": {
+    "A": "Sign in because the invite came from a familiar assistant and restricted agendas are normal.",
+    "B": "Open the calendar/meeting system directly or ask the assistant through a known channel; do not authenticate through the invite link.",
+    "C": "Check whether the meeting exists in the normal calendar and whether the organizer address is expected."
+  },
+  "scores": {
+    "A": 0,
+    "B": 4,
+    "C": 3
+  },
+  "safeActions": [
+    "B",
+    "C"
+  ],
+  "explanation": "Compromised calendar accounts can send believable invites. Sensitive-meeting context makes credential prompts feel routine.",
+  "proTip": "A meeting invite should not become a new login route.",
+  "hackKey": "C",
+  "hackTrigger": "Connection",
+  "tags": [
+    "workplace",
+    "c",
+    "calendar",
+    "phishing"
+  ],
+  "active": true
+}

@@ -1,0 +1,34 @@
+{
+  "id": "family-fam-28",
+  "title": "The new caregiver asks for account access",
+  "edition": "family",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Caregiving",
+  "scenario": "A caregiver helping an older relative says the pharmacy portal keeps rejecting the refill. They ask for the relative’s email password so they can “sort it out while they are here.”",
+  "answers": {
+    "A": "Keep the password private and use delegated access, a pharmacy call, or sit with the relative while they log in themselves.",
+    "B": "Reset the pharmacy account and create a separate access method if the service supports it.",
+    "C": "Share the password temporarily, then change it after the refill is complete."
+  },
+  "scores": {
+    "A": 4,
+    "B": 3,
+    "C": 0
+  },
+  "safeActions": [
+    "A",
+    "B"
+  ],
+  "explanation": "A legitimate helper may have a legitimate need, but shared master credentials create unnecessary risk and confusion later.",
+  "proTip": "Help should get the least access needed to help.",
+  "hackKey": "C",
+  "hackTrigger": "Connection",
+  "tags": [
+    "family",
+    "c",
+    "caregiving",
+    "credential-sharing"
+  ],
+  "active": true
+}

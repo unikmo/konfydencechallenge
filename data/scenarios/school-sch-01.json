@@ -1,0 +1,35 @@
+{
+  "id": "school-sch-01",
+  "title": "Your account gets deleted in 9 minutes",
+  "edition": "school",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Gaming",
+  "scenario": "A Discord message says your gaming account was reported for cheating and will be deleted in nine minutes unless you complete a “player appeal.” The link already shows your gamer tag and profile picture.",
+  "answers": {
+    "A": "Open the game’s official app/site yourself and check account notices or support there.",
+    "B": "Ask a parent, trusted adult, or friend to help verify the support message before logging in anywhere.",
+    "C": "Use the appeal link because it already knows your gamer tag and the timer is running."
+  },
+  "scores": {
+    "A": 4,
+    "B": 3,
+    "C": 0
+  },
+  "safeActions": [
+    "A",
+    "B"
+  ],
+  "explanation": "Public profile details are easy to copy. Real account actions should appear inside the game’s own support system.",
+  "proTip": "A countdown is trying to borrow your decision-making.",
+  "hackKey": "H",
+  "hackTrigger": "Hurry",
+  "tags": [
+    "school",
+    "h",
+    "gaming",
+    "phishing",
+    "diagnostic"
+  ],
+  "active": true
+}

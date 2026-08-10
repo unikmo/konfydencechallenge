@@ -1,0 +1,34 @@
+{
+  "id": "school-sch-25",
+  "title": "Vote for our class—one login",
+  "edition": "school",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Group chats",
+  "scenario": "A classmate posts a “best school spirit” voting link in the class chat and says everyone needs to vote twice. The page asks you to sign in with your school email to stop duplicate votes.",
+  "answers": {
+    "A": "Verify the contest through the school or organizer before using your school login.",
+    "B": "Ask the classmate where they got the link and check it with a teacher or school site.",
+    "C": "Sign in because school email is exactly how a contest would stop duplicate voting."
+  },
+  "scores": {
+    "A": 4,
+    "B": 3,
+    "C": 0
+  },
+  "safeActions": [
+    "A",
+    "B"
+  ],
+  "explanation": "A plausible reason for login does not make an unknown site safe. School credentials unlock far more than a vote.",
+  "proTip": "Your school account is worth more than a class poll.",
+  "hackKey": "C",
+  "hackTrigger": "Connection",
+  "tags": [
+    "school",
+    "c",
+    "school-email",
+    "phishing"
+  ],
+  "active": true
+}

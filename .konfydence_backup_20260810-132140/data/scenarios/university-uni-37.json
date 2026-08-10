@@ -1,0 +1,34 @@
+{
+  "id": "university-uni-37",
+  "title": "Approve to “restore your mailbox”",
+  "edition": "university",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "MFA",
+  "scenario": "After receiving an IT-looking email, you get several login prompts on your phone. A follow-up message says the prompts are part of mailbox recovery and asks you to approve the next one.",
+  "answers": {
+    "A": "Deny the prompts and contact university IT through the official help desk; change your password if compromise is possible.",
+    "B": "Use your account’s security page to review and terminate unknown sessions before calling IT.",
+    "C": "Approve one prompt to stop the repeated notifications, then change your password."
+  },
+  "scores": {
+    "A": 4,
+    "B": 3,
+    "C": 0
+  },
+  "safeActions": [
+    "A",
+    "B"
+  ],
+  "explanation": "Repeated prompts are often an attempt to wear down resistance. Approval gives the attacker the access they are asking for.",
+  "proTip": "Annoyance is not authentication.",
+  "hackKey": "K",
+  "hackTrigger": "Critical Action",
+  "tags": [
+    "university",
+    "k",
+    "mfa-fatigue",
+    "university-it"
+  ],
+  "active": true
+}

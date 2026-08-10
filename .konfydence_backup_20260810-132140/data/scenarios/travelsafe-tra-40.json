@@ -1,0 +1,33 @@
+{
+  "id": "travelsafe-tra-40",
+  "title": "The “official” map pin sells tickets",
+  "edition": "travelsafe",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Maps & bookings",
+  "scenario": "You search Maps for a popular attraction and tap a listing that looks official. The booking page shows today nearly sold out and asks for your passport number plus full card details to issue “named-entry tickets.”",
+  "answers": {
+    "A": "Navigate to the attraction’s official website from a trusted source and compare ticket requirements and availability there.",
+    "B": "Call the attraction or tourist office through contact details you verify independently before entering identity data.",
+    "C": "Book through the map listing if reviews are numerous and recent, since fake listings rarely build that history."
+  },
+  "scores": {
+    "A": 4,
+    "B": 2,
+    "C": 0
+  },
+  "safeActions": [
+    "A"
+  ],
+  "explanation": "Search and map listings can be manipulated. High review counts do not justify unnecessary identity collection.",
+  "proTip": "A map pin is a discovery tool, not proof of ownership.",
+  "hackKey": "K",
+  "hackTrigger": "Critical Action",
+  "tags": [
+    "travelsafe",
+    "k",
+    "maps",
+    "ticketing"
+  ],
+  "active": true
+}

@@ -1,0 +1,34 @@
+{
+  "id": "workplace-wrk-17",
+  "title": "A regulator wants records today",
+  "edition": "workplace",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Regulators",
+  "scenario": "A caller says they are from a regulator conducting a spot audit and need employee/customer records by end of day. They provide names of your executives and cite a real regulation.",
+  "answers": {
+    "A": "Ask for a formal written request and reference number, then verify it independently.",
+    "B": "Send a limited sample first to show cooperation while legal checks the request.",
+    "C": "Route the request to legal/compliance and verify the regulator through official agency contact information before sending data."
+  },
+  "scores": {
+    "A": 3,
+    "B": 0,
+    "C": 4
+  },
+  "safeActions": [
+    "A",
+    "C"
+  ],
+  "explanation": "Regulatory language and public executive data are easy to borrow. Any disclosure still requires verified authority and scope.",
+  "proTip": "Cooperation starts with verifying who you are cooperating with.",
+  "hackKey": "A",
+  "hackTrigger": "Authority",
+  "tags": [
+    "workplace",
+    "a",
+    "regulator",
+    "data-request"
+  ],
+  "active": true
+}

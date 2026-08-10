@@ -130,3 +130,26 @@
 .countryCard { overflow: visible; padding: 22px; }
 .countryCard > div { padding: 0; }
 .countryCard > .countryLink { margin: 24px 0 0; }
+
+/* Keep the directory compact enough to scan while preserving comfortable tap targets. */
+.page { background: #fbfcff; }
+.hero { max-width: 1120px; padding: 54px 0 34px; }
+.hero h1 { font-size: clamp(36px, 5vw, 58px); line-height: 1.06; letter-spacing: -.02em; margin-bottom: 16px; }
+.sourceNotice { max-width: 900px; padding: 22px 26px; margin-bottom: 22px; background: #eef6ff; }
+.countryGrid { grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 12px; }
+.countryCard { min-height: 120px; padding: 16px; }
+.countryCard h3 { font-size: 18px; line-height: 1.12; margin-bottom: 8px; }
+.countryLink, .primaryLink { padding: 10px; font-size: 11px; line-height: 1.2; margin-top: 16px; text-align: center; }
+.countryCard > .countryLink { margin: 16px 0 0; }
+.officialRiskSection { background: #fff; border: 1px solid #e2eaf4; border-radius: 12px; padding: 30px; margin-top: 8px; box-shadow: 0 10px 24px rgba(16,35,68,.04); }
+.scamGuidance { background: #f0f7ff; }
+
+@media (max-width: 980px) {
+  .countryGrid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+@media (max-width: 720px) {
+  .countryGrid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 480px) {
+  .countryGrid { grid-template-columns: 1fr; }
+}
