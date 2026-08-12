@@ -1,5 +1,5 @@
 import React from "react";
-import { notFound, redirect } from "next/navigation";
+import { notFound } from "next/navigation";
 import Link from "next/link";
 import { prisma } from "@/lib/prisma";
 import { EDITION_LABELS } from "@/lib/challenge/labels";
@@ -43,11 +43,6 @@ export default async function SessionPage({ params }: { params: { sessionId: str
         <style>{stateStyles}</style>
       </main>
     );
-  }
-
-  const expectedCards = session.mode === "diagnostic" ? 8 : 24;
-  if (current.totalCards !== expectedCards) {
-    redirect(`/challenge/${session.edition}/start?mode=${session.mode}`);
   }
 
   const scenario = await prisma.scenario.findUnique({
