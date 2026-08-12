@@ -7,6 +7,7 @@ import { getCurrentChallengeCard } from "@/lib/challenge/sessionGenerator";
 import { SessionEventHooks, AnswerTrackerForm } from "@/components/SessionEventHooks";
 
 type AnswerKey = "A" | "B" | "C";
+type AnswerOption = { key: AnswerKey; text: string };
 
 export default async function SessionPage({ params }: { params: { sessionId: string } }) {
   const sessionId = params.sessionId;
@@ -58,11 +59,12 @@ export default async function SessionPage({ params }: { params: { sessionId: str
   });
   if (!scenario) notFound();
 
-  const answers: Array<{ key: AnswerKey; text: string }> = [
+  const allAnswers: AnswerOption[] = [
     { key: "A", text: scenario.answersA },
     { key: "B", text: scenario.answersB },
     { key: "C", text: scenario.answersC },
-  ].filter((answer) => answer.text.trim());
+  ];
+  const answers = allAnswers.filter((answer) => answer.text.trim().length > 0);
 
   if (answers.length !== 3) {
     throw new Error(`Scenario ${scenario.id} is not playable: expected exactly three answers`);
