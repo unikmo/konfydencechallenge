@@ -79,6 +79,73 @@ export function computeHackBreakdown(
   });
 }
 
+export type HackSignalLevel = "strong" | "watch" | "vulnerable";
+
+export type HackProfileEntry = HackBreakdownEntry & {
+  level: HackSignalLevel;
+  levelLabel: string;
+  insight: string;
+  practice: string;
+};
+
+export type HackProfile = {
+  dimensions: HackProfileEntry[];
+  primaryVulnerability: HackProfileEntry | null;
+  strongestReflex: HackProfileEntry | null;
+};
+
+const HACK_COACHING: Record<HackKey, { insight: string; practice: string }> = {
+  H: {
+    insight: "Urgency, countdowns and fear of missing out can compress your decision time.",
+    practice: "Pause before acting. A legitimate request can survive independent verification.",
+  },
+  A: {
+    insight: "Official-looking senders, job titles and institutions can make a request feel pre-verified.",
+    practice: "Verify through a contact route you already know — never through the request itself.",
+  },
+  C: {
+    insight: "Familiar brands, names, relationships and routines can lower your guard before the evidence is checked.",
+    practice: "Treat familiarity as context, not proof. Confirm the person, account or destination independently.",
+  },
+  K: {
+    insight: "The decisive moment is the click, transfer, code, credential or reply that gives the requester control.",
+    practice: "Use the kill-switch: stop the requested action, leave the channel, then verify from a clean starting point.",
+  },
+};
+
+function signalLevel(pct: number): { level: HackSignalLevel; label: string } {
+  if (pct >= 85) return { level: "strong", label: "Strong reflex" };
+  if (pct >= 65) return { level: "watch", label: "Watch this" };
+  return { level: "vulnerable", label: "Priority to train" };
+}
+
+/**
+ * Converts the balanced H/A/C/K score into a coaching profile. The number of
+ * tested decisions is deliberately retained because an 8-card diagnostic is a
+ * directional signal (2 decisions per dimension), not a clinical assessment.
+ */
+export function computeHackProfile(
+  cards: Array<{ hackKey: string | null; score: number | null }>
+): HackProfile {
+  const dimensions = computeHackBreakdown(cards)
+    .filter((entry) => entry.cardCount > 0)
+    .map((entry): HackProfileEntry => {
+      const signal = signalLevel(entry.pct);
+      return {
+        ...entry,
+        level: signal.level,
+        levelLabel: signal.label,
+        ...HACK_COACHING[entry.hackKey],
+      };
+    });
+
+  const ranked = [...dimensions].sort((a, b) => a.pct - b.pct || b.cardCount - a.cardCount);
+  const primaryVulnerability = ranked[0] ?? null;
+  const strongestReflex = ranked.length ? [...ranked].sort((a, b) => b.pct - a.pct || b.cardCount - a.cardCount)[0] : null;
+
+  return { dimensions, primaryVulnerability, strongestReflex };
+}
+
 export type CategoryBreakdownEntry = {
   category: string;
   scoreEarned: number;
