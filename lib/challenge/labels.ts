@@ -10,11 +10,16 @@ export const EDITION_LABELS: Record<ChallengeEdition, string> = {
 
 export type HackTrigger = "H" | "A" | "C" | "K";
 
-export const HACK_LABELS: Record<HackTrigger, { internal: string; public: string }> = {
-  H: { internal: "Hurry", public: "Hurry" },
-  A: { internal: "Authority", public: "Authority" },
-  C: { internal: "Connection", public: "Connection" },
-  // Public dashboards must not use "Kill-Switch" (avoid hacking jargon); admin views may use the internal label.
-  K: { internal: "Kill-Switch", public: "Critical Action Moment" },
+/**
+ * H.A.C.K. is Konfydence's decision-pressure framework:
+ * Hurry / Authority / Comfort / Kill-Switch.
+ *
+ * Public-facing language keeps K action-oriented rather than using security jargon,
+ * while admin/internal views retain the canonical framework name.
+ */
+export const HACK_LABELS: Record<HackTrigger, { internal: string; public: string; short: string }> = {
+  H: { internal: "Hurry", public: "Hurry pressure", short: "Hurry" },
+  A: { internal: "Authority", public: "Authority pressure", short: "Authority" },
+  C: { internal: "Comfort", public: "Comfort & familiarity", short: "Comfort" },
+  K: { internal: "Kill-Switch", public: "Stop & verify", short: "Kill-Switch" },
 };
-
