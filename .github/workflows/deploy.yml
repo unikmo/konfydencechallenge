@@ -17,13 +17,16 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Install Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
-          node-version: '18'
+          node-version: '20'
           cache: 'npm'
+
+      - name: Scenario quality gate
+        run: node scripts/audit-scenario-quality.cjs
 
       - name: Install Vercel CLI
         run: npm install -g vercel
@@ -39,6 +42,6 @@ jobs:
 
       - name: Deployment Summary
         run: |
-          echo "✅ Deployment to Vercel Complete!"
-          echo "🌐 Visit: https://konfydence.com"
-          echo "📊 Check deployment at: https://vercel.com/dashboard"
+          echo "Konfydence scenario quality gate: passed"
+          echo "Deployment to Vercel complete"
+          echo "Visit: https://konfydence.com"
