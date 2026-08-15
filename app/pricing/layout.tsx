@@ -1,16 +1,12 @@
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
 
-// app/pricing/page.tsx is "use client" (it reads useSearchParams for the
-// edition preselect), so it can't export its own metadata — a client
-// component's metadata export is silently ignored by Next.js. This sibling
-// layout is a server component purely to carry page-specific metadata; it
-// otherwise just passes children through untouched.
+// app/pricing/page.tsx is a client component because it reads search params.
+// This server layout owns pricing-specific metadata.
 export const metadata: Metadata = {
-  // absolute: stops root layout's title template from double-appending " | Konfydence".
   title: { absolute: "Pricing | Konfydence" },
   description:
-    "Unlock the full Konfydence Challenge — 50 real-life scenarios per edition, five complete runs, and your full Konfydence Readiness Score breakdown. $4.99 per edition or go unlimited.",
+    "Unlock a full 24-decision Konfydence Challenge drawn from a balanced 40-scenario edition bank, with a deeper H.A.C.K. pressure profile and completion certificate. $4.99 per edition or unlock all five challenges.",
 };
 
 export default function PricingLayout({ children }: { children: ReactNode }) {
