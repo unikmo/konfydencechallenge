@@ -7,9 +7,7 @@ const dir = path.join(process.cwd(), "data", "scenarios");
 const files = fs.readdirSync(dir).filter((name) => name.endsWith(".json") && !name.includes("schema") && !name.includes("example"));
 const scored = [];
 const findings = [];
-const warnings = [];
 const seenIds = new Map();
-
 const normalize = (value) => String(value || "").toLowerCase().replace(/[“”‘’]/g, "'").replace(/[^a-z0-9]+/g, " ").trim();
 
 for (const file of files) {
@@ -29,9 +27,7 @@ for (const file of files) {
   const safeActions = Array.isArray(scenario.safeActions) ? scenario.safeActions.map(String) : [];
 
   if (!id) issues.push("missing scenario id");
-  if (seenIds.has(id)) issues.push(`duplicate scenario id also used by ${seenIds.get(id)}`);
-  else if (id) seenIds.set(id, file);
-
+  if (seenIds.has(id)) issues.push(`duplicate scenario id also used by ${seenIds.get(id)}`); else if (id) seenIds.set(id, file);
   if (title.length < 8 || title.length > 100) issues.push(`title must be 8-100 chars (got ${title.length})`);
   if (!category) issues.push("missing category");
   if (scenario.active !== true) issues.push("live source scenario must be active=true");
@@ -58,14 +54,10 @@ for (const file of files) {
   if (answers.some((answer) => answer.length < 24)) issues.push("answer option too thin");
   if (answers.some((answer) => answer.length > 210)) issues.push("answer option too long");
   if (!HACK.includes(scenario.hackKey)) issues.push("missing/invalid H/A/C/K pressure-pattern key");
+  if (scenario.hackKey === "C" && scenario.hackTrigger !== "Comfort") issues.push(`C pressure-pattern source must say Comfort (got ${scenario.hackTrigger || "missing"})`);
   if (!scenario.explanation || String(scenario.explanation).trim().length < 50) issues.push("weak/missing explanation");
   if (!scenario.proTip || String(scenario.proTip).trim().length < 20) issues.push("weak/missing decision rule");
   if (!Array.isArray(scenario.tags) || scenario.tags.length < 3) issues.push("scenario needs at least three discovery/coverage tags");
-
-  if (scenario.hackKey === "C" && scenario.hackTrigger === "Connection") {
-    warnings.push(`${id}: legacy source metadata says Connection; runtime H.A.C.K. definition is Comfort`);
-  }
-
   if (issues.length) findings.push({ file, id, issues });
 }
 
@@ -78,16 +70,12 @@ for (const edition of EDITIONS) {
   for (const item of cards) {
     const p = normalize(item.scenario.prompt || item.scenario.scenario);
     const t = normalize(item.scenario.title);
-    if (p && prompts.has(p)) findings.push({ id: item.scenario.id, file: item.file, issues: [`duplicate scenario context with ${prompts.get(p)}`] });
-    else if (p) prompts.set(p, item.scenario.id);
-    if (t && titles.has(t)) findings.push({ id: item.scenario.id, file: item.file, issues: [`duplicate scenario title with ${titles.get(t)}`] });
-    else if (t) titles.set(t, item.scenario.id);
+    if (p && prompts.has(p)) findings.push({ id: item.scenario.id, file: item.file, issues: [`duplicate scenario context with ${prompts.get(p)}`] }); else if (p) prompts.set(p, item.scenario.id);
+    if (t && titles.has(t)) findings.push({ id: item.scenario.id, file: item.file, issues: [`duplicate scenario title with ${titles.get(t)}`] }); else if (t) titles.set(t, item.scenario.id);
   }
 
   const hackCounts = Object.fromEntries(HACK.map((key) => [key, cards.filter((item) => item.scenario.hackKey === key).length]));
-  for (const key of HACK) {
-    if (hackCounts[key] !== 10) findings.push({ id: edition, file: "deck", issues: [`${key} pressure pattern expected 10, found ${hackCounts[key]}`] });
-  }
+  for (const key of HACK) if (hackCounts[key] !== 10) findings.push({ id: edition, file: "deck", issues: [`${key} pressure pattern expected 10, found ${hackCounts[key]}`] });
 
   const diagnostic = cards.filter((item) => (item.scenario.tags || []).map(String).includes("diagnostic"));
   if (diagnostic.length !== 8) findings.push({ id: edition, file: "deck", issues: [`expected 8 curated diagnostic cards, found ${diagnostic.length}`] });
@@ -98,31 +86,21 @@ for (const edition of EDITIONS) {
 
   const bestPositions = { A: 0, B: 0, C: 0 };
   for (const item of cards) {
-    const entries = Object.entries(item.scenario.scores || {}).filter(([key]) => ["A", "B", "C"].includes(key));
-    entries.sort((a, b) => Number(b[1]) - Number(a[1]));
+    const entries = Object.entries(item.scenario.scores || {}).filter(([key]) => ["A", "B", "C"].includes(key)).sort((a, b) => Number(b[1]) - Number(a[1]));
     if (entries[0]) bestPositions[entries[0][0]] += 1;
   }
   const distribution = Object.values(bestPositions);
-  if (Math.max(...distribution) - Math.min(...distribution) > 1) {
-    findings.push({ id: edition, file: "deck", issues: [`strongest-answer positions imbalanced: ${JSON.stringify(bestPositions)}`] });
-  }
+  if (Math.max(...distribution) - Math.min(...distribution) > 1) findings.push({ id: edition, file: "deck", issues: [`strongest-answer positions imbalanced: ${JSON.stringify(bestPositions)}`] });
 
   const categories = new Set(cards.map((item) => String(item.scenario.category || "").trim()).filter(Boolean));
   if (categories.size < 6) findings.push({ id: edition, file: "deck", issues: [`scenario coverage too narrow: only ${categories.size} categories`] });
 }
 
 console.log(`\nKonfydence scenario audit: ${scored.length} scored source cards checked.`);
-if (warnings.length) {
-  console.log(`NOTE — ${warnings.length} legacy metadata note(s); these fields are not used by the runtime.`);
-  for (const warning of warnings.slice(0, 10)) console.log(`  • ${warning}`);
-  if (warnings.length > 10) console.log(`  • ...and ${warnings.length - 10} more`);
-}
-
 if (!findings.length) {
-  console.log("PASS — five 40-card banks; 3 distinct choices; balanced H/A/C/K; unique strongest move; diagnostic coverage; duplicate protection.\n");
+  console.log("PASS — five 40-card banks; canonical Comfort source; 3 distinct choices; balanced H/A/C/K; unique strongest move; diagnostic coverage; duplicate protection.\n");
   process.exit(0);
 }
-
 console.log(`FAIL — ${findings.length} finding(s).\n`);
 for (const item of findings.slice(0, 120)) console.log(`- ${item.id} [${item.file}]: ${item.issues.join("; ")}`);
 if (findings.length > 120) console.log(`...and ${findings.length - 120} more.`);
