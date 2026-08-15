@@ -1,248 +1,118 @@
-# Konfydence Challenge
+# Konfydence
 
-**Konfydence Challenge** is an online scenario-based decision game that helps users practice safer responses to real-world scams before they happen.
+Konfydence is scenario-based scam-readiness training. Instead of asking whether someone knows scams exist, it puts realistic decisions under pressure in front of the player, scores the quality of the next move, and teaches a reusable verification rule immediately after each answer.
 
-Core rule:
+## Product model
 
-> **Pause → Verify → Ask**
+Konfydence ships five challenge editions:
 
-For Workplace mode:
+- **Family** — impersonation, payment requests, shared devices, account access and emotional pressure.
+- **School** — gaming, social platforms, fake links, account takeover and peer pressure for ages 12–18.
+- **University** — housing, jobs, tuition, identity, international-student and campus impersonation scenarios.
+- **Workplace** — invoices, payroll, executive impersonation, phishing and sensitive-data requests.
+- **TravelSafe** — flights, refunds, hotels, taxis, QR codes, Wi-Fi, payments, documents and travel pressure.
 
-> **Pause → Verify → Report**
+Each edition has a **40-scenario source bank** balanced across the H.A.C.K. pressure framework:
 
-## Product Scope
+- **H — Hurry**: urgency, deadlines, scarcity or fear of missing out.
+- **A — Authority**: official-looking requests, status, titles, uniforms or institutional pressure.
+- **C — Comfort**: familiarity, trust, routine or emotion that lowers scrutiny.
+- **K — Kill-Switch**: the critical action moment where the requester pushes a click, payment, credential, approval, share or reply while independent verification is being cut off.
 
-This repository contains the digital platform for:
+### Session structure
 
-1. **TravelSafe Challenge**
-   - Individual traveler refresher
-   - Self-serve paid access
-   - Price: **$4.99**
+- **Free readiness check:** 8 scored scenarios — 2 each from H/A/C/K.
+- **Full challenge:** 24 scored scenarios — 6 each from H/A/C/K.
+- Session generation prioritizes unseen cards while preserving pressure-pattern balance.
+- Every scored scenario has exactly three plausible actions with one unique strongest move.
+- Results show a Konfydence Readiness Score and a separate H.A.C.K. vulnerability profile so an overall percentage cannot hide a repeatable weak pattern.
 
-2. **Student Challenge**
-   - Universities / schools
-   - Price: **$1 per student / year**
-   - Completion certificate and school dashboard
+## Commercial model
 
-3. **Workplace Challenge**
-   - Companies / organizations
-   - Price: **$5 per employee / year**
-   - Completion certificate and workplace dashboard
+- Free readiness check: **$0**
+- Single full challenge: **$4.99**
+- All five challenges: **$19.99**
+- Shopify handles checkout. Paid access is granted from signed Shopify purchase webhooks and represented by server-side entitlements.
 
-## What V1 Must Build
+The free result is useful on its own. Paid conversion is based on deeper practice and broader scenario coverage, not on withholding the diagnostic insight needed to understand the result.
 
-V1 is intentionally simple and credible.
+## Technology
 
-Build:
+- **Next.js 16.3.1 Active LTS**
+- **React 19.2**
+- TypeScript with strict checking
+- Prisma 5
+- PostgreSQL / Supabase
+- Shopify Storefront checkout + signed purchase webhook processing
+- Vercel production deployment
+- Optional GA4 analytics behind explicit consent
 
-- User registration/login
-- TravelSafe self-serve access
-- Student access via organization invite link
-- Workplace access via organization invite link
-- Scenario database
-- Section-based challenge engine
-- Fixed section order
-- Randomized scenario cards inside each section
-- Scoring
-- Immediate answer feedback
-- Results page
-- Certificate generation
-- Basic school/workplace dashboard
-- CSV export
-- Super admin content manager
+Admin routes are protected by fail-closed Basic Auth through `proxy.ts`. Security headers are configured in `next.config.mjs`.
 
-Do **not** build in V1:
+## Local development
 
-- Multiplayer
-- Game board
-- Animations
-- Real-time rooms
-- Avatars
-- Countdown timers
-- SSO
-- LMS/SCORM integrations
-- Department-specific curricula
+Requirements:
 
-## Gameplay Logic
+- Node.js 20.9 or newer (Node 22 recommended)
+- PostgreSQL/Supabase database
+- environment variables based on `.env.example`
 
-Each challenge contains sections.
-
-Sections must appear in fixed order:
-
-```text
-Section A → Section B → Section C → Section D
+```bash
+npm ci
+npx prisma generate
+npm run dev
 ```
 
-Cards inside each section must be randomized per session.
+The local app is available at `http://localhost:3000` by default.
 
-Example:
+## Production quality gates
 
-Section A contains scenario IDs:
+The repository treats scenario content as production code. Every release to `main` is checked for:
 
-```text
-1, 2, 3, 4, 5, 6, 7, 8
+1. locked dependency installation (`npm ci`)
+2. production dependency security audit (`npm audit --omit=dev --audit-level=high`)
+3. five complete 40-card scenario banks
+4. 10/10/10/10 H/A/C/K balance per edition
+5. 8 curated diagnostic cards per edition, 2 per pressure dimension
+6. exactly three playable choices per scored scenario
+7. one unique strongest answer and valid 0–4 scoring
+8. duplicate scenario/title protection
+9. minimum explanation, rule and category coverage quality
+10. canonical **Comfort** source metadata for C-pattern cards
+11. public 8/24/40 product-claim consistency
+12. unit tests
+13. ESLint with zero warnings
+14. strict TypeScript
+15. a full Next.js production build
+
+Vercel deployment status is checked separately for the same `main` commit before a release is treated as live.
+
+Useful commands:
+
+```bash
+npm run audit:scenarios
+npm run audit:claims
+npm run audit:production
+npm test -- --runInBand
+npm run lint -- --max-warnings=0
+npx tsc --noEmit
+npm run build
 ```
 
-User may see:
+## Scenario source
 
-```text
-7, 3, 6, 1, 8
-```
+Canonical source cards live in `data/scenarios/`. The Prisma seed imports these into the database. Do not bypass the source-card quality gate by editing production scenario rows manually without updating the corresponding source file.
 
-Another user may see:
+The runtime fields use `hackKey` (`H`, `A`, `C`, `K`). C-pattern source metadata must use `hackTrigger: "Comfort"`.
 
-```text
-4, 8, 2, 6, 3
-```
+## Important product boundaries
 
-Important:
+- The readiness score is a training signal, not a guarantee that a person will avoid scams.
+- Konfydence teaches safer decision processes; it does not provide legal, financial or cybersecurity incident-response advice.
+- Public claims must match the implemented session model. The claim regression gate intentionally blocks stale 50-scenario and four-answer language.
 
-- Store the generated card order for the user/session.
-- Refreshing the page must not reshuffle mid-game.
-- Restarting the full challenge may generate a new order.
-- Sections stay fixed; only scenarios inside a section are shuffled.
+## Production
 
-## Scoring
+Primary site: `https://konfydence.com`
 
-Each answer receives a score from 0–4:
-
-| Score | Meaning |
-|---:|---|
-| 4 | Safest / best answer |
-| 3 | Safe but not ideal |
-| 2 | Partially safe / incomplete |
-| 1 | Weak or risky |
-| 0 | Dangerous |
-
-Some questions may have multiple safe answers.
-
-Example:
-
-```json
-{
-  "scores": {
-    "A": 0,
-    "B": 0,
-    "C": 4,
-    "D": 4
-  },
-  "safeActions": ["C", "D"]
-}
-```
-
-## Result Levels
-
-| Score % | Level |
-|---:|---|
-| 0–49% | At Risk |
-| 50–69% | Learning Zone |
-| 70–84% | Confident & Aware |
-| 85–94% | Scam-Resistant |
-| 95–100% | Konfydence Elite |
-
-Certificates require:
-
-- 100% required sections completed
-- minimum pass threshold reached
-
-Suggested pass thresholds:
-
-| Challenge | Pass Threshold |
-|---|---:|
-| TravelSafe | 70% |
-| Student | 70% |
-| Workplace | 75% |
-
-## Challenge Editions
-
-### TravelSafe Challenge
-
-Target: individual travelers  
-Price: **$4.99**
-
-Sections:
-
-- **A: Booking & Airline Scams**
-- **B: Airport & Transit Scams**
-- **C: Hotel & Accommodation Scams**
-- **D: Travel Money & Identity**
-
-Completion certificate:
-
-> TravelSafe Ready
-
-### Student Challenge
-
-Target: university students  
-Price: **$1 per student / year**
-
-Sections:
-
-- **A: Student Accounts & University Messages**
-- **B: Jobs, Internships & Career Scams**
-- **C: Housing, Money & Marketplace**
-- **D: Social, Travel & AI Scams**
-
-Completion certificate:
-
-> Student Safety Challenge Completed
-
-### Workplace Challenge
-
-Target: employees and organizations  
-Price: **$5 per employee / year**
-
-Sections:
-
-- **A: Phishing & Account Access**
-- **B: Money, Invoices & Payment Pressure**
-- **C: Impersonation & Social Engineering**
-- **D: AI, Deepfake & Modern Threats**
-
-Completion certificate:
-
-> Workplace Scam Awareness Completed
-
-## Repository Structure
-
-```text
-app/                  Next.js app routes
-components/           Reusable UI components
-data/scenarios/       Seed scenario JSON files
-docs/                 Product and build documentation
-lib/                  Core business logic
-prisma/               Database schema and seed scripts
-public/               Public assets
-scripts/              Import/export/maintenance scripts
-tests/                Tests
-types/                Shared TypeScript types
-```
-
-## Local Development
-
-Target local folder:
-
-```powershell
-C:\Users\mbanw\konfydencechallenge
-```
-
-Recommended stack:
-
-- Next.js
-- TypeScript
-- Prisma
-- SQLite for local V1
-- Stripe or Shopify checkout for TravelSafe later
-
-## First Implementation Order
-
-1. Create Next.js project structure
-2. Add scenario data model
-3. Add seed scenario JSON
-4. Build challenge session generator
-5. Build scenario screen
-6. Build feedback screen
-7. Build results screen
-8. Build certificate page
-9. Add admin dashboard
-10. Add pricing pages
+Repository: `unikmo/konfydencechallenge`
