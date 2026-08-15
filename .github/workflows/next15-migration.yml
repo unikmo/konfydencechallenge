@@ -35,7 +35,7 @@ jobs:
       - name: Install Next 16 Active LTS stack
         run: |
           npm install --save-exact next@16.3.1 react@19.2.0 react-dom@19.2.0
-          npm install --save-dev --save-exact eslint@latest eslint-config-next@16.3.1 @types/react@19.2.2 @types/react-dom@19.2.2
+          npm install --save-dev --save-exact eslint@9.39.5 eslint-config-next@16.3.1 @types/react@19.2.2 @types/react-dom@19.2.2
 
       - name: Production dependency security gate
         run: npm audit --omit=dev --audit-level=high
