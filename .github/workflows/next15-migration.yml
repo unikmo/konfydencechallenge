@@ -1,4 +1,4 @@
-name: Next 15 LTS Migration
+name: Next 15 LTS Validation
 
 on:
   push:
@@ -6,13 +6,12 @@ on:
       - next15-lts-migration
 
 permissions:
-  contents: write
+  contents: read
 
 jobs:
-  migrate:
-    if: github.actor != 'github-actions[bot]'
+  validate:
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    timeout-minutes: 15
     env:
       DATABASE_URL: postgresql://postgres:postgres@127.0.0.1:5432/konfydence?schema=public
       DIRECT_URL: postgresql://postgres:postgres@127.0.0.1:5432/konfydence?schema=public
@@ -23,22 +22,16 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
-        with:
-          ref: next15-lts-migration
-          fetch-depth: 0
-
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
           cache: npm
 
-      - name: Migrate async request APIs
-        run: npx --yes @next/codemod@canary next-async-request-api . --force
+      - name: Install locked dependencies
+        run: npm ci
 
-      - name: Install supported Next 15 LTS stack
-        run: |
-          npm install --save-exact next@15.5.21 react@19.2.0 react-dom@19.2.0
-          npm install --save-dev --save-exact eslint-config-next@15.5.21 @types/react@19.2.2 @types/react-dom@19.2.2
+      - name: Production dependency security gate
+        run: npm audit --omit=dev --audit-level=high
 
       - name: Scenario bank quality
         run: node scripts/audit-scenario-quality.cjs
@@ -57,15 +50,3 @@ jobs:
 
       - name: Production build
         run: npm run build
-
-      - name: Commit migration only after all gates pass
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add -A
-          if git diff --cached --quiet; then
-            echo "No migration changes to commit"
-          else
-            git commit -m "Upgrade Konfydence to Next 15.5.21 LTS"
-            git push origin HEAD:next15-lts-migration
-          fi
