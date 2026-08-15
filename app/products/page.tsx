@@ -103,4 +103,3 @@ const styles: Record<string, React.CSSProperties> = {
   button: { background: "#ffb31d", color: "#0b1f3a", borderRadius: 999, padding: "13px 18px", fontWeight: 900, textDecoration: "none", whiteSpace: "nowrap" },
   footer: { display: "flex", gap: 20, marginTop: 34, borderTop: "1px solid #dbe4ef", paddingTop: 20 },
 };
-import { redirect } from "next/navigation";

@@ -23,7 +23,7 @@
   "explanation": "Trusted customers can be compromised, and legitimate support context is useful cover for malware.",
   "proTip": "Trust the customer relationship; distrust executable attachments.",
   "hackKey": "C",
-  "hackTrigger": "Connection",
+  "hackTrigger": "Comfort",
   "tags": [
     "workplace",
     "c",

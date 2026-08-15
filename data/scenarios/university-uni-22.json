@@ -23,7 +23,7 @@
   "explanation": "The classmate’s account may be compromised, and broad OAuth access is unnecessary for a simple document.",
   "proTip": "A study guide should not need your inbox or contacts.",
   "hackKey": "C",
-  "hackTrigger": "Connection",
+  "hackTrigger": "Comfort",
   "tags": [
     "university",
     "c",

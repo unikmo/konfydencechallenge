@@ -23,7 +23,7 @@
   "explanation": "Receiving and forwarding money for someone else can pull you into fraud or money-mule activity even when the incoming balance initially looks real.",
   "proTip": "Your bank account is not a favour-routing service.",
   "hackKey": "C",
-  "hackTrigger": "Connection",
+  "hackTrigger": "Comfort",
   "tags": [
     "university",
     "c",

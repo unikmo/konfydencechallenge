@@ -23,7 +23,7 @@
   "explanation": "Voice can be cloned or replayed. Physical-safety changes should always go through the trusted pickup process.",
   "proTip": "For pickup changes, process beats voice.",
   "hackKey": "C",
-  "hackTrigger": "Connection",
+  "hackTrigger": "Comfort",
   "tags": [
     "school",
     "c",

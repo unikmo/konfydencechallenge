@@ -23,7 +23,7 @@
   "explanation": "Long, friendly communication builds trust, but new off-platform payments change the risk. Make the charge visible inside the booking system.",
   "proTip": "Relationship history should not bypass payment controls.",
   "hackKey": "C",
-  "hackTrigger": "Connection",
+  "hackTrigger": "Comfort",
   "tags": [
     "travelsafe",
     "c",

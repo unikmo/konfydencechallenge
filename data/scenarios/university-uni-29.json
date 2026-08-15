@@ -23,7 +23,7 @@
   "explanation": "Compromised collaborators and overbroad OAuth permissions can expose research, email and personal files.",
   "proTip": "A new tool should prove its need before you grant old data.",
   "hackKey": "C",
-  "hackTrigger": "Connection",
+  "hackTrigger": "Comfort",
   "tags": [
     "university",
     "c",

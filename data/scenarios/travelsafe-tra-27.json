@@ -23,7 +23,7 @@
   "explanation": "Group context and plausible amounts lower suspicion. A changed payment destination still deserves direct confirmation.",
   "proTip": "Familiar group, new payment handle: verify the handle.",
   "hackKey": "C",
-  "hackTrigger": "Connection",
+  "hackTrigger": "Comfort",
   "tags": [
     "travelsafe",
     "c",

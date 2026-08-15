@@ -23,7 +23,7 @@
   "explanation": "Compromised accounts inherit real history and timing. A changed payment destination is the moment to verify the person.",
   "proTip": "Correct amount, wrong destination is still a loss.",
   "hackKey": "C",
-  "hackTrigger": "Connection",
+  "hackTrigger": "Comfort",
   "tags": [
     "university",
     "c",

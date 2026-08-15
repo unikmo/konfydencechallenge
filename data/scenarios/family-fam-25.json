@@ -23,7 +23,7 @@
   "explanation": "Compromised accounts inherit the victim’s real history and tone. Cross-channel verification checks whether your friend still controls the account.",
   "proTip": "A familiar account can be an unfamiliar operator.",
   "hackKey": "C",
-  "hackTrigger": "Connection",
+  "hackTrigger": "Comfort",
   "tags": [
     "family",
     "c",

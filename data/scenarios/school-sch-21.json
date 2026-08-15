@@ -23,7 +23,7 @@
   "explanation": "Compromised accounts include old chats, photos and context. Private history can be read by whoever took the account.",
   "proTip": "Inside jokes are not two-factor authentication.",
   "hackKey": "C",
-  "hackTrigger": "Connection",
+  "hackTrigger": "Comfort",
   "tags": [
     "school",
     "c",

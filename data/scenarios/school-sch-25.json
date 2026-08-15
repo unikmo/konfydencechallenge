@@ -23,7 +23,7 @@
   "explanation": "A plausible reason for login does not make an unknown site safe. School credentials unlock far more than a vote.",
   "proTip": "Your school account is worth more than a class poll.",
   "hackKey": "C",
-  "hackTrigger": "Connection",
+  "hackTrigger": "Comfort",
   "tags": [
     "school",
     "c",

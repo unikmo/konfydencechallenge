@@ -23,7 +23,7 @@
   "explanation": "Business email compromise often uses genuine compromised mailboxes and real threads. Thread continuity is not payment authentication.",
   "proTip": "A real thread can carry a fraudulent destination.",
   "hackKey": "C",
-  "hackTrigger": "Connection",
+  "hackTrigger": "Comfort",
   "tags": [
     "workplace",
     "c",

@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import type { Metadata } from "next";
 
@@ -59,7 +60,7 @@ export default function HomePage() {
 
         <div className="heroVisual" aria-label="TravelSafe scam-awareness training">
           <div className="imageFrame">
-            <img src="/travelsafe-hero-scene.png" alt="Traveler using a phone while navigating a real-world travel situation" />
+            <Image src="/travelsafe-hero-scene.png" alt="Traveler using a phone while navigating a real-world travel situation" width={960} height={1120} priority sizes="(max-width: 900px) 100vw, 48vw" />
             <div className="imageShade" />
             <div className="imageLabel"><span>TRAVELSAFE</span><b>Practice before pressure becomes action.</b></div>
             <div className="imageStat"><small>FREE CHECK</small><strong>8</strong><span>decisions</span></div>
@@ -71,7 +72,7 @@ export default function HomePage() {
       <section className="signalBand">
         <div><span>H</span><b>Hurry</b><small>“Do it now.”</small></div>
         <div><span>A</span><b>Authority</b><small>“Trust the title.”</small></div>
-        <div><span>C</span><b>Connection</b><small>“You know me.”</small></div>
+        <div><span>C</span><b>Comfort</b><small>“This feels familiar.”</small></div>
         <div><span>K</span><b>Critical action</b><small>“Click. Pay. Share.”</small></div>
       </section>
 
@@ -90,7 +91,7 @@ export default function HomePage() {
 
       <section id="editions" className="section editions">
         <div className="featuredEdition">
-          <div className="featuredImage"><img src="/travelsafe-hero-scene.png" alt="TravelSafe training scene" /><span>01 / FLAGSHIP</span></div>
+          <div className="featuredImage"><Image src="/travelsafe-hero-scene.png" alt="TravelSafe training scene" width={960} height={720} sizes="(max-width: 900px) 100vw, 50vw" /><span>01 / FLAGSHIP</span></div>
           <div className="featuredCopy">
             <p className="eyebrow dark"><i /> TravelSafe</p>
             <h2>Travel creates exactly the conditions scammers need.</h2>

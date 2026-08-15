@@ -23,7 +23,7 @@
   "explanation": "Compromised collaboration accounts are powerful because they inherit trust. OAuth access can be malicious even through a real login page.",
   "proTip": "Trusted sender, untrusted permission request.",
   "hackKey": "C",
-  "hackTrigger": "Connection",
+  "hackTrigger": "Comfort",
   "tags": [
     "workplace",
     "c",

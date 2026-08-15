@@ -23,7 +23,7 @@
   "explanation": "A compromised mailbox can redirect a conversation to an attacker-controlled channel, where later instructions look continuous.",
   "proTip": "Channel switching can be the attack, not a convenience.",
   "hackKey": "C",
-  "hackTrigger": "Connection",
+  "hackTrigger": "Comfort",
   "tags": [
     "workplace",
     "c",

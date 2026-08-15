@@ -23,7 +23,7 @@
   "explanation": "Recognizing the bill does not authenticate the person asking you to pay it. New numbers deserve independent confirmation.",
   "proTip": "New number + money request = verify the person first.",
   "hackKey": "C",
-  "hackTrigger": "Connection",
+  "hackTrigger": "Comfort",
   "tags": [
     "family",
     "c",

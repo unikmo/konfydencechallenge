@@ -23,7 +23,7 @@
   "explanation": "Documents can be forged and hacked accounts carry real personal history. Verify the person outside the compromised channel.",
   "proTip": "Documents support a story; they do not authenticate the storyteller.",
   "hackKey": "C",
-  "hackTrigger": "Connection",
+  "hackTrigger": "Comfort",
   "tags": [
     "family",
     "c",

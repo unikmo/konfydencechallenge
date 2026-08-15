@@ -23,7 +23,7 @@
   "explanation": "The sender’s account may be compromised, and broad OAuth permissions can expose much more than the notes.",
   "proTip": "A notes folder should not need your inbox.",
   "hackKey": "C",
-  "hackTrigger": "Connection",
+  "hackTrigger": "Comfort",
   "tags": [
     "school",
     "c",

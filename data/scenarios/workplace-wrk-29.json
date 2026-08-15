@@ -23,7 +23,7 @@
   "explanation": "A real relationship does not make an unapproved data destination safe. Compromised mailboxes and genuine users under pressure can both create risky requests.",
   "proTip": "Trust the relationship; still verify the destination and the data-handling rule.",
   "hackKey": "C",
-  "hackTrigger": "Connection",
+  "hackTrigger": "Comfort",
   "tags": [
     "workplace",
     "c",

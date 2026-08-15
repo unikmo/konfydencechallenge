@@ -23,7 +23,7 @@
   "explanation": "Compromised calendar accounts can send believable invites. Sensitive-meeting context makes credential prompts feel routine.",
   "proTip": "A meeting invite should not become a new login route.",
   "hackKey": "C",
-  "hackTrigger": "Connection",
+  "hackTrigger": "Comfort",
   "tags": [
     "workplace",
     "c",

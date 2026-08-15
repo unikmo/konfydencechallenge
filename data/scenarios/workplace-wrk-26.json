@@ -23,7 +23,7 @@
   "explanation": "Trusted vendors can change, be compromised, or request excessive permissions. Prior trust does not automatically extend to new access.",
   "proTip": "Old vendor, new permissions = new decision.",
   "hackKey": "C",
-  "hackTrigger": "Connection",
+  "hackTrigger": "Comfort",
   "tags": [
     "workplace",
     "c",

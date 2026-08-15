@@ -23,7 +23,7 @@
   "explanation": "A real access problem does not make a master credential safe to share. Use temporary or provider-controlled recovery instead.",
   "proTip": "Solve access with the least powerful credential possible.",
   "hackKey": "C",
-  "hackTrigger": "Connection",
+  "hackTrigger": "Comfort",
   "tags": [
     "travelsafe",
     "c",

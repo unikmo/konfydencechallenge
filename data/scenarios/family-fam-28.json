@@ -23,7 +23,7 @@
   "explanation": "A legitimate helper may have a legitimate need, but shared master credentials create unnecessary risk and confusion later.",
   "proTip": "Help should get the least access needed to help.",
   "hackKey": "C",
-  "hackTrigger": "Connection",
+  "hackTrigger": "Comfort",
   "tags": [
     "family",
     "c",

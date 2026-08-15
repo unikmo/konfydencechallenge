@@ -23,7 +23,7 @@
   "explanation": "Knowing the person does not authorize bypassing identity controls, and their account may be compromised.",
   "proTip": "Friendship is not an MFA recovery method.",
   "hackKey": "C",
-  "hackTrigger": "Connection",
+  "hackTrigger": "Comfort",
   "tags": [
     "workplace",
     "c",

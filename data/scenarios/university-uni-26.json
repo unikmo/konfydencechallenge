@@ -23,7 +23,7 @@
   "explanation": "A known person can have a compromised account or make an unsafe shortcut. Organizational payment controls protect everyone.",
   "proTip": "Knowing the treasurer does not authenticate a new bank account.",
   "hackKey": "C",
-  "hackTrigger": "Connection",
+  "hackTrigger": "Comfort",
   "tags": [
     "university",
     "c",

@@ -22,7 +22,7 @@
   "explanation": "Reputation accounts can be stolen, and off-platform point sales may also violate program rules. Old trust does not remove transaction risk.",
   "proTip": "A respected account can still be a rented identity.",
   "hackKey": "C",
-  "hackTrigger": "Connection",
+  "hackTrigger": "Comfort",
   "tags": [
     "travelsafe",
     "c",

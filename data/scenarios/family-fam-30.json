@@ -23,7 +23,7 @@
   "explanation": "Public lost-pet posts give scammers everything needed to sound specific. Verification should involve the animal, not just the post details.",
   "proTip": "Information from your post is not secret proof.",
   "hackKey": "C",
-  "hackTrigger": "Connection",
+  "hackTrigger": "Comfort",
   "tags": [
     "family",
     "c",

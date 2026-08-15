@@ -23,7 +23,7 @@
   "explanation": "Personal facts can be learned from social media or prior breaches. A second channel is stronger than trivia-based identity checks.",
   "proTip": "Family facts are clues, not authentication.",
   "hackKey": "C",
-  "hackTrigger": "Connection",
+  "hackTrigger": "Comfort",
   "tags": [
     "family",
     "c",

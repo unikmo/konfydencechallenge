@@ -23,7 +23,7 @@
   "explanation": "A familiar mailbox can be compromised, and passport scans are valuable enough to justify an independent check before uploading them to a new destination.",
   "proTip": "Known sender, new document portal: verify the portal—not just the sender.",
   "hackKey": "C",
-  "hackTrigger": "Connection",
+  "hackTrigger": "Comfort",
   "tags": [
     "travelsafe",
     "c",

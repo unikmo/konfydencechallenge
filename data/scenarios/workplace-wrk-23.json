@@ -23,7 +23,7 @@
   "explanation": "Compromised accounts and social engineering exploit real relationships. Sensitive employee data should follow process regardless of familiarity.",
   "proTip": "Familiar person, sensitive data: verify the request, not the tone.",
   "hackKey": "C",
-  "hackTrigger": "Connection",
+  "hackTrigger": "Comfort",
   "tags": [
     "workplace",
     "c",

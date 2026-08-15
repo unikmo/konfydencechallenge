@@ -23,7 +23,7 @@
   "explanation": "Confidentiality language can make broad access sound necessary. A simple folder should not need full-drive permissions.",
   "proTip": "More sensitive project means less tolerance for unknown tools.",
   "hackKey": "C",
-  "hackTrigger": "Connection",
+  "hackTrigger": "Comfort",
   "tags": [
     "workplace",
     "c",

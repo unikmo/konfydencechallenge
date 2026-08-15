@@ -22,7 +22,7 @@
   "explanation": "A familiar account can be taken over. Payment destination changes are a high-value moment to re-verify identity.",
   "proTip": "Old chat history does not guarantee the account still has its old owner.",
   "hackKey": "C",
-  "hackTrigger": "Connection",
+  "hackTrigger": "Comfort",
   "tags": [
     "travelsafe",
     "c",
