@@ -1,201 +1,94 @@
 "use client";
 
 import React, { Suspense, useEffect, useState } from "react";
-import { useSearchParams, useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import { tokens } from "@/lib/theme/tokens";
 
-interface Entitlement {
-  tier: "single" | "unlimited";
-  edition: string | null;
-}
+type Entitlement = { tier: "single" | "unlimited"; edition: string | null };
+const MAX_ATTEMPTS = 10;
+const POLL_DELAY_MS = 1500;
 
 export default function ClaimPage() {
-  return (
-    <Suspense fallback={null}>
-      <ClaimContent />
-    </Suspense>
-  );
+  return <Suspense fallback={null}><ClaimContent /></Suspense>;
 }
 
 function ClaimContent() {
   const router = useRouter();
   const searchParams = useSearchParams();
-  const [entitlements, setEntitlements] = useState<Entitlement[]>([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
-  const [pollCount, setPollCount] = useState(0);
-
-  const sessionId = searchParams.get("sessionId");
   const edition = searchParams.get("edition");
+  const [attempt, setAttempt] = useState(1);
+  const [error, setError] = useState<string | null>(null);
+  const [verified, setVerified] = useState(false);
 
   useEffect(() => {
-    const checkEntitlements = async () => {
+    let cancelled = false;
+    let timer: ReturnType<typeof setTimeout> | undefined;
+
+    async function poll(currentAttempt: number) {
+      if (cancelled) return;
+      setAttempt(currentAttempt);
+
       try {
-        const response = await fetch("/api/entitlements/me");
-        if (!response.ok) throw new Error("Failed to fetch entitlements");
+        const response = await fetch("/api/entitlements/me", { cache: "no-store" });
+        if (!response.ok) throw new Error("Entitlement lookup failed");
+        const data = (await response.json()) as { entitlements?: Entitlement[] };
+        const purchased = (data.entitlements ?? []).find(
+          (item) => item.tier === "unlimited" || (item.tier === "single" && edition && item.edition === edition)
+        );
 
-        const data = await response.json();
-        setEntitlements(data.entitlements);
-
-        // Check if purchased entitlement is present
-        if (data.entitlements && data.entitlements.length > 0) {
-          const purchased = data.entitlements.find(
-            (e: Entitlement) =>
-              e.tier === "unlimited" ||
-              (e.tier === "single" && edition && e.edition === edition)
-          );
-
-          if (purchased) {
-            // Redirect to challenge start
-            if (purchased.tier === "unlimited") {
-              // User purchased unlimited, let them pick an edition
-              setTimeout(() => router.push("/challenge"), 1000);
-            } else {
-              // User purchased a specific edition
-              setTimeout(
-                () => router.push(`/challenge/${purchased.edition}/start?mode=full`),
-                1000
-              );
-            }
-            return;
-          }
+        if (purchased) {
+          setVerified(true);
+          timer = setTimeout(() => {
+            if (cancelled) return;
+            router.replace(purchased.tier === "unlimited" ? "/challenge" : `/challenge/${purchased.edition}/start?mode=full`);
+          }, 700);
+          return;
         }
-
-        setPollCount((prev) => prev + 1);
-
-        // Poll for up to 10 attempts (~15 seconds)
-        if (pollCount < 10) {
-          setTimeout(checkEntitlements, 1500);
-        } else {
-          setError("Entitlement processing took too long. Please refresh or contact support.");
-          setLoading(false);
-        }
-      } catch (err) {
-        console.error("Error checking entitlements:", err);
-        setPollCount((prev) => prev + 1);
-
-        if (pollCount < 10) {
-          setTimeout(checkEntitlements, 1500);
-        } else {
-          setError("Error verifying purchase. Please refresh or contact support.");
-          setLoading(false);
-        }
+      } catch (lookupError) {
+        console.error("Entitlement verification failed:", lookupError);
       }
+
+      if (currentAttempt >= MAX_ATTEMPTS) {
+        setError("Purchase verification is taking longer than expected. Refresh this page or contact support if access still does not appear.");
+        return;
+      }
+      timer = setTimeout(() => void poll(currentAttempt + 1), POLL_DELAY_MS);
+    }
+
+    void poll(1);
+    return () => {
+      cancelled = true;
+      if (timer) clearTimeout(timer);
     };
-
-    // Start polling immediately
-    checkEntitlements();
-  }, [pollCount, edition, router]);
-
-  const containerStyle: React.CSSProperties = {
-    minHeight: "100vh",
-    background: tokens.bgCanvas,
-    color: tokens.textOnDark,
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-    padding: "20px",
-    fontFamily: 'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif',
-  };
-
-  const cardStyle: React.CSSProperties = {
-    maxWidth: 500,
-    width: "100%",
-    textAlign: "center",
-  };
-
-  const spinnerStyle: React.CSSProperties = {
-    width: 48,
-    height: 48,
-    border: `3px solid rgba(255, 255, 255, 0.1)`,
-    borderTopColor: tokens.accentAmber,
-    borderRadius: "50%",
-    animation: "spin 1s linear infinite",
-    margin: "0 auto 24px",
-  };
-
-  const titleStyle: React.CSSProperties = {
-    fontSize: 24,
-    fontWeight: 900,
-    margin: "0 0 12px",
-  };
-
-  const textStyle: React.CSSProperties = {
-    fontSize: 14,
-    color: tokens.textMuted,
-    margin: "0 0 24px",
-    lineHeight: 1.6,
-  };
-
-  const errorBoxStyle: React.CSSProperties = {
-    padding: 16,
-    background: "rgba(239, 68, 68, 0.1)",
-    border: "1px solid rgba(239, 68, 68, 0.3)",
-    borderRadius: 8,
-    marginBottom: 16,
-  };
-
-  const errorTitleStyle: React.CSSProperties = {
-    fontSize: 14,
-    fontWeight: 800,
-    color: "#ef4444",
-    margin: "0 0 8px",
-  };
-
-  const errorTextStyle: React.CSSProperties = {
-    fontSize: 13,
-    color: tokens.textMuted,
-    margin: 0,
-  };
-
-  const buttonStyle: React.CSSProperties = {
-    padding: "10px 16px",
-    borderRadius: 6,
-    fontSize: 14,
-    fontWeight: 800,
-    border: "none",
-    background: tokens.accentAmber,
-    color: tokens.textOnLight,
-    cursor: "pointer",
-  };
+  }, [edition, router]);
 
   return (
-    <div style={containerStyle}>
-      <style>{`
-        @keyframes spin {
-          to { transform: rotate(360deg); }
-        }
-      `}</style>
-      <div style={cardStyle}>
-        {loading && !error ? (
+    <main style={{ minHeight: "100vh", background: tokens.bgCanvas, color: tokens.textOnDark, display: "grid", placeItems: "center", padding: 20, fontFamily: "Inter,ui-sans-serif,system-ui,sans-serif" }}>
+      <section style={{ width: "100%", maxWidth: 520, textAlign: "center" }}>
+        {error ? (
           <>
-            <div style={spinnerStyle} />
-            <h1 style={titleStyle}>Processing your purchase</h1>
-            <p style={textStyle}>
-              We're verifying your entitlement with Shopify. This typically takes less than 30 seconds.
-            </p>
-            <p style={textStyle}>(Attempt {pollCount + 1})</p>
-          </>
-        ) : error ? (
-          <>
-            <div style={errorBoxStyle}>
-              <h2 style={errorTitleStyle}>⚠ Processing delayed</h2>
-              <p style={errorTextStyle}>{error}</p>
+            <div style={{ padding: 18, borderRadius: 14, border: "1px solid rgba(239,68,68,.35)", background: "rgba(239,68,68,.1)" }}>
+              <h1 style={{ margin: "0 0 8px", fontSize: 22 }}>Purchase verification delayed</h1>
+              <p style={{ margin: 0, color: tokens.textMuted, fontSize: 13, lineHeight: 1.6 }}>{error}</p>
             </div>
-            <button style={buttonStyle} onClick={() => window.location.reload()}>
-              Refresh and retry
-            </button>
+            <button type="button" onClick={() => window.location.reload()} style={{ marginTop: 16, padding: "12px 18px", border: 0, borderRadius: 999, background: tokens.accentAmber, color: tokens.textOnLight, fontWeight: 900, cursor: "pointer" }}>Refresh and retry</button>
+          </>
+        ) : verified ? (
+          <>
+            <div style={{ fontSize: 48, color: tokens.accentAmber }}>✓</div>
+            <h1 style={{ margin: "12px 0", fontSize: 28 }}>Access confirmed.</h1>
+            <p style={{ color: tokens.textMuted }}>Opening your challenge…</p>
           </>
         ) : (
           <>
-            <div style={{ fontSize: 48, marginBottom: 16 }}>✓</div>
-            <h1 style={titleStyle}>Purchase complete!</h1>
-            <p style={textStyle}>
-              Your access is being set up. You'll be redirected to your challenge momentarily.
-            </p>
+            <div className="spinner" />
+            <h1 style={{ margin: "0 0 12px", fontSize: 28 }}>Confirming your access</h1>
+            <p style={{ margin: 0, color: tokens.textMuted, fontSize: 14, lineHeight: 1.6 }}>Shopify is confirming the purchase. Keep this page open; access normally appears within a few seconds.</p>
+            <p style={{ marginTop: 14, color: tokens.textMuted, fontSize: 11 }}>Verification attempt {attempt} of {MAX_ATTEMPTS}</p>
           </>
         )}
-      </div>
-    </div>
+      </section>
+      <style>{`.spinner{width:48px;height:48px;margin:0 auto 24px;border:3px solid rgba(255,255,255,.12);border-top-color:${tokens.accentAmber};border-radius:50%;animation:spin .85s linear infinite}@keyframes spin{to{transform:rotate(360deg)}}`}</style>
+    </main>
   );
 }

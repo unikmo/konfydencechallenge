@@ -1,4 +1,5 @@
-﻿import { COUNTRY_IMAGE_ASSETS } from "@/lib/country-image-assets";
+import Image from "next/image";
+import { COUNTRY_IMAGE_ASSETS } from "@/lib/country-image-assets";
 import styles from "./countries.module.css";
 
 const generatedVisualByContinent: Record<string, string> = {
@@ -10,27 +11,11 @@ const generatedVisualByContinent: Record<string, string> = {
   "South America": "/country-landmarks/generated/south-america.png",
 };
 
-export default function CountryCardImage({
-  countryName,
-  landmark,
-  continent,
-  slug,
-}: {
-  countryName: string;
-  landmark: string;
-  continent: string;
-  slug: string;
-}) {
+export default function CountryCardImage({ countryName, landmark, continent, slug }: { countryName: string; landmark: string; continent: string; slug: string }) {
   const imageUrl = (COUNTRY_IMAGE_ASSETS as Record<string, string>)[slug] ?? generatedVisualByContinent[continent] ?? generatedVisualByContinent["North America"];
-
   return (
-    <div className={styles.countryCardMedia} aria-label={countryName + " landmark: " + landmark}>
-      <img
-        className={styles.countryCardImage}
-        src={imageUrl}
-        alt=""
-        loading="lazy"
-      />
+    <div className={styles.countryCardMedia} aria-label={`${countryName} landmark: ${landmark}`}>
+      <Image className={styles.countryCardImage} src={imageUrl} alt="" width={720} height={460} sizes="(max-width: 720px) 100vw, 360px" />
     </div>
   );
 }
