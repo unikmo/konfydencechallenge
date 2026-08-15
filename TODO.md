@@ -1,36 +1,40 @@
-# Konfydence Challenge V1 — Implementation Checklist
+# Konfydence — Production Backlog
 
-## Approved scope (App Router only; no multiplayer, game board, animations, timers, avatars, leaderboards, SSO, SCORM/LMS, or department-specific curricula)
+The V1 implementation checklist is complete and has been retired. This file now contains only work that is genuinely beyond the current production baseline.
 
-### 0. Foundation
-- [ ] App shell: Next.js + TypeScript + Prisma SQLite (local V1), using existing folder structure
+## Commercial validation
 
-### 1. Data model
-- [ ] Prisma schema for: User (minimal), Scenario, ChallengeSession, ChallengeAnswerResponse
+- [ ] Complete and document one end-to-end Shopify test purchase for a single challenge: checkout → signed webhook → entitlement → full challenge access.
+- [ ] Complete and document one all-five purchase test.
+- [ ] Verify cancellation/refund webhook revokes the corresponding entitlement in the Shopify test environment.
+- [ ] Review conversion analytics after sufficient real traffic: readiness start → completion → result → checkout start → purchase.
 
-### 2. Scenario JSON model & import pipeline
-- [ ] Ensure normalized playable scenarios use `data/scenarios/scenario.schema.example.json` schema
-- [ ] Create importer script: read JSON from `data/scenarios/` and seed/upsert into Prisma
-- [ ] (Optional later) raw source storage under `data/import/raw/` (no live PDF parsing)
-- [ ] Seed scenario import wired to `prisma db seed` or npm script
+## Institutional product
 
-### 3. Challenge engine
-- [ ] Challenge session generator: fixed section order A→B→C→D, randomize cards within each section per session
-- [ ] Persist generated order in `ChallengeSession` so refresh does not reshuffle mid-game
+- [ ] Define organization-level reporting requirements before adding school/employer dashboards.
+- [ ] Decide whether team purchasing remains Shopify-based or moves to invoiced contracts for larger cohorts.
+- [ ] Add LMS/SCORM only if validated institutional demand justifies it; do not add it speculatively.
 
-### 4. Scoring
-- [ ] Scoring engine: map selected answer to 0–4 via scenario `scores`, compute per-section score and overall score %, compute result level via README thresholds
+## Content operations
 
-### 5. Screens
-- [ ] Scenario screen (present question, submit answer)
-- [ ] Feedback screen (immediate feedback + explanation)
-- [ ] Results screen (overall % + level + section completion summary)
-- [ ] Certificate placeholder page
+- [ ] Schedule periodic scenario-bank reviews against emerging scam patterns without weakening the 40-card/H.A.C.K. balance.
+- [ ] Add new source cards only through the scenario-quality and product-claim gates.
+- [ ] Review category coverage and diagnostic flagship cards using observed answer data once sample sizes are meaningful.
 
-### 6. Admin placeholder
-- [ ] Basic admin dashboard placeholder (scenario manager + challenge sessions placeholder)
+## Security / operations
 
-### 7. Future extension notes
-- [ ] Add TODO comments indicating where future AI/PDF extraction could be added later (NOT implemented in V1)
+- [ ] Rotate production secrets on the normal operator schedule.
+- [ ] Review CSP and remove `unsafe-inline` only when the remaining inline-style / analytics bootstrap architecture is refactored to support nonces or external styles safely.
+- [ ] Periodically review `npm audit --omit=dev` results and Next.js LTS status.
 
+## Deliberately out of scope until validated
 
+- Multiplayer / live game board
+- Leaderboards
+- Avatars
+- Timers as a scoring mechanic
+- SSO
+- LMS/SCORM
+- AI-generated live scenarios without editorial review
+
+These items should not enter production merely because they are technically possible. The product goal remains decision rehearsal, measurable pressure-pattern readiness, and clear transfer to real-world behavior.
