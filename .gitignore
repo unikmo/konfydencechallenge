@@ -18,6 +18,14 @@ build/
 *.db-journal
 prisma/dev.db
 
+# generated/test output
+coverage/
+*.tsbuildinfo
+
+# local backups and scratch copies
+.konfydence_backup_*/
+*_backup_*/
+
 # logs
 npm-debug.log*
 yarn-debug.log*
