@@ -1,24 +1,24 @@
 {
   "name": "konfydencechallenge",
   "version": "1.0.0",
-  "description": "**Konfydence Challenge** is an online scenario-based decision game that helps users practice safer responses to real-world scams before they happen.",
-  "main": "index.js",
-  "directories": {
-    "doc": "docs",
-    "lib": "lib",
-    "test": "tests"
+  "description": "Konfydence Challenge is a scenario-based decision game that helps people practise safer responses to real-world scams before they happen.",
+  "private": true,
+  "engines": {
+    "node": ">=20.9.0"
   },
   "scripts": {
     "dev": "next dev",
     "build": "prisma generate && next build",
     "start": "next start",
-    "lint": "next lint",
+    "lint": "eslint .",
     "test": "jest",
     "prisma:generate": "prisma generate",
     "prisma:migrate": "prisma migrate dev",
     "seed": "ts-node --transpile-only prisma/seed.ts",
     "qa:webhooks": "ts-node --transpile-only scripts/qa-webhook-matrix.ts",
     "audit:scenarios": "node scripts/audit-scenario-quality.cjs",
+    "audit:claims": "node scripts/validate-product-claims.cjs",
+    "audit:production": "npm audit --omit=dev --audit-level=high",
     "report:decks": "node scripts/deck-report.cjs"
   },
   "prisma": {
@@ -28,13 +28,11 @@
     "type": "git",
     "url": "git+https://github.com/unikmo/konfydencechallenge.git"
   },
-  "keywords": [],
-  "author": "",
   "license": "ISC",
   "type": "commonjs",
   "dependencies": {
     "@prisma/client": "^5.20.0",
-    "next": "15.5.21",
+    "next": "16.3.1",
     "react": "19.2.0",
     "react-dom": "19.2.0",
     "zod": "^3.23.8"
@@ -44,8 +42,8 @@
     "@types/node": "^20.19.43",
     "@types/react": "19.2.2",
     "@types/react-dom": "19.2.2",
-    "eslint": "^8.57.0",
-    "eslint-config-next": "15.5.21",
+    "eslint": "^9.0.0",
+    "eslint-config-next": "16.3.1",
     "jest": "^30.4.2",
     "prisma": "^5.20.0",
     "ts-jest": "^29.4.11",

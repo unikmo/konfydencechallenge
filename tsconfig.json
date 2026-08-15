@@ -1,11 +1,7 @@
 {
   "compilerOptions": {
     "target": "ES2022",
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "es2022"
-    ],
+    "lib": ["dom", "dom.iterable", "es2022"],
     "allowJs": false,
     "skipLibCheck": true,
     "strict": true,
@@ -17,28 +13,13 @@
     "isolatedModules": true,
     "jsx": "preserve",
     "incremental": true,
-    "plugins": [
-      {
-        "name": "next"
-      }
-    ],
-    "types": [
-      "node",
-      "jest"
-    ],
+    "plugins": [{ "name": "next" }],
+    "types": ["node", "jest"],
     "paths": {
-      "@/*": [
-        "./*"
-      ],
-      "@lib/*": [
-        "./lib/*"
-      ],
-      "@components/*": [
-        "./components/*"
-      ],
-      "@types/*": [
-        "./types/*"
-      ]
+      "@/*": ["./*"],
+      "@lib/*": ["./lib/*"],
+      "@components/*": ["./components/*"],
+      "@types/*": ["./types/*"]
     }
   },
   "ts-node": {
@@ -59,13 +40,8 @@
     "scripts/**/*.ts",
     "tests/**/*.ts",
     "types/**/*.ts",
-    "middleware.ts",
+    "proxy.ts",
     ".next/types/**/*.ts"
   ],
-  "exclude": [
-    "node_modules",
-    ".konfydence_backup_*",
-    "coverage",
-    ".next/cache"
-  ]
+  "exclude": ["node_modules", ".konfydence_backup_*", "coverage", ".next/cache"]
 }

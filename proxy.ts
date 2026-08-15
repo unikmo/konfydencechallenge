@@ -1,11 +1,8 @@
 import { NextRequest, NextResponse } from "next/server";
 
-// Gates /admin with HTTP Basic Auth. app/admin/page.tsx has no login of its own —
-// it was a publicly reachable "V1 placeholder" dashboard that anyone who found or
-// guessed the URL could open (robots.txt disallows crawlers, but that doesn't stop
-// a human visiting it directly). Requires ADMIN_USER/ADMIN_PASSWORD env vars; if
-// either is missing this fails closed (blocks the route) rather than leaving it open.
-export function middleware(request: NextRequest) {
+// Gates /admin with HTTP Basic Auth. The route fails closed if credentials are
+// not configured, so a missing environment variable can never expose admin.
+export function proxy(request: NextRequest) {
   const adminUser = process.env.ADMIN_USER;
   const adminPassword = process.env.ADMIN_PASSWORD;
 
@@ -18,11 +15,13 @@ export function middleware(request: NextRequest) {
   if (authHeader?.startsWith("Basic ")) {
     const decoded = Buffer.from(authHeader.slice(6), "base64").toString("utf-8");
     const separatorIndex = decoded.indexOf(":");
-    const user = decoded.slice(0, separatorIndex);
-    const password = decoded.slice(separatorIndex + 1);
 
-    if (user === adminUser && password === adminPassword) {
-      return NextResponse.next();
+    if (separatorIndex > 0) {
+      const user = decoded.slice(0, separatorIndex);
+      const password = decoded.slice(separatorIndex + 1);
+      if (user === adminUser && password === adminPassword) {
+        return NextResponse.next();
+      }
     }
   }
 
