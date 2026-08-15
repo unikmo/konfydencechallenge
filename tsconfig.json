@@ -26,8 +26,6 @@
       "node",
       "jest"
     ],
-
-    "skipLibCheck": true,
     "paths": {
       "@/*": [
         "./*"
@@ -51,13 +49,23 @@
   },
   "include": [
     "next-env.d.ts",
-    "**/*.ts",
-    "**/*.tsx",
+    "app/**/*.ts",
+    "app/**/*.tsx",
+    "components/**/*.ts",
+    "components/**/*.tsx",
+    "lib/**/*.ts",
+    "lib/**/*.tsx",
     "prisma/**/*.ts",
     "scripts/**/*.ts",
+    "tests/**/*.ts",
+    "types/**/*.ts",
+    "middleware.ts",
     ".next/types/**/*.ts"
   ],
   "exclude": [
-    "node_modules"
+    "node_modules",
+    ".konfydence_backup_*",
+    "coverage",
+    ".next/cache"
   ]
 }
