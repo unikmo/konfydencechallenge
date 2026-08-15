@@ -1,0 +1,140 @@
+name: Merge Editorial Hero Into Validated Release
+
+on:
+  push:
+    branches:
+      - next15-lts-migration
+    paths:
+      - .github/workflows/merge-editorial-hero.yml
+
+permissions:
+  contents: write
+
+jobs:
+  merge-hero:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      DATABASE_URL: postgresql://postgres:postgres@127.0.0.1:5432/konfydence?schema=public
+      DIRECT_URL: postgresql://postgres:postgres@127.0.0.1:5432/konfydence?schema=public
+      NEXT_PUBLIC_APP_URL: https://konfydence.com
+      AUTH_SECRET: ci-only-not-a-production-secret
+      ADMIN_USER: ci-admin
+      ADMIN_PASSWORD: ci-password-not-used-at-runtime
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: next15-lts-migration
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+
+      - name: Apply clean editorial hero treatment
+        shell: python
+        run: |
+          from pathlib import Path
+
+          p = Path('app/page.tsx')
+          text = p.read_text(encoding='utf-8')
+
+          old_hero = '''        <div className="heroVisual" aria-label="TravelSafe scam-awareness training">
+          <div className="imageFrame">
+            <Image src="/travelsafe-hero-scene.png" alt="Traveler using a phone while navigating a real-world travel situation" width={960} height={1120} priority sizes="(max-width: 900px) 100vw, 48vw" />
+            <div className="imageShade" />
+            <div className="imageLabel"><span>TRAVELSAFE</span><b>Practice before pressure becomes action.</b></div>
+            <div className="imageStat"><small>FREE CHECK</small><strong>8</strong><span>decisions</span></div>
+          </div>
+          <div className="floatingNote"><span>H</span><div><b>Pressure detected</b><small>Urgency changes how people decide.</small></div></div>
+        </div>'''
+          new_hero = '''        <div className="heroVisual" aria-label="TravelSafe scam-awareness training">
+          <div className="imageFrame">
+            <Image src="/travelsafe-hero-scene.png" alt="Traveler using a phone while navigating a real-world travel situation" width={960} height={1120} priority sizes="(max-width: 900px) 100vw, 48vw" />
+          </div>
+        </div>'''
+          if text.count(old_hero) != 1:
+              raise SystemExit(f'Expected one hero JSX block, found {text.count(old_hero)}')
+          text = text.replace(old_hero, new_hero, 1)
+
+          old_featured = '<div className="featuredImage"><Image src="/travelsafe-hero-scene.png" alt="TravelSafe training scene" width={960} height={720} sizes="(max-width: 900px) 100vw, 50vw" /><span>01 / FLAGSHIP</span></div>'
+          new_featured = '<div className="featuredImage"><Image src="/challenge-editions/travelsafe.png" alt="TravelSafe edition" width={960} height={720} sizes="(max-width: 900px) 100vw, 50vw" /><span>01 / FLAGSHIP</span></div>'
+          if text.count(old_featured) != 1:
+              raise SystemExit(f'Expected one featured image block, found {text.count(old_featured)}')
+          text = text.replace(old_featured, new_featured, 1)
+
+          old_hero_css = '.hero{margin-top:-76px;min-height:760px;padding:148px max(28px,calc((100vw - 1184px)/2)) 72px;background:radial-gradient(circle at 88% 18%,rgba(71,122,165,.24),transparent 30%),var(--ink);color:#fff;display:grid;grid-template-columns:minmax(0,1fr) minmax(430px,.95fr);gap:72px;align-items:center}'
+          new_hero_css = '.hero{margin-top:-76px;min-height:740px;padding:144px max(28px,calc((100vw - 1184px)/2)) 72px;background:radial-gradient(circle at 88% 18%,rgba(71,122,165,.20),transparent 30%),var(--ink);color:#fff;display:grid;grid-template-columns:minmax(0,1.02fr) minmax(420px,.98fr);gap:64px;align-items:center}'
+          if text.count(old_hero_css) != 1:
+              raise SystemExit(f'Expected one hero CSS block, found {text.count(old_hero_css)}')
+          text = text.replace(old_hero_css, new_hero_css, 1)
+
+          old_visual_css = '.heroVisual{position:relative}.imageFrame{height:560px;position:relative;border-radius:30px 30px 90px 30px;overflow:hidden;box-shadow:0 38px 90px rgba(0,0,0,.34);border:1px solid rgba(255,255,255,.16)}.imageFrame img{width:100%;height:100%;display:block;object-fit:cover}.imageShade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(7,21,34,.06) 35%,rgba(7,21,34,.82) 100%)}.imageLabel{position:absolute;left:28px;right:130px;bottom:28px;display:flex;flex-direction:column;gap:7px}.imageLabel span{font-size:9px;letter-spacing:.13em;font-weight:900;color:var(--lime)}.imageLabel b{font-family:Georgia,serif;font-size:24px;line-height:1.05;font-weight:500}.imageStat{position:absolute;right:24px;bottom:25px;width:92px;height:108px;border-radius:18px;background:rgba(255,253,248,.94);color:var(--ink);display:flex;flex-direction:column;align-items:center;justify-content:center}.imageStat small{font-size:7px;letter-spacing:.12em;font-weight:900}.imageStat strong{font-size:40px;line-height:1;margin:5px 0 1px}.imageStat span{font-size:9px;color:#68737a}.floatingNote{position:absolute;left:-42px;top:72px;width:230px;padding:14px 15px;border-radius:16px;background:#fffdf8;color:var(--ink);box-shadow:0 18px 40px rgba(0,0,0,.2);display:grid;grid-template-columns:34px 1fr;gap:11px;align-items:center}.floatingNote>span{width:34px;height:34px;border-radius:50%;background:var(--coral);display:grid;place-items:center;font-size:11px;font-weight:900}.floatingNote div{display:flex;flex-direction:column}.floatingNote b{font-size:11px}.floatingNote small{font-size:9px;color:#768089;line-height:1.35;margin-top:2px}'
+          new_visual_css = '.heroVisual{display:flex;align-items:center;justify-content:center;min-width:0}.imageFrame{width:100%;max-width:590px;overflow:hidden;border-radius:20px;background:#0b1a28;border:1px solid rgba(255,255,255,.13);box-shadow:0 34px 80px rgba(0,0,0,.30)}.imageFrame img{width:100%;height:auto;display:block;object-fit:contain}'
+          if text.count(old_visual_css) != 1:
+              raise SystemExit(f'Expected one visual CSS block, found {text.count(old_visual_css)}')
+          text = text.replace(old_visual_css, new_visual_css, 1)
+
+          old_featured_css = '.featuredImage{position:relative;overflow:hidden;min-height:520px}'
+          new_featured_css = '.featuredImage{position:relative;overflow:hidden;min-height:520px;background:#101d28}'
+          if text.count(old_featured_css) != 1:
+              raise SystemExit(f'Expected one featured CSS block, found {text.count(old_featured_css)}')
+          text = text.replace(old_featured_css, new_featured_css, 1)
+
+          old_900 = '@media(max-width:900px){.desktopNav{display:none}.hero{grid-template-columns:1fr;gap:48px;padding-top:130px}.heroVisual{max-width:650px}.imageFrame{height:500px}.floatingNote{left:20px}.sectionLead,.editionIntro,.org{grid-template-columns:1fr}.steps{grid-template-columns:repeat(2,1fr)}.steps article:nth-child(2){border-right:0}.featuredEdition{grid-template-columns:1fr}.featuredImage{min-height:400px}.org{gap:34px}}'
+          new_900 = '@media(max-width:900px){.desktopNav{display:none}.hero{grid-template-columns:1fr;gap:44px;padding-top:130px}.heroVisual{max-width:680px;width:100%;margin:0 auto}.sectionLead,.editionIntro,.org{grid-template-columns:1fr}.steps{grid-template-columns:repeat(2,1fr)}.steps article:nth-child(2){border-right:0}.featuredEdition{grid-template-columns:1fr}.featuredImage{min-height:400px}.org{gap:34px}}'
+          if text.count(old_900) != 1:
+              raise SystemExit(f'Expected one tablet media block, found {text.count(old_900)}')
+          text = text.replace(old_900, new_900, 1)
+
+          old_620 = '@media(max-width:620px){.nav{height:64px;padding:0 14px}.navCta{padding:9px 12px;font-size:10px}.hero{margin-top:-64px;padding:112px 16px 44px;min-height:auto}.hero h1{font-size:clamp(48px,15vw,68px)}.heroLead{font-size:15px}.heroVisual{margin-top:4px}.imageFrame{height:430px;border-radius:22px 22px 58px 22px}.floatingNote{display:none}.imageLabel{left:18px;right:105px;bottom:18px}.imageLabel b{font-size:20px}.imageStat{right:15px;bottom:15px;width:82px;height:96px}.signalBand{grid-template-columns:repeat(2,1fr);padding:0}.signalBand>div{min-height:92px}.section{padding:76px 16px}.sectionLead{gap:24px}.steps{grid-template-columns:1fr}.steps article,.steps article:not(:first-child){padding:24px 0;border-right:0;border-bottom:1px solid var(--line);min-height:auto}.featuredCopy{padding:36px 22px}.featuredImage{min-height:330px}.editionIntro{gap:22px;margin-top:70px}.editionGrid{grid-template-columns:1fr}.editionCard{min-height:250px}.org{padding:64px 16px}.footer{padding:24px 16px;display:grid;gap:26px}.footer nav{gap:12px}}'
+          new_620 = '@media(max-width:620px){.nav{height:64px;padding:0 14px}.navCta{padding:9px 12px;font-size:10px}.hero{margin-top:-64px;padding:112px 16px 44px;min-height:auto}.hero h1{font-size:clamp(48px,15vw,68px)}.heroLead{font-size:15px}.heroVisual{margin-top:4px}.imageFrame{border-radius:16px}.signalBand{grid-template-columns:repeat(2,1fr);padding:0}.signalBand>div{min-height:92px}.section{padding:76px 16px}.sectionLead{gap:24px}.steps{grid-template-columns:1fr}.steps article,.steps article:not(:first-child){padding:24px 0;border-right:0;border-bottom:1px solid var(--line);min-height:auto}.featuredCopy{padding:36px 22px}.featuredImage{min-height:330px}.editionIntro{gap:22px;margin-top:70px}.editionGrid{grid-template-columns:1fr}.editionCard{min-height:250px}.org{padding:64px 16px}.footer{padding:24px 16px;display:grid;gap:26px}.footer nav{gap:12px}}'
+          if text.count(old_620) != 1:
+              raise SystemExit(f'Expected one mobile media block, found {text.count(old_620)}')
+          text = text.replace(old_620, new_620, 1)
+
+          if '<b>Comfort</b>' not in text:
+              raise SystemExit('Comfort framework wording was lost')
+          for forbidden in ['imageShade', 'imageLabel', 'imageStat', 'floatingNote']:
+              if forbidden in text:
+                  raise SystemExit(f'Obsolete overlay token remains: {forbidden}')
+
+          p.write_text(text, encoding='utf-8')
+
+      - name: Install locked dependencies
+        run: npm ci
+
+      - name: Production dependency security
+        run: npm audit --omit=dev --audit-level=high
+
+      - name: Scenario bank quality
+        run: npm run audit:scenarios
+
+      - name: Product claim consistency
+        run: npm run audit:claims
+
+      - name: Generate Prisma client
+        run: npx prisma generate
+
+      - name: Unit tests
+        run: npm test -- --runInBand
+
+      - name: ESLint — zero warnings
+        run: npm run lint -- --max-warnings=0
+
+      - name: TypeScript check
+        run: npx tsc --noEmit
+
+      - name: Production build
+        run: npm run build
+
+      - name: Commit validated editorial hero
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add app/page.tsx
+          git commit -m "Preserve clean editorial hero in 9.5 release"
+          git push origin HEAD:next15-lts-migration
