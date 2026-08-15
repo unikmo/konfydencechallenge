@@ -1,0 +1,71 @@
+name: Next 15 LTS Migration
+
+on:
+  push:
+    branches:
+      - next15-lts-migration
+
+permissions:
+  contents: write
+
+jobs:
+  migrate:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      DATABASE_URL: postgresql://postgres:postgres@127.0.0.1:5432/konfydence?schema=public
+      DIRECT_URL: postgresql://postgres:postgres@127.0.0.1:5432/konfydence?schema=public
+      NEXT_PUBLIC_APP_URL: https://konfydence.com
+      AUTH_SECRET: migration-ci-only
+      ADMIN_USER: ci-admin
+      ADMIN_PASSWORD: ci-password
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: next15-lts-migration
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+
+      - name: Migrate async request APIs
+        run: npx --yes @next/codemod@canary next-async-request-api . --force
+
+      - name: Install supported Next 15 LTS stack
+        run: |
+          npm install --save-exact next@15.5.21 react@19.2.0 react-dom@19.2.0
+          npm install --save-dev --save-exact eslint-config-next@15.5.21 @types/react@19.2.2 @types/react-dom@19.2.2
+
+      - name: Scenario bank quality
+        run: node scripts/audit-scenario-quality.cjs
+
+      - name: Product claim consistency
+        run: node scripts/validate-product-claims.cjs
+
+      - name: Generate Prisma client
+        run: npx prisma generate
+
+      - name: Unit tests
+        run: npm test -- --runInBand
+
+      - name: TypeScript check
+        run: npx tsc --noEmit
+
+      - name: Production build
+        run: npm run build
+
+      - name: Commit migration only after all gates pass
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          if git diff --cached --quiet; then
+            echo "No migration changes to commit"
+          else
+            git commit -m "Upgrade Konfydence to Next 15.5.21 LTS"
+            git push origin HEAD:next15-lts-migration
+          fi
