@@ -7,29 +7,52 @@ const dir = path.join(process.cwd(), "data", "scenarios");
 const files = fs.readdirSync(dir).filter((name) => name.endsWith(".json") && !name.includes("schema") && !name.includes("example"));
 const scored = [];
 const findings = [];
+const warnings = [];
+const seenIds = new Map();
+
+const normalize = (value) => String(value || "").toLowerCase().replace(/[“”‘’]/g, "'").replace(/[^a-z0-9]+/g, " ").trim();
 
 for (const file of files) {
   const scenario = JSON.parse(fs.readFileSync(path.join(dir, file), "utf8").replace(/^\uFEFF/, ""));
-  if (!scenario.scored || !EDITIONsIncludes(scenario.edition)) continue;
+  if (!scenario.scored || !EDITIONS.includes(scenario.edition)) continue;
   scored.push({ file, scenario });
 
   const issues = [];
+  const id = String(scenario.id || "").trim();
+  const title = String(scenario.title || "").trim();
+  const category = String(scenario.category || "").trim();
+  const prompt = String(scenario.prompt || scenario.scenario || "").trim();
   const answerKeys = Object.entries(scenario.answers || {}).filter(([, value]) => String(value || "").trim()).map(([key]) => key);
   const scoreKeys = Object.keys(scenario.scores || {});
   const scores = answerKeys.map((key) => Number(scenario.scores?.[key]));
-  const prompt = String(scenario.prompt || scenario.scenario || "").trim();
   const answers = answerKeys.map((key) => String(scenario.answers[key]).trim());
+  const safeActions = Array.isArray(scenario.safeActions) ? scenario.safeActions.map(String) : [];
 
+  if (!id) issues.push("missing scenario id");
+  if (seenIds.has(id)) issues.push(`duplicate scenario id also used by ${seenIds.get(id)}`);
+  else if (id) seenIds.set(id, file);
+
+  if (title.length < 8 || title.length > 100) issues.push(`title must be 8-100 chars (got ${title.length})`);
+  if (!category) issues.push("missing category");
+  if (scenario.active !== true) issues.push("live source scenario must be active=true");
   if (answerKeys.join("") !== "ABC") issues.push(`playable answers must be exactly A/B/C (got ${answerKeys.join("/") || "none"})`);
   if (scoreKeys.some((key) => !["A", "B", "C"].includes(key))) issues.push("score map contains a fourth/non-playable option");
   if (scores.some((value) => !Number.isFinite(value) || value < 0 || value > 4)) issues.push("invalid 0-4 scoring");
+
   if (scores.length === 3) {
     const max = Math.max(...scores);
-    if (scores.filter((value) => value === max).length !== 1) issues.push("must have one unique strongest answer");
+    const strongestIndexes = scores.map((value, index) => value === max ? index : -1).filter((index) => index >= 0);
+    if (strongestIndexes.length !== 1) issues.push("must have one unique strongest answer");
     if (new Set(scores).size < 3) issues.push("three choices should have three distinct decision-quality scores");
     if (max !== 4) issues.push("strongest answer must score 4");
+    if (strongestIndexes.length === 1) {
+      const strongestKey = answerKeys[strongestIndexes[0]];
+      if (!safeActions.includes(strongestKey)) issues.push(`safeActions must include strongest answer ${strongestKey}`);
+    }
   }
-  if (new Set(answers).size !== answers.length) issues.push("duplicate answer text");
+
+  if (safeActions.some((key) => !["A", "B", "C"].includes(key))) issues.push("safeActions contains a non-playable answer");
+  if (new Set(answers.map(normalize)).size !== answers.length) issues.push("duplicate or effectively duplicate answer text");
   if (prompt.length < 80) issues.push(`scenario context too thin (${prompt.length} chars)`);
   if (prompt.length > 520) issues.push(`scenario too long (${prompt.length} chars)`);
   if (answers.some((answer) => answer.length < 24)) issues.push("answer option too thin");
@@ -37,14 +60,29 @@ for (const file of files) {
   if (!HACK.includes(scenario.hackKey)) issues.push("missing/invalid H/A/C/K pressure-pattern key");
   if (!scenario.explanation || String(scenario.explanation).trim().length < 50) issues.push("weak/missing explanation");
   if (!scenario.proTip || String(scenario.proTip).trim().length < 20) issues.push("weak/missing decision rule");
-  if (issues.length) findings.push({ file, id: scenario.id, issues });
-}
+  if (!Array.isArray(scenario.tags) || scenario.tags.length < 3) issues.push("scenario needs at least three discovery/coverage tags");
 
-function EDITIONsIncludes(value) { return EDITIONS.includes(value); }
+  if (scenario.hackKey === "C" && scenario.hackTrigger === "Connection") {
+    warnings.push(`${id}: legacy source metadata says Connection; runtime H.A.C.K. definition is Comfort`);
+  }
+
+  if (issues.length) findings.push({ file, id, issues });
+}
 
 for (const edition of EDITIONS) {
   const cards = scored.filter((item) => item.scenario.edition === edition);
   if (cards.length !== 40) findings.push({ id: edition, file: "deck", issues: [`expected 40 active source cards, found ${cards.length}`] });
+
+  const prompts = new Map();
+  const titles = new Map();
+  for (const item of cards) {
+    const p = normalize(item.scenario.prompt || item.scenario.scenario);
+    const t = normalize(item.scenario.title);
+    if (p && prompts.has(p)) findings.push({ id: item.scenario.id, file: item.file, issues: [`duplicate scenario context with ${prompts.get(p)}`] });
+    else if (p) prompts.set(p, item.scenario.id);
+    if (t && titles.has(t)) findings.push({ id: item.scenario.id, file: item.file, issues: [`duplicate scenario title with ${titles.get(t)}`] });
+    else if (t) titles.set(t, item.scenario.id);
+  }
 
   const hackCounts = Object.fromEntries(HACK.map((key) => [key, cards.filter((item) => item.scenario.hackKey === key).length]));
   for (const key of HACK) {
@@ -68,11 +106,20 @@ for (const edition of EDITIONS) {
   if (Math.max(...distribution) - Math.min(...distribution) > 1) {
     findings.push({ id: edition, file: "deck", issues: [`strongest-answer positions imbalanced: ${JSON.stringify(bestPositions)}`] });
   }
+
+  const categories = new Set(cards.map((item) => String(item.scenario.category || "").trim()).filter(Boolean));
+  if (categories.size < 6) findings.push({ id: edition, file: "deck", issues: [`scenario coverage too narrow: only ${categories.size} categories`] });
 }
 
 console.log(`\nKonfydence scenario audit: ${scored.length} scored source cards checked.`);
+if (warnings.length) {
+  console.log(`NOTE — ${warnings.length} legacy metadata note(s); these fields are not used by the runtime.`);
+  for (const warning of warnings.slice(0, 10)) console.log(`  • ${warning}`);
+  if (warnings.length > 10) console.log(`  • ...and ${warnings.length - 10} more`);
+}
+
 if (!findings.length) {
-  console.log("PASS — five 40-card banks, exactly three choices per card, balanced H/A/C/K, one unique strongest answer.\n");
+  console.log("PASS — five 40-card banks; 3 distinct choices; balanced H/A/C/K; unique strongest move; diagnostic coverage; duplicate protection.\n");
   process.exit(0);
 }
 
