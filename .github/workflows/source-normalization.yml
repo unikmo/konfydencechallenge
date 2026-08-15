@@ -1,0 +1,77 @@
+name: Normalize Konfydence Source Truth
+
+on:
+  push:
+    branches:
+      - next15-lts-migration
+    paths:
+      - .github/workflows/source-normalization.yml
+
+permissions:
+  contents: write
+
+jobs:
+  normalize:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: next15-lts-migration
+          fetch-depth: 0
+
+      - name: Normalize H.A.C.K. source metadata and public copy
+        shell: python
+        run: |
+          from pathlib import Path
+          import json
+
+          scenario_dir = Path('data/scenarios')
+          changed = 0
+          for path in scenario_dir.glob('*.json'):
+              if 'schema' in path.name or 'example' in path.name:
+                  continue
+              data = json.loads(path.read_text(encoding='utf-8-sig'))
+              if data.get('hackKey') == 'C' and data.get('hackTrigger') == 'Connection':
+                  data['hackTrigger'] = 'Comfort'
+                  path.write_text(json.dumps(data, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
+                  changed += 1
+          print(f'Normalized {changed} Comfort source cards')
+          if changed != 50:
+              raise SystemExit(f'Expected exactly 50 legacy Connection cards, changed {changed}')
+
+          page = Path('app/page.tsx')
+          text = page.read_text(encoding='utf-8-sig')
+          text = text.replace('import Link from "next/link";', 'import Image from "next/image";\nimport Link from "next/link";', 1)
+          text = text.replace('<img src="/travelsafe-hero-scene.png" alt="Traveler using a phone while navigating a real-world travel situation" />', '<Image src="/travelsafe-hero-scene.png" alt="Traveler using a phone while navigating a real-world travel situation" width={960} height={1120} priority sizes="(max-width: 900px) 100vw, 48vw" />', 1)
+          text = text.replace('<div><span>C</span><b>Connection</b><small>“You know me.”</small></div>', '<div><span>C</span><b>Comfort</b><small>“This feels familiar.”</small></div>', 1)
+          text = text.replace('<div className="featuredImage"><img src="/travelsafe-hero-scene.png" alt="TravelSafe training scene" /><span>01 / FLAGSHIP</span></div>', '<div className="featuredImage"><Image src="/travelsafe-hero-scene.png" alt="TravelSafe training scene" width={960} height={720} sizes="(max-width: 900px) 100vw, 50vw" /><span>01 / FLAGSHIP</span></div>', 1)
+          page.write_text(text, encoding='utf-8')
+
+          products = Path('app/products/page.tsx')
+          ptext = products.read_text(encoding='utf-8-sig').replace('\nimport { redirect } from "next/navigation";\n', '\n')
+          products.write_text(ptext, encoding='utf-8')
+
+      - name: Verify no public/source Connection regression remains
+        run: |
+          if grep -R --line-number --include='*.tsx' --include='*.ts' 'Connection' app components lib; then
+            echo 'Obsolete Connection label remains in runtime source'
+            exit 1
+          fi
+          if grep -R --line-number --include='*.json' '"hackTrigger": "Connection"' data/scenarios; then
+            echo 'Obsolete Connection metadata remains in scenario source'
+            exit 1
+          fi
+
+      - name: Run scenario and claim audits
+        run: |
+          node scripts/audit-scenario-quality.cjs
+          node scripts/validate-product-claims.cjs
+
+      - name: Commit normalized source
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/scenarios app/page.tsx app/products/page.tsx
+          git commit -m "Normalize HACK Comfort source truth and optimize core imagery"
+          git push origin HEAD:next15-lts-migration
