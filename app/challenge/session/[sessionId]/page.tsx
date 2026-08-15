@@ -9,7 +9,8 @@ import { SessionEventHooks, AnswerTrackerForm } from "@/components/SessionEventH
 type AnswerKey = "A" | "B" | "C";
 type AnswerOption = { key: AnswerKey; text: string };
 
-export default async function SessionPage({ params }: { params: { sessionId: string } }) {
+export default async function SessionPage(props: { params: Promise<{ sessionId: string }> }) {
+  const params = await props.params;
   const { sessionId } = params;
 
   const session = await prisma.challengeSession.findUnique({

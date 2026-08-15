@@ -42,7 +42,8 @@ function certificateIdFor(sessionId: string, edition: string, year: number): str
   return `KRS-${abbr}-${year}-${digits}`;
 }
 
-export default async function CertificatePage({ params }: { params: { sessionId: string } }) {
+export default async function CertificatePage(props: { params: Promise<{ sessionId: string }> }) {
+  const params = await props.params;
   const sessionId = params.sessionId;
 
   const session = await prisma.challengeSession.findUnique({
@@ -80,7 +81,7 @@ export default async function CertificatePage({ params }: { params: { sessionId:
   const deckName = EDITION_DECK_NAME[session.edition] ?? session.edition;
   const downloadLabel = DOWNLOAD_BUTTON_LABEL[session.edition] ?? "Download Certificate";
 
-  const host = headers().get("host") ?? "localhost";
+  const host = (await headers()).get("host") ?? "localhost";
   const protocol = host.startsWith("localhost") || host.startsWith("127.0.0.1") ? "http" : "https";
   const certificateUrl = `${protocol}://${host}/challenge/session/${sessionId}/certificate`;
   const linkedInShareUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(certificateUrl)}`;

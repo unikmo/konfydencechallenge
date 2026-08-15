@@ -6,7 +6,8 @@ import { advanceChallengeSession } from "@/lib/challenge/sessionGenerator";
 type AnswerKey = "A" | "B" | "C";
 const ANSWER_KEYS = new Set<AnswerKey>(["A", "B", "C"]);
 
-export async function POST(req: Request, { params }: { params: { sessionId: string } }) {
+export async function POST(req: Request, props: { params: Promise<{ sessionId: string }> }) {
+  const params = await props.params;
   const sessionId = params.sessionId;
   const formData = await req.formData();
   const selectedAnswerKey = String(formData.get("selectedAnswerKey") ?? "") as AnswerKey;

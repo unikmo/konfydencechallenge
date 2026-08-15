@@ -14,7 +14,8 @@ const pressureLesson: Record<HackTrigger, { question: string; reflex: string }> 
   K: { question: "Did you stop before the irreversible click, transfer, code, credential or reply?", reflex: "Stop at the critical action moment. Leave the request, then verify from a clean starting point." },
 };
 
-export default async function FeedbackPage({ params }: { params: { sessionId: string } }) {
+export default async function FeedbackPage(props: { params: Promise<{ sessionId: string }> }) {
+  const params = await props.params;
   const { sessionId } = params;
   const session = await prisma.challengeSession.findUnique({ where: { id: sessionId }, select: { id: true, edition: true, currentIndex: true } });
   if (!session) notFound();

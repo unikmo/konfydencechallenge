@@ -9,7 +9,8 @@ export function generateStaticParams() {
   return Object.keys(COUNTRY_PROFILES).map((country) => ({ country }));
 }
 
-export default function CountryPage({ params }: { params: { country: string } }) {
+export default async function CountryPage(props: { params: Promise<{ country: string }> }) {
+  const params = await props.params;
   const profile = COUNTRY_PROFILES[params.country];
   if (!profile) notFound();
 

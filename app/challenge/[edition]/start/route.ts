@@ -31,7 +31,8 @@ function redirectWithVisitorCookie(
   return response;
 }
 
-export async function GET(request: NextRequest, { params }: { params: { edition: string } }) {
+export async function GET(request: NextRequest, props: { params: Promise<{ edition: string }> }) {
+  const params = await props.params;
   const raw = (params.edition ?? "").toLowerCase();
 
   if (!EDITIONS.has(raw)) {

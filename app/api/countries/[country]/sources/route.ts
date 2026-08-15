@@ -30,10 +30,8 @@ async function checkSource(source: SourceCheck): Promise<SourceCheck> {
   }
 }
 
-export async function GET(
-  _request: Request,
-  { params }: { params: { country: string } },
-) {
+export async function GET(_request: Request, props: { params: Promise<{ country: string }> }) {
+  const params = await props.params;
   const profile = COUNTRY_PROFILES[params.country];
   if (!profile) {
     return NextResponse.json({ error: "Country not found." }, { status: 404 });

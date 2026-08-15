@@ -1,10 +1,11 @@
 import Link from "next/link";
 
-export default function RegisterForReplayPage({
-  searchParams,
-}: {
-  searchParams?: { next?: string; error?: string };
-}) {
+export default async function RegisterForReplayPage(
+  props: {
+    searchParams?: Promise<{ next?: string; error?: string }>;
+  }
+) {
+  const searchParams = await props.searchParams;
   const next = searchParams?.next?.startsWith("/") ? searchParams.next : "/challenge";
   const error = searchParams?.error;
 

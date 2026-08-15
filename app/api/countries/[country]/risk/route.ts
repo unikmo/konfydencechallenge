@@ -169,10 +169,8 @@ async function fetchRisk(
   }
 }
 
-export async function GET(
-  _request: Request,
-  { params }: { params: { country: string } },
-) {
+export async function GET(_request: Request, props: { params: Promise<{ country: string }> }) {
+  const params = await props.params;
   const country = COUNTRY_PROFILES[params.country];
   if (!country) {
     return NextResponse.json({ error: "Country not found." }, { status: 404 });

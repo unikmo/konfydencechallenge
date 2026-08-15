@@ -12,13 +12,15 @@ const EDITIONS = {
 
 export function generateStaticParams() { return Object.keys(EDITIONS).map((edition) => ({ edition })); }
 
-export function generateMetadata({ params }: { params: { edition: string } }): Metadata {
+export async function generateMetadata(props: { params: Promise<{ edition: string }> }): Promise<Metadata> {
+  const params = await props.params;
   const edition = EDITIONS[params.edition as keyof typeof EDITIONS];
   if (!edition) return {};
   return { title: { absolute: `${edition.name} Challenge Edition | Konfydence` }, description: edition.description, alternates: { canonical: `/${params.edition}` } };
 }
 
-export default function EditionPage({ params }: { params: { edition: string } }) {
+export default async function EditionPage(props: { params: Promise<{ edition: string }> }) {
+  const params = await props.params;
   const edition = EDITIONS[params.edition as keyof typeof EDITIONS];
   if (!edition) notFound();
   return (
