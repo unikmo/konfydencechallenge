@@ -8,41 +8,38 @@ datasource db {
   directUrl = env("DIRECT_URL")
 }
 
-// V1 foundation (Postgres via Supabase): avoid enums and Json types
-// for schema simplicity/back-compat with the original SQLite design.
+// Production foundation: PostgreSQL via Supabase. Free-text fields are retained
+// where deck-specific content needs flexibility without weakening runtime validation.
 
 model User {
   id        String   @id @default(cuid())
   email     String   @unique
   createdAt DateTime @default(now())
 
-  sessions      ChallengeSession[]
-  entitlements  Entitlement[]
+  sessions     ChallengeSession[]
+  entitlements Entitlement[]
 }
 
 model Scenario {
-  id          String @id @default(cuid())
+  id         String @id @default(cuid())
   externalId String @unique
 
   // "travelsafe" | "university" | "workplace" | "school" | "family"
   edition String
 
-  // Deck-specific content grouping (e.g. "Gaming/Social", "Money"). Free text, deck-defined.
+  // Deck-specific content grouping (e.g. "Gaming/Social", "Money").
   category String?
 
-  // "scenario" (scored, V1 solo web) | "wild" (host-mode only, excluded from V1 solo scoring)
+  // "scenario" (scored solo web) | "wild" (host-mode only, excluded from solo scoring)
   cardType String @default("scenario")
+  scored   Boolean @default(true)
 
-  // Whether this card counts toward KRS scoring. Wild cards are false.
-  scored Boolean @default(true)
-
-  // Legacy sequencing bucket, unused by the 40-scenario bank model. Kept for backward compatibility.
+  // Legacy sequencing bucket. The live 40-card bank model no longer sequences by section.
   section String?
 
-  // HACK trigger key: "H" (Hurry) | "A" (Authority) | "C" (Connection) | "K" (Kill-Switch).
-  // Null for non-scored (wild) cards.
+  // H.A.C.K. pressure key: H=Hurry, A=Authority, C=Comfort, K=Kill-Switch.
+  // Null only for non-scored/wild cards.
   hackKey String?
-
 
   title  String?
   prompt String
@@ -50,17 +47,17 @@ model Scenario {
   answersA String
   answersB String
   answersC String
-  answersD String // legacy compatibility; scored web scenarios leave this blank
+  answersD String // legacy compatibility; scored web scenarios leave D blank
 
-  // normalized 0..4 (import clamps)
+  // Normalized 0..4. Import clamps defensive input; quality CI enforces valid source scores.
   scoresA Int
   scoresB Int
   scoresC Int
   scoresD Int
 
-  // For V1 we keep safeActions/tags as comma-separated strings.
-  safeActions String? // e.g. "C,D"
-  tags         String? // e.g. "travel,phishing"
+  // Stored as comma-separated strings for schema compatibility.
+  safeActions String? // e.g. "A,B"
+  tags        String? // e.g. "travel,phishing,diagnostic"
 
   explanation String?
   proTip      String?
@@ -74,38 +71,36 @@ model Scenario {
 }
 
 model ChallengeSession {
-  id        String @id @default(cuid())
-  userId    String
-  user      User   @relation(fields: [userId], references: [id])
+  id     String @id @default(cuid())
+  userId String
+  user   User   @relation(fields: [userId], references: [id])
 
   // "travelsafe" | "university" | "workplace" | "school" | "family"
   edition String
 
-  // "diagnostic" (8 scored cards, free) | "full" (24 scored cards drawn from a 40-card bank, paid)
+  // diagnostic = 8 scored cards (2 per H/A/C/K); full = 24 (6 per key) from a 40-card bank.
   mode String @default("full")
 
-  // 1-based attempt count for this user+edition+mode. Counting only — does not
-  // itself enforce the "5 replay runs included" entitlement (see HANDOFF.md §2.6/§4.2).
+  // 1-based attempt count for this user + edition + mode.
   runNumber Int @default(1)
 
   // "IN_PROGRESS" | "COMPLETED"
   status String @default("IN_PROGRESS")
 
-  // flat pointer into `cards` ordered by orderIndex — no section grouping (HANDOFF.md §2.8)
+  // Flat pointer into cards ordered by orderIndex. Persisting the order prevents refresh reshuffles.
   currentIndex Int @default(0)
   scoreTotal   Int @default(0)
   scoreMax     Int @default(0)
 
   completedAt DateTime?
-
-  cards ChallengeSessionCard[]
+  cards       ChallengeSessionCard[]
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 }
 
 model ChallengeSessionCard {
-  id        String @id @default(cuid())
+  id String @id @default(cuid())
 
   sessionId String
   session   ChallengeSession @relation(fields: [sessionId], references: [id], onDelete: Cascade)
@@ -113,11 +108,10 @@ model ChallengeSessionCard {
   scenarioId String
   scenario   Scenario @relation(fields: [scenarioId], references: [id])
 
-  // position in the flat deck order, persisted so refresh doesn't reshuffle mid-game
   orderIndex Int
 
   answered          Boolean @default(false)
-  selectedAnswerKey String? // "A" | "B" | "C" | "D"
+  selectedAnswerKey String? // "A" | "B" | "C"; D exists only for legacy schema compatibility
   score             Int?    // 0..4, set once answered
 
   createdAt DateTime @default(now())
@@ -128,16 +122,17 @@ model ChallengeSessionCard {
 }
 
 model Entitlement {
-  id             String   @id @default(cuid())
-  userId         String
-  user           User     @relation(fields: [userId], references: [id])
-  tier           String   // "single" | "unlimited"
-  edition        String?  // set when tier = "single"; null covers all editions
-  source         String   @default("shopify")
-  shopifyOrderId String   @unique
-  status         String   @default("active") // "active" | "revoked"
+  id     String @id @default(cuid())
+  userId String
+  user   User   @relation(fields: [userId], references: [id])
+
+  tier    String  // "single" | "unlimited"
+  edition String? // set when tier = "single"; null covers all editions
+
+  source         String @default("shopify")
+  shopifyOrderId String @unique
+  status         String @default("active") // "active" | "revoked"
   createdAt      DateTime @default(now())
 
   @@index([userId])
 }
-
