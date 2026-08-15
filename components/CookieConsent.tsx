@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useSyncExternalStore } from "react";
 import Link from "next/link";
 import { tokens } from "@/lib/theme/tokens";
 
@@ -10,56 +10,61 @@ declare global {
   }
 }
 
+type ConsentState = "accepted" | "rejected" | "unset" | "server";
+const CONSENT_EVENT = "konfydence-cookie-consent";
+
+function getConsentSnapshot(): ConsentState {
+  if (typeof window === "undefined") return "server";
+  const value = window.localStorage.getItem("cookie-consent");
+  return value === "accepted" || value === "rejected" ? value : "unset";
+}
+
+function subscribeToConsent(onStoreChange: () => void) {
+  const handleChange = () => onStoreChange();
+  window.addEventListener("storage", handleChange);
+  window.addEventListener(CONSENT_EVENT, handleChange);
+  return () => {
+    window.removeEventListener("storage", handleChange);
+    window.removeEventListener(CONSENT_EVENT, handleChange);
+  };
+}
+
+function publishConsentChange() {
+  window.dispatchEvent(new Event(CONSENT_EVENT));
+}
+
 export function CookieConsent() {
-  const [showConsent, setShowConsent] = useState(false);
-  const [mounted, setMounted] = useState(false);
+  const consent = useSyncExternalStore(subscribeToConsent, getConsentSnapshot, () => "server");
+  const showConsent = consent === "unset";
 
   useEffect(() => {
-    setMounted(true);
-    // Check if user has already made a choice
-    const consentGiven = localStorage.getItem("cookie-consent");
-    if (!consentGiven) {
-      document.body.style.paddingBottom = "clamp(92px, 10vw, 116px)";
-      setShowConsent(true);
-    } else if (consentGiven === "accepted") {
-      document.body.style.paddingBottom = "0px";
-      // Consent Mode defaults analytics_storage to "denied" on every page load
-      // (see app/layout.tsx) — without this, a returning visitor who already
-      // accepted would still have analytics silently blocked on every visit
-      // after the first, since the "granted" update was only ever sent once.
-      window.gtag?.("consent", "update", {
-        analytics_storage: "granted",
-      });
-    } else {
-      document.body.style.paddingBottom = "0px";
+    if (consent === "server") return;
+
+    document.body.style.paddingBottom = showConsent ? "clamp(92px, 10vw, 116px)" : "0px";
+    if (consent === "accepted") {
+      window.gtag?.("consent", "update", { analytics_storage: "granted" });
+    } else if (consent === "rejected") {
+      window.gtag?.("consent", "update", { analytics_storage: "denied" });
     }
 
     return () => {
       document.body.style.paddingBottom = "0px";
     };
-  }, []);
+  }, [consent, showConsent]);
 
   const handleAcceptAll = () => {
     localStorage.setItem("cookie-consent", "accepted");
     localStorage.setItem("analytics-consent", "true");
-    document.body.style.paddingBottom = "0px";
-    setShowConsent(false);
-    // Enable analytics
-    window.gtag?.("consent", "update", {
-      analytics_storage: "granted",
-    });
+    publishConsentChange();
   };
 
   const handleRejectAll = () => {
     localStorage.setItem("cookie-consent", "rejected");
     localStorage.setItem("analytics-consent", "false");
-    document.body.style.paddingBottom = "0px";
-    setShowConsent(false);
+    publishConsentChange();
   };
 
-  if (!mounted || !showConsent) {
-    return null;
-  }
+  if (!showConsent) return null;
 
   const containerStyle: React.CSSProperties = {
     position: "fixed",
@@ -67,7 +72,7 @@ export function CookieConsent() {
     left: 0,
     right: 0,
     backgroundColor: tokens.bgCanvas,
-    borderTop: `1px solid rgba(255, 255, 255, 0.1)`,
+    borderTop: "1px solid rgba(255, 255, 255, 0.1)",
     padding: "8px 16px calc(8px + env(safe-area-inset-bottom))",
     zIndex: 9999,
     maxWidth: "100%",
@@ -111,41 +116,28 @@ export function CookieConsent() {
     cursor: "pointer",
     whiteSpace: "nowrap",
     ...(variant === "primary"
-      ? {
-          background: tokens.accentAmber,
-          color: tokens.textOnLight,
-        }
+      ? { background: tokens.accentAmber, color: tokens.textOnLight }
       : {
           background: "transparent",
           color: tokens.textOnDark,
-          border: `1px solid rgba(255, 255, 255, 0.2)`,
+          border: "1px solid rgba(255, 255, 255, 0.2)",
         }),
   });
 
   return (
     <>
-      <div className="cookie-banner" style={containerStyle}>
-      <div className="cookie-content" style={contentStyle}>
-        <div style={textStyle}>
-          Optional analytics cookies are off until you choose Accept All. Choose Accept All or Reject All, or read our{" "}
-          <Link href="/privacy-policy" style={linkStyle}>
-            Privacy Policy
-          </Link>{" "}
-          and{" "}
-          <Link href="/cookie-policy" style={linkStyle}>
-            Cookie Policy
-          </Link>
-          .
+      <div className="cookie-banner" style={containerStyle} role="dialog" aria-label="Cookie preferences">
+        <div className="cookie-content" style={contentStyle}>
+          <div style={textStyle}>
+            Optional analytics cookies are off until you choose Accept All. Choose Accept All or Reject All, or read our{" "}
+            <Link href="/privacy-policy" style={linkStyle}>Privacy Policy</Link>{" "}
+            and{" "}<Link href="/cookie-policy" style={linkStyle}>Cookie Policy</Link>.
+          </div>
+          <div className="cookie-buttons" style={buttonContainerStyle}>
+            <button type="button" style={buttonStyle("secondary")} onClick={handleRejectAll}>Reject All</button>
+            <button type="button" style={buttonStyle("primary")} onClick={handleAcceptAll}>Accept All</button>
+          </div>
         </div>
-        <div className="cookie-buttons" style={buttonContainerStyle}>
-          <button style={buttonStyle("secondary")} onClick={handleRejectAll}>
-            Reject All
-          </button>
-          <button style={buttonStyle("primary")} onClick={handleAcceptAll}>
-            Accept All
-          </button>
-        </div>
-      </div>
       </div>
       <style>{`
         .cookie-content{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:10px;align-items:center;max-width:1040px;margin:0 auto}

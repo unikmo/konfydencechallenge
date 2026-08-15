@@ -7,8 +7,15 @@ export default defineConfig([
   ...nextTs,
   {
     rules: {
-      // Legal/product copy contains intentional apostrophes and quotation marks.
+      // Product/legal copy intentionally includes human-readable apostrophes and quotations.
       "react/no-unescaped-entities": "off",
+    },
+  },
+  {
+    files: ["scripts/**/*.cjs"],
+    rules: {
+      // These are intentionally Node/CommonJS operational scripts executed directly by `node`.
+      "@typescript-eslint/no-require-imports": "off",
     },
   },
   globalIgnores([

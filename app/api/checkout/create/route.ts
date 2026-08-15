@@ -4,17 +4,12 @@ import { randomUUID } from "crypto";
 import { getVariantIds, SHOPIFY_API_VERSION } from "@/lib/shopify/testData";
 import { rateLimit, getClientIp } from "@/lib/rateLimit";
 
-// SKU to variant GID mapping (Shopify Storefront API)
-// Uses TEST_VARIANT_IDS for development, PRODUCTION_VARIANT_IDS for live
-// See lib/shopify/testData.ts for setup instructions
 const SKU_TO_VARIANT_GID = getVariantIds();
 
 export const dynamic = "force-dynamic";
 
 export async function POST(request: NextRequest) {
   try {
-    // A legitimate user creates a handful of carts per session at most —
-    // this stops a script from hammering the Shopify Storefront token.
     const { allowed } = rateLimit(`checkout:${getClientIp(request)}`, 10, 60_000);
     if (!allowed) {
       return NextResponse.json({ error: "Too many requests, please try again shortly." }, { status: 429 });
@@ -26,41 +21,32 @@ export async function POST(request: NextRequest) {
     if (!sku || typeof sku !== "string") {
       return NextResponse.json({ error: "sku is required" }, { status: 400 });
     }
+    if (!Number.isInteger(quantity) || quantity < 1 || quantity > 10) {
+      return NextResponse.json({ error: "quantity must be between 1 and 10" }, { status: 400 });
+    }
 
     const variantId = (SKU_TO_VARIANT_GID as Record<string, string | undefined>)[sku];
     if (!variantId) {
       return NextResponse.json({ error: "Unknown SKU" }, { status: 400 });
     }
 
-    // Get or create kf_uid cookie
     const cookieStore = await cookies();
-    let kfUid: string = cookieStore.get("kf_uid")?.value ?? randomUUID();
+    const kfUid = cookieStore.get("kf_uid")?.value ?? randomUUID();
 
-    // Call Shopify Storefront API to create cart
     const storeDomain = process.env.SHOPIFY_STORE_DOMAIN;
     const accessToken = process.env.SHOPIFY_STOREFRONT_ACCESS_TOKEN;
-
     if (!storeDomain || !accessToken) {
-      return NextResponse.json(
-        { error: "Shopify credentials not configured" },
-        { status: 500 }
-      );
+      return NextResponse.json({ error: "Shopify credentials not configured" }, { status: 500 });
     }
 
-    // Build the return URL for post-checkout
     const appUrl = process.env.NEXT_PUBLIC_APP_URL || "http://localhost:3000";
     const returnUrl = `${appUrl}/challenge/claim?edition=${sku.includes("SINGLE") ? sku.split("-").pop()?.toLowerCase() : "travelsafe"}`;
 
     const query = `
       mutation cartCreate($lines: [CartLineInput!]!, $attributes: [AttributeInput!]!, $buyerIdentity: CartBuyerIdentityInput) {
         cartCreate(input: { lines: $lines, attributes: $attributes, buyerIdentity: $buyerIdentity }) {
-          cart {
-            checkoutUrl
-          }
-          userErrors {
-            field
-            message
-          }
+          cart { checkoutUrl }
+          userErrors { field message }
         }
       }
     `;
@@ -74,67 +60,46 @@ export async function POST(request: NextRequest) {
       body: JSON.stringify({
         query,
         variables: {
-          lines: [
-            {
-              merchandiseId: variantId,
-              quantity,
-            },
-          ],
+          lines: [{ merchandiseId: variantId, quantity }],
           attributes: [
-            {
-              key: "konfydenceUserId",
-              value: kfUid,
-            },
-            {
-              key: "returnUrl",
-              value: returnUrl,
-            },
+            { key: "konfydenceUserId", value: kfUid },
+            { key: "returnUrl", value: returnUrl },
           ],
         },
       }),
     });
 
-    const data = await response.json();
+    if (!response.ok) {
+      console.error("Shopify Storefront request failed:", response.status);
+      return NextResponse.json({ error: "Failed to create cart" }, { status: 502 });
+    }
 
+    const data = await response.json();
     if (data.errors) {
       console.error("Shopify GraphQL errors:", data.errors);
-      return NextResponse.json(
-        { error: "Failed to create cart" },
-        { status: 500 }
-      );
+      return NextResponse.json({ error: "Failed to create cart" }, { status: 500 });
     }
 
     const { cart, userErrors } = data.data.cartCreate;
-
-    if (userErrors && userErrors.length > 0) {
+    if (userErrors?.length) {
       console.error("Shopify user errors:", userErrors);
-      return NextResponse.json(
-        { error: "Failed to create cart" },
-        { status: 500 }
-      );
+      return NextResponse.json({ error: "Failed to create cart" }, { status: 500 });
+    }
+    if (!cart?.checkoutUrl) {
+      return NextResponse.json({ error: "Shopify did not return a checkout URL" }, { status: 502 });
     }
 
-    const checkoutUrl = cart.checkoutUrl;
-
-    // Set kf_uid cookie in response
-    // httpOnly + secure: this cookie is the sole identifier behind paid
-    // entitlements — nothing client-side reads it, so it should be treated
-    // like a session token, not exposed to page JS/XSS (see start/route.ts).
-    const result = NextResponse.json({ checkoutUrl });
+    const result = NextResponse.json({ checkoutUrl: cart.checkoutUrl });
     result.cookies.set("kf_uid", kfUid, {
       httpOnly: true,
       secure: process.env.NODE_ENV === "production",
       sameSite: "lax",
-      maxAge: 60 * 60 * 24 * 365, // 1 year
+      maxAge: 60 * 60 * 24 * 365,
       path: "/",
     });
-
     return result;
   } catch (error) {
     console.error("Checkout error:", error);
-    return NextResponse.json(
-      { error: "Internal server error" },
-      { status: 500 }
-    );
+    return NextResponse.json({ error: "Internal server error" }, { status: 500 });
   }
 }
