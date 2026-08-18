@@ -3,7 +3,8 @@ import path from "path";
 import { PrismaClient } from "@prisma/client";
 
 const prisma = new PrismaClient();
-const EDITIONS = ["travelsafe", "family", "school", "university", "workplace"];
+const EDITIONS = ["travelsafe", "family", "school", "university", "workplace"] as const;
+const HACK_KEYS = ["H", "A", "C", "K"] as const;
 
 function score(value: unknown): number {
   const number = Number(value ?? 0);
@@ -21,10 +22,14 @@ async function main() {
 
   console.log("Scenario files found:", files.length);
 
-  // Keep historical rows so old session results remain valid, but retire every
-  // scored card from the five live editions before reactivating the current bank.
+  if (files.length !== 200) {
+    throw new Error(`Expected exactly 200 scenario JSON files, found ${files.length}`);
+  }
+
+  // Preserve historical rows so old results remain valid, but retire the previous
+  // scored bank before reactivating the current canonical 200-card bank.
   await prisma.scenario.updateMany({
-    where: { edition: { in: EDITIONS }, scored: true },
+    where: { edition: { in: [...EDITIONS] }, scored: true },
     data: { active: false },
   });
 
@@ -35,8 +40,18 @@ async function main() {
     const s = JSON.parse(raw);
     const scored = s.scored ?? true;
 
+    if (!EDITIONS.includes(s.edition)) {
+      throw new Error(`${file}: unsupported edition ${String(s.edition)}`);
+    }
+
     if (scored) {
-      const playable = [s.answers?.A, s.answers?.B, s.answers?.C].filter((value) => typeof value === "string" && value.trim());
+      if (!HACK_KEYS.includes(s.hackKey)) {
+        throw new Error(`${file}: scored scenarios require hackKey H, A, C or K`);
+      }
+
+      const playable = [s.answers?.A, s.answers?.B, s.answers?.C].filter(
+        (value) => typeof value === "string" && value.trim()
+      );
       if (playable.length !== 3) {
         throw new Error(`${file}: every scored scenario must contain exactly three playable answers A/B/C`);
       }
@@ -78,15 +93,44 @@ async function main() {
     imported += 1;
   }
 
-  const activeByEdition = await Promise.all(
-    EDITIONS.map(async (edition) => ({
-      edition,
-      count: await prisma.scenario.count({ where: { edition, active: true, scored: true } }),
-    }))
-  );
+  const bankRows = await prisma.scenario.findMany({
+    where: {
+      edition: { in: [...EDITIONS] },
+      active: true,
+      scored: true,
+      hackKey: { in: [...HACK_KEYS] },
+    },
+    select: { edition: true, hackKey: true },
+  });
+
+  const counts = Object.fromEntries(
+    EDITIONS.map((edition) => [edition, { total: 0, H: 0, A: 0, C: 0, K: 0 }])
+  ) as Record<(typeof EDITIONS)[number], { total: number; H: number; A: number; C: number; K: number }>;
+
+  for (const row of bankRows) {
+    const edition = row.edition as (typeof EDITIONS)[number];
+    const key = row.hackKey as (typeof HACK_KEYS)[number];
+    if (!counts[edition] || !HACK_KEYS.includes(key)) continue;
+    counts[edition].total += 1;
+    counts[edition][key] += 1;
+  }
+
+  const validBank =
+    bankRows.length === 200 &&
+    EDITIONS.every((edition) =>
+      counts[edition].total === 40 && HACK_KEYS.every((key) => counts[edition][key] === 10)
+    );
 
   console.log("Scenario files imported:", imported);
-  console.log("Active scored bank:", activeByEdition.map((item) => `${item.edition}=${item.count}`).join(", "));
+  console.log("Active scored bank:", counts);
+
+  if (!validBank) {
+    throw new Error(
+      "Scenario bank validation failed: expected 200 active scored cards, 40 per edition and 10 per H/A/C/K."
+    );
+  }
+
+  console.log("Scenario bank validation: PASS");
 }
 
 main()
