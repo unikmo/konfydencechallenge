@@ -97,6 +97,8 @@ model ChallengeSession {
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+
+  @@index([userId])
 }
 
 model ChallengeSessionCard {
