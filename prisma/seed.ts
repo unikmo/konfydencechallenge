@@ -22,12 +22,13 @@ async function main() {
 
   console.log("Scenario files found:", files.length);
 
-  if (files.length !== 200) {
-    throw new Error(`Expected exactly 200 scenario JSON files, found ${files.length}`);
+  if (files.length < 200) {
+    throw new Error(`Expected at least the 200 scored scenario JSON files, found ${files.length}`);
   }
 
   // Preserve historical rows so old results remain valid, but retire the previous
-  // scored bank before reactivating the current canonical 200-card bank.
+  // scored bank before reactivating the current canonical scored bank. Non-scored
+  // wild/host-mode cards are allowed alongside the 200 scored cards.
   await prisma.scenario.updateMany({
     where: { edition: { in: [...EDITIONS] }, scored: true },
     data: { active: false },
@@ -72,7 +73,6 @@ async function main() {
       answersA: s.answers?.A ?? "",
       answersB: s.answers?.B ?? "",
       answersC: s.answers?.C ?? "",
-      // Legacy columns stay populated for schema compatibility; the game never renders D.
       answersD: s.answers?.D ?? "",
       scoresA: score(s.scores?.A),
       scoresB: score(s.scores?.B),
