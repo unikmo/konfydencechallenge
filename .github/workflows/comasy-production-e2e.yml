@@ -42,13 +42,9 @@ jobs:
             ready=$(jq -r '.ready // false' health.json 2>/dev/null || echo false)
             deployed_sha=$(jq -r '.releaseSha // empty' health.json 2>/dev/null || true)
             echo "Attempt $attempt/42: HTTP=$code ready=$ready releaseSha=${deployed_sha:-unknown} expected=${GITHUB_SHA}"
-
-            if [ "$code" = "200" ] && [ "$ready" = "true" ] && [ "$deployed_sha" = "$GITHUB_SHA" ]; then
-              exit 0
-            fi
+            if [ "$code" = "200" ] && [ "$ready" = "true" ] && [ "$deployed_sha" = "$GITHUB_SHA" ]; then exit 0; fi
             sleep 10
           done
-
           echo "Production never reached the exact commit SHA with a healthy CoMaSy backend" >&2
           cat health.json || true
           exit 1
@@ -83,17 +79,40 @@ jobs:
         id: fixture
         if: steps.public.outcome == 'success'
         shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
         run: |
           set -euo pipefail
           token=$(curl -fsS \
             -H "Authorization: Bearer $ACTIONS_ID_TOKEN_REQUEST_TOKEN" \
             "${ACTIONS_ID_TOKEN_REQUEST_URL}&audience=${OIDC_AUDIENCE}" | jq -r '.value')
           [ -n "$token" ] && [ "$token" != "null" ]
-          curl -fsS -X POST \
+
+          status=$(curl -sS -o fixture.json -w '%{http_code}' -X POST \
             -H "Authorization: Bearer $token" \
-            "$BASE_URL/api/comasy/e2e?action=setup" \
-            -o fixture.json
-          grep -q '"ok":true' fixture.json
+            "$BASE_URL/api/comasy/e2e?action=setup" || true)
+          reason=$(jq -r '.reason // .error // "unknown"' fixture.json 2>/dev/null || echo unknown)
+          echo "Fixture setup HTTP=$status reason=$reason"
+
+          if [ "$status" != "200" ] || ! grep -q '"ok":true' fixture.json; then
+            description="Fixture HTTP $status: $reason"
+            description=${description:0:140}
+            payload=$(jq -nc --arg description "$description" '{state:"failure",context:"CoMaSy Fixture Diagnostic",description:$description}')
+            curl -fsS -X POST \
+              -H "Authorization: Bearer $GH_TOKEN" \
+              -H "Accept: application/vnd.github+json" \
+              -H "X-GitHub-Api-Version: 2022-11-28" \
+              "https://api.github.com/repos/${{ github.repository }}/statuses/${{ github.sha }}" \
+              -d "$payload"
+            exit 1
+          fi
+
+          curl -fsS -X POST \
+            -H "Authorization: Bearer $GH_TOKEN" \
+            -H "Accept: application/vnd.github+json" \
+            -H "X-GitHub-Api-Version: 2022-11-28" \
+            "https://api.github.com/repos/${{ github.repository }}/statuses/${{ github.sha }}" \
+            -d '{"state":"success","context":"CoMaSy Fixture Diagnostic","description":"Fixture setup authorized and persisted"}'
 
       - name: Authenticate customer and verify dashboard
         id: auth
@@ -103,14 +122,12 @@ jobs:
           set -euo pipefail
           unauth=$(curl -sS -o /dev/null -w '%{http_code}' "$BASE_URL/comasy/dashboard")
           case "$unauth" in 302|303|307|308) ;; *) echo "Expected unauthenticated dashboard redirect, got $unauth" >&2; exit 1;; esac
-
           login=$(curl -sS -c cookies.txt -o /dev/null -w '%{http_code}' \
             -X POST "$BASE_URL/api/comasy/auth/login" \
             --data-urlencode 'slug=e2e-alpha' \
             --data-urlencode 'accessCode=E2E-Access-2026' \
             --data-urlencode 'next=/comasy/dashboard/insights?period=90')
           [ "$login" = "303" ] || { echo "Expected login 303, got $login" >&2; exit 1; }
-
           curl -LfsS -b cookies.txt "$BASE_URL/comasy/dashboard" -o dashboard.html
           grep -qi 'Behaviour at a glance' dashboard.html
           curl -LfsS -b cookies.txt "$BASE_URL/comasy/dashboard/insights?period=90" -o insights.html
@@ -137,14 +154,12 @@ jobs:
           curl -LfsS "$BASE_URL/comasy/practice/e2e-token-a1?campaign=e2e-http-a" -o practice.html
           grep -qi 'HTTP Release Practice' practice.html
           grep -qi 'Choose the strongest next move' practice.html
-
           submitted=$(curl -sS -o /dev/null -w '%{http_code}' -X POST "$BASE_URL/api/comasy/practice/respond" \
             --data-urlencode 'token=e2e-token-a1' \
             --data-urlencode 'campaignId=e2e-http-a' \
             --data-urlencode 'scenarioId=workplace-wrk-01' \
             --data-urlencode 'selectedAnswerKey=A')
           [ "$submitted" = "303" ] || { echo "Expected response redirect 303, got $submitted" >&2; exit 1; }
-
           curl -LfsS "$BASE_URL/comasy/practice/e2e-token-a1?campaign=e2e-http-a&feedback=1" -o feedback.html
           grep -qi 'YOUR LAST MOVE' feedback.html
 
@@ -158,10 +173,7 @@ jobs:
             -H "Authorization: Bearer $ACTIONS_ID_TOKEN_REQUEST_TOKEN" \
             "${ACTIONS_ID_TOKEN_REQUEST_URL}&audience=${OIDC_AUDIENCE}" | jq -r '.value')
           [ -n "$token" ] && [ "$token" != "null" ]
-          curl -fsS -X POST \
-            -H "Authorization: Bearer $token" \
-            "$BASE_URL/api/comasy/e2e?action=cleanup" \
-            -o cleanup.json
+          curl -fsS -X POST -H "Authorization: Bearer $token" "$BASE_URL/api/comasy/e2e?action=cleanup" -o cleanup.json
           grep -q '"cleaned":true' cleanup.json
 
       - name: Publish release stage statuses
@@ -189,19 +201,13 @@ jobs:
               "https://api.github.com/repos/${{ github.repository }}/statuses/${{ github.sha }}" \
               -d "{\"state\":\"$state\",\"context\":\"$context\",\"description\":\"Stage: $outcome\"}"
           }
-
           publish 'CoMaSy Release Public' "$PUBLIC"
           publish 'CoMaSy Release Fixture' "$FIXTURE"
           publish 'CoMaSy Release Auth' "$AUTH"
           publish 'CoMaSy Release Reports' "$REPORTS"
           publish 'CoMaSy Release Practice' "$PRACTICE"
           publish 'CoMaSy Release Cleanup' "$CLEANUP"
-
-          if [ "$JOB_STATUS" = "success" ]; then
-            state=success; description='CoMaSy production E2E passed end-to-end'
-          else
-            state=failure; description='CoMaSy production E2E failed'
-          fi
+          if [ "$JOB_STATUS" = "success" ]; then state=success; description='CoMaSy production E2E passed end-to-end'; else state=failure; description='CoMaSy production E2E failed'; fi
           curl -fsS -X POST \
             -H "Authorization: Bearer $GH_TOKEN" \
             -H "Accept: application/vnd.github+json" \
