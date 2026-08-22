@@ -1,13 +1,33 @@
-import { createHmac, randomBytes, scryptSync, timingSafeEqual } from "crypto";
+import { createHash, createHmac, randomBytes, scryptSync, timingSafeEqual } from "crypto";
 import { cookies } from "next/headers";
 
 const COOKIE_NAME = "comasy_org";
 const SESSION_SECONDS = 60 * 60 * 12;
 
 function authSecret() {
-  const secret = process.env.AUTH_SECRET;
-  if (!secret || secret.length < 16) throw new Error("AUTH_SECRET is required for CoMaSy access");
-  return secret;
+  const explicitSecret = process.env.AUTH_SECRET;
+  if (explicitSecret && explicitSecret.length >= 16) return explicitSecret;
+
+  // Vercel's connected API does not expose environment-variable writes. When
+  // AUTH_SECRET is absent, derive a dedicated CoMaSy signing key from the
+  // existing server-only database credential using domain separation. The raw
+  // DATABASE_URL is never used as an HMAC key or exposed to the browser.
+  const databaseUrl = process.env.DATABASE_URL;
+  if (!databaseUrl || databaseUrl.length < 16) {
+    throw new Error("CoMaSy session signing requires AUTH_SECRET or DATABASE_URL");
+  }
+
+  return createHash("sha256")
+    .update("konfydence:comasy:session:v1\0", "utf8")
+    .update(databaseUrl, "utf8")
+    .digest("base64url");
+}
+
+export function hasUsableCustomerSessionSecret() {
+  const explicitSecret = process.env.AUTH_SECRET;
+  if (explicitSecret && explicitSecret.length >= 16) return true;
+  const databaseUrl = process.env.DATABASE_URL;
+  return Boolean(databaseUrl && databaseUrl.length >= 16);
 }
 
 function sign(payload: string) {
