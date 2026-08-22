@@ -22,8 +22,11 @@ async function authorize(request: NextRequest) {
 export async function POST(request: NextRequest) {
   try {
     await authorize(request);
-  } catch {
-    return NextResponse.json({ error: "unauthorized" }, { status: 401 });
+  } catch (error) {
+    const reason = error instanceof Error && error.message.startsWith("github_oidc_")
+      ? error.message
+      : "github_oidc_verification_failed";
+    return NextResponse.json({ error: "unauthorized", reason }, { status: 401 });
   }
 
   const action = request.nextUrl.searchParams.get("action");
@@ -47,64 +50,68 @@ export async function POST(request: NextRequest) {
 
   const { hash, salt } = hashAccessCode(ACCESS_CODE);
 
-  await prisma.$transaction(async (tx) => {
-    await tx.comasyOrganization.deleteMany({ where: { id: ORG_ID } });
+  try {
+    await prisma.$transaction(async (tx) => {
+      await tx.comasyOrganization.deleteMany({ where: { id: ORG_ID } });
 
-    await tx.comasyOrganization.create({
-      data: {
-        id: ORG_ID,
-        name: "E2E Alpha GmbH",
-        slug: "e2e-alpha",
-        country: "DE",
-        industry: "Release validation",
-        stage: "PILOT_ACTIVE",
-        customerHealth: "TEST",
-        brandingName: "E2E Alpha",
-        isDemo: true,
-        accessCodeHash: hash,
-        accessCodeSalt: salt,
-      },
-    });
+      await tx.comasyOrganization.create({
+        data: {
+          id: ORG_ID,
+          name: "E2E Alpha GmbH",
+          slug: "e2e-alpha",
+          country: "DE",
+          industry: "Release validation",
+          stage: "PILOT_ACTIVE",
+          customerHealth: "TEST",
+          brandingName: "E2E Alpha",
+          isDemo: true,
+          accessCodeHash: hash,
+          accessCodeSalt: salt,
+        },
+      });
 
-    await tx.comasyCohort.create({
-      data: {
-        id: COHORT_ID,
-        organizationId: ORG_ID,
-        name: "Release cohort",
-        department: "Security",
-        role: "Release validation",
-      },
-    });
+      await tx.comasyCohort.create({
+        data: {
+          id: COHORT_ID,
+          organizationId: ORG_ID,
+          name: "Release cohort",
+          department: "Security",
+          role: "Release validation",
+        },
+      });
 
-    await tx.comasyParticipant.create({
-      data: {
-        id: PARTICIPANT_ID,
-        organizationId: ORG_ID,
-        cohortId: COHORT_ID,
-        firstName: "Release",
-        lastName: "Validator",
-        email: "e2e-release@invalid.example",
-        department: "Security",
-        role: "Release validation",
-        status: "INVITED",
-        accessToken: PARTICIPANT_TOKEN,
-      },
-    });
+      await tx.comasyParticipant.create({
+        data: {
+          id: PARTICIPANT_ID,
+          organizationId: ORG_ID,
+          cohortId: COHORT_ID,
+          firstName: "Release",
+          lastName: "Validator",
+          email: "e2e-release@invalid.example",
+          department: "Security",
+          role: "Release validation",
+          status: "INVITED",
+          accessToken: PARTICIPANT_TOKEN,
+        },
+      });
 
-    await tx.comasyCampaign.create({
-      data: {
-        id: CAMPAIGN_ID,
-        organizationId: ORG_ID,
-        cohortId: COHORT_ID,
-        name: "HTTP Release Practice",
-        status: "ACTIVE",
-        designation: "PRACTICE",
-        roleFocus: "Release validation",
-        hackFocus: "A",
-        scenarioIds: SCENARIO_ID,
-      },
+      await tx.comasyCampaign.create({
+        data: {
+          id: CAMPAIGN_ID,
+          organizationId: ORG_ID,
+          cohortId: COHORT_ID,
+          name: "HTTP Release Practice",
+          status: "ACTIVE",
+          designation: "PRACTICE",
+          roleFocus: "Release validation",
+          hackFocus: "A",
+          scenarioIds: SCENARIO_ID,
+        },
+      });
     });
-  });
+  } catch {
+    return NextResponse.json({ error: "e2e_fixture_setup_failed" }, { status: 500 });
+  }
 
   return NextResponse.json(
     { ok: true, organization: "e2e-alpha", participantToken: PARTICIPANT_TOKEN, campaignId: CAMPAIGN_ID },
