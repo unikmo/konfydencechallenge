@@ -1,6 +1,7 @@
 import { prisma } from "@/lib/prisma";
 
 type MetricResponse = {
+  participantId?: string;
   score: number;
   pause: boolean;
   verification: boolean;
@@ -13,13 +14,14 @@ type MetricResponse = {
 const pct = (n: number, d: number) => (d ? Math.round((n / d) * 1000) / 10 : 0);
 const avg = (values: number[]) => values.length ? values.reduce((a, b) => a + b, 0) / values.length : 0;
 
-export function summarizeBehaviour(responses: MetricResponse[], participantCount: number, activeCampaigns: number) {
-  const participantIds = new Set<string>();
-  // DB callers append a non-enumerable participant key through casting; pure tests can omit it.
-  for (const row of responses as Array<MetricResponse & { participantId?: string }>) {
-    if (row.participantId) participantIds.add(row.participantId);
-  }
+export function periodStart(period?: string | null) {
+  if (!period || period === "all") return null;
+  const days = period === "30" ? 30 : period === "90" ? 90 : period === "365" ? 365 : 0;
+  return days ? new Date(Date.now() - days * 86_400_000) : null;
+}
 
+export function summarizeBehaviour(responses: MetricResponse[], participantCount: number, activeCampaigns: number) {
+  const participantIds = new Set(responses.map((r) => r.participantId).filter(Boolean));
   const baseline = responses.filter((r) => r.campaign.designation === "BASELINE");
   const followup = responses.filter((r) => r.campaign.designation === "FOLLOWUP");
   const later = followup.length ? followup : responses.filter((r) => r.campaign.designation !== "BASELINE");
@@ -77,12 +79,13 @@ export function summarizeBehaviour(responses: MetricResponse[], participantCount
   };
 }
 
-export async function getOrganizationMetrics(organizationId: string) {
+export async function getOrganizationMetrics(organizationId: string, since?: Date | null) {
+  const createdAt = since ? { gte: since } : undefined;
   const [participantCount, activeCampaigns, rows] = await Promise.all([
     prisma.comasyParticipant.count({ where: { organizationId } }),
     prisma.comasyCampaign.count({ where: { organizationId, status: { in: ["ACTIVE", "SCHEDULED"] } } }),
     prisma.comasyResponse.findMany({
-      where: { organizationId },
+      where: { organizationId, ...(createdAt ? { createdAt } : {}) },
       select: {
         participantId: true,
         score: true,
@@ -96,6 +99,33 @@ export async function getOrganizationMetrics(organizationId: string) {
     }),
   ]);
   return summarizeBehaviour(rows, participantCount, activeCampaigns);
+}
+
+export async function getOrganizationTrend(organizationId: string, since?: Date | null) {
+  const campaigns = await prisma.comasyCampaign.findMany({
+    where: { organizationId, ...(since ? { createdAt: { gte: since } } : {}) },
+    orderBy: { createdAt: "asc" },
+    select: {
+      id: true,
+      name: true,
+      designation: true,
+      createdAt: true,
+      responses: { select: { pause: true, verification: true, impulse: true, score: true } },
+    },
+  });
+  return campaigns
+    .filter((campaign) => campaign.responses.length > 0)
+    .map((campaign) => ({
+      id: campaign.id,
+      name: campaign.name,
+      designation: campaign.designation,
+      date: campaign.createdAt,
+      responses: campaign.responses.length,
+      pauseAdoption: pct(campaign.responses.filter((r) => r.pause).length, campaign.responses.length),
+      verificationRate: pct(campaign.responses.filter((r) => r.verification).length, campaign.responses.length),
+      impulseRate: pct(campaign.responses.filter((r) => r.impulse).length, campaign.responses.length),
+      score: Math.round((avg(campaign.responses.map((r) => r.score)) / 4) * 1000) / 10,
+    }));
 }
 
 export function classifyScenarioResponse(params: {
