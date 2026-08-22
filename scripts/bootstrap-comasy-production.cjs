@@ -21,6 +21,8 @@ const migrationFiles = [
 ];
 
 const npx = process.platform === "win32" ? "npx.cmd" : "npx";
+const npm = process.platform === "win32" ? "npm.cmd" : "npm";
+const childOptions = { stdio: "inherit", env: process.env };
 
 for (const relativeFile of migrationFiles) {
   const file = path.resolve(process.cwd(), relativeFile);
@@ -28,8 +30,15 @@ for (const relativeFile of migrationFiles) {
   execFileSync(
     npx,
     ["prisma", "db", "execute", "--file", file, "--schema", "prisma/schema.prisma"],
-    { stdio: "inherit", env: process.env },
+    childOptions,
   );
 }
 
-console.log("[comasy-bootstrap] CoMaSy production schema is ready");
+console.log("[comasy-bootstrap] CoMaSy schema ready");
+console.log("[comasy-bootstrap] synchronizing canonical 200-card scored bank + wild cards");
+execFileSync(npm, ["run", "db:seed"], childOptions);
+
+console.log("[comasy-bootstrap] verifying production backend invariants");
+execFileSync(npm, ["run", "db:verify"], childOptions);
+
+console.log("[comasy-bootstrap] production database ready for deployment");
