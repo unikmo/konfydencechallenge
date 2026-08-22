@@ -1,105 +1,103 @@
-import React from "react"; export const dynamic = "force-dynamic";
-import { prisma } from "@/lib/prisma";
 import Link from "next/link";
+import { prisma } from "@/lib/prisma";
+import { getOrganizationMetrics } from "@/lib/comasyMetrics";
 
-export default async function AdminPage() {
-  const [scenarioCount, sessionCount] = await Promise.all([
-    prisma.scenario.count({}),
-    prisma.challengeSession.count({}),
+export const dynamic = "force-dynamic";
+
+const nav = [
+  ["overview","Overview"], ["accounts","Sales · Accounts"], ["contacts","Sales · Contacts"], ["pipeline","Sales · Pipeline"], ["pilots","Sales · Pilots"], ["customers","Customer Success"],
+  ["organisations","CoMaSy · Organisations"], ["cohorts","CoMaSy · Cohorts"], ["campaigns","CoMaSy · Campaigns"], ["participants","CoMaSy · Participants"], ["behaviour","CoMaSy · Behaviour"], ["reports","CoMaSy · Reports"],
+  ["scenarios","Content · Scenarios"], ["marketing","Marketing · Attribution"], ["intelligence","Marketing · Content Intelligence"], ["revenue","Revenue"], ["benchmark","Benchmark Intelligence"], ["settings","Settings"],
+] as const;
+const pipelineStages=["TARGET_ACCOUNT","CONTACTED","ENGAGED","QUALIFIED","DISCOVERY","PILOT_PROPOSED","PILOT_ACTIVE","PILOT_REVIEW","CONTRACT","WON","EXPANSION","LOST"];
+const euro=(n:number)=>new Intl.NumberFormat("en-IE",{style:"currency",currency:"EUR",maximumFractionDigits:0}).format(n);
+const pct=(n:number)=>`${Math.round(n*10)/10}%`;
+
+export default async function AdminPage({searchParams}:{searchParams:Promise<{view?:string}>}){
+  const {view:raw}=await searchParams;
+  const view=nav.some(([k])=>k===raw)?raw!:"overview";
+  const [orgs,leads,contacts,opps,pilots,revenue,activities,cohorts,participants,campaigns,responses,scenarios]=await Promise.all([
+    prisma.comasyOrganization.findMany({orderBy:{updatedAt:"desc"},include:{_count:{select:{contacts:true,participants:true,campaigns:true,pilots:true}}}}),
+    prisma.comasyLead.findMany({orderBy:{createdAt:"desc"},take:200}),
+    prisma.comasyContact.findMany({orderBy:{createdAt:"desc"},take:200,include:{organization:{select:{name:true}}}}),
+    prisma.comasyOpportunity.findMany({orderBy:{updatedAt:"desc"},include:{organization:{select:{name:true}}}}),
+    prisma.comasyPilot.findMany({orderBy:{updatedAt:"desc"},include:{organization:{select:{name:true,arr:true}},cohort:{select:{name:true}}}}),
+    prisma.comasyRevenueEvent.findMany({orderBy:{occurredAt:"desc"},take:300,include:{organization:{select:{name:true}}}}),
+    prisma.comasyActivity.findMany({orderBy:{createdAt:"desc"},take:300,include:{organization:{select:{name:true}},contact:{select:{firstName:true,lastName:true}}}}),
+    prisma.comasyCohort.findMany({orderBy:{createdAt:"desc"},include:{organization:{select:{name:true}},_count:{select:{participants:true,campaigns:true}}}}),
+    prisma.comasyParticipant.findMany({orderBy:{createdAt:"desc"},take:300,include:{organization:{select:{name:true}},cohort:{select:{name:true}}}}),
+    prisma.comasyCampaign.findMany({orderBy:{createdAt:"desc"},take:200,include:{organization:{select:{name:true}},cohort:{select:{name:true}},_count:{select:{responses:true}}}}),
+    prisma.comasyResponse.findMany({orderBy:{createdAt:"desc"},take:2000}),
+    prisma.scenario.findMany({where:{active:true,scored:true},orderBy:[{edition:"asc"},{externalId:"asc"}],take:200,include:{comasyProfile:true,_count:{select:{comasyVersions:true}}}}),
   ]);
 
-  return (
-    <div style={styles.page}>
-      <div style={styles.shell}>
-        <header style={styles.header}>
-          <div>
-            <div style={styles.title}>Admin Dashboard</div>
-            <div style={styles.subtitle}>V1 placeholder</div>
-          </div>
-        </header>
+  const paid=orgs.filter(o=>o.arr>0||["WON","EXPANSION"].includes(o.stage));
+  const arr=paid.reduce((s,o)=>s+o.arr,0);
+  const activeOpps=opps.filter(o=>!["WON","LOST"].includes(o.stage));
+  const activePilots=pilots.filter(p=>!["PAID","STOPPED"].includes(p.conversionStatus));
+  const convertedPilots=pilots.filter(p=>p.conversionStatus==="PAID").length;
+  const pilotConversion=pilots.length?convertedPilots/pilots.length*100:0;
+  const acv=paid.length?arr/paid.length:0;
+  const now=Date.now();
+  const renewals=paid.filter(o=>o.renewalDate&&o.renewalDate.getTime()<=now+120*86400000);
+  const expansion=paid.filter(o=>o.customerHealth==="EXPANSION"||o.expansionPotential);
+  const weightedPipeline=activeOpps.reduce((s,o)=>s+(o.estimatedValue*o.probability/100),0);
+  const forecast=(days:number)=>activeOpps.filter(o=>o.expectedClose&&o.expectedClose.getTime()<=now+days*86400000).reduce((s,o)=>s+(o.estimatedValue*o.probability/100),0);
+  const funnel=Object.fromEntries(pipelineStages.map(stage=>[stage,orgs.filter(o=>o.stage===stage).length]));
+  const sourceNames=[...new Set([...leads.map(l=>l.source||"Direct"),...orgs.map(o=>o.source||"Direct")])];
+  const sourceRows=sourceNames.map(source=>{const sourceLeads=leads.filter(l=>(l.source||"Direct")===source);const sourceOrgs=orgs.filter(o=>(o.source||"Direct")===source);return {source,leads:sourceLeads.length,qualified:sourceOrgs.filter(o=>!["TARGET_ACCOUNT","CONTACTED"].includes(o.stage)).length,pilots:sourceOrgs.filter(o=>["PILOT_ACTIVE","PILOT_REVIEW","CONTRACT","WON","EXPANSION"].includes(o.stage)).length,customers:sourceOrgs.filter(o=>o.arr>0).length,revenue:sourceOrgs.reduce((s,o)=>s+o.arr,0)}});
+  const orgMetrics=await Promise.all(orgs.slice(0,50).map(async o=>({org:o,metrics:await getOrganizationMetrics(o.id)})));
 
-        <main>
-          <div style={styles.stats}>
-            <div style={styles.statCard}>
-              <div style={styles.statLabel}>Total scenarios</div>
-              <div style={styles.statValue}>{scenarioCount}</div>
-            </div>
-            <div style={styles.statCard}>
-              <div style={styles.statLabel}>Total sessions</div>
-              <div style={styles.statValue}>{sessionCount}</div>
-            </div>
-          </div>
+  return <main className="os">
+    <aside className="side"><Link href="/" className="brand"><span>K</span><b>Konfydence OS</b></Link><p>Business operating system</p><nav>{nav.map(([k,label])=><Link key={k} href={`/admin?view=${k}`} className={view===k?"active":""}>{label}</Link>)}</nav></aside>
+    <section className="main"><header><div><p>KONFYDENCE / INTERNAL</p><h1>{nav.find(([k])=>k===view)?.[1]}</h1></div><span className="secure">INTERNAL · AUTHENTICATED</span></header>
 
-          <div style={styles.grid}>
-            <div style={styles.tile}>
-              <div style={styles.tileTitle}>Scenario Manager</div>
-              <div style={styles.tileBody}>Placeholder for scenario CRUD / import status.</div>
-            </div>
+    {view==="overview"&&<>
+      <div className="metrics"><M label="Qualified accounts" value={String(orgs.filter(o=>!["TARGET_ACCOUNT","CONTACTED"].includes(o.stage)).length)}/><M label="Active opportunities" value={String(activeOpps.length)} note={euro(activeOpps.reduce((s,o)=>s+o.estimatedValue,0))}/><M label="Pilot requests" value={String(leads.filter(l=>l.status==="PILOT_REQUEST"||l.primaryObjective?.toLowerCase().includes("pilot")).length)}/><M label="Active pilots" value={String(activePilots.length)}/><M label="Paid organisations" value={String(paid.length)}/><M label="ARR" value={euro(arr)} note={`MRR ${euro(arr/12)}`}/><M label="Pilot → paid" value={pct(pilotConversion)}/><M label="Average contract" value={euro(acv)}/><M label="Renewal pipeline" value={String(renewals.length)} note={euro(renewals.reduce((s,o)=>s+o.arr,0))}/><M label="Expansion opportunities" value={String(expansion.length)}/></div>
+      <div className="grid2"><Box title="Business funnel" eye="VISITOR → EXPANSION"><div className="funnel">{pipelineStages.filter(s=>s!=="LOST").map(s=><div key={s}><b>{funnel[s]}</b><span>{s.replaceAll("_"," ")}</span></div>)}</div></Box><Box title="Revenue forecast" eye="WEIGHTED PIPELINE"><div className="forecast"><div><span>30 days</span><b>{euro(forecast(30))}</b></div><div><span>60 days</span><b>{euro(forecast(60))}</b></div><div><span>90 days</span><b>{euro(forecast(90))}</b></div><div><span>Total weighted</span><b>{euro(weightedPipeline)}</b></div></div></Box></div>
+      <Box title="Accounts needing action" eye="NEXT BEST ACTION"><Table heads={["Account","Stage","Owner","Value / ARR","Next action","Health"]}>{orgs.filter(o=>o.nextAction||["AT_RISK","RENEWAL_DUE","EXPANSION"].includes(o.customerHealth)).slice(0,10).map(o=><tr key={o.id}><td><b>{o.name}</b><small>{o.country||""} · {o.industry||""}</small></td><td><Tag value={o.stage}/></td><td>{o.accountOwner||"—"}</td><td>{euro(o.arr||o.estimatedValue)}</td><td>{o.nextAction||"Review account"}</td><td><Tag value={o.customerHealth}/></td></tr>)}</Table></Box>
+    </>}
 
-            <div style={styles.tile}>
-              <div style={styles.tileTitle}>Challenge Sessions</div>
-              <div style={styles.tileBody}>Placeholder for session list + export.</div>
-            </div>
+    {view==="accounts"&&<><div className="grid2 top"><Box title="Add account" eye="SINGLE BUSINESS RECORD"><form action="/api/admin/comasy" method="post" className="form"><input type="hidden" name="action" value="create_org"/><F n="name" l="Organisation" req/><F n="slug" l="Workspace slug" req/><div className="split"><F n="industry" l="Industry"/><F n="country" l="Country"/></div><div className="split"><F n="employees" l="Employees" t="number"/><F n="estimatedValue" l="Estimated annual value (€)" t="number"/></div><div className="split"><F n="accountOwner" l="Account owner"/><F n="source" l="Source"/></div><F n="persona" l="Primary persona"/><F n="currentPlatform" l="Current awareness platform"/><F n="nextAction" l="Next action"/><F n="accessCode" l="Initial customer access code" t="password"/><label className="check"><input type="checkbox" name="nis2Relevant"/> NIS2 relevant / review</label><button>Create account →</button></form></Box><Box title="Account discipline" eye="NO SPREADSHEET FRAGMENTATION"><p className="copy">The organisation record is the shared root for contacts, pipeline, pilots, cohorts, campaigns, behaviour, revenue, renewal and attribution. Customer data is never read across organisation boundaries.</p></Box></div><Box title="All accounts" eye={`${orgs.length} ORGANISATIONS`}><Table heads={["Organisation","Stage","Owner","Contacts","Participants","Pilot","ARR","Next action"]}>{orgs.map(o=><tr key={o.id}><td><b>{o.name}</b><small>{o.country||"—"} · {o.industry||"—"}</small></td><td><Tag value={o.stage}/></td><td>{o.accountOwner||"—"}</td><td>{o._count.contacts}</td><td>{o._count.participants}</td><td>{o._count.pilots}</td><td>{euro(o.arr)}</td><td>{o.nextAction||"—"}</td></tr>)}</Table></Box></>}
 
-            <div style={styles.tile}>
-              <div style={styles.tileTitle}>Import Status</div>
-              <div style={styles.tileBody}>Placeholder for last seed/import run details.</div>
-            </div>
-          </div>
+    {view==="contacts"&&<><Box title="Add buying-group contact" eye="CISO · COMPLIANCE · L&D · PROCUREMENT"><form action="/api/admin/comasy" method="post" className="form horizontal"><input type="hidden" name="action" value="create_contact"/><OrgSelect orgs={orgs}/><F n="firstName" l="First name" req/><F n="lastName" l="Last name" req/><F n="email" l="Work email" t="email" req/><F n="jobTitle" l="Job title"/><F n="persona" l="Persona"/><F n="linkedIn" l="LinkedIn"/><F n="buyingRole" l="Buying role"/><label className="check"><input name="decisionMaker" type="checkbox"/> Decision maker</label><label className="check"><input name="champion" type="checkbox"/> Champion</label><label className="check"><input name="technicalEvaluator" type="checkbox"/> Technical evaluator</label><label className="check"><input name="procurement" type="checkbox"/> Procurement</label><button>Add contact →</button></form></Box><Box title="Contacts" eye={`${contacts.length} PEOPLE`}><Table heads={["Contact","Organisation","Title / persona","Buying role","Signals"]}>{contacts.map(c=><tr key={c.id}><td><b>{c.firstName} {c.lastName}</b><small>{c.email}</small></td><td>{c.organization.name}</td><td>{c.jobTitle||"—"}<small>{c.persona||""}</small></td><td>{c.buyingRole||"—"}</td><td>{[c.decisionMaker&&"Decision maker",c.champion&&"Champion",c.technicalEvaluator&&"Evaluator",c.procurement&&"Procurement"].filter(Boolean).join(" · ")||"—"}</td></tr>)}</Table></Box></>}
 
-          <div style={styles.backLinkWrap}>
-            <Link style={styles.backLink} href="/challenge">Back to challenge</Link>
-          </div>
-        </main>
-      </div>
-    </div>
-  );
+    {view==="pipeline"&&<><Box title="Create opportunity" eye="VALUE · PROBABILITY · NEXT ACTION"><form action="/api/admin/comasy" method="post" className="form horizontal"><input type="hidden" name="action" value="create_opportunity"/><OrgSelect orgs={orgs}/><F n="name" l="Opportunity" req/><label>Stage<select name="stage">{pipelineStages.map(s=><option key={s}>{s}</option>)}</select></label><F n="estimatedValue" l="Value (€)" t="number"/><F n="probability" l="Probability %" t="number"/><F n="expectedClose" l="Expected close" t="date"/><F n="nextAction" l="Next action"/><F n="objection" l="Objection"/><F n="owner" l="Owner"/><button>Add opportunity →</button></form></Box><div className="kanban">{pipelineStages.map(stage=><section key={stage}><h3>{stage.replaceAll("_"," ")} <span>{opps.filter(o=>o.stage===stage).length}</span></h3>{opps.filter(o=>o.stage===stage).map(o=><article key={o.id}><b>{o.organization.name}</b><strong>{euro(o.estimatedValue)}</strong><small>{o.name}</small><small>{o.probability}% · {o.expectedClose?.toISOString().slice(0,10)||"No close date"}</small><p>{o.nextAction||"No next action"}</p><form action="/api/admin/comasy" method="post"><input type="hidden" name="action" value="opportunity_stage"/><input type="hidden" name="opportunityId" value={o.id}/><select name="stage" defaultValue={o.stage}>{pipelineStages.map(s=><option key={s}>{s}</option>)}</select><input name="probability" type="number" defaultValue={o.probability}/><input name="nextAction" defaultValue={o.nextAction||""} placeholder="Next action"/><button>Update</button></form></article>)}</section>)}</div></>}
+
+    {view==="pilots"&&<><Box title="Start pilot" eye="DEFINED COHORT · METRICS · DECISION POINT"><form action="/api/admin/comasy" method="post" className="form horizontal"><input type="hidden" name="action" value="create_pilot"/><OrgSelect orgs={orgs}/><label>Cohort<select name="cohortId"><option value="">Not selected</option>{cohorts.map(c=><option key={c.id} value={c.id}>{c.organization.name} · {c.name}</option>)}</select></label><F n="startAt" l="Start" t="date"/><F n="endAt" l="End" t="date"/><F n="objectives" l="Objectives"/><F n="successCriteria" l="Success criteria"/><F n="finalReviewDate" l="Final review" t="date"/><button>Create pilot →</button></form></Box><Box title="Pilot operations" eye="BASELINE → PRACTICE → REVIEW → PAID"><Table heads={["Organisation","Cohort","Window","Health","Behaviour","Review","Conversion"]}>{await Promise.all(pilots.map(async p=>{const m=await getOrganizationMetrics(p.organizationId);return <tr key={p.id}><td><b>{p.organization.name}</b></td><td>{p.cohort?.name||"—"}</td><td>{p.startAt?.toISOString().slice(0,10)||"—"} → {p.endAt?.toISOString().slice(0,10)||"—"}</td><td><Tag value={p.health}/></td><td>Pause {pct(m.pauseAdoption)}<small>Verify {pct(m.verificationRate)} · Impulse {pct(m.impulseRate)} · Δ {m.prePostChange??"n/a"}</small></td><td>{p.finalReviewDate?.toISOString().slice(0,10)||"—"}</td><td>{p.conversionStatus==="PAID"?<Tag value="PAID"/>:<form action="/api/admin/comasy" method="post" className="convert"><input type="hidden" name="action" value="pilot_to_paid"/><input type="hidden" name="pilotId" value={p.id}/><input name="arr" type="number" placeholder="ARR €"/><input name="contractEnd" type="date"/><button>Pilot → Paid</button></form>}</td></tr>}) )}</Table></Box></>}
+
+    {view==="customers"&&<><div className="metrics"><M label="Healthy" value={String(paid.filter(o=>o.customerHealth==="HEALTHY").length)}/><M label="At risk" value={String(paid.filter(o=>o.customerHealth==="AT_RISK").length)}/><M label="Renewal due" value={String(renewals.length)}/><M label="Expansion" value={String(expansion.length)}/></div><Box title="Customer success" eye="HEALTH · RENEWAL · EXPANSION"><Table heads={["Customer","ARR","Usage","Behaviour","Health","Renewal","Action"]}>{orgMetrics.filter(x=>x.org.arr>0||["WON","EXPANSION"].includes(x.org.stage)).map(({org:o,metrics:m})=><tr key={o.id}><td><b>{o.name}</b><small>{o.seats||"—"} seats</small></td><td>{euro(o.arr)}</td><td>{m.activeCampaigns} active<small>{pct(m.participationRate)} participation</small></td><td>Pause {pct(m.pauseAdoption)}<small>Δ {m.prePostChange??"n/a"} pts</small></td><td><Tag value={o.customerHealth}/></td><td>{o.renewalDate?.toISOString().slice(0,10)||"—"}</td><td><form className="rowForm" action="/api/admin/comasy" method="post"><input type="hidden" name="action" value="update_org"/><input type="hidden" name="organizationId" value={o.id}/><select name="customerHealth" defaultValue={o.customerHealth}><option>HEALTHY</option><option>AT_RISK</option><option>EXPANSION</option><option>RENEWAL_DUE</option></select><input name="nextAction" defaultValue={o.nextAction||""} placeholder="Next action"/><input type="hidden" name="stage" value={o.stage}/><input type="hidden" name="arr" value={o.arr}/><input type="hidden" name="seats" value={o.seats||0}/><button>Save</button></form></td></tr>)}</Table></Box></>}
+
+    {view==="organisations"&&<Box title="CoMaSy organisations" eye="CUSTOMER DATA ROOT"><Table heads={["Organisation","Cohorts","Participants","Campaigns","Responses","Pause","Verify","Impulse"]}>{orgMetrics.map(({org:o,metrics:m})=><tr key={o.id}><td><b>{o.name}</b><small>{o.slug}</small></td><td>{cohorts.filter(c=>c.organizationId===o.id).length}</td><td>{o._count.participants}</td><td>{o._count.campaigns}</td><td>{m.responseCount}</td><td>{pct(m.pauseAdoption)}</td><td>{pct(m.verificationRate)}</td><td>{pct(m.impulseRate)}</td></tr>)}</Table></Box>}
+    {view==="cohorts"&&<Box title="Cohorts" eye="SEGMENTATION"><Table heads={["Organisation","Cohort","Department","Role","Participants","Campaigns"]}>{cohorts.map(c=><tr key={c.id}><td>{c.organization.name}</td><td><b>{c.name}</b></td><td>{c.department||"—"}</td><td>{c.role||"—"}</td><td>{c._count.participants}</td><td>{c._count.campaigns}</td></tr>)}</Table></Box>}
+    {view==="campaigns"&&<Box title="Campaigns" eye="BASELINE · PRACTICE · FOLLOW-UP"><Table heads={["Organisation","Campaign","Cohort","Designation","Status","Responses"]}>{campaigns.map(c=><tr key={c.id}><td>{c.organization.name}</td><td><b>{c.name}</b></td><td>{c.cohort?.name||"All"}</td><td>{c.designation}</td><td><Tag value={c.status}/></td><td>{c._count.responses}</td></tr>)}</Table></Box>}
+    {view==="participants"&&<Box title="Participants" eye={`${participants.length} RECORDS`}><Table heads={["Participant","Organisation","Cohort","Department","Role","Status"]}>{participants.map(p=><tr key={p.id}><td><b>{p.firstName} {p.lastName}</b><small>{p.email}</small></td><td>{p.organization.name}</td><td>{p.cohort?.name||"—"}</td><td>{p.department||"—"}</td><td>{p.role||"—"}</td><td><Tag value={p.status}/></td></tr>)}</Table></Box>}
+    {view==="behaviour"&&<><div className="metrics"><M label="Responses" value={String(responses.length)}/><M label="Pause Adoption" value={pct(responses.length?responses.filter(r=>r.pause).length/responses.length*100:0)}/><M label="Verification" value={pct(responses.length?responses.filter(r=>r.verification).length/responses.length*100:0)}/><M label="Impulse" value={pct(responses.length?responses.filter(r=>r.impulse).length/responses.length*100:0)}/></div><Box title="Organisation behaviour" eye="REAL DECISIONS"><Table heads={["Organisation","Participants","Participation","Pause","Verify","Impulse","Pre/post"]}>{orgMetrics.map(({org:o,metrics:m})=><tr key={o.id}><td><b>{o.name}</b></td><td>{m.participantCount}</td><td>{pct(m.participationRate)}</td><td>{pct(m.pauseAdoption)}</td><td>{pct(m.verificationRate)}</td><td>{pct(m.impulseRate)}</td><td>{m.prePostChange==null?"n/a":`${m.prePostChange>0?"+":""}${m.prePostChange} pts`}</td></tr>)}</Table></Box></>}
+    {view==="reports"&&<Box title="Customer evidence reporting" eye="WHAT CUSTOMERS CAN PROVE"><p className="copy">Every customer workspace generates Executive, Security Awareness and Compliance/NIS2 evidence exports from the same stored response records used by the dashboard. No separate reporting dataset is maintained.</p><Table heads={["Organisation","Responses","Campaigns","Dashboard"]}>{orgMetrics.map(({org:o,metrics:m})=><tr key={o.id}><td><b>{o.name}</b></td><td>{m.responseCount}</td><td>{m.activeCampaigns}</td><td>{o.accessCodeHash?"Customer access configured":"Access not configured"}</td></tr>)}</Table></Box>}
+
+    {view==="scenarios"&&<><Box title="Scenario management" eye="GLOBAL CONTENT CONTROL"><p className="copy">The core scenario remains the source of truth. CoMaSy metadata adds industry, role, risk, difficulty and explicit behaviour-key overrides. Every metadata edit writes a version snapshot first.</p></Box><div className="scenarioList">{scenarios.slice(0,60).map(s=><details key={s.id}><summary><b>{s.externalId}</b><span>{s.edition} · {s.hackKey} · {s.title||s.prompt.slice(0,60)}</span><em>v{s.comasyProfile?.version||1} · {s._count.comasyVersions} history</em></summary><form action="/api/admin/comasy" method="post" className="form horizontal"><input type="hidden" name="action" value="scenario_profile"/><input type="hidden" name="scenarioId" value={s.id}/><F n="segment" l="Segment" d={s.comasyProfile?.segment||"B2B"}/><F n="industries" l="Industries" d={s.comasyProfile?.industries||""}/><F n="roles" l="Roles" d={s.comasyProfile?.roles||""}/><F n="riskType" l="Risk type" d={s.comasyProfile?.riskType||s.category||""}/><label>Difficulty<select name="difficulty" defaultValue={s.comasyProfile?.difficulty||"MEDIUM"}><option>EASY</option><option>MEDIUM</option><option>HARD</option></select></label><F n="pauseKeys" l="Pause keys e.g. B,C" d={s.comasyProfile?.pauseKeys||""}/><F n="verificationKeys" l="Verification keys" d={s.comasyProfile?.verificationKeys||""}/><F n="impulseKeys" l="Impulse keys" d={s.comasyProfile?.impulseKeys||""}/><button>Save version →</button></form></details>)}</div></>}
+
+    {view==="marketing"&&<><div className="metrics"><M label="Leads" value={String(leads.length)}/><M label="Qualified" value={String(orgs.filter(o=>!["TARGET_ACCOUNT","CONTACTED"].includes(o.stage)).length)}/><M label="Pilots" value={String(pilots.length)}/><M label="Customers" value={String(paid.length)}/></div><Box title="Acquisition → revenue" eye="NOT CLICKS — COMMERCIAL OUTCOMES"><Table heads={["Source","Leads","Qualified","Pilots","Customers","ARR"]}>{sourceRows.map(s=><tr key={s.source}><td><b>{s.source}</b></td><td>{s.leads}</td><td>{s.qualified}</td><td>{s.pilots}</td><td>{s.customers}</td><td>{euro(s.revenue)}</td></tr>)}</Table></Box><Box title="Lead queue" eye="PILOT / ASSESSMENT / DEMO"><Table heads={["Lead","Organisation","Role","Objective","Source","Status"]}>{leads.map(l=><tr key={l.id}><td><b>{l.firstName} {l.lastName}</b><small>{l.workEmail}</small></td><td>{l.organizationName}</td><td>{l.role||"—"}</td><td>{l.primaryObjective||"—"}</td><td>{l.source||"Direct"}</td><td><form action="/api/admin/comasy" method="post" className="rowForm"><input type="hidden" name="action" value="lead_status"/><input type="hidden" name="leadId" value={l.id}/><select name="status" defaultValue={l.status}><option>NEW</option><option>QUALIFIED</option><option>CONVERSATION</option><option>PILOT_REQUEST</option><option>DISQUALIFIED</option></select><button>Save</button></form></td></tr>)}</Table></Box></>}
+    {view==="intelligence"&&<Box title="Content intelligence" eye="ACCOUNT-LEVEL INTENT"><Table heads={["When","Account","Person","Activity","Page","Persona","Attribution"]}>{activities.map(a=><tr key={a.id}><td>{a.createdAt.toISOString().slice(0,10)}</td><td>{a.organization?.name||"Unknown"}</td><td>{a.contact?`${a.contact.firstName} ${a.contact.lastName}`:"—"}</td><td><b>{a.type.replaceAll("_"," ")}</b></td><td>{a.page||"—"}</td><td>{a.persona||"—"}</td><td>{[a.source,a.medium,a.campaign].filter(Boolean).join(" / ")||"Direct"}</td></tr>)}</Table></Box>}
+
+    {view==="revenue"&&<><div className="metrics"><M label="MRR" value={euro(arr/12)}/><M label="ARR" value={euro(arr)}/><M label="Pipeline" value={euro(activeOpps.reduce((s,o)=>s+o.estimatedValue,0))}/><M label="Weighted pipeline" value={euro(weightedPipeline)}/><M label="30-day forecast" value={euro(forecast(30))}/><M label="60-day forecast" value={euro(forecast(60))}/><M label="90-day forecast" value={euro(forecast(90))}/></div><Box title="Record revenue event" eye="MANUAL UNTIL STRIPE IS WIRED"><form action="/api/admin/comasy" method="post" className="form horizontal"><input type="hidden" name="action" value="add_revenue"/><OrgSelect orgs={orgs}/><label>Type<select name="type"><option>NEW_ARR</option><option>EXPANSION_ARR</option><option>CHURN</option><option>ONE_OFF</option></select></label><F n="amount" l="Amount (€)" t="number"/><F n="occurredAt" l="Date" t="date"/><F n="source" l="Source" d="manual"/><F n="note" l="Note"/><button>Add revenue event →</button></form></Box><Box title="Revenue ledger" eye="EVENTS"><Table heads={["Date","Organisation","Type","Amount","Source","Note"]}>{revenue.map(r=><tr key={r.id}><td>{r.occurredAt.toISOString().slice(0,10)}</td><td>{r.organization.name}</td><td><Tag value={r.type}/></td><td>{euro(r.amount)}</td><td>{r.source}</td><td>{r.note||"—"}</td></tr>)}</Table></Box></>}
+
+    {view==="benchmark"&&<Benchmark orgMetrics={orgMetrics} responseCount={responses.length} orgCount={orgs.filter(o=>!o.isDemo).length}/>} 
+    {view==="settings"&&<><Box title="Security boundary" eye="ACCESS MODEL"><div className="settingsGrid"><div><b>Internal Konfydence OS</b><span>HTTP Basic Auth, fail-closed via server proxy.</span></div><div><b>Customer workspace</b><span>Signed HttpOnly tenant session plus organisation-scoped queries.</span></div><div><b>Participant practice</b><span>Random access token, campaign/cohort/org assignment revalidated on every response.</span></div><div><b>Supabase Data API</b><span>Application tables remain RLS-protected from anonymous browser access.</span></div></div></Box><Box title="Customer access codes" eye="RESET WITHOUT STORING PLAINTEXT"><Table heads={["Organisation","Configured","Reset"]}>{orgs.map(o=><tr key={o.id}><td><b>{o.name}</b></td><td>{o.accessCodeHash?"Yes":"No"}</td><td><form action="/api/admin/comasy" method="post" className="rowForm"><input type="hidden" name="action" value="reset_access"/><input type="hidden" name="organizationId" value={o.id}/><input name="accessCode" type="password" minLength={6} placeholder="New access code" required/><button>Reset</button></form></td></tr>)}</Table></Box></>}
+
+    </section><style>{styles}</style></main>
 }
 
-const styles: Record<string, React.CSSProperties> = {
-  page: {
-    minHeight: "100vh",
-    background: "linear-gradient(180deg, #071421, #0b2237)",
-    padding: 18,
-    color: "white",
-    display: "flex",
-    justifyContent: "center",
-  },
-  shell: { width: "100%", maxWidth: 980 },
-  header: { display: "flex", justifyContent: "space-between", alignItems: "flex-end", marginBottom: 16 },
-  title: { fontWeight: 1000, fontSize: 22 },
-  subtitle: { marginTop: 6, color: "#ffffffcc", fontWeight: 800 },
-  stats: { display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12 },
-  statCard: {
-    background: "rgba(255,255,255,0.08)",
-    border: "1px solid rgba(255,255,255,0.14)",
-    borderRadius: 14,
-    padding: 14,
-  },
-  statLabel: { color: "#ffffffcc", fontWeight: 800, fontSize: 13 },
-  statValue: { fontWeight: 1000, fontSize: 30, color: "#ffc600", marginTop: 6 },
-  grid: { display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))", gap: 12, marginTop: 14 },
-  tile: {
-    background: "white",
-    color: "#0b1b2b",
-    borderRadius: 14,
-    padding: 16,
-    border: "1px solid rgba(11,27,43,0.12)",
-  },
-  tileTitle: { fontWeight: 1000, marginBottom: 8 },
-  tileBody: { color: "#344a5e", lineHeight: 1.5, fontWeight: 700, fontSize: 13 },
-  backLinkWrap: { marginTop: 16 },
-  backLink: {
-    display: "inline-flex",
-    alignItems: "center",
-    justifyContent: "center",
-    padding: "10px 12px",
-    borderRadius: 12,
-    background: "#ffc600",
-    color: "#0b1b2b",
-    textDecoration: "none",
-    fontWeight: 950,
-    width: "100%",
-    maxWidth: 260,
-  },
-};
+function M({label,value,note}:{label:string;value:string;note?:string}){return <div className="m"><span>{label}</span><b>{value}</b>{note&&<small>{note}</small>}</div>}
+function Box({title,eye,children}:{title:string;eye:string;children:React.ReactNode}){return <section className="box"><p>{eye}</p><h2>{title}</h2>{children}</section>}
+function Table({heads,children}:{heads:string[];children:React.ReactNode}){return <div className="table"><table><thead><tr>{heads.map(h=><th key={h}>{h}</th>)}</tr></thead><tbody>{children}</tbody></table></div>}
+function Tag({value}:{value:string}){return <span className={`tag tag-${value.toLowerCase()}`}>{value.replaceAll("_"," ")}</span>}
+function F({n,l,t="text",req=false,d}:{n:string;l:string;t?:string;req?:boolean;d?:string}){return <label>{l}<input name={n} type={t} required={req} defaultValue={d}/></label>}
+function OrgSelect({orgs}:{orgs:Array<{id:string;name:string}>}){return <label>Organisation<select name="organizationId" required><option value="">Select…</option>{orgs.map(o=><option key={o.id} value={o.id}>{o.name}</option>)}</select></label>}
+function Benchmark({orgMetrics,responseCount,orgCount}:{orgMetrics:Array<{org:{id:string;name:string;industry:string|null;employees:number|null;isDemo:boolean};metrics:{pauseAdoption:number;verificationRate:number;impulseRate:number;responseCount:number}}>;responseCount:number;orgCount:number}){const eligible=responseCount>=50&&orgCount>=3; if(!eligible)return <Box title="Human Pressure Benchmark" eye="NOT ENOUGH LEGITIMATE DATA YET"><p className="copy">Benchmark publication is locked until there are at least 50 recorded decisions across at least three non-demo organisations. Current data: {responseCount} responses across {orgCount} organisations. No industry benchmark is invented.</p></Box>;const real=orgMetrics.filter(x=>!x.org.isDemo&&x.metrics.responseCount>0);const mean=(k:"pauseAdoption"|"verificationRate"|"impulseRate")=>real.length?real.reduce((s,x)=>s+x.metrics[k],0)/real.length:0;return <><div className="metrics"><M label="Avg Pause Adoption" value={pct(mean("pauseAdoption"))}/><M label="Avg Verification" value={pct(mean("verificationRate"))}/><M label="Avg Impulse" value={pct(mean("impulseRate"))}/><M label="Organisations" value={String(real.length)}/></div><Box title="Benchmark intelligence" eye="ANONYMISED AGGREGATE"><p className="copy">These figures are calculated only from legitimate stored activity. Industry/role segmentation should be published externally only after sample-size thresholds are defined and met.</p></Box></>}
+
+const styles=`
+:global(*){box-sizing:border-box}:global(body){margin:0;background:#eef1f2;color:#081826}.os{min-height:100vh;display:grid;grid-template-columns:270px 1fr;font-family:Inter,system-ui,sans-serif}.side{height:100vh;position:sticky;top:0;background:#061624;color:white;padding:24px 18px;overflow:auto}.brand{display:flex;gap:9px;align-items:center;color:white;text-decoration:none}.brand span{width:30px;height:30px;border:1px solid #8ea0ac;border-radius:50%;display:grid;place-items:center;font-size:10px}.brand b{font-size:14px}.side>p{font-size:9px;color:#728a9a;margin:14px 0 20px;text-transform:uppercase;letter-spacing:.11em}.side nav{display:grid;gap:3px}.side nav a{color:#92a5b2;text-decoration:none;font-size:10px;font-weight:800;padding:8px 10px;border-radius:8px}.side nav a:hover,.side nav a.active{background:#123149;color:white}.side nav a.active{box-shadow:inset 3px 0 #b8ff3d}.main{padding:34px clamp(18px,3vw,48px) 70px;min-width:0}.main>header{display:flex;justify-content:space-between;align-items:end;gap:20px;margin-bottom:28px}.main>header p,.box>p{font-size:8px;letter-spacing:.14em;font-weight:950;color:#617886;margin:0 0 8px}.main h1{font:500 clamp(32px,4vw,50px)/1 Georgia,serif;margin:0;letter-spacing:-.04em}.secure{font-size:8px;color:#66808e;border:1px solid #c4d0d5;border-radius:999px;padding:8px 10px}.metrics{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin-bottom:14px}.m{background:white;border:1px solid #dce4e7;border-radius:14px;padding:15px;min-height:112px;display:flex;flex-direction:column}.m span{font-size:9px;font-weight:900;color:#687c87}.m b{font:500 27px Georgia,serif;margin:17px 0 5px}.m small{font-size:9px;color:#87959b}.grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px}.grid2.top{align-items:start}.box{background:white;border:1px solid #dce4e7;border-radius:16px;padding:20px;margin:14px 0}.grid2>.box{margin:0}.box h2{font:500 27px/1 Georgia,serif;letter-spacing:-.03em;margin:0 0 18px}.copy{font-size:11px;color:#61747e;line-height:1.7;max-width:850px}.funnel{display:grid;grid-template-columns:repeat(4,1fr);gap:7px}.funnel div{background:#f1f4f5;border-radius:10px;padding:10px}.funnel b{display:block;font:500 22px Georgia,serif}.funnel span{display:block;font-size:7px;margin-top:5px;color:#71838c}.forecast{display:grid;grid-template-columns:1fr 1fr;gap:8px}.forecast div{border:1px solid #e0e6e8;border-radius:10px;padding:12px}.forecast span{font-size:9px;color:#71838c}.forecast b{display:block;font:500 22px Georgia,serif;margin-top:8px}.table{overflow:auto}table{width:100%;border-collapse:collapse;min-width:760px}th{text-align:left;padding:9px 7px;border-bottom:1px solid #dfe6e8;font-size:8px;color:#71848e;text-transform:uppercase;letter-spacing:.07em}td{padding:11px 7px;border-bottom:1px solid #edf1f2;font-size:10px;vertical-align:top}td>b{display:block;font-size:11px}td small{display:block;color:#7e8d94;margin-top:4px}.tag{display:inline-block;background:#edf1f2;border-radius:99px;padding:4px 6px;font-size:7px;font-weight:950}.tag-won,.tag-paid,.tag-healthy,.tag-active,.tag-completed{background:#e7f6cf;color:#466621}.tag-at_risk,.tag-lost{background:#ffe8e5;color:#9c3e36}.tag-expansion{background:#e6f2ff;color:#245d91}.form{display:grid;gap:10px}.form.horizontal{grid-template-columns:repeat(4,1fr);align-items:end}.form label,.rowForm label{font-size:9px;font-weight:900;color:#596f7a;display:grid;gap:5px}.form input,.form select,.rowForm input,.rowForm select,.convert input,.kanban input,.kanban select{width:100%;border:1px solid #cdd8dc;border-radius:8px;padding:9px;background:white;font:inherit;color:#081826}.form button,.rowForm button,.convert button,.kanban button{border:0;background:#ff5b50;color:white;border-radius:999px;padding:10px 12px;font-size:9px;font-weight:950;cursor:pointer}.check{display:flex!important;grid-template:none!important;align-items:center;gap:7px!important}.check input{width:auto}.split{display:grid;grid-template-columns:1fr 1fr;gap:8px}.kanban{display:grid;grid-template-columns:repeat(4,minmax(230px,1fr));gap:10px;overflow:auto;align-items:start;padding-bottom:12px}.kanban>section{background:#dfe6e9;border-radius:13px;padding:9px;min-height:150px}.kanban h3{font-size:8px;letter-spacing:.07em;margin:3px 3px 10px;color:#526a76}.kanban h3 span{float:right}.kanban article{background:white;border-radius:10px;padding:12px;margin-bottom:8px}.kanban article>b{font-size:11px}.kanban article>strong{float:right;font:500 16px Georgia,serif}.kanban article>small{display:block;color:#778890;font-size:8px;margin-top:4px}.kanban article>p{font-size:9px;line-height:1.4}.kanban article form{display:grid;gap:5px}.rowForm{display:flex;gap:5px;min-width:240px}.rowForm input,.rowForm select{padding:6px;font-size:8px}.rowForm button{padding:6px 8px}.convert{display:grid;gap:5px;min-width:140px}.scenarioList{display:grid;gap:7px}.scenarioList details{background:white;border:1px solid #dce4e7;border-radius:12px;padding:12px}.scenarioList summary{display:grid;grid-template-columns:90px 1fr auto;gap:10px;cursor:pointer;align-items:center}.scenarioList summary b{font-size:9px;color:#d44d44}.scenarioList summary span{font-size:10px}.scenarioList summary em{font-style:normal;font-size:8px;color:#7d8d95}.scenarioList form{margin-top:14px;border-top:1px solid #e7edef;padding-top:12px}.settingsGrid{display:grid;grid-template-columns:1fr 1fr;gap:9px}.settingsGrid>div{border:1px solid #e1e7e9;border-radius:10px;padding:13px;display:grid;gap:5px}.settingsGrid b{font-size:10px}.settingsGrid span{font-size:9px;color:#70828b;line-height:1.45}
+@media(max-width:1180px){.metrics{grid-template-columns:repeat(3,1fr)}.form.horizontal{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:780px){.os{grid-template-columns:1fr}.side{position:relative;height:auto;max-height:none}.side nav{display:flex;overflow:auto}.side nav a{white-space:nowrap}.main{padding:24px 12px 55px}.main>header{align-items:start}.secure{display:none}.metrics{grid-template-columns:repeat(2,1fr)}.grid2{grid-template-columns:1fr}.form.horizontal{grid-template-columns:1fr}.funnel{grid-template-columns:repeat(2,1fr)}.settingsGrid{grid-template-columns:1fr}}
+`;
