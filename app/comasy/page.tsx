@@ -25,21 +25,14 @@ export default function ComasyPage() {
         <div className="copy">
           <p className="eye">COMASY™ BY KONFYDENCE</p>
           <h1>Security awareness that measures behaviour under pressure.</h1>
-          <p>
-            Give employees realistic social-engineering decisions to practise—and give security,
-            compliance and L&D teams measurable evidence of how behaviour changes over time.
-          </p>
+          <p>Give employees realistic social-engineering decisions to practise—and give security, compliance and L&D teams measurable evidence of how behaviour changes over time.</p>
           <div className="actions">
             <Link href="/comasy/pilot">Request a Pilot <span>→</span></Link>
             <a href="#platform">See How It Works</a>
           </div>
           <small>Built for security, compliance, risk and learning teams.</small>
         </div>
-        <div
-          className="heroPhoto"
-          role="img"
-          aria-label="Business professionals discussing security and risk in a modern office"
-        />
+        <div className="heroPhoto" role="img" aria-label="Business professionals discussing security and risk in a modern office" />
       </section>
 
       <section className="hack">
@@ -51,14 +44,8 @@ export default function ComasyPage() {
 
       <section className="productProof">
         <div className="proofIntro">
-          <div>
-            <p className="eye dark">EMPLOYEE PRACTICE → ORGANISATIONAL EVIDENCE</p>
-            <h2>One decision for the employee. One measurable signal for the organisation.</h2>
-          </div>
-          <p>
-            Employees practise a realistic decision. Administrators see the behavioural pattern that emerges.
-            The product proof now has its own space instead of competing with the hero.
-          </p>
+          <div><p className="eye dark">EMPLOYEE PRACTICE → ORGANISATIONAL EVIDENCE</p><h2>One decision for the employee. One measurable signal for the organisation.</h2></div>
+          <p>Employees practise a realistic decision. Administrators see the behavioural pattern that emerges. The product proof has its own space instead of competing with the hero.</p>
         </div>
         <div className="proofGrid">
           <article className="scenario">
@@ -82,13 +69,7 @@ export default function ComasyPage() {
 
       <section id="platform" className="section">
         <p className="eye dark">PRACTICE → MEASURE → IMPROVE → EVIDENCE</p>
-        <div className="lead">
-          <h2>Knowing the rule is not the same as applying it.</h2>
-          <p>
-            CoMaSy complements existing awareness programmes. It adds short decision rehearsal and a behavioural
-            measurement layer rather than another course library.
-          </p>
-        </div>
+        <div className="lead"><h2>Knowing the rule is not the same as applying it.</h2><p>CoMaSy complements existing awareness programmes. It adds short decision rehearsal and a behavioural measurement layer rather than another course library.</p></div>
         <div className="steps">
           <article><b>01</b><h3>Baseline</h3><p>Establish how the cohort responds today.</p></article>
           <article><b>02</b><h3>Practice</h3><p>Rehearse realistic decisions repeatedly.</p></article>
@@ -98,14 +79,7 @@ export default function ComasyPage() {
       </section>
 
       <section id="measurement" className="measure">
-        <div>
-          <p className="eye">DEFINED METRICS</p>
-          <h2>See more than completion rates.</h2>
-          <p>
-            Every customer dashboard calculates its metrics from stored scenario decisions. The definitions are
-            explicit and reports use the same records as the dashboard.
-          </p>
-        </div>
+        <div><p className="eye">DEFINED METRICS</p><h2>See more than completion rates.</h2><p>Every customer dashboard calculates its metrics from stored scenario decisions. The definitions are explicit and reports use the same records as the dashboard.</p></div>
         <div className="metricCards">
           <article><span>Pause Adoption</span><b>Interrupt the risky action chain</b></article>
           <article><span>Verification Rate</span><b>Verify through an independent channel</b></article>
@@ -116,65 +90,32 @@ export default function ComasyPage() {
 
       <section className="section audiences">
         <p className="eye dark">ONE BEHAVIOURAL LAYER · DIFFERENT ORGANISATIONAL NEEDS</p>
-        <div className="audGrid">
-          {audiences.map(([name, copy]) => (
-            <article key={name}><h3>{name}</h3><p>{copy}</p></article>
-          ))}
-        </div>
+        <div className="audGrid">{audiences.map(([name, copy]) => <article key={name}><h3>{name}</h3><p>{copy}</p></article>)}</div>
       </section>
 
       <section id="nis2" className="nis2">
-        <div>
-          <p className="eye">NIS2 USE CASE</p>
-          <h2>Support the human side of cybersecurity awareness and effectiveness evidence.</h2>
-        </div>
-        <div>
-          <p>
-            CoMaSy is designed to support repeated awareness activity, defined effectiveness indicators and records
-            of participation and behavioural change.
-          </p>
-          <ul>
-            <li>Repeat awareness activity over time</li>
-            <li>Assess defined effectiveness indicators</li>
-            <li>Maintain clearer evidence and reporting</li>
-          </ul>
-          <small>
-            CoMaSy supports elements of an organisation’s cybersecurity awareness and training programme. Use of
-            CoMaSy does not by itself establish regulatory compliance.
-          </small>
-        </div>
+        <div><p className="eye">NIS2 USE CASE</p><h2>Support the human side of cybersecurity awareness and effectiveness evidence.</h2></div>
+        <div><p>CoMaSy is designed to support repeated awareness activity, defined effectiveness indicators and records of participation and behavioural change.</p><ul><li>Repeat awareness activity over time</li><li>Assess defined effectiveness indicators</li><li>Maintain clearer evidence and reporting</li></ul><small>CoMaSy supports elements of an organisation’s cybersecurity awareness and training programme. Use of CoMaSy does not by itself establish regulatory compliance.</small></div>
       </section>
 
       <section className="pilotBand">
-        <div>
-          <p className="eye dark">START SMALL. MEASURE THE CHANGE.</p>
-          <h2>Defined cohort. Defined metrics. Defined decision point.</h2>
-        </div>
+        <div><p className="eye dark">START SMALL. MEASURE THE CHANGE.</p><h2>Defined cohort. Defined metrics. Defined decision point.</h2></div>
         <Link href="/comasy/pilot">Request a CoMaSy Pilot <span>→</span></Link>
       </section>
 
-      <footer>
-        <b>CoMaSy by Konfydence</b>
-        <nav>
-          <Link href="/">Individuals</Link>
-          <Link href="/comasy/pilot">Pilot</Link>
-          <Link href="/comasy/dashboard/login">Customer login</Link>
-          <Link href="/privacy-policy">Privacy</Link>
-          <Link href="/terms-of-service">Terms</Link>
-        </nav>
-      </footer>
+      <footer><b>CoMaSy by Konfydence</b><nav><Link href="/">Individuals</Link><Link href="/comasy/pilot">Pilot</Link><Link href="/comasy/dashboard/login">Customer login</Link><Link href="/privacy-policy">Privacy</Link><Link href="/terms-of-service">Terms</Link></nav></footer>
 
       <style>{`
         :global(*){box-sizing:border-box}:global(body){margin:0;background:#f3f1eb;color:#071726}.page{font-family:Inter,system-ui,sans-serif}
         header{height:72px;background:#071d31;color:white;display:flex;align-items:center;gap:28px;padding:0 max(20px,calc((100vw - 1180px)/2));position:sticky;top:0;z-index:10;border-bottom:1px solid #ffffff1c}.brand{color:white;text-decoration:none;font-size:11px;font-weight:950}.brand span{color:#b8ff3d}header nav{display:flex;gap:22px;margin-left:auto}header nav a{color:#b4c4ce;text-decoration:none;font-size:10px;font-weight:800}.pilot{background:#b8ff3d;color:#071d31;text-decoration:none;border-radius:999px;padding:10px 14px;font-size:10px;font-weight:950}
-        .hero{min-height:650px;background:linear-gradient(135deg,#0c3455,#071d31 68%);color:white;padding:72px max(20px,calc((100vw - 1180px)/2));display:grid;grid-template-columns:minmax(0,1fr) minmax(420px,.88fr);gap:82px;align-items:center}.eye{font-size:9px;letter-spacing:.14em;font-weight:950;color:#b8ff3d;margin:0 0 15px}.eye.dark{color:#d54d44}.hero h1,.section h2,.measure h2,.nis2 h2,.pilotBand h2,.productProof h2{font:500 clamp(44px,4.7vw,67px)/.98 Georgia,serif;letter-spacing:-.045em;margin:0}.hero .copy>p:not(.eye){max-width:610px;color:#b8cad6;line-height:1.72;font-size:15px;margin:24px 0}.actions{display:flex;align-items:center;gap:18px;margin:25px 0}.actions a:first-child,.pilotBand>a{display:flex;justify-content:space-between;gap:26px;background:#ff5b50;color:white;text-decoration:none;border-radius:999px;padding:14px 17px;font-size:11px;font-weight:950}.actions a:last-child{color:white;font-size:10px;font-weight:850}.hero .copy small{color:#829aaa;font-size:9px}.heroPhoto{width:100%;height:500px;border-radius:24px;background-image:linear-gradient(180deg,transparent 64%,rgba(7,29,49,.20)),url('https://images.unsplash.com/photo-1758518730151-cf64fddb4f0a?auto=format&fit=crop&fm=jpg&q=72&w=1400');background-size:cover;background-position:center;box-shadow:0 34px 75px #0017;border:1px solid #ffffff1c}
+        .hero{min-height:650px;background:linear-gradient(135deg,#0c3455,#071d31 68%);color:white;padding:72px max(20px,calc((100vw - 1180px)/2));display:grid;grid-template-columns:minmax(0,1fr) minmax(420px,.88fr);gap:82px;align-items:center}.eye{font-size:9px;letter-spacing:.14em;font-weight:950;color:#b8ff3d;margin:0 0 15px}.eye.dark{color:#d54d44}.hero h1,.section h2,.measure h2,.nis2 h2,.pilotBand h2,.productProof h2{font:500 clamp(44px,4.7vw,67px)/.98 Georgia,serif;letter-spacing:-.045em;margin:0}.hero .copy>p:not(.eye){max-width:610px;color:#b8cad6;line-height:1.72;font-size:15px;margin:24px 0}.actions{display:flex;align-items:center;gap:18px;margin:25px 0}.actions a:first-child,.pilotBand>a{display:flex;justify-content:space-between;gap:26px;background:#ff5b50;color:white;text-decoration:none;border-radius:999px;padding:14px 17px;font-size:11px;font-weight:950}.actions a:last-child{color:white;font-size:10px;font-weight:850}.hero .copy small{color:#829aaa;font-size:9px}.heroPhoto{width:100%;height:500px;border-radius:24px;background-image:linear-gradient(180deg,transparent 64%,rgba(7,29,49,.20)),url('/edition-images/workplace.png');background-size:cover;background-position:center;box-shadow:0 34px 75px #0017;border:1px solid #ffffff1c}
         .hack{background:#0b2a43;color:white;display:grid;grid-template-columns:repeat(4,1fr);padding:0 max(20px,calc((100vw - 1180px)/2))}.hack article{min-height:100px;display:flex;align-items:center;gap:12px;border-right:1px solid #ffffff12}.hack article:first-child{border-left:1px solid #ffffff12;padding-left:18px}.hack b{width:28px;height:28px;border:1px solid #6d8391;border-radius:50%;display:grid;place-items:center;color:#b8ff3d;font-size:9px}.hack span{font-size:10px;font-weight:900}.hack small{display:block;color:#78909f;font-size:8px;margin-top:3px;font-weight:600}
         .productProof{max-width:1180px;margin:auto;padding:95px 20px}.proofIntro{display:grid;grid-template-columns:1.05fr .95fr;gap:70px;align-items:end}.proofIntro>p{color:#687b85;font-size:13px;line-height:1.7;margin:0}.proofGrid{display:grid;grid-template-columns:1.15fr .85fr;gap:24px;margin-top:48px}.scenario,.dash{border-radius:20px;padding:30px}.scenario{background:#fffdf8;border:1px solid #d3dcdf;color:#071726}.scenario>p,.dash>p{font-size:8px;letter-spacing:.12em;font-weight:950;color:#d54d44}.scenario h3{font:500 36px/1 Georgia,serif;margin:17px 0}.scenario blockquote{margin:0 0 21px;font-size:13px;line-height:1.65;color:#4f6470}.scenario>div{display:grid;grid-template-columns:31px 1fr;gap:10px;align-items:center;border:1px solid #d9e1e4;border-radius:11px;padding:12px;margin-top:8px;font-size:10px}.scenario>div>span{width:26px;height:26px;border:1px solid #b9c7cd;border-radius:50%;display:grid;place-items:center;font-weight:950}.scenario>div.best{background:#edf7df;border-color:#b6d58f}.dash{background:#0e2b43;color:white;border:1px solid #ffffff1c;box-shadow:0 24px 55px #0015;display:flex;flex-direction:column;justify-content:center}.dash>p{color:#b8ff3d}.dash strong{display:flex;justify-content:space-between;font-size:10px;padding:13px 0;border-bottom:1px solid #ffffff16}.dash em{font:500 28px Georgia,serif;font-style:normal}.dash i{display:block;height:6px;background:#ffffff18;border-radius:5px;margin:24px 0}.dash i span{display:block;height:100%;background:#b8ff3d}.dash small{color:#8da4b2;font-size:9px;line-height:1.6}
         .section{max-width:1180px;margin:auto;padding:105px 20px}.lead{display:grid;grid-template-columns:1.15fr .85fr;gap:70px;align-items:end}.lead p{color:#687b85;font-size:13px;line-height:1.7}.steps{display:grid;grid-template-columns:repeat(4,1fr);margin-top:55px;border-top:1px solid #cfd8dc}.steps article{padding:25px 20px 0 0;border-right:1px solid #d9e0e3;min-height:190px}.steps article:not(:first-child){padding-left:20px}.steps b{font-size:8px;color:#d54d44}.steps h3{font:500 27px Georgia,serif;margin:35px 0 9px}.steps p{color:#6e7f87;font-size:10px;line-height:1.55}
         .measure{background:#071d31;color:white;padding:90px max(20px,calc((100vw - 1180px)/2));display:grid;grid-template-columns:.9fr 1.1fr;gap:80px}.measure>div>p:not(.eye){color:#a7bac6;line-height:1.7;font-size:13px}.metricCards{display:grid;grid-template-columns:1fr 1fr;gap:9px}.metricCards article{border:1px solid #ffffff1b;border-radius:13px;padding:18px;background:#ffffff08}.metricCards span{display:block;color:#b8ff3d;font-size:9px;font-weight:950;margin-bottom:18px}.metricCards b{font:500 20px/1.15 Georgia,serif}.audiences{padding-top:85px}.audGrid{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid #ced7db;border-left:1px solid #ced7db}.audGrid article{min-height:220px;padding:24px;border-right:1px solid #ced7db;border-bottom:1px solid #ced7db}.audGrid h3{font:500 27px/1.05 Georgia,serif;margin:40px 0 12px}.audGrid p{font-size:10px;line-height:1.55;color:#6c7e87}
         .nis2{background:#0c3455;color:white;padding:80px max(20px,calc((100vw - 1180px)/2));display:grid;grid-template-columns:1fr 1fr;gap:80px}.nis2 h2{font-size:clamp(42px,4.5vw,62px)}.nis2>div>p{color:#aec1cc;line-height:1.7;font-size:12px}.nis2 li{font-size:11px;margin:11px 0}.nis2 small{display:block;color:#7f98a7;font-size:9px;line-height:1.55;margin-top:20px}.pilotBand{max-width:1180px;margin:auto;padding:95px 20px;display:flex;justify-content:space-between;align-items:end;gap:50px}.pilotBand h2{font-size:clamp(42px,4.5vw,62px);max-width:730px}.pilotBand>a{background:#071d31;min-width:230px}footer{background:#061624;color:#7e95a4;padding:28px max(20px,calc((100vw - 1180px)/2));display:flex;justify-content:space-between;font-size:9px}footer b{color:white}footer nav{display:flex;gap:15px}footer a{color:#9fb0bb;text-decoration:none}
         @media(max-width:900px){header nav{display:none}.hero{grid-template-columns:1fr;gap:38px;min-height:auto}.heroPhoto{height:440px}.proofIntro,.proofGrid,.lead,.measure,.nis2{grid-template-columns:1fr}.steps,.audGrid{grid-template-columns:1fr 1fr}.hack{grid-template-columns:1fr 1fr}.pilotBand{align-items:flex-start;flex-direction:column}}
-        @media(max-width:560px){header{padding:0 14px}.pilot{padding:9px 11px}.hero{padding:52px 16px 18px}.hero h1{font-size:46px}.heroPhoto{height:360px;border-radius:18px;background-position:56% center}.actions{align-items:flex-start;flex-direction:column}.productProof{padding:68px 16px}.proofGrid{gap:14px}.scenario,.dash{padding:22px}.scenario h3{font-size:31px}.steps,.audGrid,.metricCards{grid-template-columns:1fr}.hack{grid-template-columns:1fr 1fr}.section{padding:70px 16px}.pilotBand{padding:70px 16px}footer{display:grid;gap:17px}footer nav{flex-wrap:wrap}}
+        @media(max-width:560px){header{padding:0 14px}.pilot{padding:9px 11px}.hero{padding:52px 16px 18px}.hero h1{font-size:46px}.heroPhoto{height:360px;border-radius:18px;background-position:center}.actions{align-items:flex-start;flex-direction:column}.productProof{padding:68px 16px}.proofGrid{gap:14px}.scenario,.dash{padding:22px}.scenario h3{font-size:31px}.steps,.audGrid,.metricCards{grid-template-columns:1fr}.hack{grid-template-columns:1fr 1fr}.section{padding:70px 16px}.pilotBand{padding:70px 16px}footer{display:grid;gap:17px}footer nav{flex-wrap:wrap}}
       `}</style>
     </main>
   );
