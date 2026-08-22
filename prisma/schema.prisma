@@ -8,9 +8,6 @@ datasource db {
   directUrl = env("DIRECT_URL")
 }
 
-// Production foundation: PostgreSQL via Supabase. Free-text fields are retained
-// where deck-specific content needs flexibility without weakening runtime validation.
-
 model User {
   id        String   @id @default(cuid())
   email     String   @unique
@@ -21,102 +18,70 @@ model User {
 }
 
 model Scenario {
-  id         String @id @default(cuid())
-  externalId String @unique
-
-  // "travelsafe" | "university" | "workplace" | "school" | "family"
-  edition String
-
-  // Deck-specific content grouping (e.g. "Gaming/Social", "Money").
-  category String?
-
-  // "scenario" (scored solo web) | "wild" (host-mode only, excluded from solo scoring)
-  cardType String @default("scenario")
-  scored   Boolean @default(true)
-
-  // Legacy sequencing bucket. The live 40-card bank model no longer sequences by section.
-  section String?
-
-  // H.A.C.K. pressure key: H=Hurry, A=Authority, C=Comfort, K=Kill-Switch.
-  // Null only for non-scored/wild cards.
-  hackKey String?
-
-  title  String?
-  prompt String
-
-  answersA String
-  answersB String
-  answersC String
-  answersD String // legacy compatibility; scored web scenarios leave D blank
-
-  // Normalized 0..4. Import clamps defensive input; quality CI enforces valid source scores.
-  scoresA Int
-  scoresB Int
-  scoresC Int
-  scoresD Int
-
-  // Stored as comma-separated strings for schema compatibility.
-  safeActions String? // e.g. "A,B"
-  tags        String? // e.g. "travel,phishing,diagnostic"
-
+  id          String   @id @default(cuid())
+  externalId  String   @unique
+  edition     String
+  category    String?
+  cardType    String   @default("scenario")
+  scored      Boolean  @default(true)
+  section     String?
+  hackKey     String?
+  title       String?
+  prompt      String
+  answersA    String
+  answersB    String
+  answersC    String
+  answersD    String
+  scoresA     Int
+  scoresB     Int
+  scoresC     Int
+  scoresD     Int
+  safeActions String?
+  tags        String?
   explanation String?
   proTip      String?
+  active      Boolean  @default(true)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
 
-  active Boolean @default(true)
+  sessionCards    ChallengeSessionCard[]
+  comasyResponses ComasyResponse[]
+  comasyProfile   ComasyScenarioProfile?
+  comasyVersions  ComasyScenarioVersion[]
 
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-
-  sessionCards ChallengeSessionCard[]
+  @@index([edition, active, scored, hackKey])
 }
 
 model ChallengeSession {
-  id     String @id @default(cuid())
-  userId String
-  user   User   @relation(fields: [userId], references: [id])
-
-  // "travelsafe" | "university" | "workplace" | "school" | "family"
-  edition String
-
-  // diagnostic = 8 scored cards (2 per H/A/C/K); full = 24 (6 per key) from a 40-card bank.
-  mode String @default("full")
-
-  // 1-based attempt count for this user + edition + mode.
-  runNumber Int @default(1)
-
-  // "IN_PROGRESS" | "COMPLETED"
-  status String @default("IN_PROGRESS")
-
-  // Flat pointer into cards ordered by orderIndex. Persisting the order prevents refresh reshuffles.
-  currentIndex Int @default(0)
-  scoreTotal   Int @default(0)
-  scoreMax     Int @default(0)
-
-  completedAt DateTime?
-  cards       ChallengeSessionCard[]
-
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  id           String   @id @default(cuid())
+  userId       String
+  user         User     @relation(fields: [userId], references: [id])
+  edition      String
+  mode         String   @default("full")
+  runNumber    Int      @default(1)
+  status       String   @default("IN_PROGRESS")
+  currentIndex Int      @default(0)
+  scoreTotal   Int      @default(0)
+  scoreMax     Int      @default(0)
+  completedAt  DateTime?
+  cards        ChallengeSessionCard[]
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
 
   @@index([userId])
 }
 
 model ChallengeSessionCard {
-  id String @id @default(cuid())
-
-  sessionId String
-  session   ChallengeSession @relation(fields: [sessionId], references: [id], onDelete: Cascade)
-
-  scenarioId String
-  scenario   Scenario @relation(fields: [scenarioId], references: [id])
-
-  orderIndex Int
-
-  answered          Boolean @default(false)
-  selectedAnswerKey String? // "A" | "B" | "C"; D exists only for legacy schema compatibility
-  score             Int?    // 0..4, set once answered
-
-  createdAt DateTime @default(now())
+  id                String           @id @default(cuid())
+  sessionId         String
+  session           ChallengeSession @relation(fields: [sessionId], references: [id], onDelete: Cascade)
+  scenarioId        String
+  scenario          Scenario         @relation(fields: [scenarioId], references: [id])
+  orderIndex        Int
+  answered          Boolean          @default(false)
+  selectedAnswerKey String?
+  score             Int?
+  createdAt         DateTime         @default(now())
 
   @@unique([sessionId, orderIndex])
   @@index([scenarioId])
@@ -124,17 +89,328 @@ model ChallengeSessionCard {
 }
 
 model Entitlement {
-  id     String @id @default(cuid())
-  userId String
-  user   User   @relation(fields: [userId], references: [id])
-
-  tier    String  // "single" | "unlimited"
-  edition String? // set when tier = "single"; null covers all editions
-
-  source         String @default("shopify")
-  shopifyOrderId String @unique
-  status         String @default("active") // "active" | "revoked"
+  id             String   @id @default(cuid())
+  userId         String
+  user           User     @relation(fields: [userId], references: [id])
+  tier           String
+  edition        String?
+  source         String   @default("shopify")
+  shopifyOrderId String   @unique
+  status         String   @default("active")
   createdAt      DateTime @default(now())
 
   @@index([userId])
+}
+
+model ComasyOrganization {
+  id                 String   @id @default(cuid())
+  name               String
+  slug               String   @unique
+  industry           String?
+  country            String?
+  employees          Int?
+  nis2Relevant       Boolean  @default(false)
+  accountOwner       String?
+  source             String?
+  persona            String?
+  stage              String   @default("TARGET_ACCOUNT")
+  currentPlatform    String?
+  estimatedValue     Int      @default(0)
+  nextAction         String?
+  lastContactAt      DateTime?
+  customerHealth     String   @default("PROSPECT")
+  accessCodeHash     String?
+  accessCodeSalt     String?
+  contractStart      DateTime?
+  contractEnd        DateTime?
+  seats              Int?
+  arr                Int      @default(0)
+  renewalDate        DateTime?
+  expansionPotential String?
+  brandingName       String?
+  retentionDays      Int      @default(365)
+  isDemo             Boolean  @default(false)
+  createdAt          DateTime @default(now())
+  updatedAt          DateTime @updatedAt
+
+  contacts      ComasyContact[]
+  cohorts       ComasyCohort[]
+  participants  ComasyParticipant[]
+  campaigns     ComasyCampaign[]
+  responses     ComasyResponse[]
+  opportunities ComasyOpportunity[]
+  pilots        ComasyPilot[]
+  activities    ComasyActivity[]
+  revenueEvents ComasyRevenueEvent[]
+  leads         ComasyLead[]
+
+  @@index([stage])
+  @@index([customerHealth])
+  @@index([renewalDate])
+}
+
+model ComasyContact {
+  id                 String   @id @default(cuid())
+  organizationId     String
+  organization       ComasyOrganization @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+  firstName          String
+  lastName           String
+  jobTitle           String?
+  persona            String?
+  email              String
+  linkedIn           String?
+  buyingRole         String?
+  decisionMaker      Boolean  @default(false)
+  champion           Boolean  @default(false)
+  technicalEvaluator Boolean  @default(false)
+  procurement        Boolean  @default(false)
+  notes              String?
+  createdAt          DateTime @default(now())
+  updatedAt          DateTime @updatedAt
+
+  activities ComasyActivity[]
+
+  @@index([organizationId])
+  @@index([email])
+}
+
+model ComasyCohort {
+  id             String             @id @default(cuid())
+  organizationId String
+  organization   ComasyOrganization @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+  name           String
+  department     String?
+  country        String?
+  role           String?
+  active         Boolean            @default(true)
+  createdAt      DateTime           @default(now())
+  updatedAt      DateTime           @updatedAt
+
+  participants ComasyParticipant[]
+  campaigns    ComasyCampaign[]
+  pilots       ComasyPilot[]
+
+  @@unique([organizationId, name])
+  @@index([organizationId])
+}
+
+model ComasyParticipant {
+  id             String             @id @default(cuid())
+  organizationId String
+  organization   ComasyOrganization @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+  cohortId       String?
+  cohort         ComasyCohort?      @relation(fields: [cohortId], references: [id], onDelete: SetNull)
+  firstName      String
+  lastName       String
+  email          String
+  department     String?
+  role           String?
+  status         String             @default("INVITED")
+  accessToken    String             @unique
+  invitedAt      DateTime           @default(now())
+  onboardedAt    DateTime?
+  completedAt    DateTime?
+  createdAt      DateTime           @default(now())
+  updatedAt      DateTime           @updatedAt
+
+  responses ComasyResponse[]
+
+  @@unique([organizationId, email])
+  @@index([organizationId])
+  @@index([cohortId])
+  @@index([status])
+}
+
+model ComasyCampaign {
+  id             String             @id @default(cuid())
+  organizationId String
+  organization   ComasyOrganization @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+  cohortId       String?
+  cohort         ComasyCohort?      @relation(fields: [cohortId], references: [id], onDelete: SetNull)
+  name           String
+  status         String             @default("DRAFT")
+  designation    String             @default("PRACTICE")
+  scheduledAt    DateTime?
+  startAt        DateTime?
+  endAt          DateTime?
+  roleFocus      String?
+  hackFocus      String?
+  scenarioIds    String
+  createdAt      DateTime           @default(now())
+  updatedAt      DateTime           @updatedAt
+
+  responses ComasyResponse[]
+
+  @@index([organizationId])
+  @@index([cohortId])
+  @@index([status])
+  @@index([designation])
+}
+
+model ComasyResponse {
+  id                String             @id @default(cuid())
+  organizationId    String
+  organization      ComasyOrganization @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+  campaignId        String
+  campaign          ComasyCampaign     @relation(fields: [campaignId], references: [id], onDelete: Cascade)
+  participantId     String
+  participant       ComasyParticipant  @relation(fields: [participantId], references: [id], onDelete: Cascade)
+  scenarioId        String
+  scenario          Scenario           @relation(fields: [scenarioId], references: [id])
+  selectedAnswerKey String
+  score             Int
+  pause             Boolean
+  verification      Boolean
+  impulse           Boolean
+  hackKey           String
+  createdAt         DateTime           @default(now())
+
+  @@unique([campaignId, participantId, scenarioId])
+  @@index([organizationId])
+  @@index([campaignId])
+  @@index([participantId])
+  @@index([scenarioId])
+  @@index([hackKey])
+  @@index([createdAt])
+}
+
+model ComasyOpportunity {
+  id             String             @id @default(cuid())
+  organizationId String
+  organization   ComasyOrganization @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+  name           String
+  stage          String             @default("TARGET_ACCOUNT")
+  estimatedValue Int                @default(0)
+  probability    Int                @default(10)
+  expectedClose  DateTime?
+  nextAction     String?
+  objection      String?
+  owner          String?
+  lostReason     String?
+  createdAt      DateTime           @default(now())
+  updatedAt      DateTime           @updatedAt
+
+  @@index([organizationId])
+  @@index([stage])
+  @@index([expectedClose])
+}
+
+model ComasyPilot {
+  id               String             @id @default(cuid())
+  organizationId   String
+  organization     ComasyOrganization @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+  cohortId         String?
+  cohort           ComasyCohort?      @relation(fields: [cohortId], references: [id], onDelete: SetNull)
+  startAt          DateTime?
+  endAt            DateTime?
+  objectives       String?
+  successCriteria  String?
+  health           String             @default("PLANNED")
+  customerFeedback String?
+  finalReviewDate  DateTime?
+  conversionStatus String             @default("OPEN")
+  createdAt        DateTime           @default(now())
+  updatedAt        DateTime           @updatedAt
+
+  @@index([organizationId])
+  @@index([cohortId])
+  @@index([conversionStatus])
+  @@index([finalReviewDate])
+}
+
+model ComasyActivity {
+  id             String              @id @default(cuid())
+  organizationId String?
+  organization   ComasyOrganization? @relation(fields: [organizationId], references: [id], onDelete: SetNull)
+  contactId      String?
+  contact        ComasyContact?      @relation(fields: [contactId], references: [id], onDelete: SetNull)
+  type           String
+  source         String?
+  medium         String?
+  campaign       String?
+  page           String?
+  persona        String?
+  metadata       String?
+  createdAt      DateTime            @default(now())
+
+  @@index([organizationId])
+  @@index([contactId])
+  @@index([type])
+  @@index([source])
+  @@index([createdAt])
+}
+
+model ComasyRevenueEvent {
+  id             String             @id @default(cuid())
+  organizationId String
+  organization   ComasyOrganization @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+  type           String
+  amount         Int
+  source         String             @default("manual")
+  occurredAt     DateTime           @default(now())
+  note           String?
+  createdAt      DateTime           @default(now())
+
+  @@index([organizationId])
+  @@index([type])
+  @@index([occurredAt])
+}
+
+model ComasyLead {
+  id               String              @id @default(cuid())
+  organizationId   String?
+  organization     ComasyOrganization? @relation(fields: [organizationId], references: [id], onDelete: SetNull)
+  firstName        String
+  lastName         String
+  workEmail        String
+  organizationName String
+  role             String?
+  organizationSize String?
+  primaryObjective String?
+  currentPlatform  String?
+  notes            String?
+  source           String?
+  medium           String?
+  campaign         String?
+  landingPage      String?
+  status           String              @default("NEW")
+  createdAt        DateTime            @default(now())
+  updatedAt        DateTime            @updatedAt
+
+  @@index([organizationId])
+  @@index([workEmail])
+  @@index([status])
+  @@index([source])
+  @@index([createdAt])
+}
+
+model ComasyScenarioProfile {
+  id               String   @id @default(cuid())
+  scenarioId       String   @unique
+  scenario         Scenario @relation(fields: [scenarioId], references: [id], onDelete: Cascade)
+  segment          String   @default("B2B")
+  industries       String?
+  roles            String?
+  riskType         String?
+  difficulty       String   @default("MEDIUM")
+  pauseKeys        String?
+  verificationKeys String?
+  impulseKeys      String?
+  version          Int      @default(1)
+  active           Boolean  @default(true)
+  createdAt        DateTime @default(now())
+  updatedAt        DateTime @updatedAt
+}
+
+model ComasyScenarioVersion {
+  id         String   @id @default(cuid())
+  scenarioId String
+  scenario   Scenario @relation(fields: [scenarioId], references: [id], onDelete: Cascade)
+  version    Int
+  snapshot   String
+  createdBy  String?
+  createdAt  DateTime @default(now())
+
+  @@unique([scenarioId, version])
+  @@index([scenarioId])
 }
