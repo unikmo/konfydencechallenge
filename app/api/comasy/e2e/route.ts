@@ -19,6 +19,31 @@ async function authorize(request: NextRequest) {
   await verifyGitHubActionsOidc(request.headers.get("authorization"));
 }
 
+async function scenarioVisibilityReason() {
+  try {
+    const [row] = await prisma.$queryRaw<Array<{
+      visible_scored: number;
+      supabase: boolean;
+      bypass_rls: boolean;
+    }>>`
+      SELECT
+        (SELECT COUNT(*)::int FROM "Scenario" WHERE active = true AND scored = true) AS visible_scored,
+        (
+          EXISTS (SELECT 1 FROM pg_namespace WHERE nspname = 'auth')
+          AND EXISTS (SELECT 1 FROM pg_namespace WHERE nspname = 'storage')
+        ) AS supabase,
+        COALESCE(
+          (SELECT rolbypassrls FROM pg_roles WHERE rolname = current_user),
+          false
+        ) AS bypass_rls
+    `;
+
+    return `scenario_visibility_${row?.visible_scored ?? 0}_supabase_${row?.supabase ? 1 : 0}_bypass_${row?.bypass_rls ? 1 : 0}`;
+  } catch {
+    return "scenario_visibility_diagnostic_failed";
+  }
+}
+
 export async function POST(request: NextRequest) {
   try {
     await authorize(request);
@@ -45,7 +70,13 @@ export async function POST(request: NextRequest) {
     select: { id: true, externalId: true, active: true, scored: true },
   });
   if (!scenario?.active || !scenario.scored) {
-    return NextResponse.json({ error: "e2e_scenario_unavailable" }, { status: 503 });
+    return NextResponse.json(
+      {
+        error: "e2e_scenario_unavailable",
+        reason: await scenarioVisibilityReason(),
+      },
+      { status: 503 },
+    );
   }
 
   const { hash, salt } = hashAccessCode(ACCESS_CODE);
