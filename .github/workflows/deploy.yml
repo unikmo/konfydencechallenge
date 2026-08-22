@@ -69,7 +69,7 @@ jobs:
           echo "Scenario banks: 5 x 40"
           echo "Free diagnostic: 8 cards / 2 per H.A.C.K. dimension"
           echo "Full run: 24 cards / 6 per H.A.C.K. dimension"
-          echo "H.A.C.K.: Hurry / Authority / Comfort / Kill-Switch"
+          echo "H.A.C.K.: Hurry / Authority / Comfort / Critical Action"
           echo "Unit tests: passed"
           echo "ESLint: zero warnings"
           echo "TypeScript: passed"
