@@ -12,7 +12,7 @@ const COHORT_ID = "e2e-cohort-a";
 const PARTICIPANT_ID = "e2e-participant-a1";
 const PARTICIPANT_TOKEN = "e2e-token-a1";
 const CAMPAIGN_ID = "e2e-http-a";
-const SCENARIO_ID = "workplace-wrk-01";
+const SCENARIO_EXTERNAL_ID = "workplace-wrk-01";
 const ACCESS_CODE = "E2E-Access-2026";
 
 async function authorize(request: NextRequest) {
@@ -41,8 +41,8 @@ export async function POST(request: NextRequest) {
   }
 
   const scenario = await prisma.scenario.findUnique({
-    where: { id: SCENARIO_ID },
-    select: { id: true, active: true, scored: true },
+    where: { externalId: SCENARIO_EXTERNAL_ID },
+    select: { id: true, externalId: true, active: true, scored: true },
   });
   if (!scenario?.active || !scenario.scored) {
     return NextResponse.json({ error: "e2e_scenario_unavailable" }, { status: 503 });
@@ -105,7 +105,7 @@ export async function POST(request: NextRequest) {
           designation: "PRACTICE",
           roleFocus: "Release validation",
           hackFocus: "A",
-          scenarioIds: SCENARIO_ID,
+          scenarioIds: scenario.id,
         },
       });
     });
@@ -114,7 +114,14 @@ export async function POST(request: NextRequest) {
   }
 
   return NextResponse.json(
-    { ok: true, organization: "e2e-alpha", participantToken: PARTICIPANT_TOKEN, campaignId: CAMPAIGN_ID },
+    {
+      ok: true,
+      organization: "e2e-alpha",
+      participantToken: PARTICIPANT_TOKEN,
+      campaignId: CAMPAIGN_ID,
+      scenarioId: scenario.id,
+      scenarioExternalId: scenario.externalId,
+    },
     { headers: { "Cache-Control": "no-store" } },
   );
 }
