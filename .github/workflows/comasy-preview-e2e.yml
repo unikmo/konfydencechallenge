@@ -21,7 +21,7 @@ jobs:
         run: |
           set -euo pipefail
           for attempt in $(seq 1 6); do
-            code=$(curl -sS -o health.json -w '%{http_code}' "$BASE_URL/api/health/comasy" || true)
+            code=$(curl -LsS -o health.json -w '%{http_code}' "$BASE_URL/api/health/comasy" || true)
             echo "attempt=$attempt status=$code"
             if [ "$code" = "200" ] && grep -q '"ready":true' health.json; then
               cat health.json
@@ -37,11 +37,11 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          curl -fsS "$BASE_URL/comasy" -o comasy.html
+          curl -LfsS "$BASE_URL/comasy" -o comasy.html
           grep -qi 'CoMaSy' comasy.html
-          curl -fsS "$BASE_URL/comasy/pilot" -o pilot.html
+          curl -LfsS "$BASE_URL/comasy/pilot" -o pilot.html
           grep -qi 'pilot' pilot.html
-          curl -fsS "$BASE_URL/comasy/dashboard/login" -o login.html
+          curl -LfsS "$BASE_URL/comasy/dashboard/login" -o login.html
           grep -qi 'workspace' login.html
 
       - name: Customer tenant boundary and authenticated dashboard
@@ -61,10 +61,10 @@ jobs:
             --data-urlencode 'next=/comasy/dashboard/insights?period=90')
           [ "$login" = "303" ] || { echo "Expected login 303, got $login" >&2; exit 1; }
 
-          curl -fsS -b cookies.txt "$BASE_URL/comasy/dashboard" -o dashboard.html
+          curl -LfsS -b cookies.txt "$BASE_URL/comasy/dashboard" -o dashboard.html
           grep -qi 'Behaviour at a glance' dashboard.html
 
-          curl -fsS -b cookies.txt "$BASE_URL/comasy/dashboard/insights?period=90" -o insights.html
+          curl -LfsS -b cookies.txt "$BASE_URL/comasy/dashboard/insights?period=90" -o insights.html
           grep -qi 'Behaviour over time' insights.html
           grep -qi '90 days' insights.html
 
@@ -72,16 +72,16 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          curl -fsS -b cookies.txt "$BASE_URL/api/comasy/reports/csv?type=executive&period=90" -o report.csv
+          curl -LfsS -b cookies.txt "$BASE_URL/api/comasy/reports/csv?type=executive&period=90" -o report.csv
           grep -qi 'Pause Adoption' report.csv
-          curl -fsS -b cookies.txt "$BASE_URL/api/comasy/reports/pdf?type=compliance&period=90" -o report.pdf
+          curl -LfsS -b cookies.txt "$BASE_URL/api/comasy/reports/pdf?type=compliance&period=90" -o report.pdf
           head -c 4 report.pdf | grep -q '%PDF'
 
       - name: Participant practice and persisted response
         shell: bash
         run: |
           set -euo pipefail
-          curl -fsS "$BASE_URL/comasy/practice/e2e-token-a1?campaign=e2e-http-a" -o practice.html
+          curl -LfsS "$BASE_URL/comasy/practice/e2e-token-a1?campaign=e2e-http-a" -o practice.html
           grep -qi 'HTTP Preview Practice' practice.html
           grep -qi 'Choose the strongest next move' practice.html
 
@@ -92,5 +92,5 @@ jobs:
             --data-urlencode 'selectedAnswerKey=A')
           [ "$submitted" = "303" ] || { echo "Expected response redirect 303, got $submitted" >&2; exit 1; }
 
-          curl -fsS "$BASE_URL/comasy/practice/e2e-token-a1?campaign=e2e-http-a&feedback=1" -o feedback.html
+          curl -LfsS "$BASE_URL/comasy/practice/e2e-token-a1?campaign=e2e-http-a&feedback=1" -o feedback.html
           grep -qi 'YOUR LAST MOVE' feedback.html
