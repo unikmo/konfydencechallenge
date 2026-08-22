@@ -10,6 +10,7 @@ on:
 permissions:
   contents: read
   statuses: write
+  id-token: write
 
 jobs:
   http-e2e:
@@ -19,6 +20,7 @@ jobs:
       PREVIEW_URL: https://05akonfydencechallenge-git-comasy-platform-v1-unikmos-projects.vercel.app
       PRODUCTION_URL: https://konfydence.com
       VERCEL_BYPASS: ${{ secrets.VERCEL_AUTOMATION_BYPASS_SECRET }}
+      OIDC_AUDIENCE: konfydence-comasy-e2e
 
     steps:
       - name: Publish pending HTTP E2E status
@@ -49,9 +51,7 @@ jobs:
           fi
 
           headers=()
-          if [ -n "${VERCEL_BYPASS:-}" ]; then
-            headers=(-H "x-vercel-protection-bypass: $VERCEL_BYPASS")
-          fi
+          if [ -n "${VERCEL_BYPASS:-}" ]; then headers=(-H "x-vercel-protection-bypass: $VERCEL_BYPASS"); fi
 
           for attempt in $(seq 1 "$MAX_TRIES"); do
             : > health-headers.txt
@@ -63,12 +63,11 @@ jobs:
             if [ "$code" = "200" ] && grep -q '"ready":true' health-body.txt; then
               echo "base_url=$BASE_URL" >> "$GITHUB_OUTPUT"
               echo "runnable=true" >> "$GITHUB_OUTPUT"
-              echo "CoMaSy backend ready at $BASE_URL"
               exit 0
             fi
 
             if [ "${{ github.event_name }}" = "pull_request" ] && [ "$code" = "302" ] && echo "$location" | grep -q 'vercel.com/sso-api'; then
-              echo "::notice::Vercel preview authentication blocked public CI access. Add VERCEL_AUTOMATION_BYPASS_SECRET to run the same HTTP suite before merge. Full HTTP E2E runs automatically against production after merge."
+              echo "::notice::Protected Vercel preview skipped for HTTP stateful checks; the same suite runs against production after merge."
               echo "base_url=$BASE_URL" >> "$GITHUB_OUTPUT"
               echo "runnable=false" >> "$GITHUB_OUTPUT"
               exit 0
@@ -125,28 +124,55 @@ jobs:
             "https://api.github.com/repos/${{ github.repository }}/statuses/${{ github.sha }}" \
             -d "{\"state\":\"$state\",\"context\":\"CoMaSy Public Pages E2E\",\"description\":\"Public pages stage: $OUTCOME\"}"
 
-      - name: Customer tenant boundary and authenticated dashboard
-        id: auth
-        if: steps.preflight.outputs.runnable == 'true'
+      - name: Create ephemeral production fixture
+        id: fixture
+        if: github.event_name == 'push' && steps.preflight.outputs.runnable == 'true'
         shell: bash
         env:
           BASE_URL: ${{ steps.preflight.outputs.base_url }}
         run: |
           set -euo pipefail
-          headers=(); [ -n "${VERCEL_BYPASS:-}" ] && headers=(-H "x-vercel-protection-bypass: $VERCEL_BYPASS")
-          unauth=$(curl "${headers[@]}" -sS -o /dev/null -w '%{http_code}' "$BASE_URL/comasy/dashboard")
+          token=$(curl -fsS \
+            -H "Authorization: Bearer $ACTIONS_ID_TOKEN_REQUEST_TOKEN" \
+            "${ACTIONS_ID_TOKEN_REQUEST_URL}&audience=${OIDC_AUDIENCE}" | jq -r '.value')
+          [ -n "$token" ] && [ "$token" != "null" ]
+          curl -fsS -X POST -H "Authorization: Bearer $token" "$BASE_URL/api/comasy/e2e?action=setup" -o fixture.json
+          grep -q '"ok":true' fixture.json
+
+      - name: Publish fixture stage
+        if: always() && github.event_name == 'push' && steps.fixture.outcome != 'skipped'
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+          OUTCOME: ${{ steps.fixture.outcome }}
+        run: |
+          set -euo pipefail
+          [ "$OUTCOME" = "success" ] && state=success || state=failure
+          curl -fsS -X POST -H "Authorization: Bearer $GH_TOKEN" -H "Accept: application/vnd.github+json" -H "X-GitHub-Api-Version: 2022-11-28" \
+            "https://api.github.com/repos/${{ github.repository }}/statuses/${{ github.sha }}" \
+            -d "{\"state\":\"$state\",\"context\":\"CoMaSy Fixture E2E\",\"description\":\"Ephemeral fixture stage: $OUTCOME\"}"
+
+      - name: Customer tenant boundary and authenticated dashboard
+        id: auth
+        if: github.event_name == 'push' && steps.fixture.outcome == 'success'
+        shell: bash
+        env:
+          BASE_URL: ${{ steps.preflight.outputs.base_url }}
+        run: |
+          set -euo pipefail
+          unauth=$(curl -sS -o /dev/null -w '%{http_code}' "$BASE_URL/comasy/dashboard")
           case "$unauth" in 302|303|307|308) ;; *) echo "Expected unauthenticated dashboard redirect, got $unauth" >&2; exit 1;; esac
 
-          login=$(curl "${headers[@]}" -sS -c cookies.txt -o /dev/null -w '%{http_code}' \
+          login=$(curl -sS -c cookies.txt -o /dev/null -w '%{http_code}' \
             -X POST "$BASE_URL/api/comasy/auth/login" \
             --data-urlencode 'slug=e2e-alpha' \
             --data-urlencode 'accessCode=E2E-Access-2026' \
             --data-urlencode 'next=/comasy/dashboard/insights?period=90')
           [ "$login" = "303" ] || { echo "Expected login 303, got $login" >&2; exit 1; }
 
-          curl "${headers[@]}" -LfsS -b cookies.txt "$BASE_URL/comasy/dashboard" -o dashboard.html
+          curl -LfsS -b cookies.txt "$BASE_URL/comasy/dashboard" -o dashboard.html
           grep -qi 'Behaviour at a glance' dashboard.html
-          curl "${headers[@]}" -LfsS -b cookies.txt "$BASE_URL/comasy/dashboard/insights?period=90" -o insights.html
+          curl -LfsS -b cookies.txt "$BASE_URL/comasy/dashboard/insights?period=90" -o insights.html
           grep -qi 'Behaviour over time' insights.html
           grep -qi '90 days' insights.html
 
@@ -165,16 +191,15 @@ jobs:
 
       - name: Evidence exports
         id: reports
-        if: steps.preflight.outputs.runnable == 'true'
+        if: github.event_name == 'push' && steps.auth.outcome == 'success'
         shell: bash
         env:
           BASE_URL: ${{ steps.preflight.outputs.base_url }}
         run: |
           set -euo pipefail
-          headers=(); [ -n "${VERCEL_BYPASS:-}" ] && headers=(-H "x-vercel-protection-bypass: $VERCEL_BYPASS")
-          curl "${headers[@]}" -LfsS -b cookies.txt "$BASE_URL/api/comasy/reports/csv?type=executive&period=90" -o report.csv
+          curl -LfsS -b cookies.txt "$BASE_URL/api/comasy/reports/csv?type=executive&period=90" -o report.csv
           grep -qi 'Pause Adoption' report.csv
-          curl "${headers[@]}" -LfsS -b cookies.txt "$BASE_URL/api/comasy/reports/pdf?type=compliance&period=90" -o report.pdf
+          curl -LfsS -b cookies.txt "$BASE_URL/api/comasy/reports/pdf?type=compliance&period=90" -o report.pdf
           head -c 4 report.pdf | grep -q '%PDF'
 
       - name: Publish reports stage
@@ -192,25 +217,24 @@ jobs:
 
       - name: Participant practice and persisted response
         id: practice
-        if: steps.preflight.outputs.runnable == 'true'
+        if: github.event_name == 'push' && steps.reports.outcome == 'success'
         shell: bash
         env:
           BASE_URL: ${{ steps.preflight.outputs.base_url }}
         run: |
           set -euo pipefail
-          headers=(); [ -n "${VERCEL_BYPASS:-}" ] && headers=(-H "x-vercel-protection-bypass: $VERCEL_BYPASS")
-          curl "${headers[@]}" -LfsS "$BASE_URL/comasy/practice/e2e-token-a1?campaign=e2e-http-a" -o practice.html
+          curl -LfsS "$BASE_URL/comasy/practice/e2e-token-a1?campaign=e2e-http-a" -o practice.html
           grep -qi 'HTTP Release Practice' practice.html
           grep -qi 'Choose the strongest next move' practice.html
 
-          submitted=$(curl "${headers[@]}" -sS -o /dev/null -w '%{http_code}' -X POST "$BASE_URL/api/comasy/practice/respond" \
+          submitted=$(curl -sS -o /dev/null -w '%{http_code}' -X POST "$BASE_URL/api/comasy/practice/respond" \
             --data-urlencode 'token=e2e-token-a1' \
             --data-urlencode 'campaignId=e2e-http-a' \
             --data-urlencode 'scenarioId=workplace-wrk-01' \
             --data-urlencode 'selectedAnswerKey=A')
           [ "$submitted" = "303" ] || { echo "Expected response redirect 303, got $submitted" >&2; exit 1; }
 
-          curl "${headers[@]}" -LfsS "$BASE_URL/comasy/practice/e2e-token-a1?campaign=e2e-http-a&feedback=1" -o feedback.html
+          curl -LfsS "$BASE_URL/comasy/practice/e2e-token-a1?campaign=e2e-http-a&feedback=1" -o feedback.html
           grep -qi 'YOUR LAST MOVE' feedback.html
 
       - name: Publish practice stage
@@ -225,6 +249,34 @@ jobs:
           curl -fsS -X POST -H "Authorization: Bearer $GH_TOKEN" -H "Accept: application/vnd.github+json" -H "X-GitHub-Api-Version: 2022-11-28" \
             "https://api.github.com/repos/${{ github.repository }}/statuses/${{ github.sha }}" \
             -d "{\"state\":\"$state\",\"context\":\"CoMaSy Practice E2E\",\"description\":\"Practice/persistence stage: $OUTCOME\"}"
+
+      - name: Remove ephemeral production fixture
+        id: cleanup
+        if: always() && github.event_name == 'push' && steps.preflight.outputs.runnable == 'true'
+        shell: bash
+        env:
+          BASE_URL: ${{ steps.preflight.outputs.base_url }}
+        run: |
+          set -euo pipefail
+          token=$(curl -fsS \
+            -H "Authorization: Bearer $ACTIONS_ID_TOKEN_REQUEST_TOKEN" \
+            "${ACTIONS_ID_TOKEN_REQUEST_URL}&audience=${OIDC_AUDIENCE}" | jq -r '.value')
+          [ -n "$token" ] && [ "$token" != "null" ]
+          curl -fsS -X POST -H "Authorization: Bearer $token" "$BASE_URL/api/comasy/e2e?action=cleanup" -o cleanup.json
+          grep -q '"cleaned":true' cleanup.json
+
+      - name: Publish cleanup stage
+        if: always() && github.event_name == 'push' && steps.cleanup.outcome != 'skipped'
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+          OUTCOME: ${{ steps.cleanup.outcome }}
+        run: |
+          set -euo pipefail
+          [ "$OUTCOME" = "success" ] && state=success || state=failure
+          curl -fsS -X POST -H "Authorization: Bearer $GH_TOKEN" -H "Accept: application/vnd.github+json" -H "X-GitHub-Api-Version: 2022-11-28" \
+            "https://api.github.com/repos/${{ github.repository }}/statuses/${{ github.sha }}" \
+            -d "{\"state\":\"$state\",\"context\":\"CoMaSy Cleanup E2E\",\"description\":\"Fixture cleanup stage: $OUTCOME\"}"
 
       - name: Publish HTTP E2E commit status
         if: always()
