@@ -12,7 +12,7 @@ jobs:
   preview-e2e:
     if: github.head_ref == 'comasy-platform-v1' || github.ref_name == 'comasy-platform-v1'
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 5
     env:
       BASE_URL: https://05akonfydencechallenge-git-comasy-platform-v1-unikmos-projects.vercel.app
     steps:
@@ -20,14 +20,14 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          for attempt in $(seq 1 36); do
+          for attempt in $(seq 1 6); do
             code=$(curl -sS -o health.json -w '%{http_code}' "$BASE_URL/api/health/comasy" || true)
             echo "attempt=$attempt status=$code"
             if [ "$code" = "200" ] && grep -q '"ready":true' health.json; then
               cat health.json
               exit 0
             fi
-            sleep 10
+            sleep 5
           done
           echo 'CoMaSy preview backend did not become ready.' >&2
           cat health.json || true
