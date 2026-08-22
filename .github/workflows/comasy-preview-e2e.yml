@@ -1,0 +1,96 @@
+name: CoMaSy Preview E2E
+
+on:
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  preview-e2e:
+    if: github.head_ref == 'comasy-platform-v1' || github.ref_name == 'comasy-platform-v1'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    env:
+      BASE_URL: https://05akonfydencechallenge-git-comasy-platform-v1-unikmos-projects.vercel.app
+    steps:
+      - name: Wait for deployed CoMaSy backend
+        shell: bash
+        run: |
+          set -euo pipefail
+          for attempt in $(seq 1 36); do
+            code=$(curl -sS -o health.json -w '%{http_code}' "$BASE_URL/api/health/comasy" || true)
+            echo "attempt=$attempt status=$code"
+            if [ "$code" = "200" ] && grep -q '"ready":true' health.json; then
+              cat health.json
+              exit 0
+            fi
+            sleep 10
+          done
+          echo 'CoMaSy preview backend did not become ready.' >&2
+          cat health.json || true
+          exit 1
+
+      - name: Public acquisition pages
+        shell: bash
+        run: |
+          set -euo pipefail
+          curl -fsS "$BASE_URL/comasy" -o comasy.html
+          grep -qi 'CoMaSy' comasy.html
+          curl -fsS "$BASE_URL/comasy/pilot" -o pilot.html
+          grep -qi 'pilot' pilot.html
+          curl -fsS "$BASE_URL/comasy/dashboard/login" -o login.html
+          grep -qi 'workspace' login.html
+
+      - name: Customer tenant boundary and authenticated dashboard
+        shell: bash
+        run: |
+          set -euo pipefail
+          unauth=$(curl -sS -o /dev/null -w '%{http_code}' "$BASE_URL/comasy/dashboard")
+          case "$unauth" in
+            302|303|307|308) ;;
+            *) echo "Expected unauthenticated dashboard redirect, got $unauth" >&2; exit 1;;
+          esac
+
+          login=$(curl -sS -c cookies.txt -o /dev/null -w '%{http_code}' \
+            -X POST "$BASE_URL/api/comasy/auth/login" \
+            --data-urlencode 'slug=e2e-alpha' \
+            --data-urlencode 'accessCode=E2E-Access-2026' \
+            --data-urlencode 'next=/comasy/dashboard/insights?period=90')
+          [ "$login" = "303" ] || { echo "Expected login 303, got $login" >&2; exit 1; }
+
+          curl -fsS -b cookies.txt "$BASE_URL/comasy/dashboard" -o dashboard.html
+          grep -qi 'Behaviour at a glance' dashboard.html
+
+          curl -fsS -b cookies.txt "$BASE_URL/comasy/dashboard/insights?period=90" -o insights.html
+          grep -qi 'Behaviour over time' insights.html
+          grep -qi '90 days' insights.html
+
+      - name: Evidence exports
+        shell: bash
+        run: |
+          set -euo pipefail
+          curl -fsS -b cookies.txt "$BASE_URL/api/comasy/reports/csv?type=executive&period=90" -o report.csv
+          grep -qi 'Pause Adoption' report.csv
+          curl -fsS -b cookies.txt "$BASE_URL/api/comasy/reports/pdf?type=compliance&period=90" -o report.pdf
+          head -c 4 report.pdf | grep -q '%PDF'
+
+      - name: Participant practice and persisted response
+        shell: bash
+        run: |
+          set -euo pipefail
+          curl -fsS "$BASE_URL/comasy/practice/e2e-token-a1?campaign=e2e-http-a" -o practice.html
+          grep -qi 'HTTP Preview Practice' practice.html
+          grep -qi 'Choose the strongest next move' practice.html
+
+          submitted=$(curl -sS -o /dev/null -w '%{http_code}' -X POST "$BASE_URL/api/comasy/practice/respond" \
+            --data-urlencode 'token=e2e-token-a1' \
+            --data-urlencode 'campaignId=e2e-http-a' \
+            --data-urlencode 'scenarioId=workplace-wrk-01' \
+            --data-urlencode 'selectedAnswerKey=A')
+          [ "$submitted" = "303" ] || { echo "Expected response redirect 303, got $submitted" >&2; exit 1; }
+
+          curl -fsS "$BASE_URL/comasy/practice/e2e-token-a1?campaign=e2e-http-a&feedback=1" -o feedback.html
+          grep -qi 'YOUR LAST MOVE' feedback.html
