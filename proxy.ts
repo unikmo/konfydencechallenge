@@ -1,7 +1,8 @@
 import { NextRequest, NextResponse } from "next/server";
 
-// Gates /admin with HTTP Basic Auth. The route fails closed if credentials are
-// not configured, so a missing environment variable can never expose admin.
+// Gates the internal Konfydence OS UI and every internal write API with HTTP
+// Basic Auth. It fails closed when credentials are absent. Customer CoMaSy
+// routes use their own signed tenant session and never pass through this gate.
 export function proxy(request: NextRequest) {
   const adminUser = process.env.ADMIN_USER;
   const adminPassword = process.env.ADMIN_PASSWORD;
@@ -27,10 +28,10 @@ export function proxy(request: NextRequest) {
 
   return new NextResponse("Authentication required.", {
     status: 401,
-    headers: { "WWW-Authenticate": 'Basic realm="Konfydence Admin"' },
+    headers: { "WWW-Authenticate": 'Basic realm="Konfydence OS"' },
   });
 }
 
 export const config = {
-  matcher: "/admin/:path*",
+  matcher: ["/admin/:path*", "/api/admin/:path*"],
 };
