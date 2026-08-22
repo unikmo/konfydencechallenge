@@ -1,0 +1,74 @@
+name: CoMaSy OIDC Diagnostic
+
+on:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+  statuses: write
+  id-token: write
+
+jobs:
+  oidc-diagnostic:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    env:
+      BASE_URL: https://konfydence.com
+      OIDC_AUDIENCE: konfydence-comasy-e2e
+
+    steps:
+      - name: Wait for this exact production SHA
+        shell: bash
+        run: |
+          set -euo pipefail
+          for attempt in $(seq 1 36); do
+            curl -sS -o health.json "$BASE_URL/api/health/comasy" || true
+            ready=$(jq -r '.ready // false' health.json 2>/dev/null || echo false)
+            deployed_sha=$(jq -r '.releaseSha // empty' health.json 2>/dev/null || true)
+            if [ "$ready" = "true" ] && [ "$deployed_sha" = "$GITHUB_SHA" ]; then exit 0; fi
+            sleep 10
+          done
+          exit 1
+
+      - name: Diagnose fixture authorization/setup
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          token=$(curl -fsS \
+            -H "Authorization: Bearer $ACTIONS_ID_TOKEN_REQUEST_TOKEN" \
+            "${ACTIONS_ID_TOKEN_REQUEST_URL}&audience=${OIDC_AUDIENCE}" | jq -r '.value')
+          [ -n "$token" ] && [ "$token" != "null" ]
+
+          status=$(curl -sS -o fixture.json -w '%{http_code}' -X POST \
+            -H "Authorization: Bearer $token" \
+            "$BASE_URL/api/comasy/e2e?action=setup" || true)
+          reason=$(jq -r '.reason // .error // "unknown"' fixture.json 2>/dev/null || echo unknown)
+          safe_reason=$(printf '%s' "$reason" | tr -cd 'A-Za-z0-9_-' | cut -c1-65)
+          [ -n "$safe_reason" ] || safe_reason=unknown
+          context="CoMaSy OIDC ${status} ${safe_reason}"
+
+          if [ "$status" = "200" ] && grep -q '"ok":true' fixture.json; then
+            state=success
+            description='OIDC fixture setup succeeded'
+            cleanup_status=$(curl -sS -o cleanup.json -w '%{http_code}' -X POST \
+              -H "Authorization: Bearer $token" \
+              "$BASE_URL/api/comasy/e2e?action=cleanup" || true)
+            [ "$cleanup_status" = "200" ] && grep -q '"cleaned":true' cleanup.json
+          else
+            state=failure
+            description="Fixture setup HTTP $status"
+          fi
+
+          payload=$(jq -nc --arg state "$state" --arg context "$context" --arg description "$description" \
+            '{state:$state,context:$context,description:$description}')
+          curl -fsS -X POST \
+            -H "Authorization: Bearer $GH_TOKEN" \
+            -H "Accept: application/vnd.github+json" \
+            -H "X-GitHub-Api-Version: 2022-11-28" \
+            "https://api.github.com/repos/${{ github.repository }}/statuses/${{ github.sha }}" \
+            -d "$payload"
+
+          [ "$state" = "success" ]
