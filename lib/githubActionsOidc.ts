@@ -1,7 +1,12 @@
 const ISSUER = "https://token.actions.githubusercontent.com";
 const AUDIENCE = "konfydence-comasy-e2e";
 const REPOSITORY = "unikmo/konfydencechallenge";
+const REPOSITORY_ID = "1275860671";
+const REPOSITORY_OWNER_ID = "261606017";
 const MAIN_REF = "refs/heads/main";
+
+const LEGACY_MAIN_SUBJECT = `repo:${REPOSITORY}:ref:${MAIN_REF}`;
+const IMMUTABLE_MAIN_SUBJECT = `repo:unikmo@${REPOSITORY_OWNER_ID}/konfydencechallenge@${REPOSITORY_ID}:ref:${MAIN_REF}`;
 
 type GitHubOidcClaims = {
   iss?: string;
@@ -10,6 +15,8 @@ type GitHubOidcClaims = {
   nbf?: number;
   iat?: number;
   repository?: string;
+  repository_id?: string;
+  repository_owner_id?: string;
   ref?: string;
   event_name?: string;
   sub?: string;
@@ -85,10 +92,19 @@ export async function verifyGitHubActionsOidc(authorization: string | null) {
   if (!claims.exp || claims.exp < nowSeconds - 30) throw new Error("github_oidc_expired");
   if (claims.nbf && claims.nbf > nowSeconds + 30) throw new Error("github_oidc_not_yet_valid");
   if (claims.iat && claims.iat > nowSeconds + 30) throw new Error("github_oidc_invalid_iat");
+
+  // Bind the token to this exact repository identity as well as its name.
+  // GitHub introduced immutable OIDC subjects for newer repositories in 2026,
+  // so the stable numeric IDs are the strongest cross-rename identifiers.
   if (claims.repository !== REPOSITORY) throw new Error("github_oidc_invalid_repository");
+  if (claims.repository_id !== REPOSITORY_ID) throw new Error("github_oidc_invalid_repository_id");
+  if (claims.repository_owner_id !== REPOSITORY_OWNER_ID) throw new Error("github_oidc_invalid_owner_id");
   if (claims.ref !== MAIN_REF) throw new Error("github_oidc_invalid_ref");
   if (claims.event_name !== "push") throw new Error("github_oidc_invalid_event");
-  if (claims.sub !== `repo:${REPOSITORY}:ref:${MAIN_REF}`) throw new Error("github_oidc_invalid_subject");
+
+  if (claims.sub !== LEGACY_MAIN_SUBJECT && claims.sub !== IMMUTABLE_MAIN_SUBJECT) {
+    throw new Error("github_oidc_invalid_subject");
+  }
 
   return claims;
 }
