@@ -107,6 +107,10 @@ jobs:
             exit 1
           fi
 
+          scenario_id=$(jq -r '.scenarioId' fixture.json)
+          [ -n "$scenario_id" ] && [ "$scenario_id" != "null" ]
+          echo "scenario_id=$scenario_id" >> "$GITHUB_OUTPUT"
+
           curl -fsS -X POST \
             -H "Authorization: Bearer $GH_TOKEN" \
             -H "Accept: application/vnd.github+json" \
@@ -149,15 +153,18 @@ jobs:
         id: practice
         if: steps.reports.outcome == 'success'
         shell: bash
+        env:
+          SCENARIO_ID: ${{ steps.fixture.outputs.scenario_id }}
         run: |
           set -euo pipefail
+          [ -n "$SCENARIO_ID" ]
           curl -LfsS "$BASE_URL/comasy/practice/e2e-token-a1?campaign=e2e-http-a" -o practice.html
           grep -qi 'HTTP Release Practice' practice.html
           grep -qi 'Choose the strongest next move' practice.html
           submitted=$(curl -sS -o /dev/null -w '%{http_code}' -X POST "$BASE_URL/api/comasy/practice/respond" \
             --data-urlencode 'token=e2e-token-a1' \
             --data-urlencode 'campaignId=e2e-http-a' \
-            --data-urlencode 'scenarioId=workplace-wrk-01' \
+            --data-urlencode "scenarioId=$SCENARIO_ID" \
             --data-urlencode 'selectedAnswerKey=A')
           [ "$submitted" = "303" ] || { echo "Expected response redirect 303, got $submitted" >&2; exit 1; }
           curl -LfsS "$BASE_URL/comasy/practice/e2e-token-a1?campaign=e2e-http-a&feedback=1" -o feedback.html
