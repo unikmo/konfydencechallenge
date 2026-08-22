@@ -16,21 +16,20 @@ jobs:
     env:
       BASE_URL: https://05akonfydencechallenge-git-comasy-platform-v1-unikmos-projects.vercel.app
     steps:
-      - name: Wait for deployed CoMaSy backend
+      - name: Diagnose deployed CoMaSy backend
         shell: bash
         run: |
           set -euo pipefail
-          for attempt in $(seq 1 6); do
-            code=$(curl -LsS -o health.json -w '%{http_code}' "$BASE_URL/api/health/comasy" || true)
-            echo "attempt=$attempt status=$code"
-            if [ "$code" = "200" ] && grep -q '"ready":true' health.json; then
-              cat health.json
-              exit 0
-            fi
-            sleep 5
-          done
-          echo 'CoMaSy preview backend did not become ready.' >&2
-          cat health.json || true
+          curl -sS -D health-headers.txt -o health-body.txt "$BASE_URL/api/health/comasy" || true
+          echo '--- response headers ---'
+          cat health-headers.txt
+          echo '--- response body ---'
+          cat health-body.txt
+          code=$(awk 'toupper($1) ~ /^HTTP\// {status=$2} END {print status}' health-headers.txt)
+          if [ "$code" = "200" ] && grep -q '"ready":true' health-body.txt; then
+            exit 0
+          fi
+          echo "CoMaSy preview backend initial status=$code" >&2
           exit 1
 
       - name: Public acquisition pages
