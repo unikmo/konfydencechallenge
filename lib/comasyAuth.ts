@@ -78,7 +78,7 @@ export function customerSessionCookie(organizationId: string) {
       httpOnly: true,
       secure: process.env.NODE_ENV === "production",
       sameSite: "lax" as const,
-      path: "/comasy",
+      path: "/",
       maxAge: SESSION_SECONDS,
     },
   };
