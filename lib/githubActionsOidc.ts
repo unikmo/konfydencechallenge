@@ -1,5 +1,3 @@
-import { createPublicKey, verify } from "node:crypto";
-
 const ISSUER = "https://token.actions.githubusercontent.com";
 const AUDIENCE = "konfydence-comasy-e2e";
 const REPOSITORY = "unikmo/konfydencechallenge";
@@ -17,7 +15,8 @@ type GitHubOidcClaims = {
   sub?: string;
 };
 
-type JwkSet = { keys: Array<JsonWebKey & { kid?: string; alg?: string }> };
+type GitHubJwk = JsonWebKey & { kid?: string; alg?: string; use?: string };
+type JwkSet = { keys: GitHubJwk[] };
 
 let cachedJwks: { expiresAt: number; value: JwkSet } | null = null;
 
@@ -41,6 +40,19 @@ async function getJwks() {
   return value;
 }
 
+async function verifySignature(jwk: GitHubJwk, signingInput: string, encodedSignature: string) {
+  const key = await globalThis.crypto.subtle.importKey(
+    "jwk",
+    jwk,
+    { name: "RSASSA-PKCS1-v1_5", hash: "SHA-256" },
+    false,
+    ["verify"],
+  );
+  const data = new TextEncoder().encode(signingInput);
+  const signature = Uint8Array.from(Buffer.from(encodedSignature, "base64url"));
+  return globalThis.crypto.subtle.verify("RSASSA-PKCS1-v1_5", key, signature, data);
+}
+
 export async function verifyGitHubActionsOidc(authorization: string | null) {
   if (!authorization?.startsWith("Bearer ")) throw new Error("github_oidc_missing_token");
   const token = authorization.slice("Bearer ".length).trim();
@@ -52,15 +64,15 @@ export async function verifyGitHubActionsOidc(authorization: string | null) {
   if (header.alg !== "RS256" || !header.kid) throw new Error("github_oidc_invalid_header");
 
   const jwks = await getJwks();
-  const jwk = jwks.keys.find((key) => key.kid === header.kid && (!key.alg || key.alg === "RS256"));
+  const jwk = jwks.keys.find(
+    (candidate) => candidate.kid === header.kid && (!candidate.alg || candidate.alg === "RS256"),
+  );
   if (!jwk) throw new Error("github_oidc_unknown_key");
 
-  const key = createPublicKey({ key: jwk, format: "jwk" });
-  const signatureValid = verify(
-    "RSA-SHA256",
-    Buffer.from(`${encodedHeader}.${encodedPayload}`),
-    key,
-    Buffer.from(encodedSignature, "base64url"),
+  const signatureValid = await verifySignature(
+    jwk,
+    `${encodedHeader}.${encodedPayload}`,
+    encodedSignature,
   );
   if (!signatureValid) throw new Error("github_oidc_invalid_signature");
 
