@@ -2,28 +2,27 @@ CREATE OR REPLACE FUNCTION comasy_enforce_tenant_consistency()
 RETURNS trigger
 LANGUAGE plpgsql
 AS $$
+DECLARE
+  row_data jsonb := to_jsonb(NEW);
+  org_id text := row_data ->> 'organizationId';
+  cohort_id text := row_data ->> 'cohortId';
+  campaign_id text := row_data ->> 'campaignId';
+  participant_id text := row_data ->> 'participantId';
+  contact_id text := row_data ->> 'contactId';
 BEGIN
-  IF TG_TABLE_NAME = 'ComasyParticipant' AND NEW."cohortId" IS NOT NULL THEN
-    IF NOT EXISTS (SELECT 1 FROM "ComasyCohort" c WHERE c."id" = NEW."cohortId" AND c."organizationId" = NEW."organizationId") THEN
-      RAISE EXCEPTION 'CoMaSy tenant violation: participant cohort belongs to another organisation';
-    END IF;
-  ELSIF TG_TABLE_NAME = 'ComasyCampaign' AND NEW."cohortId" IS NOT NULL THEN
-    IF NOT EXISTS (SELECT 1 FROM "ComasyCohort" c WHERE c."id" = NEW."cohortId" AND c."organizationId" = NEW."organizationId") THEN
-      RAISE EXCEPTION 'CoMaSy tenant violation: campaign cohort belongs to another organisation';
-    END IF;
-  ELSIF TG_TABLE_NAME = 'ComasyPilot' AND NEW."cohortId" IS NOT NULL THEN
-    IF NOT EXISTS (SELECT 1 FROM "ComasyCohort" c WHERE c."id" = NEW."cohortId" AND c."organizationId" = NEW."organizationId") THEN
-      RAISE EXCEPTION 'CoMaSy tenant violation: pilot cohort belongs to another organisation';
+  IF TG_TABLE_NAME IN ('ComasyParticipant', 'ComasyCampaign', 'ComasyPilot') AND cohort_id IS NOT NULL THEN
+    IF NOT EXISTS (SELECT 1 FROM "ComasyCohort" c WHERE c."id" = cohort_id AND c."organizationId" = org_id) THEN
+      RAISE EXCEPTION 'CoMaSy tenant violation: cohort belongs to another organisation';
     END IF;
   ELSIF TG_TABLE_NAME = 'ComasyResponse' THEN
-    IF NOT EXISTS (SELECT 1 FROM "ComasyCampaign" c WHERE c."id" = NEW."campaignId" AND c."organizationId" = NEW."organizationId") THEN
+    IF NOT EXISTS (SELECT 1 FROM "ComasyCampaign" c WHERE c."id" = campaign_id AND c."organizationId" = org_id) THEN
       RAISE EXCEPTION 'CoMaSy tenant violation: response campaign belongs to another organisation';
     END IF;
-    IF NOT EXISTS (SELECT 1 FROM "ComasyParticipant" p WHERE p."id" = NEW."participantId" AND p."organizationId" = NEW."organizationId") THEN
+    IF NOT EXISTS (SELECT 1 FROM "ComasyParticipant" p WHERE p."id" = participant_id AND p."organizationId" = org_id) THEN
       RAISE EXCEPTION 'CoMaSy tenant violation: response participant belongs to another organisation';
     END IF;
-  ELSIF TG_TABLE_NAME = 'ComasyActivity' AND NEW."contactId" IS NOT NULL AND NEW."organizationId" IS NOT NULL THEN
-    IF NOT EXISTS (SELECT 1 FROM "ComasyContact" c WHERE c."id" = NEW."contactId" AND c."organizationId" = NEW."organizationId") THEN
+  ELSIF TG_TABLE_NAME = 'ComasyActivity' AND contact_id IS NOT NULL AND org_id IS NOT NULL THEN
+    IF NOT EXISTS (SELECT 1 FROM "ComasyContact" c WHERE c."id" = contact_id AND c."organizationId" = org_id) THEN
       RAISE EXCEPTION 'CoMaSy tenant violation: activity contact belongs to another organisation';
     END IF;
   END IF;
