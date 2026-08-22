@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
-import { hashAccessCode } from "@/lib/comasyAuth";
+import { hashAccessCode, hasUsableCustomerSessionSecret } from "@/lib/comasyAuth";
 import { verifyGitHubActionsOidc } from "@/lib/githubActionsOidc";
 
 export const runtime = "nodejs";
@@ -144,7 +144,7 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ error: "e2e_fixture_setup_failed" }, { status: 500 });
   }
 
-  const authConfigured = Boolean(process.env.AUTH_SECRET && process.env.AUTH_SECRET.length >= 16);
+  const authConfigured = hasUsableCustomerSessionSecret();
 
   return NextResponse.json(
     {
