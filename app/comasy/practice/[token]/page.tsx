@@ -77,6 +77,26 @@ export default async function PracticePage({
   const latest = feedback ? responses.at(-1) : null;
 
   if (!currentId) {
+    if (latest) {
+      const verdict =
+        latest.score >= 3
+          ? "Strong interruption."
+          : latest.score === 2
+            ? "Partly safe, but exposed."
+            : "Risk stayed in control.";
+      const explanation =
+        latest.scenario.explanation ||
+        latest.scenario.proTip ||
+        "The safer pattern is to slow the request down and verify through an independent channel.";
+      return (
+        <State
+          eyebrow="YOUR LAST MOVE"
+          title={verdict}
+          copy={`${explanation} ${responses.length} decision${responses.length === 1 ? "" : "s"} completed. Your results are now included in your organisation's behavioural dashboard.`}
+        />
+      );
+    }
+
     return (
       <State
         title="Done."
@@ -173,21 +193,32 @@ export default async function PracticePage({
       </section>
 
       <style>{`
-        :global(*){box-sizing:border-box}:global(body){margin:0;background:#071726}.page{min-height:100vh;background:radial-gradient(circle at 80% 10%,#18486c,transparent 32%),#071726;color:white;font-family:Inter,system-ui,sans-serif;padding:0 22px 40px}header{height:72px;max-width:1100px;margin:auto;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #ffffff1e}.brand{display:flex;align-items:center;gap:9px}.brand>span{width:28px;height:28px;border:1px solid #9aadb9;border-radius:50%;display:grid;place-items:center;font-size:10px}.brand b{font-size:12px}header small{color:#91a5b2;font-size:10px}.progress{max-width:1100px;margin:22px auto 0;height:3px;background:#1f3444}.progress i{display:block;height:100%;background:#b8ff3d}.shell{max-width:1100px;margin:28px auto 0;display:grid;grid-template-columns:190px 1fr;background:#f8f6f0;color:#071726;border-radius:24px;overflow:hidden;box-shadow:0 30px 80px #0006}.shell aside{padding:34px 26px;background:#0c2b43;color:white;display:flex;flex-direction:column}.shell aside p{font-size:9px;letter-spacing:.12em;color:#b8ff3d;font-weight:950}.shell aside strong{font:500 42px Georgia,serif;margin-top:16px}.shell aside span{margin-top:auto;color:#9fb3c0;font-size:11px}.shell article{padding:48px clamp(24px,5vw,64px)}.feedback{border-left:4px solid #b8ff3d;background:#eef6e5;padding:16px 18px;margin-bottom:28px}.feedback.score-0,.feedback.score-1{border-color:#ff5b50;background:#fff0ee}.feedback.score-2{border-color:#f0b84c;background:#fff6df}.feedback p,.eyebrow{font-size:9px;font-weight:950;letter-spacing:.13em;color:#647783;margin:0 0 8px}.feedback h2{font:500 26px Georgia,serif;margin:0 0 8px}.feedback span{font-size:11px;color:#5e6f78;line-height:1.6}.shell h1{font:500 clamp(38px,6vw,64px)/.98 Georgia,serif;letter-spacing:-.045em;margin:0;max-width:770px}.prompt{font-size:17px;line-height:1.65;color:#334854;margin:22px 0 30px;max-width:800px}fieldset{border:0;padding:0;margin:0;display:grid;gap:11px}legend{font-size:10px;font-weight:950;letter-spacing:.08em;color:#657984;margin-bottom:12px}fieldset label{position:relative;display:grid;grid-template-columns:36px 1fr;gap:12px;align-items:center;border:1px solid #ced8dc;border-radius:14px;padding:16px;cursor:pointer;background:white}fieldset label:has(input:checked){border-color:#173e5d;box-shadow:inset 4px 0 #b8ff3d;background:#f5faee}fieldset input{position:absolute;opacity:0}.key{width:31px;height:31px;border:1px solid #bac8cd;border-radius:50%;display:grid;place-items:center;font-size:10px;font-weight:950}fieldset label>span:last-child{font-size:13px;line-height:1.45;font-weight:750}.shell button{margin-top:22px;width:100%;border:0;border-radius:999px;background:#ff5b50;color:white;padding:15px 18px;display:flex;justify-content:space-between;font-weight:950;cursor:pointer}.rule{font-size:10px;color:#7c8b92;margin:16px 0 0}.state{min-height:100vh;display:grid;place-items:center;background:#071726;color:white;padding:20px;font-family:Inter,system-ui}.state>div{width:min(560px,100%);background:#f8f6f0;color:#071726;padding:38px;border-radius:24px}.state h1{font:500 44px Georgia,serif;margin:0 0 14px}.state p{color:#61737c;line-height:1.6}.state a{color:#071726;font-weight:900}@media(max-width:760px){.page{padding:0 12px 24px}.shell{grid-template-columns:1fr;border-radius:18px}.shell aside{padding:16px 18px;display:grid;grid-template-columns:1fr auto;align-items:center}.shell aside strong{font-size:24px;margin:0}.shell aside span{grid-column:1/-1;margin-top:7px}.shell article{padding:30px 18px}.prompt{font-size:15px}fieldset label{padding:14px 12px}.shell button{position:sticky;bottom:10px}}
+        :global(*){box-sizing:border-box}:global(body){margin:0;background:#071726}.page{min-height:100vh;background:radial-gradient(circle at 80% 10%,#18486c,transparent 32%),#071726;color:white;font-family:Inter,system-ui,sans-serif;padding:0 22px 40px}header{height:72px;max-width:1100px;margin:auto;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #ffffff1e}.brand{display:flex;align-items:center;gap:9px}.brand>span{width:28px;height:28px;border:1px solid #9aadb9;border-radius:50%;display:grid;place-items:center;font-size:10px}.brand b{font-size:12px}header small{color:#91a5b2;font-size:10px}.progress{max-width:1100px;margin:22px auto 0;height:3px;background:#1f3444}.progress i{display:block;height:100%;background:#b8ff3d}.shell{max-width:1100px;margin:28px auto 0;display:grid;grid-template-columns:190px 1fr;background:#f8f6f0;color:#071726;border-radius:24px;overflow:hidden;box-shadow:0 30px 80px #0006}.shell aside{padding:34px 26px;background:#0c2b43;color:white;display:flex;flex-direction:column}.shell aside p{font-size:9px;letter-spacing:.12em;color:#b8ff3d;font-weight:950}.shell aside strong{font:500 42px Georgia,serif;margin-top:16px}.shell aside span{margin-top:auto;color:#9fb3c0;font-size:11px}.shell article{padding:48px clamp(24px,5vw,64px)}.feedback{border-left:4px solid #b8ff3d;background:#eef6e5;padding:16px 18px;margin-bottom:28px}.feedback.score-0,.feedback.score-1{border-color:#ff5b50;background:#fff0ee}.feedback.score-2{border-color:#f0b84c;background:#fff6df}.feedback p,.eyebrow{font-size:9px;font-weight:950;letter-spacing:.13em;color:#647783;margin:0 0 8px}.feedback h2{font:500 26px Georgia,serif;margin:0 0 8px}.feedback span{font-size:11px;color:#5e6f78;line-height:1.6}.shell h1{font:500 clamp(38px,6vw,64px)/.98 Georgia,serif;letter-spacing:-.045em;margin:0;max-width:770px}.prompt{font-size:17px;line-height:1.65;color:#334854;margin:22px 0 30px;max-width:800px}fieldset{border:0;padding:0;margin:0;display:grid;gap:11px}legend{font-size:10px;font-weight:950;letter-spacing:.08em;color:#657984;margin-bottom:12px}fieldset label{position:relative;display:grid;grid-template-columns:36px 1fr;gap:12px;align-items:center;border:1px solid #ced8dc;border-radius:14px;padding:16px;cursor:pointer;background:white}fieldset label:has(input:checked){border-color:#173e5d;box-shadow:inset 4px 0 #b8ff3d;background:#f5faee}fieldset input{position:absolute;opacity:0}.key{width:31px;height:31px;border:1px solid #bac8cd;border-radius:50%;display:grid;place-items:center;font-size:10px;font-weight:950}fieldset label>span:last-child{font-size:13px;line-height:1.45;font-weight:750}.shell button{margin-top:22px;width:100%;border:0;border-radius:999px;background:#ff5b50;color:white;padding:15px 18px;display:flex;justify-content:space-between;font-weight:950;cursor:pointer}.rule{font-size:10px;color:#7c8b92;margin:16px 0 0}@media(max-width:760px){.page{padding:0 12px 24px}.shell{grid-template-columns:1fr;border-radius:18px}.shell aside{padding:16px 18px;display:grid;grid-template-columns:1fr auto;align-items:center}.shell aside strong{font-size:24px;margin:0}.shell aside span{grid-column:1/-1;margin-top:7px}.shell article{padding:30px 18px}.prompt{font-size:15px}fieldset label{padding:14px 12px}.shell button{position:sticky;bottom:10px}}
       `}</style>
     </main>
   );
 }
 
-function State({ title, copy }: { title: string; copy: string }) {
+function State({
+  title,
+  copy,
+  eyebrow = "COMASY",
+}: {
+  title: string;
+  copy: string;
+  eyebrow?: string;
+}) {
   return (
     <main className="state">
       <div>
-        <p>COMASY</p>
+        <p className="stateEyebrow">{eyebrow}</p>
         <h1>{title}</h1>
         <p>{copy}</p>
         <Link href="/comasy">Return to CoMaSy</Link>
       </div>
+      <style>{`
+        :global(*){box-sizing:border-box}:global(body){margin:0;background:#071726}.state{min-height:100vh;display:grid;place-items:center;background:radial-gradient(circle at 75% 10%,#18486c,transparent 34%),#071726;color:white;padding:20px;font-family:Inter,system-ui,sans-serif}.state>div{width:min(620px,100%);background:#f8f6f0;color:#071726;padding:clamp(28px,6vw,52px);border-radius:24px;box-shadow:0 30px 80px #0006}.stateEyebrow{font-size:10px;font-weight:950;letter-spacing:.14em;color:#58707d;margin:0 0 14px}.state h1{font:500 clamp(38px,7vw,58px)/1 Georgia,serif;letter-spacing:-.035em;margin:0 0 18px}.state p:not(.stateEyebrow){color:#61737c;line-height:1.7}.state a{display:inline-block;margin-top:12px;color:#071726;font-weight:900}
+      `}</style>
     </main>
   );
 }
