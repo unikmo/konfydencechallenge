@@ -144,9 +144,13 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ error: "e2e_fixture_setup_failed" }, { status: 500 });
   }
 
+  const authConfigured = Boolean(process.env.AUTH_SECRET && process.env.AUTH_SECRET.length >= 16);
+
   return NextResponse.json(
     {
       ok: true,
+      reason: `fixture_ready_auth_${authConfigured ? 1 : 0}`,
+      authConfigured,
       organization: "e2e-alpha",
       participantToken: PARTICIPANT_TOKEN,
       campaignId: CAMPAIGN_ID,
