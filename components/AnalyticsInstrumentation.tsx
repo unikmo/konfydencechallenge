@@ -4,17 +4,43 @@ import { useEffect } from "react";
 
 declare global {
   interface Window {
+    dataLayer?: unknown[];
     gtag?: (...args: unknown[]) => void;
+    __konfydenceGaLoaded?: boolean;
   }
 }
 
+const CONSENT_EVENT = "konfydence-cookie-consent";
+const GA_MEASUREMENT_ID = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID;
+
 function analyticsAllowed() {
   if (typeof window === "undefined") return false;
-  return window.localStorage.getItem("analytics-consent") === "true";
+  try {
+    return window.localStorage.getItem("analytics-consent") === "true";
+  } catch {
+    return false;
+  }
+}
+
+function ensureGaLoaded() {
+  if (!GA_MEASUREMENT_ID || !analyticsAllowed() || window.__konfydenceGaLoaded) return;
+  window.__konfydenceGaLoaded = true;
+  window.dataLayer = window.dataLayer || [];
+  window.gtag = window.gtag || ((...args: unknown[]) => window.dataLayer?.push(args));
+  window.gtag("js", new Date());
+  window.gtag("config", GA_MEASUREMENT_ID, { send_page_view: true });
+
+  const script = document.createElement("script");
+  script.async = true;
+  script.src = `https://www.googletagmanager.com/gtag/js?id=${encodeURIComponent(GA_MEASUREMENT_ID)}`;
+  script.dataset.konfydenceAnalytics = "true";
+  document.head.appendChild(script);
 }
 
 function send(eventName: string, params: Record<string, string | number | boolean | undefined>) {
-  if (!analyticsAllowed() || !window.gtag) return;
+  if (!analyticsAllowed()) return;
+  ensureGaLoaded();
+  if (!window.gtag) return;
   const cleaned = Object.fromEntries(Object.entries(params).filter(([, value]) => value !== undefined));
   window.gtag("event", eventName, cleaned);
 }
@@ -29,6 +55,12 @@ function labelFor(target: Element | null) {
 
 export function AnalyticsInstrumentation() {
   useEffect(() => {
+    ensureGaLoaded();
+
+    const onConsentChanged = () => ensureGaLoaded();
+    window.addEventListener("storage", onConsentChanged);
+    window.addEventListener(CONSENT_EVENT, onConsentChanged);
+
     const params = new URLSearchParams(window.location.search);
     const attribution = {
       source: params.get("utm_source") || undefined,
@@ -108,6 +140,8 @@ export function AnalyticsInstrumentation() {
       document.removeEventListener("submit", onSubmit);
       document.removeEventListener("click", onClick);
       window.removeEventListener("pagehide", onPageHide);
+      window.removeEventListener("storage", onConsentChanged);
+      window.removeEventListener(CONSENT_EVENT, onConsentChanged);
     };
   }, []);
 
