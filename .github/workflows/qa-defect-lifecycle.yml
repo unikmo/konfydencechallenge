@@ -1,0 +1,25 @@
+name: QA Defect Lifecycle Guard
+
+on:
+  issues:
+    types: [closed]
+
+permissions:
+  issues: write
+
+jobs:
+  prevent-unretested-close:
+    if: contains(github.event.issue.labels.*.name, 'qa:defect')
+    runs-on: ubuntu-latest
+    steps:
+      - name: Reopen QA defect closed without independent retest
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          labels=$(gh issue view "${{ github.event.issue.number }}" --repo "${{ github.repository }}" --json labels --jq '.labels[].name')
+          if ! grep -qx 'qa:retested' <<< "$labels"; then
+            gh issue reopen "${{ github.event.issue.number }}" --repo "${{ github.repository }}"
+            gh issue comment "${{ github.event.issue.number }}" --repo "${{ github.repository }}" --body 'QA lifecycle guard reopened this defect. A builder fix is not closure. Required path: **DISCOVERED → REPRODUCED → FIXED → RETESTED → CLOSED**.'
+            exit 1
+          fi
