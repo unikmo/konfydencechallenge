@@ -20,7 +20,7 @@ jobs:
   break-finished-build:
     name: Break what builders believe is finished
     runs-on: ubuntu-latest
-    timeout-minutes: 35
+    timeout-minutes: 45
     env:
       BASE_URL: https://konfydence.com
       QA_OUT_DIR: qa-artifacts
@@ -65,10 +65,15 @@ jobs:
           cat health.json || true
           exit 1
 
-      - name: Run independent QA matrix
+      - name: Run critical-path independent QA matrix
         id: qa
         continue-on-error: true
         run: node scripts/independent-qa.mjs
+
+      - name: Run full public-site crawl
+        id: fullsite
+        continue-on-error: true
+        run: node scripts/full-site-public-qa.mjs
 
       - name: Run independent commerce/payment-state QA
         id: commerce
@@ -103,11 +108,11 @@ jobs:
           done
 
       - name: Open reproduced QA defect issue
-        if: steps.qa.outcome != 'success' || steps.commerce.outcome != 'success'
+        if: steps.qa.outcome != 'success' || steps.fullsite.outcome != 'success' || steps.commerce.outcome != 'success'
         run: |
           set -euo pipefail
           critical=0; high=0; medium=0
-          for report in qa-artifacts/independent-qa-report.json qa-artifacts/independent-qa-commerce.json; do
+          for report in qa-artifacts/independent-qa-report.json qa-artifacts/full-site-public-qa-report.json qa-artifacts/independent-qa-commerce.json; do
             [ -f "$report" ] || continue
             critical=$((critical + $(jq '.counts.critical // 0' "$report")))
             high=$((high + $(jq '.counts.high // 0' "$report")))
@@ -129,6 +134,8 @@ jobs:
               echo
               [ -f qa-artifacts/independent-qa-report.md ] && cat qa-artifacts/independent-qa-report.md
               echo
+              [ -f qa-artifacts/full-site-public-qa-report.md ] && cat qa-artifacts/full-site-public-qa-report.md
+              echo
               [ -f qa-artifacts/independent-qa-commerce.md ] && cat qa-artifacts/independent-qa-commerce.md
               echo
               echo '### Required lifecycle'
@@ -141,7 +148,7 @@ jobs:
           fi
 
       - name: Retest and close fixed QA issues
-        if: steps.qa.outcome == 'success' && steps.commerce.outcome == 'success'
+        if: steps.qa.outcome == 'success' && steps.fullsite.outcome == 'success' && steps.commerce.outcome == 'success'
         run: |
           set -euo pipefail
           gh issue list --repo "${{ github.repository }}" --state open --label 'qa:defect' --label 'qa:fixed' --json number --jq '.[].number' | while read -r issue; do
@@ -155,9 +162,9 @@ jobs:
       - name: Publish Independent QA Gate
         if: always()
         run: |
-          if [ '${{ steps.qa.outcome }}' = 'success' ] && [ '${{ steps.commerce.outcome }}' = 'success' ]; then
+          if [ '${{ steps.qa.outcome }}' = 'success' ] && [ '${{ steps.fullsite.outcome }}' = 'success' ] && [ '${{ steps.commerce.outcome }}' = 'success' ]; then
             state=success
-            description='Independent QA passed: zero critical/high defects'
+            description='Independent QA passed full public site: zero critical/high defects'
           else
             state=failure
             description='Independent QA found critical/high defects'
