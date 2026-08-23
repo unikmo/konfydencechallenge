@@ -108,7 +108,20 @@ jobs:
           else
             state=failure
             description='Production hardening found blocking defects'
+            if [ '${{ steps.dependencies.outcome }}' != 'success' ]; then
+              description='Dependency audit found high-severity production vulnerability'
+            fi
+            for report in qa-artifacts/full-site-hardening-report.json qa-artifacts/production-hardening-report.json; do
+              if [ -f "$report" ]; then
+                finding=$(jq -r '[.findings[] | select(.severity=="critical" or .severity=="high")][0].message // empty' "$report")
+                if [ -n "$finding" ]; then
+                  description="$finding"
+                  break
+                fi
+              fi
+            done
           fi
+          description=${description:0:140}
           gh api repos/${{ github.repository }}/statuses/${{ github.sha }} \
             -f state="$state" -f context='Production Hardening Gate' -f description="$description"
           [ "$state" = success ]
