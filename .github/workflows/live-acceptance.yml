@@ -1,0 +1,106 @@
+name: Live Acceptance Agent
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  statuses: write
+  id-token: write
+
+concurrency:
+  group: live-acceptance-production
+  cancel-in-progress: true
+
+jobs:
+  accept-live-release:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      BASE_URL: https://konfydence.com
+      QA_OUT_DIR: qa-artifacts
+      OIDC_AUDIENCE: konfydence-comasy-e2e
+      GH_TOKEN: ${{ github.token }}
+
+    steps:
+      - name: Publish pending live acceptance status
+        run: |
+          gh api repos/${{ github.repository }}/statuses/${{ github.sha }} \
+            -f state=pending -f context='Live Acceptance Gate' \
+            -f description='Production infrastructure, integrations, analytics and journeys are being tested'
+
+      - name: Checkout exact commit
+        uses: actions/checkout@v4
+
+      - name: Install Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+
+      - name: Install application dependencies
+        run: npm ci
+
+      - name: Install live browser runner
+        run: |
+          npm install --no-save --package-lock=false playwright@1.55.0
+          npx playwright install --with-deps chromium
+
+      - name: Wait for exact production SHA
+        run: |
+          set -euo pipefail
+          for attempt in $(seq 1 48); do
+            code=$(curl -sS -o health.json -w '%{http_code}' "$BASE_URL/api/health/comasy" || true)
+            release=$(jq -r '.releaseSha // empty' health.json 2>/dev/null || true)
+            ready=$(jq -r '.ready // false' health.json 2>/dev/null || echo false)
+            echo "Attempt $attempt/48 HTTP=$code ready=$ready release=${release:-unknown} expected=$GITHUB_SHA"
+            if [ "$code" = "200" ] && [ "$ready" = "true" ] && [ "$release" = "$GITHUB_SHA" ]; then exit 0; fi
+            sleep 10
+          done
+          exit 1
+
+      - name: Probe production integrations through signed OIDC
+        id: integrations
+        continue-on-error: true
+        run: |
+          set -euo pipefail
+          mkdir -p qa-artifacts
+          token=$(curl -fsS \
+            -H "Authorization: Bearer $ACTIONS_ID_TOKEN_REQUEST_TOKEN" \
+            "${ACTIONS_ID_TOKEN_REQUEST_URL}&audience=${OIDC_AUDIENCE}" | jq -r '.value')
+          code=$(curl -sS -o qa-artifacts/integrations.json -w '%{http_code}' -X POST \
+            -H "Authorization: Bearer $token" \
+            "$BASE_URL/api/qa/integrations" || true)
+          echo "Integration probe HTTP=$code"
+          cat qa-artifacts/integrations.json || true
+          [ "$code" = "200" ]
+
+      - name: Run live acceptance journeys
+        id: acceptance
+        continue-on-error: true
+        run: node scripts/live-acceptance.mjs
+
+      - name: Upload live acceptance evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: live-acceptance-${{ github.sha }}
+          path: qa-artifacts
+          if-no-files-found: warn
+          retention-days: 30
+
+      - name: Publish Live Acceptance Gate
+        if: always()
+        run: |
+          if [ '${{ steps.integrations.outcome }}' = 'success' ] && [ '${{ steps.acceptance.outcome }}' = 'success' ]; then
+            state=success
+            description='Production live acceptance passed'
+          else
+            state=failure
+            description='Production live acceptance found blocking defects'
+          fi
+          gh api repos/${{ github.repository }}/statuses/${{ github.sha }} \
+            -f state="$state" -f context='Live Acceptance Gate' -f description="$description"
+          [ "$state" = success ]
