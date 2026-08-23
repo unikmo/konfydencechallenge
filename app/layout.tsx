@@ -1,7 +1,7 @@
 import React from "react";
-import Script from "next/script";
 import type { Metadata, Viewport } from "next";
 import { CookieConsent } from "@/components/CookieConsent";
+import { AnalyticsInstrumentation } from "@/components/AnalyticsInstrumentation";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://konfydence.com"),
@@ -45,40 +45,14 @@ export const viewport: Viewport = {
   colorScheme: "light",
 };
 
-const GA_MEASUREMENT_ID = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID;
-
 export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en">
       <body style={{ margin: 0 }}>
-        {GA_MEASUREMENT_ID ? (
-          <>
-            <Script id="ga-consent-default" strategy="beforeInteractive">
-              {`
-                window.dataLayer = window.dataLayer || [];
-                function gtag(){dataLayer.push(arguments);}
-                window.gtag = gtag;
-                gtag('consent', 'default', { analytics_storage: 'denied' });
-              `}
-            </Script>
-            <Script
-              src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
-              strategy="afterInteractive"
-            />
-            <Script id="ga-init" strategy="afterInteractive">
-              {`
-                window.dataLayer = window.dataLayer || [];
-                function gtag(){dataLayer.push(arguments);}
-                window.gtag = gtag;
-                gtag('js', new Date());
-                gtag('config', '${GA_MEASUREMENT_ID}');
-              `}
-            </Script>
-          </>
-        ) : null}
         {children}
+        <AnalyticsInstrumentation />
         <CookieConsent />
       </body>
     </html>

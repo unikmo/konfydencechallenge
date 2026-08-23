@@ -1,0 +1,167 @@
+name: Independent QA Agent
+
+on:
+  push:
+    branches: [main]
+  schedule:
+    - cron: '13 3 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  statuses: write
+  issues: write
+
+concurrency:
+  group: independent-qa-production
+  cancel-in-progress: true
+
+jobs:
+  break-finished-build:
+    name: Break what builders believe is finished
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    env:
+      BASE_URL: https://konfydence.com
+      QA_OUT_DIR: qa-artifacts
+      GH_TOKEN: ${{ github.token }}
+
+    steps:
+      - name: Publish pending QA status
+        run: |
+          gh api repos/${{ github.repository }}/statuses/${{ github.sha }} \
+            -f state=pending -f context='Independent QA Gate' \
+            -f description='Independent adversarial QA is running'
+
+      - name: Checkout exact commit
+        uses: actions/checkout@v4
+
+      - name: Install Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+
+      - name: Install application dependencies
+        run: npm ci
+
+      - name: Install independent browser QA tools
+        run: |
+          npm install --no-save --package-lock=false playwright@1.55.0 @axe-core/playwright@4.10.2
+          npx playwright install --with-deps chromium firefox webkit
+
+      - name: Wait for exact production SHA
+        run: |
+          set -euo pipefail
+          for attempt in $(seq 1 48); do
+            code=$(curl -sS -o health.json -w '%{http_code}' "$BASE_URL/api/health/comasy" || true)
+            release=$(jq -r '.releaseSha // empty' health.json 2>/dev/null || true)
+            ready=$(jq -r '.ready // false' health.json 2>/dev/null || echo false)
+            echo "Attempt $attempt/48 HTTP=$code ready=$ready release=${release:-unknown} expected=${GITHUB_SHA}"
+            if [ "$code" = "200" ] && [ "$ready" = "true" ] && [ "$release" = "$GITHUB_SHA" ]; then exit 0; fi
+            sleep 10
+          done
+          echo 'Exact production SHA was never ready' >&2
+          cat health.json || true
+          exit 1
+
+      - name: Run independent QA matrix
+        id: qa
+        continue-on-error: true
+        run: node scripts/independent-qa.mjs
+
+      - name: Run independent commerce/payment-state QA
+        id: commerce
+        continue-on-error: true
+        run: node scripts/independent-qa-commerce.mjs
+
+      - name: Upload independent QA evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: independent-qa-${{ github.sha }}
+          path: qa-artifacts
+          if-no-files-found: warn
+          retention-days: 30
+
+      - name: Ensure QA lifecycle labels
+        if: always()
+        run: |
+          set -e
+          for spec in \
+            'qa:defect|B60205|Independent QA defect' \
+            'qa:discovered|D93F0B|Lifecycle: discovered' \
+            'qa:reproduced|FBCA04|Lifecycle: reproduced' \
+            'qa:fixed|0969DA|Lifecycle: fixed by builder' \
+            'qa:retested|1D76DB|Lifecycle: independently retested' \
+            'qa:closed|0E8A16|Lifecycle: closed after retest' \
+            'severity:critical|8B0000|Critical severity' \
+            'severity:high|D73A4A|High severity' \
+            'severity:medium|FBCA04|Medium severity'; do
+            IFS='|' read -r name color description <<< "$spec"
+            gh label create "$name" --repo "${{ github.repository }}" --color "$color" --description "$description" --force >/dev/null
+          done
+
+      - name: Open reproduced QA defect issue
+        if: steps.qa.outcome != 'success' || steps.commerce.outcome != 'success'
+        run: |
+          set -euo pipefail
+          critical=0; high=0; medium=0
+          for report in qa-artifacts/independent-qa-report.json qa-artifacts/independent-qa-commerce.json; do
+            [ -f "$report" ] || continue
+            critical=$((critical + $(jq '.counts.critical // 0' "$report")))
+            high=$((high + $(jq '.counts.high // 0' "$report")))
+            medium=$((medium + $(jq '.counts.medium // 0' "$report")))
+          done
+          severity='severity:medium'
+          [ "$high" -gt 0 ] && severity='severity:high'
+          [ "$critical" -gt 0 ] && severity='severity:critical'
+          short=${GITHUB_SHA:0:7}
+          title="[QA][$short] Independent QA defects"
+          existing=$(gh issue list --repo "${{ github.repository }}" --state open --search "in:title $title" --json number --jq '.[0].number // empty')
+          if [ -z "$existing" ]; then
+            {
+              echo '## Independent QA Agent'
+              echo
+              echo '**Lifecycle:** DISCOVERED → REPRODUCED'
+              echo "**Commit:** \`$GITHUB_SHA\`"
+              echo "**Critical:** $critical · **High:** $high · **Medium:** $medium"
+              echo
+              [ -f qa-artifacts/independent-qa-report.md ] && cat qa-artifacts/independent-qa-report.md
+              echo
+              [ -f qa-artifacts/independent-qa-commerce.md ] && cat qa-artifacts/independent-qa-commerce.md
+              echo
+              echo '### Required lifecycle'
+              echo '`DISCOVERED → REPRODUCED → FIXED → RETESTED → CLOSED`'
+              echo
+              echo 'Do not close this issue after a code change. Apply `qa:fixed`; the Independent QA Agent will retest and close only after the defect disappears.'
+            } > issue.md
+            gh issue create --repo "${{ github.repository }}" --title "$title" --body-file issue.md \
+              --label 'qa:defect' --label 'qa:discovered' --label 'qa:reproduced' --label "$severity"
+          fi
+
+      - name: Retest and close fixed QA issues
+        if: steps.qa.outcome == 'success' && steps.commerce.outcome == 'success'
+        run: |
+          set -euo pipefail
+          gh issue list --repo "${{ github.repository }}" --state open --label 'qa:defect' --label 'qa:fixed' --json number --jq '.[].number' | while read -r issue; do
+            [ -n "$issue" ] || continue
+            gh issue edit "$issue" --repo "${{ github.repository }}" --add-label 'qa:retested'
+            gh issue comment "$issue" --repo "${{ github.repository }}" --body "Independent QA retest passed on commit \`$GITHUB_SHA\`. Lifecycle: FIXED → RETESTED → CLOSED."
+            gh issue close "$issue" --repo "${{ github.repository }}"
+            gh issue edit "$issue" --repo "${{ github.repository }}" --add-label 'qa:closed'
+          done
+
+      - name: Publish Independent QA Gate
+        if: always()
+        run: |
+          if [ '${{ steps.qa.outcome }}' = 'success' ] && [ '${{ steps.commerce.outcome }}' = 'success' ]; then
+            state=success
+            description='Independent QA passed: zero critical/high defects'
+          else
+            state=failure
+            description='Independent QA found critical/high defects'
+          fi
+          gh api repos/${{ github.repository }}/statuses/${{ github.sha }} \
+            -f state="$state" -f context='Independent QA Gate' -f description="$description"
+          [ "$state" = success ]

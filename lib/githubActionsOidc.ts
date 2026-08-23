@@ -57,7 +57,10 @@ async function verifySignature(jwk: GitHubJwk, signingInput: string, encodedSign
   return globalThis.crypto.subtle.verify("RSASSA-PKCS1-v1_5", key, signature, data);
 }
 
-export async function verifyGitHubActionsOidc(authorization: string | null) {
+export async function verifyGitHubActionsOidc(
+  authorization: string | null,
+  options: { allowedEvents?: string[] } = {},
+) {
   if (!authorization?.startsWith("Bearer ")) throw new Error("github_oidc_missing_token");
   const token = authorization.slice("Bearer ".length).trim();
   const parts = token.split(".");
@@ -90,14 +93,12 @@ export async function verifyGitHubActionsOidc(authorization: string | null) {
   if (claims.nbf && claims.nbf > nowSeconds + 30) throw new Error("github_oidc_not_yet_valid");
   if (claims.iat && claims.iat > nowSeconds + 30) throw new Error("github_oidc_invalid_iat");
 
-  // Bind the token to this exact repository identity, branch and event.
-  // The stable numeric IDs remain valid across repository/owner renames and
-  // avoid relying on GitHub's evolving `sub` string serialization.
   if (claims.repository !== REPOSITORY) throw new Error("github_oidc_invalid_repository");
   if (claims.repository_id !== REPOSITORY_ID) throw new Error("github_oidc_invalid_repository_id");
   if (claims.repository_owner_id !== REPOSITORY_OWNER_ID) throw new Error("github_oidc_invalid_owner_id");
   if (claims.ref !== MAIN_REF) throw new Error("github_oidc_invalid_ref");
-  if (claims.event_name !== "push") throw new Error("github_oidc_invalid_event");
+  const allowedEvents = options.allowedEvents ?? ["push"];
+  if (!claims.event_name || !allowedEvents.includes(claims.event_name)) throw new Error("github_oidc_invalid_event");
 
   return claims;
 }

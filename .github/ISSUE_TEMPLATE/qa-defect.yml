@@ -1,0 +1,81 @@
+name: Independent QA defect
+description: Defect discovered by the Independent QA Agent or independent retest
+title: "[QA] "
+labels:
+  - qa:defect
+  - qa:discovered
+body:
+  - type: markdown
+    attributes:
+      value: |
+        **Required lifecycle:** DISCOVERED → REPRODUCED → FIXED → RETESTED → CLOSED
+
+        A builder may move a defect to FIXED. Only an independent QA retest may move it to RETESTED/CLOSED.
+  - type: dropdown
+    id: severity
+    attributes:
+      label: Severity
+      options:
+        - Critical
+        - High
+        - Medium
+        - Low
+    validations:
+      required: true
+  - type: dropdown
+    id: area
+    attributes:
+      label: Area
+      options:
+        - Functional
+        - Responsive
+        - Browsers
+        - Navigation
+        - Forms
+        - Integrations
+        - Content
+        - Animation
+        - Accessibility
+        - Errors
+        - State
+        - Performance
+        - SEO
+        - Security
+        - Compliance
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Reproduction steps
+      description: Exact steps, browser/device, route, inputs, and observed result.
+      placeholder: |
+        1. Open ...
+        2. Click ...
+        3. Observe ...
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected result
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Evidence
+      description: Screenshot, trace, console error, status code, accessibility rule, or report fingerprint.
+    validations:
+      required: true
+  - type: checkboxes
+    id: lifecycle
+    attributes:
+      label: Lifecycle
+      options:
+        - label: DISCOVERED
+          required: true
+        - label: REPRODUCED
+        - label: FIXED
+        - label: RETESTED
+        - label: CLOSED
