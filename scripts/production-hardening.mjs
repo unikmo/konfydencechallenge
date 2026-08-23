@@ -4,6 +4,7 @@ import path from 'node:path';
 const BASE_URL = (process.env.BASE_URL || 'https://konfydence.com').replace(/\/$/, '');
 const SHA = process.env.GITHUB_SHA || 'local';
 const OUT_DIR = process.env.QA_OUT_DIR || 'qa-artifacts';
+const DEPENDENCY_AUDIT_OUTCOME = process.env.DEPENDENCY_AUDIT_OUTCOME || 'unknown';
 fs.mkdirSync(OUT_DIR, { recursive: true });
 
 const findings = [];
@@ -37,6 +38,11 @@ async function auditSeoRoute(route) {
 }
 
 async function auditSecurity() {
+  measurements.dependencyAudit = DEPENDENCY_AUDIT_OUTCOME;
+  if (DEPENDENCY_AUDIT_OUTCOME !== 'success') {
+    add('Security', 'high', 'dependency-audit', `Production dependency audit outcome is ${DEPENDENCY_AUDIT_OUTCOME}`);
+  }
+
   const res = await get('/');
   const required = {
     'content-security-policy': 'CSP',
