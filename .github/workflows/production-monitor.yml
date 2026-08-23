@@ -1,0 +1,95 @@
+name: Production Monitor
+
+on:
+  schedule:
+    - cron: '17 */6 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+  id-token: write
+
+concurrency:
+  group: production-monitor
+  cancel-in-progress: true
+
+jobs:
+  monitor:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      BASE_URL: https://konfydence.com
+      QA_OUT_DIR: monitor-artifacts
+      OIDC_AUDIENCE: konfydence-comasy-e2e
+      GH_TOKEN: ${{ github.token }}
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+
+      - run: npm ci
+
+      - name: Install monitor browser
+        run: |
+          npm install --no-save --package-lock=false playwright@1.55.0
+          npx playwright install --with-deps chromium
+
+      - name: Probe protected integrations
+        id: integrations
+        continue-on-error: true
+        run: |
+          set -euo pipefail
+          mkdir -p monitor-artifacts
+          token=$(curl -fsS \
+            -H "Authorization: Bearer $ACTIONS_ID_TOKEN_REQUEST_TOKEN" \
+            "${ACTIONS_ID_TOKEN_REQUEST_URL}&audience=${OIDC_AUDIENCE}" | jq -r '.value')
+          code=$(curl -sS -o monitor-artifacts/integrations.json -w '%{http_code}' -X POST \
+            -H "Authorization: Bearer $token" \
+            "$BASE_URL/api/qa/integrations" || true)
+          [ "$code" = "200" ]
+
+      - name: Run production monitor
+        id: monitor
+        continue-on-error: true
+        run: node scripts/production-monitor.mjs
+
+      - name: Upload monitor evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: production-monitor-${{ github.run_id }}
+          path: monitor-artifacts
+          if-no-files-found: warn
+          retention-days: 14
+
+      - name: Open or update production incident
+        if: steps.monitor.outcome != 'success' || steps.integrations.outcome != 'success'
+        run: |
+          set -euo pipefail
+          gh label create 'production:incident' --repo "${{ github.repository }}" --color B60205 --description 'Production monitoring incident' --force >/dev/null
+          title='[Production Monitor] Konfydence production degradation'
+          existing=$(gh issue list --repo "${{ github.repository }}" --state open --search "in:title $title" --json number --jq '.[0].number // empty')
+          body=$(cat monitor-artifacts/production-monitor.json 2>/dev/null || echo '{"error":"monitor report unavailable"}')
+          if [ -n "$existing" ]; then
+            gh issue comment "$existing" --repo "${{ github.repository }}" --body "Scheduled production monitor failed at $(date -u +'%Y-%m-%dT%H:%M:%SZ').\n\n\`\`\`json\n$body\n\`\`\`"
+          else
+            printf 'Scheduled production monitor found a failure.\n\n```json\n%s\n```\n' "$body" > incident.md
+            gh issue create --repo "${{ github.repository }}" --title "$title" --body-file incident.md --label 'production:incident'
+          fi
+          exit 1
+
+      - name: Resolve production incident after recovery
+        if: steps.monitor.outcome == 'success' && steps.integrations.outcome == 'success'
+        run: |
+          set -euo pipefail
+          title='[Production Monitor] Konfydence production degradation'
+          gh issue list --repo "${{ github.repository }}" --state open --search "in:title $title" --json number --jq '.[].number' | while read -r issue; do
+            [ -n "$issue" ] || continue
+            gh issue comment "$issue" --repo "${{ github.repository }}" --body 'Scheduled production monitor is healthy again. Closing incident after a successful recheck.'
+            gh issue close "$issue" --repo "${{ github.repository }}"
+          done
