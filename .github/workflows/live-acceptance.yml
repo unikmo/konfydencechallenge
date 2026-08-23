@@ -100,7 +100,16 @@ jobs:
           else
             state=failure
             description='Production live acceptance found blocking defects'
+            if [ -f qa-artifacts/live-acceptance-report.json ]; then
+              finding=$(jq -r '[.findings[] | select(.severity=="critical" or .severity=="high")][0].message // empty' qa-artifacts/live-acceptance-report.json)
+              [ -n "$finding" ] && description="$finding"
+            fi
+            if [ "$description" = 'Production live acceptance found blocking defects' ] && [ -f qa-artifacts/integrations.json ]; then
+              integration=$(jq -r '.integrations | to_entries | map(select(.key != "commerceStripe" and .key != "cms" and .value.state != "ok")) | .[0] | if . then "\(.key) integration state is \(.value.state): \(.value.detail // \"no detail\")" else empty end' qa-artifacts/integrations.json)
+              [ -n "$integration" ] && description="$integration"
+            fi
           fi
+          description=${description:0:140}
           gh api repos/${{ github.repository }}/statuses/${{ github.sha }} \
             -f state="$state" -f context='Live Acceptance Gate' -f description="$description"
           [ "$state" = success ]
