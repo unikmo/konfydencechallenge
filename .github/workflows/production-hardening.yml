@@ -1,0 +1,109 @@
+name: Production Hardening Agent
+
+on:
+  push:
+    branches: [main]
+  schedule:
+    - cron: '27 4 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  statuses: write
+
+concurrency:
+  group: production-hardening
+  cancel-in-progress: true
+
+jobs:
+  harden-production:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    env:
+      BASE_URL: https://konfydence.com
+      QA_OUT_DIR: qa-artifacts
+      GH_TOKEN: ${{ github.token }}
+
+    steps:
+      - name: Publish pending hardening status
+        run: |
+          gh api repos/${{ github.repository }}/statuses/${{ github.sha }} \
+            -f state=pending -f context='Production Hardening Gate' \
+            -f description='Performance, SEO, accessibility, security and compliance audit running'
+
+      - name: Checkout exact commit
+        uses: actions/checkout@v4
+
+      - name: Install Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+
+      - name: Install locked dependencies
+        run: npm ci
+
+      - name: Production dependency audit
+        id: dependencies
+        continue-on-error: true
+        run: npm audit --omit=dev --audit-level=high
+
+      - name: Install Lighthouse without changing lockfile
+        run: npm install --no-save --package-lock=false lighthouse@12.5.1
+
+      - name: Wait for exact production SHA
+        run: |
+          set -euo pipefail
+          for attempt in $(seq 1 48); do
+            code=$(curl -sS -o health.json -w '%{http_code}' "$BASE_URL/api/health/comasy" || true)
+            release=$(jq -r '.releaseSha // empty' health.json 2>/dev/null || true)
+            ready=$(jq -r '.ready // false' health.json 2>/dev/null || echo false)
+            if [ "$code" = "200" ] && [ "$ready" = "true" ] && [ "$release" = "$GITHUB_SHA" ]; then exit 0; fi
+            echo "Waiting for production SHA: attempt $attempt/48 HTTP=$code release=${release:-unknown}"
+            sleep 10
+          done
+          exit 1
+
+      - name: Run mobile Lighthouse — homepage
+        continue-on-error: true
+        run: |
+          mkdir -p qa-artifacts
+          npx lighthouse "$BASE_URL/" --output=json --output-path=qa-artifacts/lighthouse-home.json --chrome-flags='--headless --no-sandbox' --quiet
+
+      - name: Run mobile Lighthouse — CoMaSy
+        continue-on-error: true
+        run: npx lighthouse "$BASE_URL/comasy" --output=json --output-path=qa-artifacts/lighthouse-comasy.json --chrome-flags='--headless --no-sandbox' --quiet
+
+      - name: Run mobile Lighthouse — pilot
+        continue-on-error: true
+        run: npx lighthouse "$BASE_URL/comasy/pilot" --output=json --output-path=qa-artifacts/lighthouse-pilot.json --chrome-flags='--headless --no-sandbox' --quiet
+
+      - name: Build measurable hardening report
+        id: report
+        continue-on-error: true
+        env:
+          DEPENDENCY_AUDIT_OUTCOME: ${{ steps.dependencies.outcome }}
+        run: node scripts/production-hardening.mjs
+
+      - name: Upload production hardening evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: production-hardening-${{ github.sha }}
+          path: qa-artifacts
+          if-no-files-found: warn
+          retention-days: 30
+
+      - name: Publish Production Hardening Gate
+        if: always()
+        run: |
+          if [ '${{ steps.report.outcome }}' = 'success' ] && [ '${{ steps.dependencies.outcome }}' = 'success' ]; then
+            state=success
+            description='Hardening passed: zero critical/high defects'
+          else
+            state=failure
+            description='Production hardening found blocking defects'
+          fi
+          gh api repos/${{ github.repository }}/statuses/${{ github.sha }} \
+            -f state="$state" -f context='Production Hardening Gate' -f description="$description"
+          [ "$state" = success ]
