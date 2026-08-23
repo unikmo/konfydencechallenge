@@ -1,8 +1,7 @@
 /**
  * Konfydence event tracking, wired to GA4 (see app/layout.tsx for the gtag.js
- * script tag + Measurement ID, gated by CookieConsent's analytics_storage
- * consent state). Previously these all just console.log'd with a comment
- * saying "wire to real analytics here" — nothing was ever actually sent.
+ * script tag + Measurement ID). Application events are emitted only after the
+ * user has explicitly granted analytics consent.
  */
 
 declare global {
@@ -20,14 +19,19 @@ type KonfydenceEvent =
   | { name: "result_viewed"; session_id: string; krs_score: number; pressure_pattern: string }
   | { name: "cta_clicked"; session_id: string; cta_label: string }
   | { name: "purchase_handoff_initiated"; session_id: string; edition: string; plan: string }
-  // GA4's standard ecommerce event name — fired from CheckoutRedirectButton, the one
-  // button used for every purchase CTA sitewide (pricing, merch, results upsell).
-  // No session_id here since merch/pricing purchases aren't always tied to a game
-  // session; kept separate from purchase_handoff_initiated above for that reason.
   | { name: "begin_checkout"; sku: string; cta_label: string };
 
+function analyticsAllowed(): boolean {
+  if (typeof window === "undefined") return false;
+  try {
+    return window.localStorage.getItem("analytics-consent") === "true";
+  } catch {
+    return false;
+  }
+}
+
 function pushEvent(event: KonfydenceEvent): void {
-  if (typeof window === "undefined") return;
+  if (typeof window === "undefined" || !analyticsAllowed()) return;
 
   const { name, ...params } = event;
   window.gtag?.("event", name, params);
