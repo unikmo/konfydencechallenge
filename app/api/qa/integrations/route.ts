@@ -142,7 +142,9 @@ async function checkStripe(): Promise<Result> {
 
 export async function POST(request: NextRequest) {
   try {
-    await verifyGitHubActionsOidc(request.headers.get("authorization"));
+    await verifyGitHubActionsOidc(request.headers.get("authorization"), {
+      allowedEvents: ["push", "schedule", "workflow_dispatch"],
+    });
   } catch (error) {
     const reason = error instanceof Error && error.message.startsWith("github_oidc_")
       ? error.message
