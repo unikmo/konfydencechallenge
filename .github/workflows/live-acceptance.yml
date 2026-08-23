@@ -8,6 +8,7 @@ on:
 permissions:
   contents: read
   statuses: write
+  issues: write
   id-token: write
 
 concurrency:
@@ -90,6 +91,54 @@ jobs:
           path: qa-artifacts
           if-no-files-found: warn
           retention-days: 30
+
+      - name: Publish reproduced live acceptance defects
+        if: steps.integrations.outcome != 'success' || steps.acceptance.outcome != 'success'
+        run: |
+          set -euo pipefail
+          gh label create 'qa:defect' --repo "${{ github.repository }}" --color B60205 --description 'Independent QA defect' --force >/dev/null
+          gh label create 'qa:discovered' --repo "${{ github.repository }}" --color D93F0B --description 'Lifecycle: discovered' --force >/dev/null
+          gh label create 'qa:reproduced' --repo "${{ github.repository }}" --color FBCA04 --description 'Lifecycle: reproduced' --force >/dev/null
+          gh label create 'severity:critical' --repo "${{ github.repository }}" --color 8B0000 --description 'Critical severity' --force >/dev/null
+          gh label create 'severity:high' --repo "${{ github.repository }}" --color D73A4A --description 'High severity' --force >/dev/null
+
+          critical=0; high=0; medium=0
+          if [ -f qa-artifacts/live-acceptance-report.json ]; then
+            critical=$(jq '.counts.critical // 0' qa-artifacts/live-acceptance-report.json)
+            high=$(jq '.counts.high // 0' qa-artifacts/live-acceptance-report.json)
+            medium=$(jq '.counts.medium // 0' qa-artifacts/live-acceptance-report.json)
+          fi
+          [ '${{ steps.integrations.outcome }}' = 'success' ] || high=$((high + 1))
+          severity='severity:high'
+          [ "$critical" -gt 0 ] && severity='severity:critical'
+          short=${GITHUB_SHA:0:7}
+          title="[Live Acceptance][$short] Production acceptance defects"
+          existing=$(gh issue list --repo "${{ github.repository }}" --state open --search "in:title $title" --json number --jq '.[0].number // empty')
+          if [ -z "$existing" ]; then
+            {
+              echo '# Live Acceptance Agent'
+              echo
+              echo '**Lifecycle:** DISCOVERED → REPRODUCED'
+              echo "**Commit:** \`$GITHUB_SHA\`"
+              echo "**Critical:** $critical · **High:** $high · **Medium:** $medium"
+              echo "**Integration probe:** ${{ steps.integrations.outcome }}"
+              echo "**Journey test:** ${{ steps.acceptance.outcome }}"
+              echo
+              [ -f qa-artifacts/live-acceptance-report.md ] && cat qa-artifacts/live-acceptance-report.md
+              echo
+              if [ -f qa-artifacts/integrations.json ]; then
+                echo '## Sanitized integration states'
+                echo '```json'
+                jq '{ok, integrations}' qa-artifacts/integrations.json
+                echo '```'
+              fi
+              echo
+              echo '### Required lifecycle'
+              echo '`DISCOVERED → REPRODUCED → FIXED → RETESTED → CLOSED`'
+            } > live-acceptance-issue.md
+            gh issue create --repo "${{ github.repository }}" --title "$title" --body-file live-acceptance-issue.md \
+              --label 'qa:defect' --label 'qa:discovered' --label 'qa:reproduced' --label "$severity"
+          fi
 
       - name: Publish Live Acceptance Gate
         if: always()

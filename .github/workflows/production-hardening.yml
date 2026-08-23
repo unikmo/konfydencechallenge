@@ -10,6 +10,7 @@ on:
 permissions:
   contents: read
   statuses: write
+  issues: write
 
 concurrency:
   group: production-hardening
@@ -98,6 +99,49 @@ jobs:
           path: qa-artifacts
           if-no-files-found: warn
           retention-days: 30
+
+      - name: Publish reproduced hardening defects
+        if: steps.report.outcome != 'success' || steps.fullsite.outcome != 'success' || steps.dependencies.outcome != 'success'
+        run: |
+          set -euo pipefail
+          gh label create 'qa:defect' --repo "${{ github.repository }}" --color B60205 --description 'Independent QA defect' --force >/dev/null
+          gh label create 'qa:discovered' --repo "${{ github.repository }}" --color D93F0B --description 'Lifecycle: discovered' --force >/dev/null
+          gh label create 'qa:reproduced' --repo "${{ github.repository }}" --color FBCA04 --description 'Lifecycle: reproduced' --force >/dev/null
+          gh label create 'severity:critical' --repo "${{ github.repository }}" --color 8B0000 --description 'Critical severity' --force >/dev/null
+          gh label create 'severity:high' --repo "${{ github.repository }}" --color D73A4A --description 'High severity' --force >/dev/null
+
+          critical=0; high=0; medium=0
+          for report in qa-artifacts/production-hardening-report.json qa-artifacts/full-site-hardening-report.json; do
+            [ -f "$report" ] || continue
+            critical=$((critical + $(jq '.counts.critical // 0' "$report")))
+            high=$((high + $(jq '.counts.high // 0' "$report")))
+            medium=$((medium + $(jq '.counts.medium // 0' "$report")))
+          done
+          [ '${{ steps.dependencies.outcome }}' = 'success' ] || high=$((high + 1))
+          severity='severity:high'
+          [ "$critical" -gt 0 ] && severity='severity:critical'
+          short=${GITHUB_SHA:0:7}
+          title="[Hardening][$short] Production hardening defects"
+          existing=$(gh issue list --repo "${{ github.repository }}" --state open --search "in:title $title" --json number --jq '.[0].number // empty')
+          if [ -z "$existing" ]; then
+            {
+              echo '# Production Hardening Agent'
+              echo
+              echo '**Lifecycle:** DISCOVERED → REPRODUCED'
+              echo "**Commit:** \`$GITHUB_SHA\`"
+              echo "**Critical:** $critical · **High:** $high · **Medium:** $medium"
+              echo "**Dependency audit:** ${{ steps.dependencies.outcome }}"
+              echo
+              [ -f qa-artifacts/production-hardening-report.md ] && cat qa-artifacts/production-hardening-report.md
+              echo
+              [ -f qa-artifacts/full-site-hardening-report.md ] && cat qa-artifacts/full-site-hardening-report.md
+              echo
+              echo '### Required lifecycle'
+              echo '`DISCOVERED → REPRODUCED → FIXED → RETESTED → CLOSED`'
+            } > hardening-issue.md
+            gh issue create --repo "${{ github.repository }}" --title "$title" --body-file hardening-issue.md \
+              --label 'qa:defect' --label 'qa:discovered' --label 'qa:reproduced' --label "$severity"
+          fi
 
       - name: Publish Production Hardening Gate
         if: always()
