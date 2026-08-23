@@ -2,6 +2,7 @@ import React from "react";
 import Script from "next/script";
 import type { Metadata, Viewport } from "next";
 import { CookieConsent } from "@/components/CookieConsent";
+import { AnalyticsInstrumentation } from "@/components/AnalyticsInstrumentation";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://konfydence.com"),
@@ -73,12 +74,13 @@ export default function RootLayout({
                 function gtag(){dataLayer.push(arguments);}
                 window.gtag = gtag;
                 gtag('js', new Date());
-                gtag('config', '${GA_MEASUREMENT_ID}');
+                gtag('config', '${GA_MEASUREMENT_ID}', { send_page_view: true });
               `}
             </Script>
           </>
         ) : null}
         {children}
+        <AnalyticsInstrumentation />
         <CookieConsent />
       </body>
     </html>
