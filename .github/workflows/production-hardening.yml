@@ -18,7 +18,7 @@ concurrency:
 jobs:
   harden-production:
     runs-on: ubuntu-latest
-    timeout-minutes: 25
+    timeout-minutes: 35
     env:
       BASE_URL: https://konfydence.com
       QA_OUT_DIR: qa-artifacts
@@ -78,12 +78,17 @@ jobs:
         continue-on-error: true
         run: npx lighthouse "$BASE_URL/comasy/pilot" --output=json --output-path=qa-artifacts/lighthouse-pilot.json --chrome-flags='--headless --no-sandbox' --quiet
 
-      - name: Build measurable hardening report
+      - name: Build representative measurable hardening report
         id: report
         continue-on-error: true
         env:
           DEPENDENCY_AUDIT_OUTCOME: ${{ steps.dependencies.outcome }}
         run: node scripts/production-hardening.mjs
+
+      - name: Audit every public sitemap URL
+        id: fullsite
+        continue-on-error: true
+        run: node scripts/full-site-hardening.mjs
 
       - name: Upload production hardening evidence
         if: always()
@@ -97,9 +102,9 @@ jobs:
       - name: Publish Production Hardening Gate
         if: always()
         run: |
-          if [ '${{ steps.report.outcome }}' = 'success' ] && [ '${{ steps.dependencies.outcome }}' = 'success' ]; then
+          if [ '${{ steps.report.outcome }}' = 'success' ] && [ '${{ steps.fullsite.outcome }}' = 'success' ] && [ '${{ steps.dependencies.outcome }}' = 'success' ]; then
             state=success
-            description='Hardening passed: zero critical/high defects'
+            description='Hardening passed full public site: zero critical/high defects'
           else
             state=failure
             description='Production hardening found blocking defects'
