@@ -48,9 +48,25 @@ async function analyticsAndJourneys() {
 
   await page.goto(`${BASE_URL}/`, { waitUntil: 'networkidle' });
   await page.waitForTimeout(800);
-  const beforeConsent = analyticsRequests.length;
-  measurements.analyticsRequestsBeforeConsent = beforeConsent;
-  if (beforeConsent > 0) add('Compliance', 'high', 'analytics-before-consent', `Analytics made ${beforeConsent} network request(s) before explicit consent`);
+
+  const analyticsBootstrap = await page.evaluate(() => {
+    const scriptLoaded = Boolean(document.querySelector('script[src*="googletagmanager.com/gtag/js"]'));
+    const dataLayer = Array.isArray(window.dataLayer) ? window.dataLayer : [];
+    const defaultDenied = dataLayer.some((entry) => {
+      if (!entry || typeof entry !== 'object') return false;
+      const args = Array.from(entry);
+      return args[0] === 'consent' && args[1] === 'default' && args[2]?.analytics_storage === 'denied';
+    });
+    return { scriptLoaded, defaultDenied, gtagAvailable: typeof window.gtag === 'function' };
+  });
+  measurements.analyticsRequestsBeforeConsent = analyticsRequests.length;
+  measurements.analyticsBootstrap = analyticsBootstrap;
+  if (!analyticsBootstrap.scriptLoaded || !analyticsBootstrap.gtagAvailable) {
+    add('Analytics', 'high', 'ga-not-loaded', 'Google Analytics is not loaded on initial page view');
+  }
+  if (!analyticsBootstrap.defaultDenied) {
+    add('Compliance', 'high', 'consent-default', 'Google Consent Mode did not default analytics_storage to denied before user choice');
+  }
 
   const accept = page.getByRole('button', { name: /accept all/i });
   if (await accept.count()) {
