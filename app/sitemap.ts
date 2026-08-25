@@ -28,11 +28,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE}/imprint`, changeFrequency: "yearly", priority: 0.4 },
   ];
 
-  const countryPages: MetadataRoute.Sitemap = Object.values(COUNTRY_PROFILES).map((profile) => ({
-    url: `${BASE}/countries/${profile.slug}`,
-    changeFrequency: "monthly",
-    priority: 0.5,
-  }));
+  const countryPages: MetadataRoute.Sitemap = Object.values(COUNTRY_PROFILES)
+    .filter((profile) => profile.scamResearch.some((item) => item.status === "published"))
+    .map((profile) => ({
+      url: `${BASE}/countries/${profile.slug}`,
+      changeFrequency: "monthly",
+      priority: 0.5,
+    }));
 
   return [...staticPages, ...countryPages];
 }
