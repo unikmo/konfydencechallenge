@@ -14,10 +14,12 @@ export async function generateMetadata(props: { params: Promise<{ country: strin
   const { country } = await props.params;
   const profile = COUNTRY_PROFILES[country];
   if (!profile) return {};
+  const hasPublishedResearch = profile.scamResearch.some((item) => item.status === "published");
   return {
     title: { absolute: `${profile.name} Scam Alerts & Travel Safety | Konfydence` },
     description: `Travel scam-awareness resources and official travel-safety source links for ${profile.name}.`,
     alternates: { canonical: `/countries/${profile.slug}` },
+    robots: { index: hasPublishedResearch, follow: true },
   };
 }
 
@@ -25,6 +27,7 @@ export default async function CountryPage(props: { params: Promise<{ country: st
   const params = await props.params;
   const profile = COUNTRY_PROFILES[params.country];
   if (!profile) notFound();
+  const hasPublishedResearch = profile.scamResearch.some((item) => item.status === "published");
 
   return (
     <main className={styles.page}>
@@ -48,6 +51,10 @@ export default async function CountryPage(props: { params: Promise<{ country: st
 
         <CountryLandmarkImage countryName={profile.name} landmark={profile.landmark} slug={profile.slug} />
         <CountryAlert country={profile.slug} />
+
+        {!hasPublishedResearch ? (
+          <p className={styles.sourceNote}>Country-specific Konfydence scam research for {profile.name} is not yet published. This page remains available for users but is excluded from search indexing until the evidence layer is complete.</p>
+        ) : null}
 
         <p className={styles.sourceNote}>
           Travel-safety sources for {profile.name}:{" "}
