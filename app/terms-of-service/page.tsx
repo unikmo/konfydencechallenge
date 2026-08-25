@@ -46,7 +46,7 @@ export default function TermsOfServicePage() {
 
       <div style={sectionStyle}><h2 style={headingStyle}>12. Changes and Termination</h2><p style={paragraphStyle}>We may update these public Terms and may suspend or terminate access where necessary to protect the service, enforce these Terms or comply with law. Material changes will be reflected on this page.</p></div>
 
-      <div style={sectionStyle}><h2 style={headingStyle}>13. Governing Law</h2><p style={paragraphStyle}>These public Terms are governed by the laws of Estonia, subject to mandatory consumer-protection rules that may apply in your jurisdiction. Enterprise agreements may contain their own governing-law provisions.</p></div>
+      <div style={sectionStyle}><h2 style={headingStyle}>13. Governing Law and Jurisdiction</h2><p style={paragraphStyle}>The governing law and jurisdiction applicable to a consumer transaction may depend on mandatory law and the relevant circumstances. Any enterprise agreement for CoMaSy should state its governing-law and jurisdiction provisions expressly.</p></div>
 
       <div style={sectionStyle}><h2 style={headingStyle}>14. Contact Information</h2><p style={paragraphStyle}><strong>Operator:</strong> PlanetHike OÜ<br/><strong>Email:</strong> support@konfydence.com<br/>See the <Link href="/imprint" style={linkStyle}>Imprint</Link> for registered company and contact information.</p></div>
 
