@@ -44,7 +44,7 @@ function PricingContent() {
       <section className="k-shell k-section-tight">
         <div className="k-pricing-grid">
           <article className="k-price">
-            <span className="k-kicker">Readiness check</span><h2>Free</h2><strong>€0</strong>
+            <span className="k-kicker">Readiness check</span><h2>Free</h2><strong>Free</strong>
             <ul><li>8 realistic scenarios</li><li>Balanced across H.A.C.K. pressure patterns</li><li>Immediate readiness score</li><li>Weakest pressure pattern</li><li>No account for round one</li></ul>
             <div className="k-actions"><Link href="/challenge" className="k-button" style={{width:"100%"}}>Start free challenge</Link></div>
           </article>
