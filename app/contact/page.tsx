@@ -1,10 +1,9 @@
 "use client";
 
 import React, { Suspense, useState } from "react";
-import Image from "next/image";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
-import { tokens } from "@/lib/theme/tokens";
+import { PremiumPage } from "@/components/PremiumSiteChrome";
 
 export default function ContactPage() {
   return <Suspense fallback={null}><ContactForm /></Suspense>;
@@ -51,61 +50,60 @@ function ContactForm() {
     }
   };
 
+  const title = isTravelCheckIn ? "Tell us what would make travel check-in useful." : isSchoolsTeams ? "Bring Konfydence into your organisation." : "Start a conversation.";
+  const intro = isSchoolsTeams
+    ? "Tell us who you want to train, the approximate cohort size and what you need to demonstrate."
+    : isTravelCheckIn
+      ? "Share your travel context and the kind of voluntary support you would actually find useful."
+      : "Questions about Konfydence, purchases, partnerships and organisational access are welcome.";
+
   return (
-    <main style={{ minHeight: "100vh", background: tokens.bgCanvas, color: tokens.textOnDark, padding: "60px 20px", fontFamily: "Inter,ui-sans-serif,system-ui,sans-serif" }}>
-      <div style={{ maxWidth: 620, margin: "0 auto" }}>
-        <header style={{ marginBottom: 38, textAlign: "center" }}>
-          <Image src="/brand/LOGO-05.png" alt="Konfydence" width={180} height={48} priority style={{ width: "auto", height: 40, marginBottom: 24 }} />
-          <h1 style={{ fontSize: "clamp(30px,5vw,44px)", fontWeight: 900, margin: "0 0 12px", letterSpacing: "-.03em" }}>
-            {isTravelCheckIn ? "Travel Check-In interest" : isSchoolsTeams ? "Bring Konfydence to your organization" : "Get in touch"}
-          </h1>
-          <p style={{ fontSize: 16, color: tokens.textMuted, margin: 0, lineHeight: 1.6 }}>
-            {isSchoolsTeams
-              ? "Tell us who you want to train and what you need. We’ll discuss the right School, University or Workplace rollout."
-              : isTravelCheckIn
-                ? "Tell us about your travel context and what would make the service useful."
-                : "Questions about Konfydence, purchases or organizational access are welcome."}
-          </p>
-        </header>
+    <PremiumPage ctaHref="/challenge/travelsafe/start?mode=diagnostic" ctaLabel="Try Konfydence">
+      <section className="k-shell k-page-hero">
+        <p className="k-kicker">Contact Konfydence</p>
+        <h1 className="k-display">{title}</h1>
+        <p className="k-lede">{intro}</p>
+      </section>
+
+      <section className="k-shell k-section-tight" style={{display:"grid",gridTemplateColumns:"minmax(0,.72fr) minmax(360px,1fr)",gap:72,alignItems:"start"}}>
+        <div>
+          <p className="k-kicker">What happens next</p>
+          <h2 className="k-display-sm">A useful reply, not a sales sequence.</h2>
+          <p className="k-copy">Your message goes to the Konfydence team. We use the information only to respond to the enquiry and understand the context you have shared.</p>
+          <div className="k-statements" style={{gridTemplateColumns:"1fr",marginTop:40}}>
+            <article className="k-statement"><span className="k-index">01</span><h3>Context first</h3><p>Tell us the real use case, not the polished version.</p></article>
+            <article className="k-statement"><span className="k-index">02</span><h3>Right next step</h3><p>We will point you to the relevant product, pilot or information rather than forcing every enquiry into one funnel.</p></article>
+          </div>
+        </div>
 
         {submitted ? (
-          <section style={{ padding: 24, background: "rgba(34,197,94,.1)", border: "1px solid rgba(34,197,94,.3)", borderRadius: 14 }}>
-            <h2 style={{ fontSize: 19, color: "#22c55e", margin: "0 0 8px" }}>✓ Message received</h2>
-            <p style={{ fontSize: 14, color: tokens.textMuted, margin: 0, lineHeight: 1.6 }}>Thank you. We’ll review your message and reply as soon as possible.</p>
+          <section className="k-form" role="status">
+            <p className="k-kicker">Message received</p>
+            <h2 style={{fontFamily:"var(--k-display)",fontSize:40,fontWeight:400,letterSpacing:"-.04em",margin:"0 0 8px"}}>Thank you.</h2>
+            <p className="k-copy">We’ll review your message and reply as soon as possible.</p>
+            <div className="k-actions"><Link className="k-button-quiet" href="/">Return home</Link></div>
           </section>
         ) : (
-          <form onSubmit={handleSubmit} style={{ display: "grid", gap: 20 }}>
-            {error ? <div role="alert" style={{ padding: 12, background: "rgba(239,68,68,.1)", border: "1px solid rgba(239,68,68,.3)", borderRadius: 8, color: "#ef4444", fontSize: 13 }}>{error}</div> : null}
-            <Field label="Name"><input name="name" value={formData.name} onChange={handleChange} required autoComplete="name" style={inputStyle} /></Field>
-            <Field label="Email"><input type="email" name="email" value={formData.email} onChange={handleChange} required autoComplete="email" style={inputStyle} /></Field>
-            <Field label={isTravelCheckIn ? "Travel context (optional)" : "Organization (optional)"}><input name="organization" value={formData.organization} onChange={handleChange} autoComplete="organization" style={inputStyle} /></Field>
-            {isSchoolsTeams ? <Field label="Approximate students / employees"><input type="number" min="1" name="seatCount" value={formData.seatCount} onChange={handleChange} placeholder="e.g. 500" style={inputStyle} /></Field> : null}
-            <Field label="Message"><textarea name="message" value={formData.message} onChange={handleChange} required rows={6} style={{ ...inputStyle, resize: "vertical" }} /></Field>
-            <label style={{ display: "flex", alignItems: "flex-start", gap: 9, color: tokens.textMuted, fontSize: 13, lineHeight: 1.5 }}>
-              <input type="checkbox" checked={consent} onChange={(event) => setConsent(event.target.checked)} required style={{ marginTop: 3, accentColor: tokens.accentAmber }} />
-              <span>I agree to be contacted about this enquiry and have read the <Link href="/privacy-policy" style={{ color: tokens.accentAmber }}>Privacy Policy</Link>.</span>
+          <form onSubmit={handleSubmit} className="k-form">
+            {error ? <div role="alert" style={{padding:12,border:"1px solid #c9a39e",borderRadius:12,color:"#8d4039",fontSize:13}}>{error}</div> : null}
+            <Field label="Name"><input name="name" value={formData.name} onChange={handleChange} required autoComplete="name" /></Field>
+            <Field label="Email"><input type="email" name="email" value={formData.email} onChange={handleChange} required autoComplete="email" /></Field>
+            <Field label={isTravelCheckIn ? "Travel context (optional)" : "Organisation (optional)"}><input name="organization" value={formData.organization} onChange={handleChange} autoComplete="organization" /></Field>
+            {isSchoolsTeams ? <Field label="Approximate students / employees"><input type="number" min="1" name="seatCount" value={formData.seatCount} onChange={handleChange} placeholder="e.g. 500" /></Field> : null}
+            <Field label="Message"><textarea name="message" value={formData.message} onChange={handleChange} required rows={7} style={{resize:"vertical"}} /></Field>
+            <label style={{display:"flex",alignItems:"flex-start",gap:9,color:"#66615a",fontSize:12,lineHeight:1.55}}>
+              <input type="checkbox" checked={consent} onChange={(event) => setConsent(event.target.checked)} required style={{marginTop:3}} />
+              <span>I agree to be contacted about this enquiry and have read the <Link href="/privacy-policy">Privacy Policy</Link>.</span>
             </label>
-            <button type="submit" disabled={loading} style={{ minHeight: 48, border: 0, borderRadius: 999, background: tokens.accentAmber, color: tokens.textOnLight, fontWeight: 900, cursor: loading ? "not-allowed" : "pointer", opacity: loading ? .7 : 1 }}>{loading ? "Sending…" : "Send message"}</button>
+            <button type="submit" disabled={loading} className="k-button" style={{width:"100%",border:0,opacity:loading ? 0.65 : 1}}>{loading ? "Sending…" : "Send message"}</button>
           </form>
         )}
-
-        <Link href="/" style={{ display: "inline-block", marginTop: 30, color: tokens.accentAmber, fontSize: 13, fontWeight: 850, textDecoration: "none" }}>← Back to home</Link>
-      </div>
-    </main>
+      </section>
+      <style>{`@media(max-width:820px){.k-section-tight[style]{grid-template-columns:1fr!important;gap:44px!important}}`}</style>
+    </PremiumPage>
   );
 }
 
 function Field({ label, children }: { label: string; children: React.ReactNode }) {
-  return <label style={{ display: "grid", gap: 7, fontSize: 13, fontWeight: 850 }}>{label}{children}</label>;
+  return <label>{label}{children}</label>;
 }
-
-const inputStyle: React.CSSProperties = {
-  width: "100%",
-  padding: "12px 14px",
-  borderRadius: 9,
-  border: "1px solid rgba(255,255,255,.14)",
-  background: "rgba(255,255,255,.045)",
-  color: tokens.textOnDark,
-  font: "inherit",
-  outline: "none",
-};

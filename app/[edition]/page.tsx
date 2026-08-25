@@ -1,11 +1,12 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
+import { PremiumPage } from "@/components/PremiumSiteChrome";
 
 const EDITIONS = {
-  travelsafe: { name: "TravelSafe", audience: "Travellers and tourists", title: "Would you spot a travel scam before it cost you?", description: "Face realistic booking, hotel, taxi, payment and Wi-Fi scams, get your readiness score, and learn your safer next move.", scenarios: ["A hotel asks you to pay again within minutes.", "A taxi driver adds an invented fee at the destination.", "A fake airline support account offers urgent compensation."] },
+  travelsafe: { name: "TravelSafe", audience: "Travellers and tourists", title: "Would you spot a travel scam before it cost you?", description: "Face realistic booking, hotel, taxi, payment and Wi‑Fi scams, get your readiness score, and learn your safer next move.", scenarios: ["A hotel asks you to pay again within minutes.", "A taxi driver adds an invented fee at the destination.", "A fake airline support account offers urgent compensation."] },
   family: { name: "Family", audience: "Parents, children and older relatives", title: "Practise the pressure moments that reach your family.", description: "Build safer responses to emergency money requests, family impersonation, parcel scams, shared-device risks and account takeovers.", scenarios: ["A message sounds like a relative who needs money now.", "A parcel notice asks for a small redelivery payment.", "A shared device receives an unexpected account reset."] },
-  school: { name: "School", audience: "Students ages 12-18", title: "Recognize the pressure behind the next online offer.", description: "Practise recognizing fake giveaways, gaming scams, group-chat pressure, phishing links and attempts to steal social accounts.", scenarios: ["A gaming reward requires a fast login.", "A group chat pressures you to open a link.", "A giveaway asks for account details to claim a prize."] },
+  school: { name: "School", audience: "Students ages 12–18", title: "Recognise the pressure behind the next online offer.", description: "Practise recognising fake giveaways, gaming scams, group-chat pressure, phishing links and attempts to steal social accounts.", scenarios: ["A gaming reward requires a fast login.", "A group chat pressures you to open a link.", "A giveaway asks for account details to claim a prize."] },
   university: { name: "University", audience: "Students and international offices", title: "Pause before a student opportunity becomes a costly mistake.", description: "Prepare for student housing scams, fake jobs, tuition fraud, marketplace scams and identity theft.", scenarios: ["A landlord requests a deposit before a viewing.", "A job offer asks for identity documents immediately.", "A tuition message sends you to an unfamiliar payment page."] },
   workplace: { name: "Workplace", audience: "Teams, HR and managers", title: "Test your response to pressure at work.", description: "Practise safer responses to phishing, invoice fraud, payroll changes, executive impersonation and AI voice scams.", scenarios: ["An executive asks for a confidential transfer.", "A supplier changes payment details by email.", "A voice message creates urgency around payroll."] },
 } as const;
@@ -23,14 +24,38 @@ export default async function EditionPage(props: { params: Promise<{ edition: st
   const params = await props.params;
   const edition = EDITIONS[params.edition as keyof typeof EDITIONS];
   if (!edition) notFound();
+  const startHref = `/challenge/${params.edition}/start?mode=diagnostic`;
+
   return (
-    <main className="edition-page">
-      <header><Link className="brand" href="/">Konfydence</Link><nav><Link href="/travelsafe">TravelSafe</Link><Link href="/country-alerts">Country Scam Alerts</Link><Link href="/challenge">Other Challenges</Link><Link href="/pricing">Pricing</Link><Link href="/contact">Contact</Link><Link className="nav-cta" href={`/challenge/${params.edition}/start?mode=diagnostic`}>Take the Free Check</Link></nav></header>
-      <section className="edition-hero"><p className="eyebrow">Challenge Edition</p><p className="audience">{edition.audience}</p><h1>{edition.title}</h1><p>{edition.description}</p><Link className="primary" href={`/challenge/${params.edition}/start?mode=diagnostic`}>Start the Free Readiness Check</Link></section>
-      <section className="scenario-section"><p className="eyebrow">Inside the Challenge</p><h2>Realistic pressure scenarios for {edition.name}</h2><div className="scenario-grid">{edition.scenarios.map((scenario) => <article key={scenario}><span>Scenario</span><h3>{scenario}</h3><p>Choose what you would do, then see the safer move.</p></article>)}</div></section>
-      <section className="next-section"><h2>Every edition starts with a Free Readiness Check</h2><p>Use the short diagnostic first. When you are ready, continue with the Full Challenge for the complete scenario-based training experience.</p><div className="edition-links">{Object.entries(EDITIONS).filter(([slug]) => slug !== params.edition).map(([slug, item]) => <Link key={slug} href={`/${slug}`}>{item.name}</Link>)}</div></section>
-      <footer><Link href="/">Konfydence</Link><Link href="/hack-method">HACK Method</Link><Link href="/country-alerts">Country Scam Alerts</Link><Link href="/contact">Contact</Link></footer>
-      <style>{`.edition-page{min-height:100vh;background:#f7f9fc;color:#102344;padding:0 6vw 48px;font-family:Arial,Helvetica,sans-serif}.edition-page header{max-width:1120px;margin:auto;min-height:72px;display:flex;align-items:center;justify-content:space-between;gap:24px;border-bottom:1px solid #dce5ef}.brand{color:#102344;text-decoration:none;font-size:23px;font-weight:900}.edition-page nav{display:flex;gap:16px;align-items:center;flex-wrap:wrap}.edition-page nav a,.edition-page footer a{color:#365477;text-decoration:none;font-size:12px;font-weight:800}.edition-page .nav-cta{background:#ff584c;color:#fff;padding:11px 14px;border-radius:8px}.edition-hero,.scenario-section,.next-section{max-width:1120px;margin:auto}.edition-hero{padding:82px 0 70px;max-width:820px}.eyebrow{color:#ef4e43;text-transform:uppercase;letter-spacing:.08em;font-size:11px;font-weight:900}.audience{color:#12639d;text-transform:uppercase;font-weight:900;font-size:12px}.edition-hero h1{font-size:clamp(38px,5vw,64px);line-height:1.04;margin:16px 0}.edition-hero>p:not(.eyebrow):not(.audience),.next-section>p{color:#526b93;line-height:1.6;max-width:700px}.primary{display:inline-flex;margin-top:20px;background:#ff584c;color:#fff;text-decoration:none;font-weight:900;border-radius:8px;padding:13px 18px;box-shadow:0 3px 0 #d74339}.scenario-section{border-top:1px solid #dce5ef;padding:48px 0}.scenario-section h2,.next-section h2{font-size:34px;margin:0 0 22px}.scenario-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.scenario-grid article{background:#fff;border:1px solid #dce5ef;border-radius:10px;padding:22px;min-height:160px}.scenario-grid span{color:#12639d;text-transform:uppercase;font-size:10px;font-weight:900}.scenario-grid h3{font-size:18px;line-height:1.25}.scenario-grid p{color:#526b93;font-size:13px;line-height:1.45}.next-section{background:#eaf3ff;border:1px solid #d0e2f4;border-radius:10px;padding:28px}.edition-links{display:flex;gap:12px;flex-wrap:wrap}.edition-links a{color:#12639d;font-weight:900}.edition-page footer{max-width:1120px;margin:40px auto 0;padding-top:20px;border-top:1px solid #dce5ef;display:flex;gap:20px;flex-wrap:wrap}@media(max-width:760px){.edition-page header{align-items:flex-start;flex-direction:column;padding:18px 0}.scenario-grid{grid-template-columns:1fr}}`}</style>
-    </main>
+    <PremiumPage ctaHref={startHref} ctaLabel="Take free check">
+      <section className="k-shell k-page-hero">
+        <p className="k-kicker">{edition.name} edition · {edition.audience}</p>
+        <h1 className="k-display">{edition.title}</h1>
+        <p className="k-lede">{edition.description}</p>
+        <div className="k-actions"><Link className="k-button" href={startHref}>Start the free readiness check <span>→</span></Link><Link className="k-button-quiet" href="/challenge">See all editions</Link></div>
+      </section>
+
+      <section className="k-shell k-section-tight">
+        <div className="k-section-head"><div><p className="k-kicker">Inside the experience</p><h2 className="k-display-sm">Real pressure. Plausible choices. Immediate feedback.</h2></div><p className="k-copy">The point is not to memorise scam examples. It is to practise the safer decision when the request feels credible and the clock is working against you.</p></div>
+        <div className="k-statements">
+          {edition.scenarios.map((scenario,index) => <article className="k-statement" key={scenario}><span className="k-index">0{index+1}</span><h3>{scenario}</h3><p>Choose what you would do, then see the stronger move and the decision rule behind it.</p></article>)}
+          <article className="k-statement"><span className="k-index">RESULT</span><h3>Your pressure profile</h3><p>See which H.A.C.K. pattern deserves more practice next.</p></article>
+        </div>
+      </section>
+
+      <section className="k-section-dark">
+        <div className="k-shell k-section-head" style={{marginBottom:0}}>
+          <div><p className="k-kicker">Free first</p><h2 className="k-display-sm">Start with the short readiness check.</h2></div>
+          <div><p className="k-copy" style={{color:"#b9b7b1"}}>No account for round one. When you want the complete training experience, continue with the full challenge and deeper result history.</p><div className="k-actions"><Link className="k-button-dark" href={startHref}>Start {edition.name} <span>→</span></Link><Link className="k-button-quiet" style={{color:"#fff",borderColor:"rgba(255,255,255,.24)"}} href={`/pricing?edition=${params.edition}`}>View challenge access</Link></div></div>
+        </div>
+      </section>
+
+      <section className="k-shell k-section-tight">
+        <p className="k-kicker">Other environments</p>
+        <div className="k-editions">
+          {Object.entries(EDITIONS).filter(([slug]) => slug !== params.edition).map(([slug,item]) => <Link key={slug} className="k-edition" href={`/${slug}`}><small>Konfydence edition</small><h3>{item.name}</h3><p>{item.description}</p><span>Explore edition →</span></Link>)}
+        </div>
+      </section>
+    </PremiumPage>
   );
 }

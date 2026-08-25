@@ -2,7 +2,7 @@
 
 import React, { Suspense, useEffect, useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
-import { tokens } from "@/lib/theme/tokens";
+import { PremiumPage } from "@/components/PremiumSiteChrome";
 
 type Entitlement = { tier: "single" | "unlimited"; edition: string | null };
 const MAX_ATTEMPTS = 10;
@@ -27,7 +27,6 @@ function ClaimContent() {
     async function poll(currentAttempt: number) {
       if (cancelled) return;
       setAttempt(currentAttempt);
-
       try {
         const response = await fetch("/api/entitlements/me", { cache: "no-store" });
         if (!response.ok) throw new Error("Entitlement lookup failed");
@@ -35,7 +34,6 @@ function ClaimContent() {
         const purchased = (data.entitlements ?? []).find(
           (item) => item.tier === "unlimited" || (item.tier === "single" && edition && item.edition === edition)
         );
-
         if (purchased) {
           setVerified(true);
           timer = setTimeout(() => {
@@ -56,39 +54,36 @@ function ClaimContent() {
     }
 
     void poll(1);
-    return () => {
-      cancelled = true;
-      if (timer) clearTimeout(timer);
-    };
+    return () => { cancelled = true; if (timer) clearTimeout(timer); };
   }, [edition, router]);
 
   return (
-    <main style={{ minHeight: "100vh", background: tokens.bgCanvas, color: tokens.textOnDark, display: "grid", placeItems: "center", padding: 20, fontFamily: "Inter,ui-sans-serif,system-ui,sans-serif" }}>
-      <section style={{ width: "100%", maxWidth: 520, textAlign: "center" }}>
+    <PremiumPage ctaHref="/challenge" ctaLabel="Challenges">
+      <section className="k-shell k-page-hero center" style={{minHeight:"70vh",display:"grid",alignContent:"center"}}>
         {error ? (
           <>
-            <div style={{ padding: 18, borderRadius: 14, border: "1px solid rgba(239,68,68,.35)", background: "rgba(239,68,68,.1)" }}>
-              <h1 style={{ margin: "0 0 8px", fontSize: 22 }}>Purchase verification delayed</h1>
-              <p style={{ margin: 0, color: tokens.textMuted, fontSize: 13, lineHeight: 1.6 }}>{error}</p>
-            </div>
-            <button type="button" onClick={() => window.location.reload()} style={{ marginTop: 16, padding: "12px 18px", border: 0, borderRadius: 999, background: tokens.accentAmber, color: tokens.textOnLight, fontWeight: 900, cursor: "pointer" }}>Refresh and retry</button>
+            <p className="k-kicker">Verification delayed</p>
+            <h1 className="k-display-sm">Your purchase is safe. Access is taking longer to confirm.</h1>
+            <p className="k-lede">{error}</p>
+            <div className="k-actions" style={{justifyContent:"center"}}><button type="button" onClick={() => window.location.reload()} className="k-button">Refresh and retry</button></div>
           </>
         ) : verified ? (
           <>
-            <div style={{ fontSize: 48, color: tokens.accentAmber }}>✓</div>
-            <h1 style={{ margin: "12px 0", fontSize: 28 }}>Access confirmed.</h1>
-            <p style={{ color: tokens.textMuted }}>Opening your challenge…</p>
+            <p className="k-kicker">Access confirmed</p>
+            <h1 className="k-display-sm">You’re in.</h1>
+            <p className="k-lede">Opening your challenge…</p>
           </>
         ) : (
           <>
-            <div className="spinner" />
-            <h1 style={{ margin: "0 0 12px", fontSize: 28 }}>Confirming your access</h1>
-            <p style={{ margin: 0, color: tokens.textMuted, fontSize: 14, lineHeight: 1.6 }}>Shopify is confirming the purchase. Keep this page open; access normally appears within a few seconds.</p>
-            <p style={{ marginTop: 14, color: tokens.textMuted, fontSize: 11 }}>Verification attempt {attempt} of {MAX_ATTEMPTS}</p>
+            <div className="spinner" aria-hidden="true" />
+            <p className="k-kicker">Confirming access</p>
+            <h1 className="k-display-sm">One final check.</h1>
+            <p className="k-lede">We’re confirming the purchase and will open your challenge automatically.</p>
+            <p className="k-copy" style={{margin:"18px auto 0",fontSize:11}}>Verification attempt {attempt} of {MAX_ATTEMPTS}</p>
           </>
         )}
       </section>
-      <style>{`.spinner{width:48px;height:48px;margin:0 auto 24px;border:3px solid rgba(255,255,255,.12);border-top-color:${tokens.accentAmber};border-radius:50%;animation:spin .85s linear infinite}@keyframes spin{to{transform:rotate(360deg)}}`}</style>
-    </main>
+      <style>{`.spinner{width:44px;height:44px;margin:0 auto 26px;border:2px solid #ddd8cf;border-top-color:#9a7a42;border-radius:50%;animation:spin .85s linear infinite}@keyframes spin{to{transform:rotate(360deg)}}@media(prefers-reduced-motion:reduce){.spinner{animation:none}}`}</style>
+    </PremiumPage>
   );
 }
