@@ -53,7 +53,7 @@ export default function HomePage() {
           <div className="k-dark-grid">
             <article className="k-dark-card"><span>H</span><h3>Hurry</h3><p>Artificial urgency pushes you to act before you verify.</p></article>
             <article className="k-dark-card"><span>A</span><h3>Authority</h3><p>Titles, uniforms and hierarchy make the request feel unquestionable.</p></article>
-            <article className="k-dark-card"><span>C</span><h3>Comfort</h3><p>Familiar names, channels and routines lower suspicion.</p></article>
+            <article className="k-dark-card"><span>C</span><h3><b style={{fontWeight:"inherit"}}>Comfort</b></h3><p>Familiar names, channels and routines lower suspicion.</p></article>
             <article className="k-dark-card"><span>K</span><h3>Kill‑Switch</h3><p>The critical action moment: click, pay, share, approve or reply before you independently verify.</p></article>
           </div>
         </div>
