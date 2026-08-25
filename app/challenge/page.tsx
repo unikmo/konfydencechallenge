@@ -4,7 +4,7 @@ import { PremiumPage } from "@/components/PremiumSiteChrome";
 
 export const metadata: Metadata = {
   title: "Choose Your Konfydence Challenge",
-  description: "Choose the pressure test that matches your real life. Eight free scenarios reveal which scam pressure pattern is most likely to move you.",
+  description: "Choose the pressure test that matches your real life. 8 scenarios reveal which scam pressure pattern is most likely to move you.",
   alternates: { canonical: "/challenge" },
 };
 
@@ -22,14 +22,14 @@ export default function ChallengeLanding() {
       <section className="k-shell k-page-hero">
         <p className="k-kicker">Free scam-pressure diagnostic</p>
         <h1 className="k-display">Scams test what you do under pressure.</h1>
-        <p className="k-lede">Choose the version closest to your real life. Eight decisions reveal which H.A.C.K. pressure pattern changes your behaviour most—and what to practise next.</p>
-        <div className="k-meta-row"><span><b>8</b> scenarios</span><span><b>~4 minutes</b></span><span><b>No account</b> for round one</span><span><b>Immediate</b> H.A.C.K. profile</span></div>
+        <p className="k-lede">Choose the version closest to your real life. 8 scenarios reveal which H.A.C.K. pressure pattern changes your behaviour most—and what to practise next.</p>
+        <div className="k-meta-row"><span><b>8 scenarios</b></span><span><b>~4 minutes</b></span><span><b>No account</b> for round one</span><span><b>Immediate</b> H.A.C.K. profile</span></div>
       </section>
 
       <section className="k-shell k-section-tight">
         <div className="k-section-head">
           <div><p className="k-kicker">Choose your pressure test</p><h2 className="k-display-sm">Where are you most likely to be targeted?</h2></div>
-          <p className="k-copy">Each edition draws from its own scenario bank. The free check is balanced across Hurry, Authority, Comfort and Kill‑Switch pressure.</p>
+          <p className="k-copy">Each edition draws from its own 40-scenario bank. The free check uses 8 scenarios. The full challenge draws 24 balanced decisions across Hurry, Authority, Comfort and Kill-Switch.</p>
         </div>
         <div className="k-editions">
           {editions.map(([no,title,audience,copy,href]) => <Link className="k-edition" href={href} key={title}><small>{no} · {audience}</small><h3>{title}</h3><p>{copy}</p><span>Start free check →</span></Link>)}
@@ -44,7 +44,7 @@ export default function ChallengeLanding() {
             <article className="k-dark-card"><span>H</span><h3>Hurry</h3><p>Can urgency make you act before you verify?</p></article>
             <article className="k-dark-card"><span>A</span><h3>Authority</h3><p>Do official-looking people or institutions get a shortcut to trust?</p></article>
             <article className="k-dark-card"><span>C</span><h3>Comfort</h3><p>Does familiarity lower your guard before the evidence is checked?</p></article>
-            <article className="k-dark-card"><span>K</span><h3>Kill‑Switch</h3><p>Can you stop at the critical action moment and verify independently?</p></article>
+            <article className="k-dark-card"><span>K</span><h3>Kill-Switch</h3><p>Can you stop at the critical action moment and verify independently?</p></article>
           </div>
         </div>
       </section>
