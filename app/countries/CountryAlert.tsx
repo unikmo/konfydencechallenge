@@ -48,40 +48,36 @@ export default function CountryAlert({ country }: { country: string }) {
   }, [country]);
 
   return (
-    <section className={styles.officialRiskSection} aria-labelledby="country-alert-heading">
+    <section className={styles.officialRiskSection} aria-labelledby="country-alert-heading" aria-busy={!data && !error}>
       <p className={styles.eyebrow}>Country Scam Alerts</p>
       <h2 id="country-alert-heading">Fraud and scam alerts</h2>
 
-      {!data && !error ? <p className={styles.officialRiskLoading}>Checking official fraud and scam information...</p> : null}
+      {!data && !error ? <div className={styles.officialRiskLoading} aria-label="Loading latest official guidance" /> : null}
       {error ? (
-        <p className={styles.officialRiskError}>Fraud alert pending. Use the official sources below for current information.</p>
+        <p className={styles.officialRiskError}>Live extraction is temporarily unavailable. Use the official source links below for current information.</p>
       ) : null}
 
       {data ? (
         <>
-          <section className={styles.scamGuidance} aria-labelledby={String.fromCharCode(115,99,97,109,45,103,117,105,100,97,110,99,101,45,104,101,97,100,105,110,103)}>
-            <p className={styles.eyebrow}>Fraud &amp; scam alert</p>
-            <h3 id={String.fromCharCode(115,99,97,109,45,103,117,105,100,97,110,99,101,45,104,101,97,100,105,110,103)}>What the official advisories flag</h3>
-            <p className={styles.scamIntro}>Only wording relevant to fraud, scams, theft, cards, or online crime is shown here. Open the full official advisory before travelling.</p>
+          <section className={styles.scamGuidance} aria-labelledby="scam-guidance-heading">
+            <p className={styles.eyebrow}>Official guidance</p>
+            <h3 id="scam-guidance-heading">What the advisories flag</h3>
+            <p className={styles.scamIntro}>Only wording relevant to fraud, scams, theft, cards or online crime is shown here. Open the full official advisory before travelling.</p>
             <div className={styles.scamGuidanceGrid}>
               {data.official.map((source) => (
                 <article className={styles.scamGuidanceCard} key={source.authority}>
                   <p className={styles.sourceAuthority}>{source.authority}</p>
                   {source.scamGuidance?.length ? (
-                    <ul>
-                      {source.scamGuidance.map((note, index) => <li key={source.authority + String(index)}>{note}</li>)}
-                    </ul>
+                    <ul>{source.scamGuidance.map((note, index) => <li key={source.authority + String(index)}>{note}</li>)}</ul>
                   ) : (
                     <p className={styles.scamEmpty}>No fraud- or scam-specific wording was extracted from this advisory page.</p>
                   )}
-                  <a href={source.url} target={String.fromCharCode(95, 98, 108, 97, 110, 107)} rel={String.fromCharCode(110, 111, 114, 101, 102, 101, 114, 114, 101, 114)}>Read the full official advisory</a>
+                  <a href={source.url} target="_blank" rel="noreferrer">Read the full official advisory</a>
                 </article>
               ))}
             </div>
           </section>
-          <p className={styles.officialRiskChecked}>
-            Checked {new Date(data.checkedAt).toLocaleString("en-GB", { dateStyle: "medium", timeStyle: "short" })}
-          </p>
+          <p className={styles.officialRiskChecked}>Checked {new Date(data.checkedAt).toLocaleString("en-GB", { dateStyle: "medium", timeStyle: "short" })}</p>
         </>
       ) : null}
     </section>

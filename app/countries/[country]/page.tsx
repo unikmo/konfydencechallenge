@@ -1,4 +1,4 @@
-﻿import Link from "next/link";
+import Link from "next/link";
 import { notFound } from "next/navigation";
 import { COUNTRY_PROFILES } from "@/lib/countries";
 import CountryLandmarkImage from "../CountryLandmarkImage";
@@ -20,67 +20,38 @@ export default async function CountryPage(props: { params: Promise<{ country: st
         <header className={styles.nav}>
           <Link href="/" className={styles.brand}>Konfydence</Link>
           <nav className={styles.navLinks} aria-label="Main navigation">
-            <Link href="/travelsafe">TravelSafe</Link>
-            <Link href="/#how-it-works">How It Works</Link>
-            <Link href="/country-alerts">Country Scam Alerts</Link>
-            <Link href="/#other-challenges">Other Challenges</Link>
-            <Link href="/#for-organizations">For Organizations</Link>
+            <Link href="/challenge/travelsafe/start?mode=diagnostic">TravelSafe</Link>
+            <Link href="/countries">Countries</Link>
+            <Link href="/hack-method">Method</Link>
+            <Link href="/challenge">Challenges</Link>
           </nav>
         </header>
 
         <section className={styles.hero}>
-          <Link href="/country-alerts" className={styles.back}>Country Scam Alerts</Link>
+          <Link href="/countries" className={styles.back}>← All countries</Link>
           <p className={styles.eyebrow}>{profile.continent} / {profile.region}</p>
           <h1>{profile.name}</h1>
-
         </section>
 
-        <CountryLandmarkImage
-          countryName={profile.name}
-          landmark={profile.landmark}
-          slug={profile.slug}
-        />
+        <CountryLandmarkImage countryName={profile.name} landmark={profile.landmark} slug={profile.slug} />
 
         <CountryAlert country={profile.slug} />
 
-        <p className={styles.sourceNote}>Fraud source: official <a href={profile.sources[0].url} target="_blank" rel="noreferrer">Canada</a> / <a href={profile.sources[1].url} target="_blank" rel="noreferrer">New Zealand</a> information.</p>
+        <p className={styles.sourceNote}>Official source pages: <a href={profile.sources[0].url} target="_blank" rel="noreferrer">Canada</a> · <a href={profile.sources[1].url} target="_blank" rel="noreferrer">New Zealand</a>. Open the original advisories before making a travel decision.</p>
 
-        <section className={styles.checkinSection}>
-          <div>
-            <p className={styles.eyebrow}>Planned, not live</p>
-            <h2>Would a voluntary travel check-in help?</h2>
-            <p>Tell us what you would want from a future WhatsApp-based check-in. It would be opt-in and would never promise emergency response.</p>
-          </div>
-          <Link href="/contact?topic=travel-check-in" className={styles.primaryLink}>Join the interest list</Link>
-        </section>
         <section className={styles.practice}>
           <div>
             <p className={styles.eyebrow}>TravelSafe</p>
-            <h2>Test your response before the trip.</h2>
-            <p>Start with the TravelSafe Free Readiness Check, then see which pressure tactic needs more practice before the trip.</p>
+            <h2>Read the advice. Then rehearse the decision.</h2>
+            <p>Official guidance tells you what to watch for. TravelSafe lets you practise what you would do when the pressure arrives in a hotel message, payment request, taxi, booking flow or public network.</p>
           </div>
-          <Link href="/challenge/travelsafe/start?mode=diagnostic" className={styles.primaryLink}>Start Free Readiness Check</Link>
-        </section>
-
-        <section className={styles.affiliate}>
-          <p className={styles.eyebrow}>Travel and book-tour resources</p>
-          <h2>Useful partner links belong here, below the evidence.</h2>
-          <p>Insurance, transport, tours, and book-tour partners can be added after approval. Every commercial relationship will be labelled clearly.</p>
+          <Link href="/challenge/travelsafe/start?mode=diagnostic" className={styles.primaryLink}>Start free readiness check</Link>
         </section>
 
         <footer className={styles.footer}>
-          <Link href="/countries">Countries</Link>
-          <Link href="/contact">Contact</Link>
-          <Link href="/imprint">Imprint</Link>
-          <Link href="/privacy-policy">Privacy</Link>
-          <Link href="/terms-of-service">Terms</Link>
-          <Link href="/cookie-policy">Cookies</Link>
+          <Link href="/countries">Countries</Link><Link href="/challenge">Challenges</Link><Link href="/contact">Contact</Link><Link href="/imprint">Imprint</Link><Link href="/privacy-policy">Privacy</Link><Link href="/terms-of-service">Terms</Link><Link href="/cookie-policy">Cookies</Link>
         </footer>
       </div>
     </main>
   );
 }
-
-
-
-
