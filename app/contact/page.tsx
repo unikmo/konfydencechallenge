@@ -95,7 +95,7 @@ function ContactForm() {
               <input type="checkbox" checked={consent} onChange={(event) => setConsent(event.target.checked)} required style={{marginTop:3}} />
               <span>I agree to be contacted about this enquiry and have read the <Link href="/privacy-policy">Privacy Policy</Link>.</span>
             </label>
-            <button type="submit" disabled={loading} className="k-button" style={{width:"100%",border:0,opacity:loading?.65:1}}>{loading ? "Sending…" : "Send message"}</button>
+            <button type="submit" disabled={loading} className="k-button" style={{width:"100%",border:0,opacity:loading ? 0.65 : 1}}>{loading ? "Sending…" : "Send message"}</button>
           </form>
         )}
       </section>
