@@ -38,7 +38,7 @@ function PricingContent() {
       <section className="k-shell k-page-hero">
         <p className="k-kicker">Challenge access</p>
         <h1 className="k-display">Start free. Go deeper when it is useful.</h1>
-        <p className="k-lede">The short readiness check gives you a genuine signal before you buy anything. Full access adds the complete scenario set, repeated runs, deeper results and certificates.</p>
+        <p className="k-lede">The short readiness check gives you a genuine signal before you buy anything. Full access adds a 24-decision balanced run drawn from the edition’s 40-scenario bank, repeated runs, deeper results and certificates.</p>
       </section>
 
       <section className="k-shell k-section-tight">
@@ -51,7 +51,7 @@ function PricingContent() {
 
           <article className="k-price">
             <span className="k-kicker">One edition</span><h2>Full Challenge</h2><strong>$4.99</strong>
-            <ul><li>One full 50-scenario edition</li><li>5 complete runs</li><li>Full KRS dashboard</li><li>Certificate</li><li>Weakness recommendation</li></ul>
+            <ul><li>24 balanced decisions per run</li><li>Drawn from a 40-scenario bank</li><li>5 complete runs</li><li>Full KRS dashboard</li><li>Certificate and weakness recommendation</li></ul>
             <div className="k-actions" style={{display:"block"}}>
               {selectedEdition ? (
                 <CheckoutRedirectButton sku={`CHAL-SINGLE-${selectedEdition.toUpperCase()}`} label={`Unlock ${selectedLabel} — $4.99`} />
@@ -68,7 +68,7 @@ function PricingContent() {
 
           <article className="k-price">
             <span className="k-kicker">Complete set</span><h2>Scam-Readiness Pack</h2><strong>$19.99</strong>
-            <ul><li>All 5 challenge editions</li><li>250 real-life scenarios</li><li>Full dashboards</li><li>Certificates</li><li>Best-value individual access</li></ul>
+            <ul><li>All 5 challenge editions</li><li>Five distinct 40-scenario banks</li><li>Balanced 24-decision full runs</li><li>Full dashboards and certificates</li><li>Best-value individual access</li></ul>
             <div className="k-actions">{hasSingle ? <CheckoutRedirectButton sku="CHAL-UPGRADE" label="Upgrade to Unlimited — $15" /> : <CheckoutRedirectButton sku="CHAL-UNLIMITED" label="Get all 5 challenges — $19.99" />}</div>
           </article>
 
