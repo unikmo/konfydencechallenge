@@ -12,64 +12,43 @@ export default function CountriesPage() {
         <header className={styles.nav}>
           <Link href="/" className={styles.brand}>Konfydence</Link>
           <nav className={styles.navLinks} aria-label="Main navigation">
-            <Link href="/travelsafe">TravelSafe</Link>
-            <Link href="/#how-it-works">How It Works</Link>
-            <Link href="/country-alerts" aria-current="page">Country Scam Alerts</Link>
-            <Link href="/#other-challenges">Other Challenges</Link>
-            <Link href="/#for-organizations">For Organizations</Link>
+            <Link href="/challenge/travelsafe/start?mode=diagnostic">TravelSafe</Link>
+            <Link href="/hack-method">Method</Link>
+            <Link href="/challenge">Challenges</Link>
+            <Link href="/comasy">For organisations</Link>
           </nav>
         </header>
 
         <section className={styles.hero}>
-          <p className={styles.eyebrow}>Country Scam Alerts</p>
-          <h1>Official travel information.<br />Spot fraud and scams.</h1>
-
+          <p className={styles.eyebrow}>Travel intelligence</p>
+          <h1>Official guidance, organised around the scams travellers actually face.</h1>
         </section>
 
         <section className={styles.sourceNotice} aria-label="Official country information sources">
-          <p className={styles.eyebrow}>Official sources</p>
-          <p>Country information comes from official Canadian and New Zealand travel guidance. We surface the fraud and scam wording those advisories publish, then link you to the original pages. Use government sources for current travel decisions.</p>
+          <p className={styles.eyebrow}>Source discipline</p>
+          <p>Country information comes from official Canadian and New Zealand travel guidance. Konfydence surfaces fraud- and scam-relevant wording and links back to the original advisory. Government sources remain the authority for current travel decisions.</p>
         </section>
+
         <CountryDirectory profiles={profiles} />
 
-        <section className={styles.checkinSection}>
-          <div>
-            <p className={styles.eyebrow}>Planned, not live</p>
-            <h2>Would a voluntary travel check-in help?</h2>
-            <p>Tell us what you would want from a future WhatsApp-based check-in. It would be opt-in and would never promise emergency response.</p>
-          </div>
-          <Link href="/contact?topic=travel-check-in" className={styles.primaryLink}>Join the interest list</Link>
-        </section>
         <section className={styles.flowSection} aria-label="How to use the country pages">
           <p className={styles.eyebrow}>The safer sequence</p>
           <div className={styles.flowGrid}>
-            <div><span>1</span><strong>Read official advice</strong><p>Start with the current government sources.</p></div>
-            <div><span>2</span><strong>Review sourced signals</strong><p>Look for evidence-backed country intelligence.</p></div>
-            <div><span>3</span><strong>Practise under pressure</strong><p>Use TravelSafe to rehearse your response.</p></div>
+            <div><span>01</span><strong>Read official advice</strong><p>Start with current government sources, not social posts or forwarded messages.</p></div>
+            <div><span>02</span><strong>Notice the pressure pattern</strong><p>Separate the urgency or authority cue from the evidence supporting the request.</p></div>
+            <div><span>03</span><strong>Practise before departure</strong><p>Use TravelSafe to rehearse the decision while the stakes are still low.</p></div>
           </div>
         </section>
 
         <section className={styles.practice}>
-          <div><p className={styles.eyebrow}>Practise before you travel</p><h2>How would you react under pressure?</h2><p>Start with the TravelSafe Free Readiness Check, then unlock the Full Challenge when you are ready.</p></div>
-          <Link href="/challenge/travelsafe/start?mode=diagnostic" className={styles.primaryLink}>Start Free Readiness Check</Link>
-        </section>
-
-        <section className={styles.affiliate}>
-          <p className={styles.eyebrow}>Travel and book-tour resources</p>
-          <h2>Useful next steps, clearly labelled.</h2>
-          <p>Approved travel, insurance, tour, and book-tour partners can appear here after the safety guidance. Affiliate relationships will be disclosed beside every relevant link.</p>
+          <div><p className={styles.eyebrow}>TravelSafe</p><h2>Test your response before the trip.</h2><p>Eight realistic travel-scam decisions reveal which pressure pattern deserves more practice before departure.</p></div>
+          <Link href="/challenge/travelsafe/start?mode=diagnostic" className={styles.primaryLink}>Start free readiness check</Link>
         </section>
 
         <footer className={styles.footer}>
-          <Link href="/">Home</Link>
-          <Link href="/contact">Contact</Link>
-          <Link href="/imprint">Imprint</Link>
-          <Link href="/privacy-policy">Privacy</Link>
-          <Link href="/terms-of-service">Terms</Link>
-          <Link href="/cookie-policy">Cookies</Link>
+          <Link href="/">Home</Link><Link href="/challenge">Challenges</Link><Link href="/contact">Contact</Link><Link href="/imprint">Imprint</Link><Link href="/privacy-policy">Privacy</Link><Link href="/terms-of-service">Terms</Link><Link href="/cookie-policy">Cookies</Link>
         </footer>
       </div>
     </main>
   );
 }
-
