@@ -1,5 +1,6 @@
 import Link from "next/link";
 import type { Metadata } from "next";
+import { PremiumPage } from "@/components/PremiumSiteChrome";
 
 export const metadata: Metadata = {
   title: { absolute: "The H.A.C.K. Method | Konfydence" },
@@ -16,13 +17,34 @@ const patterns = [
 
 export default function HackMethodPage() {
   return (
-    <main className="hack-page">
-      <header><Link href="/" className="brand">Konfydence</Link><nav><Link href="/challenge">Challenges</Link><Link href="/countries">Travel alerts</Link><Link href="/pricing">Pricing</Link><Link href="/contact">Contact</Link></nav></header>
-      <section className="intro"><p className="eyebrow">The H.A.C.K. Method</p><h1>Name the pressure before the pressure chooses for you.</h1><p>H.A.C.K. is the decision framework behind Konfydence. It separates scam pressure into four repeatable patterns so you can spot what is happening, leave the requester’s channel, verify independently and choose the safer next move.</p><Link className="primary" href="/challenge/travelsafe/start?mode=diagnostic">Take the free 8-decision check</Link></section>
-      <section className="patterns"><h2>The four pressure patterns</h2><div className="pattern-grid">{patterns.map(([letter, title, copy]) => <article key={letter}><b>{letter}</b><h3>{title}</h3><p>{copy}</p></article>)}</div></section>
-      <section className="next"><h2>Knowledge is useful. Rehearsal changes the next move.</h2><p>Konfydence places these pressure mechanics inside realistic Family, School, University, Workplace and TravelSafe scenarios. Every decision is followed by an explanation and a reusable rule.</p><Link href="/challenge">Choose a challenge</Link></section>
-      <footer><Link href="/">Konfydence</Link><Link href="/privacy-policy">Privacy</Link><Link href="/terms-of-service">Terms</Link><Link href="/contact">Contact</Link></footer>
-      <style>{`.hack-page{min-height:100vh;background:#f7f9fc;color:#102344;padding:0 6vw 48px;font-family:Arial,Helvetica,sans-serif}.hack-page header{max-width:1100px;margin:auto;min-height:72px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #dce5ef;gap:22px}.brand{font-size:23px;font-weight:900;color:#102344;text-decoration:none}.hack-page nav{display:flex;gap:20px;flex-wrap:wrap}.hack-page nav a,.hack-page footer a{color:#365477;text-decoration:none;font-size:12px;font-weight:800}.intro,.patterns,.next{max-width:1100px;margin:0 auto}.intro{padding:86px 0 66px;max-width:790px}.eyebrow{color:#ef4e43;font-size:11px;font-weight:900;letter-spacing:.08em;text-transform:uppercase}.intro h1{font-size:clamp(38px,5vw,64px);line-height:1.04;margin:15px 0 20px}.intro>p:not(.eyebrow),.next p{color:#526b93;line-height:1.6;max-width:700px}.primary{display:inline-flex;margin-top:20px;background:#ff584c;color:#fff;text-decoration:none;font-weight:900;padding:13px 18px;border-radius:999px;box-shadow:0 3px 0 #d74339}.patterns{border-top:1px solid #dce5ef;padding:48px 0}.patterns h2,.next h2{font-size:34px;margin:0 0 22px}.pattern-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}.pattern-grid article{background:#fff;border:1px solid #dce5ef;border-radius:14px;padding:22px;min-height:190px}.pattern-grid b{display:grid;place-items:center;width:32px;height:32px;border-radius:50%;background:#ff584c;color:#fff}.pattern-grid h3{margin:22px 0 8px}.pattern-grid p{color:#526b93;font-size:14px;line-height:1.5}.next{background:#eaf3ff;border:1px solid #d0e2f4;border-radius:14px;padding:28px}.next a{color:#12639d;font-weight:900}.hack-page footer{max-width:1100px;margin:38px auto 0;border-top:1px solid #dce5ef;padding-top:20px;display:flex;gap:20px}@media(max-width:720px){.hack-page header{align-items:flex-start;flex-direction:column;padding:18px 0}.pattern-grid{grid-template-columns:repeat(2,1fr)}}@media(max-width:460px){.pattern-grid{grid-template-columns:1fr}}`}</style>
-    </main>
+    <PremiumPage>
+      <section className="k-shell k-page-hero">
+        <p className="k-kicker">The H.A.C.K. method</p>
+        <h1 className="k-display">Name the pressure before it chooses for you.</h1>
+        <p className="k-lede">H.A.C.K. separates scam pressure into four repeatable patterns so you can recognise what is happening, interrupt the impulse and verify independently.</p>
+        <div className="k-actions"><Link className="k-button" href="/challenge/travelsafe/start?mode=diagnostic">Take the free check <span>→</span></Link><Link className="k-button-quiet" href="/challenge">Choose another edition</Link></div>
+      </section>
+
+      <section className="k-section-dark">
+        <div className="k-shell">
+          <div className="k-section-head"><div><p className="k-kicker">Four pressure patterns</p><h2 className="k-display-sm">The story changes. The mechanics repeat.</h2></div><p className="k-copy" style={{color:"#b9b7b1"}}>Once you can name the pressure, it becomes easier to step outside the requester’s channel and choose a stronger verification path.</p></div>
+          <div className="k-dark-grid">
+            {patterns.map(([letter,title,copy]) => <article className="k-dark-card" key={letter}><span>{letter}</span><h3>{title}</h3><p>{copy}</p></article>)}
+          </div>
+        </div>
+      </section>
+
+      <section className="k-shell k-section">
+        <div className="k-section-head"><div><p className="k-kicker">From knowledge to behaviour</p><h2 className="k-display-sm">Knowing the rule is useful. Rehearsal changes the next move.</h2></div><p className="k-copy">Konfydence places these pressure mechanics inside realistic Family, School, University, Workplace and TravelSafe scenarios. Every decision is followed by an explanation and a reusable rule.</p></div>
+        <div className="k-statements">
+          <article className="k-statement"><span className="k-index">01</span><h3>Notice</h3><p>Identify the pressure cue before the story pulls you forward.</p></article>
+          <article className="k-statement"><span className="k-index">02</span><h3>Interrupt</h3><p>Create enough distance to stop the risky action chain.</p></article>
+          <article className="k-statement"><span className="k-index">03</span><h3>Verify</h3><p>Use a known, independent channel rather than the incoming request.</p></article>
+          <article className="k-statement"><span className="k-index">04</span><h3>Choose</h3><p>Act only after the evidence—not the pressure—supports the move.</p></article>
+        </div>
+      </section>
+
+      <section className="k-shell k-callout"><div><p className="k-kicker">Practice it</p><h2 className="k-display-sm">A framework becomes useful when you can use it under pressure.</h2></div><div className="k-actions"><Link className="k-button" href="/challenge">Choose a challenge <span>→</span></Link></div></section>
+    </PremiumPage>
   );
 }
