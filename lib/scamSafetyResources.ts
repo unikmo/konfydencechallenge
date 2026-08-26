@@ -8,17 +8,15 @@ export type ScamSafetyResource = {
   kind: ScamSafetyResourceKind;
   fileId: string;
   previewFileId: string;
-  previewUrl: string;
-  downloadUrl: string;
+  previewPath: string;
+  downloadPath: string;
   driveViewUrl: string;
 };
 
-function drivePreview(fileId: string) {
-  return `https://drive.google.com/thumbnail?id=${fileId}&sz=w1200`;
-}
-
-function driveDownload(fileId: string) {
-  return `https://drive.google.com/uc?export=download&id=${fileId}`;
+function assetPath(resourceId: string, preview = false) {
+  const params = new URLSearchParams({ resource: resourceId });
+  if (preview) params.set("preview", "1");
+  return `/api/resources/asset?${params.toString()}`;
 }
 
 function driveView(fileId: string) {
@@ -32,8 +30,9 @@ function lockScreen(
 ): ScamSafetyResource {
   const number = String(index).padStart(2, "0");
   const device = kind === "phone" ? "Phone" : "Computer";
+  const id = `${kind}-${number}`;
   return {
-    id: `${kind}-${number}`,
+    id,
     label: `${device} lock screen ${number}`,
     shortLabel: `${device} ${number}`,
     detail:
@@ -43,8 +42,8 @@ function lockScreen(
     kind,
     fileId,
     previewFileId: fileId,
-    previewUrl: drivePreview(fileId),
-    downloadUrl: driveDownload(fileId),
+    previewPath: assetPath(id, true),
+    downloadPath: assetPath(id),
     driveViewUrl: driveView(fileId),
   };
 }
@@ -58,8 +57,8 @@ export const SCAM_SAFETY_RESOURCES: ScamSafetyResource[] = [
     kind: "protocol",
     fileId: "1gF0ssmNVljRGpfEXRyRp5IaEXmT3KE7v",
     previewFileId: "17uHUzVD7jifV_gP2N9GJCQlO2OZgad3i",
-    previewUrl: drivePreview("17uHUzVD7jifV_gP2N9GJCQlO2OZgad3i"),
-    downloadUrl: driveDownload("1gF0ssmNVljRGpfEXRyRp5IaEXmT3KE7v"),
+    previewPath: assetPath("protocol", true),
+    downloadPath: assetPath("protocol"),
     driveViewUrl: driveView("1gF0ssmNVljRGpfEXRyRp5IaEXmT3KE7v"),
   },
 
