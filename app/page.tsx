@@ -10,7 +10,7 @@ export const metadata: Metadata = {
     "TravelSafe helps travellers practise calm, confident decisions before an urgent message, call or request puts them under pressure.",
   alternates: { canonical: "/" },
   openGraph: {
-    title: "TravelSafe by Konfydence | Your trip should be the adventure",
+    title: "TravelSafe by Konfydence | Your trip should be the adventure. Not the scam.",
     description: "Practise the decision before the pressure is real.",
     url: "https://konfydence.com",
     type: "website",
@@ -29,29 +29,34 @@ export default function HomePage() {
     <PremiumPage ctaHref="/challenge/travelsafe/start?mode=diagnostic" ctaLabel="Try TravelSafe free">
       <section className="k-home-hero" aria-labelledby="home-hero-title">
         <div className="k-shell k-home-hero-copy">
-          <p className="k-kicker">TravelSafe by Konfydence</p>
-          <h1 id="home-hero-title" className="k-home-hero-title">Your trip should be the adventure.</h1>
-          <p className="k-home-hero-tension">Not deciding whether an urgent message is real.</p>
-          <p className="k-home-hero-lede">Practise the decision before the pressure is real.</p>
-          <div className="k-home-hero-actions">
-            <Link className="k-button k-home-primary" href="/challenge/travelsafe/start?mode=diagnostic">Try TravelSafe free</Link>
-            <Link className="k-button-quiet k-home-secondary" href="#for-someone">For someone you care about</Link>
-          </div>
+          <h1 id="home-hero-title" className="k-home-hero-title">
+            <span>Your trip should be the adventure.</span>
+            <span>Not the scam.</span>
+          </h1>
         </div>
 
         <div className="k-home-hero-media">
           <Image
             src="/hero/travelsafe-care-airport.jpg"
-            alt="A traveller and someone who cares about her at an airport, with a suspicious booking message between them"
+            alt="A traveller at an airport with someone who cares about her, considering an urgent booking message"
             fill
             priority
-            sizes="(max-width: 980px) 100vw, 1080px"
+            quality={95}
+            sizes="(max-width: 760px) 94vw, 720px"
           />
         </div>
-        <a className="k-home-scroll-cue" href="#inside-it" aria-label="Continue to learn why scam messages are difficult to recognise">
-          <span>See why this matters</span>
-          <b aria-hidden="true">↓</b>
-        </a>
+
+        <div className="k-shell k-home-hero-after">
+          <p>Practise the decision before the pressure is real.</p>
+          <div className="k-home-hero-actions">
+            <Link className="k-button k-home-primary" href="/challenge/travelsafe/start?mode=diagnostic">Try TravelSafe free</Link>
+            <Link className="k-button-quiet k-home-secondary" href="#for-someone">For someone you care about</Link>
+          </div>
+          <a className="k-home-scroll-cue" href="#inside-it" aria-label="Continue to learn why scam messages are difficult to recognise">
+            <span>See why this matters</span>
+            <b aria-hidden="true">↓</b>
+          </a>
+        </div>
       </section>
 
       <section id="inside-it" className="k-shell k-home-hook k-home-narrow">
