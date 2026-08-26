@@ -1,0 +1,2 @@
+- Primary header logo: supplied Konfydence horizontal colour mark
+- Dark-surface logo: supplied Konfydence horizontal white mark
