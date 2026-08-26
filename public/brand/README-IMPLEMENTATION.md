@@ -1,1 +1,0 @@
-Supplied Konfydence artwork is the canonical mark for the website. Primary use: horizontal colour logo on light surfaces; horizontal white logo on dark surfaces.
