@@ -3,15 +3,16 @@ import Script from "next/script";
 import type { Metadata, Viewport } from "next";
 import { CookieConsent } from "@/components/CookieConsent";
 import { AnalyticsInstrumentation } from "@/components/AnalyticsInstrumentation";
+import "./konfydence-premium.css";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://konfydence.com"),
   title: {
-    default: "Konfydence | Scenario-Based Scam Awareness Training",
+    default: "Konfydence | Confidence under pressure",
     template: "%s | Konfydence",
   },
   description:
-    "Scenario-based scam-awareness training that helps people practise safer decisions under pressure.",
+    "Scenario-based practice that helps people and organisations make safer decisions under pressure.",
   applicationName: "Konfydence",
   category: "education",
   robots: {
@@ -26,7 +27,7 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: "Konfydence | Scenario-Based Scam Awareness Training",
+    title: "Konfydence | Confidence under pressure",
     description: "Practise safer decisions before the pressure is real.",
     url: "https://konfydence.com",
     siteName: "Konfydence",
@@ -34,7 +35,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Konfydence | Scenario-Based Scam Awareness Training",
+    title: "Konfydence | Confidence under pressure",
     description: "Practise safer decisions before the pressure is real.",
   },
 };
@@ -42,7 +43,7 @@ export const metadata: Metadata = {
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
-  themeColor: "#091522",
+  themeColor: "#f7f4ee",
   colorScheme: "light",
 };
 
@@ -53,7 +54,7 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en">
-      <body style={{ margin: 0 }}>
+      <body>
         {GA_MEASUREMENT_ID ? (
           <>
             <Script id="ga-consent-default" strategy="beforeInteractive">
