@@ -13,6 +13,7 @@ const BREVO_MARKETING_LIST_ID = Number(process.env.BREVO_MARKETING_LIST_ID || 0)
 const BREVO_DOI_TEMPLATE_ID = Number(process.env.BREVO_DOI_TEMPLATE_ID || 0) || null;
 const BREVO_DOI_REDIRECT_URL = process.env.BREVO_DOI_REDIRECT_URL || "https://konfydence.com/free-scam-safety-pack?marketing=confirmed";
 const CONTACT_TO_EMAIL = process.env.CONTACT_TO_EMAIL;
+const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL || "https://konfydence.com").replace(/\/$/, "");
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
@@ -23,6 +24,10 @@ function escapeHtml(value: string): string {
     .replace(/>/g, "&gt;")
     .replace(/"/g, "&quot;")
     .replace(/'/g, "&#39;");
+}
+
+function resourceUrl(resource: ScamSafetyResource) {
+  return `${SITE_URL}${resource.downloadPath}`;
 }
 
 async function brevoRequest(path: string, init: RequestInit) {
@@ -115,7 +120,7 @@ function renderResourceList(resources: ScamSafetyResource[]) {
           <td style="padding:18px 0;border-bottom:1px solid #e8e2d8">
             <div style="font-size:12px;color:#806941;text-transform:uppercase;letter-spacing:.08em;margin-bottom:5px">${escapeHtml(resource.kind)}</div>
             <div style="font-size:17px;font-weight:700;color:#111417;margin-bottom:6px">${escapeHtml(resource.label)}</div>
-            <a href="${resource.downloadUrl}" style="display:inline-block;color:#0b5aa5;font-weight:700;text-decoration:none">Download file</a>
+            <a href="${resourceUrl(resource)}" style="display:inline-block;color:#0b5aa5;font-weight:700;text-decoration:none">Download file</a>
           </td>
         </tr>`
     )
@@ -215,7 +220,7 @@ export async function POST(request: NextRequest) {
       resources: resources.map((resource) => ({
         id: resource.id,
         label: resource.label,
-        downloadUrl: resource.downloadUrl,
+        downloadUrl: resourceUrl(resource),
       })),
     });
   } catch (error) {
