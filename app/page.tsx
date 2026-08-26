@@ -32,25 +32,32 @@ export default function HomePage() {
           <p className="k-kicker">TravelSafe by Konfydence</p>
           <h1 id="home-hero-title" className="k-home-hero-title">Your trip should be the adventure.</h1>
           <p className="k-home-hero-tension">Not deciding whether an urgent message is real.</p>
-          <p className="k-home-hero-lede">
-            TravelSafe helps people practise the decision before the pressure is real.
-          </p>
+          <p className="k-home-hero-lede">Practise the decision before the pressure is real.</p>
           <div className="k-home-hero-actions">
             <Link className="k-button k-home-primary" href="/challenge/travelsafe/start?mode=diagnostic">Try TravelSafe free</Link>
             <Link className="k-button-quiet k-home-secondary" href="#for-someone">For someone you care about</Link>
           </div>
         </div>
 
-        <div className="k-home-hero-media" role="img" aria-label="A traveller and someone who cares about her at an airport, with an urgent booking message shown between them" />
+        <div className="k-home-hero-media">
+          <Image
+            src="/hero/konfydence-travelsafe-vacation.jpg"
+            alt="Traveller at an airport preparing for a safer trip"
+            fill
+            priority
+            sizes="(max-width: 980px) 100vw, 1080px"
+          />
+        </div>
         <a className="k-home-scroll-cue" href="#inside-it" aria-label="Continue to learn why scam messages are difficult to recognise">
           <span>See why this matters</span>
           <b aria-hidden="true">↓</b>
         </a>
       </section>
 
-      <section id="inside-it" className="k-shell k-home-hook">
+      <section id="inside-it" className="k-shell k-home-hook k-home-narrow">
         <p className="k-kicker">The moment that matters</p>
         <h2>It rarely looks like a scam<br />when you&apos;re inside it.</h2>
+        <p className="k-home-hook-lede">TravelSafe turns that uncertain moment into something you can practise calmly before you travel.</p>
         <div className="k-home-benefits">
           <article>
             <span aria-hidden="true">01</span>
@@ -70,23 +77,23 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section id="for-someone" className="k-shell k-home-care">
+      <section id="for-someone" className="k-shell k-home-care k-home-narrow">
         <div className="k-home-care-copy">
           <p className="k-kicker">For someone you care about</p>
           <h2 className="k-display-sm">A useful kind of care travels with them.</h2>
           <p className="k-copy">
-            TravelSafe is digital decision practice—not a physical gift. A parent can help a child prepare for a first independent trip, a friend can look out for a friend, and a team can support a colleague travelling for work.
+            TravelSafe is digital decision practice—not a physical gift. Give someone you care about a habit they can carry with them when you cannot be there.
           </p>
           <Link className="k-button" href="/travelsafe">Explore TravelSafe</Link>
         </div>
         <div className="k-home-care-grid" aria-label="TravelSafe can support family, friends and colleagues">
-          <article><small>Family</small><strong>Before their first trip alone.</strong><p>Build a habit they can carry without needing you beside them.</p></article>
-          <article><small>Friends</small><strong>Before a holiday or long journey.</strong><p>Share something practical with the person you naturally look out for.</p></article>
-          <article><small>Teams</small><strong>Before work takes them away.</strong><p>Give travelling colleagues useful decision practice without another long course.</p></article>
+          <article><small>Family</small><strong>Before their first trip alone.</strong><p>A calm habit for the moment they have to decide without you beside them.</p></article>
+          <article><small>Friends</small><strong>Before a holiday or long journey.</strong><p>Something practical for the person you naturally look out for.</p></article>
+          <article><small>Teams</small><strong>Before work takes them away.</strong><p>Useful decision practice for colleagues travelling beyond familiar routines.</p></article>
         </div>
       </section>
 
-      <section className="k-shell k-section k-home-pressure">
+      <section className="k-shell k-section k-home-pressure k-home-centered-section">
         <div className="k-section-head">
           <div>
             <p className="k-kicker">Pressure has patterns</p>
@@ -109,15 +116,15 @@ export default function HomePage() {
 
       <ScamSafetyPack source="homepage" />
 
-      <section className="k-section-dark">
-        <div className="k-shell">
+      <section className="k-section-dark k-home-method">
+        <div className="k-shell k-home-narrow">
           <div className="k-section-head">
             <div>
               <p className="k-kicker">The Konfydence method</p>
               <h2 className="k-display-sm">Built for behaviour. Designed for pressure.</h2>
             </div>
             <p className="k-copy">
-              The shared method behind TravelSafe and CoMaSy is simple: notice pressure, interrupt the impulse, verify through a known channel, then act.
+              Notice pressure. Interrupt the impulse. Verify through a known channel. Then act.
             </p>
           </div>
           <div className="k-method-grid">
@@ -128,7 +135,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="k-shell k-section">
+      <section className="k-shell k-section k-home-centered-section k-home-beyond">
         <div className="k-section-head">
           <div>
             <p className="k-kicker">Beyond travel</p>
@@ -160,7 +167,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="k-shell k-callout">
+      <section className="k-shell k-callout k-home-final-cta">
         <div>
           <p className="k-kicker">Start here</p>
           <h2 className="k-display-sm">Practise the decision before the pressure is real.</h2>
