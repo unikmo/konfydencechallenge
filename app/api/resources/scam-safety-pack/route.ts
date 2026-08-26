@@ -134,8 +134,8 @@ export async function POST(request: NextRequest) {
     const source = String(body.source || "site").slice(0, 80);
     const marketingConsent = body.marketingConsent === true;
     const website = String(body.website || "");
-    const requestedIds = Array.isArray(body.selections)
-      ? Array.from(new Set(body.selections.map((value: unknown) => String(value))))
+    const requestedIds: string[] = Array.isArray(body.selections)
+      ? Array.from(new Set<string>(body.selections.map((value: unknown) => String(value))))
       : [];
 
     if (website) {
