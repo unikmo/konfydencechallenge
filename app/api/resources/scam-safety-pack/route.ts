@@ -9,6 +9,7 @@ import {
 const BREVO_API_KEY = process.env.BREVO_API_KEY;
 const BREVO_SENDER_EMAIL = process.env.BREVO_SENDER_EMAIL || "concierge@konfydence.com";
 const BREVO_SENDER_NAME = process.env.BREVO_SENDER_NAME || "The Konfydence Team";
+const BREVO_RESOURCE_LIST_ID = Number(process.env.BREVO_RESOURCE_LIST_ID || 0) || null;
 const BREVO_MARKETING_LIST_ID = Number(process.env.BREVO_MARKETING_LIST_ID || 0) || null;
 const BREVO_DOI_TEMPLATE_ID = Number(process.env.BREVO_DOI_TEMPLATE_ID || 0) || null;
 const BREVO_DOI_REDIRECT_URL = process.env.BREVO_DOI_REDIRECT_URL || "https://konfydence.com/free-scam-safety-pack?marketing=confirmed";
@@ -47,6 +48,29 @@ async function brevoRequest(path: string, init: RequestInit) {
 
   const body = await response.text();
   return { ok: response.ok, status: response.status, body };
+}
+
+async function captureResourceContact(email: string) {
+  if (!BREVO_API_KEY) return { recorded: false, mode: "not-configured" as const };
+
+  const result = await brevoRequest("/contacts", {
+    method: "POST",
+    body: JSON.stringify({
+      email,
+      ...(BREVO_RESOURCE_LIST_ID ? { listIds: [BREVO_RESOURCE_LIST_ID] } : {}),
+      updateEnabled: true,
+    }),
+  });
+
+  if (!result.ok) {
+    console.error("Brevo resource contact capture failed:", result.status, result.body);
+    return { recorded: false, mode: "capture-failed" as const };
+  }
+
+  return {
+    recorded: true,
+    mode: BREVO_RESOURCE_LIST_ID ? ("resource-list" as const) : ("contact-only" as const),
+  };
 }
 
 async function sendBrevoEmail(input: { to: string; subject: string; html: string; tags?: string[] }) {
@@ -166,6 +190,9 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ error: "One or more selected resources are not available." }, { status: 400 });
     }
 
+    // Capture the requested-resource lead in Brevo without treating it as a marketing subscription.
+    const resourceContact = await captureResourceContact(email);
+
     const emailSent = await sendBrevoEmail({
       to: email,
       subject: resources.length === 1 ? "Your free Konfydence resource" : "Your free Konfydence resources",
@@ -193,6 +220,7 @@ export async function POST(request: NextRequest) {
           <p><strong>Email:</strong> ${escapeHtml(email)}</p>
           <p><strong>Source:</strong> ${escapeHtml(source)}</p>
           <p><strong>Resources:</strong> ${resources.map((resource) => escapeHtml(resource.label)).join(", ")}</p>
+          <p><strong>Brevo contact capture:</strong> ${escapeHtml(resourceContact.mode)}</p>
           <p><strong>Marketing opt-in requested:</strong> ${marketingConsent ? "yes" : "no"}</p>
           <p><strong>Brevo marketing status:</strong> ${escapeHtml(marketing.mode)}</p>
           <p><strong>Captured:</strong> ${new Date().toISOString()}</p>
@@ -205,6 +233,7 @@ export async function POST(request: NextRequest) {
       email,
       source,
       resources: resources.map((resource) => resource.id),
+      resourceContactMode: resourceContact.mode,
       marketingConsent,
       marketingMode: marketing.mode,
       emailSent,
@@ -216,6 +245,7 @@ export async function POST(request: NextRequest) {
       success: true,
       emailSent,
       provider: "brevo",
+      contactCaptured: resourceContact.recorded,
       marketing: marketing.mode,
       resources: resources.map((resource) => ({
         id: resource.id,
