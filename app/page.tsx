@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import type { Metadata } from "next";
 import { PremiumPage } from "@/components/PremiumSiteChrome";
+import { ScamSafetyPack } from "@/components/ScamSafetyPack";
 
 export const metadata: Metadata = {
   title: { absolute: "Konfydence | Confidence under pressure" },
@@ -44,14 +45,11 @@ export default function HomePage() {
             <span><b>Immediate feedback</b> at the decision point</span>
           </div>
         </div>
-        <div className="k-hero-art soft">
-          <Image
-            src="/hero/konfydence-travelsafe-vacation.jpg"
-            alt="Traveller reviewing an unexpected message on a phone"
-            fill
-            priority
-            sizes="(max-width: 980px) 100vw, 54vw"
-          />
+        <div className="k-hero-art k-hero-audiences" aria-label="Konfydence experiences for families, schools, universities and workplaces">
+          <div className="k-audience-tile"><Image src="/edition-images/family-art.png" alt="Family safety" width={512} height={512} priority /><span>Family</span></div>
+          <div className="k-audience-tile"><Image src="/edition-images/school-art.png" alt="School safety" width={512} height={512} priority /><span>School</span></div>
+          <div className="k-audience-tile"><Image src="/edition-images/university-art.png" alt="University safety" width={512} height={512} priority /><span>University</span></div>
+          <div className="k-audience-tile"><Image src="/edition-images/workplace-art.png" alt="Workplace security" width={512} height={512} priority /><span>Workplace</span></div>
         </div>
       </section>
 
@@ -75,6 +73,8 @@ export default function HomePage() {
           ))}
         </div>
       </section>
+
+      <ScamSafetyPack source="homepage" />
 
       <section className="k-section-dark">
         <div className="k-shell">
@@ -104,8 +104,8 @@ export default function HomePage() {
           <p className="k-copy">Choose the environment that matches the decision you need to practise.</p>
         </div>
         <div className="k-two-paths">
-          <article className="k-path">
-            <Image src="/edition-images/family.png" alt="Family using a digital safety experience together" fill sizes="(max-width: 980px) 100vw, 50vw" />
+          <article className="k-path k-path-illustration">
+            <Image src="/edition-images/family-art.png" alt="Family safety experience illustration" fill sizes="(max-width: 980px) 100vw, 50vw" />
             <div className="k-path-overlay" />
             <div className="k-path-copy">
               <small>For you</small>
@@ -114,8 +114,8 @@ export default function HomePage() {
               <Link href="/travelsafe">Explore TravelSafe →</Link>
             </div>
           </article>
-          <article className="k-path">
-            <Image src="/edition-images/workplace.png" alt="Workplace team discussing a decision" fill sizes="(max-width: 980px) 100vw, 50vw" />
+          <article className="k-path k-path-illustration">
+            <Image src="/edition-images/workplace-art.png" alt="Workplace security decision illustration" fill sizes="(max-width: 980px) 100vw, 50vw" />
             <div className="k-path-overlay" />
             <div className="k-path-copy">
               <small>For organisations</small>

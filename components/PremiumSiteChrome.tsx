@@ -43,6 +43,7 @@ export function PremiumFooter() {
         <nav aria-label="Footer navigation">
           <Link href="/travelsafe">TravelSafe</Link>
           <Link href="/comasy">CoMaSy</Link>
+          <Link href="/free-scam-safety-pack">Free safety pack</Link>
           <Link href="/hack-method">Method</Link>
           <Link href="/contact">Contact</Link>
           <Link href="/imprint">Imprint</Link>

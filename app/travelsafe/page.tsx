@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import type { Metadata } from "next";
 import { PremiumPage } from "@/components/PremiumSiteChrome";
+import { ScamSafetyPack } from "@/components/ScamSafetyPack";
 
 export const metadata: Metadata = {
   title: { absolute: "TravelSafe | Scam-awareness decision practice by Konfydence" },
@@ -22,21 +23,21 @@ const experiences = [
     label: "Family edition",
     title: "Protect what matters most",
     copy: "Learn together. Build stronger habits around money requests, impersonation and shared devices.",
-    image: "/edition-images/family.png",
+    image: "/edition-images/family-art.png",
     href: "/challenge/family/start?mode=diagnostic",
   },
   {
     label: "School edition",
     title: "Safer students. Stronger schools",
     copy: "Age-appropriate practice for gaming, messages, account takeovers and social pressure.",
-    image: "/edition-images/school.png",
+    image: "/edition-images/school-art.png",
     href: "/challenge/school/start?mode=diagnostic",
   },
   {
     label: "University edition",
     title: "Independence with confidence",
     copy: "Practise decisions around housing, jobs, tuition, identity and unfamiliar systems.",
-    image: "/edition-images/university.png",
+    image: "/edition-images/university-art.png",
     href: "/challenge/university/start?mode=diagnostic",
   },
 ];
@@ -58,7 +59,7 @@ export default function TravelSafePage() {
           </div>
         </div>
         <div className="k-travel-media">
-          <Image src="/edition-images/travelsafe-hero.png" alt="Traveller reviewing a phone while in transit" fill priority sizes="(max-width: 980px) 100vw, 55vw" />
+          <Image src="/edition-images/travelsafe-hero.png" alt="TravelSafe luggage, passport and phone safety illustration" fill priority sizes="(max-width: 980px) 100vw, 55vw" />
         </div>
       </section>
 
@@ -75,7 +76,7 @@ export default function TravelSafePage() {
         <div className="k-travel-cards">
           {experiences.map((experience) => (
             <article className="k-travel-card" key={experience.title}>
-              <Image src={experience.image} alt="" width={760} height={520} sizes="(max-width: 980px) 100vw, 33vw" />
+              <Image src={experience.image} alt={`${experience.label} illustration`} width={760} height={520} sizes="(max-width: 980px) 100vw, 33vw" />
               <div>
                 <small>{experience.label}</small>
                 <h3>{experience.title}</h3>
@@ -86,6 +87,8 @@ export default function TravelSafePage() {
           ))}
         </div>
       </section>
+
+      <ScamSafetyPack source="travelsafe" />
 
       <section className="k-section-dark">
         <div className="k-shell">
