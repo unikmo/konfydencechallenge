@@ -3,6 +3,10 @@
 import Link from "next/link";
 import type { ReactNode } from "react";
 
+function KonfydenceLogo() {
+  return <span className="k-brand-logo" aria-hidden="true" />;
+}
+
 export function PremiumHeader({
   ctaHref = "/challenge/travelsafe/start?mode=diagnostic",
   ctaLabel = "Get started",
@@ -13,7 +17,7 @@ export function PremiumHeader({
   return (
     <header className="k-shell k-nav">
       <Link href="/" className="k-brand" aria-label="Konfydence home">
-        <span className="k-wordmark">konfydence.</span>
+        <KonfydenceLogo />
       </Link>
       <nav className="k-nav-links" aria-label="Primary navigation">
         <Link href="/travelsafe">For people</Link>
@@ -33,7 +37,7 @@ export function PremiumFooter() {
     <footer className="k-footer">
       <div className="k-shell k-footer-inner">
         <div>
-          <Link href="/" className="k-brand"><span className="k-wordmark">konfydence.</span></Link>
+          <Link href="/" className="k-brand" aria-label="Konfydence home"><KonfydenceLogo /></Link>
           <p>Confidence under pressure.</p>
         </div>
         <nav aria-label="Footer navigation">
