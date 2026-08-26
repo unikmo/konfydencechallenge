@@ -1,0 +1,1 @@
+Brand surfaces must use supplied Konfydence logo assets; temporary typographic marks are deprecated.
