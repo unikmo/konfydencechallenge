@@ -63,7 +63,7 @@ export default function TravelSafePage() {
         </div>
       </section>
 
-      <section className="k-shell k-section">
+      <section id="families" className="k-shell k-section">
         <div className="k-section-head">
           <div>
             <p className="k-kicker">Real-life situations. Safer decisions.</p>
@@ -90,7 +90,7 @@ export default function TravelSafePage() {
 
       <ScamSafetyPack source="travelsafe" />
 
-      <section className="k-section-dark">
+      <section id="how-it-works" className="k-section-dark">
         <div className="k-shell">
           <div className="k-section-head">
             <div>
