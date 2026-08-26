@@ -83,7 +83,7 @@ function buildPdf(): Buffer {
 
 export async function GET() {
   const pdf = buildPdf();
-  return new NextResponse(pdf, {
+  return new NextResponse(new Uint8Array(pdf), {
     status: 200,
     headers: {
       "Content-Type": "application/pdf",
