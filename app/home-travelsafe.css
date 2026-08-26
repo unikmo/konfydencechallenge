@@ -1,0 +1,72 @@
+.k-home-hero{position:relative;padding:76px 0 0;text-align:center;overflow:hidden;background:linear-gradient(180deg,#fbf9f5 0%,#f7f4ee 72%,#f7f4ee 100%)}
+.k-home-hero-copy{position:relative;z-index:2;display:flex;flex-direction:column;align-items:center}
+.k-home-hero-copy .k-kicker{margin-bottom:16px}
+.k-home-hero-title{font-family:var(--k-display);font-weight:400;letter-spacing:-.052em;line-height:.94;margin:0;max-width:980px;font-size:clamp(64px,7.4vw,112px);color:#0d3159}
+.k-home-hero-tension{font-size:clamp(21px,2.1vw,31px);line-height:1.3;letter-spacing:-.025em;color:#173f6a;margin:22px 0 0}
+.k-home-hero-lede{max-width:670px;font-size:clamp(16px,1.45vw,20px);line-height:1.55;color:#5d6063;margin:15px 0 0}
+.k-home-hero-actions{display:flex;justify-content:center;gap:14px;flex-wrap:wrap;margin-top:28px}
+.k-home-primary{background:#075ca8;border-color:#075ca8;min-width:176px}
+.k-home-primary:hover{background:#064d8d}
+.k-home-secondary{border-color:rgba(7,92,168,.42);color:#075ca8;min-width:205px;background:rgba(255,255,255,.5)}
+.k-home-secondary:hover{border-color:#075ca8;background:#fff}
+.k-home-hero-media{width:min(1120px,calc(100% - 32px));height:clamp(460px,57vw,760px);margin:44px auto 0;border-radius:32px 32px 0 0;background-image:linear-gradient(180deg,rgba(247,244,238,.08),rgba(247,244,238,0) 22%),url('/hero/konfydence-travelsafe-vacation.jpg');background-size:cover;background-position:center 47%;box-shadow:0 32px 90px rgba(31,51,69,.12);position:relative}
+.k-home-hero-media:after{content:"";position:absolute;inset:0;border-radius:inherit;box-shadow:inset 0 0 0 1px rgba(17,20,23,.05)}
+.k-home-scroll-cue{display:inline-flex;align-items:center;gap:9px;margin:22px auto 0;padding:12px 14px 28px;text-decoration:none;font-size:10px;text-transform:uppercase;letter-spacing:.12em;color:#77716a}
+.k-home-scroll-cue b{font-size:15px;font-weight:500;color:#af8752}
+
+.k-home-hook{padding:112px 0 98px;text-align:center}
+.k-home-hook>h2{font-family:var(--k-display);font-size:clamp(48px,5.2vw,78px);line-height:1.02;letter-spacing:-.046em;font-weight:400;color:#0d3159;margin:0 auto;max-width:1000px}
+.k-home-hook>h2:after{content:"";display:block;width:42px;height:2px;background:#d9a43d;margin:26px auto 0}
+.k-home-benefits{display:grid;grid-template-columns:repeat(3,1fr);margin-top:58px;border-top:1px solid var(--k-line);border-bottom:1px solid var(--k-line)}
+.k-home-benefits article{padding:34px 38px 36px;border-right:1px solid var(--k-line)}
+.k-home-benefits article:last-child{border-right:0}
+.k-home-benefits article>span{display:grid;place-items:center;width:52px;height:52px;border:1px solid rgba(7,92,168,.35);border-radius:50%;margin:0 auto 22px;font-size:10px;color:#075ca8}
+.k-home-benefits h3{font-family:var(--k-display);font-size:29px;font-weight:400;letter-spacing:-.035em;margin:0 0 11px;color:#0d3159}
+.k-home-benefits p{font-size:13px;line-height:1.65;color:var(--k-muted);margin:0 auto;max-width:290px}
+
+.k-home-care{padding:112px 0;border-top:1px solid var(--k-line);display:grid;grid-template-columns:minmax(0,.82fr) minmax(0,1.18fr);gap:72px;align-items:start}
+.k-home-care-copy{position:sticky;top:100px}
+.k-home-care-copy .k-copy{margin:26px 0 30px}
+.k-home-care-grid{display:grid;gap:14px}
+.k-home-care-grid article{background:#fffdf9;border:1px solid var(--k-line);border-radius:22px;padding:32px 34px;min-height:170px;display:grid;grid-template-columns:118px 1fr;grid-template-rows:auto auto;column-gap:24px;align-items:start}
+.k-home-care-grid small{grid-row:1/3;text-transform:uppercase;letter-spacing:.13em;font-size:9px;color:var(--k-gold);padding-top:5px}
+.k-home-care-grid strong{font-family:var(--k-display);font-size:31px;line-height:1.05;font-weight:400;letter-spacing:-.035em;color:#0d3159}
+.k-home-care-grid p{font-size:12px;line-height:1.6;color:var(--k-muted);margin:12px 0 0;max-width:520px}
+
+.k-home-pressure{padding-top:112px}
+.k-principles-four{grid-template-columns:repeat(4,1fr)}
+.k-principles-four .k-principle:last-child{border-right:0}
+
+@media (max-width:980px){
+  .k-home-hero{padding-top:58px}
+  .k-home-hero-title{font-size:clamp(58px,10vw,88px)}
+  .k-home-hero-media{height:clamp(430px,72vw,650px);background-position:center}
+  .k-home-benefits{grid-template-columns:1fr}
+  .k-home-benefits article{border-right:0;border-bottom:1px solid var(--k-line)}
+  .k-home-benefits article:last-child{border-bottom:0}
+  .k-home-care{grid-template-columns:1fr;gap:42px}
+  .k-home-care-copy{position:static}
+  .k-principles-four{grid-template-columns:repeat(2,1fr)}
+}
+
+@media (max-width:640px){
+  .k-home-hero{padding-top:42px}
+  .k-home-hero-copy{width:min(100% - 28px,var(--k-shell))}
+  .k-home-hero-title{font-size:clamp(50px,15vw,68px);max-width:560px}
+  .k-home-hero-tension{font-size:20px;max-width:560px}
+  .k-home-hero-lede{font-size:15px;max-width:500px}
+  .k-home-hero-actions{width:100%;gap:10px}
+  .k-home-hero-actions a{width:100%;max-width:340px}
+  .k-home-hero-media{width:100%;height:520px;margin-top:34px;border-radius:0;background-position:center}
+  .k-home-hook{padding:76px 0 70px}
+  .k-home-hook>h2{font-size:44px}
+  .k-home-benefits{margin-top:42px}
+  .k-home-benefits article{padding:30px 18px}
+  .k-home-care{padding:78px 0}
+  .k-home-care-grid article{grid-template-columns:1fr;grid-template-rows:auto;padding:26px}
+  .k-home-care-grid small{grid-row:auto;margin-bottom:16px}
+  .k-home-care-grid strong{font-size:28px}
+  .k-principles-four{grid-template-columns:1fr}
+  .k-principles-four .k-principle{border-right:0;border-bottom:1px solid var(--k-line)}
+  .k-principles-four .k-principle:last-child{border-bottom:0}
+}
