@@ -1,8 +1,10 @@
 # Canonical Konfydence brand assets
 
-Use the project-owner supplied artwork without redrawing or substituting the mark.
+Use only the project-owner supplied artwork. Do not redraw, reinterpret, or substitute the Konfydence mark.
 
-- `konfydence-horizontal-color.png` — primary logo on light surfaces
-- `konfydence-horizontal-white.png` — logo on dark surfaces
-- `konfydence-stacked-color.png` — stacked brand moments on light surfaces
-- `konfydence-stacked-white.png` — stacked brand moments on dark surfaces
+- `LOGO-04.png` — primary horizontal blue/yellow logo for light surfaces
+- `LOGO-06.png` — horizontal white logo for dark surfaces
+- `LOGO-01.png` — stacked blue/yellow logo for larger brand moments
+- `LOGO-03.png` — stacked white logo for dark larger brand moments
+
+The website keeps the broader interface restrained and neutral; the logo carries the principal blue/yellow brand identity.
