@@ -57,7 +57,7 @@ function ResourceCard({
       <span className="k-resource-image-wrap">
         {/* These are the approved originals in the Konfydence Drive library. */}
         {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src={resource.previewUrl} alt="" loading="lazy" />
+        <img src={resource.previewPath} alt="" loading="lazy" />
       </span>
       <span className="k-resource-choice-copy">
         <small>{resource.kind === "protocol" ? "PDF" : resource.kind === "phone" ? "Phone" : "Computer"}</small>
@@ -217,7 +217,7 @@ export function ScamSafetyPack({ source = "site" }: { source?: string }) {
           </div>
           <div className="k-pack-downloads">
             {selectedResources.map((item) => (
-              <a key={item.id} href={item.downloadUrl} target="_blank" rel="noreferrer">
+              <a key={item.id} href={item.downloadPath}>
                 <span>{item.kind === "protocol" ? "PDF" : item.kind.toUpperCase()}</span>
                 <b>{item.label}</b>
                 <small>{item.detail}</small>
