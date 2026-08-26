@@ -21,7 +21,7 @@ export function PremiumHeader({
       </Link>
       <nav className="k-nav-links" aria-label="Primary navigation">
         <Link href="/travelsafe">TravelSafe</Link>
-        <Link href="/hack-method">How it works</Link>
+        <Link href="/travelsafe#how-it-works">How it works</Link>
         <Link href="/travelsafe#families">For families</Link>
         <Link href="/comasy">For organisations</Link>
         <Link href="/free-scam-safety-pack">Resources</Link>
