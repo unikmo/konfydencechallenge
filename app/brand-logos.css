@@ -1,0 +1,46 @@
+:root{
+  --konfydence-logo-color:url("/brand/LOGO-04.png");
+  --konfydence-logo-white:url("/brand/LOGO-06.png");
+}
+
+.k-brand-logo{
+  display:block;
+  width:168px;
+  height:56px;
+  background-image:var(--konfydence-logo-color);
+  background-repeat:no-repeat;
+  background-position:left center;
+  background-size:contain;
+}
+
+.k-footer .k-brand-logo{width:180px;height:60px}
+
+.site .nav .brand,.site .footer .brand{
+  display:block !important;
+  flex:none !important;
+  gap:0 !important;
+  background-repeat:no-repeat;
+  background-position:left center;
+  background-size:contain;
+}
+.site .nav .brand{
+  width:176px;
+  height:58px;
+  background-image:var(--konfydence-logo-white);
+}
+.site .footer .brand{
+  width:184px;
+  height:61px;
+  background-image:var(--konfydence-logo-color);
+}
+.site .nav .brand>span,.site .nav .brand>b,
+.site .footer .brand>span,.site .footer .brand>b{
+  display:none !important;
+}
+
+@media (max-width:640px){
+  .k-brand-logo{width:142px;height:47px}
+  .k-footer .k-brand-logo{width:154px;height:51px}
+  .site .nav .brand{width:148px;height:49px}
+  .site .footer .brand{width:160px;height:53px}
+}
