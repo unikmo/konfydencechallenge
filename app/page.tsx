@@ -5,13 +5,13 @@ import { PremiumPage } from "@/components/PremiumSiteChrome";
 import { ScamSafetyPack } from "@/components/ScamSafetyPack";
 
 export const metadata: Metadata = {
-  title: { absolute: "Konfydence | Confidence under pressure" },
+  title: { absolute: "TravelSafe by Konfydence | Practise safer travel decisions" },
   description:
-    "Practise safer decisions before pressure takes over. Scenario-based experiences for travellers, families, students, teams and organisations.",
+    "TravelSafe helps travellers practise calm, confident decisions before an urgent message, call or request puts them under pressure.",
   alternates: { canonical: "/" },
   openGraph: {
-    title: "Konfydence | Confidence under pressure",
-    description: "Practise the pause before the pressure is real.",
+    title: "TravelSafe by Konfydence | Your trip should be the adventure",
+    description: "Practise the decision before the pressure is real.",
     url: "https://konfydence.com",
     type: "website",
   },
@@ -20,50 +20,83 @@ export const metadata: Metadata = {
 const principles = [
   ["01", "Urgency", "Pressure tries to make speed feel more important than verification."],
   ["02", "Authority", "Titles and hierarchy can make a risky request feel unquestionable."],
-  ["03", "Familiarity", "Known people, routines and channels can lower healthy skepticism."],
-  ["04", "Isolation", "Attackers often try to keep you away from independent verification."],
-  ["05", "Impact", "One rushed decision can affect money, identity, access or operations."],
+  ["03", "Comfort", "Familiar people, routines and channels can lower healthy skepticism."],
+  ["04", "Kill-Switch", "Pressure often tries to stop you from checking independently or asking someone else."],
 ];
 
 export default function HomePage() {
   return (
-    <PremiumPage>
-      <section className="k-shell k-hero">
-        <div>
-          <p className="k-kicker">Konfydence</p>
-          <h1 className="k-display">Confidence begins before you click.</h1>
-          <p className="k-lede">
-            Realistic simulations. Better decisions. Safer outcomes for people and organisations.
+    <PremiumPage ctaHref="/challenge/travelsafe/start?mode=diagnostic" ctaLabel="Try TravelSafe free">
+      <section className="k-home-hero" aria-labelledby="home-hero-title">
+        <div className="k-shell k-home-hero-copy">
+          <p className="k-kicker">TravelSafe by Konfydence</p>
+          <h1 id="home-hero-title" className="k-home-hero-title">Your trip should be the adventure.</h1>
+          <p className="k-home-hero-tension">Not deciding whether an urgent message is real.</p>
+          <p className="k-home-hero-lede">
+            TravelSafe helps people practise the decision before the pressure is real.
           </p>
-          <div className="k-actions">
-            <Link className="k-button" href="/travelsafe">For you</Link>
-            <Link className="k-button-quiet" href="/comasy">For organisations</Link>
-          </div>
-          <div className="k-inline-proof">
-            <span><b>Short practice</b> instead of long lectures</span>
-            <span><b>Real choices</b> instead of obvious answers</span>
-            <span><b>Immediate feedback</b> at the decision point</span>
+          <div className="k-home-hero-actions">
+            <Link className="k-button k-home-primary" href="/challenge/travelsafe/start?mode=diagnostic">Try TravelSafe free</Link>
+            <Link className="k-button-quiet k-home-secondary" href="#for-someone">For someone you care about</Link>
           </div>
         </div>
-        <div className="k-hero-art k-hero-audiences" aria-label="Konfydence experiences for families, schools, universities and workplaces">
-          <div className="k-audience-tile"><Image src="/edition-images/family-art.png" alt="Family safety" width={512} height={512} priority /><span>Family</span></div>
-          <div className="k-audience-tile"><Image src="/edition-images/school-art.png" alt="School safety" width={512} height={512} priority /><span>School</span></div>
-          <div className="k-audience-tile"><Image src="/edition-images/university-art.png" alt="University safety" width={512} height={512} priority /><span>University</span></div>
-          <div className="k-audience-tile"><Image src="/edition-images/workplace-art.png" alt="Workplace security" width={512} height={512} priority /><span>Workplace</span></div>
+
+        <div className="k-home-hero-media" role="img" aria-label="A traveller and someone who cares about her at an airport, with an urgent booking message shown between them" />
+        <a className="k-home-scroll-cue" href="#inside-it" aria-label="Continue to learn why scam messages are difficult to recognise">
+          <span>See why this matters</span>
+          <b aria-hidden="true">↓</b>
+        </a>
+      </section>
+
+      <section id="inside-it" className="k-shell k-home-hook">
+        <p className="k-kicker">The moment that matters</p>
+        <h2>It rarely looks like a scam<br />when you&apos;re inside it.</h2>
+        <div className="k-home-benefits">
+          <article>
+            <span aria-hidden="true">01</span>
+            <h3>Real-world scenarios</h3>
+            <p>Practise with messages that look and feel real—so the habit is there when it counts.</p>
+          </article>
+          <article>
+            <span aria-hidden="true">02</span>
+            <h3>Confident decisions</h3>
+            <p>Learn a calm, repeatable process to pause, verify independently and decide.</p>
+          </article>
+          <article>
+            <span aria-hidden="true">03</span>
+            <h3>Protection you can share</h3>
+            <p>Give useful confidence to the people you care about before they travel.</p>
+          </article>
         </div>
       </section>
 
-      <section className="k-shell k-section">
+      <section id="for-someone" className="k-shell k-home-care">
+        <div className="k-home-care-copy">
+          <p className="k-kicker">For someone you care about</p>
+          <h2 className="k-display-sm">A useful kind of care travels with them.</h2>
+          <p className="k-copy">
+            TravelSafe is digital decision practice—not a physical gift. A parent can help a child prepare for a first independent trip, a friend can look out for a friend, and a team can support a colleague travelling for work.
+          </p>
+          <Link className="k-button" href="/travelsafe">Explore TravelSafe</Link>
+        </div>
+        <div className="k-home-care-grid" aria-label="TravelSafe can support family, friends and colleagues">
+          <article><small>Family</small><strong>Before their first trip alone.</strong><p>Build a habit they can carry without needing you beside them.</p></article>
+          <article><small>Friends</small><strong>Before a holiday or long journey.</strong><p>Share something practical with the person you naturally look out for.</p></article>
+          <article><small>Teams</small><strong>Before work takes them away.</strong><p>Give travelling colleagues useful decision practice without another long course.</p></article>
+        </div>
+      </section>
+
+      <section className="k-shell k-section k-home-pressure">
         <div className="k-section-head">
           <div>
-            <p className="k-kicker">Human decisions face pressure</p>
-            <h2 className="k-display-sm">Stay confident when the situation stops feeling simple.</h2>
+            <p className="k-kicker">Pressure has patterns</p>
+            <h2 className="k-display-sm">Recognise what the message is trying to make you do.</h2>
           </div>
           <p className="k-copy">
-            The story changes, but pressure patterns repeat. Konfydence trains people to recognise the cue, create a pause, verify independently and choose the strongest safe action.
+            TravelSafe does not ask people to memorise a blacklist. It teaches them to notice the pressure pattern, create decision space and verify through a channel they trust.
           </p>
         </div>
-        <div className="k-principles">
+        <div className="k-principles k-principles-four">
           {principles.map(([no, title, copy]) => (
             <article className="k-principle" key={title}>
               <span>{no}</span>
@@ -84,7 +117,7 @@ export default function HomePage() {
               <h2 className="k-display-sm">Built for behaviour. Designed for pressure.</h2>
             </div>
             <p className="k-copy">
-              The shared method behind consumer experiences and CoMaSy is simple: notice pressure, interrupt the impulse, verify through a known channel, then act.
+              The shared method behind TravelSafe and CoMaSy is simple: notice pressure, interrupt the impulse, verify through a known channel, then act.
             </p>
           </div>
           <div className="k-method-grid">
@@ -98,24 +131,24 @@ export default function HomePage() {
       <section className="k-shell k-section">
         <div className="k-section-head">
           <div>
-            <p className="k-kicker">Two paths. One purpose.</p>
-            <h2 className="k-display-sm">Confidence under pressure.</h2>
+            <p className="k-kicker">Beyond travel</p>
+            <h2 className="k-display-sm">The same decision habit, wherever pressure appears.</h2>
           </div>
-          <p className="k-copy">Choose the environment that matches the decision you need to practise.</p>
+          <p className="k-copy">Start with TravelSafe. For organisations, CoMaSy applies the same behavioural thinking to realistic security decisions at work.</p>
         </div>
         <div className="k-two-paths">
           <article className="k-path k-path-illustration">
-            <Image src="/edition-images/family-art.png" alt="Family safety experience illustration" fill sizes="(max-width: 980px) 100vw, 50vw" />
+            <Image src="/edition-images/family-art.png" alt="TravelSafe family experience illustration" fill sizes="(max-width: 980px) 100vw, 50vw" />
             <div className="k-path-overlay" />
             <div className="k-path-copy">
-              <small>For you</small>
-              <h3>TravelSafe experiences</h3>
-              <p>Practise the moments that happen around travel, family, school and everyday digital life.</p>
+              <small>TravelSafe</small>
+              <h3>Practise before you travel.</h3>
+              <p>Short, realistic situations for travellers and the people who care about them.</p>
               <Link href="/travelsafe">Explore TravelSafe →</Link>
             </div>
           </article>
           <article className="k-path k-path-illustration">
-            <Image src="/edition-images/workplace-art.png" alt="Workplace security decision illustration" fill sizes="(max-width: 980px) 100vw, 50vw" />
+            <Image src="/edition-images/workplace-art.png" alt="CoMaSy workplace security decision illustration" fill sizes="(max-width: 980px) 100vw, 50vw" />
             <div className="k-path-overlay" />
             <div className="k-path-copy">
               <small>For organisations</small>
@@ -133,7 +166,7 @@ export default function HomePage() {
           <h2 className="k-display-sm">Practise the decision before the pressure is real.</h2>
         </div>
         <div className="k-actions">
-          <Link className="k-button" href="/challenge/travelsafe/start?mode=diagnostic">Start the free challenge</Link>
+          <Link className="k-button" href="/challenge/travelsafe/start?mode=diagnostic">Try TravelSafe free</Link>
         </div>
       </section>
     </PremiumPage>
