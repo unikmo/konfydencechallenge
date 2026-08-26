@@ -4,6 +4,7 @@ import type { Metadata, Viewport } from "next";
 import { CookieConsent } from "@/components/CookieConsent";
 import { AnalyticsInstrumentation } from "@/components/AnalyticsInstrumentation";
 import "./konfydence-premium.css";
+import "./brand-logos.css";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://konfydence.com"),
