@@ -20,10 +20,11 @@ export function PremiumHeader({
         <KonfydenceLogo />
       </Link>
       <nav className="k-nav-links" aria-label="Primary navigation">
-        <Link href="/travelsafe">For people</Link>
+        <Link href="/travelsafe">TravelSafe</Link>
+        <Link href="/hack-method">How it works</Link>
+        <Link href="/travelsafe#families">For families</Link>
         <Link href="/comasy">For organisations</Link>
-        <Link href="/hack-method">Method</Link>
-        <Link href="/countries">Travel intelligence</Link>
+        <Link href="/free-scam-safety-pack">Resources</Link>
       </nav>
       <div className="k-nav-actions">
         <Link href={ctaHref} className="k-button">{ctaLabel}</Link>
@@ -43,7 +44,7 @@ export function PremiumFooter() {
         <nav aria-label="Footer navigation">
           <Link href="/travelsafe">TravelSafe</Link>
           <Link href="/comasy">CoMaSy</Link>
-          <Link href="/free-scam-safety-pack">Free safety pack</Link>
+          <Link href="/free-scam-safety-pack">Free safety resources</Link>
           <Link href="/hack-method">Method</Link>
           <Link href="/contact">Contact</Link>
           <Link href="/imprint">Imprint</Link>
