@@ -41,8 +41,8 @@ export default function HomePage() {
 
         <div className="k-home-hero-media">
           <Image
-            src="/hero/konfydence-travelsafe-vacation.jpg"
-            alt="Traveller at an airport preparing for a safer trip"
+            src="/hero/travelsafe-care-airport.jpg"
+            alt="A traveller and someone who cares about her at an airport, with a suspicious booking message between them"
             fill
             priority
             sizes="(max-width: 980px) 100vw, 1080px"
