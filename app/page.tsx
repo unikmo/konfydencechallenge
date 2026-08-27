@@ -18,7 +18,7 @@ export const metadata: Metadata = {
 };
 
 const principles = [
-  ["01", "Urgency", "Pressure tries to make speed feel more important than verification."],
+  ["01", "Hurry", "Pressure tries to make speed feel more important than verification."],
   ["02", "Authority", "Titles and hierarchy can make a risky request feel unquestionable."],
   ["03", "Comfort", "Familiar people, routines and channels can lower healthy skepticism."],
   ["04", "Kill-Switch", "Pressure often tries to stop you from checking independently or asking someone else."],
@@ -180,8 +180,9 @@ export default function HomePage() {
           <p className="k-copy">Start with TravelSafe. For organisations, CoMaSy applies the same behavioural thinking to realistic security decisions at work.</p>
         </div>
         <div className="k-two-paths">
-          <article className="k-path k-path-illustration">
-            <Image src="/edition-images/family-art.png" alt="TravelSafe family experience illustration" fill sizes="(max-width: 980px) 100vw, 50vw" />
+          <article className="k-path k-path-illustration k-home-path-photo">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src="https://images.pexels.com/photos/4173213/pexels-photo-4173213.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Travellers at an airport" loading="lazy" />
             <div className="k-path-overlay" />
             <div className="k-path-copy">
               <small>TravelSafe</small>
@@ -190,8 +191,9 @@ export default function HomePage() {
               <Link href="/travelsafe">Explore TravelSafe →</Link>
             </div>
           </article>
-          <article className="k-path k-path-illustration">
-            <Image src="/edition-images/workplace-art.png" alt="CoMaSy workplace security decision illustration" fill sizes="(max-width: 980px) 100vw, 50vw" />
+          <article className="k-path k-path-illustration k-home-path-photo">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src="https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Colleagues collaborating at work" loading="lazy" />
             <div className="k-path-overlay" />
             <div className="k-path-copy">
               <small>For organisations</small>
