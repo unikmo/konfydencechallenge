@@ -1,0 +1,13 @@
+/* Asset hardening: bundled previews must always occupy their card surface. */
+.k-resource-preview{
+  display:block;
+  width:100%;
+  height:100%;
+  background-color:#f4f6f9;
+}
+
+/* Keep the interaction unmistakable without adding noisy gamification. */
+.k-resource-choice:focus-visible{
+  outline:3px solid rgba(7,92,168,.28);
+  outline-offset:3px;
+}
