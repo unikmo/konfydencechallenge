@@ -35,14 +35,14 @@ export default function HomePage() {
           </h1>
         </div>
 
-        <div className="k-home-hero-media">
-          <Image
-            src="/hero/travelsafe-care-airport.jpg"
-            alt="A traveller at an airport with someone who cares about her, considering an urgent booking message"
-            fill
-            priority
-            quality={95}
-            sizes="(max-width: 760px) 94vw, 720px"
+        <div className="k-home-hero-media k-home-hero-media-photo">
+          {/* Real licensed travel photography for premium hero fidelity. */}
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="https://images.pexels.com/photos/4173213/pexels-photo-4173213.jpeg?auto=compress&cs=tinysrgb&w=2200"
+            alt="A mother and daughter travelling together through an airport with luggage"
+            loading="eager"
+            fetchPriority="high"
           />
         </div>
 
