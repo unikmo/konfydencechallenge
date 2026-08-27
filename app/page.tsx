@@ -31,7 +31,7 @@ export default function HomePage() {
         <div className="k-shell k-home-hero-copy">
           <h1 id="home-hero-title" className="k-home-hero-title">
             <span>Your trip should be the adventure.</span>
-            <span>Not the scam.</span>
+            <span className="k-home-hero-alert">Not the scam.</span>
           </h1>
         </div>
 
@@ -62,6 +62,37 @@ export default function HomePage() {
       <section id="inside-it" className="k-shell k-home-hook k-home-narrow">
         <p className="k-kicker">The moment that matters</p>
         <h2>It rarely looks like a scam<br />when you&apos;re inside it.</h2>
+
+        <div
+          className="k-home-scam-scene"
+          role="img"
+          aria-label="Illustrative hotel booking scam message presented on a phone in an airport setting"
+        >
+          {/* Licensed airport photography provides context; the phone UI is real HTML so the pressure cues stay crisp and readable. */}
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            className="k-home-scam-backdrop"
+            src="https://images.pexels.com/photos/8704693/pexels-photo-8704693.jpeg?auto=compress&cs=tinysrgb&w=1800"
+            alt=""
+            loading="lazy"
+          />
+          <div className="k-home-phone" aria-hidden="true">
+            <div className="k-home-phone-bar">
+              <span>9:41</span>
+              <span>•••</span>
+            </div>
+            <div className="k-home-phone-message">
+              <small>Harbor Grand Hotel · Booking update</small>
+              <strong>Payment required to confirm your booking</strong>
+              <p>Hi Amelia,</p>
+              <p>Your reservation is almost complete. A secure payment of €620 is required within <b>12 hours</b> to confirm your booking.</p>
+              <button type="button">Secure payment</button>
+              <em>If you did not make this booking, contact us immediately.</em>
+            </div>
+          </div>
+          <span className="k-home-example-label">Illustrative message</span>
+        </div>
+
         <p className="k-home-hook-lede">TravelSafe turns that uncertain moment into something you can practise calmly before you travel.</p>
         <div className="k-home-benefits">
           <article>
