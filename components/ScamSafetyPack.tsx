@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { FormEvent, useMemo, useState } from "react";
+import { FormEvent, useMemo, useState, type CSSProperties } from "react";
 import {
   MAX_SCAM_SAFETY_RESOURCES_PER_REQUEST,
   SCAM_SAFETY_RESOURCES,
@@ -35,6 +35,32 @@ const GROUPS: Array<{
   },
 ];
 
+function previewStyle(resource: ScamSafetyResource): CSSProperties {
+  if (resource.kind === "protocol") {
+    return {
+      backgroundImage: 'url("/resources/scam-safety/protocol-preview.webp")',
+      backgroundRepeat: "no-repeat",
+      backgroundPosition: "center",
+      backgroundSize: "contain",
+    };
+  }
+
+  const index = Math.max(0, Number.parseInt(resource.id.split("-")[1] || "1", 10) - 1);
+  const columns = 4;
+  const rows = resource.kind === "phone" ? 3 : 2;
+  const column = index % columns;
+  const row = Math.floor(index / columns);
+  const x = columns > 1 ? (column * 100) / (columns - 1) : 0;
+  const y = rows > 1 ? (row * 100) / (rows - 1) : 0;
+
+  return {
+    backgroundImage: `url("/resources/scam-safety/${resource.kind}-sprite.webp")`,
+    backgroundRepeat: "no-repeat",
+    backgroundPosition: `${x}% ${y}%`,
+    backgroundSize: `${columns * 100}% ${rows * 100}%`,
+  };
+}
+
 function ResourceCard({
   resource,
   selected,
@@ -52,12 +78,14 @@ function ResourceCard({
       className={`k-resource-choice ${resource.kind === "protocol" ? "is-protocol" : ""} ${selected ? "is-selected" : ""}`}
       aria-pressed={selected}
       aria-disabled={atLimit && !selected}
+      aria-label={`${selected ? "Remove" : "Choose"} ${resource.label}`}
       onClick={() => onToggle(resource)}
     >
-      <span className="k-resource-image-wrap">
-        {/* These are the approved originals in the Konfydence Drive library. */}
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src={resource.previewPath} alt="" loading="lazy" />
+      <span className="k-resource-image-wrap" aria-hidden="true">
+        <span
+          className={`k-resource-preview k-resource-preview-${resource.kind}`}
+          style={previewStyle(resource)}
+        />
       </span>
       <span className="k-resource-choice-copy">
         <small>{resource.kind === "protocol" ? "PDF" : resource.kind === "phone" ? "Phone" : "Computer"}</small>
@@ -173,7 +201,7 @@ export function ScamSafetyPack({ source = "site" }: { source?: string }) {
         </div>
         <div>
           <p className="k-copy">
-            Choose up to three official Konfydence resources per request: the Emergency Scam Protocol, phone lock screens and computer lock screens. We send only the files you select.
+            Click a preview to choose up to three official Konfydence resources: the Emergency Scam Protocol, phone lock screens and computer lock screens. We send only the files you select.
           </p>
           <div className="k-selection-count" aria-live="polite">
             <strong>{selectedIds.length}</strong> / {MAX_SCAM_SAFETY_RESOURCES_PER_REQUEST} selected
