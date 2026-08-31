@@ -33,7 +33,7 @@ for (const required of ["8 scenarios", "24", "40-scenario bank", "Hurry", "Autho
 }
 
 const homepage = fs.readFileSync(path.join(process.cwd(), "app", "page.tsx"), "utf8");
-if (!homepage.includes("<b>Comfort</b>")) findings.push("app/page.tsx: homepage H.A.C.K. band must expose Comfort");
+if (!/\[\s*["']03["']\s*,\s*["']Comfort["']/.test(homepage)) findings.push("app/page.tsx: homepage H.A.C.K. band must expose Comfort");
 if (homepage.includes("<b>Connection</b>")) findings.push("app/page.tsx: homepage still exposes Connection");
 
 const method = fs.readFileSync(path.join(process.cwd(), "app", "hack-method", "page.tsx"), "utf8");
