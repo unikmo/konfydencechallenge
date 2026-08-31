@@ -10,6 +10,9 @@ import {
 
 type CollectionKind = "phone" | "computer";
 
+const PHONE_COLLECTION_LIMIT = 9;
+const COMPUTER_COLLECTION_LIMIT = 6;
+
 function previewStyle(resource: ScamSafetyResource): CSSProperties {
   if (resource.kind === "protocol") {
     return {
@@ -62,7 +65,7 @@ function ResourceCard({
       <span className="k-resource-choice-copy">
         <small>{resource.kind === "phone" ? "Phone" : "Computer"}</small>
         <strong>{resource.shortLabel}</strong>
-        <span>{selected ? "Selected" : atLimit ? "3 selected" : "Choose"}</span>
+        <span>{selected ? "Selected ✓" : atLimit ? "3 selected" : "Choose"}</span>
       </span>
     </button>
   );
@@ -90,10 +93,12 @@ function ProtocolChoice({
       <span className="k-protocol-mini" aria-hidden="true">
         <span className="k-protocol-mini-brand">KONFYDENCE</span>
         <strong>Emergency Scam Protocol</strong>
-        <span className="k-protocol-mini-rule" />
-        <span className="k-protocol-mini-step"><b>1</b><span><strong>PAUSE</strong><small>Do not pay, click or share.</small></span></span>
-        <span className="k-protocol-mini-step"><b>2</b><span><strong>VERIFY</strong><small>Use a channel you already trust.</small></span></span>
-        <span className="k-protocol-mini-step"><b>3</b><span><strong>CALL</strong><small>Bring in someone you trust.</small></span></span>
+        <span className="k-protocol-mini-sub">When something feels wrong</span>
+        <span className="k-protocol-mini-actions">
+          <span><b>PAUSE</b><small>Stop the action.</small></span>
+          <span><b>VERIFY</b><small>Check independently.</small></span>
+          <span><b>CALL</b><small>Bring in someone you trust.</small></span>
+        </span>
       </span>
       <span className="k-resource-feature-copy">
         <small>One-page PDF</small>
@@ -144,8 +149,8 @@ export function ScamSafetyPack({ source = "site" }: { source?: string }) {
   const [message, setMessage] = useState("");
 
   const protocol = SCAM_SAFETY_RESOURCES.find((resource) => resource.kind === "protocol");
-  const phoneResources = SCAM_SAFETY_RESOURCES.filter((resource) => resource.kind === "phone");
-  const computerResources = SCAM_SAFETY_RESOURCES.filter((resource) => resource.kind === "computer");
+  const phoneResources = SCAM_SAFETY_RESOURCES.filter((resource) => resource.kind === "phone").slice(0, PHONE_COLLECTION_LIMIT);
+  const computerResources = SCAM_SAFETY_RESOURCES.filter((resource) => resource.kind === "computer").slice(0, COMPUTER_COLLECTION_LIMIT);
 
   const selectedResources = useMemo(
     () => SCAM_SAFETY_RESOURCES.filter((resource) => selectedIds.includes(resource.id)),
@@ -265,12 +270,12 @@ export function ScamSafetyPack({ source = "site" }: { source?: string }) {
         </section>
 
         <section className="k-resource-group k-resource-group-phone" aria-labelledby={`${source}-phone-title`}>
-          <header><div><small>Phone</small><h3 id={`${source}-phone-title`}>Lock-screen collection</h3></div><p>Open the collection and choose the reminder you would actually keep.</p></header>
+          <header><div><small>Phone</small><h3 id={`${source}-phone-title`}>Lock-screen collection</h3></div><p>Nine curated designs, shown at their full 9:16 frame.</p></header>
           <CollectionCover kind="phone" resources={phoneResources} selectedCount={phoneSelected} onOpen={() => setOpenCollection("phone")} />
         </section>
 
         <section className="k-resource-group k-resource-group-computer" aria-labelledby={`${source}-computer-title`}>
-          <header><div><small>Computer</small><h3 id={`${source}-computer-title`}>Desktop collection</h3></div><p>Open the collection and choose a calm reminder for your main screen.</p></header>
+          <header><div><small>Computer</small><h3 id={`${source}-computer-title`}>Desktop collection</h3></div><p>Six curated designs, shown at their full widescreen frame.</p></header>
           <CollectionCover kind="computer" resources={computerResources} selectedCount={computerSelected} onOpen={() => setOpenCollection("computer")} />
         </section>
       </div>
@@ -309,7 +314,11 @@ export function ScamSafetyPack({ source = "site" }: { source?: string }) {
         <div className="k-resource-modal-backdrop" role="presentation" onMouseDown={() => setOpenCollection(null)}>
           <section className="k-resource-modal" role="dialog" aria-modal="true" aria-labelledby={`${source}-${openCollection}-collection-title`} onMouseDown={(event) => event.stopPropagation()}>
             <header className="k-resource-modal-head">
-              <div><p className="k-kicker">Choose your reminder</p><h3 id={`${source}-${openCollection}-collection-title`}>{openCollection === "phone" ? "Phone lock screens" : "Computer lock screens"}</h3><p>Pick the one you would genuinely keep visible. You can select up to three files across all resources.</p></div>
+              <div>
+                <p className="k-kicker">Choose your reminder</p>
+                <h3 id={`${source}-${openCollection}-collection-title`}>{openCollection === "phone" ? "Phone lock screens" : "Computer lock screens"}</h3>
+                <p>See the complete design—not a crop. Choose up to three files across the whole resource pack.</p>
+              </div>
               <button type="button" className="k-resource-modal-close" onClick={() => setOpenCollection(null)} aria-label="Close collection">×</button>
             </header>
             <div className={`k-resource-modal-grid k-resource-modal-grid-${openCollection}`}>
