@@ -6,36 +6,9 @@ import {
   MAX_SCAM_SAFETY_RESOURCES_PER_REQUEST,
   SCAM_SAFETY_RESOURCES,
   type ScamSafetyResource,
-  type ScamSafetyResourceKind,
 } from "@/lib/scamSafetyResources";
 
-type CollectionKind = Exclude<ScamSafetyResourceKind, "protocol">;
-
-const GROUPS: Array<{
-  kind: ScamSafetyResourceKind;
-  eyebrow: string;
-  title: string;
-  description: string;
-}> = [
-  {
-    kind: "protocol",
-    eyebrow: "Emergency response",
-    title: "Scam Protocol",
-    description: "A one-page response card for the moment something feels wrong.",
-  },
-  {
-    kind: "phone",
-    eyebrow: "Phone",
-    title: "Lock-screen collection",
-    description: "Open the collection and choose the reminder you would actually keep.",
-  },
-  {
-    kind: "computer",
-    eyebrow: "Computer",
-    title: "Desktop collection",
-    description: "Open the collection and choose a calm reminder for your main screen.",
-  },
-];
+type CollectionKind = "phone" | "computer";
 
 function previewStyle(resource: ScamSafetyResource): CSSProperties {
   if (resource.kind === "protocol") {
@@ -84,10 +57,7 @@ function ResourceCard({
       onClick={() => onToggle(resource)}
     >
       <span className="k-resource-image-wrap" aria-hidden="true">
-        <span
-          className={`k-resource-preview k-resource-preview-${resource.kind}`}
-          style={previewStyle(resource)}
-        />
+        <span className={`k-resource-preview k-resource-preview-${resource.kind}`} style={previewStyle(resource)} />
       </span>
       <span className="k-resource-choice-copy">
         <small>{resource.kind === "phone" ? "Phone" : "Computer"}</small>
@@ -149,12 +119,7 @@ function CollectionCover({
   const label = kind === "phone" ? "Phone lock screens" : "Computer lock screens";
 
   return (
-    <button
-      type="button"
-      className={`k-resource-feature k-resource-feature-${kind}`}
-      onClick={onOpen}
-      aria-label={`Open ${label} collection`}
-    >
+    <button type="button" className={`k-resource-feature k-resource-feature-${kind}`} onClick={onOpen} aria-label={`Open ${label} collection`}>
       <span className={`k-resource-cover-art k-resource-cover-art-${kind}`} aria-hidden="true">
         <span className={`k-resource-cover-device k-resource-cover-device-${kind}`}>
           <span className={`k-resource-preview k-resource-preview-${kind}`} style={previewStyle(representative)} />
@@ -178,6 +143,10 @@ export function ScamSafetyPack({ source = "site" }: { source?: string }) {
   const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
   const [message, setMessage] = useState("");
 
+  const protocol = SCAM_SAFETY_RESOURCES.find((resource) => resource.kind === "protocol");
+  const phoneResources = SCAM_SAFETY_RESOURCES.filter((resource) => resource.kind === "phone");
+  const computerResources = SCAM_SAFETY_RESOURCES.filter((resource) => resource.kind === "computer");
+
   const selectedResources = useMemo(
     () => SCAM_SAFETY_RESOURCES.filter((resource) => selectedIds.includes(resource.id)),
     [selectedIds]
@@ -190,7 +159,6 @@ export function ScamSafetyPack({ source = "site" }: { source?: string }) {
 
     const previousOverflow = document.body.style.overflow;
     document.body.style.overflow = "hidden";
-
     const handleKeyDown = (event: KeyboardEvent) => {
       if (event.key === "Escape") setOpenCollection(null);
     };
@@ -204,7 +172,6 @@ export function ScamSafetyPack({ source = "site" }: { source?: string }) {
 
   function toggleResource(resource: ScamSafetyResource) {
     if (status === "submitting") return;
-
     setMessage("");
     setStatus("idle");
 
@@ -230,7 +197,6 @@ export function ScamSafetyPack({ source = "site" }: { source?: string }) {
       setMessage("Choose at least one resource first.");
       return;
     }
-
     if (selectedIds.length > MAX_SCAM_SAFETY_RESOURCES_PER_REQUEST) {
       setStatus("error");
       setMessage(`Choose no more than ${MAX_SCAM_SAFETY_RESOURCES_PER_REQUEST} resources.`);
@@ -238,7 +204,6 @@ export function ScamSafetyPack({ source = "site" }: { source?: string }) {
     }
 
     setStatus("submitting");
-
     const form = new FormData(event.currentTarget);
     const honeypot = String(form.get("website") || "");
 
@@ -246,19 +211,11 @@ export function ScamSafetyPack({ source = "site" }: { source?: string }) {
       const response = await fetch("/api/resources/scam-safety-pack", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          email,
-          marketingConsent,
-          source,
-          selections: selectedIds,
-          website: honeypot,
-        }),
+        body: JSON.stringify({ email, marketingConsent, source, selections: selectedIds, website: honeypot }),
       });
 
       const payload = await response.json().catch(() => ({}));
-      if (!response.ok) {
-        throw new Error(payload.error || "Unable to prepare your resources right now.");
-      }
+      if (!response.ok) throw new Error(payload.error || "Unable to prepare your resources right now.");
 
       setStatus("success");
       setMessage(
@@ -267,9 +224,7 @@ export function ScamSafetyPack({ source = "site" }: { source?: string }) {
           : "Your selected files are ready below. Email delivery is temporarily unavailable."
       );
 
-      const analyticsWindow = window as unknown as {
-        gtag?: (...args: unknown[]) => void;
-      };
+      const analyticsWindow = window as unknown as { gtag?: (...args: unknown[]) => void };
       analyticsWindow.gtag?.("event", "generate_lead", {
         lead_type: "scam_safety_resources",
         lead_source: source,
@@ -284,9 +239,11 @@ export function ScamSafetyPack({ source = "site" }: { source?: string }) {
     }
   }
 
-  const modalResources = openCollection
-    ? SCAM_SAFETY_RESOURCES.filter((resource) => resource.kind === openCollection)
-    : [];
+  if (!protocol) return null;
+
+  const phoneSelected = phoneResources.filter((resource) => selectedIds.includes(resource.id)).length;
+  const computerSelected = computerResources.filter((resource) => selectedIds.includes(resource.id)).length;
+  const modalResources = openCollection === "phone" ? phoneResources : openCollection === "computer" ? computerResources : [];
 
   return (
     <section id="free-scam-safety-pack" className="k-shell k-free-pack" aria-labelledby={`free-pack-title-${source}`}>
@@ -296,165 +253,69 @@ export function ScamSafetyPack({ source = "site" }: { source?: string }) {
           <h2 id={`free-pack-title-${source}`} className="k-display-sm">Useful reminders. Without the clutter.</h2>
         </div>
         <div>
-          <p className="k-copy">
-            Choose the protocol directly, or open a lock-screen collection. Pick up to three files and we&apos;ll send only those.
-          </p>
-          <div className="k-selection-count" aria-live="polite">
-            <strong>{selectedIds.length}</strong> / {MAX_SCAM_SAFETY_RESOURCES_PER_REQUEST} selected
-          </div>
+          <p className="k-copy">Choose the protocol directly, or open a lock-screen collection. Pick up to three files and we&apos;ll send only those.</p>
+          <div className="k-selection-count" aria-live="polite"><strong>{selectedIds.length}</strong> / {MAX_SCAM_SAFETY_RESOURCES_PER_REQUEST} selected</div>
         </div>
       </div>
 
       <div className="k-resource-groups k-resource-groups-curated">
-        {GROUPS.map((group) => {
-          const resources = SCAM_SAFETY_RESOURCES.filter((resource) => resource.kind === group.kind);
-          const selectedCount = resources.filter((resource) => selectedIds.includes(resource.id)).length;
+        <section className="k-resource-group k-resource-group-protocol" aria-labelledby={`${source}-protocol-title`}>
+          <header><div><small>Emergency response</small><h3 id={`${source}-protocol-title`}>Scam Protocol</h3></div><p>A one-page response card for the moment something feels wrong.</p></header>
+          <ProtocolChoice resource={protocol} selected={selectedIds.includes(protocol.id)} atLimit={atLimit} onToggle={toggleResource} />
+        </section>
 
-          return (
-            <section key={group.kind} className={`k-resource-group k-resource-group-${group.kind}`} aria-labelledby={`${source}-${group.kind}-title`}>
-              <header>
-                <div>
-                  <small>{group.eyebrow}</small>
-                  <h3 id={`${source}-${group.kind}-title`}>{group.title}</h3>
-                </div>
-                <p>{group.description}</p>
-              </header>
+        <section className="k-resource-group k-resource-group-phone" aria-labelledby={`${source}-phone-title`}>
+          <header><div><small>Phone</small><h3 id={`${source}-phone-title`}>Lock-screen collection</h3></div><p>Open the collection and choose the reminder you would actually keep.</p></header>
+          <CollectionCover kind="phone" resources={phoneResources} selectedCount={phoneSelected} onOpen={() => setOpenCollection("phone")} />
+        </section>
 
-              {group.kind === "protocol" ? (
-                <ProtocolChoice
-                  resource={resources[0]}
-                  selected={selectedIds.includes(resources[0].id)}
-                  atLimit={atLimit}
-                  onToggle={toggleResource}
-                />
-              ) : (
-                <CollectionCover
-                  kind={group.kind}
-                  resources={resources}
-                  selectedCount={selectedCount}
-                  onOpen={() => setOpenCollection(group.kind)}
-                />
-              )}
-            </section>
-          );
-        })}
+        <section className="k-resource-group k-resource-group-computer" aria-labelledby={`${source}-computer-title`}>
+          <header><div><small>Computer</small><h3 id={`${source}-computer-title`}>Desktop collection</h3></div><p>Open the collection and choose a calm reminder for your main screen.</p></header>
+          <CollectionCover kind="computer" resources={computerResources} selectedCount={computerSelected} onOpen={() => setOpenCollection("computer")} />
+        </section>
       </div>
 
       {status === "success" ? (
         <div className="k-pack-success" role="status" aria-live="polite">
-          <div>
-            <p className="k-kicker">Ready</p>
-            <strong>{message}</strong>
-          </div>
+          <div><p className="k-kicker">Ready</p><strong>{message}</strong></div>
           <div className="k-pack-downloads">
             {selectedResources.map((item) => (
-              <a key={item.id} href={item.downloadPath}>
-                <span>{item.kind === "protocol" ? "PDF" : item.kind.toUpperCase()}</span>
-                <b>{item.label}</b>
-                <small>{item.detail}</small>
-              </a>
+              <a key={item.id} href={item.downloadPath}><span>{item.kind === "protocol" ? "PDF" : item.kind.toUpperCase()}</span><b>{item.label}</b><small>{item.detail}</small></a>
             ))}
           </div>
-          <button
-            type="button"
-            className="k-button-quiet"
-            onClick={() => {
-              setStatus("idle");
-              setMessage("");
-              setSelectedIds([]);
-              setEmail("");
-              setMarketingConsent(false);
-            }}
-          >
-            Choose another set
-          </button>
+          <button type="button" className="k-button-quiet" onClick={() => { setStatus("idle"); setMessage(""); setSelectedIds([]); setEmail(""); setMarketingConsent(false); }}>Choose another set</button>
         </div>
       ) : (
         <form className="k-pack-form k-pack-form-selection" onSubmit={handleSubmit}>
           <div className="k-pack-form-summary">
-            <div>
-              <small>Your selection</small>
-              <strong>
-                {selectedResources.length > 0
-                  ? selectedResources.map((resource) => resource.shortLabel).join(" · ")
-                  : "Choose 1–3 resources above"}
-              </strong>
-            </div>
+            <div><small>Your selection</small><strong>{selectedResources.length > 0 ? selectedResources.map((resource) => resource.shortLabel).join(" · ") : "Choose 1–3 resources above"}</strong></div>
             <span>{selectedIds.length}/{MAX_SCAM_SAFETY_RESOURCES_PER_REQUEST}</span>
           </div>
 
           <label htmlFor={`pack-email-${source}`}>Email address</label>
           <div className="k-pack-form-row">
-            <input
-              id={`pack-email-${source}`}
-              type="email"
-              name="email"
-              autoComplete="email"
-              inputMode="email"
-              placeholder="you@example.com"
-              value={email}
-              onChange={(event) => setEmail(event.target.value)}
-              required
-            />
-            <button className="k-button" type="submit" disabled={status === "submitting" || selectedIds.length === 0}>
-              {status === "submitting" ? "Sending…" : "Email my selected files"}
-            </button>
+            <input id={`pack-email-${source}`} type="email" name="email" autoComplete="email" inputMode="email" placeholder="you@example.com" value={email} onChange={(event) => setEmail(event.target.value)} required />
+            <button className="k-button" type="submit" disabled={status === "submitting" || selectedIds.length === 0}>{status === "submitting" ? "Sending…" : "Email my selected files"}</button>
           </div>
 
-          <label className="k-pack-optin">
-            <input
-              type="checkbox"
-              checked={marketingConsent}
-              onChange={(event) => setMarketingConsent(event.target.checked)}
-            />
-            <span>Also send me occasional scam-safety tips from Konfydence. Optional.</span>
-          </label>
-
+          <label className="k-pack-optin"><input type="checkbox" checked={marketingConsent} onChange={(event) => setMarketingConsent(event.target.checked)} /><span>Also send me occasional scam-safety tips from Konfydence. Optional.</span></label>
           <input className="k-pack-honeypot" type="text" name="website" tabIndex={-1} autoComplete="off" aria-hidden="true" />
-
-          <p className="k-pack-privacy">
-            We use your email to deliver the resources you request. Marketing is separate and optional. See our <Link href="/privacy-policy">Privacy Policy</Link>.
-          </p>
+          <p className="k-pack-privacy">We use your email to deliver the resources you request. Marketing is separate and optional. See our <Link href="/privacy-policy">Privacy Policy</Link>.</p>
           {message ? <p className={status === "error" ? "k-pack-error" : "k-pack-note"} role={status === "error" ? "alert" : "status"}>{message}</p> : null}
         </form>
       )}
 
       {openCollection ? (
         <div className="k-resource-modal-backdrop" role="presentation" onMouseDown={() => setOpenCollection(null)}>
-          <section
-            className="k-resource-modal"
-            role="dialog"
-            aria-modal="true"
-            aria-labelledby={`${source}-${openCollection}-collection-title`}
-            onMouseDown={(event) => event.stopPropagation()}
-          >
+          <section className="k-resource-modal" role="dialog" aria-modal="true" aria-labelledby={`${source}-${openCollection}-collection-title`} onMouseDown={(event) => event.stopPropagation()}>
             <header className="k-resource-modal-head">
-              <div>
-                <p className="k-kicker">Choose your reminder</p>
-                <h3 id={`${source}-${openCollection}-collection-title`}>
-                  {openCollection === "phone" ? "Phone lock screens" : "Computer lock screens"}
-                </h3>
-                <p>Pick the one you would genuinely keep visible. You can select up to three files across all resources.</p>
-              </div>
+              <div><p className="k-kicker">Choose your reminder</p><h3 id={`${source}-${openCollection}-collection-title`}>{openCollection === "phone" ? "Phone lock screens" : "Computer lock screens"}</h3><p>Pick the one you would genuinely keep visible. You can select up to three files across all resources.</p></div>
               <button type="button" className="k-resource-modal-close" onClick={() => setOpenCollection(null)} aria-label="Close collection">×</button>
             </header>
-
             <div className={`k-resource-modal-grid k-resource-modal-grid-${openCollection}`}>
-              {modalResources.map((resource) => (
-                <ResourceCard
-                  key={resource.id}
-                  resource={resource}
-                  selected={selectedIds.includes(resource.id)}
-                  atLimit={atLimit}
-                  onToggle={toggleResource}
-                />
-              ))}
+              {modalResources.map((resource) => <ResourceCard key={resource.id} resource={resource} selected={selectedIds.includes(resource.id)} atLimit={atLimit} onToggle={toggleResource} />)}
             </div>
-
-            <footer className="k-resource-modal-foot">
-              <span><strong>{selectedIds.length}</strong> / {MAX_SCAM_SAFETY_RESOURCES_PER_REQUEST} selected</span>
-              <button type="button" className="k-button" onClick={() => setOpenCollection(null)}>Done</button>
-            </footer>
+            <footer className="k-resource-modal-foot"><span><strong>{selectedIds.length}</strong> / {MAX_SCAM_SAFETY_RESOURCES_PER_REQUEST} selected</span><button type="button" className="k-button" onClick={() => setOpenCollection(null)}>Done</button></footer>
           </section>
         </div>
       ) : null}
