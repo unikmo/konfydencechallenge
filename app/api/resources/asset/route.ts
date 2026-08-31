@@ -29,7 +29,11 @@ export async function GET(request: NextRequest) {
     return NextResponse.json({ error: "Resource not found." }, { status: 404 });
   }
 
-  const fileId = preview ? resource.previewFileId : resource.fileId;
+  if (preview) {
+    return NextResponse.redirect(new URL(resource.previewPath, request.url), 307);
+  }
+
+  const fileId = resource.fileId;
   const upstreamUrl = `https://drive.google.com/uc?export=download&id=${encodeURIComponent(fileId)}`;
 
   try {

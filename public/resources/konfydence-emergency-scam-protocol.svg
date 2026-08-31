@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1240" height="1754" viewBox="0 0 1240 1754" role="img" aria-labelledby="title desc">
+  <title id="title">Konfydence Emergency Scam Protocol</title>
+  <desc id="desc">A printable Pause, Verify, Call response guide for urgent or threatening scam messages.</desc>
+  <rect width="1240" height="1754" fill="#f7f4ee"/>
+  <rect x="54" y="54" width="1132" height="1646" rx="28" fill="#fffdf9" stroke="#ded8cf" stroke-width="4"/>
+  <text x="620" y="180" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="54" font-weight="700" letter-spacing="4" fill="#143f6c">KONFYDENCE</text>
+  <text x="620" y="286" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="64" fill="#111417">Emergency Scam Protocol</text>
+  <text x="620" y="360" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="29" fill="#5e5b56">If it feels urgent, emotional or threatening, stop first.</text>
+
+  <g font-family="Arial, Helvetica, sans-serif">
+    <circle cx="188" cy="570" r="72" fill="#143f6c"/>
+    <text x="188" y="590" text-anchor="middle" font-size="54" font-weight="700" fill="#fff">1</text>
+    <text x="310" y="552" font-size="58" font-weight="700" fill="#111417">PAUSE</text>
+    <text x="310" y="610" font-size="29" fill="#5e5b56">Do not reply, click, pay or share information yet.</text>
+
+    <circle cx="188" cy="855" r="72" fill="#08a0b2"/>
+    <text x="188" y="875" text-anchor="middle" font-size="54" font-weight="700" fill="#fff">2</text>
+    <text x="310" y="837" font-size="58" font-weight="700" fill="#111417">VERIFY</text>
+    <text x="310" y="895" font-size="29" fill="#5e5b56">Find the official contact route independently.</text>
+
+    <circle cx="188" cy="1140" r="72" fill="#ffb51f"/>
+    <text x="188" y="1160" text-anchor="middle" font-size="54" font-weight="700" fill="#143f6c">3</text>
+    <text x="310" y="1122" font-size="58" font-weight="700" fill="#111417">CALL</text>
+    <text x="310" y="1180" font-size="29" fill="#5e5b56">Talk to someone you trust or contact your bank.</text>
+  </g>
+
+  <rect x="112" y="1350" width="1016" height="210" rx="38" fill="#143f6c"/>
+  <text x="620" y="1430" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="34" font-weight="700" fill="#fff">PRESSURE IS A SIGNAL TO SLOW DOWN</text>
+  <text x="620" y="1495" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="27" fill="#fff">A genuine request can survive independent verification.</text>
+  <text x="620" y="1640" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="700" fill="#143f6c">konfydence.com</text>
+</svg>

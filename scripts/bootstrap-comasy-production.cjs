@@ -8,6 +8,16 @@ if (!isVercelProduction) {
   process.exit(0);
 }
 
+// Prefer credentials managed by the Vercel Supabase integration. The legacy
+// variables can remain present during migration without sending production
+// builds to a disconnected Supabase project.
+if (process.env.POSTGRES_PRISMA_URL) {
+  process.env.DATABASE_URL = process.env.POSTGRES_PRISMA_URL;
+}
+if (process.env.POSTGRES_URL_NON_POOLING) {
+  process.env.DIRECT_URL = process.env.POSTGRES_URL_NON_POOLING;
+}
+
 if (!process.env.DATABASE_URL) {
   console.error("[comasy-bootstrap] DATABASE_URL is missing; refusing production build");
   process.exit(1);

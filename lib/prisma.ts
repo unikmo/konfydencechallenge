@@ -1,4 +1,7 @@
 import { PrismaClient } from "@prisma/client";
+import { preferVercelPostgresConnectionEnv } from "./databaseEnv";
+
+preferVercelPostgresConnectionEnv();
 
 const globalForPrisma = global as unknown as { prisma?: PrismaClient };
 
