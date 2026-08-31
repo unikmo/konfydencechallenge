@@ -7,7 +7,369 @@
 }
 
 /* Keep the interaction unmistakable without adding noisy gamification. */
-.k-resource-choice:focus-visible{
+.k-resource-choice:focus-visible,
+.k-resource-feature:focus-visible,
+.k-resource-modal-close:focus-visible{
   outline:3px solid rgba(7,92,168,.28);
   outline-offset:3px;
+}
+
+/* Curated resource library: show one representative item per collection. */
+.k-resource-groups-curated{
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:18px;
+  align-items:start;
+  margin-top:42px;
+}
+.k-resource-groups-curated .k-resource-group{
+  border-top:0;
+  padding-top:0;
+}
+.k-resource-groups-curated .k-resource-group>header{
+  display:block;
+  min-height:118px;
+  margin:0 0 14px;
+  padding:0 2px;
+}
+.k-resource-groups-curated .k-resource-group>header h3{
+  font-size:27px;
+  margin-top:6px;
+}
+.k-resource-groups-curated .k-resource-group>header p{
+  margin-top:9px;
+  max-width:34ch;
+}
+
+.k-resource-feature{
+  width:100%;
+  border:1px solid rgba(17,20,23,.12);
+  border-radius:22px;
+  padding:0;
+  overflow:hidden;
+  background:#fffdf9;
+  color:inherit;
+  text-align:left;
+  cursor:pointer;
+  transition:transform .18s ease,border-color .18s ease,box-shadow .18s ease;
+}
+.k-resource-feature:hover{
+  transform:translateY(-2px);
+  border-color:rgba(17,20,23,.24);
+}
+.k-resource-feature.is-selected{
+  border-color:#0e5fa7;
+  box-shadow:0 0 0 2px rgba(14,95,167,.10);
+}
+.k-resource-feature[aria-disabled="true"]{
+  opacity:.52;
+}
+.k-resource-feature-copy{
+  display:grid;
+  grid-template-columns:1fr auto;
+  gap:5px 12px;
+  align-items:center;
+  padding:15px 16px 17px;
+  border-top:1px solid rgba(17,20,23,.08);
+}
+.k-resource-feature-copy small{
+  grid-column:1/-1;
+  text-transform:uppercase;
+  letter-spacing:.11em;
+  font-size:8px;
+  font-weight:700;
+  color:var(--k-gold);
+}
+.k-resource-feature-copy strong{
+  font-size:13px;
+  line-height:1.3;
+}
+.k-resource-feature-copy>span:last-child{
+  font-size:10px;
+  font-weight:700;
+  color:#0e5fa7;
+  white-space:nowrap;
+}
+
+.k-resource-cover-art{
+  min-height:220px;
+  position:relative;
+  display:grid;
+  place-items:center;
+  overflow:hidden;
+  background:linear-gradient(180deg,#f6f7f8 0%,#eef1f4 100%);
+}
+.k-resource-cover-count{
+  position:absolute;
+  right:13px;
+  top:13px;
+  border:1px solid rgba(17,20,23,.10);
+  border-radius:999px;
+  background:rgba(255,253,249,.88);
+  padding:6px 9px;
+  font-size:8px;
+  font-weight:700;
+  letter-spacing:.06em;
+  text-transform:uppercase;
+  color:#5b6269;
+}
+.k-resource-cover-device{
+  display:block;
+  overflow:hidden;
+  background:#fff;
+  border:1px solid rgba(17,20,23,.14);
+  box-shadow:0 16px 36px rgba(24,37,49,.10);
+}
+.k-resource-cover-device-phone{
+  width:92px;
+  height:164px;
+  border-radius:18px;
+  padding:4px;
+}
+.k-resource-cover-device-phone .k-resource-preview{
+  border-radius:14px;
+}
+.k-resource-cover-device-computer{
+  width:min(78%,220px);
+  aspect-ratio:16/10;
+  border-radius:10px;
+  padding:5px;
+}
+.k-resource-cover-device-computer .k-resource-preview{
+  border-radius:6px;
+}
+
+/* Rebuilt protocol preview: compact, scannable and visually independent of the PDF thumbnail. */
+.k-protocol-mini{
+  min-height:220px;
+  display:grid;
+  grid-template-columns:1fr;
+  align-content:start;
+  gap:9px;
+  padding:18px;
+  background:#fbfaf6;
+  color:#173754;
+}
+.k-protocol-mini-brand{
+  font-size:7px;
+  font-weight:800;
+  letter-spacing:.18em;
+  color:#0e5fa7;
+}
+.k-protocol-mini>strong{
+  max-width:15ch;
+  font-family:var(--k-display);
+  font-size:22px;
+  line-height:1.02;
+  font-weight:400;
+  letter-spacing:-.03em;
+}
+.k-protocol-mini-rule{
+  width:38px;
+  height:2px;
+  background:#d1a442;
+  margin:1px 0 2px;
+}
+.k-protocol-mini-step{
+  display:grid;
+  grid-template-columns:25px 1fr;
+  gap:9px;
+  align-items:start;
+}
+.k-protocol-mini-step>b{
+  display:grid;
+  place-items:center;
+  width:23px;
+  height:23px;
+  border-radius:50%;
+  background:#173754;
+  color:#fff;
+  font-size:9px;
+}
+.k-protocol-mini-step>span{
+  display:grid;
+  gap:1px;
+}
+.k-protocol-mini-step strong{
+  font-size:10px;
+  letter-spacing:.08em;
+}
+.k-protocol-mini-step small{
+  font-size:9px;
+  line-height:1.35;
+  color:#68737c;
+}
+
+/* Collection overlay keeps the long libraries out of the primary page flow. */
+.k-resource-modal-backdrop{
+  position:fixed;
+  inset:0;
+  z-index:1200;
+  display:grid;
+  place-items:center;
+  padding:24px;
+  background:rgba(12,25,37,.46);
+  backdrop-filter:blur(10px);
+}
+.k-resource-modal{
+  width:min(1040px,100%);
+  max-height:min(88vh,860px);
+  display:grid;
+  grid-template-rows:auto minmax(0,1fr) auto;
+  overflow:hidden;
+  border:1px solid rgba(255,255,255,.40);
+  border-radius:26px;
+  background:#f8f5ef;
+  box-shadow:0 32px 90px rgba(10,20,30,.25);
+}
+.k-resource-modal-head{
+  display:flex;
+  justify-content:space-between;
+  gap:28px;
+  align-items:flex-start;
+  padding:26px 28px 20px;
+  border-bottom:1px solid rgba(17,20,23,.10);
+}
+.k-resource-modal-head .k-kicker{
+  margin-bottom:6px;
+}
+.k-resource-modal-head h3{
+  margin:0;
+  font-family:var(--k-display);
+  font-size:34px;
+  font-weight:400;
+  letter-spacing:-.035em;
+}
+.k-resource-modal-head p:last-child{
+  max-width:680px;
+  margin:8px 0 0;
+  font-size:12px;
+  line-height:1.55;
+  color:var(--k-muted);
+}
+.k-resource-modal-close{
+  flex:0 0 auto;
+  width:38px;
+  height:38px;
+  border:1px solid rgba(17,20,23,.12);
+  border-radius:50%;
+  background:#fffdf9;
+  color:#3e4952;
+  font-size:26px;
+  line-height:1;
+  cursor:pointer;
+}
+.k-resource-modal-grid{
+  min-height:0;
+  overflow:auto;
+  display:grid;
+  gap:13px;
+  padding:22px 28px 28px;
+  align-items:start;
+}
+.k-resource-modal-grid-phone{
+  grid-template-columns:repeat(4,minmax(0,1fr));
+}
+.k-resource-modal-grid-computer{
+  grid-template-columns:repeat(3,minmax(0,1fr));
+}
+.k-resource-modal-grid .k-resource-choice{
+  width:100%;
+  min-width:0;
+  flex:none;
+}
+.k-resource-modal-grid-phone .k-resource-image-wrap{
+  height:255px;
+}
+.k-resource-modal-grid-computer .k-resource-image-wrap{
+  height:150px;
+}
+.k-resource-modal-foot{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:18px;
+  padding:16px 28px;
+  border-top:1px solid rgba(17,20,23,.10);
+  background:rgba(255,253,249,.78);
+}
+.k-resource-modal-foot>span{
+  font-size:11px;
+  color:#646b70;
+}
+.k-resource-modal-foot>span strong{
+  font-family:var(--k-display);
+  font-size:21px;
+  font-weight:400;
+  color:var(--k-ink);
+}
+
+@media (max-width:980px){
+  .k-resource-groups-curated{
+    grid-template-columns:1fr 1fr;
+  }
+  .k-resource-groups-curated .k-resource-group-protocol{
+    grid-column:1/-1;
+  }
+  .k-resource-groups-curated .k-resource-group>header{
+    min-height:0;
+  }
+  .k-resource-group-protocol .k-resource-feature{
+    max-width:360px;
+  }
+  .k-resource-modal-grid-phone{
+    grid-template-columns:repeat(3,minmax(0,1fr));
+  }
+  .k-resource-modal-grid-computer{
+    grid-template-columns:repeat(2,minmax(0,1fr));
+  }
+}
+
+@media (max-width:640px){
+  .k-resource-groups-curated{
+    grid-template-columns:1fr;
+    gap:28px;
+    margin-top:32px;
+  }
+  .k-resource-groups-curated .k-resource-group-protocol{
+    grid-column:auto;
+  }
+  .k-resource-group-protocol .k-resource-feature{
+    max-width:none;
+  }
+  .k-resource-cover-art,
+  .k-protocol-mini{
+    min-height:205px;
+  }
+  .k-resource-modal-backdrop{
+    padding:10px;
+  }
+  .k-resource-modal{
+    max-height:92vh;
+    border-radius:20px;
+  }
+  .k-resource-modal-head{
+    padding:20px 18px 16px;
+  }
+  .k-resource-modal-head h3{
+    font-size:28px;
+  }
+  .k-resource-modal-grid{
+    gap:10px;
+    padding:16px 14px 20px;
+  }
+  .k-resource-modal-grid-phone{
+    grid-template-columns:repeat(2,minmax(0,1fr));
+  }
+  .k-resource-modal-grid-computer{
+    grid-template-columns:1fr;
+  }
+  .k-resource-modal-grid-phone .k-resource-image-wrap{
+    height:220px;
+  }
+  .k-resource-modal-grid-computer .k-resource-image-wrap{
+    height:165px;
+  }
+  .k-resource-modal-foot{
+    padding:13px 16px;
+  }
 }
