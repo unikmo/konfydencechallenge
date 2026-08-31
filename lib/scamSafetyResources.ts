@@ -7,7 +7,6 @@ export type ScamSafetyResource = {
   detail: string;
   kind: ScamSafetyResourceKind;
   fileId: string;
-  previewFileId: string;
   previewPath: string;
   downloadPath: string;
   driveViewUrl: string;
@@ -22,6 +21,12 @@ function assetPath(resourceId: string, preview = false) {
 function driveView(fileId: string) {
   return `https://drive.google.com/file/d/${fileId}/view`;
 }
+
+const LOCAL_PREVIEWS: Record<ScamSafetyResourceKind, string> = {
+  protocol: "/resources/konfydence-emergency-scam-protocol.svg",
+  phone: "/resources/konfydence-phone-lock-screen.svg",
+  computer: "/resources/konfydence-desktop-lock-screen.svg",
+};
 
 function lockScreen(
   kind: "phone" | "computer",
@@ -41,8 +46,7 @@ function lockScreen(
         : "Konfydence desktop / computer lock-screen reminder",
     kind,
     fileId,
-    previewFileId: fileId,
-    previewPath: assetPath(id, true),
+    previewPath: LOCAL_PREVIEWS[kind],
     downloadPath: assetPath(id),
     driveViewUrl: driveView(fileId),
   };
@@ -56,8 +60,7 @@ export const SCAM_SAFETY_RESOURCES: ScamSafetyResource[] = [
     detail: "Official printable one-page household emergency protocol",
     kind: "protocol",
     fileId: "1gF0ssmNVljRGpfEXRyRp5IaEXmT3KE7v",
-    previewFileId: "17uHUzVD7jifV_gP2N9GJCQlO2OZgad3i",
-    previewPath: assetPath("protocol", true),
+    previewPath: LOCAL_PREVIEWS.protocol,
     downloadPath: assetPath("protocol"),
     driveViewUrl: driveView("1gF0ssmNVljRGpfEXRyRp5IaEXmT3KE7v"),
   },

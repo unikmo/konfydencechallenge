@@ -9,19 +9,19 @@
 .k-path.k-path-illustration img{object-fit:contain!important;padding:34px 34px 150px;background:#f3f5f8}
 
 /* Free resource library / Brevo lead capture. */
-.k-free-pack{margin-top:92px;margin-bottom:112px;padding:56px;border:1px solid var(--k-line);border-radius:28px;background:#efe8dc}
+.k-free-pack{min-width:0;overflow:hidden;margin-top:92px;margin-bottom:112px;padding:56px;border:1px solid var(--k-line);border-radius:28px;background:#efe8dc}
 .k-free-pack-head{display:grid;grid-template-columns:minmax(0,1.08fr) minmax(320px,.72fr);gap:72px;align-items:end}
 .k-free-pack-head .k-display-sm{max-width:760px}
 .k-free-pack-head .k-copy{margin:0}
 .k-selection-count{margin-top:20px;display:inline-flex;align-items:baseline;gap:5px;border:1px solid rgba(17,20,23,.14);border-radius:999px;padding:8px 12px;font-size:11px;color:#5f5a54;background:rgba(255,253,249,.58)}
 .k-selection-count strong{font-family:var(--k-display);font-size:24px;font-weight:400;color:var(--k-ink)}
-.k-resource-groups{display:grid;gap:42px;margin-top:54px}
-.k-resource-group{border-top:1px solid rgba(17,20,23,.14);padding-top:28px}
+.k-resource-groups{display:grid;grid-template-columns:minmax(0,1fr);min-width:0;gap:42px;margin-top:54px}
+.k-resource-group{width:100%;min-width:0;border-top:1px solid rgba(17,20,23,.14);padding-top:28px}
 .k-resource-group>header{display:grid;grid-template-columns:1fr minmax(240px,.55fr);gap:32px;align-items:end;margin-bottom:20px}
 .k-resource-group>header small{text-transform:uppercase;letter-spacing:.12em;font-size:9px;color:var(--k-gold);font-weight:700}
 .k-resource-group>header h3{font-family:var(--k-display);font-size:34px;font-weight:400;letter-spacing:-.035em;margin:7px 0 0}
 .k-resource-group>header p{font-size:12px;line-height:1.6;color:var(--k-muted);margin:0}
-.k-resource-rail{display:flex;gap:12px;overflow-x:auto;padding:2px 2px 14px;scroll-snap-type:x proximity;scrollbar-width:thin;scrollbar-color:#c8bba8 transparent}
+.k-resource-rail{display:flex;width:100%;max-width:100%;min-width:0;gap:12px;overflow-x:auto;overscroll-behavior-inline:contain;padding:2px 2px 14px;scroll-snap-type:x proximity;scrollbar-width:thin;scrollbar-color:#c8bba8 transparent}
 .k-resource-choice{flex:0 0 188px;border:1px solid rgba(17,20,23,.13);border-radius:18px;background:#fffdf9;padding:0;overflow:hidden;text-align:left;color:inherit;cursor:pointer;scroll-snap-align:start;transition:transform .18s ease,border-color .18s ease,box-shadow .18s ease,opacity .18s ease}
 .k-resource-choice:hover{transform:translateY(-2px);border-color:rgba(17,20,23,.28)}
 .k-resource-choice[aria-disabled="true"]{opacity:.47}

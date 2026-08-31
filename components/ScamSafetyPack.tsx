@@ -55,7 +55,7 @@ function ResourceCard({
       onClick={() => onToggle(resource)}
     >
       <span className="k-resource-image-wrap">
-        {/* These are the approved originals in the Konfydence Drive library. */}
+        {/* Keep previews same-origin so the chooser remains available even when Drive delivery is unavailable. */}
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img src={resource.previewPath} alt="" loading="lazy" />
       </span>
