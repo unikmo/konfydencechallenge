@@ -7,6 +7,7 @@ import "./konfydence-premium.css";
 import "./brand-logos.css";
 import "./scam-safety-pack.css";
 import "./asset-hardening.css";
+import "./resource-collection-polish.css";
 import "./home-travelsafe.css";
 
 export const metadata: Metadata = {
