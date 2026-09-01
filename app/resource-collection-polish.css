@@ -1,0 +1,239 @@
+/* Full-frame resource collection polish.
+   The collection must feel curated, not like a contact sheet. */
+
+/* Compact protocol card: clear hierarchy, no fake document thumbnail. */
+.k-protocol-mini{
+  min-height:188px;
+  display:flex;
+  flex-direction:column;
+  align-items:flex-start;
+  gap:0;
+  padding:22px;
+  background:linear-gradient(145deg,#fbfaf6 0%,#f5f1e8 100%);
+  color:#173754;
+}
+.k-protocol-mini-brand{
+  font-size:7px;
+  font-weight:800;
+  letter-spacing:.19em;
+  color:#0e5fa7;
+}
+.k-protocol-mini>strong{
+  max-width:15ch;
+  margin-top:13px;
+  font-family:var(--k-display);
+  font-size:22px;
+  line-height:1.02;
+  font-weight:400;
+  letter-spacing:-.03em;
+}
+.k-protocol-mini-sub{
+  margin-top:8px;
+  font-size:9px;
+  color:#73706a;
+}
+.k-protocol-mini-actions{
+  width:100%;
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:7px;
+  margin-top:auto;
+  padding-top:18px;
+  border-top:1px solid rgba(23,55,84,.12);
+}
+.k-protocol-mini-actions>span{
+  min-width:0;
+  display:grid;
+  gap:4px;
+}
+.k-protocol-mini-actions b{
+  font-size:9px;
+  letter-spacing:.08em;
+  color:#173754;
+}
+.k-protocol-mini-actions small{
+  font-size:8px;
+  line-height:1.35;
+  color:#77736d;
+}
+
+/* Representative desktop preview must use the real widescreen ratio. */
+.k-resource-cover-device-computer{
+  aspect-ratio:16/9;
+}
+
+/* Collection modal: give the designs enough room to be judged. */
+.k-resource-modal{
+  width:min(1160px,100%);
+  max-height:min(92vh,940px);
+}
+.k-resource-modal-head{
+  padding:24px 30px 18px;
+}
+.k-resource-modal-head h3{
+  font-size:32px;
+}
+.k-resource-modal-grid{
+  gap:24px;
+  padding:28px 30px 34px;
+  align-items:start;
+  background:#f8f5ef;
+}
+
+/* Phone: exactly nine curated full 9:16 lock screens. */
+.k-resource-modal-grid-phone{
+  grid-template-columns:repeat(3,minmax(0,1fr));
+}
+.k-resource-modal-grid-phone .k-resource-choice{
+  width:100%;
+  min-width:0;
+  border:0;
+  border-radius:0;
+  overflow:visible;
+  background:transparent;
+  box-shadow:none;
+}
+.k-resource-modal-grid-phone .k-resource-choice:hover{
+  transform:none;
+}
+.k-resource-modal-grid-phone .k-resource-image-wrap{
+  width:min(100%,250px);
+  height:auto;
+  aspect-ratio:9/16;
+  margin:0 auto;
+  padding:0;
+  overflow:hidden;
+  border:1px solid rgba(17,20,23,.12);
+  border-radius:25px;
+  background:#e9edf1;
+  box-shadow:0 16px 38px rgba(20,34,48,.10);
+}
+.k-resource-modal-grid-phone .k-resource-preview{
+  width:100%;
+  height:100%;
+  border-radius:24px;
+}
+.k-resource-modal-grid-phone .k-resource-choice.is-selected .k-resource-image-wrap{
+  border-color:#0e5fa7;
+  box-shadow:0 0 0 3px rgba(14,95,167,.16),0 18px 38px rgba(20,34,48,.12);
+}
+
+/* Desktop: six curated full 16:9 lock screens. */
+.k-resource-modal-grid-computer{
+  grid-template-columns:repeat(2,minmax(0,1fr));
+}
+.k-resource-modal-grid-computer .k-resource-choice{
+  width:100%;
+  min-width:0;
+  border:0;
+  border-radius:0;
+  overflow:visible;
+  background:transparent;
+  box-shadow:none;
+}
+.k-resource-modal-grid-computer .k-resource-choice:hover{
+  transform:none;
+}
+.k-resource-modal-grid-computer .k-resource-image-wrap{
+  width:100%;
+  height:auto;
+  aspect-ratio:16/9;
+  padding:0;
+  overflow:hidden;
+  border:1px solid rgba(17,20,23,.12);
+  border-radius:16px;
+  background:#e9edf1;
+  box-shadow:0 16px 38px rgba(20,34,48,.09);
+}
+.k-resource-modal-grid-computer .k-resource-preview{
+  width:100%;
+  height:100%;
+  border-radius:15px;
+}
+.k-resource-modal-grid-computer .k-resource-choice.is-selected .k-resource-image-wrap{
+  border-color:#0e5fa7;
+  box-shadow:0 0 0 3px rgba(14,95,167,.15),0 18px 38px rgba(20,34,48,.11);
+}
+
+/* Quiet metadata underneath each complete preview. */
+.k-resource-modal-grid .k-resource-choice-copy{
+  width:100%;
+  max-width:250px;
+  margin:9px auto 0;
+  padding:5px 2px 0;
+  border:0;
+  background:transparent;
+}
+.k-resource-modal-grid-computer .k-resource-choice-copy{
+  max-width:none;
+}
+.k-resource-modal-grid .k-resource-choice-copy small{
+  font-size:7px;
+}
+.k-resource-modal-grid .k-resource-choice-copy strong{
+  font-size:11px;
+  font-weight:650;
+}
+.k-resource-modal-grid .k-resource-choice-copy>span:last-child{
+  font-size:9px;
+}
+.k-resource-modal-grid .k-resource-choice[aria-disabled="true"]{
+  opacity:.42;
+}
+
+.k-resource-modal-foot{
+  position:relative;
+  z-index:2;
+  padding:14px 30px;
+  background:rgba(255,253,249,.96);
+  backdrop-filter:blur(12px);
+}
+
+@media (max-width:900px){
+  .k-resource-modal-grid-phone{
+    grid-template-columns:repeat(2,minmax(0,1fr));
+  }
+  .k-resource-modal-grid-computer{
+    grid-template-columns:1fr;
+  }
+  .k-resource-modal-grid-computer .k-resource-choice{
+    max-width:680px;
+    margin:0 auto;
+  }
+}
+
+@media (max-width:640px){
+  .k-resource-modal{
+    max-height:94vh;
+  }
+  .k-resource-modal-head{
+    padding:18px 17px 14px;
+  }
+  .k-resource-modal-head h3{
+    font-size:27px;
+  }
+  .k-resource-modal-grid{
+    gap:18px 12px;
+    padding:18px 12px 24px;
+  }
+  .k-resource-modal-grid-phone{
+    grid-template-columns:repeat(2,minmax(0,1fr));
+  }
+  .k-resource-modal-grid-phone .k-resource-image-wrap{
+    width:100%;
+    border-radius:19px;
+  }
+  .k-resource-modal-grid-phone .k-resource-preview{
+    border-radius:18px;
+  }
+  .k-resource-modal-grid .k-resource-choice-copy{
+    margin-top:6px;
+  }
+  .k-resource-modal-foot{
+    padding:12px 16px;
+  }
+  .k-protocol-mini{
+    min-height:180px;
+    padding:20px;
+  }
+}
