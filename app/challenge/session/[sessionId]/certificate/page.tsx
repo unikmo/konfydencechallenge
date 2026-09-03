@@ -152,7 +152,7 @@ export default async function CertificatePage(props: { params: Promise<{ session
 const styles: Record<string, React.CSSProperties> = {
   page: {
     minHeight: "100vh",
-    background: "var(--k-paper)",
+    background: "radial-gradient(140% 80% at 50% -10%,#f4efe4 0%,#ece5d7 60%,#e7dfce 100%)",
     padding: "48px 24px 60px",
     color: "var(--k-ink)",
     display: "flex",
@@ -160,12 +160,12 @@ const styles: Record<string, React.CSSProperties> = {
   },
   shell: { width: "min(860px, 100%)" },
   card: {
-    background: "var(--k-white)",
+    background: "#fffefc",
     color: "var(--k-ink)",
-    border: "1px solid var(--k-line)",
+    border: "1px solid rgba(17,20,23,.09)",
     borderRadius: "var(--k-radius)",
     padding: 40,
-    boxShadow: "0 24px 60px rgba(17,20,23,.08)",
+    boxShadow: "0 1px 2px rgba(17,20,23,.05), 0 10px 20px -6px rgba(17,20,23,.10), 0 40px 70px -24px rgba(17,20,23,.26)",
     minHeight: 420,
   },
   header: { borderBottom: "1px solid var(--k-line)", paddingBottom: 18, marginBottom: 20 },

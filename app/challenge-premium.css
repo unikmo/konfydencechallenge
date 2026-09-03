@@ -1,7 +1,7 @@
 /* Premium design system for the challenge picker, edition pages and in-game screens.
    Reuses the --k-* tokens defined in konfydence-premium.css. Prefix: kg- (konfydence game). */
 
-.kg-page{min-height:100vh;background:var(--k-paper);color:var(--k-ink);font-family:var(--k-sans);-webkit-font-smoothing:antialiased}
+.kg-page{min-height:100vh;background:#efe9dd;background:radial-gradient(140% 90% at 50% -10%,#f4efe4 0%,#ece5d7 60%,#e7dfce 100%);color:var(--k-ink);font-family:var(--k-sans);-webkit-font-smoothing:antialiased}
 .kg-shell{width:min(1120px,calc(100% - 48px));margin-inline:auto}
 .kg-narrow{width:min(880px,calc(100% - 48px));margin-inline:auto}
 
@@ -54,7 +54,12 @@
 .kg-progress-track span{display:block;height:100%;background:var(--k-gold)}
 .kg-progress-pct{font-size:10px;letter-spacing:.13em;font-weight:700;color:var(--k-gold)}
 
-.kg-card{background:var(--k-white);border:1px solid var(--k-line);border-radius:var(--k-radius);overflow:hidden;box-shadow:0 24px 60px rgba(17,20,23,.07)}
+.kg-card{background:#fffefc;border:1px solid rgba(17,20,23,.09);border-radius:var(--k-radius);overflow:hidden;
+  box-shadow:
+    0 0 0 1px rgba(255,255,255,.6) inset,
+    0 1px 2px rgba(17,20,23,.05),
+    0 10px 20px -6px rgba(17,20,23,.10),
+    0 40px 70px -24px rgba(17,20,23,.28)}
 .kg-card-chrome{display:flex;align-items:center;justify-content:space-between;padding:16px 30px;border-bottom:1px solid var(--k-line);font-size:9px;letter-spacing:.13em;text-transform:uppercase;font-weight:700;color:var(--k-soft)}
 .kg-card-chrome .kg-live{display:inline-flex;align-items:center;gap:8px;color:var(--k-ink)}
 .kg-dot{width:6px;height:6px;border-radius:50%;background:var(--k-gold)}
@@ -89,7 +94,12 @@
 
 /* ---- Feedback screen ---- */
 .kg-fb{padding:34px 0 60px}
-.kg-fb-card{margin-top:26px;background:var(--k-white);border:1px solid var(--k-line);border-radius:var(--k-radius);overflow:hidden;box-shadow:0 24px 60px rgba(17,20,23,.07);border-top:4px solid var(--k-gold)}
+.kg-fb-card{margin-top:26px;background:#fffefc;border:1px solid rgba(17,20,23,.09);border-radius:var(--k-radius);overflow:hidden;
+  box-shadow:
+    0 1px 2px rgba(17,20,23,.05),
+    0 10px 20px -6px rgba(17,20,23,.10),
+    0 40px 70px -24px rgba(17,20,23,.28);
+  border-top:4px solid var(--k-gold)}
 .kg-fb-card.is-strong{border-top-color:#4f8a10}
 .kg-fb-card.is-safe{border-top-color:#2e75a8}
 .kg-fb-card.is-caution{border-top-color:#a76e00}
@@ -132,8 +142,12 @@
 .kg-fb-next a:hover{transform:translateY(-1px)}
 
 /* ---- Simple completion / gate states ---- */
-.kg-state{min-height:100vh;background:var(--k-paper);display:grid;place-items:center;padding:24px}
-.kg-state-card{width:min(560px,100%);background:var(--k-white);border:1px solid var(--k-line);border-radius:var(--k-radius);padding:44px;box-shadow:0 24px 60px rgba(17,20,23,.08)}
+.kg-state{min-height:100vh;background:radial-gradient(140% 90% at 50% -10%,#f4efe4 0%,#ece5d7 60%,#e7dfce 100%);display:grid;place-items:center;padding:24px}
+.kg-state-card{width:min(560px,100%);background:#fffefc;border:1px solid rgba(17,20,23,.09);border-radius:var(--k-radius);padding:44px;
+  box-shadow:
+    0 1px 2px rgba(17,20,23,.05),
+    0 10px 20px -6px rgba(17,20,23,.10),
+    0 40px 70px -24px rgba(17,20,23,.28)}
 .kg-state-card .k-kicker{margin:0 0 14px}
 .kg-state-card h1{font-family:var(--k-display);font-weight:400;font-size:clamp(30px,4vw,44px);line-height:1.02;letter-spacing:-.035em;margin:0 0 24px}
 .kg-state-card p{font-size:14px;line-height:1.65;color:var(--k-muted);margin:0 0 22px}

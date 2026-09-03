@@ -23,11 +23,11 @@ const EDITION_DECK_NAME: Record<string, string> = {
 const levelColor = { strong: "#4f8a10", watch: "#a66d00", vulnerable: "#c2410c" } as const;
 
 const styles: Record<string, React.CSSProperties> = {
-  page: { minHeight: "100vh", background: "var(--k-paper)", padding: "20px 24px 60px", color: "var(--k-ink)" },
+  page: { minHeight: "100vh", background: "radial-gradient(140% 80% at 50% -10%,#f4efe4 0%,#ece5d7 60%,#e7dfce 100%)", padding: "20px 24px 60px", color: "var(--k-ink)" },
   shell: { width: "min(1000px, 100%)", margin: "0 auto" },
   header: { height: 72, display: "flex", justifyContent: "space-between", alignItems: "center", borderBottom: "1px solid var(--k-line)", marginBottom: 26 },
   smallLink: { color: "var(--k-muted)", fontSize: 12, fontWeight: 600, textDecoration: "none" },
-  card: { background: "var(--k-white)", color: "var(--k-ink)", border: "1px solid var(--k-line)", borderRadius: "var(--k-radius)", padding: 30, boxShadow: "0 24px 60px rgba(17,20,23,.07)", marginBottom: 16 },
+  card: { background: "#fffefc", color: "var(--k-ink)", border: "1px solid rgba(17,20,23,.09)", borderRadius: "var(--k-radius)", padding: 30, boxShadow: "0 1px 2px rgba(17,20,23,.05), 0 10px 20px -6px rgba(17,20,23,.10), 0 40px 70px -24px rgba(17,20,23,.26)", marginBottom: 16 },
   button: { display: "inline-flex", alignItems: "center", justifyContent: "center", width: "100%", minHeight: 48, padding: "12px 15px", borderRadius: 999, background: "var(--k-ink)", color: "#fff", textDecoration: "none", fontWeight: 650, marginTop: 12 },
   secondary: { display: "inline-flex", alignItems: "center", justifyContent: "center", width: "100%", minHeight: 46, padding: "11px 14px", borderRadius: 999, background: "transparent", border: "1px solid var(--k-line)", color: "var(--k-ink)", textDecoration: "none", fontWeight: 600, marginTop: 10 },
 };
