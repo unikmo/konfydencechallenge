@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import type { Metadata } from "next";
 import { PremiumPage } from "@/components/PremiumSiteChrome";
+import { PortfolioStrip } from "@/components/PortfolioStrip";
 
 export const metadata: Metadata = {
   title: { absolute: "CoMaSy | Security Decision Simulation by Konfydence" },
@@ -69,7 +70,7 @@ export default function ComasyPage() {
 
       <section className="k-comasy-hero">
         <div className="k-comasy-copy">
-          <p className="k-breadcrumb">For organisations · CoMaSy™</p>
+          <p className="k-breadcrumb">For organisations · CoMaSy</p>
           <p className="k-kicker">The Human Firewall Simulation Platform</p>
           <h1 className="k-display">Security decisions deserve practice too.</h1>
           <p className="k-lede">
@@ -205,9 +206,11 @@ export default function ComasyPage() {
         </div>
       </section>
 
+      <PortfolioStrip exclude={["comasy"]} kicker="For individuals" heading="The same habit, for the people on your team too." />
+
       <section className="k-shell k-callout">
         <div>
-          <p className="k-kicker">CoMaSy™ pilot</p>
+          <p className="k-kicker">CoMaSy pilot</p>
           <h2 className="k-display-sm">Start small. Measure honestly. Scale only if it earns the right.</h2>
         </div>
         <div className="k-actions">

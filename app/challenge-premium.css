@@ -13,6 +13,57 @@
 .kg-top-meta a{color:var(--k-ink);text-decoration:none;border-left:1px solid var(--k-line);padding-left:14px}
 .kg-top-meta a:hover{color:var(--k-gold)}
 
+/* ---- Lockscreens product page ---- */
+.kls-hero{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);gap:56px;align-items:center;padding:72px 0 84px}
+.kls-hero-copy .k-lede strong{color:var(--k-ink);font-weight:600}
+.kls-devices{display:flex;align-items:flex-end;justify-content:center;gap:22px}
+.kls-desktop{flex:1 1 auto;max-width:420px;border-radius:14px;overflow:hidden;border:1px solid var(--k-line);background:var(--k-white);box-shadow:0 30px 60px -24px rgba(17,20,23,.28)}
+.kls-desktop img{display:block;width:100%}
+.kls-phone{flex:0 0 auto;width:34%;max-width:170px;border-radius:28px;overflow:hidden;border:7px solid #12191f;background:#12191f;box-shadow:0 40px 70px -22px rgba(17,20,23,.4)}
+.kls-phone img{display:block;width:100%}
+.kls-includes{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--k-line);border:1px solid var(--k-line);border-radius:20px;overflow:hidden}
+.kls-includes article{background:var(--k-paper);padding:28px 26px}
+.kls-includes h3{font-family:var(--k-display);font-weight:400;font-size:22px;margin:0 0 8px}
+.kls-includes p{font-size:13px;line-height:1.6;color:var(--k-muted);margin:0}
+.kls-buy{padding:20px 0 40px}
+.kls-buy-card{background:var(--k-white);border:1px solid var(--k-line);border-radius:var(--k-radius);padding:40px;text-align:center;box-shadow:0 24px 60px -24px rgba(17,20,23,.2)}
+.kls-buy-card .k-display-sm{margin:10px 0 6px}
+.kls-buy-card .k-copy{margin:0 auto}
+.kls-buy-cta{max-width:360px;margin:24px auto 0}
+.kls-buy-note{font-size:12px;color:var(--k-soft);margin:18px 0 0}
+.kls-buy-note a,.kls-buy-card a{color:var(--k-ink);font-weight:600}
+@media (max-width:900px){
+  .kls-hero{grid-template-columns:1fr;gap:40px}
+  .kls-devices{max-width:520px}
+  .kls-includes{grid-template-columns:1fr}
+}
+
+/* ---- Portfolio / cross-sell strip (bottom of most pages) ---- */
+.kp-strip{border-top:1px solid var(--k-line);background:var(--k-deep);color:#fff;padding:96px 0}
+.kp-strip-inner{width:min(var(--k-shell,1240px),calc(100% - 48px));margin-inline:auto}
+.kp-strip-head{max-width:720px}
+.kp-strip .k-kicker{color:#c5a97e}
+.kp-strip-head h2{color:#fff}
+.kp-strip-lede{margin:18px 0 0;font-size:14px;line-height:1.7;color:#bcb8b1;max-width:620px}
+.kp-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:44px}
+.kp-card{display:flex;flex-direction:column;gap:8px;padding:24px 22px 20px;border:1px solid rgba(255,255,255,.14);border-radius:18px;background:rgba(255,255,255,.03);text-decoration:none;color:#fff;transition:background .18s ease,border-color .18s ease,transform .18s ease}
+.kp-card:hover{background:rgba(255,255,255,.06);border-color:rgba(197,169,126,.55);transform:translateY(-2px)}
+.kp-card-eyebrow{font-size:9px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:#c5a97e}
+.kp-card-name{font-family:var(--k-display);font-weight:400;font-size:26px;letter-spacing:-.03em;line-height:1.05;margin-top:2px}
+.kp-card-copy{font-size:12px;line-height:1.6;color:#aaa7a2;flex:1}
+.kp-card-foot{display:flex;align-items:baseline;justify-content:space-between;gap:12px;margin-top:14px;padding-top:14px;border-top:1px solid rgba(255,255,255,.12)}
+.kp-card-foot b{font-size:11px;font-weight:600;color:#d9d6d1}
+.kp-card-foot em{font-size:11px;font-style:normal;font-weight:650;color:#fff;white-space:nowrap}
+.kp-strip-note{margin:26px 0 0;font-size:12px;color:#aaa7a2}
+.kp-strip-note a{color:#fff;font-weight:650;text-decoration:none;border-bottom:1px solid rgba(255,255,255,.3)}
+.kp-strip-note a:hover{border-color:#c5a97e}
+@media (max-width:1040px){.kp-grid{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:640px){
+  .kp-strip{padding:70px 0}
+  .kp-strip-inner{width:min(100% - 28px,var(--k-shell,1240px))}
+  .kp-grid{grid-template-columns:1fr}
+}
+
 /* ---- Challenge picker + edition landing ---- */
 .kg-promise{display:flex;flex-wrap:wrap;gap:8px;margin-top:30px}
 .kg-promise span{border:1px solid var(--k-line);border-radius:999px;padding:9px 14px;font-size:11px;font-weight:600;color:var(--k-muted);background:var(--k-white)}
@@ -41,8 +92,13 @@
 .kg-ed-links a{color:var(--k-ink);font-weight:650;font-size:12px;text-decoration:none}
 .kg-ed-links a:hover{color:var(--k-gold)}
 
+.kg-scenario-grid-4{grid-template-columns:repeat(4,1fr)}
 @media (max-width:900px){
   .kg-edition-grid,.kg-scenario-grid{grid-template-columns:1fr}
+  .kg-scenario-grid-4{grid-template-columns:repeat(2,1fr)}
+}
+@media (max-width:560px){
+  .kg-scenario-grid-4{grid-template-columns:1fr}
 }
 
 /* ---- In-game decision screen ---- */

@@ -94,7 +94,7 @@ export default function ImprintPage() {
           <h2 style={headingStyle}>2. Service Information</h2>
           <p style={paragraphStyle}>
             Konfydence Challenge is an educational game designed to build scam awareness and readiness. The service
-            provides interactive scenario-based training with Readiness Score™ rating and optional paid challenge access
+            provides interactive scenario-based training with Readiness Score rating and optional paid challenge access
             through Shopify.
           </p>
         </div>
@@ -119,7 +119,7 @@ export default function ImprintPage() {
           <h2 style={headingStyle}>4. Copyright & Intellectual Property</h2>
           <p style={paragraphStyle}>
             Unless otherwise explicitly stated, all content published on this website, including but not limited to text,
-            graphics, images, logos, designs, audio, video, software, the "Konfydence Readiness Score™" concept, and any
+            graphics, images, logos, designs, audio, video, software, the "Konfydence Readiness Score" concept, and any
             underlying technology, is the intellectual property of PlanetHike OÜ or its licensors and is protected by
             copyright, trademark, and other intellectual property laws worldwide.
           </p>

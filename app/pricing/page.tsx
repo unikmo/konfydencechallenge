@@ -69,7 +69,7 @@ function PricingContent() {
             price="Free"
             includes={[
               "10 real-life scam scenarios",
-              "Mini Konfydence Readiness Score™",
+              "Mini Konfydence Readiness Score",
               "Weakest pressure pattern",
               "Personalized feedback",
             ]}
