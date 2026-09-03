@@ -28,7 +28,7 @@ button,input,textarea,select{font:inherit}
 .k-button{background:var(--k-ink);color:#fff}.k-button:hover,.k-button-gold:hover{transform:translateY(-1px)}
 .k-button-quiet{background:transparent;border-color:var(--k-line);color:#222}.k-button-gold{background:var(--k-gold);color:#fff}
 .k-kicker{margin:0 0 18px;text-transform:uppercase;letter-spacing:.14em;font-size:10px;font-weight:700;color:var(--k-gold)}
-.k-display{font-family:var(--k-display);font-weight:400;letter-spacing:-.052em;line-height:.94;margin:0;font-size:clamp(58px,7vw,102px)}
+.k-display{font-family:var(--k-display);font-weight:400;letter-spacing:-.052em;line-height:.96;margin:0;font-size:clamp(46px,5.6vw,80px)}
 .k-display-sm{font-family:var(--k-display);font-weight:400;letter-spacing:-.045em;line-height:.99;margin:0;font-size:clamp(42px,5vw,72px)}
 .k-lede{font-size:clamp(17px,1.55vw,21px);line-height:1.6;color:#5c5954;max-width:680px;margin:28px 0 0}
 .k-copy{font-size:15px;line-height:1.75;color:var(--k-muted);max-width:700px}
@@ -58,7 +58,7 @@ button,input,textarea,select{font:inherit}
 }
 @media (max-width:640px){
   .k-shell{width:min(100% - 28px,var(--k-shell))}.k-nav{height:64px}.k-button{min-height:40px;padding:0 14px}.k-wordmark{font-size:20px}
-  .k-hero{padding:48px 0 68px;gap:36px}.k-display{font-size:clamp(48px,14vw,68px)}.k-display-sm{font-size:clamp(38px,11vw,52px)}.k-lede{font-size:17px}.k-section,.k-section-dark{padding:76px 0}
+  .k-hero{padding:48px 0 68px;gap:36px}.k-display{font-size:clamp(38px,11vw,54px)}.k-display-sm{font-size:clamp(34px,9.5vw,46px)}.k-lede{font-size:17px}.k-section,.k-section-dark{padding:76px 0}
   .k-hero-art{min-height:390px;border-radius:20px}.k-principles,.k-flow,.k-comasy-pillars,.k-simulation{grid-template-columns:1fr}.k-principle,.k-comasy-pillars article,.k-simulation article{border-right:0;border-bottom:1px solid var(--k-line)}.k-flow article:not(:last-child):after{display:none}.k-path{min-height:430px}.k-path-copy{left:22px;right:22px}.k-travel-media,.k-comasy-media{min-height:390px}.k-dashboard-side,.k-dashboard-main{padding:20px}.k-metrics{grid-template-columns:1fr}.k-pilot{padding:28px}.k-callout{display:grid;gap:28px;padding:70px 0}.k-footer-inner{grid-template-columns:1fr}.k-footer nav{justify-content:flex-start}
 }
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.k-button,.k-button-gold{transition:none}}

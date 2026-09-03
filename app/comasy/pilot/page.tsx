@@ -27,7 +27,7 @@ export default async function PilotPage({ searchParams }: { searchParams: Promis
       <section className="kg-shell kc-pilot">
         <div className="kc-pilot-intro">
           <p className="k-kicker">CoMaSy pilot</p>
-          <h1 className="k-display" style={{ fontSize: "clamp(38px,5vw,66px)" }}>
+          <h1 className="k-display" style={{ fontSize: "clamp(31px,4vw,52px)" }}>
             Test decision simulation inside your organisation before scaling it.
           </h1>
           <p className="k-lede">
