@@ -36,7 +36,7 @@ export default function LockscreensPage() {
             Scam pressure works because it catches you mid-scroll. A lock screen puts <strong>Pause. Think. Call.</strong> in front of you before you reply, click or pay.
           </p>
           <div className="k-actions">
-            <a className="k-button" href="#get">Get the pack — $4.99</a>
+            <a className="k-button" href="#get">Get the pack — $19.99</a>
             <Link className="k-button-quiet" href="/hack-method">See the method</Link>
           </div>
         </div>
@@ -72,18 +72,45 @@ export default function LockscreensPage() {
         </div>
       </section>
 
-      <section id="get" className="kg-narrow kls-buy">
-        <div className="kls-buy-card">
-          <p className="k-kicker">Konfydence Lockscreens</p>
-          <h2 className="k-display-sm">$4.99</h2>
-          <p className="k-copy">Phone and desktop wallpapers, several designs, instant download. One-time payment.</p>
-          <div className="kls-buy-cta">
-            <CheckoutRedirectButton sku="LOCKSCREENS-PACK" label="Buy the lockscreen pack — $4.99" />
+      <section id="get" className="kg-shell kls-buy">
+        <div className="k-section-head">
+          <div>
+            <p className="k-kicker">Pricing</p>
+            <h2 className="k-display-sm">One pack for you. Per-seat for a group.</h2>
           </div>
-          <p className="kls-buy-note">
-            Prefer the free household reminder first? The <Link href="/free-scam-safety-pack">Emergency Scam Protocol</Link> is a free download.
+          <p className="k-copy">
+            The individual pack is a one-time payment with instant download. Schools and organisations are priced per seat so everyone gets the reminder on their own devices.
           </p>
         </div>
+        <div className="kls-tiers">
+          <article className="kls-tier is-featured">
+            <p className="kls-tier-name">Individual</p>
+            <p className="kls-tier-price"><strong>$19.99</strong> one-time</p>
+            <p className="kls-tier-copy">Phone and desktop wallpapers, several designs, for you and your household.</p>
+            <div className="kls-tier-cta">
+              <CheckoutRedirectButton sku="LOCKSCREENS-PACK" label="Buy the pack — $19.99" />
+            </div>
+          </article>
+          <article className="kls-tier">
+            <p className="kls-tier-name">Schools</p>
+            <p className="kls-tier-price"><strong>Per seat</strong></p>
+            <p className="kls-tier-copy">One licence per student or staff member, with a version sized for shared and managed devices.</p>
+            <div className="kls-tier-cta">
+              <Link className="k-button-quiet" href="/contact?topic=lockscreens-schools">Get a school quote</Link>
+            </div>
+          </article>
+          <article className="kls-tier">
+            <p className="kls-tier-name">Organisations</p>
+            <p className="kls-tier-price"><strong>Per seat</strong></p>
+            <p className="kls-tier-copy">Volume per-seat licensing for employee devices, alongside a CoMaSy pilot if you want measurement too.</p>
+            <div className="kls-tier-cta">
+              <Link className="k-button-quiet" href="/contact?topic=lockscreens-organisations">Get an org quote</Link>
+            </div>
+          </article>
+        </div>
+        <p className="kls-buy-note">
+          Prefer a free reminder first? The <Link href="/free-scam-safety-pack">Emergency Scam Protocol</Link> is a free download.
+        </p>
       </section>
 
       <PortfolioStrip exclude={["lockscreens"]} kicker="Also from Konfydence" heading="Practise the decision, not just the reminder." />

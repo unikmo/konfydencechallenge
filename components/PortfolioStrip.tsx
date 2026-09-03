@@ -79,7 +79,7 @@ const PACKAGES: PackageItem[] = [
     eyebrow: "Reminder",
     name: "Lockscreens",
     copy: "Phone and desktop wallpapers that keep Pause · Think · Call in view all day.",
-    price: "$4.99",
+    price: "$19.99 · per-seat for teams",
     href: "/lockscreens",
     cta: "Get the pack",
   },

@@ -141,11 +141,11 @@ export const SHOPIFY_PRODUCTS = {
   LOCKSCREENS_PACK: {
     name: "Konfydence Lockscreens",
     description: "Phone and desktop wallpapers with the Pause · Think · Call reminder",
-    price: 4.99,
+    price: 19.99,
     sku: "LOCKSCREENS-PACK",
     digital: true,
     ships: false,
-    note: "Digital download. Attach the wallpaper files to the Shopify product so purchasers receive them by email.",
+    note: "Individual pack $19.99 one-time. Schools and organisations are priced per seat via /contact, not through this SKU. Attach the wallpaper files to the Shopify product so purchasers receive them by email.",
   },
 
   KG_WALLET: {
