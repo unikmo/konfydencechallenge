@@ -56,42 +56,42 @@ export default async function FeedbackPage(props: { params: Promise<{ sessionId:
   const showStrongest = score < 4 && strongestKey && strongestKey !== selectedKey;
   const nextHref = isCompleted ? `/challenge/session/${sessionId}/results` : `/challenge/session/${sessionId}`;
 
+  const toneClass = { strong: "is-strong", safe: "is-safe", caution: "is-caution", risk: "is-risk" }[feedback.tone];
+
   return (
-    <main className="feedbackPage">
-      <section className="shell">
-        <header className="topbar"><Link className="brand" href="/"><span>K</span><b>Konfydence</b></Link><div><span>{session.currentIndex} / {totalCards}</span><Link href="/">Exit</Link></div></header>
+    <main className="kg-page">
+      <div className="kg-shell">
+        <header className="kg-top">
+          <Link className="k-wordmark" href="/">Konfydence</Link>
+          <div className="kg-top-meta"><span>{session.currentIndex} / {totalCards}</span><Link href="/">Exit</Link></div>
+        </header>
+      </div>
 
-        <section className={`resultCard ${feedback.tone}`}>
-          <div className="resultHero">
-            <div className="resultMark">{feedback.mark}</div>
-            <div className="resultCopy"><p>{feedback.label}</p><h1>{feedback.title}</h1><span>{feedback.body}</span></div>
-            <div className="scoreDial"><strong>{score}</strong><small>/4</small></div>
+      <div className="kg-narrow kg-fb">
+        <section className={`kg-fb-card ${toneClass}`}>
+          <div className="kg-fb-hero">
+            <div className="kg-fb-mark">{feedback.mark}</div>
+            <div><p className="kg-fb-label">{feedback.label}</p><h1>{feedback.title}</h1><span>{feedback.body}</span></div>
+            <div className="kg-fb-dial"><strong>{score}</strong><small>/4</small></div>
           </div>
 
-          <div className="pressureBlock">
-            <div className="pressureIcon"><HackIcon trigger={hackKey} size={21} color="#06131f" /></div>
-            <div><p className="mini">H.A.C.K. SIGNAL · {HACK_LABELS[hackKey].short.toUpperCase()}</p><h2>{pressureLesson[hackKey].question}</h2><p>{pressureLesson[hackKey].reflex}</p></div>
+          <div className="kg-fb-pressure">
+            <div className="kg-fb-pressure-icon"><HackIcon trigger={hackKey} size={21} color="#111417" /></div>
+            <div><p className="kg-fb-mini">H.A.C.K. signal · {HACK_LABELS[hackKey].short}</p><h2>{pressureLesson[hackKey].question}</h2><p>{pressureLesson[hackKey].reflex}</p></div>
           </div>
 
-          <div className="resultGrid">
-            <article><p className="mini">YOUR MOVE</p><div className="move"><span>{selectedKey}</span><strong>{answers[selectedKey]}</strong></div></article>
-            <article className="why"><p className="mini">WHY IT MATTERS</p><p>{explanation}</p></article>
-            <article className="rule"><p className="mini">KEEP THIS RULE</p><strong>{proTip}</strong></article>
+          <div className="kg-fb-grid">
+            <article><p className="kg-fb-mini">Your move</p><div className="kg-move"><span>{selectedKey}</span><strong>{answers[selectedKey]}</strong></div></article>
+            <article className="kg-fb-why"><p className="kg-fb-mini">Why it matters</p><p>{explanation}</p></article>
+            <article className="kg-fb-rule"><p className="kg-fb-mini">Keep this rule</p><strong>{proTip}</strong></article>
           </div>
 
-          {showStrongest ? <div className="strongest"><div><p className="mini">STRONGEST MOVE</p><span>Use this as the decision pattern next time.</span></div><div className="move best"><span>{strongestKey}</span><strong>{answers[strongestKey]}</strong></div></div> : null}
+          {showStrongest ? <div className="kg-fb-strongest"><div><p className="kg-fb-mini">Strongest move</p><span>Use this as the decision pattern next time.</span></div><div className="kg-move is-best"><span>{strongestKey}</span><strong>{answers[strongestKey]}</strong></div></div> : null}
 
-          <div className="nextBar"><p>{isCompleted ? "Your pressure-pattern result is ready." : `${remaining} decision${remaining === 1 ? "" : "s"} remaining.`}</p><Link href={nextHref}>{isCompleted ? "See my H.A.C.K. profile" : "Next pressure test"}<span>→</span></Link></div>
+          <div className="kg-fb-next"><p>{isCompleted ? "Your pressure-pattern result is ready." : `${remaining} decision${remaining === 1 ? "" : "s"} remaining.`}</p><Link href={nextHref}>{isCompleted ? "See my H.A.C.K. profile" : "Next pressure test"} <span aria-hidden="true">→</span></Link></div>
         </section>
-      </section>
+      </div>
 
-      <style>{`
-        :global(*){box-sizing:border-box}:global(body){margin:0;background:#06131f}.feedbackPage{--ink:#06131f;--paper:#fbfaf6;--coral:#ff5b50;--lime:#b9ff38;min-height:100vh;background:radial-gradient(circle at 78% 8%,rgba(50,91,127,.25),transparent 30%),linear-gradient(180deg,#06131f,#091a2a);color:#fff;padding:0 24px 36px;font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}.shell{width:min(1060px,100%);margin:0 auto}.topbar{height:78px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid rgba(255,255,255,.12)}.brand{display:inline-flex;align-items:center;gap:9px;color:#fff;text-decoration:none}.brand>span{width:30px;height:30px;border:1px solid rgba(255,255,255,.65);border-radius:50%;display:grid;place-items:center;font-size:11px}.brand b{font-size:13px}.topbar>div{display:flex;gap:16px;align-items:center;font-size:9px;letter-spacing:.1em;color:#8ea1b0}.topbar a{color:#fff;text-decoration:none}
-        .resultCard{margin-top:34px;background:var(--paper);color:var(--ink);border-radius:30px;overflow:hidden;box-shadow:0 40px 90px rgba(0,0,0,.32);border-top:6px solid var(--coral)}.resultCard.strong{border-top-color:var(--lime)}.resultCard.safe{border-top-color:#7fb8ff}.resultCard.caution{border-top-color:#efb23c}.resultHero{min-height:285px;padding:40px 44px;display:grid;grid-template-columns:66px 1fr 106px;gap:25px;align-items:start;border-bottom:1px solid #dedfdc}.resultMark{width:56px;height:56px;border-radius:50%;background:#0b1c2c;color:#fff;display:grid;place-items:center;font-size:25px;font-family:Georgia,serif}.strong .resultMark{background:#5b8e11}.safe .resultMark{background:#286b9f}.caution .resultMark{background:#a56b00}.risk .resultMark{background:#c9483f}.resultCopy>p,.mini{margin:0 0 10px;font-size:8px;letter-spacing:.13em;font-weight:900;color:#818b91}.strong .resultCopy>p{color:#5f8c1b}.safe .resultCopy>p{color:#2e75a8}.caution .resultCopy>p{color:#a76e00}.risk .resultCopy>p{color:#c94940}.resultCopy h1{font-family:Georgia,"Times New Roman",serif;font-weight:500;font-size:clamp(42px,5vw,64px);line-height:.98;letter-spacing:-.045em;margin:0 0 17px;max-width:700px}.resultCopy>span{display:block;max-width:650px;color:#5e6c75;font-size:14px;line-height:1.65}.scoreDial{width:96px;height:96px;border-radius:50%;background:#071522;color:var(--lime);display:flex;align-items:center;justify-content:center;position:relative}.scoreDial strong{font-size:33px}.scoreDial small{position:absolute;right:18px;bottom:19px;color:#8da1af;font-size:9px}
-        .pressureBlock{display:grid;grid-template-columns:52px 1fr;gap:17px;padding:23px 28px;background:#eef8df;border-bottom:1px solid #cfe2ad}.pressureIcon{width:46px;height:46px;border-radius:50%;background:var(--lime);display:grid;place-items:center}.pressureBlock h2{font-family:Georgia,serif;font-size:23px;line-height:1.18;font-weight:500;margin:0 0 6px}.pressureBlock p:not(.mini){font-size:11px;line-height:1.55;color:#596a50;margin:0}.resultGrid{display:grid;grid-template-columns:1.15fr 1fr .9fr;background:#e6e4dd;gap:1px}.resultGrid article{background:#fff;padding:28px;min-height:190px}.move{display:grid;grid-template-columns:38px 1fr;gap:13px;align-items:center}.move>span{width:36px;height:36px;border-radius:50%;background:#071522;color:#fff;display:grid;place-items:center;font-size:10px;font-weight:900}.move strong{font-family:Georgia,serif;font-size:18px;line-height:1.3;font-weight:500}.why>p:last-child{font-size:13px;line-height:1.65;color:#596872;margin:24px 0 0}.rule{background:#071522!important;color:#fff}.rule .mini{color:#8397a7}.rule>strong{display:block;font-family:Georgia,serif;font-size:21px;line-height:1.3;font-weight:500;margin-top:24px}.strongest{padding:23px 28px;display:grid;grid-template-columns:.55fr 1.45fr;gap:30px;align-items:center;background:#f6f3eb;border-top:1px solid #dedfdc}.strongest>div:first-child>span{font-size:10px;color:#6e7a69}.move.best>span{background:#5b8e11}.nextBar{min-height:86px;padding:18px 26px 18px 30px;background:#f7f4ed;border-top:1px solid #dedfdc;display:flex;align-items:center;justify-content:space-between;gap:25px}.nextBar p{font-size:10px;color:#738087;margin:0}.nextBar a{min-width:210px;min-height:50px;padding:0 18px;border-radius:999px;background:var(--coral);color:#fff;text-decoration:none;font-size:12px;font-weight:900;display:flex;align-items:center;justify-content:space-between}
-        @media(max-width:800px){.resultHero{grid-template-columns:55px 1fr}.scoreDial{grid-column:1/3;width:72px;height:72px}.resultGrid{grid-template-columns:1fr}.resultGrid article{min-height:auto}.strongest{grid-template-columns:1fr}.resultCopy h1{font-size:44px}}
-        @media(max-width:620px){.feedbackPage{padding:0 10px 18px}.topbar{height:60px;padding:0 4px}.resultCard{margin-top:14px;border-radius:20px}.resultHero{padding:27px 18px 22px;grid-template-columns:44px 1fr;gap:12px}.resultMark{width:42px;height:42px;font-size:19px}.resultCopy h1{font-size:36px}.resultCopy>span{font-size:12px}.scoreDial{width:62px;height:62px}.pressureBlock{grid-template-columns:42px 1fr;padding:18px}.pressureIcon{width:40px;height:40px}.resultGrid article{padding:22px 18px}.strongest{padding:20px 18px}.nextBar{position:sticky;bottom:0;z-index:4;padding:12px 14px}.nextBar p{display:none}.nextBar a{width:100%}}
-      `}</style>
     </main>
   );
 }

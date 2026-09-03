@@ -8,6 +8,7 @@ import "./brand-logos.css";
 import "./scam-safety-pack.css";
 import "./asset-hardening.css";
 import "./home-travelsafe.css";
+import "./challenge-premium.css";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://konfydence.com"),

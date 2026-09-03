@@ -23,13 +23,13 @@ const EDITION_DECK_NAME: Record<string, string> = {
 const levelColor = { strong: "#4f8a10", watch: "#a66d00", vulnerable: "#c2410c" } as const;
 
 const styles: Record<string, React.CSSProperties> = {
-  page: { minHeight: "100vh", background: "linear-gradient(180deg,#07131f,#0b2237)", padding: 18, color: "white" },
-  shell: { width: "100%", maxWidth: 1000, margin: "0 auto" },
-  header: { display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 14 },
-  smallLink: { color: "#ffffffcc", fontSize: 12, fontWeight: 800, textDecoration: "none" },
-  card: { background: "#fffdf8", color: "#091522", borderRadius: 22, padding: 24, boxShadow: "0 18px 50px rgba(0,0,0,.22)", marginBottom: 14 },
-  button: { display: "inline-flex", alignItems: "center", justifyContent: "center", width: "100%", minHeight: 48, padding: "12px 15px", borderRadius: 999, background: "#ff5b50", color: "white", textDecoration: "none", fontWeight: 950, marginTop: 10 },
-  secondary: { display: "inline-flex", alignItems: "center", justifyContent: "center", width: "100%", minHeight: 46, padding: "11px 14px", borderRadius: 999, background: "white", border: "1px solid #d8dcd8", color: "#091522", textDecoration: "none", fontWeight: 900, marginTop: 9 },
+  page: { minHeight: "100vh", background: "var(--k-paper)", padding: "20px 24px 60px", color: "var(--k-ink)" },
+  shell: { width: "min(1000px, 100%)", margin: "0 auto" },
+  header: { height: 72, display: "flex", justifyContent: "space-between", alignItems: "center", borderBottom: "1px solid var(--k-line)", marginBottom: 26 },
+  smallLink: { color: "var(--k-muted)", fontSize: 12, fontWeight: 600, textDecoration: "none" },
+  card: { background: "var(--k-white)", color: "var(--k-ink)", border: "1px solid var(--k-line)", borderRadius: "var(--k-radius)", padding: 30, boxShadow: "0 24px 60px rgba(17,20,23,.07)", marginBottom: 16 },
+  button: { display: "inline-flex", alignItems: "center", justifyContent: "center", width: "100%", minHeight: 48, padding: "12px 15px", borderRadius: 999, background: "var(--k-ink)", color: "#fff", textDecoration: "none", fontWeight: 650, marginTop: 12 },
+  secondary: { display: "inline-flex", alignItems: "center", justifyContent: "center", width: "100%", minHeight: 46, padding: "11px 14px", borderRadius: 999, background: "transparent", border: "1px solid var(--k-line)", color: "var(--k-ink)", textDecoration: "none", fontWeight: 600, marginTop: 10 },
 };
 
 export default async function ResultsPage({ params }: { params: Promise<{ sessionId: string }> }) {
@@ -87,7 +87,7 @@ export default async function ResultsPage({ params }: { params: Promise<{ sessio
       <ResultViewedHook sessionId={sessionId} krsScore={Math.round(pct)} pressurePattern={pressurePattern} />
       <div style={styles.shell}>
         <header style={styles.header}>
-          <Link href="/" style={{ color: "white", textDecoration: "none", fontWeight: 950 }}>Konfydence</Link>
+          <Link href="/" className="k-wordmark" style={{ textDecoration: "none" }}>Konfydence</Link>
           <div style={{ display: "flex", gap: 16 }}>
             <Link style={styles.smallLink} href="/dashboard">My results</Link>
             <Link style={styles.smallLink} href="/challenge">Choose another test</Link>
@@ -168,8 +168,48 @@ export default async function ResultsPage({ params }: { params: Promise<{ sessio
       </div>
 
       <style>{`
-        :global(*){box-sizing:border-box}.overline{margin:0 0 10px;color:#d34b42;font-size:9px;font-weight:950;letter-spacing:.12em}.scoreIntro{display:grid;grid-template-columns:1fr 190px;gap:35px;align-items:center}.scoreIntro h1,.sectionTitle h2,.conversion h2{font-family:Georgia,"Times New Roman",serif;font-weight:500;letter-spacing:-.04em}.scoreIntro h1{font-size:clamp(39px,6vw,60px);line-height:.97;margin:0 0 16px}.scoreIntro>div>p{color:#41515d;font-size:15px;line-height:1.6;margin:0 0 10px;max-width:650px}.scoreIntro small{color:#75828b;font-size:11px;line-height:1.45}.ringWrap{text-align:center}.ringWrap strong{font-size:28px;color:#091522}.ringWrap span{display:block;font-size:10px;color:#71808a}.ringWrap>b{display:inline-block;margin-top:8px;border-radius:999px;background:#edf1ed;padding:6px 10px;color:#30404b;font-size:11px}.sectionTitle{display:grid;grid-template-columns:1fr .7fr;gap:30px;align-items:end;margin-bottom:22px}.sectionTitle h2{font-size:34px;line-height:1;margin:0}.sectionTitle>p{margin:0;color:#687781;font-size:12px;line-height:1.55}.profileGrid{display:grid;grid-template-columns:1fr 1fr;gap:10px}.dimension{border:1px solid #dce0dc;border-radius:16px;padding:16px;background:white}.dimensionHead{display:grid;grid-template-columns:36px 1fr auto;gap:10px;align-items:center}.dimensionHead .key{width:34px;height:34px;border-radius:50%;display:grid;place-items:center;background:#f3f4f1}.dimensionHead p{font-weight:950;margin:0;font-size:13px}.dimensionHead small{color:#72808a;font-size:10px;font-weight:800}.dimensionHead>strong{font-size:22px}.bar{height:5px;background:#e8ebe7;border-radius:999px;overflow:hidden;margin:13px 0}.bar span{display:block;height:100%;border-radius:999px}.insight{font-size:12px;line-height:1.5;color:#53626c;margin:0 0 8px}.sample{font-size:9px;color:#879199}.priority{margin-top:16px;border-radius:18px;background:#091522;color:white;padding:20px}.priorityTop{display:flex;align-items:center;justify-content:space-between;gap:12px}.priorityTop span{font-size:9px;color:#ffb31d;font-weight:950;letter-spacing:.11em}.priorityTop b{font-size:12px;color:#d6e0e7}.priority h3{font-family:Georgia,serif;font-weight:500;font-size:25px;line-height:1.2;margin:18px 0 8px;max-width:760px}.priority p{font-size:11px;line-height:1.55;color:#9eb0bd;margin:0}.strengthRow{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:12px}.strengthRow p{border:1px solid #dfe1dd;border-radius:14px;padding:13px;margin:0;display:flex;flex-direction:column;gap:4px}.strengthRow span{font-size:9px;text-transform:uppercase;letter-spacing:.08em;color:#88939b;font-weight:900}.strengthRow b{font-size:12px}.conversion{background:#0b1f3a;color:white;border:2px solid #ffb31d;border-radius:22px;padding:25px;margin-bottom:14px}.lime{color:#b8ff3d}.conversion h2{font-size:38px;line-height:1;margin:0 0 13px}.conversion>p:not(.overline):not(.limit){color:#c6d4df;line-height:1.6;font-size:13px;max-width:780px}.bankNote{font-size:11px!important;color:#91a4b2!important}.recommend{border-left:3px solid #b8ff3d;background:rgba(184,255,61,.07);padding:12px 14px;margin:16px 0;font-size:12px;line-height:1.5}.commerce{display:grid;grid-template-columns:1fr 1fr;gap:10px}.limit{color:#9eb0bd;font-size:11px;font-weight:800;text-align:center;margin:12px 0 0}
-        @media(max-width:680px){.scoreIntro,.sectionTitle{grid-template-columns:1fr}.ringWrap{text-align:left}.profileGrid,.strengthRow,.commerce{grid-template-columns:1fr}.conversion h2{font-size:31px}.priorityTop{align-items:flex-start;flex-direction:column}.scoreIntro h1{font-size:42px}}
+        :global(*){box-sizing:border-box}
+        .overline{margin:0 0 14px;color:var(--k-gold);font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase}
+        .scoreIntro{display:grid;grid-template-columns:1fr 190px;gap:40px;align-items:center}
+        .scoreIntro h1,.sectionTitle h2,.conversion h2{font-family:var(--k-display);font-weight:400;letter-spacing:-.035em}
+        .scoreIntro h1{font-size:clamp(30px,4vw,46px);line-height:1.02;margin:0 0 16px}
+        .scoreIntro>div>p{color:var(--k-muted);font-size:15px;line-height:1.65;margin:0 0 10px;max-width:650px}
+        .scoreIntro small{color:var(--k-soft);font-size:11px;line-height:1.5}
+        .ringWrap{text-align:center}.ringWrap strong{font-size:28px;color:var(--k-ink);font-family:var(--k-display);font-weight:400}.ringWrap span{display:block;font-size:10px;color:var(--k-soft)}
+        .ringWrap>b{display:inline-block;margin-top:10px;border-radius:999px;background:var(--k-stone);padding:6px 12px;color:var(--k-ink);font-size:11px;font-weight:600}
+        .sectionTitle{display:grid;grid-template-columns:1fr .7fr;gap:34px;align-items:end;margin-bottom:26px}
+        .sectionTitle h2{font-size:clamp(24px,2.6vw,32px);line-height:1.05;margin:0}
+        .sectionTitle>p{margin:0;color:var(--k-soft);font-size:12px;line-height:1.6}
+        .profileGrid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+        .dimension{border:1px solid var(--k-line);border-radius:16px;padding:18px;background:var(--k-paper)}
+        .dimensionHead{display:grid;grid-template-columns:36px 1fr auto;gap:12px;align-items:center}
+        .dimensionHead .key{width:34px;height:34px;border-radius:50%;display:grid;place-items:center;background:var(--k-white);border:1px solid var(--k-line)}
+        .dimensionHead p{font-weight:700;margin:0;font-size:13px}
+        .dimensionHead small{color:var(--k-soft);font-size:10px;font-weight:600}
+        .dimensionHead>strong{font-size:22px;font-family:var(--k-display);font-weight:400}
+        .bar{height:4px;background:var(--k-stone);border-radius:999px;overflow:hidden;margin:14px 0}
+        .bar span{display:block;height:100%;border-radius:999px}
+        .insight{font-size:12px;line-height:1.55;color:var(--k-muted);margin:0 0 8px}
+        .sample{font-size:9px;color:var(--k-soft);letter-spacing:.02em}
+        .priority{margin-top:18px;border-radius:18px;background:var(--k-deep);color:#fff;padding:24px}
+        .priorityTop{display:flex;align-items:center;justify-content:space-between;gap:12px}
+        .priorityTop span{font-size:9px;color:#c5a97e;font-weight:700;letter-spacing:.14em;text-transform:uppercase}
+        .priorityTop b{font-size:12px;color:#d9d6d1}
+        .priority h3{font-family:var(--k-display);font-weight:400;font-size:22px;line-height:1.25;margin:16px 0 8px;max-width:760px}
+        .priority p{font-size:11px;line-height:1.6;color:#aaa7a2;margin:0}
+        .strengthRow{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:14px}
+        .strengthRow p{border:1px solid var(--k-line);border-radius:14px;padding:14px;margin:0;display:flex;flex-direction:column;gap:5px}
+        .strengthRow span{font-size:9px;text-transform:uppercase;letter-spacing:.1em;color:var(--k-soft);font-weight:700}
+        .strengthRow b{font-size:12px}
+        .conversion{background:var(--k-deep);color:#fff;border:1px solid var(--k-line);border-radius:var(--k-radius);padding:30px;margin-bottom:16px}
+        .conversion .overline,.lime{color:#c5a97e}
+        .conversion h2{font-size:clamp(24px,3vw,34px);line-height:1.05;margin:0 0 14px}
+        .conversion>p:not(.overline):not(.limit){color:#bcb8b1;line-height:1.65;font-size:13px;max-width:780px}
+        .bankNote{font-size:11px!important;color:#aaa7a2!important}
+        .recommend{border-left:2px solid var(--k-gold);background:rgba(175,135,82,.12);padding:12px 16px;margin:18px 0;font-size:12px;line-height:1.55}
+        .commerce{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:6px}
+        .limit{color:#aaa7a2;font-size:11px;font-weight:600;text-align:center;margin:12px 0 0}
+        @media(max-width:680px){.scoreIntro,.sectionTitle{grid-template-columns:1fr}.ringWrap{text-align:left}.profileGrid,.strengthRow,.commerce{grid-template-columns:1fr}.priorityTop{align-items:flex-start;flex-direction:column}}
       `}</style>
     </main>
   );
