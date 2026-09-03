@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
+import { PremiumPage } from "@/components/PremiumSiteChrome";
 
 const EDITIONS = {
   travelsafe: { name: "TravelSafe", audience: "Travellers and tourists", title: "Would you spot a travel scam before it cost you?", description: "Face realistic booking, hotel, taxi, payment and Wi-Fi scams, get your readiness score, and learn your safer next move.", scenarios: ["A hotel asks you to pay again within minutes.", "A taxi driver adds an invented fee at the destination.", "A fake airline support account offers urgent compensation."] },
@@ -23,14 +24,50 @@ export default async function EditionPage(props: { params: Promise<{ edition: st
   const params = await props.params;
   const edition = EDITIONS[params.edition as keyof typeof EDITIONS];
   if (!edition) notFound();
+  const startHref = `/challenge/${params.edition}/start?mode=diagnostic`;
   return (
-    <main className="edition-page">
-      <header><Link className="brand" href="/">Konfydence</Link><nav><Link href="/travelsafe">TravelSafe</Link><Link href="/country-alerts">Country Scam Alerts</Link><Link href="/challenge">Other Challenges</Link><Link href="/pricing">Pricing</Link><Link href="/contact">Contact</Link><Link className="nav-cta" href={`/challenge/${params.edition}/start?mode=diagnostic`}>Take the Free Check</Link></nav></header>
-      <section className="edition-hero"><p className="eyebrow">Challenge Edition</p><p className="audience">{edition.audience}</p><h1>{edition.title}</h1><p>{edition.description}</p><Link className="primary" href={`/challenge/${params.edition}/start?mode=diagnostic`}>Start the Free Readiness Check</Link></section>
-      <section className="scenario-section"><p className="eyebrow">Inside the Challenge</p><h2>Realistic pressure scenarios for {edition.name}</h2><div className="scenario-grid">{edition.scenarios.map((scenario) => <article key={scenario}><span>Scenario</span><h3>{scenario}</h3><p>Choose what you would do, then see the safer move.</p></article>)}</div></section>
-      <section className="next-section"><h2>Every edition starts with a Free Readiness Check</h2><p>Use the short diagnostic first. When you are ready, continue with the Full Challenge for the complete scenario-based training experience.</p><div className="edition-links">{Object.entries(EDITIONS).filter(([slug]) => slug !== params.edition).map(([slug, item]) => <Link key={slug} href={`/${slug}`}>{item.name}</Link>)}</div></section>
-      <footer><Link href="/">Konfydence</Link><Link href="/hack-method">HACK Method</Link><Link href="/country-alerts">Country Scam Alerts</Link><Link href="/contact">Contact</Link></footer>
-      <style>{`.edition-page{min-height:100vh;background:#f7f9fc;color:#102344;padding:0 6vw 48px;font-family:Arial,Helvetica,sans-serif}.edition-page header{max-width:1120px;margin:auto;min-height:72px;display:flex;align-items:center;justify-content:space-between;gap:24px;border-bottom:1px solid #dce5ef}.brand{color:#102344;text-decoration:none;font-size:23px;font-weight:900}.edition-page nav{display:flex;gap:16px;align-items:center;flex-wrap:wrap}.edition-page nav a,.edition-page footer a{color:#365477;text-decoration:none;font-size:12px;font-weight:800}.edition-page .nav-cta{background:#ff584c;color:#fff;padding:11px 14px;border-radius:8px}.edition-hero,.scenario-section,.next-section{max-width:1120px;margin:auto}.edition-hero{padding:82px 0 70px;max-width:820px}.eyebrow{color:#ef4e43;text-transform:uppercase;letter-spacing:.08em;font-size:11px;font-weight:900}.audience{color:#12639d;text-transform:uppercase;font-weight:900;font-size:12px}.edition-hero h1{font-size:clamp(38px,5vw,64px);line-height:1.04;margin:16px 0}.edition-hero>p:not(.eyebrow):not(.audience),.next-section>p{color:#526b93;line-height:1.6;max-width:700px}.primary{display:inline-flex;margin-top:20px;background:#ff584c;color:#fff;text-decoration:none;font-weight:900;border-radius:8px;padding:13px 18px;box-shadow:0 3px 0 #d74339}.scenario-section{border-top:1px solid #dce5ef;padding:48px 0}.scenario-section h2,.next-section h2{font-size:34px;margin:0 0 22px}.scenario-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.scenario-grid article{background:#fff;border:1px solid #dce5ef;border-radius:10px;padding:22px;min-height:160px}.scenario-grid span{color:#12639d;text-transform:uppercase;font-size:10px;font-weight:900}.scenario-grid h3{font-size:18px;line-height:1.25}.scenario-grid p{color:#526b93;font-size:13px;line-height:1.45}.next-section{background:#eaf3ff;border:1px solid #d0e2f4;border-radius:10px;padding:28px}.edition-links{display:flex;gap:12px;flex-wrap:wrap}.edition-links a{color:#12639d;font-weight:900}.edition-page footer{max-width:1120px;margin:40px auto 0;padding-top:20px;border-top:1px solid #dce5ef;display:flex;gap:20px;flex-wrap:wrap}@media(max-width:760px){.edition-page header{align-items:flex-start;flex-direction:column;padding:18px 0}.scenario-grid{grid-template-columns:1fr}}`}</style>
-    </main>
+    <PremiumPage ctaHref={startHref} ctaLabel="Take the free check">
+      <div className="kg-shell kg-ed">
+        <section className="kg-ed-hero">
+          <p className="k-kicker">Challenge edition</p>
+          <p className="kg-ed-audience">{edition.audience}</p>
+          <h1>{edition.title}</h1>
+          <p>{edition.description}</p>
+          <Link className="k-button" href={startHref}>Start the free readiness check</Link>
+        </section>
+
+        <section className="k-section" style={{ borderTop: "1px solid var(--k-line)", paddingTop: 64, paddingBottom: 64 }}>
+          <p className="k-kicker">Inside the challenge</p>
+          <h2 className="k-display-sm">Realistic pressure scenarios for {edition.name}.</h2>
+          <div className="kg-scenario-grid">
+            {edition.scenarios.map((scenario) => (
+              <article key={scenario}>
+                <span>Scenario</span>
+                <h3>{scenario}</h3>
+                <p>Choose what you would do, then see the safer move.</p>
+              </article>
+            ))}
+          </div>
+        </section>
+
+        <section className="k-callout" style={{ padding: "72px 0" }}>
+          <div>
+            <p className="k-kicker">Start free</p>
+            <h2 className="k-display-sm">Every edition starts with a free readiness check.</h2>
+            <p className="k-copy">
+              Use the short diagnostic first. When you are ready, continue with the full challenge for the complete scenario-based training experience.
+            </p>
+            <div className="kg-ed-links">
+              {Object.entries(EDITIONS).filter(([slug]) => slug !== params.edition).map(([slug, item]) => (
+                <Link key={slug} href={`/${slug}`}>{item.name} →</Link>
+              ))}
+            </div>
+          </div>
+          <div className="k-actions">
+            <Link className="k-button" href={startHref}>Start the free check</Link>
+          </div>
+        </section>
+      </div>
+    </PremiumPage>
   );
 }

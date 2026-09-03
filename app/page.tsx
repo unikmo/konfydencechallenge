@@ -1,7 +1,6 @@
 import Link from "next/link";
 import type { Metadata } from "next";
 import { PremiumPage } from "@/components/PremiumSiteChrome";
-import { ScamSafetyPack } from "@/components/ScamSafetyPack";
 
 export const metadata: Metadata = {
   title: { absolute: "TravelSafe by Konfydence | Practise safer travel decisions" },
@@ -148,8 +147,6 @@ export default function HomePage() {
           ))}
         </div>
       </section>
-
-      <ScamSafetyPack source="homepage" />
 
       <section className="k-section-dark k-home-method">
         <div className="k-shell k-home-narrow">
