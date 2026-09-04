@@ -135,7 +135,7 @@ export default function HomePage() {
             <h2 className="k-display-sm">Recognise what the message is trying to make you do.</h2>
           </div>
           <p className="k-copy">
-            TravelSafe does not ask people to memorise a blacklist. It teaches them to notice the pressure pattern, create decision space and verify through a channel they trust.
+            TravelSafe does not ask people to memorise a blacklist. It teaches them to notice the pressure pattern, create decision space, and check the request with someone they trust.
           </p>
         </div>
         <div className="k-principles k-principles-four">
@@ -154,15 +154,15 @@ export default function HomePage() {
           <div className="k-section-head">
             <div>
               <p className="k-kicker">Two frameworks, one habit</p>
-              <h2 className="k-display-sm">Spot the pressure. Then Pause, Think, Call.</h2>
+              <h2 className="k-display-sm">Spot the pressure. Then Pause, Assess, Talk.</h2>
             </div>
             <p className="k-copy">
-              H.A.C.K. names what a scam is doing to you. P.T.A. is what you do about it. Together they turn a stressful moment into a decision you have already rehearsed.
+              H.A.C.K. names what a scam is doing to you. P.A.T. is what you do about it. Together they turn a stressful moment into a decision you have already rehearsed.
             </p>
           </div>
           <div className="k-method-grid">
             <article><small>H.A.C.K. — spot it</small><h3>Name the pressure.</h3><p>Hurry, Authority, Comfort and Kill-Switch are the four patterns almost every scam uses to rush your decision.</p></article>
-            <article><small>P.T.A. — do this</small><h3>Pause. Think. Call.</h3><p>Stop before the click or payment. Ask what a scam would need here. Confirm on a number or channel you already trust.</p></article>
+            <article><small>P.A.T. — do this</small><h3>Pause. Assess. Talk.</h3><p>Stop before the click or payment. Ask what the request really wants — money, a code, a login, an approval. Then say it out loud to someone you trust, or your bank on the number from your card.</p></article>
             <article><small>Decision practice</small><h3>Rehearse the move.</h3><p>Short scenarios make it concrete: what would you do now, and what would make that next step safer?</p></article>
           </div>
         </div>

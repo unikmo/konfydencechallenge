@@ -1,16 +1,16 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="2560" height="1440" viewBox="0 0 2560 1440" role="img" aria-labelledby="title desc">
-  <title id="title">Konfydence desktop lock screen — Pause. Think. Call.</title>
-  <desc id="desc">A calm reminder for urgent, emotional or threatening requests: pause, think, and call on a number you trust.</desc>
+  <title id="title">Konfydence desktop lock screen — Pause. Assess. Talk.</title>
+  <desc id="desc">A calm reminder for urgent, emotional or threatening requests: pause, assess what the request really wants, and talk to someone you trust.</desc>
   <rect width="2560" height="1440" fill="#f7f4ee"/>
   <line x1="760" y1="200" x2="760" y2="1240" stroke="#ded8cf" stroke-width="3"/>
   <text x="390" y="560" text-anchor="middle" font-family="Iowan Old Style, Palatino, Georgia, serif" font-size="58" letter-spacing="2" fill="#111417">Konfydence</text>
   <text x="390" y="640" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="26" font-weight="700" letter-spacing="5" fill="#af8752">DECISION PRACTICE</text>
   <text x="900" y="300" font-family="Arial, Helvetica, sans-serif" font-size="38" font-weight="700" letter-spacing="6" fill="#af8752">WHEN A REQUEST RUSHES YOU</text>
   <text x="900" y="540" font-family="Iowan Old Style, Palatino, Georgia, serif" font-size="150" fill="#111417">Pause.</text>
-  <text x="900" y="740" font-family="Iowan Old Style, Palatino, Georgia, serif" font-size="150" fill="#111417">Think.</text>
-  <text x="900" y="940" font-family="Iowan Old Style, Palatino, Georgia, serif" font-size="150" fill="#af8752">Call.</text>
+  <text x="900" y="740" font-family="Iowan Old Style, Palatino, Georgia, serif" font-size="150" fill="#111417">Assess.</text>
+  <text x="900" y="940" font-family="Iowan Old Style, Palatino, Georgia, serif" font-size="150" fill="#af8752">Talk.</text>
   <text x="900" y="1090" font-family="Arial, Helvetica, sans-serif" font-size="37" font-weight="700" fill="#111417">Don't reply. Don't click. Don't send money under pressure.</text>
-  <text x="900" y="1150" font-family="Arial, Helvetica, sans-serif" font-size="34" fill="#5e5b56">Find the official number yourself. Talk to someone you trust before acting.</text>
+  <text x="900" y="1150" font-family="Arial, Helvetica, sans-serif" font-size="34" fill="#5e5b56">Ask what it really wants, then say it out loud to someone you trust.</text>
   <text x="900" y="1262" font-family="Arial, Helvetica, sans-serif" font-size="32" font-weight="700" fill="#111417">konfydence.com</text>
   <g font-family="Arial, Helvetica, sans-serif">
     <rect x="1740" y="250" width="640" height="230" rx="30" fill="#fffdf9" stroke="#ded8cf" stroke-width="2"/>
@@ -18,9 +18,9 @@
     <text x="1880" y="322" font-size="44" font-weight="700" fill="#111417">Pause</text><text x="1810" y="400" font-size="29" fill="#5e5b56">Give the urgency a few seconds less power.</text>
     <rect x="1740" y="520" width="640" height="230" rx="30" fill="#fffdf9" stroke="#ded8cf" stroke-width="2"/>
     <text x="1810" y="600" font-family="Iowan Old Style, Palatino, Georgia, serif" font-size="46" fill="#af8752">2</text>
-    <text x="1880" y="592" font-size="44" font-weight="700" fill="#111417">Think</text><text x="1810" y="670" font-size="29" fill="#5e5b56">Ask what a scam would need from you here.</text>
+    <text x="1880" y="592" font-size="44" font-weight="700" fill="#111417">Assess</text><text x="1810" y="670" font-size="29" fill="#5e5b56">Money, a code, a login, an approval? That's pressure, not proof.</text>
     <rect x="1740" y="790" width="640" height="230" rx="30" fill="#fffdf9" stroke="#ded8cf" stroke-width="2"/>
     <text x="1810" y="870" font-family="Iowan Old Style, Palatino, Georgia, serif" font-size="46" fill="#af8752">3</text>
-    <text x="1880" y="862" font-size="44" font-weight="700" fill="#111417">Call</text><text x="1810" y="940" font-size="29" fill="#5e5b56">Confirm on a number or person you already trust.</text>
+    <text x="1880" y="862" font-size="44" font-weight="700" fill="#111417">Talk</text><text x="1810" y="940" font-size="29" fill="#5e5b56">To someone you trust, or your bank on the number from your card.</text>
   </g>
 </svg>

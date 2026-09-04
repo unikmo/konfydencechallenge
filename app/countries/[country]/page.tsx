@@ -1,7 +1,9 @@
-﻿import Link from "next/link";
+import Link from "next/link";
 import { notFound } from "next/navigation";
+import type { Metadata } from "next";
 import { COUNTRY_PROFILES } from "@/lib/countries";
-import CountryLandmarkImage from "../CountryLandmarkImage";
+import { COUNTRY_GUIDES, HACK_LABEL, HACK_DEF, dominantPatterns, type HackKey } from "@/lib/country-guides";
+import { PremiumPage } from "@/components/PremiumSiteChrome";
 import CountryAlert from "../CountryAlert";
 import styles from "../countries.module.css";
 
@@ -9,78 +11,185 @@ export function generateStaticParams() {
   return Object.keys(COUNTRY_PROFILES).map((country) => ({ country }));
 }
 
+export async function generateMetadata(props: { params: Promise<{ country: string }> }): Promise<Metadata> {
+  const { country } = await props.params;
+  const profile = COUNTRY_PROFILES[country];
+  if (!profile) return {};
+  const guide = COUNTRY_GUIDES[country];
+  const indexable = guide?.status === "published";
+  return {
+    title: { absolute: `Common scams in ${profile.name} (${new Date().getFullYear()}) — and how to avoid them | Konfydence` },
+    description: indexable
+      ? `The scams travellers actually run into in ${profile.name} — how each one works, the pressure tactic behind it, and the simple move that stops it.`
+      : `Scam and fraud awareness for travel to ${profile.name}, with links to official government advisories.`,
+    alternates: { canonical: `/countries/${country}` },
+    robots: indexable ? undefined : { index: false, follow: true },
+    openGraph: {
+      title: `Common scams in ${profile.name} — and how to avoid them`,
+      description: `How the common ${profile.name} scams work and the one move that defuses each.`,
+      url: `https://konfydence.com/countries/${country}`,
+      siteName: "Konfydence",
+      type: "article",
+    },
+  };
+}
+
 export default async function CountryPage(props: { params: Promise<{ country: string }> }) {
   const params = await props.params;
   const profile = COUNTRY_PROFILES[params.country];
   if (!profile) notFound();
+  const guide = COUNTRY_GUIDES[params.country];
+
+  const nearby = Object.values(COUNTRY_PROFILES)
+    .filter((p) => p.slug !== profile.slug && p.region === profile.region && COUNTRY_GUIDES[p.slug]?.status === "published")
+    .slice(0, 6);
+  const nearbyFallback = nearby.length
+    ? nearby
+    : Object.entries(COUNTRY_GUIDES)
+        .filter(([slug, g]) => slug !== profile.slug && g.status === "published")
+        .slice(0, 6)
+        .map(([slug]) => COUNTRY_PROFILES[slug])
+        .filter(Boolean);
+
+  const jsonLd: Record<string, unknown>[] = [
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        { "@type": "ListItem", position: 1, name: "Country scam alerts", item: "https://konfydence.com/countries" },
+        { "@type": "ListItem", position: 2, name: profile.name, item: `https://konfydence.com/countries/${profile.slug}` },
+      ],
+    },
+  ];
+  if (guide?.faqs.length) {
+    jsonLd.push({
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      mainEntity: guide.faqs.map((f) => ({
+        "@type": "Question",
+        name: f.q,
+        acceptedAnswer: { "@type": "Answer", text: f.a },
+      })),
+    });
+  }
 
   return (
-    <main className={styles.page}>
+    <PremiumPage ctaHref="/challenge/travelsafe/start?mode=diagnostic" ctaLabel="Try TravelSafe free">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <div className={styles.shell}>
-        <header className={styles.nav}>
-          <Link href="/" className={styles.brand}>Konfydence</Link>
-          <nav className={styles.navLinks} aria-label="Main navigation">
-            <Link href="/travelsafe">TravelSafe</Link>
-            <Link href="/#how-it-works">How It Works</Link>
-            <Link href="/country-alerts">Country Scam Alerts</Link>
-            <Link href="/#other-challenges">Other Challenges</Link>
-            <Link href="/#for-organizations">For Organizations</Link>
-          </nav>
-        </header>
-
         <section className={styles.hero}>
-          <Link href="/country-alerts" className={styles.back}>Country Scam Alerts</Link>
-          <p className={styles.eyebrow}>{profile.continent} / {profile.region}</p>
-          <h1>{profile.name}</h1>
-
+          <Link href="/countries" className={styles.back}>← Country scam alerts</Link>
+          <p className={styles.eyebrow}>{profile.continent} · {profile.region}</p>
+          <h1>Common scams in {profile.name}</h1>
+          {guide ? <p className={styles.lede}>{guide.intro}</p> : null}
         </section>
 
-        <CountryLandmarkImage
-          countryName={profile.name}
-          landmark={profile.landmark}
-          slug={profile.slug}
-        />
+        {guide ? (
+          <>
+            <section className={styles.section}>
+              <h2>The scams you'll actually run into</h2>
+              <ol className={styles.scamList}>
+                {guide.scams.map((scam) => (
+                  <li key={scam.name} className={`${styles.scamCard} ${styles[`hack${scam.hack}`]}`}>
+                    <h3>{scam.name}</h3>
+                    <p className={styles.scamHow}>{scam.how}</p>
+                    <div className={styles.scamMeta}>
+                      <span className={styles.hackChip}>H.A.C.K. · {HACK_LABEL[scam.hack]}</span>
+                    </div>
+                    <p className={styles.scamMove}><strong>The move —</strong> {scam.move}</p>
+                  </li>
+                ))}
+              </ol>
+            </section>
 
-        <CountryAlert country={profile.slug} />
+            <section className={styles.section}>
+              <h2>What these scams have in common</h2>
+              <p className={styles.lede}>
+                {(() => {
+                  const dom = dominantPatterns(guide);
+                  const names = dom.map((k) => HACK_LABEL[k]);
+                  const phrase = names.length === 1 ? names[0] : names.length === 2 ? `${names[0]} and ${names[1]}` : names.join(", ");
+                  return `Most ${profile.name} scams lean on ${phrase}. `;
+                })()}
+                Whatever the trick, the way out is the same three moves — <strong>Pause · Assess · Talk</strong>:
+                stop before you pay, hand over a document or follow someone; ask what the request really wants; then say
+                it out loud to someone you trust, or your bank on the number from your card.
+              </p>
+              <Link href="/challenge/travelsafe/start?mode=diagnostic" className={styles.primaryLink}>
+                Practise it — free TravelSafe check
+              </Link>
+            </section>
 
-        <p className={styles.sourceNote}>Fraud source: official <a href={profile.sources[0].url} target="_blank" rel="noreferrer">Canada</a> / <a href={profile.sources[1].url} target="_blank" rel="noreferrer">New Zealand</a> information.</p>
+            {guide.faqs.length ? (
+              <section className={styles.section}>
+                <h2>{profile.name} travel-scam FAQ</h2>
+                <div className={styles.faqList}>
+                  {guide.faqs.map((f) => (
+                    <details key={f.q} className={styles.faqItem}>
+                      <summary>{f.q}</summary>
+                      <p>{f.a}</p>
+                    </details>
+                  ))}
+                </div>
+              </section>
+            ) : null}
+          </>
+        ) : (
+          <section className={styles.section}>
+            <p className={styles.lede}>
+              A detailed {profile.name} scam guide is in preparation. In the meantime, review the official government
+              advisories below before you travel, and practise your response with the{" "}
+              <Link href="/challenge/travelsafe/start?mode=diagnostic">free TravelSafe check</Link>.
+            </p>
+          </section>
+        )}
 
-        <section className={styles.checkinSection}>
-          <div>
-            <p className={styles.eyebrow}>Planned, not live</p>
-            <h2>Would a voluntary travel check-in help?</h2>
-            <p>Tell us what you would want from a future WhatsApp-based check-in. It would be opt-in and would never promise emergency response.</p>
-          </div>
-          <Link href="/contact?topic=travel-check-in" className={styles.primaryLink}>Join the interest list</Link>
+        <section className={styles.section}>
+          <h2>Official travel advisories for {profile.name}</h2>
+          <p className={styles.sourceNote}>
+            Fraud and scam wording pulled from the official{" "}
+            <a href={profile.sources[0].url} target="_blank" rel="noreferrer">Canadian</a> and{" "}
+            <a href={profile.sources[1].url} target="_blank" rel="noreferrer">New Zealand</a> travel advisories. Use the
+            government sources for current travel decisions.
+          </p>
+          <CountryAlert country={profile.slug} />
         </section>
-        <section className={styles.practice}>
-          <div>
-            <p className={styles.eyebrow}>TravelSafe</p>
-            <h2>Test your response before the trip.</h2>
-            <p>Start with the TravelSafe Free Readiness Check, then see which pressure tactic needs more practice before the trip.</p>
-          </div>
-          <Link href="/challenge/travelsafe/start?mode=diagnostic" className={styles.primaryLink}>Start Free Readiness Check</Link>
-        </section>
 
-        <section className={styles.affiliate}>
-          <p className={styles.eyebrow}>Travel and book-tour resources</p>
-          <h2>Useful partner links belong here, below the evidence.</h2>
-          <p>Insurance, transport, tours, and book-tour partners can be added after approval. Every commercial relationship will be labelled clearly.</p>
-        </section>
+        {nearbyFallback.length ? (
+          <section className={styles.section}>
+            <h2>Scam guides for nearby destinations</h2>
+            <div className={styles.nearbyGrid}>
+              {nearbyFallback.map((p) => (
+                <Link key={p.slug} href={`/countries/${p.slug}`}>{p.name} →</Link>
+              ))}
+            </div>
+          </section>
+        ) : null}
 
-        <footer className={styles.footer}>
-          <Link href="/countries">Countries</Link>
-          <Link href="/contact">Contact</Link>
-          <Link href="/imprint">Imprint</Link>
-          <Link href="/privacy-policy">Privacy</Link>
-          <Link href="/terms-of-service">Terms</Link>
-          <Link href="/cookie-policy">Cookies</Link>
-        </footer>
+        {guide ? (
+          <section className={styles.section}>
+            <h2>H.A.C.K. — the four pressure tactics</h2>
+            <p className={styles.sourceNote} style={{ maxWidth: 640 }}>
+              Every scam on this page is tagged with the tactic it uses. Recognise the tactic, not the trick.
+            </p>
+            <dl className={styles.hackDefs}>
+              {(["H", "A", "C", "K"] as HackKey[]).map((k) => (
+                <div key={k} className={styles[`hack${k}`]}>
+                  <dt><b>{k}</b> {HACK_LABEL[k]}</dt>
+                  <dd>{HACK_DEF[k]}</dd>
+                </div>
+              ))}
+            </dl>
+            <p className={styles.sourceNote} style={{ maxWidth: 640, marginTop: 16 }}>
+              The way out of all four: <strong>Pause · Assess · Talk</strong>.
+            </p>
+          </section>
+        ) : null}
+
+        {guide ? (
+          <p className={styles.reviewedNote}>Last reviewed {guide.lastReviewed}. Scams change — always cross-check the official advisory before travelling.</p>
+        ) : null}
       </div>
-    </main>
+    </PremiumPage>
   );
 }
-
-
-
-

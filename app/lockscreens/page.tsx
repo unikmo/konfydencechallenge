@@ -4,12 +4,12 @@ import { PremiumPage } from "@/components/PremiumSiteChrome";
 import { PortfolioStrip } from "@/components/PortfolioStrip";
 
 export const metadata: Metadata = {
-  title: { absolute: "Konfydence Lockscreens | Pause. Think. Call." },
+  title: { absolute: "Konfydence Lockscreens | Pause. Assess. Talk." },
   description:
-    "A lock-screen reminder service. Pick your device, install the first screen, and get a fresh Pause · Think · Call prompt every two weeks as scam patterns change.",
+    "A lock-screen reminder service. Pick your device, install the first screen, and get a fresh Pause · Assess · Talk prompt every two weeks as scam patterns change.",
   alternates: { canonical: "/lockscreens" },
   openGraph: {
-    title: "Konfydence Lockscreens | Pause. Think. Call.",
+    title: "Konfydence Lockscreens | Pause. Assess. Talk.",
     description: "A calm reminder where you will actually see it — refreshed every two weeks.",
     url: "https://konfydence.com/lockscreens",
     siteName: "Konfydence",
@@ -71,7 +71,7 @@ export default function LockscreensPage() {
           <p className="k-kicker">Konfydence Lockscreens</p>
           <h1 className="k-display">The reminder, where you will actually see it.</h1>
           <p className="k-lede">
-            Scam pressure works because it catches you mid-scroll. A lock screen puts <strong>Pause. Think. Call.</strong> in
+            Scam pressure works because it catches you mid-scroll. A lock screen puts <strong>Pause. Assess. Talk.</strong> in
             front of you before you reply, click or pay — and a fresh prompt lands every two weeks as the scams change.
           </p>
           <div className="k-actions">

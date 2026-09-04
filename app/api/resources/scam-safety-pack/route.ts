@@ -200,7 +200,7 @@ export async function POST(request: NextRequest) {
         <div style="font-family:Arial,sans-serif;line-height:1.6;color:#111417;max-width:620px;margin:auto;padding:28px">
           <div style="font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:#806941;margin-bottom:20px">Konfydence</div>
           <h1 style="font-family:Georgia,serif;font-size:34px;line-height:1.08;font-weight:400;margin:0 0 16px">Your selected scam-safety resources</h1>
-          <p style="font-size:16px;color:#5e5a55;margin:0 0 20px">Keep the response simple when a message feels urgent, emotional or threatening: <strong>Pause. Verify. Call.</strong></p>
+          <p style="font-size:16px;color:#5e5a55;margin:0 0 20px">Keep the response simple when a message feels urgent, emotional or threatening: <strong>Pause. Assess. Talk.</strong></p>
           <table role="presentation" style="width:100%;border-collapse:collapse">${renderResourceList(resources)}</table>
           <p style="font-size:12px;color:#77716a;margin-top:24px">You requested these files from Konfydence. This delivery email is transactional. Marketing messages are separate and only enabled when you explicitly opt in.</p>
         </div>

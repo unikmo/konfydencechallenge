@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { COUNTRY_PROFILES } from "@/lib/countries";
+import { PremiumPage } from "@/components/PremiumSiteChrome";
 import CountryDirectory from "./CountryDirectory";
 import styles from "./countries.module.css";
 
@@ -7,19 +8,8 @@ export default function CountriesPage() {
   const profiles = Object.values(COUNTRY_PROFILES);
 
   return (
-    <main className={styles.page}>
+    <PremiumPage ctaHref="/challenge/travelsafe/start?mode=diagnostic" ctaLabel="Try TravelSafe free">
       <div className={styles.shell}>
-        <header className={styles.nav}>
-          <Link href="/" className={styles.brand}>Konfydence</Link>
-          <nav className={styles.navLinks} aria-label="Main navigation">
-            <Link href="/travelsafe">TravelSafe</Link>
-            <Link href="/#how-it-works">How It Works</Link>
-            <Link href="/country-alerts" aria-current="page">Country Scam Alerts</Link>
-            <Link href="/#other-challenges">Other Challenges</Link>
-            <Link href="/#for-organizations">For Organizations</Link>
-          </nav>
-        </header>
-
         <section className={styles.hero}>
           <p className={styles.eyebrow}>Country Scam Alerts</p>
           <h1>Official travel information.<br />Spot fraud and scams.</h1>
@@ -60,16 +50,8 @@ export default function CountriesPage() {
           <p>Approved travel, insurance, tour, and book-tour partners can appear here after the safety guidance. Affiliate relationships will be disclosed beside every relevant link.</p>
         </section>
 
-        <footer className={styles.footer}>
-          <Link href="/">Home</Link>
-          <Link href="/contact">Contact</Link>
-          <Link href="/imprint">Imprint</Link>
-          <Link href="/privacy-policy">Privacy</Link>
-          <Link href="/terms-of-service">Terms</Link>
-          <Link href="/cookie-policy">Cookies</Link>
-        </footer>
       </div>
-    </main>
+    </PremiumPage>
   );
 }
 

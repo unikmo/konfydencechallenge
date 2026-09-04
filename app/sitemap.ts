@@ -1,5 +1,6 @@
 import type { MetadataRoute } from "next";
 import { COUNTRY_PROFILES } from "@/lib/countries";
+import { COUNTRY_GUIDES } from "@/lib/country-guides";
 
 const BASE = "https://konfydence.com";
 
@@ -31,11 +32,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
   ];
 
   const countryPages: MetadataRoute.Sitemap = Object.values(COUNTRY_PROFILES)
-    .filter((profile) => profile.scamResearch.some((item) => item.status === "published"))
+    .filter((profile) => COUNTRY_GUIDES[profile.slug]?.status === "published")
     .map((profile) => ({
       url: `${BASE}/countries/${profile.slug}`,
       changeFrequency: "monthly",
-      priority: 0.5,
+      priority: 0.6,
     }));
 
   return [...staticPages, ...countryPages];

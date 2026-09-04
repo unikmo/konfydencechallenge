@@ -1,15 +1,16 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { PremiumPage } from "@/components/PremiumSiteChrome";
 import { ScamSafetyPack } from "@/components/ScamSafetyPack";
 
 export const metadata: Metadata = {
-  title: { absolute: "Free Scam Protocol & Lock Screens | Konfydence" },
+  title: { absolute: "Free Emergency Scam Protocol | Konfydence" },
   description:
-    "Choose up to three free Konfydence scam-safety resources: the household Emergency Scam Protocol plus official phone and computer lock screens.",
+    "Download the free Konfydence Emergency Scam Protocol — a printable Pause · Assess · Talk response sheet for the household.",
   alternates: { canonical: "/free-scam-safety-pack" },
   openGraph: {
-    title: "Free Konfydence Scam Safety Resources",
-    description: "Choose up to three: Emergency Scam Protocol, phone lock screens and computer lock screens.",
+    title: "Free Konfydence Emergency Scam Protocol",
+    description: "A printable Pause · Assess · Talk response sheet for the household.",
     url: "https://konfydence.com/free-scam-safety-pack",
     siteName: "Konfydence",
     type: "website",
@@ -18,13 +19,15 @@ export const metadata: Metadata = {
 
 export default function FreeScamSafetyPackPage() {
   return (
-    <PremiumPage ctaHref="#free-scam-safety-pack" ctaLabel="Choose free resources">
+    <PremiumPage ctaHref="#free-scam-safety-pack" ctaLabel="Get the free protocol">
       <div className="k-pack-page-intro k-shell">
-        <p className="k-breadcrumb">Free resources · Household scam safety</p>
+        <p className="k-breadcrumb">Free resource · Household scam safety</p>
         <p className="k-kicker">Emergency readiness</p>
-        <h1 className="k-display">Put the right reminder where pressure finds you.</h1>
+        <h1 className="k-display">One page. On the fridge. Before you need it.</h1>
         <p className="k-lede">
-          Choose up to three official Konfydence resources per request. Start with the household Emergency Scam Protocol, then add the phone or computer lock screens you would actually keep visible.
+          The Emergency Scam Protocol is a free, printable Pause · Assess · Talk response sheet for when a message,
+          call or payment request feels urgent. For an always-on reminder on your phone and computer, see the{" "}
+          <Link href="/lockscreens">Konfydence Lockscreens</Link> service.
         </p>
       </div>
       <ScamSafetyPack source="resource-page" />

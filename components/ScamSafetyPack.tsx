@@ -19,19 +19,7 @@ const GROUPS: Array<{
     kind: "protocol",
     eyebrow: "Household protocol",
     title: "Emergency Scam Protocol",
-    description: "The printable Pause · Verify · Call response sheet for the household.",
-  },
-  {
-    kind: "phone",
-    eyebrow: "Phone",
-    title: "Phone lock screens",
-    description: "Choose the visual reminder you would actually keep on your phone.",
-  },
-  {
-    kind: "computer",
-    eyebrow: "Computer",
-    title: "Desktop lock screens",
-    description: "Choose a desktop reminder for work, study or home computers.",
+    description: "The printable Pause · Assess · Talk response sheet for the household. Free.",
   },
 ];
 
@@ -196,16 +184,13 @@ export function ScamSafetyPack({ source = "site" }: { source?: string }) {
     <section id="free-scam-safety-pack" className="k-shell k-free-pack" aria-labelledby={`free-pack-title-${source}`}>
       <div className="k-free-pack-head">
         <div>
-          <p className="k-kicker">Free household resources</p>
-          <h2 id={`free-pack-title-${source}`} className="k-display-sm">Choose the reminders you will actually use.</h2>
+          <p className="k-kicker">Free household resource</p>
+          <h2 id={`free-pack-title-${source}`} className="k-display-sm">The one reminder every household should have.</h2>
         </div>
         <div>
           <p className="k-copy">
-            Click a preview to choose up to three official Konfydence resources: the Emergency Scam Protocol, phone lock screens and computer lock screens. We send only the files you select.
+            The Emergency Scam Protocol is a free, printable Pause · Assess · Talk response sheet. Pick it below and we&apos;ll email it to you. Looking for phone and desktop lock screens? Those are now the <Link href="/lockscreens">Konfydence Lockscreens</Link> service.
           </p>
-          <div className="k-selection-count" aria-live="polite">
-            <strong>{selectedIds.length}</strong> / {MAX_SCAM_SAFETY_RESOURCES_PER_REQUEST} selected
-          </div>
         </div>
       </div>
 
@@ -274,10 +259,9 @@ export function ScamSafetyPack({ source = "site" }: { source?: string }) {
               <strong>
                 {selectedResources.length > 0
                   ? selectedResources.map((resource) => resource.shortLabel).join(" · ")
-                  : "Choose 1–3 resources above"}
+                  : "Select the protocol above"}
               </strong>
             </div>
-            <span>{selectedIds.length}/{MAX_SCAM_SAFETY_RESOURCES_PER_REQUEST}</span>
           </div>
 
           <label htmlFor={`pack-email-${source}`}>Email address</label>
