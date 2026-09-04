@@ -167,6 +167,58 @@ all formats, near-zero marginal cost, sell as a flat annual add-on. High margin 
 produced or approved. One-off `designFee` per screen (or a pack), then it enters the tenant's
 private library.
 
+### Content voice & format (Workplace track)
+
+Every screen follows **Hook → Message → Action**, not a dry instruction:
+
+> ✗ "Check the sender. Verify the domain. Report suspicious emails."
+> ✓ "Your CEO needs €8,400. Right now. The strange part? He apparently forgot every approval
+>   rule in the company. Pause. Verify outside the message."
+
+**Two densities per screen, same idea** (resolves the "rich vs. glanceable" tension):
+
+| Surface | Density |
+| --- | --- |
+| Lock / login screen (the moment of transition — arriving, back from a meeting) | Full Hook → Message → Action narrative |
+| Desktop wallpaper (behind windows, rarely the focus) | One-line distillation of the same message |
+
+Plus a **"plain mode" treatment** for conservative/regulated customers — same content stripped
+to the message line, removes the "is this too jokey for us" sales objection.
+
+**Deliberately varied formats** so employees never know what's next (kills banner-blindness):
+mini-mystery, choice, accuracy check, reputation, wellness/attention-break, H.A.C.K. spotting,
+P.T.A. reinforcement, physical/device security, data-handling.
+
+**60-screen library = 52 scheduled + 8 flex.** Flex slots replace a normal week for: holiday
+scams, tax season, a new scam pattern, a company-specific incident, travel season, AI/deepfake
+developments, wellness periods, internal campaigns. Flex is where the "current" value lives —
+and the part most likely to slip, so it needs a content owner.
+
+**Strategic mix (indicative, mixed not blocked):** ~25 security/fraud/social-engineering ·
+10 accuracy/quality · 8 reputation/client-trust · 5 wellbeing/attention · 5 privacy/data ·
+4 physical/device · 3 H.A.C.K./P.T.A. reinforcement.
+
+> **Positioning note:** ~half the screens being non-scam (accuracy, reputation, wellbeing) is a
+> deliberate move toward "workplace decision hygiene" / human-risk framing, which is the
+> language security-awareness and NIS2 buyers already use. Name this as a choice — keep
+> security/fraud the clear plurality so the product doesn't drift.
+
+### Quarterly pulse (Workplace tier — evidence layer)
+
+A lock screen alone produces no evidence, which is exactly what a B2B buyer needs to justify the
+spend. Add a **quarterly 5-question pulse** (email link or SSO'd microsite):
+
+- Participation rate + a behavioural-signal trend over the year (pause / verify answers improving?)
+- Documents "repeated awareness activity + defined effectiveness evidence" — the NIS2 Article 20
+  awareness-training language.
+- Bridges to CoMaSy: pulse = the light version, CoMaSy = the deep version. Clean product ladder.
+- Needs a delivery + reporting build — scope as a Workplace-tier feature, not core.
+
+### Tracks
+
+`workplace` (the format taxonomy above) · `personal` (Home — shorter, phone-first, calmer) ·
+`teen` (Teen Home + Schools — gaming/social/peer-pressure). Three tracks, not four tiers.
+
 ---
 
 ## 4. The rotating-URL resolver (core backend — build first)
@@ -383,7 +435,10 @@ Steps 1–3 are the shared core and unblock everything else.
   per-bespoke design fee.
 - School minimum licence value (~$150?).
 - Whether `$14.99` renewal stays or moves closer to `$19.99` (25% off is generous vs. norms).
-- Which treatment presets ship at launch (light + dark for sure; contrast + teen from day one?).
+- Which treatment presets ship at launch (light + dark for sure; contrast + teen + plain from day one?).
+- Wellbeing screen count (5 here vs. 8 proposed) — how far to lean into "decision hygiene" vs. stay a scam product.
+- Quarterly pulse: build now (Workplace evidence story) or after first customers.
+- Weekly cadence: offer it (premium tier) knowing MDM refresh lag makes it unreliable off ChromeOS, or cap Workplace at fortnightly.
 - Shopify subscriptions: native Shopify Subscriptions vs Recharge vs Stripe Billing for the
   annual renewal (current checkout is one-time cart only).
 - Whether B2B ever gets instant self-serve billing or stays quote/PO.
