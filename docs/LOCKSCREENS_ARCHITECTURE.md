@@ -24,20 +24,66 @@ One content system underneath. **Two delivery engines** on top.
 **BYOD exception:** personal devices inside a company or school are never treated as managed.
 Those users may opt into the Personal Delivery Engine **with individual consent** only.
 
+### Device scope by tier
+
+| Tier | Phones | Computers / laptops | Tablets |
+| --- | --- | --- | --- |
+| Workplace | **No** — computer-first by design | Yes | Yes (managed) |
+| Schools | **No** | Yes | Yes (managed) |
+| Home | Yes — **primary surface** | Yes | Yes (iPad — matters for older relatives) |
+| Teen Home | Yes — **primary surface** | Optional (gaming PC) | — |
+
+Rationale: the scam decisions that cost **companies** money (invoice fraud, exec-impersonation
+payments, phishing links, urgent Teams/Slack messages) happen **at the desk**. Managed company
+phones are a messy minority (work-profile Android can't set wallpaper; lots of BYOD). "Keeps the
+pause in view on every work computer" is a clean, deliverable promise.
+Consumer scam pressure is overwhelmingly **on the phone** (parcel-fee SMS, fake bank text/call,
+"family member needs money" messages, marketplace / romance scams).
+
 ---
 
 ## 2. Pricing
 
-| Tier | Price | Notes |
-| --- | --- | --- |
-| Home | $19.99 year 1 → $14.99 / year renewal | All household devices, all tracks |
-| Teen Home | $19.99 year 1 → $14.99 / year renewal | Teen/student content track |
-| Schools | $2 / managed computer / year | Apply a minimum (~$150) |
-| Workplace | $4 / employee / year | **$300 minimum annual licence** |
+| Tier | Price | Billing basis | Notes |
+| --- | --- | --- | --- |
+| Home | $19.99 year 1 → $14.99 / year renewal | flat, per household | All household devices, adult track |
+| Teen Home | $19.99 year 1 → $14.99 / year renewal | flat, per household | Teen/student track |
+| Schools | $2 / **managed computer** / year | per managed computer | Apply a minimum (~$150) |
+| Workplace | $4 / **employee** / year | per head | **$300 minimum annual licence** |
 
 Workplace examples: 50 emp → $300 (min) · 200 → $600 · 1,000 → $3,000 · 5,000 → $15,000.
 
-**Workplace licence is per employee, all their devices** (matches CoMaSy, easier sell) — not per device.
+### Why the B2B units differ
+
+- **Workplace = per head.** Matches CoMaSy (a customer buying both reconciles one unit, not two),
+  headcount is the number HR already has, and a knowledge worker with laptop + tablet is one
+  licence — marginal cost of serving 2 URLs vs 1 is zero.
+- **Schools = per managed computer.** Schools licence everything this way (Chromebooks, lab PCs);
+  student headcount is fuzzy and lab/library machines are shared.
+
+### Tracking the billing basis
+
+There is **no reliable per-device metering without a managed agent** (a much bigger build and a
+bigger ask of IT than "reference a wallpaper URL"). So:
+
+- **Declared count** — the admin sets "licensed heads / computers" in the workspace. That is the
+  billing basis.
+- **Fetch-log cross-check** — every rendering device hits `/l/{token}/current/{device}.png`.
+  Distinct-source counts are fuzzy (NAT hides an office behind one IP) but shown alongside the
+  declared number: *"licensed 340 · seen ~310–370 distinct sources this cycle."*
+- If declared drifts well below observed for **two consecutive cycles**, flag a true-up
+  conversation — never auto-charge on telemetry (creates disputes).
+- A device check-in agent can be a later "Pro" option for customers who need exact compliance
+  numbers.
+
+### Self-serve count changes
+
+The admin adjusts the **licensed count** (not individual device registrations). The calculator
+prorates live for the remainder of the term.
+
+- **Increase** → billed immediately, prorated to renewal → generates an invoice line (B2B) or a
+  charge (consumer / self-serve B2B if enabled).
+- **Decrease** → takes effect at the next renewal, not mid-term (standard SaaS).
 
 ### Auto cost calculator (shown live in the self-serve admin)
 
@@ -76,6 +122,36 @@ The content operation *is* the product commitment.
   Build the renderer so adding an asset = fill fields → emit all formats.
 - **Coverage:** 60 screens ≈ 2.3 years fortnightly / ~1.15 years weekly before repeat.
   Keep adding to the 60 over time; existing plans get a richer library at renewal.
+
+### Design philosophy — one spine, a few treatments
+
+Keep the Konfydence aesthetic: **minimal, calm, light, legible.** A calm screen is the correct
+medium for a "pause" reminder — a loud wallpaper manufactures the exact urgency the product
+interrupts. The lock screen is not brand marketing: the P.T.A. message dominates, the wordmark
+is small. This is also what keeps the renderer economical.
+
+Each asset renders in a small set of **treatment presets** from the *same* template system —
+near-zero marginal cost, selected per plan:
+
+| Treatment | Availability | Why |
+| --- | --- | --- |
+| Light | default | the brand |
+| Dark | standard | near-mandatory for phone wallpapers; a bright screen clashes with dark UIs |
+| High-contrast / large-type | standard | older relatives, low vision, glare |
+| Teen | standard (teen track) | same system, more energy — bolder weight, tighter, a live accent |
+
+`treatment` is a plan-level setting; the resolver serves the plan's treatment for the requested
+device. Consumers pick; a fleet is assigned one.
+
+**What is an extra (paid) request:**
+
+- **Co-branded** — customer logo + IT helpdesk number merged into the standard templates.
+  Auto-renders all formats. Flat annual add-on. *(High margin — the B2B sweet spot.)*
+- **Fully bespoke design language** — "make it look like *our* brand, not Konfydence", custom
+  illustration, different typographic voice, motion. Real design hours → per-screen `designFee`,
+  enters the tenant's private library.
+
+Rule: **visual treatment = free and standard; design-system change = bespoke and priced.**
 
 ### Asset scope
 
@@ -244,10 +320,14 @@ model LockscreenTenant {
   name          String
   token         String   @unique       // opaque, in the CDN URL
   tokenStatus   String   @default("active") // active | expired
-  seats         Int?                   // per-seat billing basis
+  licensedCount Int?                   // declared billing basis: heads (workplace) or computers (school)
+  observedLow   Int?                   // fetch-log cross-check, updated per cycle
+  observedHigh  Int?
   track         String                 // "adult" | "teen"
-  branding      Json?                  // { logoUrl, helpdeskPhone }
+  branding      Json?                  // { logoUrl, helpdeskPhone } — co-branded add-on
   authOrgId     String?                // link to CoMaSy-style workspace auth
+  termStart     DateTime?
+  termEnd       DateTime?
   createdAt     DateTime @default(now())
   plan          LockscreenPlan?
 }
@@ -259,9 +339,12 @@ model LockscreenPlan {
   sequence    Int[]                    // ordered asset numbers, length = screenCount
   screenCount Int      @default(27)    // 27 | 54 | 60
   cadence     String   @default("fortnightly") // weekly | fortnightly | monthly
+  treatment   String   @default("light")       // light | dark | contrast | teen
+  deviceScope String[]                 // which device classes this plan serves
   anchor      DateTime                 // sequence position 0 starts here
   timezone    String   @default("UTC")
   loop        Boolean  @default(true)
+  pendingChange Json?                  // staged edit that applies at next flip
   updatedAt   DateTime @updatedAt
 }
 
@@ -299,6 +382,8 @@ Steps 1–3 are the shared core and unblock everything else.
 - Exact upgrade deltas: X (54 screens), Y (60 screens), Z (weekly cadence), co-brand annual add-on,
   per-bespoke design fee.
 - School minimum licence value (~$150?).
+- Whether `$14.99` renewal stays or moves closer to `$19.99` (25% off is generous vs. norms).
+- Which treatment presets ship at launch (light + dark for sure; contrast + teen from day one?).
 - Shopify subscriptions: native Shopify Subscriptions vs Recharge vs Stripe Billing for the
   annual renewal (current checkout is one-time cart only).
 - Whether B2B ever gets instant self-serve billing or stays quote/PO.
