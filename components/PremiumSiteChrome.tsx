@@ -20,9 +20,9 @@ export function PremiumHeader({
         <KonfydenceLogo />
       </Link>
       <nav className="k-nav-links" aria-label="Primary navigation">
+        <Link href="/challenge">Challenges</Link>
         <Link href="/travelsafe">TravelSafe</Link>
-        <Link href="/travelsafe#how-it-works">How it works</Link>
-        <Link href="/travelsafe#families">For families</Link>
+        <Link href="/lockscreens">Lockscreens</Link>
         <Link href="/comasy">For organisations</Link>
         <Link href="/free-scam-safety-pack">Resources</Link>
       </nav>
@@ -42,7 +42,9 @@ export function PremiumFooter() {
           <p>Confidence under pressure.</p>
         </div>
         <nav aria-label="Footer navigation">
+          <Link href="/challenge">Challenges</Link>
           <Link href="/travelsafe">TravelSafe</Link>
+          <Link href="/lockscreens">Lockscreens</Link>
           <Link href="/comasy">CoMaSy</Link>
           <Link href="/free-scam-safety-pack">Free safety resources</Link>
           <Link href="/hack-method">Method</Link>

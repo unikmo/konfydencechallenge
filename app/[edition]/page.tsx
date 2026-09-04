@@ -2,6 +2,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { PremiumPage } from "@/components/PremiumSiteChrome";
+import { PortfolioStrip } from "@/components/PortfolioStrip";
 
 const EDITIONS = {
   travelsafe: { name: "TravelSafe", audience: "Travellers and tourists", title: "Would you spot a travel scam before it cost you?", description: "Face realistic booking, hotel, taxi, payment and Wi-Fi scams, get your readiness score, and learn your safer next move.", scenarios: ["A hotel asks you to pay again within minutes.", "A taxi driver adds an invented fee at the destination.", "A fake airline support account offers urgent compensation."] },
@@ -57,17 +58,14 @@ export default async function EditionPage(props: { params: Promise<{ edition: st
             <p className="k-copy">
               Use the short diagnostic first. When you are ready, continue with the full challenge for the complete scenario-based training experience.
             </p>
-            <div className="kg-ed-links">
-              {Object.entries(EDITIONS).filter(([slug]) => slug !== params.edition).map(([slug, item]) => (
-                <Link key={slug} href={`/${slug}`}>{item.name} →</Link>
-              ))}
-            </div>
           </div>
           <div className="k-actions">
             <Link className="k-button" href={startHref}>Start the free check</Link>
           </div>
         </section>
       </div>
+
+      <PortfolioStrip exclude={[params.edition as "family" | "school" | "university" | "workplace" | "travelsafe"]} />
     </PremiumPage>
   );
 }

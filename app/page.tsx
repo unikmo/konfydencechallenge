@@ -1,6 +1,7 @@
 import Link from "next/link";
 import type { Metadata } from "next";
 import { PremiumPage } from "@/components/PremiumSiteChrome";
+import { PortfolioStrip } from "@/components/PortfolioStrip";
 
 export const metadata: Metadata = {
   title: { absolute: "TravelSafe by Konfydence | Practise safer travel decisions" },
@@ -152,54 +153,26 @@ export default function HomePage() {
         <div className="k-shell k-home-narrow">
           <div className="k-section-head">
             <div>
-              <p className="k-kicker">The Konfydence method</p>
-              <h2 className="k-display-sm">Built for behaviour. Designed for pressure.</h2>
+              <p className="k-kicker">Two frameworks, one habit</p>
+              <h2 className="k-display-sm">Spot the pressure. Then Pause, Think, Call.</h2>
             </div>
             <p className="k-copy">
-              Notice pressure. Interrupt the impulse. Verify through a known channel. Then act.
+              H.A.C.K. names what a scam is doing to you. P.T.A. is what you do about it. Together they turn a stressful moment into a decision you have already rehearsed.
             </p>
           </div>
           <div className="k-method-grid">
-            <article><small>H.A.C.K. framework</small><h3>Recognise the trigger.</h3><p>Hurry, Authority, Comfort and Kill-Switch patterns make pressure easier to name before it drives action.</p></article>
-            <article><small>Five-Second Pause</small><h3>Create decision space.</h3><p>A deliberate pause interrupts the risky action chain long enough to ask what should be independently verified.</p></article>
-            <article><small>Decision practice</small><h3>Learn by choosing.</h3><p>Short scenarios make the response concrete: what would you do now, and what would make that action safer?</p></article>
+            <article><small>H.A.C.K. — spot it</small><h3>Name the pressure.</h3><p>Hurry, Authority, Comfort and Kill-Switch are the four patterns almost every scam uses to rush your decision.</p></article>
+            <article><small>P.T.A. — do this</small><h3>Pause. Think. Call.</h3><p>Stop before the click or payment. Ask what a scam would need here. Confirm on a number or channel you already trust.</p></article>
+            <article><small>Decision practice</small><h3>Rehearse the move.</h3><p>Short scenarios make it concrete: what would you do now, and what would make that next step safer?</p></article>
           </div>
         </div>
       </section>
 
-      <section className="k-shell k-section k-home-centered-section k-home-beyond">
-        <div className="k-section-head">
-          <div>
-            <p className="k-kicker">Beyond travel</p>
-            <h2 className="k-display-sm">The same decision habit, wherever pressure appears.</h2>
-          </div>
-          <p className="k-copy">Start with TravelSafe. For organisations, CoMaSy applies the same behavioural thinking to realistic security decisions at work.</p>
-        </div>
-        <div className="k-two-paths">
-          <article className="k-path k-path-illustration k-home-path-photo">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="https://images.pexels.com/photos/4173213/pexels-photo-4173213.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Travellers at an airport" loading="lazy" />
-            <div className="k-path-overlay" />
-            <div className="k-path-copy">
-              <small>TravelSafe</small>
-              <h3>Practise before you travel.</h3>
-              <p>Short, realistic situations for travellers and the people who care about them.</p>
-              <Link href="/travelsafe">Explore TravelSafe →</Link>
-            </div>
-          </article>
-          <article className="k-path k-path-illustration k-home-path-photo">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Colleagues collaborating at work" loading="lazy" />
-            <div className="k-path-overlay" />
-            <div className="k-path-copy">
-              <small>For organisations</small>
-              <h3>CoMaSy™ security decision simulation</h3>
-              <p>Rehearse realistic security decisions, observe training signals and start with a bounded pilot.</p>
-              <Link href="/comasy">Explore CoMaSy →</Link>
-            </div>
-          </article>
-        </div>
-      </section>
+      <PortfolioStrip
+        exclude={["travelsafe"]}
+        kicker="Beyond travel"
+        heading="The same decision habit, wherever pressure appears."
+      />
 
       <section className="k-shell k-callout k-home-final-cta">
         <div>

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { PremiumPage } from "@/components/PremiumSiteChrome";
+import { PortfolioStrip } from "@/components/PortfolioStrip";
 
 export const metadata: Metadata = {
   title: "Choose Your Konfydence Challenge",
@@ -114,6 +115,8 @@ export default function ChallengeLanding() {
           </div>
         </div>
       </section>
+
+      <PortfolioStrip kicker="Also from Konfydence" heading="Beyond the free check." />
 
       <section className="k-shell k-callout">
         <div>

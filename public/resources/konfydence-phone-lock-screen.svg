@@ -1,19 +1,18 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1290" height="2796" viewBox="0 0 1290 2796" role="img" aria-labelledby="title desc">
-  <title id="title">Konfydence phone scam safety screen locker</title>
-  <desc id="desc">Pause, Verify, Call reminder for urgent, emotional or threatening scam messages.</desc>
+  <title id="title">Konfydence phone lock screen — Pause. Think. Call.</title>
+  <desc id="desc">A calm reminder for urgent, emotional or threatening messages: pause, think, and call on a number you trust.</desc>
   <rect width="1290" height="2796" fill="#f7f4ee"/>
-  <text x="645" y="300" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="76" font-weight="700" fill="#143f6c">KONFYDENCE</text>
-  <text x="645" y="600" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="44" font-weight="700" letter-spacing="5" fill="#08a0b2">WHEN PRESSURE HITS</text>
-  <text x="645" y="970" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="150" font-weight="700" fill="#111417">PAUSE</text>
-  <text x="645" y="1190" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="70" font-weight="700" fill="#ffb51f">↓</text>
-  <text x="645" y="1400" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="150" font-weight="700" fill="#111417">VERIFY</text>
-  <text x="645" y="1620" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="70" font-weight="700" fill="#ffb51f">↓</text>
-  <text x="645" y="1830" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="150" font-weight="700" fill="#111417">CALL</text>
-  <text x="645" y="2140" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="44" fill="#111417">Do not reply. Do not click. Do not send money.</text>
-  <text x="645" y="2220" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="39" fill="#5e5b56">Find the official contact yourself.</text>
-  <text x="645" y="2285" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="39" fill="#5e5b56">Talk to someone you trust before acting.</text>
-  <rect x="115" y="2440" width="1060" height="210" rx="55" fill="#143f6c"/>
-  <text x="645" y="2528" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="42" font-weight="700" fill="#fff">EMERGENCY SCAM PROTOCOL</text>
-  <text x="645" y="2592" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="31" fill="#fff">If it feels urgent, emotional or threatening: stop first.</text>
-  <text x="645" y="2725" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="34" font-weight="700" fill="#143f6c">konfydence.com</text>
+  <text x="645" y="360" text-anchor="middle" font-family="Iowan Old Style, Palatino, Georgia, serif" font-size="66" letter-spacing="2" fill="#111417">Konfydence</text>
+  <text x="645" y="470" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="34" font-weight="700" letter-spacing="8" fill="#af8752">WHEN A MESSAGE RUSHES YOU</text>
+  <text x="645" y="1010" text-anchor="middle" font-family="Iowan Old Style, Palatino, Georgia, serif" font-size="188" fill="#111417">Pause.</text>
+  <text x="645" y="1300" text-anchor="middle" font-family="Iowan Old Style, Palatino, Georgia, serif" font-size="188" fill="#111417">Think.</text>
+  <text x="645" y="1590" text-anchor="middle" font-family="Iowan Old Style, Palatino, Georgia, serif" font-size="188" fill="#af8752">Call.</text>
+  <rect x="345" y="1710" width="600" height="3" fill="#af8752"/>
+  <text x="645" y="1900" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="44" fill="#111417">Don't reply. Don't click. Don't send money.</text>
+  <text x="645" y="1984" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="40" fill="#5e5b56">Find the official number yourself and call it.</text>
+  <text x="645" y="2054" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="40" fill="#5e5b56">Talk to someone you trust before you act.</text>
+  <rect x="115" y="2380" width="1060" height="230" rx="60" fill="#12191f"/>
+  <text x="645" y="2472" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="40" font-weight="700" letter-spacing="3" fill="#fff">HURRY · AUTHORITY · COMFORT · KILL-SWITCH</text>
+  <text x="645" y="2536" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="32" fill="#cdbfa8">If a message uses these to rush you, it is pressure — not proof.</text>
+  <text x="645" y="2726" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="34" font-weight="700" fill="#111417">konfydence.com</text>
 </svg>

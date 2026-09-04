@@ -40,7 +40,9 @@ export async function POST(request: NextRequest) {
     }
 
     const appUrl = process.env.NEXT_PUBLIC_APP_URL || "http://localhost:3000";
-    const returnUrl = `${appUrl}/challenge/claim?edition=${sku.includes("SINGLE") ? sku.split("-").pop()?.toLowerCase() : "travelsafe"}`;
+    const returnUrl = sku === "LOCKSCREENS-PACK"
+      ? `${appUrl}/lockscreens/thank-you`
+      : `${appUrl}/challenge/claim?edition=${sku.includes("SINGLE") ? sku.split("-").pop()?.toLowerCase() : "travelsafe"}`;
 
     const query = `
       mutation cartCreate($lines: [CartLineInput!]!, $attributes: [AttributeInput!]!, $buyerIdentity: CartBuyerIdentityInput) {
