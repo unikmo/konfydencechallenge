@@ -8,9 +8,9 @@ all tiers to `/contact`. Nothing below exists in code yet.
 ## 1. What the product is
 
 A **lock-screen reminder service**, not a wallpaper download. The screen keeps
-**Pause. Ask. Think.** (P.A.T. — *Pause* before you act; *Ask* someone you trust, out loud, or
-your bank on the number from your card; *Think*, together, about what the request actually needs)
-in front of the user, with a discreet **H.A.C.K.** cue (Hurry · Authority · Comfort ·
+**Pause. Assess. Talk.** (P.A.T. — *Pause* before you act; *Assess* what the request really wants —
+money, a code, a login, an approval; then *Talk* it through with someone you trust, or your bank
+on the number from your card) in front of the user, with a discreet **H.A.C.K.** cue (Hurry · Authority · Comfort ·
 Kill-Switch), and the design **rotates on a schedule** so the wording and the scam patterns stay
 current.
 
