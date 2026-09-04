@@ -16,13 +16,30 @@ export async function POST(request: NextRequest) {
     }
 
     const body = await request.json();
-    const { sku, quantity = 1 } = body;
+    const { sku, quantity = 1, gift } = body;
 
     if (!sku || typeof sku !== "string") {
       return NextResponse.json({ error: "sku is required" }, { status: 400 });
     }
     if (!Number.isInteger(quantity) || quantity < 1 || quantity > 10) {
       return NextResponse.json({ error: "quantity must be between 1 and 10" }, { status: 400 });
+    }
+
+    const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    let giftAttrs: { toEmail: string; fromName: string; message: string } | null = null;
+    if (gift && typeof gift === "object") {
+      const toEmail = String(gift.toEmail || "").trim().toLowerCase();
+      if (!EMAIL_RE.test(toEmail) || toEmail.length > 254) {
+        return NextResponse.json({ error: "A valid recipient email is required for a gift." }, { status: 400 });
+      }
+      if (!sku.startsWith("CHAL-SINGLE-") && sku !== "CHAL-UNLIMITED") {
+        return NextResponse.json({ error: "This item cannot be gifted." }, { status: 400 });
+      }
+      giftAttrs = {
+        toEmail,
+        fromName: String(gift.fromName || "").trim().slice(0, 80),
+        message: String(gift.message || "").trim().slice(0, 500),
+      };
     }
 
     const variantId = (SKU_TO_VARIANT_GID as Record<string, string | undefined>)[sku];
@@ -40,9 +57,11 @@ export async function POST(request: NextRequest) {
     }
 
     const appUrl = process.env.NEXT_PUBLIC_APP_URL || "http://localhost:3000";
-    const returnUrl = sku === "LOCKSCREENS-PACK"
-      ? `${appUrl}/lockscreens/thank-you`
-      : `${appUrl}/challenge/claim?edition=${sku.includes("SINGLE") ? sku.split("-").pop()?.toLowerCase() : "travelsafe"}`;
+    const returnUrl = giftAttrs
+      ? `${appUrl}/gift/thank-you`
+      : sku === "LOCKSCREENS-PACK"
+        ? `${appUrl}/lockscreens/thank-you`
+        : `${appUrl}/challenge/claim?edition=${sku.includes("SINGLE") ? sku.split("-").pop()?.toLowerCase() : "travelsafe"}`;
 
     const query = `
       mutation cartCreate($lines: [CartLineInput!]!, $attributes: [AttributeInput!]!, $buyerIdentity: CartBuyerIdentityInput) {
@@ -66,6 +85,14 @@ export async function POST(request: NextRequest) {
           attributes: [
             { key: "konfydenceUserId", value: kfUid },
             { key: "returnUrl", value: returnUrl },
+            ...(giftAttrs
+              ? [
+                  { key: "isGift", value: "true" },
+                  { key: "giftToEmail", value: giftAttrs.toEmail },
+                  { key: "giftFromName", value: giftAttrs.fromName },
+                  { key: "giftMessage", value: giftAttrs.message },
+                ]
+              : []),
           ],
         },
       }),

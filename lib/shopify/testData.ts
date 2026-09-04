@@ -79,40 +79,40 @@ export const PRODUCTION_VARIANT_IDS = {
 export const SHOPIFY_PRODUCTS = {
   CHAL_SINGLE: {
     name: "Konfydence Challenge — Single Edition",
-    description: "Choose one scenario deck (5-question diagnostic free, 50-question full $4.99)",
+    description: "Choose one scenario deck (5-question diagnostic free, 24-scenario full $6.99)",
     variants: {
       SCHOOL: {
         label: "School Edition",
         sku: "CHAL-SINGLE-SCHOOL",
-        price: 4.99,
+        price: 6.99,
         digital: true,
         ships: false,
       },
       UNIVERSITY: {
         label: "University Edition",
         sku: "CHAL-SINGLE-UNIVERSITY",
-        price: 4.99,
+        price: 6.99,
         digital: true,
         ships: false,
       },
       FAMILY: {
         label: "Family Edition",
         sku: "CHAL-SINGLE-FAMILY",
-        price: 4.99,
+        price: 6.99,
         digital: true,
         ships: false,
       },
       TRAVELSAFE: {
         label: "TravelSafe",
         sku: "CHAL-SINGLE-TRAVELSAFE",
-        price: 4.99,
+        price: 6.99,
         digital: true,
         ships: false,
       },
       WORKPLACE: {
         label: "Workplace",
         sku: "CHAL-SINGLE-WORKPLACE",
-        price: 4.99,
+        price: 6.99,
         digital: true,
         ships: false,
       },
@@ -122,7 +122,7 @@ export const SHOPIFY_PRODUCTS = {
   CHAL_UNLIMITED: {
     name: "Konfydence Challenge — Unlimited Access",
     description: "All 5 scenario decks + unlimited replays",
-    price: 19.99,
+    price: 24.99,
     sku: "CHAL-UNLIMITED",
     digital: true,
     ships: false,
@@ -131,11 +131,11 @@ export const SHOPIFY_PRODUCTS = {
   CHAL_UPGRADE: {
     name: "Konfydence Challenge — Upgrade to Unlimited",
     description: "Upgrade from any single edition to unlimited access (credit: existing purchase)",
-    price: 15.0,
+    price: 18.0,
     sku: "CHAL-UPGRADE",
     digital: true,
     ships: false,
-    note: "Only shown to users with existing SINGLE entitlement. $15 upgrade credit.",
+    note: "Only shown to users with existing SINGLE entitlement. $18 upgrade credit.",
   },
 
   LOCKSCREENS_PACK: {

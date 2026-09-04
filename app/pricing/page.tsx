@@ -98,7 +98,7 @@ function PricingContent() {
 
         <PriceCard
           kicker="Full challenge"
-          price="$4.99"
+          price="$6.99"
           sub="one edition"
           includes={[
             "24 scored scenarios from a 40-scenario bank",
@@ -111,11 +111,11 @@ function PricingContent() {
           {selectedEdition ? (
             <CheckoutRedirectButton
               sku={`CHAL-SINGLE-${selectedEdition.toUpperCase()}`}
-              label={`Unlock ${selectedLabel} — $4.99`}
+              label={`Unlock ${selectedLabel} — $6.99`}
             />
           ) : (
             <div className="kc-price-pick">
-              <p>Choose an edition — each is $4.99:</p>
+              <p>Choose an edition — each is $6.99:</p>
               <div className="kc-price-pills">
                 {EDITIONS.map((e) => (
                   <button key={e.key} type="button" onClick={() => setSelectedEdition(e.key)}>
@@ -129,7 +129,7 @@ function PricingContent() {
 
         <PriceCard
           kicker="Complete pack"
-          price="$19.99"
+          price="$24.99"
           sub="all five editions"
           featured
           includes={[
@@ -141,9 +141,9 @@ function PricingContent() {
           ]}
         >
           {hasSingle ? (
-            <CheckoutRedirectButton sku="CHAL-UPGRADE" label="Upgrade to the pack — $15" />
+            <CheckoutRedirectButton sku="CHAL-UPGRADE" label="Upgrade to the pack — $18" />
           ) : (
-            <CheckoutRedirectButton sku="CHAL-UNLIMITED" label="Get all five — $19.99" />
+            <CheckoutRedirectButton sku="CHAL-UNLIMITED" label="Get all five — $24.99" />
           )}
         </PriceCard>
 
@@ -162,6 +162,10 @@ function PricingContent() {
       </section>
 
       <section className="kg-shell" style={{ paddingBottom: 40 }}>
+        <p className="k-copy" style={{ marginBottom: 12 }}>
+          Buying for someone else? <Link href="/gift">Gift a challenge</Link> — we email them a claim
+          code and your note.
+        </p>
         <p className="k-copy" style={{ fontSize: 12 }}>
           Every purchase unlocks instantly after checkout — no account required. Konfydence is an
           educational scam-readiness game; it does not guarantee protection from fraud or financial loss.

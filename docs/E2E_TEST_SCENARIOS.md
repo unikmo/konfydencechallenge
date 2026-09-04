@@ -35,18 +35,18 @@ Complete test flows to verify all functionality works correctly.
    - ✓ After 10 questions, see Readiness Score (0-100)
    - ✓ See weakest pressure pattern (Hurry, Authority, Connection, Kill-switch)
    - ✓ See 2 upsell CTAs:
-     - "Unlock Full Challenge — $4.99"
-     - "Get All 5 Challenges — $19.99"
+     - "Unlock Full Challenge — $6.99"
+     - "Get All 5 Challenges — $24.99"
    - ✓ See cross-sell strip for Wallet Card or Fridge Magnet
 
 5. **Click upsell to buy**
-   - Click "Unlock Full Challenge — $4.99"
+   - Click "Unlock Full Challenge — $6.99"
    - ✓ Browser loads `/api/checkout/create` with `sku: "CHAL-SINGLE-TRAVELSAFE"`
    - ✓ Returns `checkoutUrl` from Shopify
    - ✓ Redirected to `https://shop.konfydence.com/checkout/...`
 
 6. **Complete Shopify checkout**
-   - ✓ Shopify checkout shows TravelSafe Challenge for $4.99
+   - ✓ Shopify checkout shows TravelSafe Challenge for $6.99
    - ✓ Enter test card: `4111 1111 1111 1111`
    - ✓ Complete purchase
    - ✓ Redirected back to `http://localhost:3000/challenge/claim?edition=travelsafe`
@@ -76,11 +76,11 @@ Complete test flows to verify all functionality works correctly.
    - ✓ See 4 pricing tiers
    - ✓ Free Readiness Check (links to /challenge)
    - ✓ Full Challenge - shows edition selector (School, University, Family, TravelSafe, Workplace)
-   - ✓ Complete Scam-Readiness Pack ($19.99)
+   - ✓ Complete Scam-Readiness Pack ($24.99)
    - ✓ Schools & Teams (contact form link)
 
 2. **Click to buy Unlimited**
-   - Click "Get All 5 Challenges — $19.99"
+   - Click "Get All 5 Challenges — $24.99"
    - ✓ Redirected to Shopify checkout with `sku: "CHAL-UNLIMITED"`
 
 3. **Complete purchase**
@@ -144,7 +144,7 @@ Complete test flows to verify all functionality works correctly.
 2. **Visit pricing page**
    - URL: `http://localhost:3000/pricing`
    - ✓ See different CTA for "Complete Pack" tier
-   - ✓ Instead of "$19.99 Get All 5 Challenges"
+   - ✓ Instead of "$24.99 Get All 5 Challenges"
    - ✓ Shows "$15 Upgrade to Unlimited"
    - ✓ This is the `CHAL-UPGRADE` SKU
 

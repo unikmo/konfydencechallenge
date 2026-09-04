@@ -25,7 +25,7 @@ const PACKAGES: PackageItem[] = [
     eyebrow: "Challenge",
     name: "TravelSafe",
     copy: "Bookings, transport, Wi-Fi and payment scams under real travel pressure.",
-    price: "Free check · $4.99 full",
+    price: "Free check · $6.99 full",
     href: "/challenge/travelsafe/start?mode=diagnostic",
     cta: "Try free",
   },
@@ -34,7 +34,7 @@ const PACKAGES: PackageItem[] = [
     eyebrow: "Challenge",
     name: "Family",
     copy: "Impersonation, emergency money requests and shared-device risks at home.",
-    price: "Free check · $4.99 full",
+    price: "Free check · $6.99 full",
     href: "/family",
     cta: "Explore",
   },
@@ -43,7 +43,7 @@ const PACKAGES: PackageItem[] = [
     eyebrow: "Challenge",
     name: "School",
     copy: "Gaming rewards, fake giveaways and group-chat pressure for ages 12–18.",
-    price: "Free check · $4.99 full",
+    price: "Free check · $6.99 full",
     href: "/school",
     cta: "Explore",
   },
@@ -52,7 +52,7 @@ const PACKAGES: PackageItem[] = [
     eyebrow: "Challenge",
     name: "University",
     copy: "Housing deposits, fake jobs, tuition fraud and identity scams.",
-    price: "Free check · $4.99 full",
+    price: "Free check · $6.99 full",
     href: "/university",
     cta: "Explore",
   },
@@ -61,7 +61,7 @@ const PACKAGES: PackageItem[] = [
     eyebrow: "Challenge",
     name: "Workplace",
     copy: "Invoice fraud, executive impersonation, payroll changes and phishing.",
-    price: "Free check · $4.99 full",
+    price: "Free check · $6.99 full",
     href: "/workplace",
     cta: "Explore",
   },
@@ -124,7 +124,7 @@ export function PortfolioStrip({
 
         {!exclude.includes("family") || !exclude.includes("workplace") ? (
           <p className="kp-strip-note">
-            Own more than one situation? <Link href="/pricing">Get all five challenges for $19.99 →</Link>
+            Own more than one situation? <Link href="/pricing">Get all five challenges for $24.99 →</Link>
           </p>
         ) : null}
       </div>

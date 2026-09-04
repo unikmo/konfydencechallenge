@@ -30,8 +30,8 @@ Each edition has a **40-scenario source bank** balanced across the H.A.C.K. pres
 ## Commercial model
 
 - Free readiness check: **$0**
-- Single full challenge: **$4.99**
-- All five challenges: **$19.99**
+- Single full challenge: **$6.99**
+- All five challenges: **$24.99**
 - Shopify handles checkout. Paid access is granted from signed Shopify purchase webhooks and represented by server-side entitlements.
 
 The free result is useful on its own. Paid conversion is based on deeper practice and broader scenario coverage, not on withholding the diagnostic insight needed to understand the result.

@@ -414,3 +414,22 @@ model ComasyScenarioVersion {
   @@unique([scenarioId, version])
   @@index([scenarioId])
 }
+
+model GiftCode {
+  id               String    @id @default(cuid())
+  code             String    @unique
+  tier             String
+  edition          String?
+  shopifyOrderId   String    @unique
+  fromName         String?
+  fromEmail        String?
+  toEmail          String
+  message          String?
+  status           String    @default("issued") // issued | redeemed | revoked
+  redeemedByUserId String?
+  redeemedAt       DateTime?
+  createdAt        DateTime  @default(now())
+
+  @@index([toEmail])
+  @@index([status])
+}

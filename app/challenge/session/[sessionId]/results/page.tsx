@@ -150,8 +150,8 @@ export default async function ResultsPage({ params }: { params: Promise<{ sessio
             <p className="bankNote">Replays prioritise unseen cards, so practice measures decision quality rather than memory of the previous round.</p>
             {weakest ? <div className="recommend"><b>Start here:</b> {weakest.practice}</div> : null}
             <div className="commerce">
-              <CheckoutRedirectButton sku={`CHAL-SINGLE-${session.edition.toUpperCase()}`} label="Unlock Full Challenge — $4.99" />
-              <CheckoutRedirectButton sku="CHAL-UNLIMITED" label="Get All 5 Challenges — $19.99" variant="outline" />
+              <CheckoutRedirectButton sku={`CHAL-SINGLE-${session.edition.toUpperCase()}`} label="Unlock Full Challenge — $6.99" />
+              <CheckoutRedirectButton sku="CHAL-UNLIMITED" label="Get All 5 Challenges — $24.99" variant="outline" />
             </div>
             {canPlayAnotherFreeRound ? <Link style={{ ...styles.secondary, background: "white" }} href={freeRoundHref}>{isRegistered ? "Play my second free check" : "Register to unlock my second free check"}</Link> : <p className="limit">Your two free readiness checks are complete.</p>}
           </section>
