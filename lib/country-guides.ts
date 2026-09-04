@@ -1303,6 +1303,570 @@ export const COUNTRY_GUIDES: Record<string, CountryGuide> = {
       },
     ],
   },
+
+  croatia: {
+    intro:
+      "Croatia is a safe, low-crime destination. The friction points are taxi overcharging in Split and Dubrovnik, restaurants near the old towns padding the bill, and boat-tour touts overselling day trips.",
+    lastReviewed: "2026-09",
+    status: "published",
+    scams: [
+      {
+        name: "Taxi overcharging in Split and Dubrovnik",
+        how: "Drivers outside the old-town gates, ferry ports and airports skip the meter and quote flat tourist fares two to three times higher than an app ride.",
+        hack: "H",
+        move: "Use Uber or Bolt (both work well in the tourist cities), or agree the fare in writing before getting in.",
+      },
+      {
+        name: "Restaurant bill padding near the old towns",
+        how: "Konoba and restaurants just inside the walls bring unrequested bread, olive oil or fish plates, charge 'cover' or 'music', or quote fish per kilo without weighing it in front of you.",
+        hack: "C",
+        move: "Ask the price of the fish and any couvert before ordering; refuse and return anything you didn't ask for; check the bill line by line.",
+      },
+      {
+        name: "Boat-tour and 'Blue Cave' touts",
+        how: "Sellers on the Split and Hvar waterfronts push day trips at inflated prices, oversell boats so you're crammed on, or the 'skip the queue' at the Blue Cave turns out to be the same wait.",
+        hack: "H",
+        move: "Book with an established operator with reviews, confirm the group size and what's included, and be sceptical of 'last two spots' pressure.",
+      },
+      {
+        name: "Apartment / 'sobe' deposit fraud",
+        how: "A cheap central apartment or room asks for a deposit or full payment by bank transfer before arrival; the place doesn't exist or isn't the host's.",
+        hack: "K",
+        move: "Book through a platform that holds the payment until check-in. No transfer or crypto for an unseen room.",
+      },
+      {
+        name: "Parking and ZTL fines",
+        how: "Confusing zones in old towns mean fines for parking or driving where you shouldn't; rental companies pass these on later with an admin fee.",
+        hack: "K",
+        move: "Park in a marked public car park outside the walls and walk in. Photograph any signs you're unsure about.",
+      },
+    ],
+    faqs: [
+      {
+        q: "Are taxis expensive in Dubrovnik?",
+        a: "Metered taxis are reasonable; the problem is drivers near the old town and the port quoting high flat fares instead. Uber and Bolt both operate in Dubrovnik and Split and are the simplest fix.",
+      },
+      {
+        q: "Do Croatian restaurants add hidden charges?",
+        a: "Tourist-strip places sometimes add couvert, 'music' or unrequested starters, and price fish per kilo. Ask about any cover charge and the fish price before ordering, and send back anything you didn't request.",
+      },
+    ],
+  },
+
+  "south-korea": {
+    intro:
+      "South Korea is very safe and largely scam-free for tourists. The rare issues are bar 'juicy' scams in Itaewon and Hongdae, taxi refusals or long routes late at night, and counterfeit goods in Myeongdong.",
+    lastReviewed: "2026-09",
+    status: "published",
+    scams: [
+      {
+        name: "'Juicy bar' / hostess bar trap",
+        how: "A tout near Itaewon or Hongdae invites you to a bar; women join your table, expensive drinks are ordered for them, and a bill of several hundred dollars arrives with staff blocking the exit.",
+        hack: "K",
+        move: "Never follow a street invitation into a bar. If trapped, pay only for what you ordered, photograph the menu, and head for a busy street or call 112.",
+      },
+      {
+        name: "Taxi refusal and late-night long routes",
+        how: "Some drivers refuse short fares, wave you off, or take longer routes for tourists at night when demand is high.",
+        hack: "C",
+        move: "Use the Kakao T app to book and fix the route. It's dominant in Korea and removes the negotiation.",
+      },
+      {
+        name: "Counterfeit cosmetics and goods in Myeongdong",
+        how: "Street stalls and some shops sell fake branded skincare, perfume and accessories as genuine at 'discount' prices.",
+        hack: "C",
+        move: "Buy branded cosmetics from the brand's own store, Olive Young, or a department store. A big discount on a sealed 'genuine' product is the tell.",
+      },
+      {
+        name: "Fortune-teller / 'free' temple blessing upsell",
+        how: "Near palaces and temples, someone offers a 'free' reading or blessing, then names a large fee for the 'full' version or a lucky charm.",
+        hack: "C",
+        move: "Decline politely and keep walking. There's no obligation and no 'bad luck' for saying no.",
+      },
+    ],
+    faqs: [
+      {
+        q: "Is Seoul safe at night for tourists?",
+        a: "Yes, very. Violent crime against visitors is rare and the metro and streets are busy late. The main thing to avoid is following a tout into a bar in Itaewon or Hongdae, where inflated 'hostess' bills are the known trap.",
+      },
+      {
+        q: "How should I get taxis in South Korea?",
+        a: "Use the Kakao T app. It's the standard here, fixes the fare and route, and sidesteps the occasional driver who refuses a short trip or takes a long way round at night.",
+      },
+    ],
+  },
+
+  cambodia: {
+    intro:
+      "In Siem Reap and Phnom Penh the recurring issues are tuk-tuk and taxi price disputes, motorbike-rental damage claims, torn-note refusals, and aggressive begging organised around tourists.",
+    lastReviewed: "2026-09",
+    status: "published",
+    scams: [
+      {
+        name: "Tuk-tuk 'agreed' price changes at the end",
+        how: "A driver agrees a low fare, then at the destination insists it was per person, in dollars not riel, or only for part of the trip, sometimes with a friend backing him up.",
+        hack: "H",
+        move: "Use the Grab or PassApp apps (both work in Cambodia) so the price is fixed. If you agree cash, write the total, the currency and the route on your phone and show the driver.",
+      },
+      {
+        name: "Motorbike rental damage and passport hold",
+        how: "The shop keeps your passport, then finds 'new' damage on return or claims the bike was stolen, holding the document until you pay. Note: driving a motorbike as a tourist is also often technically not permitted.",
+        hack: "K",
+        move: "Leave a cash deposit, not the passport. Photograph and film the bike before riding. Consider hiring a driver instead.",
+      },
+      {
+        name: "Torn or old US notes refused",
+        how: "Cambodia uses US dollars alongside riel, but shops and drivers refuse any note with a small tear or heavy wear — while happily giving you those same notes in change.",
+        hack: "C",
+        move: "Refuse damaged notes in change on the spot. Ask your bank for crisp, newer bills before the trip.",
+      },
+      {
+        name: "Angkor ticket and 'closed temple' guides",
+        how: "Unofficial 'guides' at Angkor attach themselves and demand a fee, or someone claims a temple or the ticket office is closed and steers you to a tour or shop.",
+        hack: "A",
+        move: "Buy the Angkor pass only at the official ticket centre. Licensed guides carry a Ministry of Tourism ID; the men who approach you at the gates do not.",
+      },
+      {
+        name: "Child-begging and 'buy milk for the baby'",
+        how: "Children or mothers ask you to buy formula or rice from a specific nearby shop; the goods are returned to the shop afterward and the cash split. It funds organised begging, often keeping kids out of school.",
+        hack: "C",
+        move: "Don't buy goods on request. If you want to help, give to an established local charity instead.",
+      },
+    ],
+    faqs: [
+      {
+        q: "How do I avoid tuk-tuk overcharging in Cambodia?",
+        a: "Use the Grab or PassApp apps, which fix the fare. For a cash deal, write the total price, currency (riel or dollars) and route on your phone and confirm it's the total before you set off.",
+      },
+      {
+        q: "Should I buy milk for a begging child in Siem Reap?",
+        a: "No. The 'buy formula from this shop' request is a known scam — the goods go back to the shop and the money is shared, and it sustains organised child begging. Support a registered local charity instead.",
+      },
+    ],
+  },
+
+  philippines: {
+    intro:
+      "In Manila and Cebu the risks that need planning around are the 'ativan gang' (drink drugging), taxi meter refusal, the 'planted bullet' airport shakedown (largely stamped out but worth knowing), and money-changer short-counts.",
+    lastReviewed: "2026-09",
+    status: "published",
+    scams: [
+      {
+        name: "Ativan / drink-drugging gangs",
+        how: "A friendly stranger or 'fellow traveller', sometimes a group posing as a family, befriends you and offers food, a drink or sweets laced with a sedative; you wake up robbed. Common around Manila, Ermita and on buses.",
+        hack: "C",
+        move: "Don't accept food, drinks or sweets from someone you've just met, however warm they seem. Keep your drink in sight.",
+      },
+      {
+        name: "Taxi meter refusal and 'no change'",
+        how: "Airport and mall taxis refuse the meter, quote flat tourist fares, or claim to have no change for a large note.",
+        hack: "H",
+        move: "Use Grab. It's dominant in the Philippines and fixes the fare. At the airport, use the official yellow metered-taxi line, not a car that approaches you.",
+      },
+      {
+        name: "Money-changer short-count",
+        how: "A changer offering a rate above the market distracts you during the count, folds notes back, or uses a rigged calculator.",
+        hack: "C",
+        move: "Use a mall-based licensed changer or a bank, count the full amount yourself before handing over your currency, and don't let them re-touch the stack.",
+      },
+      {
+        name: "'Planted' item at airport security (laglag-bala)",
+        how: "The historic scam had staff slip a bullet into luggage then demand a bribe. Enforcement has largely ended it, but keep bags closed and locked and film any 'discovery'.",
+        hack: "A",
+        move: "Lock checked and hand luggage, don't let anyone else pack or handle your bags, and if something is 'found', ask for a supervisor and to see CCTV rather than paying anything.",
+      },
+      {
+        name: "Beach and dive-shop overcharging",
+        how: "In Boracay, El Nido and Cebu, touts sell island-hopping tours and dive trips at inflated prices, with 'environmental fees' and gear charges added at the boat.",
+        hack: "C",
+        move: "Book with a shop that has a physical premises and reviews, get the all-in price in writing including fees, and keep the receipt.",
+      },
+    ],
+    faqs: [
+      {
+        q: "What is the 'ativan gang' in the Philippines?",
+        a: "Criminals who befriend tourists — often posing as a friendly family or fellow traveller — and offer food or drink spiked with a sedative, then rob them while unconscious. The defence is simple: never accept anything to eat or drink from someone you've just met.",
+      },
+      {
+        q: "Is Grab safe to use in Manila?",
+        a: "Yes, and it's the recommended way to get around. It fixes the fare and route and removes the meter-refusal and 'no change' problems common with street and airport taxis.",
+      },
+    ],
+  },
+
+  "sri-lanka": {
+    intro:
+      "In Colombo, Kandy and the south, the recurring scams are tuk-tuk meter refusal and long routes, gem-shop commission tours, 'the temple is closed' redirects, and inflated 'guide' fees at sites.",
+    lastReviewed: "2026-09",
+    status: "published",
+    scams: [
+      {
+        name: "Tuk-tuk meter refusal and detours",
+        how: "Drivers wave away the meter for a flat tourist price, or agree a fare then detour to a gem shop, spice garden or 'brother's shop' that pays commission.",
+        hack: "H",
+        move: "Use the PickMe app (Sri Lanka's Grab) so the fare is fixed. If you take a street tuk-tuk, insist on the meter and say 'no shops'.",
+      },
+      {
+        name: "Gem-shop commission tours",
+        how: "A friendly local or driver offers to show you a 'government gem museum' or a workshop where 'certified' stones are sold cheap for resale abroad. The stones are low quality and the resale story is fiction.",
+        hack: "C",
+        move: "Skip it. There is no gem resale opportunity, and 'government' gem shops are private. Only buy from a licensed dealer if you genuinely want a stone for yourself.",
+      },
+      {
+        name: "'The temple is closed / there's a ceremony'",
+        how: "Near the Temple of the Tooth in Kandy or Colombo temples, someone says it's shut for a ritual until later and offers to take you elsewhere — to a shop or a paid 'viewpoint'.",
+        hack: "H",
+        move: "Check the opening hours yourself and walk to the entrance. The redirect is the scam.",
+      },
+      {
+        name: "Unofficial 'guides' at sites",
+        how: "At Sigiriya, Dambulla and Galle Fort, men attach themselves as guides without being asked and demand a large fee at the end, or 'helpers' offer photos then charge.",
+        hack: "C",
+        move: "Say clearly you don't want a guide. If you do want one, use a licensed guide arranged through your hotel. Keep hold of your phone.",
+      },
+      {
+        name: "Train and bus 'ticket office is closed'",
+        how: "Someone near Colombo Fort or Kandy station says the counter is shut or the train is full and routes you to a travel agent charging a big markup for the scenic hill-country train.",
+        hack: "A",
+        move: "Buy at the station counter, or reserve online in advance for the Kandy–Ella route. Ignore anyone offering to 'help' with tickets outside.",
+      },
+    ],
+    faqs: [
+      {
+        q: "How do I avoid tuk-tuk scams in Sri Lanka?",
+        a: "Use the PickMe app, which fixes the fare like Grab. For a street tuk-tuk, insist on the meter and tell the driver 'no shops' — the detour to a gem or spice shop for commission is the most common trick.",
+      },
+      {
+        q: "Are the gem shops in Sri Lanka a scam?",
+        a: "The 'buy gems cheap to resell abroad' pitch is. So are 'government gem museums', which are private shops. Sri Lanka does have a genuine gem trade, but only buy from a licensed dealer, for yourself, at a fair price.",
+      },
+    ],
+  },
+
+  malaysia: {
+    intro:
+      "Kuala Lumpur and Penang are generally easy for visitors. The main issues are taxi meter refusal, ATM skimming, bag-snatching by motorbike, and 'card declined' double charges.",
+    lastReviewed: "2026-09",
+    status: "published",
+    scams: [
+      {
+        name: "Taxi meter refusal",
+        how: "Street and some airport taxis, especially around KL's tourist areas and Bukit Bintang, refuse the meter and quote inflated flat fares.",
+        hack: "H",
+        move: "Use Grab, which is dominant in Malaysia and fixes the fare. At KLIA, use the official coupon-taxi counter where you prepay a fixed price.",
+      },
+      {
+        name: "Motorbike bag-snatching",
+        how: "Riders snatch handbags and phones from pedestrians near the kerb, sometimes dragging the victim. Common in parts of KL, Penang and Johor Bahru.",
+        hack: "K",
+        move: "Carry bags on the side away from the road, strap across the body, and don't walk near the kerb holding a phone.",
+      },
+      {
+        name: "ATM skimming and card retention",
+        how: "Standalone ATMs in tourist zones are skimmed, or a device holds your card while a bystander watches the PIN.",
+        hack: "C",
+        move: "Use ATMs inside bank branches during opening hours, cover the keypad, and if a card is retained, call the bank without leaving the machine.",
+      },
+      {
+        name: "'Your card was declined' double swipe",
+        how: "A shop or restaurant says the first payment failed and runs the card again; both go through, or the amount is changed after you approve.",
+        hack: "K",
+        move: "Watch the terminal and the amount, keep every receipt, and check your statement. Dispute any duplicate immediately.",
+      },
+      {
+        name: "'Genuine fake' watches and electronics in Petaling Street",
+        how: "Sellers in KL's Chinatown and Penang markets push counterfeits as originals at 'special' prices, or swap the inspected item for a worse one at the bag.",
+        hack: "C",
+        move: "Assume branded goods in the market are fake and price accordingly. Watch the item go into the bag, and don't pay a 'genuine' price.",
+      },
+    ],
+    faqs: [
+      {
+        q: "Is Grab the best way to get around Kuala Lumpur?",
+        a: "Yes. It's widely used, fixes the fare, and avoids the meter-refusal problem with street taxis. From the airport, the official prepaid coupon-taxi counter is the equivalent safe option.",
+      },
+      {
+        q: "How common is bag-snatching in Malaysia?",
+        a: "Motorbike bag-snatching is a known risk in parts of KL, Penang and Johor Bahru. Carry bags on the side away from traffic, worn across the body, and keep your phone pocketed when walking near the road.",
+      },
+    ],
+  },
+
+  germany: {
+    intro:
+      "Germany is low-crime and largely scam-free. The realistic risks for visitors are pickpockets at major stations and Christmas markets, ticket-inspection confusion on public transport, and the odd overcharge at Oktoberfest.",
+    lastReviewed: "2026-09",
+    status: "published",
+    scams: [
+      {
+        name: "Pickpockets at Hauptbahnhof and Christmas markets",
+        how: "Teams work the main stations (Berlin, Cologne, Frankfurt), the S-Bahn, and dense Christmas-market crowds — one distracts, one lifts.",
+        hack: "C",
+        move: "Bag zipped and in front, phone in a front pocket, wallet not in a back pocket. Most alert on crowded platforms and in market crushes.",
+      },
+      {
+        name: "Fake ticket inspectors",
+        how: "On the U-Bahn/S-Bahn, someone in plain clothes claims to be a ticket inspector, says your ticket is invalid, and demands an on-the-spot cash 'fine'.",
+        hack: "A",
+        move: "Real inspectors show a photo ID card and issue a written penalty payable later or at an office. Ask for the ID, and never hand over cash on the train.",
+      },
+      {
+        name: "'Petition' clipboard teams",
+        how: "Groups (often near Brandenburg Gate, Cologne Cathedral, Marienplatz) ask you to sign a petition for a deaf or disabled charity; a partner opens your bag, or they demand a cash donation.",
+        hack: "C",
+        move: "Don't stop or take the clipboard. Legitimate charities don't collect cash this way at tourist sites.",
+      },
+      {
+        name: "Oktoberfest and tourist-bar overcharging",
+        how: "Outside the official Oktoberfest tents, and in some tourist bars, drinks are poured short, 'reserved table' fees appear, or the bill is padded.",
+        hack: "C",
+        move: "Stick to the official festival tents and priced menus. Check your change and the bill.",
+      },
+    ],
+    faqs: [
+      {
+        q: "Are there scams to worry about in Germany?",
+        a: "Very few. Germany is low-crime. The main things are pickpockets at big stations and Christmas markets, and occasional fake ticket 'inspectors' on the U-Bahn demanding cash — real ones carry ID and issue written fines.",
+      },
+      {
+        q: "How do I know if a ticket inspector is real in Germany?",
+        a: "Genuine inspectors carry a photo identity card (ask to see it) and issue a written 'erhöhtes Beförderungsentgelt' — a penalty you pay later or at an office. They never take cash on the spot. Anyone demanding cash on the train is not legitimate.",
+      },
+    ],
+  },
+
+  poland: {
+    intro:
+      "Kraków and Warsaw are safe and inexpensive. The main issues are taxi overcharging from stations and the airport, currency-exchange 'kantor' spreads near the tourist strip, and restaurant bill padding in the old town.",
+    lastReviewed: "2026-09",
+    status: "published",
+    scams: [
+      {
+        name: "Taxi overcharging from stations and airport",
+        how: "Cars waiting outside Kraków and Warsaw stations and airports charge two to four times the metered rate, or run a rigged 'night' tariff.",
+        hack: "H",
+        move: "Use Bolt, Uber or FREE NOW, or an official airport taxi from the marked rank with posted prices. Ignore drivers who approach you inside.",
+      },
+      {
+        name: "Currency exchange 'kantor' spreads",
+        how: "Exchange offices right on the Kraków main square and Warsaw's tourist streets advertise a headline rate that is the 'sell' side, or apply it only above a large amount, leaving you well down.",
+        hack: "C",
+        move: "Use a bank ATM, or a kantor a street or two back from the square that shows the exact złoty you'll receive before you commit.",
+      },
+      {
+        name: "Restaurant bill padding in the old town",
+        how: "Places on and around Kraków's Rynek bring unrequested bread or appetisers, add a 'cover', or a waiter fills in a tip line.",
+        hack: "C",
+        move: "Check the menu, refuse anything unordered, and review the bill. Tipping ~10% is normal but is your choice, not a pre-filled line.",
+      },
+      {
+        name: "'Gentlemen's club' flyer trap",
+        how: "Men hand out flyers near Kraków's square and Warsaw's centre inviting you to a club with 'free entry'; inside, drinks and 'company' produce a huge bill with intimidation at the door.",
+        hack: "K",
+        move: "Bin the flyer. If you're inside, pay for your own drinks only, photograph the menu, and leave toward a busy street.",
+      },
+    ],
+    faqs: [
+      {
+        q: "Where should I exchange money in Kraków?",
+        a: "At a bank ATM or a kantor away from the main square that displays the exact amount you'll receive. The exchange offices directly on the Rynek advertise misleading headline rates.",
+      },
+      {
+        q: "Are taxis in Poland a problem?",
+        a: "Only the ones waiting outside stations and airports for tourists. App rides (Bolt, Uber, FREE NOW) are cheap and fix the fare, and are the easy way to avoid the overcharge.",
+      },
+    ],
+  },
+
+  "costa-rica": {
+    intro:
+      "Costa Rica is welcoming but has a real property-crime problem for tourists: slashed tyres at the airport, smash-and-grab from parked rental cars, and 'helpful stranger' distraction thefts. Violent crime against visitors is uncommon.",
+    lastReviewed: "2026-09",
+    status: "published",
+    scams: [
+      {
+        name: "Slashed tyre at the airport",
+        how: "Near San José (SJO) airport, someone punctures a rental-car tyre or points out a 'flat'; when you stop to change it a short way down the road, an accomplice takes bags from the car.",
+        hack: "H",
+        move: "If you get a flat just after leaving the airport, drive on the rim to a busy petrol station or back to the rental office. Don't stop on a quiet stretch.",
+      },
+      {
+        name: "Smash-and-grab from rental cars",
+        how: "Rental cars are targeted at trailheads, beaches, waterfalls and viewpoints — windows broken and bags taken in seconds while you're away, or even at a red light.",
+        hack: "K",
+        move: "Never leave anything visible in the car, ever. Take valuables with you or don't bring them. Use guarded parking where it exists.",
+      },
+      {
+        name: "'Helpful' distraction at ATMs and gas stations",
+        how: "A stranger offers help at an ATM or points at your tyre or a 'spill' on you at a gas station while a partner takes something from the car or your bag.",
+        hack: "C",
+        move: "Decline all help at ATMs and pumps. Keep the car locked while fuelling and pay attention to anyone approaching.",
+      },
+      {
+        name: "Unofficial taxis ('piratas')",
+        how: "Unlicensed taxis, especially at the airport and bus terminals, overcharge and occasionally rob. Official taxis are red with a yellow triangle (orange at the airport).",
+        hack: "A",
+        move: "Use Uber (works in the San José area) or an official red taxi with a working meter ('la maría'). At SJO, use the official orange airport taxis or a pre-booked transfer.",
+      },
+      {
+        name: "'Environmental fee' and parking add-ons at beaches",
+        how: "At some beaches and waterfalls, informal 'attendants' demand a parking or entry fee that isn't official, or 'watch your car' for a fee then do nothing.",
+        hack: "A",
+        move: "Pay official, signed entry fees only. A small tip to a genuine guarded lot is fine; ignore anyone freelancing.",
+      },
+    ],
+    faqs: [
+      {
+        q: "What should I do if my rental car gets a flat tyre near San José airport?",
+        a: "Keep driving — on the rim if you have to — to a busy petrol station or back to the rental office, and change it there. The 'flat tyre just after the airport' is a classic setup for taking bags from the car while you're distracted on a quiet roadside.",
+      },
+      {
+        q: "Is car break-in really that common in Costa Rica?",
+        a: "Yes. Rental cars at trailheads, beaches and waterfalls are a prime target, and it can happen in minutes. The rule is absolute: never leave anything visible or valuable in the car, anywhere.",
+      },
+    ],
+  },
+
+  "dominican-republic": {
+    intro:
+      "Most visitors stay in resorts, where the issues are timeshare pressure, excursion overcharging and currency games. Outside the resorts, unlicensed taxis and 'motoconcho' overcharging are the main things to manage.",
+    lastReviewed: "2026-09",
+    status: "published",
+    scams: [
+      {
+        name: "Timeshare / 'membership' hard sell",
+        how: "Resort 'welcome' or 'guest services' staff offer a free breakfast, tour or spa credit in exchange for a 90-minute presentation that turns into high-pressure sales for a vacation club, with a same-day-only discount.",
+        hack: "H",
+        move: "Decline the 'free' offer at check-in. Nothing genuine expires the moment you leave the room to think.",
+      },
+      {
+        name: "Excursion and taxi overcharging",
+        how: "Excursions booked through beach touts or the resort lobby cost far more than the same trip booked directly with the operator; taxis quote flat tourist fares with no meter.",
+        hack: "C",
+        move: "Book excursions with an established operator online and compare prices. Agree taxi fares before getting in, or use a resort-arranged car with a set rate.",
+      },
+      {
+        name: "Currency confusion (pesos vs dollars)",
+        how: "Vendors quote in dollars at a poor rate, give change in pesos counting on you not knowing the value, or 'round up' heavily.",
+        hack: "C",
+        move: "Know the peso rate, agree the currency before paying, and count change before you walk away.",
+      },
+      {
+        name: "'Motoconcho' and unlicensed taxi overcharge",
+        how: "Motorbike taxis and unmarked cars in Santo Domingo and Punta Cana overcharge tourists heavily and occasionally are unsafe.",
+        hack: "A",
+        move: "Use Uber where it operates (Santo Domingo, Santiago), or a marked, resort-recommended taxi. Avoid motoconchos with luggage or at night.",
+      },
+      {
+        name: "Beach vendor 'gift' then payment demand",
+        how: "A vendor puts a bracelet, shell necklace or hair braid on you or a companion 'as a gift', then demands payment and makes a scene.",
+        hack: "C",
+        move: "Don't let anyone put anything on you. A firm 'no, gracias' without stopping is enough.",
+      },
+    ],
+    faqs: [
+      {
+        q: "Should I do the timeshare presentation for the free perks in the Dominican Republic?",
+        a: "Only if you're comfortable saying no to a long, high-pressure pitch and walking out. The 'free' breakfast or tour is bait for a vacation-club sale with a fake same-day discount. Most people find it not worth the time.",
+      },
+      {
+        q: "Are taxis safe in Punta Cana and Santo Domingo?",
+        a: "Use Uber in Santo Domingo, or marked taxis your resort recommends with an agreed fare. Avoid unmarked cars and motoconchos, especially with luggage or after dark, where overcharging and occasional robbery are the risks.",
+      },
+    ],
+  },
+
+  kenya: {
+    intro:
+      "Nairobi and the coast require awareness. For visitors the recurring scams are fake safari operators taking deposits, taxi overcharging, ATM card-swapping, and 'I know you from the hotel' approaches.",
+    lastReviewed: "2026-09",
+    status: "published",
+    scams: [
+      {
+        name: "Fake or 'briefcase' safari operators",
+        how: "A cheap safari sold on a Nairobi street, by a 'friend' or a slick pop-up office takes a deposit or full payment, then the vehicle is a wreck, the itinerary changes, or the operator vanishes.",
+        hack: "C",
+        move: "Book only with an operator licensed by the Kenya Association of Tour Operators (KATO), pay by card or a traceable method, and never hand cash to someone who approached you.",
+      },
+      {
+        name: "'I know you from the hotel / restaurant'",
+        how: "A friendly man says he works at your hotel or served you last night, walks with you, then guides you to a shop, a 'community project' donation, or simply demands a fee for his time.",
+        hack: "C",
+        move: "You'd recognise hotel staff. Politely disengage and don't follow anyone. If pressed, step into a shop or hotel lobby.",
+      },
+      {
+        name: "Taxi overcharging and 'no meter'",
+        how: "Street and airport taxis quote flat tourist fares several times the real price, or take long routes.",
+        hack: "H",
+        move: "Use Uber, Bolt or Little (all operate in Nairobi and Mombasa) so the fare is fixed. From the airport, use a pre-booked transfer or the official taxi desk.",
+      },
+      {
+        name: "ATM card-swap and skimming",
+        how: "A 'helpful' stranger at an ATM distracts you and swaps your card, or standalone machines are skimmed; the account is drained with the observed PIN.",
+        hack: "C",
+        move: "Use ATMs inside bank branches or malls during the day, refuse all help, and cover the keypad. Cancel immediately if a card is retained.",
+      },
+      {
+        name: "Curio and 'Maasai market' price games",
+        how: "Stalls quote wildly inflated opening prices for carvings and fabrics and use guilt and 'friend price' pressure; some swap the inspected piece for a lesser one.",
+        hack: "C",
+        move: "Expect to pay a fraction of the first price, be willing to walk away, and watch your item go into the bag.",
+      },
+    ],
+    faqs: [
+      {
+        q: "How do I avoid safari scams in Kenya?",
+        a: "Book only through a KATO-licensed operator, verify the licence, and pay by card or another traceable method. Never buy a safari from someone who approaches you on the street or pay a large cash deposit to an unverified 'office'.",
+      },
+      {
+        q: "Is it safe to take taxis in Nairobi?",
+        a: "Use the apps — Uber, Bolt or Little all work in Nairobi and Mombasa and fix the fare. Street and airport taxis commonly overcharge tourists; for the airport, pre-book a transfer or use the official desk.",
+      },
+    ],
+  },
+
+  austria: {
+    intro:
+      "Austria is very safe. In Vienna and Salzburg the only real issues are pickpockets in tourist crowds and on public transport, aggressive 'Mozart concert' ticket touts, and occasional taxi overcharging from the airport.",
+    lastReviewed: "2026-09",
+    status: "published",
+    scams: [
+      {
+        name: "Pickpockets on the U-Bahn and at St Stephen's",
+        how: "Teams work Vienna's U-Bahn (especially U1/U3), the area around Stephansplatz, and Salzburg's old town, using the usual bump-and-lift.",
+        hack: "C",
+        move: "Bag zipped and in front, phone pocketed. Be most alert boarding trains and in the crush around the cathedral.",
+      },
+      {
+        name: "Costumed 'Mozart' concert touts",
+        how: "People in period wigs and coats near the Opera and Stephansplatz sell concert tickets at a steep markup, or for a lower-quality show than described.",
+        hack: "A",
+        move: "Buy from the venue's official box office or website. The costumed sellers add commission and the venue may not be the one you expect.",
+      },
+      {
+        name: "Airport taxi overcharge",
+        how: "Drivers at Vienna airport quote €50–70 flat when the fair fare to the centre is around €40, or the CAT train / S-Bahn is far cheaper.",
+        hack: "H",
+        move: "Agree a price before getting in, use a booked airport taxi at a fixed rate, or take the S-Bahn (S7) which is inexpensive and direct.",
+      },
+      {
+        name: "'Free' rose or bracelet",
+        how: "Someone hands you a rose or ties a bracelet 'as a gift' near tourist spots, then demands payment.",
+        hack: "H",
+        move: "Hands in pockets, don't accept it, keep walking. If it's on your wrist, you still owe nothing.",
+      },
+    ],
+    faqs: [
+      {
+        q: "Are the people selling Mozart concert tickets in Vienna legitimate?",
+        a: "They sell real tickets, but at a markup, and sometimes for a different or lesser venue than you expect. Buy directly from the concert hall's official box office or website instead.",
+      },
+      {
+        q: "How much should a taxi from Vienna airport cost?",
+        a: "Around €40 to the city centre in a booked fixed-rate taxi. Drivers quoting €50–70 are overcharging. The S7 S-Bahn is a cheap, direct alternative; the CAT is faster but pricier.",
+      },
+    ],
+  },
 };
 
 export function getPublishedCountrySlugs(): string[] {
