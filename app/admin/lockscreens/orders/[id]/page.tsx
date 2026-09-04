@@ -43,6 +43,24 @@ export default async function LockscreenOrderAdminDetailPage({ params }: { param
             <a href={poUrl} target="_blank" rel="noreferrer" style={link}>View customer PO &rarr;</a>
             {adminUrl ? <a href={adminUrl} target="_blank" rel="noreferrer" style={link}>View customer admin &rarr;</a> : null}
           </div>
+
+          <div style={{ marginTop: 20, paddingTop: 16, borderTop: "1px solid rgba(255,255,255,.08)" }}>
+            <p style={{ fontSize: 12, color: "#8d8980", marginBottom: 10 }}>
+              Once payment is confirmed by whatever means (wire, invoice, phone), activate the licence here — this
+              flips the delivery link live and marks the order confirmed.
+            </p>
+            {order.tenant?.tokenStatus === "active" ? (
+              <form action={`/api/admin/lockscreens/orders/${order.id}/activate`} method="POST">
+                <input type="hidden" name="action" value="revoke" />
+                <button type="submit" style={quietBtn}>Revoke / expire licence</button>
+              </form>
+            ) : (
+              <form action={`/api/admin/lockscreens/orders/${order.id}/activate`} method="POST">
+                <input type="hidden" name="action" value="activate" />
+                <button type="submit" style={primaryBtn}>Activate licence</button>
+              </form>
+            )}
+          </div>
         </section>
 
         <section style={card}>
