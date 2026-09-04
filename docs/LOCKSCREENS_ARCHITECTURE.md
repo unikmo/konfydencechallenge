@@ -8,9 +8,11 @@ all tiers to `/contact`. Nothing below exists in code yet.
 ## 1. What the product is
 
 A **lock-screen reminder service**, not a wallpaper download. The screen keeps
-**Pause. Think. Call.** (P.T.A.) in front of the user, with a discreet **H.A.C.K.** cue
-(Hurry · Authority · Comfort · Kill-Switch), and the design **rotates on a schedule** so the
-wording and the scam patterns stay current.
+**Pause. Ask. Think.** (P.A.T. — *Pause* before you act; *Ask* someone you trust, out loud, or
+your bank on the number from your card; *Think*, together, about what the request actually needs)
+in front of the user, with a discreet **H.A.C.K.** cue (Hurry · Authority · Comfort ·
+Kill-Switch), and the design **rotates on a schedule** so the wording and the scam patterns stay
+current.
 
 One content system underneath. **Two delivery engines** on top.
 
@@ -127,7 +129,7 @@ The content operation *is* the product commitment.
 
 Keep the Konfydence aesthetic: **minimal, calm, light, legible.** A calm screen is the correct
 medium for a "pause" reminder — a loud wallpaper manufactures the exact urgency the product
-interrupts. The lock screen is not brand marketing: the P.T.A. message dominates, the wordmark
+interrupts. The lock screen is not brand marketing: the P.A.T. message dominates, the wordmark
 is small. This is also what keeps the renderer economical.
 
 Each asset renders in a small set of **treatment presets** from the *same* template system —
@@ -187,7 +189,7 @@ to the message line, removes the "is this too jokey for us" sales objection.
 
 **Deliberately varied formats** so employees never know what's next (kills banner-blindness):
 mini-mystery, choice, accuracy check, reputation, wellness/attention-break, H.A.C.K. spotting,
-P.T.A. reinforcement, physical/device security, data-handling.
+P.A.T. reinforcement, physical/device security, data-handling.
 
 **60-screen library = 52 scheduled + 8 flex.** Flex slots replace a normal week for: holiday
 scams, tax season, a new scam pattern, a company-specific incident, travel season, AI/deepfake
@@ -196,7 +198,7 @@ and the part most likely to slip, so it needs a content owner.
 
 **Strategic mix (indicative, mixed not blocked):** ~25 security/fraud/social-engineering ·
 10 accuracy/quality · 8 reputation/client-trust · 5 wellbeing/attention · 5 privacy/data ·
-4 physical/device · 3 H.A.C.K./P.T.A. reinforcement.
+4 physical/device · 3 H.A.C.K./P.A.T. reinforcement.
 
 > **Positioning note:** ~half the screens being non-scam (accuracy, reputation, wellbeing) is a
 > deliberate move toward "workplace decision hygiene" / human-risk framing, which is the
