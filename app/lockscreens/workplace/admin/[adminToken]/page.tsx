@@ -1,8 +1,8 @@
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
-import { prisma } from "@/lib/prisma";
 import { PremiumPage } from "@/components/PremiumSiteChrome";
-import { WorkplaceAdminDashboard } from "@/components/lockscreens/WorkplaceAdminDashboard";
+import { LockscreenAdminDashboard } from "@/components/lockscreens/LockscreenAdminDashboard";
+import { loadAdminPageData } from "@/lib/lockscreens/adminPageData";
 
 export const metadata: Metadata = {
   title: "Manage your lockscreens | Konfydence",
@@ -15,20 +15,9 @@ export default async function WorkplaceLockscreenAdminPage({
   params: Promise<{ adminToken: string }>;
 }) {
   const { adminToken } = await params;
-
-  const tenant = await prisma.lockscreenTenant.findUnique({
-    where: { adminToken },
-    include: { plan: true, orders: { orderBy: { createdAt: "desc" }, take: 1 } },
-  });
-  if (!tenant || !tenant.plan) notFound();
-
-  const assets = await prisma.lockscreenAsset.findMany({
-    where: { status: "live" },
-    orderBy: { number: "asc" },
-    select: { number: true, category: true, hook: true, body: true, action: true, imagePath: true },
-  });
-
-  const latestOrder = tenant.orders[0] ?? null;
+  const data = await loadAdminPageData("workplace", adminToken);
+  if (!data) notFound();
+  const { tenant, assets, latestOrder } = data;
 
   return (
     <PremiumPage ctaHref="/challenge" ctaLabel="Start a free check">
@@ -41,7 +30,8 @@ export default async function WorkplaceLockscreenAdminPage({
       </section>
 
       <section className="kg-shell" style={{ paddingBottom: 64 }}>
-        <WorkplaceAdminDashboard
+        <LockscreenAdminDashboard
+          tier="workplace"
           adminToken={adminToken}
           deliveryToken={tenant.token}
           tokenStatus={tenant.tokenStatus}
@@ -49,10 +39,10 @@ export default async function WorkplaceLockscreenAdminPage({
           termStart={tenant.termStart ? tenant.termStart.toISOString() : null}
           termEnd={tenant.termEnd ? tenant.termEnd.toISOString() : null}
           plan={{
-            sequence: tenant.plan.sequence,
-            screenCount: tenant.plan.screenCount,
-            cadence: tenant.plan.cadence,
-            anchor: tenant.plan.anchor.toISOString(),
+            sequence: tenant.plan!.sequence,
+            screenCount: tenant.plan!.screenCount,
+            cadence: tenant.plan!.cadence,
+            anchor: tenant.plan!.anchor.toISOString(),
           }}
           assets={assets}
           currentRatePerHead={latestOrder?.ratePerHead ?? null}

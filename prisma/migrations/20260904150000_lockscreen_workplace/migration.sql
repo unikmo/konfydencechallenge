@@ -1,6 +1,7 @@
 -- CreateTable
 CREATE TABLE IF NOT EXISTS "LockscreenAsset" (
   "id"        TEXT NOT NULL,
+  "track"     TEXT NOT NULL DEFAULT 'workplace',
   "number"    INTEGER NOT NULL,
   "category"  TEXT NOT NULL,
   "hook"      TEXT NOT NULL,
@@ -11,8 +12,9 @@ CREATE TABLE IF NOT EXISTS "LockscreenAsset" (
   "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
   CONSTRAINT "LockscreenAsset_pkey" PRIMARY KEY ("id")
 );
-CREATE UNIQUE INDEX IF NOT EXISTS "LockscreenAsset_number_key" ON "LockscreenAsset"("number");
+CREATE UNIQUE INDEX IF NOT EXISTS "LockscreenAsset_track_number_key" ON "LockscreenAsset"("track", "number");
 CREATE INDEX IF NOT EXISTS "LockscreenAsset_status_idx" ON "LockscreenAsset"("status");
+CREATE INDEX IF NOT EXISTS "LockscreenAsset_track_idx" ON "LockscreenAsset"("track");
 
 -- CreateTable
 CREATE TABLE IF NOT EXISTS "LockscreenTenant" (

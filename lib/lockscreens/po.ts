@@ -2,14 +2,17 @@ import { randomBytes } from "crypto";
 
 const ALPHABET = "ABCDEFGHJKLMNPQRSTUVWXYZ23456789"; // no 0/O/1/I
 
-/** e.g. "KFY-PO-20260904-8FQ2K7" */
-export function generatePoNumber(date: Date = new Date()): string {
+const TIER_PREFIX: Record<string, string> = { workplace: "WRK", school: "SCH" };
+
+/** e.g. "KFY-PO-WRK-20260904-8FQ2K7" */
+export function generatePoNumber(tier?: string, date: Date = new Date()): string {
   const y = date.getUTCFullYear();
   const m = String(date.getUTCMonth() + 1).padStart(2, "0");
   const d = String(date.getUTCDate()).padStart(2, "0");
   const bytes = randomBytes(6);
   const suffix = Array.from(bytes, (b) => ALPHABET[b % ALPHABET.length]).join("");
-  return `KFY-PO-${y}${m}${d}-${suffix}`;
+  const prefix = tier && TIER_PREFIX[tier] ? `${TIER_PREFIX[tier]}-` : "";
+  return `KFY-PO-${prefix}${y}${m}${d}-${suffix}`;
 }
 
 /** Opaque per-tenant token for the /l/{token}/current/{device} delivery resolver. */

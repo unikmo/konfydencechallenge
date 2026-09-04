@@ -6,7 +6,7 @@ export const dynamic = "force-dynamic";
 export async function GET() {
   try {
     const assets = await prisma.lockscreenAsset.findMany({
-      where: { status: "live" },
+      where: { status: "live", track: "workplace" },
       orderBy: { number: "asc" },
       select: { number: true, category: true, hook: true, body: true, action: true, imagePath: true },
     });

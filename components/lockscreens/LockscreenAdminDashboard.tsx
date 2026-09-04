@@ -4,10 +4,12 @@ import { useEffect, useMemo, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import {
-  SCREEN_COUNT_OPTIONS,
+  screenCountOptionsFor,
   CADENCE_OPTIONS,
-  computeWorkplaceQuote,
+  computeQuote,
   formatUsd,
+  TIER_CONFIG,
+  type Tier,
   type ScreenCount,
   type Cadence,
 } from "@/lib/lockscreens/pricing";
@@ -34,7 +36,8 @@ function fmtDate(d: Date) {
   return d.toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" });
 }
 
-export function WorkplaceAdminDashboard({
+export function LockscreenAdminDashboard({
+  tier,
   adminToken,
   deliveryToken,
   tokenStatus,
@@ -46,6 +49,7 @@ export function WorkplaceAdminDashboard({
   currentRatePerHead,
   latestPoUrl,
 }: {
+  tier: Tier;
   adminToken: string;
   deliveryToken: string;
   tokenStatus: string;
@@ -57,6 +61,8 @@ export function WorkplaceAdminDashboard({
   currentRatePerHead: number | null;
   latestPoUrl: string | null;
 }) {
+  const config = TIER_CONFIG[tier];
+  const screenCountOptions = useMemo(() => screenCountOptionsFor(tier), [tier]);
   const assetByNumber = useMemo(() => new Map(assets.map((a) => [a.number, a])), [assets]);
 
   const [sequence, setSequence] = useState<number[]>(plan.sequence);
@@ -94,13 +100,13 @@ export function WorkplaceAdminDashboard({
     });
   }, [now, plan.sequence, anchorTime, cadenceMs, assetByNumber]);
 
-  const quote = computeWorkplaceQuote(licensedCount, screenCount, cadence);
+  const quote = computeQuote(tier, licensedCount, screenCount, cadence);
   const dirty =
     sequence.length !== plan.sequence.length ||
     sequence.some((n, i) => n !== plan.sequence[i]) ||
     screenCount !== plan.screenCount ||
     cadence !== plan.cadence;
-  const pricingChanged = currentRatePerHead != null && Math.abs(quote.ratePerHead - currentRatePerHead) > 0.001;
+  const pricingChanged = currentRatePerHead != null && Math.abs(quote.ratePerUnit - currentRatePerHead) > 0.001;
 
   function move(index: number, dir: -1 | 1) {
     setSequence((prev) => {
@@ -141,7 +147,7 @@ export function WorkplaceAdminDashboard({
     setSaveError(null);
     setSaved(false);
     try {
-      const response = await fetch(`/api/lockscreens/workplace/admin/${adminToken}`, {
+      const response = await fetch(`/api/lockscreens/${tier}/admin/${adminToken}`, {
         method: "PATCH",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ sequence, screenCount, cadence }),
@@ -163,7 +169,7 @@ export function WorkplaceAdminDashboard({
   async function handleRequote() {
     setRequoting(true);
     try {
-      const response = await fetch(`/api/lockscreens/workplace/admin/${adminToken}/requote`, {
+      const response = await fetch(`/api/lockscreens/${tier}/admin/${adminToken}/requote`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ screenCount, cadence }),
@@ -222,8 +228,8 @@ export function WorkplaceAdminDashboard({
       <section style={cardStyle}>
         <p className="k-kicker">Delivery</p>
         <p className="k-copy" style={{ fontSize: 13 }}>
-          Point your MDM policy at this URL for computers and laptops. It always resolves to whatever screen
-          should be showing right now — nothing to update on your side.
+          Point your MDM policy at this URL for {tier === "school" ? "managed computers and tablets" : "computers and laptops"}.
+          It always resolves to whatever screen should be showing right now — nothing to update on your side.
         </p>
         <code style={{ display: "block", background: "#f4efe4", padding: "10px 12px", borderRadius: 6, fontSize: 12, wordBreak: "break-all", marginTop: 8 }}>
           {deliveryUrl}
@@ -240,7 +246,7 @@ export function WorkplaceAdminDashboard({
           <label style={labelStyle}>
             <span className="k-kicker">Screen package</span>
             <select style={inputStyle} value={screenCount} onChange={(e) => handleScreenCountChange(Number(e.target.value) as ScreenCount)}>
-              {SCREEN_COUNT_OPTIONS.map((o) => (
+              {screenCountOptions.map((o) => (
                 <option key={o.value} value={o.value}>{o.label}</option>
               ))}
             </select>
@@ -257,7 +263,7 @@ export function WorkplaceAdminDashboard({
 
         {pricingChanged ? (
           <div style={{ marginTop: 14, background: "#f7f0e1", border: "1px solid rgba(168,125,46,.35)", borderRadius: 8, padding: "12px 14px", fontSize: 13 }}>
-            This changes your rate to {formatUsd(quote.ratePerHead)}/employee/year ({formatUsd(quote.annualTotal)}/year total).
+            This changes your rate to {formatUsd(quote.ratePerUnit)}/{config.unitLabel}/year ({formatUsd(quote.annualTotal)}/year total).
             Sequence and cadence changes save instantly below; a rate change needs a fresh, confirmed PO before it bills.
             <div style={{ marginTop: 10 }}>
               <button type="button" onClick={handleRequote} disabled={requoting} style={quietButtonStyle}>
@@ -319,13 +325,13 @@ export function WorkplaceAdminDashboard({
       <section style={cardStyle}>
         <p className="k-kicker">Licence</p>
         <p className="k-copy" style={{ fontSize: 13 }}>
-          {licensedCount.toLocaleString()} employees licensed
+          {licensedCount.toLocaleString()} {config.unitLabelPlural} licensed
           {termStart ? ` · term starts ${fmtDate(new Date(termStart))}` : ""}
           {termEnd ? ` · renews ${fmtDate(new Date(termEnd))}` : ""}.
         </p>
         <p className="k-copy" style={{ fontSize: 12, color: "#66645f" }}>
-          To change your licensed headcount, contact your Konfydence rep — it&rsquo;s the billing basis for
-          this licence.
+          To change your licensed count, contact your Konfydence rep — it&rsquo;s the billing basis for this
+          licence.
         </p>
       </section>
     </div>

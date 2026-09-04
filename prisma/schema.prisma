@@ -441,17 +441,19 @@ model GiftCode {
 
 model LockscreenAsset {
   id        String   @id @default(cuid())
-  number    Int                      // 1..60, global Workplace library
+  track     String                   // "workplace" | "school" -- each track has its own 1..60 numbering
+  number    Int                      // 1..60 within the track
   category  String
   hook      String
   body      String
   action    String
-  imagePath String                   // desktop preview/reference render, "/lockscreens/workplace/desktop/NN.png"
+  imagePath String                   // desktop preview/reference render, "/lockscreens/{track}/desktop/NN.png"
   status    String   @default("live") // live | draft | retired
   createdAt DateTime @default(now())
 
-  @@unique([number])
+  @@unique([track, number])
   @@index([status])
+  @@index([track])
 }
 
 model LockscreenTenant {

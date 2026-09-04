@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { prisma } from "@/lib/prisma";
-import { formatUsd } from "@/lib/lockscreens/pricing";
+import { formatUsd, TIER_CONFIG, type Tier } from "@/lib/lockscreens/pricing";
 
 export const dynamic = "force-dynamic";
 
@@ -10,9 +10,11 @@ export default async function LockscreenOrderAdminDetailPage({ params }: { param
   const order = await prisma.lockscreenOrder.findUnique({ where: { id }, include: { tenant: true } });
   if (!order) notFound();
 
+  const tier: Tier = order.tenant?.kind === "school" ? "school" : "workplace";
+  const config = TIER_CONFIG[tier];
   const appUrl = process.env.NEXT_PUBLIC_APP_URL || "https://konfydence.com";
-  const poUrl = `${appUrl}/lockscreens/workplace/po/${order.id}`;
-  const adminUrl = order.tenant ? `${appUrl}/lockscreens/workplace/admin/${order.tenant.adminToken}` : null;
+  const poUrl = `${appUrl}/lockscreens/${tier}/po/${order.id}`;
+  const adminUrl = order.tenant ? `${appUrl}/lockscreens/${tier}/admin/${order.tenant.adminToken}` : null;
   const billed = order.overrideAnnualTotal ?? order.annualTotal;
 
   return (
@@ -25,12 +27,13 @@ export default async function LockscreenOrderAdminDetailPage({ params }: { param
       <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 24, marginTop: 24 }}>
         <section style={card}>
           <h2 style={h2}>Order</h2>
-          <Row label="Employees licensed" value={order.employeeCount.toLocaleString()} />
+          <Row label="Tier" value={tier === "school" ? "School" : "Workplace"} />
+          <Row label={`${config.unitLabelPlural[0].toUpperCase()}${config.unitLabelPlural.slice(1)} licensed`} value={order.employeeCount.toLocaleString()} />
           <Row label="Screen package" value={String(order.screenCount)} />
           <Row label="Cadence" value={order.cadence} />
-          <Row label="Base rate" value={`${formatUsd(order.baseRatePerHead)}/head/yr`} />
-          <Row label="Extended-library surcharge" value={`${formatUsd(order.surchargePerHead)}/head/yr`} />
-          <Row label="List rate (calculated)" value={`${formatUsd(order.ratePerHead)}/head/yr`} />
+          <Row label="Base rate" value={`${formatUsd(order.baseRatePerHead)}/${config.unitLabel}/yr`} />
+          <Row label="Extended-library surcharge" value={`${formatUsd(order.surchargePerHead)}/${config.unitLabel}/yr`} />
+          <Row label="List rate (calculated)" value={`${formatUsd(order.ratePerHead)}/${config.unitLabel}/yr`} />
           <Row label="List total" value={formatUsd(order.annualTotal)} />
           <Row label="Minimum applied?" value={order.minimumApplied ? "Yes" : "No"} />
           <Row label="Status" value={order.status.replace("_", " ")} />

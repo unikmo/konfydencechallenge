@@ -51,7 +51,9 @@ export async function GET(
     : Math.min(Math.max(index, 0), plan.sequence.length - 1);
   const assetNumber = plan.sequence[position];
 
-  const asset = await prisma.lockscreenAsset.findUnique({ where: { number: assetNumber } });
+  const asset = await prisma.lockscreenAsset.findUnique({
+    where: { track_number: { track: tenant.kind, number: assetNumber } },
+  });
   if (!asset) {
     return NextResponse.json({ error: "Current screen could not be resolved." }, { status: 500 });
   }
