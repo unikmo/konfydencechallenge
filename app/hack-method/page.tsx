@@ -4,9 +4,9 @@ import { PremiumPage } from "@/components/PremiumSiteChrome";
 import { PortfolioStrip } from "@/components/PortfolioStrip";
 
 export const metadata: Metadata = {
-  title: { absolute: "The H.A.C.K. and P.T.A. method | Konfydence" },
+  title: { absolute: "The H.A.C.K. and P.A.T. method | Konfydence" },
   description:
-    "Two simple frameworks: H.A.C.K. (Hurry, Authority, Comfort, Kill-Switch) to spot the pressure behind a scam, and P.T.A. (Pause, Think, Call) for what to do about it.",
+    "Two simple frameworks: H.A.C.K. (Hurry, Authority, Comfort, Kill-Switch) to spot the pressure behind a scam, and P.A.T. (Pause, Ask, Think) for what to do about it.",
   alternates: { canonical: "/hack-method" },
 };
 
@@ -17,10 +17,10 @@ const patterns = [
   ["K", "Kill-Switch", "Push the critical action — click, pay, share, approve or reply — while cutting off your chance to check."],
 ];
 
-const pta = [
-  ["Pause", "Stop before the click, payment, code or reply. Urgency is the scam's tool; a few seconds takes it away."],
-  ["Think", "Ask what a scam would need from you here. If the honest answer is money, a code, a login or an approval — treat it as pressure, not proof."],
-  ["Call", "Confirm on a channel you already trust: a number from your card, a saved contact, or a person beside you. Never the number in the message."],
+const pat = [
+  ["Pause", "Stop before the click, payment, code or reply. Urgency is the scam's tool; a few seconds takes it away.", "Take urgency's power away."],
+  ["Ask", "Say the request out loud to someone you trust — a partner, a colleague — or call your bank on the number from your card. Not the number in the message.", "Ask someone you trust."],
+  ["Think", "With that person, ask what a scam would actually need here. If the answer is money, a code, a login or an approval, it's pressure — not proof.", "What would a scam need?"],
 ];
 
 export default function HackMethodPage() {
@@ -28,10 +28,10 @@ export default function HackMethodPage() {
     <PremiumPage ctaHref="/challenge/travelsafe/start?mode=diagnostic" ctaLabel="Try a free check">
       <section className="kg-shell k-section" style={{ borderTop: 0, paddingTop: 72, maxWidth: 820 }}>
         <p className="k-kicker">The method</p>
-        <h1 className="k-display">Spot the pressure. Then Pause, Think, Call.</h1>
+        <h1 className="k-display">Spot the pressure. Then Pause, Ask, Think.</h1>
         <p className="k-lede">
           Konfydence runs on two small frameworks. <strong>H.A.C.K.</strong> names what a scam is doing to you.
-          <strong> P.T.A.</strong> is what you do about it. You practise both until the moment feels familiar instead of frightening.
+          <strong> P.A.T.</strong> is what you do about it. You practise both until the moment feels familiar instead of frightening.
         </p>
         <div className="k-actions">
           <Link className="k-button" href="/challenge/travelsafe/start?mode=diagnostic">Take the free 8-decision check</Link>
@@ -63,18 +63,18 @@ export default function HackMethodPage() {
         <div className="kg-shell">
           <div className="k-section-head">
             <div>
-              <p className="k-kicker">P.T.A. — do this</p>
-              <h2 className="k-display-sm">Pause. Think. Call.</h2>
+              <p className="k-kicker">P.A.T. — do this</p>
+              <h2 className="k-display-sm">Pause. Ask. Think.</h2>
             </div>
             <p className="k-copy">
               The same three moves work for a text, a call, an email or a knock at the door. It is deliberately short so it holds up under stress.
             </p>
           </div>
           <div className="k-method-grid">
-            {pta.map(([title, copy]) => (
+            {pat.map(([title, copy, heading]) => (
               <article key={title}>
                 <small>{title}</small>
-                <h3>{title === "Call" ? "On a number you trust." : title === "Think" ? "What would a scam need?" : "Take urgency's power away."}</h3>
+                <h3>{heading}</h3>
                 <p>{copy}</p>
               </article>
             ))}

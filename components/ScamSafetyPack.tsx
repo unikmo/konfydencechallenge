@@ -19,7 +19,7 @@ const GROUPS: Array<{
     kind: "protocol",
     eyebrow: "Household protocol",
     title: "Emergency Scam Protocol",
-    description: "The printable Pause · Think · Call response sheet for the household. Free.",
+    description: "The printable Pause · Ask · Think response sheet for the household. Free.",
   },
 ];
 
@@ -189,7 +189,7 @@ export function ScamSafetyPack({ source = "site" }: { source?: string }) {
         </div>
         <div>
           <p className="k-copy">
-            The Emergency Scam Protocol is a free, printable Pause · Think · Call response sheet. Pick it below and we&apos;ll email it to you. Looking for phone and desktop lock screens? Those are now the <Link href="/lockscreens">Konfydence Lockscreens</Link> service.
+            The Emergency Scam Protocol is a free, printable Pause · Ask · Think response sheet. Pick it below and we&apos;ll email it to you. Looking for phone and desktop lock screens? Those are now the <Link href="/lockscreens">Konfydence Lockscreens</Link> service.
           </p>
         </div>
       </div>

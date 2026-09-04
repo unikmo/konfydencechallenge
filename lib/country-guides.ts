@@ -6,7 +6,7 @@
  *
  * Each scam is tagged with the H.A.C.K. pressure pattern it uses
  * (H = Hurry, A = Authority, C = Comfort, K = Kill-Switch) and the
- * Pause · Think · Call move that defuses it — the Konfydence angle that
+ * Pause · Ask · Think move that defuses it — the Konfydence angle that
  * makes these pages more than another listicle.
  */
 
