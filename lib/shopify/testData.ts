@@ -30,18 +30,21 @@ export const SHOPIFY_API_VERSION = "2026-07";
  * 4. Copy ID from URL: https://admin.shopify.com/store/konfydence/products/PRODUCT_ID/variants/VARIANT_ID
  * 5. Format as: gid://shopify/ProductVariant/VARIANT_ID
  */
+// Real ProductVariant GIDs from the live Konfydence store (shop.konfydence.com),
+// verified 2026-09-04. Production still prefers the SHOPIFY_VARIANT_* env vars;
+// these are the fallback when those are unset.
 export const TEST_VARIANT_IDS = {
-  "CHAL-SINGLE-SCHOOL": "gid://shopify/ProductVariant/47382124855572",
-  "CHAL-SINGLE-UNIVERSITY": "gid://shopify/ProductVariant/47382124887340",
-  "CHAL-SINGLE-FAMILY": "gid://shopify/ProductVariant/47382124919108",
-  "CHAL-SINGLE-TRAVELSAFE": "gid://shopify/ProductVariant/47382124950876",
-  "CHAL-SINGLE-WORKPLACE": "gid://shopify/ProductVariant/47382124982644",
-  "CHAL-UNLIMITED": "gid://shopify/ProductVariant/47382125014412",
-  "CHAL-UPGRADE": "gid://shopify/ProductVariant/47382125046180",
+  "CHAL-SINGLE-SCHOOL": "gid://shopify/ProductVariant/50289752736101",
+  "CHAL-SINGLE-UNIVERSITY": "gid://shopify/ProductVariant/50289752768869",
+  "CHAL-SINGLE-FAMILY": "gid://shopify/ProductVariant/50289752801637",
+  "CHAL-SINGLE-TRAVELSAFE": "gid://shopify/ProductVariant/50289752834405",
+  "CHAL-SINGLE-WORKPLACE": "gid://shopify/ProductVariant/50289752867173",
+  "CHAL-UNLIMITED": "gid://shopify/ProductVariant/50289753686373",
+  "CHAL-UPGRADE": "gid://shopify/ProductVariant/50289753981285",
   // TODO: replace with the real ProductVariant GID once the Lockscreens product exists in Shopify.
   "LOCKSCREENS-PACK": "gid://shopify/ProductVariant/47382125141484",
-  "KG-WALLET": "gid://shopify/ProductVariant/47382125077948",
-  "KG-MAGNET": "gid://shopify/ProductVariant/47382125109716",
+  "KG-WALLET": "gid://shopify/ProductVariant/50268932899173",
+  "KG-MAGNET": "gid://shopify/ProductVariant/50269353050469",
 } as const;
 
 /**
