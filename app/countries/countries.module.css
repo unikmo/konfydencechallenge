@@ -86,7 +86,7 @@
 .landmarkImage { display: block; width: 100%; height: 100%; object-fit: cover; }
 .landmarkFallback { display: flex; height: 100%; flex-direction: column; justify-content: center; padding: 28px; background: #efe9dd; color: #111417; }
 .landmarkFallback span { color: #af8752; font-size: 12px; font-weight: 900; letter-spacing: .08em; text-transform: uppercase; }
-.landmarkFallback strong { font-size: 28px; margin-top: 8px; }
+.landmarkFallback strong { font-family: var(--k-display); font-weight: 400; font-size: clamp(30px, 4vw, 46px); letter-spacing: -.03em; margin-top: 10px; }
 .landmarkFigure figcaption { color: #8d8980; font-size: 11px; line-height: 1.45; margin-top: 8px; }
 .landmarkFigure figcaption a { color: #af8752; font-weight: 800; }
 @media (max-width: 720px) { .landmarkFrame { aspect-ratio: 4 / 3; } }
