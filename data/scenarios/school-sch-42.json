@@ -1,0 +1,33 @@
+{
+  "id": "school-sch-42",
+  "title": "Your study app's free trial ends at midnight",
+  "edition": "school",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Apps & subscriptions",
+  "scenario": "A pop-up in a homework-help app says your free trial ends at midnight and you'll lose your saved notes unless you enter a card number right now to keep using it.",
+  "answers": {
+    "A": "Check with a parent before entering any card details, and read what happens if the trial just ends.",
+    "B": "Enter your own details quickly so you don't lose your notes.",
+    "C": "Enter a parent's card number without asking, since it's just to save your notes."
+  },
+  "scores": {
+    "A": 4,
+    "B": 1,
+    "C": 0
+  },
+  "safeActions": [
+    "A"
+  ],
+  "explanation": "Free-trial pop-ups are designed to make losing your notes feel urgent, but a trial ending never deletes your existing account without warning - and a card decision isn't yours to make alone.",
+  "proTip": "A subscription decision always waits for a parent, no matter what the countdown says.",
+  "hackKey": "H",
+  "hackTrigger": "Hurry",
+  "tags": [
+    "school",
+    "h",
+    "subscription-trap",
+    "free-trial"
+  ],
+  "active": true
+}

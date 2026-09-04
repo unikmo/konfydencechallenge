@@ -20,19 +20,19 @@ Konfydence has five editions:
 - University
 - Workplace
 
-Each edition has **40 active scored scenarios**, balanced across H/A/C/K:
+Each edition has **48 active scored scenarios**, balanced across H/A/C/K:
 
-- 10 Hurry
-- 10 Authority
-- 10 Connection
-- 10 Critical Action
+- 12 Hurry
+- 12 Authority
+- 12 Comfort
+- 12 Kill-Switch
 
 Playable scored scenarios have **exactly three choices: A/B/C**. There is no playable D answer.
 
 Session sizes:
 
 - Free Readiness Check: short run, 2 each H/A/C/K (internal: 8 cards)
-- Full Challenge: short rounds, 3 each H/A/C/K per round (internal: 12 cards), whole 40+ bank before repeat
+- Full Challenge: short rounds of 12, 3 each H/A/C/K per round. Four rounds clear the 48-card bank before anything repeats.
 
 Selection is unseen-first while retaining H/A/C/K balance.
 
@@ -61,9 +61,9 @@ npm run build
 
 The scenario audit must report:
 
-- 200 scored scenarios total
-- 40 scenarios per edition
-- 10 H / 10 A / 10 C / 10 K per edition
+- 240 scored scenarios total
+- 48 scenarios per edition
+- 12 H / 12 A / 12 C / 12 K per edition
 - exactly three playable answers per scored scenario
 - one unique strongest answer
 

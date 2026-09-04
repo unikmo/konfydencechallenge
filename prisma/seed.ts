@@ -22,13 +22,13 @@ async function main() {
 
   console.log("Scenario files found:", files.length);
 
-  if (files.length < 200) {
-    throw new Error(`Expected at least the 200 scored scenario JSON files, found ${files.length}`);
+  if (files.length < 240) {
+    throw new Error(`Expected at least the 240 scored scenario JSON files, found ${files.length}`);
   }
 
   // Preserve historical rows so old results remain valid, but retire the previous
   // scored bank before reactivating the current canonical scored bank. Non-scored
-  // wild/host-mode cards are allowed alongside the 200 scored cards.
+  // wild/host-mode cards are allowed alongside the 240 scored cards.
   await prisma.scenario.updateMany({
     where: { edition: { in: [...EDITIONS] }, scored: true },
     data: { active: false },

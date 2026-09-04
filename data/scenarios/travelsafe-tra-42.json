@@ -1,0 +1,33 @@
+{
+  "id": "travelsafe-tra-42",
+  "title": "Airport strike - rebook in the next 10 minutes",
+  "edition": "travelsafe",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Flights",
+  "scenario": "During a real airport strike, a text with an airline logo says your flight is affected and you have 10 minutes to rebook through a link before all alternate seats are gone.",
+  "answers": {
+    "A": "Click the link and rebook quickly before seats run out.",
+    "B": "Click the link, and pay extra to guarantee priority rebooking.",
+    "C": "Go directly to the airline's official app or website to check your flight status and rebook there."
+  },
+  "scores": {
+    "A": 1,
+    "B": 0,
+    "C": 4
+  },
+  "safeActions": [
+    "C"
+  ],
+  "explanation": "Real disruptions are exploited by scam texts that copy the logo and urgency of a genuine airline alert - the actual rebooking always happens on the airline's own channel.",
+  "proTip": "A real disruption is confirmed on the airline's own app, not a text with a countdown.",
+  "hackKey": "H",
+  "hackTrigger": "Hurry",
+  "tags": [
+    "travelsafe",
+    "h",
+    "flight-disruption",
+    "phishing"
+  ],
+  "active": true
+}

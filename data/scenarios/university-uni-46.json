@@ -1,0 +1,33 @@
+{
+  "id": "university-uni-46",
+  "title": "Be a paid campus ambassador for our trading app",
+  "edition": "university",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Investments",
+  "scenario": "A friendly senior student says their trading app pays a bonus for every classmate you sign up as a campus ambassador, and shows you a screenshot of their own quick profits.",
+  "answers": {
+    "A": "Sign up just to see how it works before recruiting anyone.",
+    "B": "Decline, and be cautious of any offer that pays more for recruiting people than for the product itself.",
+    "C": "Sign up and start recruiting classmates right away."
+  },
+  "scores": {
+    "A": 2,
+    "B": 4,
+    "C": 0
+  },
+  "safeActions": [
+    "B"
+  ],
+  "explanation": "A program that rewards recruiting more than it rewards the underlying product is a hallmark of pyramid and affiliate-fraud schemes, regardless of who is presenting it.",
+  "proTip": "If the real payout is recruiting people, the product is the excuse.",
+  "hackKey": "C",
+  "hackTrigger": "Comfort",
+  "tags": [
+    "university",
+    "c",
+    "investment-scam",
+    "peer-pressure"
+  ],
+  "active": true
+}

@@ -1,0 +1,33 @@
+{
+  "id": "travelsafe-tra-43",
+  "title": "Official portal: pay your entry authorisation fee",
+  "edition": "travelsafe",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Visas & entry",
+  "scenario": "A search result leads you to a professional-looking site offering to process your travel entry authorisation for a service fee well above the government's own price, before your trip.",
+  "answers": {
+    "A": "Go to the government's own official domain directly to apply at the correct price.",
+    "B": "Pay through the site since it looks official and saves time.",
+    "C": "Pay through the site, and also upload a passport photo for 'fast processing'."
+  },
+  "scores": {
+    "A": 4,
+    "B": 1,
+    "C": 0
+  },
+  "safeActions": [
+    "A"
+  ],
+  "explanation": "Unofficial sites that rank highly in search results routinely charge a large markup for a form you can file yourself, directly on the government's real domain, for less.",
+  "proTip": "Type the government domain in yourself rather than trusting a search-ad result.",
+  "hackKey": "A",
+  "hackTrigger": "Authority",
+  "tags": [
+    "travelsafe",
+    "a",
+    "visa-scam",
+    "fake-official-site"
+  ],
+  "active": true
+}

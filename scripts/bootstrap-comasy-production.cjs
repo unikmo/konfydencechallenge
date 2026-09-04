@@ -45,7 +45,7 @@ for (const relativeFile of migrationFiles) {
 }
 
 console.log("[comasy-bootstrap] CoMaSy schema ready");
-console.log("[comasy-bootstrap] synchronizing canonical 200-card scored bank + wild cards");
+console.log("[comasy-bootstrap] synchronizing canonical 240-card scored bank + wild cards");
 execFileSync(npm, ["run", "db:seed"], childOptions);
 
 console.log("[comasy-bootstrap] verifying production backend invariants");

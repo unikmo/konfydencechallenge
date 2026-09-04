@@ -42,10 +42,10 @@ export async function getBackendHealth(): Promise<BackendHealth> {
 
   const totalActiveScored = rows.length;
   const ready =
-    totalActiveScored === 200 &&
+    totalActiveScored === 240 &&
     BACKEND_EDITIONS.every((edition) => {
       const counts = editions[edition];
-      return counts.total === 40 && BACKEND_HACK_KEYS.every((key) => counts[key] === 10);
+      return counts.total === 48 && BACKEND_HACK_KEYS.every((key) => counts[key] === 12);
     });
 
   return {
@@ -54,9 +54,9 @@ export async function getBackendHealth(): Promise<BackendHealth> {
     totalActiveScored,
     editions,
     expectations: {
-      total: 200,
-      perEdition: 40,
-      perHackKey: 10,
+      total: 240,
+      perEdition: 48,
+      perHackKey: 12,
     },
   };
 }

@@ -7,7 +7,7 @@ async function main() {
 
   if (!health.ready) {
     throw new Error(
-      `Konfydence backend is not ready: expected 200 active scored scenarios, 40 per edition and 10 per H/A/C/K.`
+      `Konfydence backend is not ready: expected 240 active scored scenarios, 48 per edition and 12 per H/A/C/K.`
     );
   }
 

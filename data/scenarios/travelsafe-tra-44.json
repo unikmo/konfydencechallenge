@@ -1,0 +1,33 @@
+{
+  "id": "travelsafe-tra-44",
+  "title": "Tourist police - settle this fine, card only",
+  "edition": "travelsafe",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Border & customs",
+  "scenario": "Someone in uniform stops you on the street, claims you've broken a minor local rule, and says the fine must be paid immediately by card on a handheld device, or your passport will be held.",
+  "answers": {
+    "A": "Pay by card immediately to avoid losing your passport.",
+    "B": "Ask to see identification and a written citation, and offer to settle it at a police station instead.",
+    "C": "Hand over your passport and card together to resolve it faster."
+  },
+  "scores": {
+    "A": 1,
+    "B": 4,
+    "C": 0
+  },
+  "safeActions": [
+    "B"
+  ],
+  "explanation": "Genuine on-the-spot fines are rare and are documented with a written citation; a demand for immediate card payment with a passport threat is a well-known tourist shakedown.",
+  "proTip": "A real fine survives being paid at a station, with a receipt - a fake one doesn't.",
+  "hackKey": "A",
+  "hackTrigger": "Authority",
+  "tags": [
+    "travelsafe",
+    "a",
+    "fake-police",
+    "street-scam"
+  ],
+  "active": true
+}

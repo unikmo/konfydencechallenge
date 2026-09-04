@@ -1,0 +1,33 @@
+{
+  "id": "travelsafe-tra-46",
+  "title": "Your host recommends their cousin's driver",
+  "edition": "travelsafe",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Ground transport",
+  "scenario": "Your accommodation host warmly recommends their cousin as a private driver for the day, cash only, no app, saying it's cheaper and more reliable than booking one yourself.",
+  "answers": {
+    "A": "Book it since your host clearly trusts them.",
+    "B": "Book transport through a licensed app or your accommodation's official service instead.",
+    "C": "Book it, and pay the full day's fee upfront in cash."
+  },
+  "scores": {
+    "A": 2,
+    "B": 4,
+    "C": 0
+  },
+  "safeActions": [
+    "B"
+  ],
+  "explanation": "A warm personal recommendation removes the pricing transparency, receipts, and accountability that an app-based or licensed service provides, even when the host means well.",
+  "proTip": "Trusting your host doesn't require trusting an unlicensed driver with no receipt.",
+  "hackKey": "C",
+  "hackTrigger": "Comfort",
+  "tags": [
+    "travelsafe",
+    "c",
+    "ground-transport",
+    "off-app-driver"
+  ],
+  "active": true
+}

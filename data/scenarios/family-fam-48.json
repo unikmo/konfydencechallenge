@@ -1,0 +1,33 @@
+{
+  "id": "family-fam-48",
+  "title": "We refunded you $9,000 by mistake",
+  "edition": "family",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Banking",
+  "scenario": "After a support call about a $90 refund, your account shows a $9,000 deposit. The 'agent' stays on the line, apologizes for the error, and asks you to wire back the difference immediately before their system flags it.",
+  "answers": {
+    "A": "Wire back the difference right away to fix their mistake.",
+    "B": "Wire back more than asked, to be safe, then request the rest back later.",
+    "C": "Hang up and check your real account balance and statement later; a support agent can never make your bank account show a fake deposit."
+  },
+  "scores": {
+    "A": 1,
+    "B": 0,
+    "C": 4
+  },
+  "safeActions": [
+    "C"
+  ],
+  "explanation": "The 'accidental overpayment' is a doctored screen or a temporary hold, not real money. Once you wire funds back, the fake deposit disappears and the money you sent is gone for good.",
+  "proTip": "If a refund suddenly requires you to send money, the refund isn't real.",
+  "hackKey": "K",
+  "hackTrigger": "Kill-Switch",
+  "tags": [
+    "family",
+    "k",
+    "refund-scam",
+    "overpayment"
+  ],
+  "active": true
+}

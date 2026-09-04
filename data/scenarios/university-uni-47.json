@@ -1,0 +1,33 @@
+{
+  "id": "university-uni-47",
+  "title": "Your scholarship overpaid you - return the balance",
+  "edition": "university",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Financial aid",
+  "scenario": "Your account shows a scholarship deposit far larger than expected. An email says it was a processing error and asks you to wire back the difference today to avoid losing the scholarship entirely.",
+  "answers": {
+    "A": "Wire back the difference today to keep the scholarship.",
+    "B": "Spend some of it first, since it's already in your account.",
+    "C": "Contact the financial aid office directly to confirm the deposit before sending any money back."
+  },
+  "scores": {
+    "A": 1,
+    "B": 0,
+    "C": 4
+  },
+  "safeActions": [
+    "C"
+  ],
+  "explanation": "Scholarship overpayment scams rely on students trusting an unexpected deposit; the real fix for an aid-office error never requires you to wire money out first.",
+  "proTip": "A financial aid office fixes its own mistakes - it doesn't need you to wire money to do it.",
+  "hackKey": "K",
+  "hackTrigger": "Kill-Switch",
+  "tags": [
+    "university",
+    "k",
+    "overpayment-scam",
+    "financial-aid"
+  ],
+  "active": true
+}

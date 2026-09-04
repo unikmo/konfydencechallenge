@@ -1,0 +1,33 @@
+{
+  "id": "university-uni-43",
+  "title": "Academic misconduct panel - respond in 24 hours",
+  "edition": "university",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "University IT",
+  "scenario": "An email says a plagiarism report has been filed against you and you must log in to a portal within 24 hours to submit your defense or be marked as non-responsive.",
+  "answers": {
+    "A": "Log in through the link right away to respond in time.",
+    "B": "Check the sender's address and confirm through your official student email or advisor before clicking anything.",
+    "C": "Log in and enter your student credentials without checking the link first."
+  },
+  "scores": {
+    "A": 1,
+    "B": 4,
+    "C": 0
+  },
+  "safeActions": [
+    "B"
+  ],
+  "explanation": "Academic misconduct processes are handled through your university's own systems and known contacts, not a rushed 24-hour email with an external portal link.",
+  "proTip": "A real accusation survives you checking it through a channel you already trust.",
+  "hackKey": "A",
+  "hackTrigger": "Authority",
+  "tags": [
+    "university",
+    "a",
+    "phishing",
+    "misconduct-panic"
+  ],
+  "active": true
+}

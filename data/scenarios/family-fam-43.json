@@ -1,0 +1,33 @@
+{
+  "id": "family-fam-43",
+  "title": "A debt from 2019 - court date Monday",
+  "edition": "family",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Debt collection",
+  "scenario": "A caller says they represent a collections agency chasing an unpaid $1,240 debt from 2019. They say a court filing goes through Monday unless you settle today by card over the phone.",
+  "answers": {
+    "A": "Pay a smaller amount today to make the court filing stop.",
+    "B": "Ask for the collector's name, company, and a written notice, then verify independently before paying anything.",
+    "C": "Give your card number now to avoid the court filing."
+  },
+  "scores": {
+    "A": 1,
+    "B": 4,
+    "C": 0
+  },
+  "safeActions": [
+    "B"
+  ],
+  "explanation": "Legitimate debt collectors are required to send written validation of a debt on request, and real court processes don't resolve with a same-day card payment over the phone.",
+  "proTip": "A real debt survives a request for it in writing. A fake one doesn't.",
+  "hackKey": "A",
+  "hackTrigger": "Authority",
+  "tags": [
+    "family",
+    "a",
+    "debt-collector",
+    "fake-authority"
+  ],
+  "active": true
+}

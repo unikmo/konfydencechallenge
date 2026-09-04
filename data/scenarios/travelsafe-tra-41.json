@@ -1,0 +1,33 @@
+{
+  "id": "travelsafe-tra-41",
+  "title": "Your booking is on hold - confirm in 30 minutes",
+  "edition": "travelsafe",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Hotel bookings",
+  "scenario": "An email from a booking site says your hotel reservation is on hold and will be released in 30 minutes unless you re-enter your card details through the link provided.",
+  "answers": {
+    "A": "Log into the booking site directly through its app or a typed web address to check the reservation.",
+    "B": "Re-enter your card through the link to keep the booking.",
+    "C": "Re-enter your card, and also confirm the CVV by reply email."
+  },
+  "scores": {
+    "A": 4,
+    "B": 1,
+    "C": 0
+  },
+  "safeActions": [
+    "A"
+  ],
+  "explanation": "A real booking hold doesn't require re-entering full card details through an emailed link with a short countdown - that combination is a phishing pattern, not a booking system.",
+  "proTip": "Check a booking inside the app you booked with, not through a link that found you.",
+  "hackKey": "H",
+  "hackTrigger": "Hurry",
+  "tags": [
+    "travelsafe",
+    "h",
+    "hotel-bookings",
+    "phishing"
+  ],
+  "active": true
+}

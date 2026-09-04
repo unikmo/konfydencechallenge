@@ -1,0 +1,33 @@
+{
+  "id": "school-sch-44",
+  "title": "School office: your lunch account is overdue",
+  "edition": "school",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "School accounts",
+  "scenario": "A text that looks like it's from your school says your lunch account balance is overdue and asks you to pay through a link before your card is blocked at checkout.",
+  "answers": {
+    "A": "Pay through the link quickly so lunch isn't blocked.",
+    "B": "Forward the link to friends so they can pay too.",
+    "C": "Check the balance directly in the school's official payment app or ask the school office."
+  },
+  "scores": {
+    "A": 1,
+    "B": 0,
+    "C": 4
+  },
+  "safeActions": [
+    "C"
+  ],
+  "explanation": "School payment systems don't threaten to block your lunch by text with an outside link - a real balance issue shows up in the official app or a letter home.",
+  "proTip": "Go straight to the account you already have, not a link a text sends you.",
+  "hackKey": "A",
+  "hackTrigger": "Authority",
+  "tags": [
+    "school",
+    "a",
+    "school-impersonation",
+    "payments"
+  ],
+  "active": true
+}

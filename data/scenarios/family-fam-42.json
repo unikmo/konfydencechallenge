@@ -1,0 +1,33 @@
+{
+  "id": "family-fam-42",
+  "title": "Your car warranty expires today",
+  "edition": "family",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Insurance",
+  "scenario": "A robocall says your vehicle's extended warranty expires today and a representative can lock in your current rate if you press 1 now.",
+  "answers": {
+    "A": "Press 1 and give your VIN and payment details to lock in the rate.",
+    "B": "Hang up. If your car actually has a warranty, it's with the dealer or manufacturer, and you can check without this call.",
+    "C": "Ask the caller to send an email first, then decide later."
+  },
+  "scores": {
+    "A": 0,
+    "B": 4,
+    "C": 2
+  },
+  "safeActions": [
+    "B"
+  ],
+  "explanation": "Extended-warranty robocalls are a decades-old numbers game - they call this exact line to everyone, whether or not you own a car with an active warranty.",
+  "proTip": "A real warranty renewal doesn't need to be locked in during a cold call.",
+  "hackKey": "H",
+  "hackTrigger": "Hurry",
+  "tags": [
+    "family",
+    "h",
+    "robocall",
+    "auto-warranty"
+  ],
+  "active": true
+}

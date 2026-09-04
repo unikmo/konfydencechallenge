@@ -1,0 +1,33 @@
+{
+  "id": "workplace-wrk-43",
+  "title": "HR portal: confirm your bank details for pay",
+  "edition": "workplace",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "HR",
+  "scenario": "An email styled like your HR system says your payroll bank details need re-confirmation before this month's pay run, with a link to a form that asks for your account and routing numbers.",
+  "answers": {
+    "A": "Log into your real HR/payroll system directly instead of using the emailed link.",
+    "B": "Fill in the form, and also update it again when a follow-up email asks.",
+    "C": "Fill in the form through the link to make sure you're paid on time."
+  },
+  "scores": {
+    "A": 4,
+    "B": 0,
+    "C": 1
+  },
+  "safeActions": [
+    "A"
+  ],
+  "explanation": "Payroll bank-detail changes are one of the most common employee-targeted business email compromises, because a missed paycheck is a powerful, personal pressure point.",
+  "proTip": "Pay details are updated inside the payroll system you already use, not through an emailed form.",
+  "hackKey": "A",
+  "hackTrigger": "Authority",
+  "tags": [
+    "workplace",
+    "a",
+    "payroll-phishing",
+    "hr"
+  ],
+  "active": true
+}

@@ -1,0 +1,33 @@
+{
+  "id": "travelsafe-tra-48",
+  "title": "Your stolen phone: tap to see its location",
+  "edition": "travelsafe",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Device safety",
+  "scenario": "Hours after your phone was stolen, you get an email on another device: 'tap here to see your phone's current location,' asking you to log in to confirm it's really you.",
+  "answers": {
+    "A": "Log in through the link to try to track the phone quickly.",
+    "B": "Go directly to the official Find My / device-manager app or website instead of the emailed link.",
+    "C": "Log in through the link, and also share the passcode when it asks."
+  },
+  "scores": {
+    "A": 1,
+    "B": 4,
+    "C": 0
+  },
+  "safeActions": [
+    "B"
+  ],
+  "explanation": "After a theft, scammers send lookalike 'find your device' emails to phish the very account credentials that would let them unlock and resell the stolen phone.",
+  "proTip": "Track a stolen device through the real app you already have, not a link that emailed you first.",
+  "hackKey": "K",
+  "hackTrigger": "Kill-Switch",
+  "tags": [
+    "travelsafe",
+    "k",
+    "device-theft",
+    "phishing"
+  ],
+  "active": true
+}

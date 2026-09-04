@@ -1,0 +1,33 @@
+{
+  "id": "school-sch-48",
+  "title": "Get paid to post - just install our creator app",
+  "edition": "school",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Influencers",
+  "scenario": "A brand DM offers to pay you to post about their product, but first you need to install their 'creator app' from a link outside the app store to track your earnings.",
+  "answers": {
+    "A": "Install it, since it's just to track how much you're paid.",
+    "B": "Install it, and also share your login so they can 'verify' your account.",
+    "C": "Don't install anything outside the app store, and check whether the brand and offer are real before agreeing to anything."
+  },
+  "scores": {
+    "A": 1,
+    "B": 0,
+    "C": 4
+  },
+  "safeActions": [
+    "C"
+  ],
+  "explanation": "Real brand partnerships pay through normal platforms and never require installing an app from outside the official store just to be paid.",
+  "proTip": "A job offer that starts with installing an unknown app is the job.",
+  "hackKey": "K",
+  "hackTrigger": "Kill-Switch",
+  "tags": [
+    "school",
+    "k",
+    "influencer-scam",
+    "malicious-app"
+  ],
+  "active": true
+}

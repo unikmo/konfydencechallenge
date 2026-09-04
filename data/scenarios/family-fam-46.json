@@ -1,0 +1,33 @@
+{
+  "id": "family-fam-46",
+  "title": "Is this you in this video?",
+  "edition": "family",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Social media",
+  "scenario": "A friend messages you a link asking, 'is this you in this video??' The message came from their real account, and you weren't expecting it.",
+  "answers": {
+    "A": "Click the link since it's from someone you know.",
+    "B": "Don't click. Message your friend a different way to ask if their account was hacked.",
+    "C": "Forward it to other friends to warn them, clicking through first to check."
+  },
+  "scores": {
+    "A": 2,
+    "B": 4,
+    "C": 0
+  },
+  "safeActions": [
+    "B"
+  ],
+  "explanation": "This is one of the most common hacked-account chains on social media - a compromised friend's account sends the same curiosity-bait link to their whole list.",
+  "proTip": "A familiar sender doesn't make a surprise link safe - check with them another way first.",
+  "hackKey": "C",
+  "hackTrigger": "Comfort",
+  "tags": [
+    "family",
+    "c",
+    "hacked-account",
+    "social-media"
+  ],
+  "active": true
+}
