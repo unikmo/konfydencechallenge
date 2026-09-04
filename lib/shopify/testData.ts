@@ -41,8 +41,13 @@ export const TEST_VARIANT_IDS = {
   "CHAL-SINGLE-WORKPLACE": "gid://shopify/ProductVariant/50289752867173",
   "CHAL-UNLIMITED": "gid://shopify/ProductVariant/50289753686373",
   "CHAL-UPGRADE": "gid://shopify/ProductVariant/50289753981285",
-  // TODO: replace with the real ProductVariant GID once the Lockscreens product exists in Shopify.
-  "LOCKSCREENS-PACK": "gid://shopify/ProductVariant/47382125141484",
+  // TODO: replace with real ProductVariant GIDs once the Home/Teen Home Lockscreens
+  // subscription products exist in Shopify (not created yet -- publishing a live,
+  // sellable product needs the user's go-ahead, not just this code). Each needs a
+  // sellingPlanGroup (annual, first-cycle price $19.99, subsequent $14.99) so the
+  // Storefront cartCreate below can attach `sellingPlanId` per lib/lockscreens/personalOrderService.ts.
+  "LOCKSCREENS-HOME": "gid://shopify/ProductVariant/47382125141484",
+  "LOCKSCREENS-TEEN": "gid://shopify/ProductVariant/47382125141485",
   "KG-WALLET": "gid://shopify/ProductVariant/50268932899173",
   "KG-MAGNET": "gid://shopify/ProductVariant/50269353050469",
 } as const;
@@ -69,7 +74,8 @@ export const PRODUCTION_VARIANT_IDS = {
   "CHAL-SINGLE-WORKPLACE": process.env.SHOPIFY_VARIANT_SINGLE_WORKPLACE || TEST_VARIANT_IDS["CHAL-SINGLE-WORKPLACE"],
   "CHAL-UNLIMITED": process.env.SHOPIFY_VARIANT_UNLIMITED || TEST_VARIANT_IDS["CHAL-UNLIMITED"],
   "CHAL-UPGRADE": process.env.SHOPIFY_VARIANT_UPGRADE || TEST_VARIANT_IDS["CHAL-UPGRADE"],
-  "LOCKSCREENS-PACK": process.env.SHOPIFY_VARIANT_LOCKSCREENS || TEST_VARIANT_IDS["LOCKSCREENS-PACK"],
+  "LOCKSCREENS-HOME": process.env.SHOPIFY_VARIANT_LOCKSCREENS_HOME || TEST_VARIANT_IDS["LOCKSCREENS-HOME"],
+  "LOCKSCREENS-TEEN": process.env.SHOPIFY_VARIANT_LOCKSCREENS_TEEN || TEST_VARIANT_IDS["LOCKSCREENS-TEEN"],
   "KG-WALLET": process.env.SHOPIFY_VARIANT_WALLET || TEST_VARIANT_IDS["KG-WALLET"],
   "KG-MAGNET": process.env.SHOPIFY_VARIANT_MAGNET || TEST_VARIANT_IDS["KG-MAGNET"],
 } as const;
@@ -141,14 +147,24 @@ export const SHOPIFY_PRODUCTS = {
     note: "Only shown to users with existing SINGLE entitlement. $18 upgrade credit.",
   },
 
-  LOCKSCREENS_PACK: {
-    name: "Konfydence Lockscreens",
-    description: "Lock-screen reminder service. Home & Teen Home: $19.99 year 1, then $14.99/yr for fortnightly prompt updates.",
+  LOCKSCREENS_HOME: {
+    name: "Konfydence Lockscreens — Home",
+    description: "27 fortnightly lock-screen prompts for one phone. $19.99 year 1, then $14.99/yr.",
     price: 19.99,
-    sku: "LOCKSCREENS-PACK",
+    sku: "LOCKSCREENS-HOME",
     digital: true,
     ships: false,
-    note: "NOT WIRED YET (page routes to /contact). Needs: Shopify annual-subscription products for Home + Teen Home (Shopify Subscriptions / Recharge); Schools $2/managed computer/yr and Workplace $4/employee/yr with a $300 minimum via /contact; plus the device-onboarding flow (choose device -> prompt 1 -> fortnightly email drip via Resend).",
+    note: "App-side fulfillment is wired (webhook -> lib/lockscreens/personalOrderService.ts creates the tenant/plan and emails the phone viewer link; delivery is phone-only). NOT LIVE: the Shopify product + annual selling plan ($19.99 first cycle, $14.99 thereafter) does not exist yet in the store -- needs the user's go-ahead before creating a real sellable product, then SHOPIFY_VARIANT_LOCKSCREENS_HOME set to its variant GID and the Storefront cartCreate call updated to attach that variant's sellingPlanId.",
+  },
+
+  LOCKSCREENS_TEEN: {
+    name: "Konfydence Lockscreens — Teen Home",
+    description: "27 fortnightly lock-screen prompts for one phone, teen-specific scenarios. $19.99 year 1, then $14.99/yr.",
+    price: 19.99,
+    sku: "LOCKSCREENS-TEEN",
+    digital: true,
+    ships: false,
+    note: "Same fulfillment/status as LOCKSCREENS_HOME above, teen content track.",
   },
 
   KG_WALLET: {

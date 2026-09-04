@@ -35,6 +35,7 @@ CREATE TABLE IF NOT EXISTS "LockscreenTenant" (
 CREATE UNIQUE INDEX IF NOT EXISTS "LockscreenTenant_token_key" ON "LockscreenTenant"("token");
 CREATE UNIQUE INDEX IF NOT EXISTS "LockscreenTenant_adminToken_key" ON "LockscreenTenant"("adminToken");
 CREATE INDEX IF NOT EXISTS "LockscreenTenant_contactEmail_idx" ON "LockscreenTenant"("contactEmail");
+CREATE INDEX IF NOT EXISTS "LockscreenTenant_kind_idx" ON "LockscreenTenant"("kind");
 
 -- CreateTable
 CREATE TABLE IF NOT EXISTS "LockscreenPlan" (
@@ -57,6 +58,7 @@ ALTER TABLE "LockscreenPlan"
 CREATE TABLE IF NOT EXISTS "LockscreenOrder" (
   "id"             TEXT NOT NULL,
   "poNumber"       TEXT NOT NULL,
+  "shopifyOrderId" TEXT,
   "tenantId"       TEXT,
   "orgName"        TEXT NOT NULL,
   "contactName"    TEXT,
@@ -82,6 +84,7 @@ CREATE TABLE IF NOT EXISTS "LockscreenOrder" (
   CONSTRAINT "LockscreenOrder_pkey" PRIMARY KEY ("id")
 );
 CREATE UNIQUE INDEX IF NOT EXISTS "LockscreenOrder_poNumber_key" ON "LockscreenOrder"("poNumber");
+CREATE UNIQUE INDEX IF NOT EXISTS "LockscreenOrder_shopifyOrderId_key" ON "LockscreenOrder"("shopifyOrderId");
 CREATE INDEX IF NOT EXISTS "LockscreenOrder_contactEmail_idx" ON "LockscreenOrder"("contactEmail");
 CREATE INDEX IF NOT EXISTS "LockscreenOrder_status_idx" ON "LockscreenOrder"("status");
 ALTER TABLE "LockscreenOrder"

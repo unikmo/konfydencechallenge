@@ -3,15 +3,19 @@ import { createHmac, timingSafeEqual } from "crypto";
 import { prisma } from "@/lib/prisma";
 import { generateGiftCode } from "@/lib/gift";
 import { sendTransactionalEmail, escapeHtml } from "@/lib/email";
+import { createPersonalLockscreenTenant, revokePersonalLockscreenTenant, type PersonalTrack } from "@/lib/lockscreens/personalOrderService";
 
 type ShopifyNoteAttribute = { name?: string; value?: string };
 type ShopifyLineItem = { id?: string | number; sku?: string | null };
-type ShopifyCustomer = { email?: string | null };
+type ShopifyCustomer = { email?: string | null; first_name?: string | null; last_name?: string | null };
 type ShopifyOrder = {
   id?: string | number;
   note_attributes?: ShopifyNoteAttribute[];
   customer?: ShopifyCustomer | null;
   line_items?: ShopifyLineItem[];
+  // Present on Shopify subscription-contract billing orders (renewals);
+  // the initial checkout order does not carry this value.
+  source_name?: string | null;
 };
 type ShopifyRefund = {
   order_id?: string | number;
@@ -99,6 +103,14 @@ async function handleOrderPaid(order: ShopifyOrder) {
     return;
   }
 
+  const personalLockscreenSku = (order.line_items || [])
+    .map((li) => li.sku)
+    .find((sku): sku is string => sku === "LOCKSCREENS-HOME" || sku === "LOCKSCREENS-TEEN");
+  if (personalLockscreenSku) {
+    await handlePersonalLockscreenOrder(shopifyOrderId, personalLockscreenSku, order);
+    return;
+  }
+
   if (!kfUid && !customerEmail) {
     console.log("Order has no Konfydence user id or email, skipping", shopifyOrderId);
     return;
@@ -160,6 +172,26 @@ async function handleOrderPaid(order: ShopifyOrder) {
       shopifyOrderId,
       status: "active",
     },
+  });
+}
+
+async function handlePersonalLockscreenOrder(shopifyOrderId: string, sku: string, order: ShopifyOrder) {
+  const customerEmail = order.customer?.email;
+  if (!customerEmail) {
+    console.error("Personal lockscreens order missing customer email", shopifyOrderId);
+    return;
+  }
+  const track: PersonalTrack = sku === "LOCKSCREENS-HOME" ? "home" : "teen";
+  const nameParts = [order.customer?.first_name, order.customer?.last_name].filter(Boolean);
+  const contactName = nameParts.length ? nameParts.join(" ") : null;
+  const isRenewal = order.source_name === "subscription_contract";
+
+  await createPersonalLockscreenTenant({
+    track,
+    shopifyOrderId,
+    contactEmail: customerEmail,
+    contactName,
+    isRenewal,
   });
 }
 
@@ -254,6 +286,8 @@ async function handleRefund(refund: ShopifyRefund) {
 }
 
 async function revokeOrderEntitlement(shopifyOrderId: string) {
+  await revokePersonalLockscreenTenant(shopifyOrderId);
+
   const entitlement = await prisma.entitlement.findUnique({ where: { shopifyOrderId } });
   if (entitlement) {
     await prisma.entitlement.update({

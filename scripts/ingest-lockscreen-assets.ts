@@ -42,6 +42,7 @@ const TRACKS: Record<string, TrackDef> = {
   workplace: { format: "desktop", expectedCount: 60 },
   school: { format: "desktop", expectedCount: 60 },
   home: { format: "smartphone", expectedCount: 27 },
+  teen: { format: "smartphone", expectedCount: 27 },
 };
 
 async function ingestTrack(track: string) {

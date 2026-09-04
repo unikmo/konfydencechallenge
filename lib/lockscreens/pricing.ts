@@ -14,10 +14,17 @@
 // purchase ($19.99 first year / $14.99 renewal per the pricing page), sold
 // through Shopify, not quoted per employee/computer. Their asset libraries
 // are capped at 27 screens, fixed order, no 54/60 extended option (user
-// decision 2026-09-04) — see data/lockscreens/home-27.json. The commerce
-// layer to actually sell/deliver them (tenant+plan creation from a Shopify
-// order, phone device classes in the resolver, subscription renewal
-// billing) is a separate, not-yet-built project.
+// decision 2026-09-04) — see data/lockscreens/{home,teen}-27.json.
+//
+// App-side fulfillment is wired (2026-09-04): lib/lockscreens/personalOrderService.ts
+// creates the tenant+plan from a paid Shopify order (LOCKSCREENS-HOME /
+// LOCKSCREENS-TEEN SKUs, webhook in app/api/webhooks/shopify-purchase),
+// delivery is phone-only via /api/l/{token}/current/phone, and a fortnightly
+// digest cron (app/api/cron/lockscreens-personal-digest, vercel.json) emails
+// the customer their new screen. NOT LIVE: the actual Shopify subscription
+// products/selling plans don't exist in the store yet — that's a real,
+// sellable-product publish and needs the user's go-ahead, not just code
+// (see lib/shopify/testData.ts SHOPIFY_PRODUCTS.LOCKSCREENS_HOME/TEEN).
 export type Tier = "workplace" | "school";
 export type ScreenCount = 27 | 54 | 60;
 export type Cadence = "fortnightly" | "weekly";

@@ -8,17 +8,26 @@ export const dynamic = "force-dynamic";
 // should be showing right now for this tenant, with no scheduler/cron: the
 // current screen is a pure function of elapsed time since the plan anchor.
 //
-// Only the "desktop" device class has an ingested image today (see
-// scripts/ingest-lockscreen-assets.ts). Other device classes (notebook,
-// tablet-landscape, tablet-portrait) return 501 until those formats are
-// pulled into a real asset host.
+// Device coverage is per track, matching what's actually been ingested:
+// Workplace/School are MDM/desktop tracks (only "desktop" ingested so far;
+// notebook/tablet formats return 501 until pulled into a real asset host).
+// Home/Teen are the Personal engine and are phone-only by design (user
+// decision 2026-09-04) -- there's no MDM to push a lock-screen image to a
+// personal device, and no reason to ship desktop/notebook/tablet renders
+// nobody will use, so "phone" is the only device class those tracks ever
+// support.
 const CADENCE_MS: Record<string, number> = {
   weekly: 7 * 24 * 60 * 60 * 1000,
   fortnightly: 14 * 24 * 60 * 60 * 1000,
   monthly: 30 * 24 * 60 * 60 * 1000,
 };
 
-const SUPPORTED_DEVICES = new Set(["desktop"]);
+const SUPPORTED_DEVICES_BY_TRACK: Record<string, Set<string>> = {
+  workplace: new Set(["desktop"]),
+  school: new Set(["desktop"]),
+  home: new Set(["phone"]),
+  teen: new Set(["phone"]),
+};
 
 export async function GET(
   request: NextRequest,
@@ -35,9 +44,11 @@ export async function GET(
     return NextResponse.json({ error: "This lockscreen link is not active." }, { status: 404 });
   }
 
-  if (!SUPPORTED_DEVICES.has(device)) {
+  const supportedDevices = SUPPORTED_DEVICES_BY_TRACK[tenant.kind];
+  if (!supportedDevices || !supportedDevices.has(device)) {
+    const supportedList = supportedDevices ? [...supportedDevices].join(", ") : "none";
     return NextResponse.json(
-      { error: `Device class '${device}' is not wired to a real asset yet. Only 'desktop' is live.` },
+      { error: `Device class '${device}' is not supported for the '${tenant.kind}' track. Supported: ${supportedList}.` },
       { status: 501 }
     );
   }

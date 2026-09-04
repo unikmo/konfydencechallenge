@@ -458,7 +458,7 @@ model LockscreenAsset {
 
 model LockscreenTenant {
   id            String   @id @default(cuid())
-  kind          String                    // "workplace" (only tier wired so far)
+  kind          String                    // "workplace" | "school" | "home" | "teen"
   orgName       String
   token         String   @unique          // opaque, for the /l/{token}/current/{device} delivery resolver
   tokenStatus   String   @default("active") // pending | active | expired
@@ -473,6 +473,7 @@ model LockscreenTenant {
   orders        LockscreenOrder[]
 
   @@index([contactEmail])
+  @@index([kind])
 }
 
 model LockscreenPlan {
@@ -493,6 +494,10 @@ model LockscreenPlan {
 model LockscreenOrder {
   id             String   @id @default(cuid())
   poNumber       String   @unique
+  // Only set for Personal-engine (home/teen) orders, which come straight
+  // from a paid Shopify order rather than the B2B quote->PO flow -- used
+  // for webhook idempotency (retries) and cancellation/refund lookup.
+  shopifyOrderId String?  @unique
   tenantId       String?
   tenant         LockscreenTenant? @relation(fields: [tenantId], references: [id])
   orgName        String

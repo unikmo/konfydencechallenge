@@ -59,7 +59,7 @@ export async function POST(request: NextRequest) {
     const appUrl = process.env.NEXT_PUBLIC_APP_URL || "http://localhost:3000";
     const returnUrl = giftAttrs
       ? `${appUrl}/gift/thank-you`
-      : sku === "LOCKSCREENS-PACK"
+      : sku === "LOCKSCREENS-HOME" || sku === "LOCKSCREENS-TEEN"
         ? `${appUrl}/lockscreens/thank-you`
         : `${appUrl}/challenge/claim?edition=${sku.includes("SINGLE") ? sku.split("-").pop()?.toLowerCase() : "travelsafe"}`;
 
