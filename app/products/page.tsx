@@ -42,7 +42,7 @@ export default function ProductsPage() {
           <p className="kc-price-amount"><strong>$9.99</strong></p>
           <ul className="kc-price-list">
             <li>Makes the safer question part of the household routine</li>
-            <li>Pause. Ask. Think.</li>
+            <li>Pause. Assess. Talk.</li>
             <li>Ships as a printed magnet</li>
           </ul>
           <div className="kc-price-cta">
@@ -54,7 +54,7 @@ export default function ProductsPage() {
           <p className="kc-price-kicker">Lockscreens</p>
           <p className="kc-price-amount"><strong>Digital</strong></p>
           <ul className="kc-price-list">
-            <li>A Pause · Ask · Think reminder on the screen you check most</li>
+            <li>A Pause · Assess · Talk reminder on the screen you check most</li>
             <li>A fresh prompt every two weeks as scam patterns change</li>
             <li>For yourself, a household, a school or a team</li>
           </ul>

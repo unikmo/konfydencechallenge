@@ -6,7 +6,7 @@ import { PortfolioStrip } from "@/components/PortfolioStrip";
 export const metadata: Metadata = {
   title: { absolute: "The H.A.C.K. and P.A.T. method | Konfydence" },
   description:
-    "Two simple frameworks: H.A.C.K. (Hurry, Authority, Comfort, Kill-Switch) to spot the pressure behind a scam, and P.A.T. (Pause, Ask, Think) for what to do about it.",
+    "Two simple frameworks: H.A.C.K. (Hurry, Authority, Comfort, Kill-Switch) to spot the pressure behind a scam, and P.A.T. (Pause, Assess, Talk) for what to do about it.",
   alternates: { canonical: "/hack-method" },
 };
 
@@ -19,8 +19,8 @@ const patterns = [
 
 const pat = [
   ["Pause", "Stop before the click, payment, code or reply. Urgency is the scam's tool; a few seconds takes it away.", "Take urgency's power away."],
-  ["Ask", "Say the request out loud to someone you trust — a partner, a colleague — or call your bank on the number from your card. Not the number in the message.", "Ask someone you trust."],
-  ["Think", "With that person, ask what a scam would actually need here. If the answer is money, a code, a login or an approval, it's pressure — not proof.", "What would a scam need?"],
+  ["Assess", "Ask what this really wants from you: money, a code, a login, an approval. If that's the answer, it's pressure — not proof.", "What does it actually want?"],
+  ["Talk", "Say the request out loud to someone you trust — a partner, a colleague — or your bank on the number from your card. Never the number in the message.", "Bring another person in."],
 ];
 
 export default function HackMethodPage() {
@@ -28,7 +28,7 @@ export default function HackMethodPage() {
     <PremiumPage ctaHref="/challenge/travelsafe/start?mode=diagnostic" ctaLabel="Try a free check">
       <section className="kg-shell k-section" style={{ borderTop: 0, paddingTop: 72, maxWidth: 820 }}>
         <p className="k-kicker">The method</p>
-        <h1 className="k-display">Spot the pressure. Then Pause, Ask, Think.</h1>
+        <h1 className="k-display">Spot the pressure. Then Pause, Assess, Talk.</h1>
         <p className="k-lede">
           Konfydence runs on two small frameworks. <strong>H.A.C.K.</strong> names what a scam is doing to you.
           <strong> P.A.T.</strong> is what you do about it. You practise both until the moment feels familiar instead of frightening.
@@ -64,7 +64,7 @@ export default function HackMethodPage() {
           <div className="k-section-head">
             <div>
               <p className="k-kicker">P.A.T. — do this</p>
-              <h2 className="k-display-sm">Pause. Ask. Think.</h2>
+              <h2 className="k-display-sm">Pause. Assess. Talk.</h2>
             </div>
             <p className="k-copy">
               The same three moves work for a text, a call, an email or a knock at the door. It is deliberately short so it holds up under stress.

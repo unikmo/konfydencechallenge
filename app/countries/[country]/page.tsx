@@ -107,9 +107,9 @@ export default async function CountryPage(props: { params: Promise<{ country: st
               <p className={styles.lede}>
                 Every scam above uses one of four pressure tactics — <strong>H.A.C.K.</strong>: Hurry, Authority,
                 Comfort or Kill-Switch. You don't need to memorise a list of tricks. You need to notice the pressure and
-                run <strong>Pause · Ask · Think</strong>: stop before you pay, hand over a document or follow someone;
-                ask someone you trust, out loud, or your bank on the number from your card; then think about what the
-                request actually needs from you.
+                run <strong>Pause · Assess · Talk</strong>: stop before you pay, hand over a document or follow someone;
+                ask what the request really wants (money, a document, access); then say it out loud to someone you trust,
+                or your bank on the number from your card.
               </p>
               <Link href="/challenge/travelsafe/start?mode=diagnostic" className={styles.primaryLink}>
                 Practise it — free TravelSafe check

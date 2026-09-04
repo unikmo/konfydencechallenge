@@ -78,7 +78,7 @@ const PACKAGES: PackageItem[] = [
     key: "lockscreens",
     eyebrow: "Reminder service",
     name: "Lockscreens",
-    copy: "A Pause · Ask · Think lock screen, with a fresh prompt every two weeks as scams change.",
+    copy: "A Pause · Assess · Talk lock screen, with a fresh prompt every two weeks as scams change.",
     price: "From $19.99/yr · per-seat for teams",
     href: "/lockscreens",
     cta: "See pricing",
@@ -103,7 +103,7 @@ export function PortfolioStrip({
           <p className="k-kicker">{kicker}</p>
           <h2 id="kp-strip-title" className="k-display-sm">{heading}</h2>
           <p className="kp-strip-lede">
-            One decision habit — spot the pressure with H.A.C.K., then Pause, Ask, Think.
+            One decision habit — spot the pressure with H.A.C.K., then Pause, Assess, Talk.
             Choose the situation closest to your life, or equip a team.
           </p>
         </div>

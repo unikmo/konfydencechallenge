@@ -29,7 +29,7 @@ const familyUses = [
   },
   {
     label: "As a shared habit",
-    copy: "Everyone runs the same free check, so the whole family reaches for Pause, Ask, Think.",
+    copy: "Everyone runs the same free check, so the whole family reaches for Pause, Assess, Talk.",
   },
 ];
 
@@ -88,7 +88,7 @@ export default function TravelSafePage() {
             <article><span>01</span><h3>Choose</h3><p>Pick a short scenario that fits your world.</p></article>
             <article><span>02</span><h3>Experience</h3><p>Make a decision in a realistic situation.</p></article>
             <article><span>03</span><h3>Learn</h3><p>See what happened, why and which pressure pattern was active.</p></article>
-            <article><span>04</span><h3>Improve</h3><p>Repeat until Pause, Ask, Think is the automatic next move.</p></article>
+            <article><span>04</span><h3>Improve</h3><p>Repeat until Pause, Assess, Talk is the automatic next move.</p></article>
           </div>
         </div>
       </section>

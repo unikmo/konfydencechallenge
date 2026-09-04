@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1240" height="1754" viewBox="0 0 1240 1754" role="img" aria-labelledby="title desc">
   <title id="title">Konfydence Emergency Scam Protocol</title>
-  <desc id="desc">A printable Pause, Ask, Think response guide for urgent or threatening scam messages.</desc>
+  <desc id="desc">A printable Pause, Assess, Talk response guide for urgent or threatening scam messages.</desc>
   <rect width="1240" height="1754" fill="#f7f4ee"/>
   <rect x="54" y="54" width="1132" height="1646" rx="28" fill="#fffdf9" stroke="#ded8cf" stroke-width="4"/>
   <text x="620" y="184" text-anchor="middle" font-family="Iowan Old Style, Palatino, Georgia, serif" font-size="56" letter-spacing="2" fill="#111417">Konfydence</text>
@@ -13,14 +13,14 @@
     <text x="270" y="612" font-size="29" fill="#5e5b56">Do not reply, click, pay or share information yet.</text>
 
     <text x="150" y="847" font-family="Iowan Old Style, Palatino, Georgia, serif" font-size="72" fill="#af8752">2</text>
-    <text x="270" y="837" font-size="56" font-weight="700" letter-spacing="2" fill="#111417">ASK</text>
-    <text x="270" y="897" font-size="29" fill="#5e5b56">Say the request out loud to someone you trust,</text>
-    <text x="270" y="936" font-size="29" fill="#5e5b56">or call your bank on the number from your card.</text>
+    <text x="270" y="837" font-size="56" font-weight="700" letter-spacing="2" fill="#111417">ASSESS</text>
+    <text x="270" y="897" font-size="29" fill="#5e5b56">What does it really want — money, a code, a login,</text>
+    <text x="270" y="936" font-size="29" fill="#5e5b56">an approval? If so, it is pressure, not proof.</text>
 
     <text x="150" y="1152" font-family="Iowan Old Style, Palatino, Georgia, serif" font-size="72" fill="#af8752">3</text>
-    <text x="270" y="1142" font-size="56" font-weight="700" letter-spacing="2" fill="#111417">THINK</text>
-    <text x="270" y="1202" font-size="29" fill="#5e5b56">Together: what would a scam actually need here —</text>
-    <text x="270" y="1241" font-size="29" fill="#5e5b56">money, a code, a login, an approval?</text>
+    <text x="270" y="1142" font-size="56" font-weight="700" letter-spacing="2" fill="#111417">TALK</text>
+    <text x="270" y="1202" font-size="29" fill="#5e5b56">Say the request out loud to someone you trust,</text>
+    <text x="270" y="1241" font-size="29" fill="#5e5b56">or call your bank on the number from your card.</text>
   </g>
 
   <rect x="112" y="1360" width="1016" height="214" rx="24" fill="#12191f"/>
