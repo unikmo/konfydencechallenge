@@ -49,7 +49,7 @@ console.log("[comasy-bootstrap] CoMaSy schema ready");
 console.log("[comasy-bootstrap] synchronizing canonical 240-card scored bank + wild cards");
 execFileSync(npm, ["run", "db:seed"], childOptions);
 
-console.log("[comasy-bootstrap] synchronizing Workplace + Schools lockscreen asset libraries");
+console.log("[comasy-bootstrap] synchronizing Workplace + Schools + Home lockscreen asset libraries");
 execFileSync(npm, ["run", "db:seed:lockscreens"], childOptions);
 
 console.log("[comasy-bootstrap] verifying production backend invariants");

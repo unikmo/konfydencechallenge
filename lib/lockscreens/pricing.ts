@@ -8,6 +8,16 @@
 // architecture doc suggests). Extended-library pricing for Schools has not
 // been decided — those orders are issued at the standard rate and flagged
 // for a sales follow-up, same as weekly cadence for both tiers.
+//
+// Home/Teen Home (Personal Delivery Engine, phone-first) are NOT wired into
+// this B2B per-unit/PO pricing model at all — they're a flat-fee consumer
+// purchase ($19.99 first year / $14.99 renewal per the pricing page), sold
+// through Shopify, not quoted per employee/computer. Their asset libraries
+// are capped at 27 screens, fixed order, no 54/60 extended option (user
+// decision 2026-09-04) — see data/lockscreens/home-27.json. The commerce
+// layer to actually sell/deliver them (tenant+plan creation from a Shopify
+// order, phone device classes in the resolver, subscription renewal
+// billing) is a separate, not-yet-built project.
 export type Tier = "workplace" | "school";
 export type ScreenCount = 27 | 54 | 60;
 export type Cadence = "fortnightly" | "weekly";
