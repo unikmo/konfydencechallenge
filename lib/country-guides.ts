@@ -743,6 +743,551 @@ export const COUNTRY_GUIDES: Record<string, CountryGuide> = {
       },
     ],
   },
+
+  "united-kingdom": {
+    intro:
+      "London's tourist-area scams are mostly street games and moped phone-snatching, plus a long-running fake black-cab problem. The rigged card machine and the “charity” muggers on Oxford Street round it out.",
+    lastReviewed: "2026-09",
+    status: "published",
+    scams: [
+      {
+        name: "Three-card monte / “find the lady”",
+        how: "On Westminster Bridge, near the London Eye and along Oxford Street, a fast card or cup game runs with planted winners. You can't win, and the crowd around it includes pickpockets.",
+        hack: "H",
+        move: "Don't play and don't stop to watch. The entire setup — dealer, lookouts, “winners”, spectators — is one team.",
+      },
+      {
+        name: "Moped and bike phone snatching",
+        how: "Riders mount the pavement and grab phones from people using them near the kerb, especially around Camden, Shoreditch, Kensington and along the South Bank.",
+        hack: "K",
+        move: "Don't stand near the road holding your phone. Step back against a building to check the map, and keep it in a zipped pocket while walking.",
+      },
+      {
+        name: "Fake and unbooked minicabs",
+        how: "Cars outside stations, clubs and airports offer “taxi?” — they're uninsured, meterless and overcharge, and some are unsafe. Only black cabs pick up on the street legally.",
+        hack: "A",
+        move: "Use a black cab (hailed or ranked), or a pre-booked licensed minicab through an app. Never get in a car that approached you.",
+      },
+      {
+        name: "Oxford Street “charity” collectors",
+        how: "Aggressive collectors with tabards and clipboards or buckets pressure tourists for cash “donations” or card sign-ups; some are outright fake, others keep most of what they collect.",
+        hack: "C",
+        move: "Genuine charities don't chase or guilt you. Keep walking; give to a registered charity directly if you want to.",
+      },
+      {
+        name: "Contactless card machine held too close",
+        how: "A seller or fake collector holds a card reader against your bag or pocket to trigger a contactless payment, or overcharges then rushes you past the amount on screen.",
+        hack: "K",
+        move: "Always look at the figure on the screen before tapping. Keep cards in an RFID sleeve or away from the outside of your bag.",
+      },
+      {
+        name: "Ticket resale fraud",
+        how: "“Spare ticket” sellers outside West End theatres, football grounds and concerts sell fakes, duplicates or nothing at all after taking cash.",
+        hack: "H",
+        move: "Buy from the official box office or the venue's named resale partner. A ticket bought on the pavement is a gamble.",
+      },
+    ],
+    faqs: [
+      {
+        q: "Are black cabs in London safe?",
+        a: "Yes — licensed black cabs are the one type of vehicle allowed to pick you up off the street. Any other car offering a ride, especially at stations or airports, is unbooked and should be refused. Pre-book minicabs through an app.",
+      },
+      {
+        q: "How common is phone snatching in London?",
+        a: "Common enough that it's a recognised problem in central and east London. Thieves on mopeds or bikes grab phones from people standing near the road. Check your map with your back to a wall and pocket the phone before walking.",
+      },
+    ],
+  },
+
+  "united-states": {
+    intro:
+      "For visitors, the US risks are costumed characters demanding money in tourist squares, unlicensed “rides” at airports, aggressive timeshare and “free cruise” pitches, and toll and resort-fee surprises on the bill.",
+    lastReviewed: "2026-09",
+    status: "published",
+    scams: [
+      {
+        name: "Times Square / Hollywood costumed characters",
+        how: "People dressed as superheroes, Elmo or the Statue of Liberty pose with tourists (especially kids), then demand $20–40 per person and can get intimidating when refused.",
+        hack: "H",
+        move: "Agree a price out loud before any photo, or don't engage. If they've posed, hand over a couple of dollars total and move on.",
+      },
+      {
+        name: "Unlicensed airport “rides”",
+        how: "At JFK, LAX, Miami and Vegas, men in the arrivals hall offer a “taxi” or “town car” and charge two to four times the metered or app fare, sometimes with add-ons at the destination.",
+        hack: "A",
+        move: "Ignore anyone offering a ride indoors. Use the official taxi line or an app pickup from the marked rideshare zone.",
+      },
+      {
+        name: "“You've won a free cruise / vacation”",
+        how: "A booth, phone call or scratch-card says you've won a Bahamas cruise or resort stay; claiming it means a long timeshare presentation, booking fees, and a package worth far less than promised.",
+        hack: "C",
+        move: "You didn't enter, so you didn't win. Walk away from the booth; hang up on the call.",
+      },
+      {
+        name: "CD / mixtape hand-off",
+        how: "Someone puts a CD in your hand, asks your name, writes it on the case “as a gift”, then demands $10–20 and follows you, working in pairs near Times Square and Venice Beach.",
+        hack: "C",
+        move: "Keep your hands down and don't take it. If it's in your hand, set it down and keep walking — a “gift” with a price isn't a gift.",
+      },
+      {
+        name: "Resort fees and hidden car-rental charges",
+        how: "Hotels advertise a nightly rate then add a mandatory “resort fee” of $30–50 at check-in; rental counters push prepaid fuel, tolls transponders and insurance you may already have.",
+        hack: "A",
+        move: "Check the total with taxes and fees before booking. At the car counter, decline extras and say you'll use your own insurance and pay tolls directly.",
+      },
+      {
+        name: "Grandparent / IRS / arrest-warrant phone scams",
+        how: "Callers claim to be a grandchild in jail, the IRS, or police with a warrant, and demand payment by gift card, wire or crypto to avoid arrest. Numbers are spoofed to look official.",
+        hack: "A",
+        move: "No real agency takes gift cards. Hang up, and call the person or agency back on a number you look up yourself.",
+      },
+    ],
+    faqs: [
+      {
+        q: "Do I have to pay the costumed characters in Times Square?",
+        a: "No. They rely on people feeling obligated after a photo, especially with children. Agree a price before any photo or simply decline. If one has already posed, a couple of dollars ends it.",
+      },
+      {
+        q: "What is a resort fee?",
+        a: "A mandatory daily charge (often $30–50) that many US hotels add on top of the advertised room rate, supposedly for wifi, gym and pool. It's disclosed in the fine print — always check the all-in total before booking.",
+      },
+    ],
+  },
+
+  "united-arab-emirates": {
+    intro:
+      "Dubai and Abu Dhabi are low-crime, but the money traps are real: taxis dodging the meter, gold-souk fakes, rental-car fines that surface weeks later, and hard-sell holiday clubs in the malls.",
+    lastReviewed: "2026-09",
+    status: "published",
+    scams: [
+      {
+        name: "Taxi meter refusal and airport queue-jumping",
+        how: "Some drivers quote a flat fare instead of the meter, particularly from the airport, Dubai Mall and the Marina, or “helpers” steer you to a waiting car outside the official rank at a premium.",
+        hack: "A",
+        move: "Only take taxis from the official rank and insist on the meter (“meter, please”). Careem and Uber fix the price if you'd rather not negotiate.",
+      },
+      {
+        name: "Gold and watch “souk” fakes",
+        how: "In the Deira gold souk and around it, sellers offer “special price” gold that's underweight or low-carat, and “genuine” branded watches and bags that are counterfeit.",
+        hack: "C",
+        move: "Buy gold only from shops that weigh it in front of you and give a stamped receipt with the carat and the day's gold rate. If the price seems generous, it's the scam.",
+      },
+      {
+        name: "Rental-car fines weeks later",
+        how: "Salik toll charges, speeding fines and parking tickets are billed to the rental company and passed to your card, often with an admin fee, long after you've left the country.",
+        hack: "K",
+        move: "Photograph the odometer and fuel at pickup and drop-off, keep the contract, and check your statement for a month afterward. Query any charge without a matching fine reference.",
+      },
+      {
+        name: "Mall “holiday club” and prize scratchcards",
+        how: "Kiosks in malls hand out scratchcards that always “win” a holiday or gadget; claiming it means a 90-minute timeshare-style presentation and pressure to sign a membership that day.",
+        hack: "H",
+        move: "Don't take the scratchcard. If you're in the room, no genuine offer expires the moment you leave to think about it.",
+      },
+      {
+        name: "Creek abra and desert-safari touts",
+        how: "Unlicensed operators near Dubai Creek or outside hotels sell “private” abra crossings or desert safaris at inflated prices, sometimes with no insurance or a much shorter trip than described.",
+        hack: "C",
+        move: "Use the marked public abra stations (a crossing is 1 dirham) and book safaris through your hotel or a licensed operator with reviews.",
+      },
+    ],
+    faqs: [
+      {
+        q: "Are taxis in Dubai safe and metered?",
+        a: "Official RTA taxis are safe and metered. The issue is occasional drivers quoting a flat fare instead — insist on the meter, or use Careem or Uber. Only take taxis from official ranks, not cars that approach you.",
+      },
+      {
+        q: "Will I get fined after returning a rental car in the UAE?",
+        a: "Possibly. Salik tolls and traffic fines are billed to the rental firm and charged to your card later, sometimes with an admin fee. Keep the contract and photos, and check your statement for a few weeks after the trip.",
+      },
+    ],
+  },
+
+  japan: {
+    intro:
+      "Japan is one of the safest countries for visitors, and street scams are rare. The exception is the nightlife touts in Tokyo's Kabukicho and Roppongi, where inflated bills and, occasionally, spiked drinks are a genuine risk.",
+    lastReviewed: "2026-09",
+    status: "published",
+    scams: [
+      {
+        name: "Kabukicho / Roppongi bar touts",
+        how: "African or Japanese touts on the street invite you to a “bar” or “club” with cheap drinks and company. Inside, drinks are billed at extreme rates, cover and “seating” charges appear, and staff pressure or block you until you pay — cards are sometimes run for thousands.",
+        hack: "K",
+        move: "Never follow a street tout into a bar in Kabukicho or Roppongi. Choose your own venue with visible prices. If trapped, insist on paying only for what you ordered and, if needed, call 110 (police).",
+      },
+      {
+        name: "Drink spiking in tout bars",
+        how: "In the same nightlife areas, some establishments spike drinks so patrons run up or authorise large payments they don't remember, or wake up with money and cards gone.",
+        hack: "K",
+        move: "Only drink somewhere you chose and can see the bar. Watch your drink being made and never leave it unattended.",
+      },
+      {
+        name: "“Monk” selling bracelets or blessings",
+        how: "People dressed as Buddhist monks near tourist spots in Tokyo and Kyoto offer a bracelet or a “blessing” card and then press for a donation of several thousand yen.",
+        hack: "C",
+        move: "Real monks don't solicit on the street. Decline the item; if you've taken it, hand it back and walk.",
+      },
+      {
+        name: "Taxi long routes from stations",
+        how: "A small number of taxi drivers take a longer route from major stations or airports when they spot a tourist who doesn't know the city.",
+        hack: "C",
+        move: "Show the driver the destination on a map and glance at your own route. Trains and the fixed-fare airport limousine buses avoid it entirely.",
+      },
+    ],
+    faqs: [
+      {
+        q: "Is Japan safe for tourists?",
+        a: "Extremely. Petty crime and street scams are rare. The one real trap is the nightlife touts in Tokyo's Kabukicho and Roppongi — never follow one into a bar. Everywhere else, normal caution is more than enough.",
+      },
+      {
+        q: "What are the touts in Kabukicho?",
+        a: "Men on the street inviting you to bars or clubs with cheap-drink promises. The venues then charge extreme prices, add invented fees, and pressure or trap you into paying. Spiked drinks and forced card payments have both been reported. Pick your own bar with prices on display.",
+      },
+    ],
+  },
+
+  brazil: {
+    intro:
+      "In Rio and São Paulo the day-to-day risk for visitors is street robbery and distraction theft, not elaborate cons. Card cloning, fake police and “express kidnapping” from unbooked taxis are the ones to plan around.",
+    lastReviewed: "2026-09",
+    status: "published",
+    scams: [
+      {
+        name: "Beach and street distraction theft",
+        how: "On Copacabana and Ipanema, a group crowds you, a “vendor” blocks your view, or someone points out a stain on your clothes while a partner takes your phone or bag.",
+        hack: "C",
+        move: "Take almost nothing to the beach — a little cash, a cheap phone. If people crowd you anywhere, put a hand on your bag and move to open space.",
+      },
+      {
+        name: "Express kidnapping from unbooked taxis",
+        how: "A street-hailed or fake taxi drives you to a series of ATMs and forces withdrawals up to the daily limit over several hours, sometimes over two days to reset the limit.",
+        hack: "K",
+        move: "Only use apps (Uber, 99) or radio taxis booked by your hotel. Never flag a taxi on the street, especially at night or from the airport.",
+      },
+      {
+        name: "Card cloning and the “declined” re-swipe",
+        how: "A shop, bar or restaurant runs your card out of sight, swipes it twice claiming the first failed, or a skimmed ATM copies it for later use.",
+        hack: "K",
+        move: "Keep the card in view and insist it's tapped or inserted in front of you. Use ATMs inside bank branches in daylight, and check your statement daily.",
+      },
+      {
+        name: "Fake police document check",
+        how: "Men claiming to be police stop you, ask for your passport and wallet to “check for counterfeit notes or drugs”, and remove cash or cards during the search.",
+        hack: "A",
+        move: "Real officers won't handle your cash in the street. Offer to walk to a station, keep your wallet in your pocket, and don't hand over the original passport (carry a copy).",
+      },
+      {
+        name: "Nightlife bill inflation in Lapa",
+        how: "In Rio's Lapa, a “consumption card” system means every drink is marked on a card; lost or altered cards, and “minimum spend” claims at the door, produce a huge bill on the way out.",
+        hack: "K",
+        move: "Guard the consumption card like cash, check each drink is marked correctly, and photograph it. Ask about any minimum spend before entering.",
+      },
+    ],
+    faqs: [
+      {
+        q: "How do I avoid express kidnapping in Brazil?",
+        a: "Never hail a taxi on the street. Use Uber or 99, or a radio taxi your hotel books. Most express kidnappings start with an unbooked or fake taxi, particularly at night and from airports.",
+      },
+      {
+        q: "Is it safe to use my card in Brazil?",
+        a: "Yes, if you keep it in sight — insist on tap or chip-and-PIN in front of you, never let it be taken away, and use ATMs inside bank branches. Card cloning and double-swiping are the main risks. Check your statement every day.",
+      },
+    ],
+  },
+
+  colombia: {
+    intro:
+      "Cartagena, Medellín and Bogotá are far safer for visitors than a decade ago, but two things need planning around: unbooked taxis (robbery and “paseo millonario”) and drink or contact drugging, including scopolamine.",
+    lastReviewed: "2026-09",
+    status: "published",
+    scams: [
+      {
+        name: "Paseo millonario (unbooked-taxi robbery)",
+        how: "A street-hailed taxi picks up accomplices and drives you between ATMs forcing withdrawals, sometimes holding you overnight to reset the daily limit.",
+        hack: "K",
+        move: "Only use apps (Uber, DiDi, Cabify) or a taxi your hotel calls. Never flag one down, and share your trip with someone.",
+      },
+      {
+        name: "Scopolamine (“devil's breath”) drugging",
+        how: "A drink, a handed cigarette, a “sample” of perfume, or even a business card blown toward your face is used to dose you; victims become compliant and later can't remember handing over cash, cards and phones. Often via a friendly new acquaintance, sometimes on dating apps.",
+        hack: "C",
+        move: "Don't accept drinks, food, gum, cigarettes or anything to smell from someone you've just met. Meet dating-app matches in daylight in a public place and tell someone where you are.",
+      },
+      {
+        name: "Fake police “drug or currency check”",
+        how: "Men in plain clothes flash a badge, claim to be anti-narcotics police, and search your wallet and bag for “fake dollars”, palming cash and cards.",
+        hack: "A",
+        move: "Real police won't inspect your money in the street. Say you'll go to the station, keep your wallet, and call 123 to verify.",
+      },
+      {
+        name: "Emerald and coffee “investment”",
+        how: "In Bogotá, a friendly contact offers cheap emeralds to resell abroad, or a “direct from the farm” coffee deal requiring upfront payment. The goods are near-worthless or never arrive.",
+        hack: "C",
+        move: "There is no resale opportunity. Never buy goods to flip on someone's promise, and never prepay a stranger.",
+      },
+      {
+        name: "Currency short-change and torn notes",
+        how: "Vendors and drivers give change short, pass torn or old notes that shops won't accept, or exploit confusion between 20,000 and 50,000 peso notes.",
+        hack: "C",
+        move: "Count change before moving off, refuse damaged notes, and pay with smaller denominations where you can.",
+      },
+    ],
+    faqs: [
+      {
+        q: "What is scopolamine and how do tourists get dosed?",
+        a: "A drug that makes victims compliant and wipes their memory of the event. In Colombia it's slipped into drinks or food, handed on a cigarette, or offered as something to smell. It often comes via a friendly new acquaintance or a dating-app match. Refuse anything consumable from someone you've just met.",
+      },
+      {
+        q: "Are taxis safe in Colombia?",
+        a: "Use apps (Uber, DiDi, Cabify) or have your hotel call one. Street-hailed taxis carry a real risk of the 'paseo millonario' — being driven between ATMs and forced to withdraw cash. Booked rides remove almost all of it.",
+      },
+    ],
+  },
+
+  peru: {
+    intro:
+      "Lima and Cusco run on tourism, and the scams follow: fake taxis from the airport, “brake check” strangle-robberies in traffic, inflated Inca Trail operators, and the usual card and change tricks.",
+    lastReviewed: "2026-09",
+    status: "published",
+    scams: [
+      {
+        name: "Fake airport taxis",
+        how: "Drivers inside Lima's arrivals hall offer rides at three to five times the fair price, and a few take detours to quiet areas for robbery.",
+        hack: "A",
+        move: "Book an official airport taxi at the counters past customs (Green Taxi, Taxi Directo) or an app pickup. Don't take a car from someone who approached you.",
+      },
+      {
+        name: "“Brake check” / choke robbery in traffic",
+        how: "In slow Lima traffic, someone reaches through an open window, or an accomplice “taps” your taxi from behind so you stop, then robs you.",
+        hack: "K",
+        move: "Ride with windows up and doors locked, bag on the floor not the seat, phone away. Choose app rides over street taxis.",
+      },
+      {
+        name: "Inca Trail and Machu Picchu operator scams",
+        how: "Cheap “Inca Trail” tours sold on Cusco streets may have no permit (the trail is strictly limited), substitute a different route, or collect deposits and vanish.",
+        hack: "H",
+        move: "Book months ahead with a licensed operator listed by the Peruvian authorities. A same-week Inca Trail offer on the street is not real.",
+      },
+      {
+        name: "Currency: fake notes and the “no change” switch",
+        how: "You're given a counterfeit sol or dollar note in change, or a vendor claims no change and keeps a large note, or swaps your good note for a torn one.",
+        hack: "C",
+        move: "Check notes for the watermark and feel, carry small denominations, and count change before walking away.",
+      },
+      {
+        name: "Cusco “free” street gifts and blessings",
+        how: "Women in traditional dress pose for photos or put a baby llama in your arms, then demand payment; “healers” offer a blessing and then a price.",
+        hack: "H",
+        move: "Agree a small price before any photo, or decline. Don't let anyone hand you an animal or an item first.",
+      },
+    ],
+    faqs: [
+      {
+        q: "How do I get from Lima airport safely?",
+        a: "Book an official taxi at the licensed counters inside the terminal (past customs), or arrange an app pickup or a hotel transfer. Do not take a ride from anyone who approaches you in the arrivals hall.",
+      },
+      {
+        q: "Can I book the Inca Trail last minute?",
+        a: "No. Permits are capped and typically sell out months ahead, and only licensed operators can run it. Anyone selling an Inca Trail trek for next week on a Cusco street is offering a different route or a scam.",
+      },
+    ],
+  },
+
+  "south-africa": {
+    intro:
+      "Cape Town and Johannesburg require real situational awareness. For visitors the recurring scams are ATM card-swapping, fake “police”, and the “your tyre is flat” distraction robbery — alongside smash-and-grab at traffic lights.",
+    lastReviewed: "2026-09",
+    status: "published",
+    scams: [
+      {
+        name: "ATM “helper” card swap",
+        how: "As you use an ATM, a friendly stranger says the machine is faulty or offers to help, distracts you, and swaps your card for a similar one — draining the account with the PIN they watched you enter.",
+        hack: "C",
+        move: "Refuse all help at an ATM. If the machine keeps your card, don't leave — call your bank from the spot and cancel the card.",
+      },
+      {
+        name: "“Your tyre is flat / you're leaking oil”",
+        how: "In a car park or at a light, someone points at your car; when you get out to look, an accomplice takes bags from the vehicle. Sometimes the tyre was deflated moments earlier.",
+        hack: "H",
+        move: "Drive to a busy petrol station before inspecting anything. Keep doors locked and bags out of sight in the footwell.",
+      },
+      {
+        name: "Fake police roadblock or “document check”",
+        how: "People in partial uniform stop tourists, demand to see a passport and wallet, allege a fine, and take cash — or an accomplice robs the car during the “check”.",
+        hack: "A",
+        move: "Real roadblocks are marked and staffed by several officers. Keep windows up, ask for ID through the glass, and drive to the nearest police station if unsure.",
+      },
+      {
+        name: "Smash-and-grab at traffic lights",
+        how: "At certain intersections in Joburg and Cape Town, a window is broken and a bag or phone grabbed while you wait at a red light, especially after dark.",
+        hack: "K",
+        move: "Keep valuables in the boot or footwell, leave a car's length gap to the vehicle ahead so you can pull away, and avoid known hotspot routes at night.",
+      },
+      {
+        name: "Table Mountain / tourist-site “guides” and parking",
+        how: "Unofficial “car guards” or “guides” demand payment for parking you'd have got free, or attach themselves on a trail and ask for a fee.",
+        hack: "C",
+        move: "Tip official (bibbed, registered) car guards a few rand if you wish; ignore anyone else. Decline unrequested trail company.",
+      },
+    ],
+    faqs: [
+      {
+        q: "Are ATMs safe to use in South Africa?",
+        a: "Use ATMs inside a bank or a busy shopping centre during the day, and refuse any offer of help — the card-swap scam depends on distracting you at the machine. If your card is retained, phone the bank immediately without leaving.",
+      },
+      {
+        q: "What should I do if someone says my tyre is flat?",
+        a: "Don't stop and get out where you are. Drive to a busy, well-lit petrol station and check there. The 'flat tyre' and 'oil leak' tip-offs are a standard distraction for taking bags from the car.",
+      },
+    ],
+  },
+
+  czechia: {
+    intro:
+      "Prague's Old Town has a cluster of tourist scams: terrible-rate currency booths, taxi drivers who forget the tariff, restaurants that pad the bill, and the strip-club “drink” trap near Wenceslas Square.",
+    lastReviewed: "2026-09",
+    status: "published",
+    scams: [
+      {
+        name: "Currency-exchange booths with hidden rates",
+        how: "Booths near the Old Town Square and Charles Bridge advertise a great rate in huge numbers that turns out to be the “sell” rate or applies only above a large amount, with a fee that leaves you 20–30% down.",
+        hack: "C",
+        move: "Use an ATM from a major bank, or an exchange that shows the exact amount you'll receive before you commit. Czech law lets you cancel an exchange within a few hours — keep the receipt.",
+      },
+      {
+        name: "Taxi overcharging",
+        how: "Drivers waiting outside stations, the airport and tourist sights use a rigged meter or a flat “tourist” price several times the real fare.",
+        hack: "H",
+        move: "Use Bolt or Uber, or ask a restaurant to call a reputable firm. The airport-to-centre fare is roughly 600–800 CZK; anything near 1,500 is a rip-off.",
+      },
+      {
+        name: "Restaurant bill padding",
+        how: "Old Town restaurants add unrequested bread and “couvert”, charge for tap water as if bottled, apply a “tourist menu” price, or add a large tip line already filled in.",
+        hack: "C",
+        move: "Check the menu prices, refuse anything you didn't order, and review the bill line by line before paying. A service charge, if any, must be shown.",
+      },
+      {
+        name: "Strip-club / “nice bar” drink trap",
+        how: "Men near Wenceslas Square and Old Town hand out flyers or invite you to a bar or club; drinks for you and the “hostess” are billed at absurd rates and security blocks the door until you pay.",
+        hack: "K",
+        move: "Bin the flyer, decline the invitation. If you're inside, pay only for your own drinks, photograph the menu, and leave toward a main street.",
+      },
+      {
+        name: "Charles Bridge shell game and “police”",
+        how: "A three-cup game runs with planted winners and pickpockets in the crowd; separately, fake “police” ask tourists for ID and check wallets for “counterfeit notes”.",
+        hack: "H",
+        move: "Never watch or play the game. For an ID check, ask for a uniformed officer and offer to walk to a station; keep your wallet pocketed.",
+      },
+    ],
+    faqs: [
+      {
+        q: "Where should I change money in Prague?",
+        a: "At a bank ATM, or an exchange office that shows the exact koruna amount you'll receive before you agree. Avoid the booths near the Old Town Square and Charles Bridge — their headline rates are misleading. By law you can reverse an exchange within a few hours if you keep the receipt.",
+      },
+      {
+        q: "How much is a taxi from Prague airport to the centre?",
+        a: "Roughly 600–800 CZK in a reputable taxi, or less with Bolt or Uber. Drivers quoting 1,200–1,500+ are overcharging. Book an app or ask your hotel to arrange a car.",
+      },
+    ],
+  },
+
+  netherlands: {
+    intro:
+      "Amsterdam's scams are low-stakes: fake drugs sold on the street, bike-rental damage claims, and pickpockets in the crowds around the centre and on trams. Violent crime against tourists is rare.",
+    lastReviewed: "2026-09",
+    status: "published",
+    scams: [
+      {
+        name: "Fake “cocaine” and pills on the street",
+        how: "Dealers around the Red Light District and Leidseplein sell white powder or pills that are fake (or dangerous research chemicals). It's a rip-off, and buying is an offence.",
+        hack: "K",
+        move: "Ignore street offers entirely. The product is not what's claimed.",
+      },
+      {
+        name: "Bike-rental damage and lock scams",
+        how: "A rental shop charges a heavy fee for “damage” or a “stolen” bike on return, or provides a weak lock so the bike is easily taken and you're billed.",
+        hack: "K",
+        move: "Photograph the bike and both locks before riding. Always use both locks through the frame to a fixed object, and keep the rental agreement.",
+      },
+      {
+        name: "Pickpockets on trams and in Dam Square crowds",
+        how: "Teams work tram 2 and 5, Centraal Station, and dense crowds around Dam Square and the flower market, one bumping, one lifting.",
+        hack: "C",
+        move: "Bag zipped and in front, phone in a front pocket. Be most alert boarding trams and in any sudden press of people.",
+      },
+      {
+        name: "“Friendly” photo helper",
+        how: "Someone offers to take your photo in front of a canal or the I-amsterdam sign area and walks off with the phone, or a partner lifts your bag while you pose.",
+        hack: "C",
+        move: "Ask another obvious tourist, or use a short tripod. Keep your bag on your body while posing.",
+      },
+      {
+        name: "Restaurant and “coffeeshop” overcharging",
+        how: "A few tourist-strip venues run a “tourist” menu, add service that isn't standard in the Netherlands, or sell low-grade product at premium prices.",
+        hack: "C",
+        move: "Check prices before ordering; tipping is modest here and service is usually included. Reputable coffeeshops display a menu with weights and prices.",
+      },
+    ],
+    faqs: [
+      {
+        q: "Is Amsterdam safe for tourists?",
+        a: "Yes. Violent crime against visitors is uncommon. The realistic risks are pickpocketing in the busy central area and on trams, fake drugs sold on the street, and bike-rental disputes — all low-stakes and avoidable.",
+      },
+      {
+        q: "How do I avoid a bike-rental dispute in Amsterdam?",
+        a: "Photograph the bike and its locks before you ride off, use both supplied locks through the frame to something fixed every time you park, and keep the rental agreement. Damage and 'theft' fees are the main rental complaint.",
+      },
+    ],
+  },
+
+  argentina: {
+    intro:
+      "In Buenos Aires the classic scams are the mustard (or ketchup) distraction, counterfeit notes in change or from unofficial money changers, and taxis that take long routes or switch your note.",
+    lastReviewed: "2026-09",
+    status: "published",
+    scams: [
+      {
+        name: "The mustard / bird-mess distraction",
+        how: "A substance is squirted or dropped on your back or shoulder; a helpful passer-by appears with tissues to clean you up, and while you're distracted your bag, phone or wallet is taken.",
+        hack: "C",
+        move: "If something lands on you, don't stop and don't let anyone “help”. Hold your bag, walk to a shop or café, and clean up there.",
+      },
+      {
+        name: "Counterfeit pesos in change and from “arbolitos”",
+        how: "Street money changers (“arbolitos”) offering the blue-dollar rate, and some shops and taxis, pass fake 1,000 and 2,000 peso notes in change.",
+        hack: "C",
+        move: "Change money at a bank or an established casa de cambio. Learn the security features of the big notes, and check change under a light before moving off.",
+      },
+      {
+        name: "Taxi note-switch and long routes",
+        how: "You pay with a 2,000 peso note; the driver palms it and shows a 200, claiming you underpaid. Or the meter is on the wrong tariff, or the route loops.",
+        hack: "H",
+        move: "State the note's value out loud as you hand it over. Use the Cabify or Uber app, or radio taxis, and watch your route on a map.",
+      },
+      {
+        name: "“Flat tyre” at a stop light",
+        how: "Someone points at your car or taxi tyre; when the driver or you step out, an accomplice takes bags from inside.",
+        hack: "H",
+        move: "Don't stop where you are. Continue to a petrol station and check there, doors locked.",
+      },
+      {
+        name: "Fake police document check",
+        how: "Plain-clothes “officers” ask for your passport and wallet to check for fake dollars or drugs, removing cash during the search.",
+        hack: "A",
+        move: "Real police don't inspect your cash in the street. Offer to go to a station, keep your wallet, and carry a passport copy rather than the original.",
+      },
+    ],
+    faqs: [
+      {
+        q: "Should I use street money changers in Buenos Aires?",
+        a: "They offer a better rate, but counterfeit notes are a real risk. If you do use one, only via a trusted recommendation, count and check every note, and never in a quiet street. Banks and established casas de cambio are safer.",
+      },
+      {
+        q: "What is the mustard scam?",
+        a: "Someone covertly squirts a sauce or fake bird-mess onto you, then a 'kind stranger' offers to help clean it while an accomplice steals your bag. If anything lands on you in a tourist area, keep moving and don't accept help.",
+      },
+    ],
+  },
 };
 
 export function getPublishedCountrySlugs(): string[] {
