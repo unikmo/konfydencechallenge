@@ -116,9 +116,9 @@ async function main() {
   }
 
   const validBank =
-    bankRows.length === 200 &&
+    bankRows.length === 240 &&
     EDITIONS.every((edition) =>
-      counts[edition].total === 40 && HACK_KEYS.every((key) => counts[edition][key] === 10)
+      counts[edition].total === 48 && HACK_KEYS.every((key) => counts[edition][key] === 12)
     );
 
   console.log("Scenario files imported:", imported);
@@ -126,7 +126,7 @@ async function main() {
 
   if (!validBank) {
     throw new Error(
-      "Scenario bank validation failed: expected 200 active scored cards, 40 per edition and 10 per H/A/C/K."
+      "Scenario bank validation failed: expected 240 active scored cards, 48 per edition and 12 per H/A/C/K."
     );
   }
 
