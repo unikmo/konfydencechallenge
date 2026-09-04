@@ -110,6 +110,15 @@ export default async function LockscreenPurchaseOrderPage({ params }: { params: 
                 <td style={{ textAlign: "right", padding: "12px 0" }}>{formatUsd(order.annualTotal - rawTotal)}</td>
               </tr>
             ) : null}
+            {order.overrideAnnualTotal != null ? (
+              <tr style={{ borderBottom: "1px solid rgba(17,20,23,.08)" }}>
+                <td style={{ padding: "12px 0" }} colSpan={3}>
+                  Negotiated pricing adjustment
+                  <div style={{ fontSize: 12, color: "#66645f" }}>Agreed rate for this licence</div>
+                </td>
+                <td style={{ textAlign: "right", padding: "12px 0" }}>{formatUsd(order.overrideAnnualTotal - order.annualTotal)}</td>
+              </tr>
+            ) : null}
           </tbody>
         </table>
 
@@ -117,7 +126,7 @@ export default async function LockscreenPurchaseOrderPage({ params }: { params: 
           <div style={{ minWidth: 220 }}>
             <div style={{ display: "flex", justifyContent: "space-between", fontSize: 20, fontWeight: 700, borderTop: "2px solid #111417", paddingTop: 10 }}>
               <span>Total / year</span>
-              <span>{formatUsd(order.annualTotal)}</span>
+              <span>{formatUsd(order.overrideAnnualTotal ?? order.annualTotal)}</span>
             </div>
           </div>
         </div>

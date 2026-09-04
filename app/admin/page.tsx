@@ -49,7 +49,7 @@ export default async function AdminPage({searchParams}:{searchParams:Promise<{vi
   const orgMetrics=await Promise.all(orgs.slice(0,50).map(async o=>({org:o,metrics:await getOrganizationMetrics(o.id)})));
 
   return <main className="os">
-    <aside className="side"><Link href="/" className="brand"><span>K</span><b>Konfydence OS</b></Link><p>Business operating system</p><nav>{nav.map(([k,label])=><Link key={k} href={`/admin?view=${k}`} className={view===k?"active":""}>{label}</Link>)}</nav></aside>
+    <aside className="side"><Link href="/" className="brand"><span>K</span><b>Konfydence OS</b></Link><p>Business operating system</p><nav>{nav.map(([k,label])=><Link key={k} href={`/admin?view=${k}`} className={view===k?"active":""}>{label}</Link>)}<Link href="/admin/lockscreens/orders">Lockscreens · Orders</Link></nav></aside>
     <section className="main"><header><div><p>KONFYDENCE / INTERNAL</p><h1>{nav.find(([k])=>k===view)?.[1]}</h1></div><span className="secure">INTERNAL · AUTHENTICATED</span></header>
 
     {view==="overview"&&<>

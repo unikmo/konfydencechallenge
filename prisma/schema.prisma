@@ -504,11 +504,19 @@ model LockscreenOrder {
   baseRatePerHead    Float               // $4.00 base rate at time of order
   surchargePerHead   Float @default(0)   // extended-library add-on ($1/head for 54/60 screens)
   ratePerHead    Float                   // baseRatePerHead + surchargePerHead
-  annualTotal    Float                   // max(employeeCount * ratePerHead, minimumAnnual)
+  annualTotal    Float                   // max(employeeCount * ratePerHead, minimumAnnual), unless overridden below
   minimumApplied Boolean  @default(false)
   currency       String   @default("USD")
   status         String   @default("quote_issued") // quote_issued | confirmed | cancelled
   notes          String?
+  // Negotiated pricing: set only from the internal /admin tool (Basic-Auth
+  // gated). When present, this replaces annualTotal as the billed figure on
+  // the PO and admin dashboard — the calculated rate stays on record as the
+  // list-price baseline.
+  overrideAnnualTotal Float?
+  overrideReason      String?
+  overriddenBy        String?
+  overriddenAt        DateTime?
   createdAt      DateTime @default(now())
 
   @@index([contactEmail])

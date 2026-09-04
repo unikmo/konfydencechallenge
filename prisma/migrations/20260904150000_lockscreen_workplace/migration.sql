@@ -72,6 +72,10 @@ CREATE TABLE IF NOT EXISTS "LockscreenOrder" (
   "currency"       TEXT NOT NULL DEFAULT 'USD',
   "status"         TEXT NOT NULL DEFAULT 'quote_issued',
   "notes"          TEXT,
+  "overrideAnnualTotal" DOUBLE PRECISION,
+  "overrideReason"      TEXT,
+  "overriddenBy"        TEXT,
+  "overriddenAt"        TIMESTAMP(3),
   "createdAt"      TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
   CONSTRAINT "LockscreenOrder_pkey" PRIMARY KEY ("id")
 );
