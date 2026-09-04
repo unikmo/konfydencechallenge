@@ -90,13 +90,13 @@ export default async function CountryPage(props: { params: Promise<{ country: st
               <h2>The scams you'll actually run into</h2>
               <ol className={styles.scamList}>
                 {guide.scams.map((scam) => (
-                  <li key={scam.name} className={styles.scamCard}>
+                  <li key={scam.name} className={`${styles.scamCard} ${styles[`hack${scam.hack}`]}`}>
                     <h3>{scam.name}</h3>
                     <p className={styles.scamHow}>{scam.how}</p>
                     <div className={styles.scamMeta}>
                       <span className={styles.hackChip}>H.A.C.K. · {HACK_LABEL[scam.hack]}</span>
                     </div>
-                    <p className={styles.scamMove}><strong>The move:</strong> {scam.move}</p>
+                    <p className={styles.scamMove}><strong>The move —</strong> {scam.move}</p>
                   </li>
                 ))}
               </ol>

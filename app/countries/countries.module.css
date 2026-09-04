@@ -164,14 +164,30 @@
 .lede { font-size: 16px; line-height: 1.7; color: var(--k-muted); max-width: 720px; }
 .section .primaryLink { margin-top: 20px; }
 
-.scamList { list-style: none; margin: 0; padding: 0; display: grid; gap: 14px; }
-.scamCard { background: var(--k-white); border: 1px solid var(--k-line); border-radius: 16px; padding: 24px; }
+.scamList { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.scamCard { background: var(--k-white); border: 1px solid var(--k-line); border-radius: 16px; padding: 24px; border-top: 3px solid var(--k-line); display: flex; flex-direction: column; }
 .scamCard h3 { font-family: var(--k-display); font-weight: 400; font-size: 21px; letter-spacing: -.02em; margin: 0 0 10px; }
-.scamHow { font-size: 14px; line-height: 1.65; color: var(--k-muted); margin: 0; }
+.scamHow { font-size: 14px; line-height: 1.65; color: var(--k-muted); margin: 0; flex: 1; }
 .scamMeta { margin: 14px 0 12px; }
-.hackChip { display: inline-block; font-size: 10px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--k-gold); border: 1px solid var(--k-line); border-radius: 999px; padding: 5px 10px; }
+.hackChip { display: inline-block; font-size: 10px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; border-radius: 999px; padding: 5px 10px; }
 .scamMove { font-size: 14px; line-height: 1.6; color: var(--k-ink); margin: 0; padding-top: 12px; border-top: 1px solid var(--k-line); }
-.scamMove strong { color: var(--k-gold); }
+.scamMove strong { text-transform: uppercase; letter-spacing: .06em; font-size: 11px; }
+
+/* Tint each scam box by the H.A.C.K. pressure pattern it uses. */
+.hackH { border-top-color: #b4552f; background: #faf1eb; }
+.hackH .hackChip { background: #f1ddd0; color: #8f3f1f; }
+.hackH .scamMove strong { color: #8f3f1f; }
+.hackA { border-top-color: #3f5c74; background: #eef2f5; }
+.hackA .hackChip { background: #dde6ec; color: #33506a; }
+.hackA .scamMove strong { color: #33506a; }
+.hackC { border-top-color: #5c7a4f; background: #eef3ea; }
+.hackC .hackChip { background: #dde8d5; color: #47623c; }
+.hackC .scamMove strong { color: #47623c; }
+.hackK { border-top-color: #a87d2e; background: #f7f0e1; }
+.hackK .hackChip { background: #ece0c6; color: #7f5c1c; }
+.hackK .scamMove strong { color: #7f5c1c; }
+
+@media (max-width: 720px) { .scamList { grid-template-columns: 1fr; } }
 
 .faqList { display: grid; gap: 10px; max-width: 760px; }
 .faqItem { border: 1px solid var(--k-line); border-radius: 14px; background: var(--k-white); padding: 4px 20px; }
