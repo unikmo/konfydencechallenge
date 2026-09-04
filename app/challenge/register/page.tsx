@@ -16,8 +16,8 @@ export default async function RegisterForReplayPage(
         <p className="k-kicker" style={{ marginTop: 22 }}>One more free round</p>
         <h1>Keep practising without losing your progress.</h1>
         <p>
-          Enter your email to unlock one additional 8-scenario readiness check. Free access covers two rounds;
-          the full 24-scenario challenge is available whenever you are ready.
+          Enter your email to unlock one more free readiness check. Free access covers two rounds;
+          the full challenge is available whenever you are ready.
         </p>
         {error === "already-used" ? (
           <p className="kg-reg-error" role="alert">

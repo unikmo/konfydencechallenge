@@ -63,10 +63,10 @@ export default function ChallengeLanding() {
           Scams do not test what you know. <span style={{ color: "var(--k-gold)" }}>They test what you do under pressure.</span>
         </h1>
         <p className="k-lede">
-          Choose the version closest to your real life. You will face 8 decisions — two for each H.A.C.K. pressure pattern — and get a personal readiness profile at the end.
+          Choose the version closest to your real life. You will face a short run of decisions — balanced across the four H.A.C.K. pressure patterns — and get a personal readiness profile at the end.
         </p>
         <div className="kg-promise">
-          <span>8 scenarios</span><span>About 4 minutes</span><span>No account for round one</span><span>Immediate H.A.C.K. profile</span>
+          <span>Quick scored check</span><span>About 4 minutes</span><span>No account for round one</span><span>Immediate H.A.C.K. profile</span>
         </div>
       </section>
 
@@ -77,7 +77,7 @@ export default function ChallengeLanding() {
             <h2 id="choose-edition" className="k-display-sm">Where are you most likely to be targeted?</h2>
           </div>
           <p className="k-copy">
-            Each edition draws from its own 40-scenario bank. The free check is deliberately balanced across Hurry, Authority, Comfort and Kill-Switch; the full challenge runs 24 scored scenarios, six per pattern.
+            Each edition has 40+ real-life scenarios — balanced across Hurry, Authority, Comfort and Kill-Switch, and added to regularly. The free check samples the set; the full challenge plays through the rest in short rounds.
           </p>
         </div>
         <div className="kg-edition-grid">

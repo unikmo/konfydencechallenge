@@ -31,8 +31,8 @@ Playable scored scenarios have **exactly three choices: A/B/C**. There is no pla
 
 Session sizes:
 
-- Free Readiness Check: **8 scenarios** — 2 each H/A/C/K
-- Full Challenge: **24 scenarios** — 6 each H/A/C/K
+- Free Readiness Check: short run, 2 each H/A/C/K (internal: 8 cards)
+- Full Challenge: short rounds, 3 each H/A/C/K per round (internal: 12 cards), whole 40+ bank before repeat
 
 Selection is unseen-first while retaining H/A/C/K balance.
 
@@ -101,7 +101,7 @@ Expected production behavior:
 - exactly A/B/C choices
 - no D choice
 - current scenario bank
-- full challenge uses 24 scenarios
+- full challenge is played in short balanced rounds over the whole 40+ bank
 
 Legacy in-progress sessions created under obsolete card counts are redirected into a fresh current-format session.
 

@@ -15,8 +15,9 @@ export function clampTo0to4(score: number): number {
 
 /**
  * KRS labels are percentage-based so session length can evolve without silently
- * changing the meaning of the score. The free check is 8 cards / 32 points;
- * the full run is 24 cards / 96 points.
+ * changing the meaning of the score. The free check maxes out at 32 points;
+ * a full round is larger. Diagnostic detection keys off the 32-point ceiling,
+ * so round size can change without touching this.
  */
 export function computeKRSLevel(params: { totalScoreTotal: number; totalScoreMax: number }): string {
   const pct = computePercent({ total: params.totalScoreTotal, max: params.totalScoreMax });

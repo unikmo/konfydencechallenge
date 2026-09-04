@@ -12,7 +12,7 @@ Konfydence ships five challenge editions:
 - **Workplace** — invoices, payroll, executive impersonation, phishing and sensitive-data requests.
 - **TravelSafe** — flights, refunds, hotels, taxis, QR codes, Wi-Fi, payments, documents and travel pressure.
 
-Each edition has a **40-scenario source bank** balanced across the H.A.C.K. pressure framework:
+Each edition has a source bank of **40+ scored scenarios** (added to regularly) balanced across the H.A.C.K. pressure framework:
 
 - **H — Hurry**: urgency, deadlines, scarcity or fear of missing out.
 - **A — Authority**: official-looking requests, status, titles, uniforms or institutional pressure.
@@ -21,8 +21,9 @@ Each edition has a **40-scenario source bank** balanced across the H.A.C.K. pres
 
 ### Session structure
 
-- **Free readiness check:** 8 scored scenarios — 2 each from H/A/C/K.
-- **Full challenge:** 24 scored scenarios — 6 each from H/A/C/K.
+- **Free readiness check:** a short scored run, balanced 2 each across H/A/C/K (internal: 8 cards).
+- **Full challenge:** played in short balanced rounds, 3 each across H/A/C/K per round (internal: 12 cards), working through the whole 40+ bank before repeating.
+- Round size is game design and is deliberately kept out of product copy — see `scripts/validate-product-claims.cjs`.
 - Session generation prioritizes unseen cards while preserving pressure-pattern balance.
 - Every scored scenario has exactly three plausible actions with one unique strongest move.
 - Results show a Konfydence Readiness Score and a separate H.A.C.K. vulnerability profile so an overall percentage cannot hide a repeatable weak pattern.

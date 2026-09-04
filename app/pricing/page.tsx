@@ -87,7 +87,7 @@ function PricingContent() {
           kicker="Free readiness check"
           price="Free"
           includes={[
-            "8 scored scenarios, 2 per H.A.C.K. pattern",
+            "A quick scored check, balanced across the pressure patterns",
             "Konfydence Readiness Score",
             "Your weakest pressure pattern",
             "Feedback and a rule after every decision",
@@ -101,11 +101,10 @@ function PricingContent() {
           price="$6.99"
           sub="one edition"
           includes={[
-            "24 scored scenarios from a 40-scenario bank",
-            "6 each across Hurry, Authority, Comfort, Kill-Switch",
-            "Full readiness dashboard + H.A.C.K. profile",
+            "40+ real-life scenarios, added to regularly",
+            "Played in short rounds — new scenarios each time",
+            "Full readiness dashboard + pressure profile",
             "Completion certificate",
-            "Replays prioritise unseen scenarios",
           ]}
         >
           {selectedEdition ? (
@@ -134,8 +133,8 @@ function PricingContent() {
           featured
           includes={[
             "All 5 challenge editions",
-            "Every 40-scenario bank — 200 scored scenarios",
-            "Unlimited balanced replays",
+            "200+ real-life scenarios in total",
+            "Unlimited rounds, new scenarios each time",
             "Dashboards and certificates for each",
             "Best value",
           ]}

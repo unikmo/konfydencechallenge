@@ -82,7 +82,7 @@ export const PRODUCTION_VARIANT_IDS = {
 export const SHOPIFY_PRODUCTS = {
   CHAL_SINGLE: {
     name: "Konfydence Challenge — Single Edition",
-    description: "Choose one scenario deck (5-question diagnostic free, 24-scenario full $6.99)",
+    description: "Choose one scenario deck (quick check free, full challenge $6.99 — 40+ scenarios per edition)",
     variants: {
       SCHOOL: {
         label: "School Edition",

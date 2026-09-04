@@ -47,7 +47,7 @@ describe("computeKRSLevel", () => {
     expect(computeKRSLevel({ totalScoreTotal: 12, totalScoreMax: 32 })).toBe("Needs Practice");
   });
 
-  test("uses the 24-card / 96-point full-run bands", () => {
+  test("uses the full-run bands whenever the max exceeds the 32-point free-check ceiling", () => {
     expect(computeKRSLevel({ totalScoreTotal: 87, totalScoreMax: 96 })).toBe("Scam-Strong");
     expect(computeKRSLevel({ totalScoreTotal: 72, totalScoreMax: 96 })).toBe("On Track");
     expect(computeKRSLevel({ totalScoreTotal: 52, totalScoreMax: 96 })).toBe("Needs Practice");
