@@ -140,12 +140,12 @@ export const SHOPIFY_PRODUCTS = {
 
   LOCKSCREENS_PACK: {
     name: "Konfydence Lockscreens",
-    description: "Phone and desktop wallpapers with the Pause · Think · Call reminder",
+    description: "Lock-screen reminder service. Home & Teen Home: $19.99 year 1, then $14.99/yr for fortnightly prompt updates.",
     price: 19.99,
     sku: "LOCKSCREENS-PACK",
     digital: true,
     ships: false,
-    note: "Individual pack $19.99 one-time. Schools and organisations are priced per seat via /contact, not through this SKU. Attach the wallpaper files to the Shopify product so purchasers receive them by email.",
+    note: "NOT WIRED YET (page routes to /contact). Needs: Shopify annual-subscription products for Home + Teen Home (Shopify Subscriptions / Recharge); Schools $2/managed computer/yr and Workplace $4/employee/yr with a $300 minimum via /contact; plus the device-onboarding flow (choose device -> prompt 1 -> fortnightly email drip via Resend).",
   },
 
   KG_WALLET: {

@@ -76,12 +76,12 @@ const PACKAGES: PackageItem[] = [
   },
   {
     key: "lockscreens",
-    eyebrow: "Reminder",
+    eyebrow: "Reminder service",
     name: "Lockscreens",
-    copy: "Phone and desktop wallpapers that keep Pause · Think · Call in view all day.",
-    price: "$19.99 · per-seat for teams",
+    copy: "A Pause · Think · Call lock screen, with a fresh prompt every two weeks as scams change.",
+    price: "From $19.99/yr · per-seat for teams",
     href: "/lockscreens",
-    cta: "Get the pack",
+    cta: "See pricing",
   },
 ];
 
