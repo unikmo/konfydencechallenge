@@ -1,15 +1,29 @@
-import Image from "next/image";
-import { COUNTRY_IMAGE_ASSETS } from "@/lib/country-image-assets";
 import styles from "./countries.module.css";
 
-export default function CountryLandmarkImage({ countryName, landmark, slug }: { countryName: string; landmark: string; slug: string }) {
-  const imageUrl = (COUNTRY_IMAGE_ASSETS as Record<string, string>)[slug] ?? "/country-landmarks/generated/north-america.png";
+/**
+ * The generated landmark image set is unreliable — several countries render the
+ * wrong landmark (e.g. Thailand showed the Great Wall of China). Until each
+ * asset is individually verified, show a clean typographic panel instead of a
+ * possibly-wrong photo. To restore a photo for a verified country, branch on its
+ * slug here and render next/image from lib/country-image-assets.
+ */
+export default function CountryLandmarkImage({
+  countryName,
+  landmark,
+}: {
+  countryName: string;
+  landmark: string;
+  slug?: string;
+}) {
   return (
     <figure className={styles.landmarkFigure}>
       <div className={styles.landmarkFrame}>
-        <Image className={styles.landmarkImage} src={imageUrl} alt={`${landmark}, a landmark associated with ${countryName}`} width={1200} height={720} sizes="(max-width: 900px) 100vw, 760px" priority />
+        <div className={styles.landmarkFallback}>
+          <span>Country scam alert</span>
+          <strong>{countryName}</strong>
+        </div>
       </div>
-      <figcaption>Local landmark image for {countryName}. Landmark identity: {landmark}.</figcaption>
+      <figcaption>Landmark reference: {landmark}.</figcaption>
     </figure>
   );
 }
