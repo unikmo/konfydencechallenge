@@ -157,3 +157,31 @@
 @media (max-width: 480px) {
   .countryGrid { grid-template-columns: 1fr; }
 }
+
+/* --- Country scam guide (SEO content) --- */
+.section { padding: 40px 0 8px; }
+.section > h2 { font-family: var(--k-display); font-weight: 400; font-size: clamp(24px, 3vw, 34px); letter-spacing: -.03em; margin: 0 0 18px; }
+.lede { font-size: 16px; line-height: 1.7; color: var(--k-muted); max-width: 720px; }
+.section .primaryLink { margin-top: 20px; }
+
+.scamList { list-style: none; margin: 0; padding: 0; display: grid; gap: 14px; }
+.scamCard { background: var(--k-white); border: 1px solid var(--k-line); border-radius: 16px; padding: 24px; }
+.scamCard h3 { font-family: var(--k-display); font-weight: 400; font-size: 21px; letter-spacing: -.02em; margin: 0 0 10px; }
+.scamHow { font-size: 14px; line-height: 1.65; color: var(--k-muted); margin: 0; }
+.scamMeta { margin: 14px 0 12px; }
+.hackChip { display: inline-block; font-size: 10px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--k-gold); border: 1px solid var(--k-line); border-radius: 999px; padding: 5px 10px; }
+.scamMove { font-size: 14px; line-height: 1.6; color: var(--k-ink); margin: 0; padding-top: 12px; border-top: 1px solid var(--k-line); }
+.scamMove strong { color: var(--k-gold); }
+
+.faqList { display: grid; gap: 10px; max-width: 760px; }
+.faqItem { border: 1px solid var(--k-line); border-radius: 14px; background: var(--k-white); padding: 4px 20px; }
+.faqItem summary { cursor: pointer; font-family: var(--k-display); font-weight: 400; font-size: 17px; padding: 16px 0; list-style: none; }
+.faqItem summary::-webkit-details-marker { display: none; }
+.faqItem[open] summary { border-bottom: 1px solid var(--k-line); }
+.faqItem p { font-size: 14px; line-height: 1.65; color: var(--k-muted); margin: 14px 0 16px; }
+
+.nearbyGrid { display: flex; flex-wrap: wrap; gap: 10px 22px; }
+.nearbyGrid a { color: var(--k-ink); font-weight: 600; font-size: 14px; text-decoration: none; }
+.nearbyGrid a:hover { color: var(--k-gold); }
+
+.reviewedNote { font-size: 12px; color: var(--k-soft); margin: 32px 0 0; }
