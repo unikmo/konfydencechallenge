@@ -28,6 +28,7 @@ const migrationFiles = [
   "prisma/migrations/20260822101500_comasy_tenant_guard/migration.sql",
   "prisma/migrations/20260822103000_comasy_tenant_guard_search_path/migration.sql",
   "prisma/migrations/20260822103100_comasy_covering_indexes/migration.sql",
+  "prisma/migrations/20260904150000_lockscreen_workplace/migration.sql",
 ];
 
 const npx = process.platform === "win32" ? "npx.cmd" : "npx";
@@ -47,6 +48,9 @@ for (const relativeFile of migrationFiles) {
 console.log("[comasy-bootstrap] CoMaSy schema ready");
 console.log("[comasy-bootstrap] synchronizing canonical 240-card scored bank + wild cards");
 execFileSync(npm, ["run", "db:seed"], childOptions);
+
+console.log("[comasy-bootstrap] synchronizing Workplace lockscreen asset library");
+execFileSync(npm, ["run", "db:seed:lockscreens"], childOptions);
 
 console.log("[comasy-bootstrap] verifying production backend invariants");
 execFileSync(npm, ["run", "db:verify"], childOptions);

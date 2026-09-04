@@ -433,3 +433,81 @@ model GiftCode {
   @@index([toEmail])
   @@index([status])
 }
+
+// --- Lockscreens (Workplace tier) --------------------------------------
+// See docs/LOCKSCREENS_ARCHITECTURE.md. Content library + tenant/plan model
+// for the Managed Deployment Engine. B2B purchase routes through a
+// quote -> auto-generated PO, not instant checkout (per architecture §5).
+
+model LockscreenAsset {
+  id        String   @id @default(cuid())
+  number    Int                      // 1..60, global Workplace library
+  category  String
+  hook      String
+  body      String
+  action    String
+  imagePath String                   // desktop preview/reference render, "/lockscreens/workplace/desktop/NN.png"
+  status    String   @default("live") // live | draft | retired
+  createdAt DateTime @default(now())
+
+  @@unique([number])
+  @@index([status])
+}
+
+model LockscreenTenant {
+  id            String   @id @default(cuid())
+  kind          String                    // "workplace" (only tier wired so far)
+  orgName       String
+  token         String   @unique          // opaque, for the future /l/{token}/current/{device} resolver
+  tokenStatus   String   @default("active") // active | expired
+  licensedCount Int                       // declared billing basis: employee headcount
+  contactName   String?
+  contactEmail  String
+  termStart     DateTime?
+  termEnd       DateTime?
+  createdAt     DateTime @default(now())
+  plan          LockscreenPlan?
+  orders        LockscreenOrder[]
+
+  @@index([contactEmail])
+}
+
+model LockscreenPlan {
+  id          String   @id @default(cuid())
+  tenantId    String   @unique
+  tenant      LockscreenTenant @relation(fields: [tenantId], references: [id])
+  sequence    Int[]                     // ordered asset numbers, length = screenCount
+  screenCount Int      @default(27)     // 27 | 54 | 60
+  cadence     String   @default("fortnightly") // weekly | fortnightly | monthly
+  anchor      DateTime @default(now())  // sequence position 0 starts here
+  loop        Boolean  @default(true)
+  updatedAt   DateTime @updatedAt
+}
+
+// One row per quote/order submitted through /lockscreens/workplace/order.
+// Always produces a numbered PO immediately; a human still confirms payment
+// terms before the licence goes live (tenant.tokenStatus flips to "active").
+model LockscreenOrder {
+  id             String   @id @default(cuid())
+  poNumber       String   @unique
+  tenantId       String?
+  tenant         LockscreenTenant? @relation(fields: [tenantId], references: [id])
+  orgName        String
+  contactName    String?
+  contactEmail   String
+  billingAddress String?
+  employeeCount  Int
+  screenCount    Int                     // 27 | 54 | 60
+  cadence        String                  // weekly | fortnightly | monthly
+  sequence       Int[]                   // chosen asset numbers, length = screenCount
+  ratePerHead    Float                   // $/employee/year at time of order
+  annualTotal    Float                   // max(employeeCount * ratePerHead, minimumAnnual)
+  minimumApplied Boolean  @default(false)
+  currency       String   @default("USD")
+  status         String   @default("quote_issued") // quote_issued | confirmed | cancelled
+  notes          String?
+  createdAt      DateTime @default(now())
+
+  @@index([contactEmail])
+  @@index([status])
+}
