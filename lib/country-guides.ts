@@ -36,6 +36,21 @@ export const HACK_LABEL: Record<HackKey, string> = {
   K: "Kill-Switch",
 };
 
+export const HACK_DEF: Record<HackKey, string> = {
+  H: "Urgency. A deadline, a countdown or a “right now” that leaves no time to check.",
+  A: "Officialdom. A badge, a title, a uniform or an official-sounding request you feel you can't question.",
+  C: "Familiarity. A friendly local, a routine or an emotion that makes the request feel safer than it is.",
+  K: "The cut-off. The moment you're pushed to pay, click, hand over a document or follow someone — before you can verify.",
+};
+
+/** The pressure pattern(s) most common in a guide's scams, most frequent first. */
+export function dominantPatterns(guide: CountryGuide): HackKey[] {
+  const counts = { H: 0, A: 0, C: 0, K: 0 } as Record<HackKey, number>;
+  for (const s of guide.scams) counts[s.hack] += 1;
+  const max = Math.max(...Object.values(counts));
+  return (["H", "A", "C", "K"] as HackKey[]).filter((k) => counts[k] === max && max > 0);
+}
+
 export const COUNTRY_GUIDES: Record<string, CountryGuide> = {
   thailand: {
     intro:

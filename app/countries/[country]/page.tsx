@@ -2,7 +2,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { COUNTRY_PROFILES } from "@/lib/countries";
-import { COUNTRY_GUIDES, HACK_LABEL } from "@/lib/country-guides";
+import { COUNTRY_GUIDES, HACK_LABEL, HACK_DEF, dominantPatterns, type HackKey } from "@/lib/country-guides";
 import { PremiumPage } from "@/components/PremiumSiteChrome";
 import CountryAlert from "../CountryAlert";
 import styles from "../countries.module.css";
@@ -103,13 +103,17 @@ export default async function CountryPage(props: { params: Promise<{ country: st
             </section>
 
             <section className={styles.section}>
-              <h2>How the Konfydence method applies</h2>
+              <h2>What these scams have in common</h2>
               <p className={styles.lede}>
-                Every scam above uses one of four pressure tactics — <strong>H.A.C.K.</strong>: Hurry, Authority,
-                Comfort or Kill-Switch. You don't need to memorise a list of tricks. You need to notice the pressure and
-                run <strong>Pause · Assess · Talk</strong>: stop before you pay, hand over a document or follow someone;
-                ask what the request really wants (money, a document, access); then say it out loud to someone you trust,
-                or your bank on the number from your card.
+                {(() => {
+                  const dom = dominantPatterns(guide);
+                  const names = dom.map((k) => HACK_LABEL[k]);
+                  const phrase = names.length === 1 ? names[0] : names.length === 2 ? `${names[0]} and ${names[1]}` : names.join(", ");
+                  return `Most ${profile.name} scams lean on ${phrase}. `;
+                })()}
+                Whatever the trick, the way out is the same three moves — <strong>Pause · Assess · Talk</strong>:
+                stop before you pay, hand over a document or follow someone; ask what the request really wants; then say
+                it out loud to someone you trust, or your bank on the number from your card.
               </p>
               <Link href="/challenge/travelsafe/start?mode=diagnostic" className={styles.primaryLink}>
                 Practise it — free TravelSafe check
@@ -159,6 +163,26 @@ export default async function CountryPage(props: { params: Promise<{ country: st
                 <Link key={p.slug} href={`/countries/${p.slug}`}>{p.name} →</Link>
               ))}
             </div>
+          </section>
+        ) : null}
+
+        {guide ? (
+          <section className={styles.section}>
+            <h2>H.A.C.K. — the four pressure tactics</h2>
+            <p className={styles.sourceNote} style={{ maxWidth: 640 }}>
+              Every scam on this page is tagged with the tactic it uses. Recognise the tactic, not the trick.
+            </p>
+            <dl className={styles.hackDefs}>
+              {(["H", "A", "C", "K"] as HackKey[]).map((k) => (
+                <div key={k} className={styles[`hack${k}`]}>
+                  <dt><b>{k}</b> {HACK_LABEL[k]}</dt>
+                  <dd>{HACK_DEF[k]}</dd>
+                </div>
+              ))}
+            </dl>
+            <p className={styles.sourceNote} style={{ maxWidth: 640, marginTop: 16 }}>
+              The way out of all four: <strong>Pause · Assess · Talk</strong>.
+            </p>
           </section>
         ) : null}
 
