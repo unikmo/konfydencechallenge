@@ -21,6 +21,7 @@ CREATE TABLE IF NOT EXISTS "LockscreenTenant" (
   "orgName"       TEXT NOT NULL,
   "token"         TEXT NOT NULL,
   "tokenStatus"   TEXT NOT NULL DEFAULT 'active',
+  "adminToken"    TEXT NOT NULL,
   "licensedCount" INTEGER NOT NULL,
   "contactName"   TEXT,
   "contactEmail"  TEXT NOT NULL,
@@ -30,6 +31,7 @@ CREATE TABLE IF NOT EXISTS "LockscreenTenant" (
   CONSTRAINT "LockscreenTenant_pkey" PRIMARY KEY ("id")
 );
 CREATE UNIQUE INDEX IF NOT EXISTS "LockscreenTenant_token_key" ON "LockscreenTenant"("token");
+CREATE UNIQUE INDEX IF NOT EXISTS "LockscreenTenant_adminToken_key" ON "LockscreenTenant"("adminToken");
 CREATE INDEX IF NOT EXISTS "LockscreenTenant_contactEmail_idx" ON "LockscreenTenant"("contactEmail");
 
 -- CreateTable
@@ -62,6 +64,8 @@ CREATE TABLE IF NOT EXISTS "LockscreenOrder" (
   "screenCount"    INTEGER NOT NULL,
   "cadence"        TEXT NOT NULL,
   "sequence"       INTEGER[],
+  "baseRatePerHead"  DOUBLE PRECISION NOT NULL DEFAULT 4.0,
+  "surchargePerHead" DOUBLE PRECISION NOT NULL DEFAULT 0,
   "ratePerHead"    DOUBLE PRECISION NOT NULL,
   "annualTotal"    DOUBLE PRECISION NOT NULL,
   "minimumApplied" BOOLEAN NOT NULL DEFAULT false,

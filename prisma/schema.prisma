@@ -458,8 +458,9 @@ model LockscreenTenant {
   id            String   @id @default(cuid())
   kind          String                    // "workplace" (only tier wired so far)
   orgName       String
-  token         String   @unique          // opaque, for the future /l/{token}/current/{device} resolver
-  tokenStatus   String   @default("active") // active | expired
+  token         String   @unique          // opaque, for the /l/{token}/current/{device} delivery resolver
+  tokenStatus   String   @default("active") // pending | active | expired
+  adminToken    String   @unique          // opaque, separate link for the self-serve admin (/lockscreens/workplace/admin/{adminToken})
   licensedCount Int                       // declared billing basis: employee headcount
   contactName   String?
   contactEmail  String
@@ -500,7 +501,9 @@ model LockscreenOrder {
   screenCount    Int                     // 27 | 54 | 60
   cadence        String                  // weekly | fortnightly | monthly
   sequence       Int[]                   // chosen asset numbers, length = screenCount
-  ratePerHead    Float                   // $/employee/year at time of order
+  baseRatePerHead    Float               // $4.00 base rate at time of order
+  surchargePerHead   Float @default(0)   // extended-library add-on ($1/head for 54/60 screens)
+  ratePerHead    Float                   // baseRatePerHead + surchargePerHead
   annualTotal    Float                   // max(employeeCount * ratePerHead, minimumAnnual)
   minimumApplied Boolean  @default(false)
   currency       String   @default("USD")

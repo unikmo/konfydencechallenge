@@ -173,8 +173,9 @@ export default function WorkplaceLockscreenOrderPage() {
             </div>
             {quote.needsSalesReview ? (
               <p style={{ fontSize: 12, color: "#a66d00", marginTop: 10 }}>
-                Extended library and weekly cadence aren&rsquo;t self-serve priced yet — your PO will be issued
-                at the standard rate, and a rep will follow up to confirm the final number.
+                Weekly cadence isn&rsquo;t self-serve priced yet — your PO will be issued at the standard rate,
+                and a rep will follow up to confirm the final number. It can also miss half its flips on MDM
+                fleets that only refresh fortnightly.
               </p>
             ) : null}
 

@@ -3,7 +3,7 @@ import { prisma } from "@/lib/prisma";
 import { rateLimit, getClientIp } from "@/lib/rateLimit";
 import { sendTransactionalEmail, escapeHtml } from "@/lib/email";
 import { computeWorkplaceQuote, SCREEN_COUNT_OPTIONS, CADENCE_OPTIONS, formatUsd, type ScreenCount, type Cadence } from "@/lib/lockscreens/pricing";
-import { generatePoNumber, generateTenantToken, defaultSequence } from "@/lib/lockscreens/po";
+import { generatePoNumber, generateTenantToken, generateAdminToken, defaultSequence } from "@/lib/lockscreens/po";
 
 export const dynamic = "force-dynamic";
 
@@ -60,6 +60,7 @@ export async function POST(request: NextRequest) {
     const quote = computeWorkplaceQuote(employeeCount, screenCount, cadence);
     const poNumber = generatePoNumber();
     const token = generateTenantToken();
+    const adminToken = generateAdminToken();
     const now = new Date();
     const termEnd = new Date(now);
     termEnd.setFullYear(termEnd.getFullYear() + 1);
@@ -70,6 +71,7 @@ export async function POST(request: NextRequest) {
         orgName,
         token,
         tokenStatus: "pending", // flips to "active" once the PO is confirmed
+        adminToken,
         licensedCount: employeeCount,
         contactName: contactName || null,
         contactEmail,
@@ -98,12 +100,14 @@ export async function POST(request: NextRequest) {
         screenCount,
         cadence,
         sequence,
+        baseRatePerHead: quote.baseRatePerHead,
+        surchargePerHead: quote.surchargePerHead,
         ratePerHead: quote.ratePerHead,
         annualTotal: quote.annualTotal,
         minimumApplied: quote.minimumApplied,
         status: "quote_issued",
         notes: quote.needsSalesReview
-          ? [notes, "Non-standard screenCount/cadence — needs sales pricing review before confirmation."]
+          ? [notes, "Non-standard cadence — needs sales pricing review before confirmation."]
               .filter(Boolean)
               .join(" | ")
           : notes,
@@ -112,6 +116,7 @@ export async function POST(request: NextRequest) {
 
     const appUrl = process.env.NEXT_PUBLIC_APP_URL || "https://konfydence.com";
     const poUrl = `${appUrl}/lockscreens/workplace/po/${order.id}`;
+    const adminUrl = `${appUrl}/lockscreens/workplace/admin/${adminToken}`;
 
     const emailHtml = `
       <div style="font-family:Georgia,'Times New Roman',serif;color:#111417;max-width:520px;">
@@ -119,9 +124,11 @@ export async function POST(request: NextRequest) {
         <p>Konfydence Lockscreens — Workplace, ${employeeCount.toLocaleString()} employees, ${screenCount} screens, ${cadence}.</p>
         <p style="margin:20px 0;font-size:22px;">${formatUsd(quote.annualTotal)}<span style="font-size:13px;color:#66645f;"> / year</span></p>
         <p style="margin:24px 0;">
-          <a href="${poUrl}" style="background:#111417;color:#fffdf9;padding:12px 22px;text-decoration:none;border-radius:4px;display:inline-block;">View purchase order</a>
+          <a href="${poUrl}" style="background:#111417;color:#fffdf9;padding:12px 22px;text-decoration:none;border-radius:4px;display:inline-block;margin-right:10px;">View purchase order</a>
+          <a href="${adminUrl}" style="background:transparent;color:#111417;border:1px solid #111417;padding:11px 20px;text-decoration:none;border-radius:4px;display:inline-block;">Manage your screens</a>
         </p>
-        ${quote.needsSalesReview ? `<p style="font-size:13px;color:#a66d00;">This order includes a non-standard screen count or cadence — a Konfydence rep will follow up to confirm final pricing before the licence activates.</p>` : ""}
+        <p style="font-size:12px;color:#66645f;">Bookmark the "Manage your screens" link — it's your private admin, no password needed. Keep it out of forwarded threads.</p>
+        ${quote.needsSalesReview ? `<p style="font-size:13px;color:#a66d00;">This order includes a non-standard cadence — a Konfydence rep will follow up to confirm final pricing before the licence activates.</p>` : ""}
       </div>
     `;
 
@@ -142,7 +149,7 @@ export async function POST(request: NextRequest) {
       });
     }
 
-    return NextResponse.json({ id: order.id, poNumber, poUrl });
+    return NextResponse.json({ id: order.id, poNumber, poUrl, adminUrl });
   } catch (error) {
     console.error("Lockscreen order error:", error);
     return NextResponse.json({ error: "Internal server error" }, { status: 500 });

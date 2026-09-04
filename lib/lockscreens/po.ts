@@ -12,8 +12,13 @@ export function generatePoNumber(date: Date = new Date()): string {
   return `KFY-PO-${y}${m}${d}-${suffix}`;
 }
 
-/** Opaque per-tenant token for the future /l/{token}/current/{device} resolver. */
+/** Opaque per-tenant token for the /l/{token}/current/{device} delivery resolver. */
 export function generateTenantToken(): string {
+  return randomBytes(24).toString("base64url");
+}
+
+/** Opaque, separate link for the self-serve admin (/lockscreens/workplace/admin/{token}). */
+export function generateAdminToken(): string {
   return randomBytes(24).toString("base64url");
 }
 

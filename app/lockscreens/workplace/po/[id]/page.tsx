@@ -18,9 +18,14 @@ export default async function LockscreenPurchaseOrderPage({ params }: { params: 
   if (!order) notFound();
 
   const issued = order.createdAt;
-  const rawTotal = order.employeeCount * order.ratePerHead;
+  const baseTotal = order.employeeCount * order.baseRatePerHead;
+  const surchargeTotal = order.employeeCount * order.surchargePerHead;
+  const rawTotal = baseTotal + surchargeTotal;
   const termStart = order.tenant?.termStart ?? issued;
   const termEnd = order.tenant?.termEnd ?? null;
+  const adminUrl = order.tenant
+    ? `${process.env.NEXT_PUBLIC_APP_URL || "https://konfydence.com"}/lockscreens/workplace/admin/${order.tenant.adminToken}`
+    : null;
 
   return (
     <div style={{ background: "#f4efe4", minHeight: "100vh", padding: "48px 20px" }}>
@@ -78,13 +83,24 @@ export default async function LockscreenPurchaseOrderPage({ params }: { params: 
               <td style={{ padding: "12px 0" }}>
                 Konfydence Lockscreens &mdash; Workplace licence
                 <div style={{ fontSize: 12, color: "#66645f" }}>
-                  {order.screenCount}-screen sequence, {order.cadence} rotation
+                  27-screen sequence, {order.cadence} rotation
                 </div>
               </td>
               <td style={{ textAlign: "right", padding: "12px 0" }}>{order.employeeCount.toLocaleString()} employees</td>
-              <td style={{ textAlign: "right", padding: "12px 0" }}>{formatUsd(order.ratePerHead)}/yr</td>
-              <td style={{ textAlign: "right", padding: "12px 0" }}>{formatUsd(rawTotal)}</td>
+              <td style={{ textAlign: "right", padding: "12px 0" }}>{formatUsd(order.baseRatePerHead)}/yr</td>
+              <td style={{ textAlign: "right", padding: "12px 0" }}>{formatUsd(baseTotal)}</td>
             </tr>
+            {order.surchargePerHead > 0 ? (
+              <tr style={{ borderBottom: "1px solid rgba(17,20,23,.08)" }}>
+                <td style={{ padding: "12px 0" }}>
+                  Extended library upgrade
+                  <div style={{ fontSize: 12, color: "#66645f" }}>{order.screenCount} screens instead of 27</div>
+                </td>
+                <td style={{ textAlign: "right", padding: "12px 0" }}>{order.employeeCount.toLocaleString()} employees</td>
+                <td style={{ textAlign: "right", padding: "12px 0" }}>{formatUsd(order.surchargePerHead)}/yr</td>
+                <td style={{ textAlign: "right", padding: "12px 0" }}>{formatUsd(surchargeTotal)}</td>
+              </tr>
+            ) : null}
             {order.minimumApplied ? (
               <tr style={{ borderBottom: "1px solid rgba(17,20,23,.08)" }}>
                 <td style={{ padding: "12px 0" }} colSpan={3}>
@@ -105,6 +121,13 @@ export default async function LockscreenPurchaseOrderPage({ params }: { params: 
             </div>
           </div>
         </div>
+
+        {adminUrl ? (
+          <div className="poPrintHide" style={{ background: "#f7f4ee", border: "1px solid rgba(17,20,23,.1)", borderRadius: 6, padding: "14px 16px", fontSize: 13, marginBottom: 24 }}>
+            Manage your screen sequence, cadence, and see the delivery link:{" "}
+            <a href={adminUrl} style={{ color: "#af8752", fontWeight: 700 }}>{adminUrl}</a>
+          </div>
+        ) : null}
 
         {order.notes ? (
           <div style={{ background: "#f7f4ee", border: "1px solid rgba(17,20,23,.1)", borderRadius: 6, padding: "14px 16px", fontSize: 13, marginBottom: 24 }}>
