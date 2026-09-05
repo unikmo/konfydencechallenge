@@ -55,6 +55,7 @@ export default async function AccountPage() {
         <div style={styles.header}>
           <Link href="/" style={styles.smallLink}>← Konfydence</Link>
           <div style={{ display: "flex", gap: 16, alignItems: "center" }}>
+            {account ? <Link href="/account/security" style={styles.smallLink}>Security</Link> : null}
             <Link href="/challenge" style={styles.smallLink}>Take a challenge</Link>
             {account ? (
               <form action="/api/account/sign-out" method="post">

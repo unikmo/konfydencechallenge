@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { redirect } from "next/navigation";
 import { getAccount } from "@/lib/auth/session";
 import { requestCode, submitCode } from "./actions";
+import { PasskeySignInButton } from "@/components/account/PasskeySignInButton";
 
 export const metadata: Metadata = {
   title: { absolute: "Sign in | Konfydence" },
@@ -57,6 +58,7 @@ export default async function SignInPage(props: { searchParams: Promise<SP> }) {
               </label>
               <button type="submit" className="k-button">Email me a code</button>
             </form>
+            <PasskeySignInButton next={next} />
           </>
         ) : (
           <>
