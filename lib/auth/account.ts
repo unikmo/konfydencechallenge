@@ -22,8 +22,8 @@ export async function findAccountByEmail(rawEmail: string): Promise<Account | nu
   return prisma.account.findUnique({ where: { email: normalizeEmail(rawEmail) } });
 }
 
-export async function markEmailVerified(accountId: string): Promise<void> {
-  await prisma.account.update({
+export async function markEmailVerified(accountId: string): Promise<Account> {
+  return prisma.account.update({
     where: { id: accountId },
     data: { emailVerifiedAt: new Date() },
   });

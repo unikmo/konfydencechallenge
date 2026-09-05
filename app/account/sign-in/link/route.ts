@@ -3,6 +3,7 @@ import { verifyLoginLink } from "@/lib/auth/loginCode";
 import { getClientIp } from "@/lib/auth/request";
 import { createSession, sessionCookieOptions, hashIp, SESSION_COOKIE_NAME } from "@/lib/auth/session";
 import { claimPlayerForAccount } from "@/lib/auth/claim";
+import { linkLockscreenSubscriptions } from "@/lib/lockscreens/linkToAccount";
 import { KF_UID_COOKIE, KF_UID_COOKIE_OPTIONS } from "@/lib/challenge/kfUidCookie";
 
 export const dynamic = "force-dynamic";
@@ -28,6 +29,7 @@ export async function GET(request: NextRequest) {
     result.account,
     request.cookies.get(KF_UID_COOKIE)?.value ?? null,
   );
+  await linkLockscreenSubscriptions(result.account);
 
   const response = NextResponse.redirect(new URL(next, request.url));
   response.cookies.set(SESSION_COOKIE_NAME, sessionToken, sessionCookieOptions(expiresAt));

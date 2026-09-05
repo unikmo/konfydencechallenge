@@ -7,6 +7,7 @@ import { tokens } from "@/lib/theme/tokens";
 import { getAccount } from "@/lib/auth/session";
 import { ResultsHistory } from "@/components/dashboard/ResultsHistory";
 import { KF_UID_COOKIE } from "@/lib/challenge/kfUidCookie";
+import { linkLockscreenSubscriptions, getAccountSubscriptions } from "@/lib/lockscreens/linkToAccount";
 
 export const metadata: Metadata = {
   title: { absolute: "Your account | Konfydence" },
@@ -44,6 +45,10 @@ export default async function AccountPage() {
     ? (await prisma.user.findFirst({ where: { accountId: account.id }, select: { id: true } }))?.id ?? null
     : kfUid;
 
+  // Catch any Lockscreens subscription bought after sign-in, then list them.
+  if (account) await linkLockscreenSubscriptions(account).catch(() => {});
+  const subscriptions = account ? await getAccountSubscriptions(account.id) : [];
+
   return (
     <main style={styles.page}>
       <div style={styles.shell}>
@@ -70,11 +75,33 @@ export default async function AccountPage() {
                 <span style={styles.unverified}> · unverified</span>
               )}
             </p>
-            <div style={styles.acctLinks}>
-              <Link href="/lockscreens" style={styles.acctLink}>Konfydence Lockscreens →</Link>
-            </div>
+            {subscriptions.length > 0 ? (
+              <div style={{ marginTop: 16 }}>
+                <div style={{ fontWeight: 900, fontSize: 13, marginBottom: 8 }}>Lockscreens subscriptions</div>
+                <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
+                  {subscriptions.map((s) => (
+                    <Link key={s.id} href={s.managePath} style={styles.subRow}>
+                      <div>
+                        <div style={{ fontWeight: 800 }}>{s.orgName}</div>
+                        <div style={{ fontSize: 12, color: tokens.textMuted, fontWeight: 700, marginTop: 2 }}>
+                          {s.kindLabel}
+                          {s.tokenStatus !== "active" ? ` · ${s.tokenStatus}` : ""}
+                        </div>
+                      </div>
+                      <span style={{ fontSize: 12, fontWeight: 800, color: tokens.textOnLight }}>{s.manageLabel} →</span>
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            ) : (
+              <div style={styles.acctLinks}>
+                <Link href="/lockscreens" style={styles.acctLink}>Konfydence Lockscreens →</Link>
+              </div>
+            )}
             <p style={{ fontSize: 12, color: tokens.textMuted, marginTop: 12, marginBottom: 0 }}>
-              Lockscreens subscriptions you bought with {account.email} will appear here.
+              {subscriptions.length > 0
+                ? "Bought a subscription with a different email? Sign in with that address to link it too."
+                : `Lockscreens subscriptions bought with ${account.email} appear here automatically.`}
             </p>
           </div>
         ) : (
@@ -110,5 +137,6 @@ const styles: Record<string, React.CSSProperties> = {
   unverified: { color: "#a66d00", fontWeight: 800 },
   acctLinks: { display: "flex", flexWrap: "wrap", gap: 10, marginTop: 14 },
   acctLink: { color: tokens.textOnLight, fontWeight: 700, fontSize: 13, textDecoration: "none", padding: "10px 14px", border: "1px solid rgba(11,27,43,0.12)", borderRadius: 10 },
+  subRow: { display: "flex", justifyContent: "space-between", alignItems: "center", gap: 12, padding: "12px 14px", borderRadius: 10, border: "1px solid rgba(11,27,43,0.12)", textDecoration: "none", color: tokens.textOnLight },
   button: { display: "inline-flex", alignItems: "center", justifyContent: "center", padding: "10px 16px", borderRadius: 12, background: tokens.accentAmber, border: "none", color: tokens.bgCanvas, textDecoration: "none", fontWeight: 950 },
 };
