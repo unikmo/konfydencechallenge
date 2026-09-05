@@ -98,11 +98,12 @@ model Passkey {
 }
 
 model TotpCredential {
-  accountId   String    @id
-  account     Account   @relation(fields: [accountId], references: [id], onDelete: Cascade)
-  secret      String // encrypted at rest
-  confirmedAt DateTime?
-  createdAt   DateTime  @default(now())
+  accountId          String    @id
+  account            Account   @relation(fields: [accountId], references: [id], onDelete: Cascade)
+  secret             String // AES-256-GCM encrypted at rest
+  confirmedAt        DateTime?
+  recoveryCodeHashes String[] // single-use; hashed
+  createdAt          DateTime  @default(now())
 }
 
 model Scenario {

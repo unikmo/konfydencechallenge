@@ -2,7 +2,7 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import { redirect } from "next/navigation";
 import { getAccount } from "@/lib/auth/session";
-import { requestCode, submitCode } from "./actions";
+import { requestCode, submitCode, submitTotp } from "./actions";
 import { PasskeySignInButton } from "@/components/account/PasskeySignInButton";
 
 export const metadata: Metadata = {
@@ -23,13 +23,14 @@ const ERRORS: Record<string, string> = {
   expired: "That code has expired. Ask for a new one.",
   attempts: "Too many tries on that code. Ask for a new one.",
   throttled: "Too many attempts. Wait a few minutes and try again.",
+  totp: "That code didn't match. Try the current one from your authenticator, or a recovery code.",
 };
 
 export default async function SignInPage(props: { searchParams: Promise<SP> }) {
   const sp = await props.searchParams;
   if (await getAccount()) redirect(sp.next?.startsWith("/") ? sp.next : "/account");
 
-  const step = sp.step === "code" ? "code" : "email";
+  const step = sp.step === "code" ? "code" : sp.step === "totp" ? "totp" : "email";
   const email = sp.email ?? "";
   const next = sp.next?.startsWith("/") ? sp.next : "/account";
   const error = sp.error ? ERRORS[sp.error] : null;
@@ -40,7 +41,31 @@ export default async function SignInPage(props: { searchParams: Promise<SP> }) {
         <Link className="kf-back" href="/">← Konfydence</Link>
         <p className="k-kicker" style={{ marginTop: 22 }}>Your account</p>
 
-        {step === "email" ? (
+        {step === "totp" ? (
+          <>
+            <h1>One more step.</h1>
+            <p>
+              Two-step verification is on for this account. Enter the current 6-digit code from your
+              authenticator app — or a recovery code.
+            </p>
+            {error ? <p className="kf-error" role="alert">{error}</p> : null}
+            <form action={submitTotp} className="kf-form">
+              <input type="hidden" name="next" value={next} />
+              <label htmlFor="code">Authenticator or recovery code</label>
+              <input
+                id="code"
+                name="code"
+                inputMode="text"
+                autoComplete="one-time-code"
+                autoFocus
+                required
+                placeholder="123456"
+                className="kf-code-input"
+              />
+              <button type="submit" className="k-button">Verify</button>
+            </form>
+          </>
+        ) : step === "email" ? (
           <>
             <h1>Sign in with a code.</h1>
             <p>
