@@ -13,8 +13,80 @@ model User {
   email     String   @unique
   createdAt DateTime @default(now())
 
+  // The Konfydence account this challenge player belongs to, once claimed.
+  // Null for anonymous kf_uid visitors who have not signed in.
+  accountId String?  @unique
+  account   Account? @relation(fields: [accountId], references: [id], onDelete: SetNull)
+
   sessions     ChallengeSession[]
   entitlements Entitlement[]
+}
+
+// ---------------------------------------------------------------------------
+// Unified accounts (docs/UNIFIED_ACCOUNTS_PLAN.md)
+// Passwordless email + optional passkeys/TOTP. One account spans the Challenge
+// game and Lockscreens self-serve admin. CoMaSy is out of scope for v1.
+// ---------------------------------------------------------------------------
+
+model Account {
+  id              String    @id @default(cuid())
+  email           String    @unique
+  emailVerifiedAt DateTime?
+  createdAt       DateTime  @default(now())
+
+  sessions      AuthSession[]
+  passkeys      Passkey[]
+  totp          TotpCredential?
+  players       User[]
+  subscriptions LockscreenTenant[]
+}
+
+model AuthSession {
+  id         String   @id // SHA-256 of the cookie token; the raw token is never stored
+  accountId  String
+  account    Account  @relation(fields: [accountId], references: [id], onDelete: Cascade)
+  expiresAt  DateTime
+  createdAt  DateTime @default(now())
+  lastSeenAt DateTime @default(now())
+  userAgent  String?
+  ipHash     String?
+
+  @@index([accountId])
+  @@index([expiresAt])
+}
+
+model LoginCode {
+  id         String    @id @default(cuid())
+  email      String
+  codeHash   String
+  expiresAt  DateTime
+  attempts   Int       @default(0)
+  consumedAt DateTime?
+  createdAt  DateTime  @default(now())
+
+  @@index([email])
+  @@index([expiresAt])
+}
+
+model Passkey {
+  id         String    @id // credential ID, base64url
+  accountId  String
+  account    Account   @relation(fields: [accountId], references: [id], onDelete: Cascade)
+  publicKey  Bytes
+  counter    Int       @default(0)
+  transports String?
+  createdAt  DateTime  @default(now())
+  lastUsedAt DateTime?
+
+  @@index([accountId])
+}
+
+model TotpCredential {
+  accountId   String    @id
+  account     Account   @relation(fields: [accountId], references: [id], onDelete: Cascade)
+  secret      String // encrypted at rest
+  confirmedAt DateTime?
+  createdAt   DateTime  @default(now())
 }
 
 model Scenario {
@@ -53,20 +125,20 @@ model Scenario {
 }
 
 model ChallengeSession {
-  id           String   @id @default(cuid())
+  id           String                 @id @default(cuid())
   userId       String
-  user         User     @relation(fields: [userId], references: [id])
+  user         User                   @relation(fields: [userId], references: [id])
   edition      String
-  mode         String   @default("full")
-  runNumber    Int      @default(1)
-  status       String   @default("IN_PROGRESS")
-  currentIndex Int      @default(0)
-  scoreTotal   Int      @default(0)
-  scoreMax     Int      @default(0)
+  mode         String                 @default("full")
+  runNumber    Int                    @default(1)
+  status       String                 @default("IN_PROGRESS")
+  currentIndex Int                    @default(0)
+  scoreTotal   Int                    @default(0)
+  scoreMax     Int                    @default(0)
   completedAt  DateTime?
   cards        ChallengeSessionCard[]
-  createdAt    DateTime @default(now())
-  updatedAt    DateTime @updatedAt
+  createdAt    DateTime               @default(now())
+  updatedAt    DateTime               @updatedAt
 
   @@index([userId])
 }
@@ -103,35 +175,35 @@ model Entitlement {
 }
 
 model ComasyOrganization {
-  id                 String   @id @default(cuid())
+  id                 String    @id @default(cuid())
   name               String
-  slug               String   @unique
+  slug               String    @unique
   industry           String?
   country            String?
   employees          Int?
-  nis2Relevant       Boolean  @default(false)
+  nis2Relevant       Boolean   @default(false)
   accountOwner       String?
   source             String?
   persona            String?
-  stage              String   @default("TARGET_ACCOUNT")
+  stage              String    @default("TARGET_ACCOUNT")
   currentPlatform    String?
-  estimatedValue     Int      @default(0)
+  estimatedValue     Int       @default(0)
   nextAction         String?
   lastContactAt      DateTime?
-  customerHealth     String   @default("PROSPECT")
+  customerHealth     String    @default("PROSPECT")
   accessCodeHash     String?
   accessCodeSalt     String?
   contractStart      DateTime?
   contractEnd        DateTime?
   seats              Int?
-  arr                Int      @default(0)
+  arr                Int       @default(0)
   renewalDate        DateTime?
   expansionPotential String?
   brandingName       String?
-  retentionDays      Int      @default(365)
-  isDemo             Boolean  @default(false)
-  createdAt          DateTime @default(now())
-  updatedAt          DateTime @updatedAt
+  retentionDays      Int       @default(365)
+  isDemo             Boolean   @default(false)
+  createdAt          DateTime  @default(now())
+  updatedAt          DateTime  @updatedAt
 
   contacts      ComasyContact[]
   cohorts       ComasyCohort[]
@@ -150,7 +222,7 @@ model ComasyOrganization {
 }
 
 model ComasyContact {
-  id                 String   @id @default(cuid())
+  id                 String             @id @default(cuid())
   organizationId     String
   organization       ComasyOrganization @relation(fields: [organizationId], references: [id], onDelete: Cascade)
   firstName          String
@@ -160,13 +232,13 @@ model ComasyContact {
   email              String
   linkedIn           String?
   buyingRole         String?
-  decisionMaker      Boolean  @default(false)
-  champion           Boolean  @default(false)
-  technicalEvaluator Boolean  @default(false)
-  procurement        Boolean  @default(false)
+  decisionMaker      Boolean            @default(false)
+  champion           Boolean            @default(false)
+  technicalEvaluator Boolean            @default(false)
+  procurement        Boolean            @default(false)
   notes              String?
-  createdAt          DateTime @default(now())
-  updatedAt          DateTime @updatedAt
+  createdAt          DateTime           @default(now())
+  updatedAt          DateTime           @updatedAt
 
   activities ComasyActivity[]
 
@@ -441,14 +513,14 @@ model GiftCode {
 
 model LockscreenAsset {
   id        String   @id @default(cuid())
-  track     String                   // "workplace" | "school" | "home" | "teen" -- each track has its own numbering
-  number    Int                      // within the track (1..60 for workplace/school; original source-pack numbers for home/teen)
-  format    String                   // "desktop" | "notebook-16x10" | "notebook-3x2" | "tablet-landscape" | "tablet-portrait" | "phone"
+  track     String // "workplace" | "school" | "home" | "teen" -- each track has its own numbering
+  number    Int // within the track (1..60 for workplace/school; original source-pack numbers for home/teen)
+  format    String // "desktop" | "notebook-16x10" | "notebook-3x2" | "tablet-landscape" | "tablet-portrait" | "phone"
   category  String
   hook      String
   body      String
   action    String
-  imagePath String                   // "/lockscreens/{track}/{format}/NN.png"
+  imagePath String // "/lockscreens/{track}/{format}/NN.png"
   status    String   @default("live") // live | draft | retired
   createdAt DateTime @default(now())
 
@@ -458,65 +530,71 @@ model LockscreenAsset {
 }
 
 model LockscreenTenant {
-  id            String   @id @default(cuid())
-  kind          String                    // "workplace" | "school" | "home" | "teen"
+  id            String            @id @default(cuid())
+  kind          String // "workplace" | "school" | "home" | "teen"
   orgName       String
-  token         String   @unique          // opaque, for the /l/{token}/current/{device} delivery resolver
-  tokenStatus   String   @default("active") // pending | active | expired
-  adminToken    String   @unique          // opaque, separate link for the self-serve admin (/lockscreens/workplace/admin/{adminToken})
-  licensedCount Int                       // declared billing basis: employee headcount
+  token         String            @unique // opaque, for the /l/{token}/current/{device} delivery resolver
+  tokenStatus   String            @default("active") // pending | active | expired
+  adminToken    String            @unique // opaque, separate link for the self-serve admin (/lockscreens/workplace/admin/{adminToken})
+  licensedCount Int // declared billing basis: employee headcount
   contactName   String?
   contactEmail  String
   termStart     DateTime?
   termEnd       DateTime?
-  createdAt     DateTime @default(now())
+  createdAt     DateTime          @default(now())
   plan          LockscreenPlan?
   orders        LockscreenOrder[]
 
+  // The Konfydence account that manages this subscription, once linked.
+  // Null until the account holder claims it (contactEmail match).
+  accountId String?
+  account   Account? @relation(fields: [accountId], references: [id], onDelete: SetNull)
+
   @@index([contactEmail])
   @@index([kind])
+  @@index([accountId])
 }
 
 model LockscreenPlan {
-  id          String   @id @default(cuid())
-  tenantId    String   @unique
+  id          String           @id @default(cuid())
+  tenantId    String           @unique
   tenant      LockscreenTenant @relation(fields: [tenantId], references: [id])
-  sequence    Int[]                     // ordered asset numbers, length = screenCount
-  screenCount Int      @default(27)     // 27 | 54 | 60
-  cadence     String   @default("fortnightly") // weekly | fortnightly | monthly
-  anchor      DateTime @default(now())  // sequence position 0 starts here
-  loop        Boolean  @default(true)
-  updatedAt   DateTime @updatedAt
+  sequence    Int[] // ordered asset numbers, length = screenCount
+  screenCount Int              @default(27) // 27 | 54 | 60
+  cadence     String           @default("fortnightly") // weekly | fortnightly | monthly
+  anchor      DateTime         @default(now()) // sequence position 0 starts here
+  loop        Boolean          @default(true)
+  updatedAt   DateTime         @updatedAt
 }
 
 // One row per quote/order submitted through /lockscreens/workplace/order.
 // Always produces a numbered PO immediately; a human still confirms payment
 // terms before the licence goes live (tenant.tokenStatus flips to "active").
 model LockscreenOrder {
-  id             String   @id @default(cuid())
-  poNumber       String   @unique
+  id                  String            @id @default(cuid())
+  poNumber            String            @unique
   // Only set for Personal-engine (home/teen) orders, which come straight
   // from a paid Shopify order rather than the B2B quote->PO flow -- used
   // for webhook idempotency (retries) and cancellation/refund lookup.
-  shopifyOrderId String?  @unique
-  tenantId       String?
-  tenant         LockscreenTenant? @relation(fields: [tenantId], references: [id])
-  orgName        String
-  contactName    String?
-  contactEmail   String
-  billingAddress String?
-  employeeCount  Int
-  screenCount    Int                     // 27 | 54 | 60
-  cadence        String                  // weekly | fortnightly | monthly
-  sequence       Int[]                   // chosen asset numbers, length = screenCount
-  baseRatePerHead    Float               // $4.00 base rate at time of order
-  surchargePerHead   Float @default(0)   // extended-library add-on ($1/head for 54/60 screens)
-  ratePerHead    Float                   // baseRatePerHead + surchargePerHead
-  annualTotal    Float                   // max(employeeCount * ratePerHead, minimumAnnual), unless overridden below
-  minimumApplied Boolean  @default(false)
-  currency       String   @default("USD")
-  status         String   @default("quote_issued") // quote_issued | confirmed | cancelled
-  notes          String?
+  shopifyOrderId      String?           @unique
+  tenantId            String?
+  tenant              LockscreenTenant? @relation(fields: [tenantId], references: [id])
+  orgName             String
+  contactName         String?
+  contactEmail        String
+  billingAddress      String?
+  employeeCount       Int
+  screenCount         Int // 27 | 54 | 60
+  cadence             String // weekly | fortnightly | monthly
+  sequence            Int[] // chosen asset numbers, length = screenCount
+  baseRatePerHead     Float // $4.00 base rate at time of order
+  surchargePerHead    Float             @default(0) // extended-library add-on ($1/head for 54/60 screens)
+  ratePerHead         Float // baseRatePerHead + surchargePerHead
+  annualTotal         Float // max(employeeCount * ratePerHead, minimumAnnual), unless overridden below
+  minimumApplied      Boolean           @default(false)
+  currency            String            @default("USD")
+  status              String            @default("quote_issued") // quote_issued | confirmed | cancelled
+  notes               String?
   // Negotiated pricing: set only from the internal /admin tool (Basic-Auth
   // gated). When present, this replaces annualTotal as the billed figure on
   // the PO and admin dashboard — the calculated rate stays on record as the
@@ -525,7 +603,7 @@ model LockscreenOrder {
   overrideReason      String?
   overriddenBy        String?
   overriddenAt        DateTime?
-  createdAt      DateTime @default(now())
+  createdAt           DateTime          @default(now())
 
   @@index([contactEmail])
   @@index([status])
