@@ -25,6 +25,10 @@ export default function Page() {
       intro="Security awareness posters have one job: keep the message visible between trainings. They struggle with it. They live on one wall, they don't reach anyone working from home, and once a poster has been up a month people stop registering it. A rotating lock screen does the same job on the surface everyone already looks at dozens of times a day — and the message changes every two weeks."
       primaryCtaHref="/lockscreens/workplace/order"
       primaryCtaLabel="Get an instant quote"
+      heroImage={{
+        src: "/lockscreens/workplace/desktop/41.png",
+        alt: "A Konfydence desktop lock screen reading 'Your brain has 37 tabs open. Take two minutes away from the screen.'",
+      }}
       problemTitle="The wall reaches whoever is in the office. Everyone else misses it."
       problemCopy="Hybrid and field staff never see the break-room poster. The people who do see it stop noticing it after a few weeks. And a printed poster can't respond when a new scam pattern starts hitting your sector — it says whatever it said when it went to print."
       sections={[
@@ -49,6 +53,17 @@ export default function Page() {
         "A new screen replaces it every two weeks, automatically.",
         "The wording tracks live scam patterns and the Pause · Assess · Talk method through the year.",
       ]}
+      orgValue={{
+        title: "Continuous awareness, not take-the-test-and-forget.",
+        copy: "A poster campaign is a gesture towards continuous awareness that logistics keep undermining. A rotating lock screen delivers the same intent as an always-on control — and gives you a record of what ran and when.",
+        points: [
+          "Ongoing cyber-hygiene reinforcement — NIS2 (Article 21) expects awareness to be continuous and management bodies to oversee it. A rotating prompt is visible activity between formal trainings.",
+          "Human risk management contribution — shifts awareness from a knowledge check to a habit cue at the moment of the decision, the point NIST and ISO/IEC 27001 controls emphasise.",
+          "A light audit trail — the Workplace admin records the screen sequence and change dates, so you can show what was in front of staff across any review period.",
+          "Reaches the whole workforce — company devices under MDM get the same prompt on the same schedule, remote and frontline staff included, with no completions to chase.",
+        ],
+        note: "Konfydence Lockscreens supports the human side of an awareness programme. It does not by itself make an organisation NIS2, ISO/IEC 27001 or otherwise compliant — the wider legal, governance and technical obligations remain the organisation's.",
+      }}
       faq={[
         {
           question: "Can we still use physical posters alongside this?",

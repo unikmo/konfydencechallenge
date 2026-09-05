@@ -25,6 +25,11 @@ export default function Page() {
       intro="You can't be there when the fake courier text arrives, or the message from a friend's hacked account, or the call that says the bank account is compromised. But a lock screen can. Konfydence puts one calm prompt — Pause, Assess, Talk — on a parent's or teenager's phone, and quietly swaps it for a new one every two weeks."
       primaryCtaHref="/contact?topic=lockscreens-home"
       primaryCtaLabel="Get early access"
+      heroImage={{
+        src: "/lockscreens/home/phone/11.png",
+        alt: "A Konfydence phone lock screen reading 'Tax refund waiting? Open the official tax portal yourself.'",
+        frame: "phone",
+      }}
       problemTitle="The people you worry about won't install another app or read another forwarded article."
       problemCopy="Warnings from a worried adult child get tuned out. Security apps get ignored or uninstalled. A lock screen asks nothing of anyone — it's just there, in the half-second before the phone unlocks, saying the one thing that matters: stop and check before you act."
       sections={[

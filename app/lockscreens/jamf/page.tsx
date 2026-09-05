@@ -25,6 +25,10 @@ export default function Page() {
       intro="Jamf can set a lock-screen message and a wallpaper on Macs, iPads and iPhones. What it can't do is keep that message from going stale. Konfydence supplies the content — one clear prompt about how scams apply pressure — and rotates it every two weeks, so your Jamf profile keeps working long after you deployed it."
       primaryCtaHref="/lockscreens/workplace/order"
       primaryCtaLabel="Get an instant quote"
+      heroImage={{
+        src: "/lockscreens/workplace/tablet-landscape/18.png",
+        alt: "A Konfydence iPad lock screen reading 'You clicked it. Report it fast. Hiding it only helps the attacker.'",
+      }}
       problemTitle="A static lock-screen message is read once and never again."
       problemCopy="Jamf's Login Window and lock-screen footer text, or a pushed wallpaper, are easy to set and easy to tune out. The reminder only keeps its value if the wording changes and actually says something — about the urgency, the false authority, the rushed hand-off that a real scam uses."
       sections={[
@@ -49,6 +53,17 @@ export default function Page() {
         "Scope it to your Mac and iPad groups.",
         "Every two weeks the served image changes — no new package, no re-scope.",
       ]}
+      orgValue={{
+        title: "Continuous awareness, not take-the-test-and-forget.",
+        copy: "One Jamf profile turns awareness into an ongoing control instead of a completion date. A prompt that changes every fortnight, on every managed Mac and iPad, is visible evidence of activity between formal trainings.",
+        points: [
+          "Ongoing cyber-hygiene reinforcement — NIS2 (Article 21) expects awareness to be continuous and management bodies to oversee it. A rotating prompt is visible activity between formal trainings.",
+          "Human risk management contribution — shifts awareness from a knowledge check to a habit cue at the moment of the decision, the point NIST and ISO/IEC 27001 controls emphasise.",
+          "A light audit trail — the Workplace admin records the screen sequence and change dates, so you can show what was in front of staff across any review period.",
+          "Reaches the whole fleet — every device in your Jamf scope gets the same prompt on the same schedule, remote and frontline staff included, with no completions to chase.",
+        ],
+        note: "Konfydence Lockscreens supports the human side of an awareness programme. It does not by itself make an organisation NIS2, ISO/IEC 27001 or otherwise compliant — the wider legal, governance and technical obligations remain the organisation's.",
+      }}
       faq={[
         {
           question: "Does this use the Jamf lock-screen message or a wallpaper?",

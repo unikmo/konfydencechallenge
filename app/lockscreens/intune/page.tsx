@@ -25,6 +25,10 @@ export default function Page() {
       intro="You can already push a desktop wallpaper and a lock-screen image with Intune. The problem is keeping it worth looking at — a static image goes stale, and re-packaging a new one every fortnight is a job nobody wants. Konfydence gives you one stable URL that always resolves to the current screen, so your Intune policy stays fresh without you touching it again."
       primaryCtaHref="/lockscreens/workplace/order"
       primaryCtaLabel="Get an instant quote"
+      heroImage={{
+        src: "/lockscreens/workplace/desktop/05.png",
+        alt: "A Konfydence desktop lock screen reading 'New bank details. Same supplier. Call the number already on file.'",
+      }}
       problemTitle="A wallpaper you deployed in March is invisible by May."
       problemCopy="Windows devices under Intune take a Personalization CSP wallpaper and lock-screen image. Set it and forget it, and staff stop seeing it within weeks. The value is in the message changing — and in it saying something specific about how scams pressure people, not just a policy line."
       sections={[
@@ -49,6 +53,17 @@ export default function Page() {
         "Assign it to your Windows device group.",
         "Every two weeks the image at that URL changes. Devices pick it up on sync — no new profile, no re-assignment.",
       ]}
+      orgValue={{
+        title: "Continuous awareness, not take-the-test-and-forget.",
+        copy: "The reason to run this through Intune isn't the wallpaper — it's that awareness becomes an ongoing control instead of a completion date. A prompt that changes every fortnight, on every managed device, is visible evidence of activity between formal trainings.",
+        points: [
+          "Ongoing cyber-hygiene reinforcement — NIS2 (Article 21) expects awareness to be continuous and management bodies to oversee it. A rotating prompt is visible activity between formal trainings.",
+          "Human risk management contribution — shifts awareness from a knowledge check to a habit cue at the moment of the decision, the point NIST and ISO/IEC 27001 controls emphasise.",
+          "A light audit trail — the Workplace admin records the screen sequence and change dates, so you can show what was in front of staff across any review period.",
+          "Reaches the whole workforce — every device in your Intune group gets the same prompt on the same schedule, remote and frontline staff included, with no completions to chase.",
+        ],
+        note: "Konfydence Lockscreens supports the human side of an awareness programme. It does not by itself make an organisation NIS2, ISO/IEC 27001 or otherwise compliant — the wider legal, governance and technical obligations remain the organisation's.",
+      }}
       faq={[
         {
           question: "Which Intune setting does this use?",

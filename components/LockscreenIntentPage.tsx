@@ -12,6 +12,19 @@ export type LockscreenIntentFaq = {
   answer: string;
 };
 
+export type LockscreenHeroImage = {
+  src: string;
+  alt: string;
+  frame?: "desktop" | "phone";
+};
+
+export type LockscreenOrgValue = {
+  title: string;
+  copy: string;
+  points: string[];
+  note?: string;
+};
+
 export type LockscreenIntentPageProps = {
   slug: string;
   eyebrow: string;
@@ -19,12 +32,14 @@ export type LockscreenIntentPageProps = {
   intro: string;
   primaryCtaHref: string;
   primaryCtaLabel: string;
+  heroImage: LockscreenHeroImage;
   problemTitle: string;
   problemCopy: string;
   sections: LockscreenIntentSection[];
   howTitle: string;
   howCopy: string;
   howSteps: string[];
+  orgValue?: LockscreenOrgValue;
   faq: LockscreenIntentFaq[];
   calloutTitle: string;
   breadcrumbName: string;
@@ -39,12 +54,14 @@ export function LockscreenIntentPage({
   intro,
   primaryCtaHref,
   primaryCtaLabel,
+  heroImage,
   problemTitle,
   problemCopy,
   sections,
   howTitle,
   howCopy,
   howSteps,
+  orgValue,
   faq,
   calloutTitle,
   breadcrumbName,
@@ -71,17 +88,27 @@ export function LockscreenIntentPage({
     });
   }
 
+  const frameClass = heroImage.frame === "phone" ? "kls-phone" : "kls-desktop";
+
   return (
     <PremiumPage ctaHref={primaryCtaHref} ctaLabel={primaryCtaLabel}>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
 
-      <section className="kg-shell kc-hero">
-        <p className="k-kicker">{eyebrow}</p>
-        <h1>{title}</h1>
-        <p>{intro}</p>
-        <div className="k-actions">
-          <Link className="k-button" href={primaryCtaHref}>{primaryCtaLabel}</Link>
-          <Link className="k-button-quiet" href="/lockscreens">How Lockscreens works</Link>
+      <section className="kls-hero kg-shell">
+        <div className="kls-hero-copy">
+          <p className="k-kicker">{eyebrow}</p>
+          <h1 className="k-display">{title}</h1>
+          <p className="k-lede">{intro}</p>
+          <div className="k-actions">
+            <Link className="k-button" href={primaryCtaHref}>{primaryCtaLabel}</Link>
+            <Link className="k-button-quiet" href="/lockscreens">How Lockscreens works</Link>
+          </div>
+        </div>
+        <div className="kls-devices">
+          <div className={frameClass}>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src={heroImage.src} alt={heroImage.alt} />
+          </div>
         </div>
       </section>
 
@@ -121,6 +148,26 @@ export function LockscreenIntentPage({
         </div>
       </section>
 
+      {orgValue ? (
+        <section className="kg-shell k-section">
+          <div className="k-section-head">
+            <div>
+              <p className="k-kicker">Why it matters to the organisation</p>
+              <h2 className="k-display-sm">{orgValue.title}</h2>
+            </div>
+            <p className="k-copy">{orgValue.copy}</p>
+          </div>
+          <ul className="kc-list">
+            {orgValue.points.map((point) => (
+              <li key={point}>{point}</li>
+            ))}
+          </ul>
+          {orgValue.note ? (
+            <p className="k-copy" style={{ marginTop: 16, fontSize: 12, opacity: 0.75 }}>{orgValue.note}</p>
+          ) : null}
+        </section>
+      ) : null}
+
       {faq.length ? (
         <section className="kg-shell k-section">
           <div className="k-section-head">
@@ -142,7 +189,7 @@ export function LockscreenIntentPage({
 
       <section className="kg-shell k-callout">
         <div>
-          <p className="k-kicker">Pause. Assess. Talk — where it's seen.</p>
+          <p className="k-kicker">Pause. Assess. Talk — where it&rsquo;s seen.</p>
           <h2 className="k-display-sm">{calloutTitle}</h2>
         </div>
         <div className="k-actions">

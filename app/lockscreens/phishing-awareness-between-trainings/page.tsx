@@ -25,6 +25,10 @@ export default function Page() {
       intro="You run the annual module. Completion hits 95%. Six weeks later the recall is gone and the next simulated phish still catches people. The gap isn't the training — it's the eleven months after it, when nothing is reinforcing the habit. A rotating lock screen sits in that gap: one short prompt on every device, every day, refreshed every two weeks."
       primaryCtaHref="/lockscreens/workplace/order"
       primaryCtaLabel="Get an instant quote"
+      heroImage={{
+        src: "/lockscreens/workplace/desktop/12.png",
+        alt: "A Konfydence desktop lock screen reading 'Password123 has retired. Your sticky note hasn't. Passwords belong in the vault.'",
+      }}
       problemTitle="Awareness decays on a curve. Your programme is a single point on it."
       problemCopy="A course teaches the rule. Under pressure — an urgent payment, a spoofed supplier, a boss who needs it now — people don't recall a rule from months ago. They need the prompt close to the moment, and they need it often enough that pausing becomes reflex."
       sections={[
@@ -49,6 +53,17 @@ export default function Page() {
         "Keep running your existing annual training and phishing simulations — this sits underneath them.",
         "Every two weeks the prompt changes to match what's actually landing in inboxes.",
       ]}
+      orgValue={{
+        title: "Continuous awareness, not take-the-test-and-forget.",
+        copy: "The point of filling the gap between trainings is to make awareness an ongoing control rather than an annual completion date. A prompt that changes every fortnight, on every device, is visible evidence of activity all year.",
+        points: [
+          "Ongoing cyber-hygiene reinforcement — NIS2 (Article 21) expects awareness to be continuous and management bodies to oversee it. A rotating prompt is visible activity between formal trainings.",
+          "Human risk management contribution — shifts awareness from a knowledge check to a habit cue at the moment of the decision, the point NIST and ISO/IEC 27001 controls emphasise.",
+          "A light audit trail — the Workplace admin records the screen sequence and change dates, so you can show what was in front of staff across any review period.",
+          "Pairs with measurement — run a bounded CoMaSy pilot alongside it for defined behavioural signals — pause, verification, escalation — rather than completion rates.",
+        ],
+        note: "Konfydence Lockscreens supports the human side of an awareness programme. It does not by itself make an organisation NIS2, ISO/IEC 27001 or otherwise compliant — the wider legal, governance and technical obligations remain the organisation's.",
+      }}
       faq={[
         {
           question: "Does this replace our phishing simulation platform?",

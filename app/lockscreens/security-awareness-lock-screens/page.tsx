@@ -25,6 +25,10 @@ export default function Page() {
       intro="Most security awareness lands in an inbox once a year and is gone by lunchtime. A lock screen puts one short prompt — Pause, Assess, Talk — in front of someone every time they pick up a phone or wake a laptop, in the seconds before they click, reply or pay. Konfydence writes the prompts, keeps them current, and delivers a fresh one every two weeks."
       primaryCtaHref="/lockscreens"
       primaryCtaLabel="See how it works"
+      heroImage={{
+        src: "/lockscreens/workplace/notebook-16x10/30.png",
+        alt: "A Konfydence lock screen reading 'Before the click becomes an incident… Pause · Assess · Talk.'",
+      }}
       problemTitle="Awareness fades between trainings. Pressure doesn't wait for the next module."
       problemCopy="The risky moment is never a quiz question. It's an urgent invoice, a text from a courier, a message from a boss who sounds off. A lock screen sits exactly there — on the device, at the moment of the decision — instead of in a course completed months ago."
       sections={[
@@ -49,6 +53,17 @@ export default function Page() {
         "Every two weeks a new screen replaces it automatically. No re-deploy, no reminder emails.",
         "The wording tracks live scam patterns and the Pause · Assess · Talk method all year.",
       ]}
+      orgValue={{
+        title: "Continuous awareness, not take-the-test-and-forget.",
+        copy: "Annual training gives you a completion date. Boards and regulators increasingly want evidence that awareness is an ongoing activity, not a once-a-year event. A lock screen that changes every fortnight is a low-cost, always-on control — and the admin keeps a record of what ran and when.",
+        points: [
+          "Ongoing cyber-hygiene reinforcement — NIS2 (Article 21) expects awareness to be continuous and management bodies to oversee it. A rotating prompt is visible activity between formal trainings.",
+          "Human risk management contribution — shifts awareness from a knowledge check to a habit cue at the moment of the decision, the point NIST and ISO/IEC 27001 controls emphasise.",
+          "A light audit trail — the Workplace admin records the screen sequence and change dates, so you can show what was in front of staff across any review period.",
+          "Reaches the whole workforce — company devices under MDM get the same prompt on the same schedule, remote and frontline staff included, with no completions to chase.",
+        ],
+        note: "Konfydence Lockscreens supports the human side of an awareness programme. It does not by itself make an organisation NIS2, ISO/IEC 27001 or otherwise compliant — the wider legal, governance and technical obligations remain the organisation's.",
+      }}
       faq={[
         {
           question: "How is this different from security awareness posters?",
