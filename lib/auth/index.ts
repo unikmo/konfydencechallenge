@@ -33,3 +33,14 @@ export {
   findAccountByEmail,
   markEmailVerified,
 } from "./account";
+
+export {
+  issueLoginCode,
+  verifyLoginCode,
+  verifyLoginLink,
+  type IssueResult,
+  type VerifyResult,
+} from "./loginCode";
+
+export { consumeRateLimit, rateLimitKey, pruneRateLimits } from "./rateLimit";
+export { getClientIp } from "./request";
