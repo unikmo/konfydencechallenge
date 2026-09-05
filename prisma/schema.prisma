@@ -32,6 +32,7 @@ model Account {
   id              String    @id @default(cuid())
   email           String    @unique
   emailVerifiedAt DateTime?
+  emailOptOut     Boolean   @default(false) // suppresses non-essential email
   createdAt       DateTime  @default(now())
 
   sessions      AuthSession[]
@@ -56,16 +57,31 @@ model AuthSession {
 }
 
 model LoginCode {
-  id         String    @id @default(cuid())
-  email      String
-  codeHash   String
-  expiresAt  DateTime
-  attempts   Int       @default(0)
-  consumedAt DateTime?
-  createdAt  DateTime  @default(now())
+  id            String    @id @default(cuid())
+  email         String
+  codeHash      String
+  linkTokenHash String?   @unique // the magic link carries this; either path consumes the row
+  ipHash        String?
+  expiresAt     DateTime
+  attempts      Int       @default(0)
+  consumedAt    DateTime?
+  createdAt     DateTime  @default(now())
 
   @@index([email])
   @@index([expiresAt])
+}
+
+// Generic fixed-window rate-limit counter. Keyed by (scope, key) where key is a
+// hashed identifier (email, ip fingerprint). Used for login-code issuance and
+// verification attempts.
+model RateLimit {
+  scope           String
+  key             String
+  count           Int      @default(0)
+  windowStartedAt DateTime @default(now())
+
+  @@id([scope, key])
+  @@index([windowStartedAt])
 }
 
 model Passkey {
@@ -125,20 +141,21 @@ model Scenario {
 }
 
 model ChallengeSession {
-  id           String                 @id @default(cuid())
-  userId       String
-  user         User                   @relation(fields: [userId], references: [id])
-  edition      String
-  mode         String                 @default("full")
-  runNumber    Int                    @default(1)
-  status       String                 @default("IN_PROGRESS")
-  currentIndex Int                    @default(0)
-  scoreTotal   Int                    @default(0)
-  scoreMax     Int                    @default(0)
-  completedAt  DateTime?
-  cards        ChallengeSessionCard[]
-  createdAt    DateTime               @default(now())
-  updatedAt    DateTime               @updatedAt
+  id              String                 @id @default(cuid())
+  userId          String
+  user            User                   @relation(fields: [userId], references: [id])
+  edition         String
+  mode            String                 @default("full")
+  runNumber       Int                    @default(1)
+  status          String                 @default("IN_PROGRESS")
+  currentIndex    Int                    @default(0)
+  scoreTotal      Int                    @default(0)
+  scoreMax        Int                    @default(0)
+  completedAt     DateTime?
+  resultEmailedAt DateTime? // the results email is sent once per session
+  cards           ChallengeSessionCard[]
+  createdAt       DateTime               @default(now())
+  updatedAt       DateTime               @updatedAt
 
   @@index([userId])
 }

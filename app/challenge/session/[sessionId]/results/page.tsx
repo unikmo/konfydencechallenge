@@ -11,6 +11,8 @@ import { ScoreRing } from "@/components/illustrations/ScoreRing";
 import { HackIcon } from "@/components/illustrations/HackIcon";
 import { readinessTierColor } from "@/lib/theme/tokens";
 import { isGuestEmail } from "@/lib/challenge/startSessionUtil";
+import { ResultEmailGate } from "@/components/challenge/ResultEmailGate";
+import { sendChallengeResultEmail } from "@/lib/challenge/sendResultEmail";
 
 const EDITION_DECK_NAME: Record<string, string> = {
   school: "School",
@@ -32,8 +34,15 @@ const styles: Record<string, React.CSSProperties> = {
   secondary: { display: "inline-flex", alignItems: "center", justifyContent: "center", width: "100%", minHeight: 46, padding: "11px 14px", borderRadius: 999, background: "transparent", border: "1px solid var(--k-line)", color: "var(--k-ink)", textDecoration: "none", fontWeight: 600, marginTop: 10 },
 };
 
-export default async function ResultsPage({ params }: { params: Promise<{ sessionId: string }> }) {
+export default async function ResultsPage({
+  params,
+  searchParams,
+}: {
+  params: Promise<{ sessionId: string }>;
+  searchParams: Promise<{ claim?: string }>;
+}) {
   const { sessionId } = await params;
+  const { claim } = await searchParams;
   const session = await prisma.challengeSession.findUnique({
     where: { id: sessionId },
     select: {
@@ -62,6 +71,17 @@ export default async function ResultsPage({ params }: { params: Promise<{ sessio
 
   if (completedAll && session.status !== "COMPLETED") {
     await prisma.challengeSession.update({ where: { id: sessionId }, data: { status: "COMPLETED", completedAt: new Date() } });
+  }
+
+  // Free play is free to start, but the result is delivered by email. Stand the
+  // email gate in front of the result for a player who has not registered yet.
+  if (completedAll && isGuestEmail(session.user.email)) {
+    return <ResultEmailGate sessionId={sessionId} edition={session.edition} claim={claim} />;
+  }
+
+  // Registered player finishing a run: send the results email (idempotent).
+  if (completedAll && !isGuestEmail(session.user.email)) {
+    await sendChallengeResultEmail(sessionId).catch(() => {});
   }
 
   const interpretation = pct >= 90
