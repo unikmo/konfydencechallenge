@@ -4,11 +4,10 @@ import { cookies, headers } from "next/headers";
 import { redirect } from "next/navigation";
 import { issueLoginCode, verifyLoginCode } from "@/lib/auth/loginCode";
 import { getClientIp } from "@/lib/auth/request";
-import { normalizeEmail } from "@/lib/auth/email";
-import { createSession, setSessionCookie, hashIp } from "@/lib/auth/session";
-import { claimPlayerForAccount } from "@/lib/auth/claim";
-import { linkLockscreenSubscriptions } from "@/lib/lockscreens/linkToAccount";
-import { KF_UID_COOKIE, KF_UID_COOKIE_OPTIONS } from "@/lib/challenge/kfUidCookie";
+import { normalizeEmail } from "@/lib/auth/account";
+import { finishSignInAction } from "@/lib/auth/finishSignIn";
+import { accountHasTotp, verifyTotpForAccount } from "@/lib/auth/totp";
+import { issuePendingMfa, readPendingMfa, pendingMfaCookieOptions, PENDING_MFA_COOKIE } from "@/lib/auth/pendingMfa";
 
 function safeNext(value: string): string {
   return value.startsWith("/") && !value.startsWith("//") ? value : "/account";
@@ -34,14 +33,8 @@ export async function requestCode(formData: FormData): Promise<void> {
   const ip = getClientIp(await headers());
   const result = await issueLoginCode(email, ip);
 
-  if (!result.ok && result.reason === "invalid_email") {
-    redirect(signInUrl({ error: "email", next }));
-  }
-  if (!result.ok && result.reason === "send_failed") {
-    redirect(signInUrl({ error: "send", email, next }));
-  }
-  // rate_limited is treated as success to avoid revealing whether an address
-  // is registered or how often it has asked.
+  if (!result.ok && result.reason === "invalid_email") redirect(signInUrl({ error: "email", next }));
+  if (!result.ok && result.reason === "send_failed") redirect(signInUrl({ error: "send", email, next }));
   redirect(signInUrl({ step: "code", email, next, sent: true }));
 }
 
@@ -49,8 +42,7 @@ export async function submitCode(formData: FormData): Promise<void> {
   const email = normalizeEmail(String(formData.get("email") ?? ""));
   const code = String(formData.get("code") ?? "").replace(/\s+/g, "");
   const next = safeNext(String(formData.get("next") ?? ""));
-  const hdrs = await headers();
-  const ip = getClientIp(hdrs);
+  const ip = getClientIp(await headers());
 
   const result = await verifyLoginCode(email, code, ip);
   if (!result.ok) {
@@ -65,16 +57,32 @@ export async function submitCode(formData: FormData): Promise<void> {
     redirect(signInUrl({ step: "code", email, next, error }));
   }
 
-  const { token, expiresAt } = await createSession(result.account.id, {
-    userAgent: hdrs.get("user-agent"),
-    ipHash: hashIp(ip),
-  });
-  await setSessionCookie(token, expiresAt);
+  if (await accountHasTotp(result.account.id)) {
+    const store = await cookies();
+    store.set(PENDING_MFA_COOKIE, issuePendingMfa(result.account.id), pendingMfaCookieOptions());
+    redirect(signInUrl({ step: "totp", next }));
+  }
 
+  await finishSignInAction(result.account);
+  redirect(next);
+}
+
+export async function submitTotp(formData: FormData): Promise<void> {
+  const code = String(formData.get("code") ?? "").trim();
+  const next = safeNext(String(formData.get("next") ?? ""));
   const store = await cookies();
-  const canonicalPlayerId = await claimPlayerForAccount(result.account, store.get(KF_UID_COOKIE)?.value ?? null);
-  store.set(KF_UID_COOKIE, canonicalPlayerId, KF_UID_COOKIE_OPTIONS);
-  await linkLockscreenSubscriptions(result.account);
+  const accountId = readPendingMfa(store.get(PENDING_MFA_COOKIE)?.value);
+  if (!accountId) redirect(signInUrl({ error: "expired", next }));
 
+  if (!(await verifyTotpForAccount(accountId, code))) {
+    redirect(signInUrl({ step: "totp", next, error: "totp" }));
+  }
+
+  const { prisma } = await import("@/lib/prisma");
+  const account = await prisma.account.findUnique({ where: { id: accountId } });
+  if (!account) redirect(signInUrl({ error: "expired", next }));
+
+  store.delete(PENDING_MFA_COOKIE);
+  await finishSignInAction(account);
   redirect(next);
 }
