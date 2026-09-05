@@ -30,18 +30,26 @@ export const SHOPIFY_API_VERSION = "2026-07";
  * 4. Copy ID from URL: https://admin.shopify.com/store/konfydence/products/PRODUCT_ID/variants/VARIANT_ID
  * 5. Format as: gid://shopify/ProductVariant/VARIANT_ID
  */
+// Real ProductVariant GIDs from the live Konfydence store (shop.konfydence.com),
+// verified 2026-09-04. Production still prefers the SHOPIFY_VARIANT_* env vars;
+// these are the fallback when those are unset.
 export const TEST_VARIANT_IDS = {
-  "CHAL-SINGLE-SCHOOL": "gid://shopify/ProductVariant/47382124855572",
-  "CHAL-SINGLE-UNIVERSITY": "gid://shopify/ProductVariant/47382124887340",
-  "CHAL-SINGLE-FAMILY": "gid://shopify/ProductVariant/47382124919108",
-  "CHAL-SINGLE-TRAVELSAFE": "gid://shopify/ProductVariant/47382124950876",
-  "CHAL-SINGLE-WORKPLACE": "gid://shopify/ProductVariant/47382124982644",
-  "CHAL-UNLIMITED": "gid://shopify/ProductVariant/47382125014412",
-  "CHAL-UPGRADE": "gid://shopify/ProductVariant/47382125046180",
-  // TODO: replace with the real ProductVariant GID once the Lockscreens product exists in Shopify.
-  "LOCKSCREENS-PACK": "gid://shopify/ProductVariant/47382125141484",
-  "KG-WALLET": "gid://shopify/ProductVariant/47382125077948",
-  "KG-MAGNET": "gid://shopify/ProductVariant/47382125109716",
+  "CHAL-SINGLE-SCHOOL": "gid://shopify/ProductVariant/50289752736101",
+  "CHAL-SINGLE-UNIVERSITY": "gid://shopify/ProductVariant/50289752768869",
+  "CHAL-SINGLE-FAMILY": "gid://shopify/ProductVariant/50289752801637",
+  "CHAL-SINGLE-TRAVELSAFE": "gid://shopify/ProductVariant/50289752834405",
+  "CHAL-SINGLE-WORKPLACE": "gid://shopify/ProductVariant/50289752867173",
+  "CHAL-UNLIMITED": "gid://shopify/ProductVariant/50289753686373",
+  "CHAL-UPGRADE": "gid://shopify/ProductVariant/50289753981285",
+  // TODO: replace with real ProductVariant GIDs once the Home/Teen Home Lockscreens
+  // subscription products exist in Shopify (not created yet -- publishing a live,
+  // sellable product needs the user's go-ahead, not just this code). Each needs a
+  // sellingPlanGroup (annual, first-cycle price $19.99, subsequent $14.99) so the
+  // Storefront cartCreate below can attach `sellingPlanId` per lib/lockscreens/personalOrderService.ts.
+  "LOCKSCREENS-HOME": "gid://shopify/ProductVariant/47382125141484",
+  "LOCKSCREENS-TEEN": "gid://shopify/ProductVariant/47382125141485",
+  "KG-WALLET": "gid://shopify/ProductVariant/50268932899173",
+  "KG-MAGNET": "gid://shopify/ProductVariant/50269353050469",
 } as const;
 
 /**
@@ -66,7 +74,8 @@ export const PRODUCTION_VARIANT_IDS = {
   "CHAL-SINGLE-WORKPLACE": process.env.SHOPIFY_VARIANT_SINGLE_WORKPLACE || TEST_VARIANT_IDS["CHAL-SINGLE-WORKPLACE"],
   "CHAL-UNLIMITED": process.env.SHOPIFY_VARIANT_UNLIMITED || TEST_VARIANT_IDS["CHAL-UNLIMITED"],
   "CHAL-UPGRADE": process.env.SHOPIFY_VARIANT_UPGRADE || TEST_VARIANT_IDS["CHAL-UPGRADE"],
-  "LOCKSCREENS-PACK": process.env.SHOPIFY_VARIANT_LOCKSCREENS || TEST_VARIANT_IDS["LOCKSCREENS-PACK"],
+  "LOCKSCREENS-HOME": process.env.SHOPIFY_VARIANT_LOCKSCREENS_HOME || TEST_VARIANT_IDS["LOCKSCREENS-HOME"],
+  "LOCKSCREENS-TEEN": process.env.SHOPIFY_VARIANT_LOCKSCREENS_TEEN || TEST_VARIANT_IDS["LOCKSCREENS-TEEN"],
   "KG-WALLET": process.env.SHOPIFY_VARIANT_WALLET || TEST_VARIANT_IDS["KG-WALLET"],
   "KG-MAGNET": process.env.SHOPIFY_VARIANT_MAGNET || TEST_VARIANT_IDS["KG-MAGNET"],
 } as const;
@@ -79,40 +88,40 @@ export const PRODUCTION_VARIANT_IDS = {
 export const SHOPIFY_PRODUCTS = {
   CHAL_SINGLE: {
     name: "Konfydence Challenge — Single Edition",
-    description: "Choose one scenario deck (5-question diagnostic free, 50-question full $4.99)",
+    description: "Choose one scenario deck (quick check free, full challenge $6.99 — 40+ scenarios per edition)",
     variants: {
       SCHOOL: {
         label: "School Edition",
         sku: "CHAL-SINGLE-SCHOOL",
-        price: 4.99,
+        price: 6.99,
         digital: true,
         ships: false,
       },
       UNIVERSITY: {
         label: "University Edition",
         sku: "CHAL-SINGLE-UNIVERSITY",
-        price: 4.99,
+        price: 6.99,
         digital: true,
         ships: false,
       },
       FAMILY: {
         label: "Family Edition",
         sku: "CHAL-SINGLE-FAMILY",
-        price: 4.99,
+        price: 6.99,
         digital: true,
         ships: false,
       },
       TRAVELSAFE: {
         label: "TravelSafe",
         sku: "CHAL-SINGLE-TRAVELSAFE",
-        price: 4.99,
+        price: 6.99,
         digital: true,
         ships: false,
       },
       WORKPLACE: {
         label: "Workplace",
         sku: "CHAL-SINGLE-WORKPLACE",
-        price: 4.99,
+        price: 6.99,
         digital: true,
         ships: false,
       },
@@ -122,7 +131,7 @@ export const SHOPIFY_PRODUCTS = {
   CHAL_UNLIMITED: {
     name: "Konfydence Challenge — Unlimited Access",
     description: "All 5 scenario decks + unlimited replays",
-    price: 19.99,
+    price: 24.99,
     sku: "CHAL-UNLIMITED",
     digital: true,
     ships: false,
@@ -131,21 +140,31 @@ export const SHOPIFY_PRODUCTS = {
   CHAL_UPGRADE: {
     name: "Konfydence Challenge — Upgrade to Unlimited",
     description: "Upgrade from any single edition to unlimited access (credit: existing purchase)",
-    price: 15.0,
+    price: 18.0,
     sku: "CHAL-UPGRADE",
     digital: true,
     ships: false,
-    note: "Only shown to users with existing SINGLE entitlement. $15 upgrade credit.",
+    note: "Only shown to users with existing SINGLE entitlement. $18 upgrade credit.",
   },
 
-  LOCKSCREENS_PACK: {
-    name: "Konfydence Lockscreens",
-    description: "Lock-screen reminder service. Home & Teen Home: $19.99 year 1, then $14.99/yr for fortnightly prompt updates.",
+  LOCKSCREENS_HOME: {
+    name: "Konfydence Lockscreens — Home",
+    description: "27 fortnightly lock-screen prompts for one phone. $19.99 year 1, then $14.99/yr.",
     price: 19.99,
-    sku: "LOCKSCREENS-PACK",
+    sku: "LOCKSCREENS-HOME",
     digital: true,
     ships: false,
-    note: "NOT WIRED YET (page routes to /contact). Needs: Shopify annual-subscription products for Home + Teen Home (Shopify Subscriptions / Recharge); Schools $2/managed computer/yr and Workplace $4/employee/yr with a $300 minimum via /contact; plus the device-onboarding flow (choose device -> prompt 1 -> fortnightly email drip via Resend).",
+    note: "App-side fulfillment is wired (webhook -> lib/lockscreens/personalOrderService.ts creates the tenant/plan and emails the phone viewer link; delivery is phone-only). NOT LIVE: the Shopify product + annual selling plan ($19.99 first cycle, $14.99 thereafter) does not exist yet in the store -- needs the user's go-ahead before creating a real sellable product, then SHOPIFY_VARIANT_LOCKSCREENS_HOME set to its variant GID and the Storefront cartCreate call updated to attach that variant's sellingPlanId.",
+  },
+
+  LOCKSCREENS_TEEN: {
+    name: "Konfydence Lockscreens — Teen Home",
+    description: "27 fortnightly lock-screen prompts for one phone, teen-specific scenarios. $19.99 year 1, then $14.99/yr.",
+    price: 19.99,
+    sku: "LOCKSCREENS-TEEN",
+    digital: true,
+    ships: false,
+    note: "Same fulfillment/status as LOCKSCREENS_HOME above, teen content track.",
   },
 
   KG_WALLET: {

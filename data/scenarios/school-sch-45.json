@@ -1,0 +1,33 @@
+{
+  "id": "school-sch-45",
+  "title": "He only talks to you and says don't tell anyone",
+  "edition": "school",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Online safety",
+  "scenario": "An online friend you met through a game has become your main confidant. Lately he's started asking for photos and says it has to stay a secret between just the two of you, or he'll be hurt that you don't trust him.",
+  "answers": {
+    "A": "Send one photo to prove you trust him, then stop.",
+    "B": "Keep it secret since he asked, and see where it goes.",
+    "C": "Don't send anything, and tell a parent or trusted adult about the conversation, even though it feels private."
+  },
+  "scores": {
+    "A": 2,
+    "B": 0,
+    "C": 4
+  },
+  "safeActions": [
+    "C"
+  ],
+  "explanation": "Asking to keep a relationship secret from the people who protect you is a warning sign on its own, whatever else is happening in the conversation.",
+  "proTip": "Anyone who needs you to keep them secret from your family is asking for something they know is wrong.",
+  "hackKey": "C",
+  "hackTrigger": "Comfort",
+  "tags": [
+    "school",
+    "c",
+    "online-safety",
+    "grooming-awareness"
+  ],
+  "active": true
+}

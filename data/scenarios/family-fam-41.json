@@ -1,0 +1,33 @@
+{
+  "id": "family-fam-41",
+  "title": "Amazon says: $749 charge pending",
+  "edition": "family",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Online shopping",
+  "scenario": "A text and a follow-up call claim a $749 order just went through on your Amazon account. The message gives a phone number to call immediately to cancel before it ships.",
+  "answers": {
+    "A": "Open the Amazon app yourself and check your orders; call Amazon only through the number in the app if anything looks wrong.",
+    "B": "Call the number in the text to cancel the order before it ships.",
+    "C": "Stay on the line and read back the verification code they send to your phone."
+  },
+  "scores": {
+    "A": 4,
+    "B": 2,
+    "C": 0
+  },
+  "safeActions": [
+    "A"
+  ],
+  "explanation": "Real order alerts don't need you to call an unfamiliar number to cancel. The call is the scam - it moves you from a text into a live agent who asks for account access.",
+  "proTip": "Check orders inside the app you already trust, not through a number a message gives you.",
+  "hackKey": "H",
+  "hackTrigger": "Hurry",
+  "tags": [
+    "family",
+    "h",
+    "refund-scam",
+    "online-shopping"
+  ],
+  "active": true
+}

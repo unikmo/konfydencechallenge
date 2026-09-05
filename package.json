@@ -16,6 +16,7 @@
     "prisma:migrate": "prisma migrate dev",
     "db:migrate": "prisma migrate deploy",
     "db:seed": "ts-node --transpile-only prisma/seed.ts",
+    "db:seed:lockscreens": "ts-node --transpile-only scripts/ingest-lockscreen-assets.ts",
     "db:verify": "ts-node --transpile-only scripts/verify-backend.ts",
     "db:bootstrap": "npm run db:seed && npm run db:verify",
     "seed": "npm run db:seed",

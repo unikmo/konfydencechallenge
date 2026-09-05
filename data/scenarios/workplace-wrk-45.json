@@ -1,0 +1,33 @@
+{
+  "id": "workplace-wrk-45",
+  "title": "A candidate sent their portfolio",
+  "edition": "workplace",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "HR relationships",
+  "scenario": "A promising candidate for an open role emails their portfolio as an attached file, with a note asking you to enable editing to see the full formatting.",
+  "answers": {
+    "A": "Open it and enable editing since they seem like a strong candidate.",
+    "B": "Open it, enable editing, and forward it to the rest of the hiring panel.",
+    "C": "Open it in a preview or protected view without enabling editing, or ask for a link to a standard hosting service instead."
+  },
+  "scores": {
+    "A": 1,
+    "B": 0,
+    "C": 4
+  },
+  "safeActions": [
+    "C"
+  ],
+  "explanation": "Malicious documents targeting hiring managers routinely arrive as convincing candidate portfolios, and the 'enable editing' prompt is the exact step that activates the payload.",
+  "proTip": "A request to 'enable editing' to see formatting is not something a real document needs.",
+  "hackKey": "C",
+  "hackTrigger": "Comfort",
+  "tags": [
+    "workplace",
+    "c",
+    "recruitment-fraud",
+    "hr-relationships"
+  ],
+  "active": true
+}

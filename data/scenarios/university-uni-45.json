@@ -1,0 +1,33 @@
+{
+  "id": "university-uni-45",
+  "title": "The premium AI study tool everyone's using",
+  "edition": "university",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Class chats",
+  "scenario": "A classmate shares a link in your course group chat to a 'premium' AI study tool that's helped everyone with exam prep - you just need to sign in with your university account to get access.",
+  "answers": {
+    "A": "Sign in since a classmate already vouched for it.",
+    "B": "Sign in, and also share the link further in the group chat.",
+    "C": "Check whether the tool is officially supported before signing in with your university login."
+  },
+  "scores": {
+    "A": 2,
+    "B": 0,
+    "C": 4
+  },
+  "safeActions": [
+    "C"
+  ],
+  "explanation": "Signing into a third-party site with your university credentials can hand that site your whole student account, even when the recommendation comes from someone you trust.",
+  "proTip": "A classmate's endorsement doesn't make your university login safe to hand to a random site.",
+  "hackKey": "C",
+  "hackTrigger": "Comfort",
+  "tags": [
+    "university",
+    "c",
+    "credential-phishing",
+    "study-tools"
+  ],
+  "active": true
+}

@@ -1,0 +1,33 @@
+{
+  "id": "university-uni-41",
+  "title": "Your exam resit slot expires in an hour",
+  "edition": "university",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Campus finance",
+  "scenario": "A text claiming to be from the exams office says your resit slot will be released to someone else in one hour unless you secure it now with a payment to a listed account.",
+  "answers": {
+    "A": "Pay quickly to the account in the text to keep the slot.",
+    "B": "Check the resit booking directly through the official student portal instead of the link in the text.",
+    "C": "Pay, and also forward the message to classmates so they don't lose their slots either."
+  },
+  "scores": {
+    "A": 1,
+    "B": 4,
+    "C": 0
+  },
+  "safeActions": [
+    "B"
+  ],
+  "explanation": "Exam administration doesn't run through a one-hour countdown to a payment account named in a text - a real resit booking lives in the student portal.",
+  "proTip": "Anything that decides your academic record happens in the official portal, not a text link.",
+  "hackKey": "H",
+  "hackTrigger": "Hurry",
+  "tags": [
+    "university",
+    "h",
+    "exam-fees",
+    "campus-finance"
+  ],
+  "active": true
+}

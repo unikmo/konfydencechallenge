@@ -1,0 +1,33 @@
+{
+  "id": "workplace-wrk-46",
+  "title": "The meeting bot is already in the call",
+  "edition": "workplace",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Collaboration",
+  "scenario": "An AI note-taking bot joins your confidential client call uninvited, asking to be admitted so it can share the transcript and recording with 'the organizer' afterward.",
+  "answers": {
+    "A": "Admit it, since these bots are common in meetings now.",
+    "B": "Remove it and confirm with the actual organizer whether they added a note-taker before continuing.",
+    "C": "Admit it, and continue the meeting without mentioning it to anyone."
+  },
+  "scores": {
+    "A": 2,
+    "B": 4,
+    "C": 0
+  },
+  "safeActions": [
+    "B"
+  ],
+  "explanation": "An uninvited AI meeting bot can silently record and export a confidential conversation to an outside party; its presence should be confirmed with the meeting organizer, not assumed.",
+  "proTip": "Anything that can record the whole meeting deserves the same check as any other uninvited guest.",
+  "hackKey": "C",
+  "hackTrigger": "Comfort",
+  "tags": [
+    "workplace",
+    "c",
+    "ai-meeting-bot",
+    "collaboration"
+  ],
+  "active": true
+}

@@ -34,7 +34,7 @@ export default function HackMethodPage() {
           <strong> P.A.T.</strong> is what you do about it. You practise both until the moment feels familiar instead of frightening.
         </p>
         <div className="k-actions">
-          <Link className="k-button" href="/challenge/travelsafe/start?mode=diagnostic">Take the free 8-decision check</Link>
+          <Link className="k-button" href="/challenge/travelsafe/start?mode=diagnostic">Take the free check</Link>
         </div>
       </section>
 

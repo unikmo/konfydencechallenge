@@ -1,0 +1,33 @@
+{
+  "id": "university-uni-42",
+  "title": "Claim your conference travel grant today",
+  "edition": "university",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Research jobs",
+  "scenario": "An email says you've been awarded a travel grant for a conference, but funds release today only, and you must confirm your bank details through a linked form before the deadline passes.",
+  "answers": {
+    "A": "Contact your department directly to confirm the grant is real before entering any bank details.",
+    "B": "Fill in the form, and also share it with a labmate who might want a grant.",
+    "C": "Fill in the form quickly to receive the funds today."
+  },
+  "scores": {
+    "A": 4,
+    "B": 0,
+    "C": 1
+  },
+  "safeActions": [
+    "A"
+  ],
+  "explanation": "Genuine grant administration doesn't collect bank details through a same-day emailed form - a real award goes through your university's finance office.",
+  "proTip": "A grant you didn't apply urgency to shouldn't come with urgency attached to it.",
+  "hackKey": "H",
+  "hackTrigger": "Hurry",
+  "tags": [
+    "university",
+    "h",
+    "grant-scam",
+    "research-jobs"
+  ],
+  "active": true
+}

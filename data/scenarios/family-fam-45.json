@@ -1,0 +1,33 @@
+{
+  "id": "family-fam-45",
+  "title": "Grandma, it's me - I'm in hospital",
+  "edition": "family",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Grandparent scams",
+  "scenario": "A voice that sounds exactly like your grandson calls, crying, saying he was in an accident and needs money for a hospital deposit before they'll treat him. He begs you not to call his parents.",
+  "answers": {
+    "A": "Ask him a question only the real grandson would know, then decide what to do.",
+    "B": "Wire the deposit right away since he sounds so upset.",
+    "C": "Hang up and call your grandson or his parents directly on a number you already have."
+  },
+  "scores": {
+    "A": 2,
+    "B": 0,
+    "C": 4
+  },
+  "safeActions": [
+    "C"
+  ],
+  "explanation": "AI voice cloning can now copy a familiar voice from a few seconds of audio. A voice matching isn't proof of identity anymore - a callback on a known number is.",
+  "proTip": "The voice can be faked. The number you already have for them can't.",
+  "hackKey": "C",
+  "hackTrigger": "Comfort",
+  "tags": [
+    "family",
+    "c",
+    "ai-voice-clone",
+    "grandparent-scams"
+  ],
+  "active": true
+}

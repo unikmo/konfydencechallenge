@@ -1,0 +1,33 @@
+{
+  "id": "school-sch-41",
+  "title": "Free Discord Nitro - link expires tonight",
+  "edition": "school",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Gaming",
+  "scenario": "A DM from someone in your server says they're giving away free Discord Nitro, but the link only works for the next 20 minutes and needs you to log in.",
+  "answers": {
+    "A": "Log in quickly before the offer expires.",
+    "B": "Skip it. Real Nitro gifts come from Discord itself or a friend you already trust, not a countdown link in a DM.",
+    "C": "Log in, and also send the link to your friends before it expires."
+  },
+  "scores": {
+    "A": 1,
+    "B": 4,
+    "C": 0
+  },
+  "safeActions": [
+    "B"
+  ],
+  "explanation": "Fake Nitro gift links are one of the most common Discord phishing scams, built to steal your login the moment you enter it under a fake deadline.",
+  "proTip": "A countdown on a login page is designed to stop you from thinking - that's the whole trick.",
+  "hackKey": "H",
+  "hackTrigger": "Hurry",
+  "tags": [
+    "school",
+    "h",
+    "discord",
+    "gift-phishing"
+  ],
+  "active": true
+}

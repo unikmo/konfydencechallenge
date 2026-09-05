@@ -1,0 +1,33 @@
+{
+  "id": "family-fam-47",
+  "title": "A mystery QR code on the parking meter",
+  "edition": "family",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Payments",
+  "scenario": "The parking meter has an 'Out of Order - Scan to Pay' sticker with a QR code. Scanning it opens a payment page asking for your card number, expiry date, and CVV.",
+  "answers": {
+    "A": "Skip the QR code and pay through the official parking app or the meter's card reader instead.",
+    "B": "Scan it, but only enter the last four digits of your card.",
+    "C": "Scan it and pay - it's faster than finding the app."
+  },
+  "scores": {
+    "A": 4,
+    "B": 1,
+    "C": 0
+  },
+  "safeActions": [
+    "A"
+  ],
+  "explanation": "Fraudulent QR stickers placed over real parking signage are a fast-growing scam. The 'out of order' framing exists to push you toward the fake link instead of the official option.",
+  "proTip": "A sticker QR code on public equipment is never the safest way to pay - use the app or the machine itself.",
+  "hackKey": "K",
+  "hackTrigger": "Kill-Switch",
+  "tags": [
+    "family",
+    "k",
+    "qr-code",
+    "parking-scam"
+  ],
+  "active": true
+}

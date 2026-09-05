@@ -1,0 +1,33 @@
+{
+  "id": "travelsafe-tra-45",
+  "title": "A local you met offers to change money",
+  "edition": "travelsafe",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Currency exchange",
+  "scenario": "Someone friendly you met at your accommodation offers to exchange your currency at a much better rate than any exchange office nearby, right there on the street.",
+  "answers": {
+    "A": "Exchange a small amount first to test it.",
+    "B": "Exchange your full remaining cash since the rate is so much better.",
+    "C": "Politely decline and use a licensed exchange office or your bank card instead."
+  },
+  "scores": {
+    "A": 2,
+    "B": 0,
+    "C": 4
+  },
+  "safeActions": [
+    "C"
+  ],
+  "explanation": "Street exchange offers that beat every licensed office are typically funded by counterfeit notes or short-counting, and the friendliness is part of lowering your guard.",
+  "proTip": "A rate too good for a licensed office to match usually isn't real money changing hands.",
+  "hackKey": "C",
+  "hackTrigger": "Comfort",
+  "tags": [
+    "travelsafe",
+    "c",
+    "currency-exchange",
+    "street-scam"
+  ],
+  "active": true
+}

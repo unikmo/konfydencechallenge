@@ -1,0 +1,33 @@
+{
+  "id": "workplace-wrk-41",
+  "title": "Register your new MFA device before you're locked out",
+  "edition": "workplace",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Identity",
+  "scenario": "An email says your MFA method is being upgraded and you must register a new device within the hour through the linked form, or lose access to your account today.",
+  "answers": {
+    "A": "Go directly to your company's identity portal to check and manage MFA settings instead of the link.",
+    "B": "Register through the link quickly to avoid losing access.",
+    "C": "Register through the link, and also share the current MFA code to 'transfer' it."
+  },
+  "scores": {
+    "A": 4,
+    "B": 1,
+    "C": 0
+  },
+  "safeActions": [
+    "A"
+  ],
+  "explanation": "A real MFA change is managed inside your company's own identity system, not through a countdown email that hands you a new device-registration link.",
+  "proTip": "MFA changes happen in the identity portal you already use, never in a link that emailed you.",
+  "hackKey": "H",
+  "hackTrigger": "Hurry",
+  "tags": [
+    "workplace",
+    "h",
+    "mfa",
+    "identity"
+  ],
+  "active": true
+}

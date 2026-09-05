@@ -1,0 +1,33 @@
+{
+  "id": "school-sch-47",
+  "title": "Complete human verification for 10,000 V-Bucks",
+  "edition": "school",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Gaming",
+  "scenario": "A video promises 10,000 free V-Bucks if you enter your username and complete a 'human verification' survey, which asks for your email password to confirm you're not a bot.",
+  "answers": {
+    "A": "Close it. Free item generators for paid in-game currency don't exist, and no verification step ever needs a password.",
+    "B": "Enter the username only, and skip the password part.",
+    "C": "Complete the whole survey, including the password, to get the reward."
+  },
+  "scores": {
+    "A": 4,
+    "B": 1,
+    "C": 0
+  },
+  "safeActions": [
+    "A"
+  ],
+  "explanation": "There is no legitimate way to generate paid in-game currency for free. The 'verification' step exists purely to collect your login and personal details.",
+  "proTip": "Anything free that needs your password is only free for the person collecting it.",
+  "hackKey": "K",
+  "hackTrigger": "Kill-Switch",
+  "tags": [
+    "school",
+    "k",
+    "gaming",
+    "item-generator-scam"
+  ],
+  "active": true
+}

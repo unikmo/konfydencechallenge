@@ -1,0 +1,33 @@
+{
+  "id": "university-uni-48",
+  "title": "Log in to the university portal to confirm your details",
+  "edition": "university",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "University IT",
+  "scenario": "An email link opens a login page that looks exactly like your university's portal, asking you to confirm your username and password after a routine security check.",
+  "answers": {
+    "A": "Log in since the page looks identical to the real portal.",
+    "B": "Log in, and also complete the 'security question' fields it asks for afterward.",
+    "C": "Check the web address carefully or type the university's URL in yourself instead of using the link."
+  },
+  "scores": {
+    "A": 1,
+    "B": 0,
+    "C": 4
+  },
+  "safeActions": [
+    "C"
+  ],
+  "explanation": "A pixel-perfect copy of your university's login page is exactly what credential phishing looks like - the giveaway is almost always the web address, not the design.",
+  "proTip": "A login page you reached by typing the address yourself is safer than one a link opened for you.",
+  "hackKey": "K",
+  "hackTrigger": "Kill-Switch",
+  "tags": [
+    "university",
+    "k",
+    "sso-phishing",
+    "university-it"
+  ],
+  "active": true
+}

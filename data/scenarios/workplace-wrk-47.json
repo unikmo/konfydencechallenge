@@ -1,0 +1,33 @@
+{
+  "id": "workplace-wrk-47",
+  "title": "Facilities: renew your badge details here",
+  "edition": "workplace",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Access/Data",
+  "scenario": "An email styled like Facilities says your access badge is expiring and asks you to confirm your employee ID and a photo of your badge on a linked renewal site to avoid being locked out of the building.",
+  "answers": {
+    "A": "Confirm the details on the site to avoid losing building access.",
+    "B": "Confirm the details, and also photograph your badge as asked.",
+    "C": "Check badge renewal directly with Facilities or Security in person or through a known internal system."
+  },
+  "scores": {
+    "A": 1,
+    "B": 0,
+    "C": 4
+  },
+  "safeActions": [
+    "C"
+  ],
+  "explanation": "Physical access-credential phishing collects exactly what's needed to clone a badge or impersonate an employee at the door, dressed up as routine building admin.",
+  "proTip": "Badge and access changes go through Facilities or Security directly, not a link that emailed you.",
+  "hackKey": "K",
+  "hackTrigger": "Kill-Switch",
+  "tags": [
+    "workplace",
+    "k",
+    "badge-phishing",
+    "physical-access"
+  ],
+  "active": true
+}

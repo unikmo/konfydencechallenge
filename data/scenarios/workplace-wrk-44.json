@@ -1,0 +1,33 @@
+{
+  "id": "workplace-wrk-44",
+  "title": "Data subject request: send everything on this person",
+  "edition": "workplace",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Legal",
+  "scenario": "An email citing data-protection law demands your team send everything held about a named individual within 48 hours, with no verification of identity or authority attached.",
+  "answers": {
+    "A": "Compile and send the requested data quickly to comply with the law.",
+    "B": "Route the request through your organization's official data-protection process before sending anything.",
+    "C": "Send a partial file quickly and promise the rest later."
+  },
+  "scores": {
+    "A": 1,
+    "B": 4,
+    "C": 0
+  },
+  "safeActions": [
+    "B"
+  ],
+  "explanation": "Legitimate data-subject requests go through a verified intake process precisely because unverified requests are a known vector for extracting sensitive personal data.",
+  "proTip": "A legal-sounding deadline doesn't replace your organization's real verification process.",
+  "hackKey": "A",
+  "hackTrigger": "Authority",
+  "tags": [
+    "workplace",
+    "a",
+    "data-request",
+    "legal"
+  ],
+  "active": true
+}

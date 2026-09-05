@@ -1,0 +1,33 @@
+{
+  "id": "school-sch-43",
+  "title": "A modelling scout saw your photos",
+  "edition": "school",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Social platforms",
+  "scenario": "An account claiming to be from a modelling agency messages you, saying they've been watching your profile and want to sign you - but first you need to pay for a 'starter portfolio' and share more photos privately.",
+  "answers": {
+    "A": "Send a few more photos to see what they say.",
+    "B": "Don't pay or send anything privately; tell a parent or trusted adult about the message.",
+    "C": "Pay for the portfolio since real agencies find people this way."
+  },
+  "scores": {
+    "A": 1,
+    "B": 4,
+    "C": 0
+  },
+  "safeActions": [
+    "B"
+  ],
+  "explanation": "Real modelling and talent agencies don't recruit through DMs and don't ask a teenager to pay upfront or send private photos - that combination is a scouting scam.",
+  "proTip": "Being 'discovered' never comes with an invoice.",
+  "hackKey": "A",
+  "hackTrigger": "Authority",
+  "tags": [
+    "school",
+    "a",
+    "fake-scout",
+    "social-platforms"
+  ],
+  "active": true
+}

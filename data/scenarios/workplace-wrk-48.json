@@ -1,0 +1,33 @@
+{
+  "id": "workplace-wrk-48",
+  "title": "Security is calling - read back your code",
+  "edition": "workplace",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Identity",
+  "scenario": "Someone calling from the 'security team' says they're verifying a suspicious login on your account and asks you to read back the 6-digit code that just arrived by text so they can confirm it's really you.",
+  "answers": {
+    "A": "Read the code back since they say it's just to verify you.",
+    "B": "Read the code back, and also confirm your password to speed up the process.",
+    "C": "Don't share the code; hang up and contact IT/Security through a known internal number to check."
+  },
+  "scores": {
+    "A": 1,
+    "B": 0,
+    "C": 4
+  },
+  "safeActions": [
+    "C"
+  ],
+  "explanation": "A verification code sent to you is meant to stay with you - reading it to a caller hands them exactly what they need to complete their own login as you.",
+  "proTip": "A code sent to you verifies you, not the person asking you to read it out loud.",
+  "hackKey": "K",
+  "hackTrigger": "Kill-Switch",
+  "tags": [
+    "workplace",
+    "k",
+    "vishing",
+    "identity"
+  ],
+  "active": true
+}

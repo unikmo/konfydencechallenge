@@ -414,3 +414,119 @@ model ComasyScenarioVersion {
   @@unique([scenarioId, version])
   @@index([scenarioId])
 }
+
+model GiftCode {
+  id               String    @id @default(cuid())
+  code             String    @unique
+  tier             String
+  edition          String?
+  shopifyOrderId   String    @unique
+  fromName         String?
+  fromEmail        String?
+  toEmail          String
+  message          String?
+  status           String    @default("issued") // issued | redeemed | revoked
+  redeemedByUserId String?
+  redeemedAt       DateTime?
+  createdAt        DateTime  @default(now())
+
+  @@index([toEmail])
+  @@index([status])
+}
+
+// --- Lockscreens (Workplace tier) --------------------------------------
+// See docs/LOCKSCREENS_ARCHITECTURE.md. Content library + tenant/plan model
+// for the Managed Deployment Engine. B2B purchase routes through a
+// quote -> auto-generated PO, not instant checkout (per architecture §5).
+
+model LockscreenAsset {
+  id        String   @id @default(cuid())
+  track     String                   // "workplace" | "school" | "home" | "teen" -- each track has its own numbering
+  number    Int                      // within the track (1..60 for workplace/school; original source-pack numbers for home/teen)
+  format    String                   // "desktop" | "notebook-16x10" | "notebook-3x2" | "tablet-landscape" | "tablet-portrait" | "phone"
+  category  String
+  hook      String
+  body      String
+  action    String
+  imagePath String                   // "/lockscreens/{track}/{format}/NN.png"
+  status    String   @default("live") // live | draft | retired
+  createdAt DateTime @default(now())
+
+  @@unique([track, number, format])
+  @@index([status])
+  @@index([track])
+}
+
+model LockscreenTenant {
+  id            String   @id @default(cuid())
+  kind          String                    // "workplace" | "school" | "home" | "teen"
+  orgName       String
+  token         String   @unique          // opaque, for the /l/{token}/current/{device} delivery resolver
+  tokenStatus   String   @default("active") // pending | active | expired
+  adminToken    String   @unique          // opaque, separate link for the self-serve admin (/lockscreens/workplace/admin/{adminToken})
+  licensedCount Int                       // declared billing basis: employee headcount
+  contactName   String?
+  contactEmail  String
+  termStart     DateTime?
+  termEnd       DateTime?
+  createdAt     DateTime @default(now())
+  plan          LockscreenPlan?
+  orders        LockscreenOrder[]
+
+  @@index([contactEmail])
+  @@index([kind])
+}
+
+model LockscreenPlan {
+  id          String   @id @default(cuid())
+  tenantId    String   @unique
+  tenant      LockscreenTenant @relation(fields: [tenantId], references: [id])
+  sequence    Int[]                     // ordered asset numbers, length = screenCount
+  screenCount Int      @default(27)     // 27 | 54 | 60
+  cadence     String   @default("fortnightly") // weekly | fortnightly | monthly
+  anchor      DateTime @default(now())  // sequence position 0 starts here
+  loop        Boolean  @default(true)
+  updatedAt   DateTime @updatedAt
+}
+
+// One row per quote/order submitted through /lockscreens/workplace/order.
+// Always produces a numbered PO immediately; a human still confirms payment
+// terms before the licence goes live (tenant.tokenStatus flips to "active").
+model LockscreenOrder {
+  id             String   @id @default(cuid())
+  poNumber       String   @unique
+  // Only set for Personal-engine (home/teen) orders, which come straight
+  // from a paid Shopify order rather than the B2B quote->PO flow -- used
+  // for webhook idempotency (retries) and cancellation/refund lookup.
+  shopifyOrderId String?  @unique
+  tenantId       String?
+  tenant         LockscreenTenant? @relation(fields: [tenantId], references: [id])
+  orgName        String
+  contactName    String?
+  contactEmail   String
+  billingAddress String?
+  employeeCount  Int
+  screenCount    Int                     // 27 | 54 | 60
+  cadence        String                  // weekly | fortnightly | monthly
+  sequence       Int[]                   // chosen asset numbers, length = screenCount
+  baseRatePerHead    Float               // $4.00 base rate at time of order
+  surchargePerHead   Float @default(0)   // extended-library add-on ($1/head for 54/60 screens)
+  ratePerHead    Float                   // baseRatePerHead + surchargePerHead
+  annualTotal    Float                   // max(employeeCount * ratePerHead, minimumAnnual), unless overridden below
+  minimumApplied Boolean  @default(false)
+  currency       String   @default("USD")
+  status         String   @default("quote_issued") // quote_issued | confirmed | cancelled
+  notes          String?
+  // Negotiated pricing: set only from the internal /admin tool (Basic-Auth
+  // gated). When present, this replaces annualTotal as the billed figure on
+  // the PO and admin dashboard — the calculated rate stays on record as the
+  // list-price baseline.
+  overrideAnnualTotal Float?
+  overrideReason      String?
+  overriddenBy        String?
+  overriddenAt        DateTime?
+  createdAt      DateTime @default(now())
+
+  @@index([contactEmail])
+  @@index([status])
+}

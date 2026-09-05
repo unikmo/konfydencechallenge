@@ -4,17 +4,20 @@ export type ChallengeEdition = "school" | "university" | "family" | "travelsafe"
 export type ChallengeMode = "diagnostic" | "full";
 type HackKey = "H" | "A" | "C" | "K";
 
-// Each edition has a 40-scenario bank: 10 H / 10 A / 10 C / 10 K.
+// Each edition has a bank of 40+ scored scenarios, balanced across H / A / C / K.
 // The free readiness check draws 8 (2 per pressure pattern).
-// A full run draws 24 (6 per pressure pattern), prioritising unseen cards.
+// A full run is played in short rounds of 12 (3 per pattern), unseen cards first,
+// so a player works through the whole bank across several rounds instead of one
+// long fatiguing block. Round size is game design and deliberately not surfaced
+// in product copy — see scripts/validate-product-claims.cjs.
 const MODE_CARD_COUNT: Record<ChallengeMode, number> = {
   diagnostic: 8,
-  full: 24,
+  full: 12,
 };
 
 const PER_KEY_COUNT: Record<ChallengeMode, number> = {
   diagnostic: 2,
-  full: 6,
+  full: 3,
 };
 
 const HACK_KEYS: HackKey[] = ["H", "A", "C", "K"];
@@ -67,8 +70,8 @@ export type GeneratedSessionPlan = {
  * - Later runs: unseen cards first, still balanced by pressure pattern.
  * - When a pressure-pattern pool is exhausted: oldest-seen cards are recycled first.
  *
- * With the standard 40-card bank, two 8-card diagnostics followed by a 24-card
- * full run can expose a player to all 40 cards without repetition.
+ * Rounds of 12 draw unseen cards first, so a player works through the whole
+ * 40+ card bank over several short rounds before anything repeats.
  */
 export async function generateChallengeSessionPlan(
   edition: ChallengeEdition,

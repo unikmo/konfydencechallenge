@@ -1,0 +1,33 @@
+{
+  "id": "family-fam-44",
+  "title": "The bank is sending a courier for your card",
+  "edition": "family",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Banking",
+  "scenario": "Someone calling from your bank's 'fraud team' says your card has been compromised. To protect you, they're sending a courier to collect the physical card within the hour, along with the PIN written on paper.",
+  "answers": {
+    "A": "Hand the card to the courier but keep the PIN only in your head.",
+    "B": "Hand over the card and PIN as instructed to stop the fraud.",
+    "C": "Hang up and call your bank using the number on the back of the card; banks never collect cards or PINs by courier."
+  },
+  "scores": {
+    "A": 1,
+    "B": 0,
+    "C": 4
+  },
+  "safeActions": [
+    "C"
+  ],
+  "explanation": "No legitimate bank ever sends someone to your door to collect your card or PIN. This is courier fraud, and it moves fast precisely so you don't have time to check.",
+  "proTip": "A bank protects a compromised card by freezing it - never by sending someone to collect it.",
+  "hackKey": "A",
+  "hackTrigger": "Authority",
+  "tags": [
+    "family",
+    "a",
+    "courier-fraud",
+    "bank-impostor"
+  ],
+  "active": true
+}

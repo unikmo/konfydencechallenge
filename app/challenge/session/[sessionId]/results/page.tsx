@@ -95,7 +95,7 @@ export default async function ResultsPage({ params }: { params: Promise<{ sessio
         </header>
 
         <section style={styles.card}>
-          <p className="overline">{isDiagnostic ? "FREE 8-DECISION READINESS CHECK" : "FULL 24-DECISION CHALLENGE"}</p>
+          <p className="overline">{isDiagnostic ? "FREE READINESS CHECK" : "FULL CHALLENGE"}</p>
           <div className="scoreIntro">
             <div>
               <h1>Your Scam Survival Profile</h1>
@@ -146,12 +146,12 @@ export default async function ResultsPage({ params }: { params: Promise<{ sessio
           <section className="conversion">
             <p className="overline lime">YOUR FREE CHECK FOUND THE PATTERN</p>
             <h2>Do not just know the weakness. Train the reflex.</h2>
-            <p>The full {deckName} Challenge draws 24 balanced decisions from its 40-scenario bank — six each across Hurry, Authority, Comfort and Kill-Switch — with a deeper profile and completion certificate.</p>
-            <p className="bankNote">Replays prioritise unseen cards, so practice measures decision quality rather than memory of the previous round.</p>
+            <p>The full {deckName} Challenge works through 40+ real-life scenarios — balanced across Hurry, Authority, Comfort and Kill-Switch — in short rounds, with a deeper profile and completion certificate.</p>
+            <p className="bankNote">Each round prioritises scenarios you have not seen, so practice measures decision quality rather than memory of the previous round.</p>
             {weakest ? <div className="recommend"><b>Start here:</b> {weakest.practice}</div> : null}
             <div className="commerce">
-              <CheckoutRedirectButton sku={`CHAL-SINGLE-${session.edition.toUpperCase()}`} label="Unlock Full Challenge — $4.99" />
-              <CheckoutRedirectButton sku="CHAL-UNLIMITED" label="Get All 5 Challenges — $19.99" variant="outline" />
+              <CheckoutRedirectButton sku={`CHAL-SINGLE-${session.edition.toUpperCase()}`} label="Unlock Full Challenge — $6.99" />
+              <CheckoutRedirectButton sku="CHAL-UNLIMITED" label="Get All 5 Challenges — $24.99" variant="outline" />
             </div>
             {canPlayAnotherFreeRound ? <Link style={{ ...styles.secondary, background: "white" }} href={freeRoundHref}>{isRegistered ? "Play my second free check" : "Register to unlock my second free check"}</Link> : <p className="limit">Your two free readiness checks are complete.</p>}
           </section>
@@ -164,7 +164,7 @@ export default async function ResultsPage({ params }: { params: Promise<{ sessio
           </section>
         )}
 
-        {completedAll ? <section style={styles.card}><ShareButtons url={`/challenge/session/${sessionId}/results`} title="Konfydence Challenge" text={`I just tested my Konfydence ${deckName} pressure profile. Take the free 8-scenario check and compare your H.A.C.K. pattern.`} /></section> : null}
+        {completedAll ? <section style={styles.card}><ShareButtons url={`/challenge/session/${sessionId}/results`} title="Konfydence Challenge" text={`I just tested my Konfydence ${deckName} pressure profile. Take the free check and compare your H.A.C.K. pattern.`} /></section> : null}
       </div>
 
       <style>{`

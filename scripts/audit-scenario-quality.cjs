@@ -63,7 +63,7 @@ for (const file of files) {
 
 for (const edition of EDITIONS) {
   const cards = scored.filter((item) => item.scenario.edition === edition);
-  if (cards.length !== 40) findings.push({ id: edition, file: "deck", issues: [`expected 40 active source cards, found ${cards.length}`] });
+  if (cards.length !== 48) findings.push({ id: edition, file: "deck", issues: [`expected 48 active source cards, found ${cards.length}`] });
 
   const prompts = new Map();
   const titles = new Map();
@@ -75,7 +75,7 @@ for (const edition of EDITIONS) {
   }
 
   const hackCounts = Object.fromEntries(HACK.map((key) => [key, cards.filter((item) => item.scenario.hackKey === key).length]));
-  for (const key of HACK) if (hackCounts[key] !== 10) findings.push({ id: edition, file: "deck", issues: [`${key} pressure pattern expected 10, found ${hackCounts[key]}`] });
+  for (const key of HACK) if (hackCounts[key] !== 12) findings.push({ id: edition, file: "deck", issues: [`${key} pressure pattern expected 12, found ${hackCounts[key]}`] });
 
   const diagnostic = cards.filter((item) => (item.scenario.tags || []).map(String).includes("diagnostic"));
   if (diagnostic.length !== 8) findings.push({ id: edition, file: "deck", issues: [`expected 8 curated diagnostic cards, found ${diagnostic.length}`] });
@@ -98,7 +98,7 @@ for (const edition of EDITIONS) {
 
 console.log(`\nKonfydence scenario audit: ${scored.length} scored source cards checked.`);
 if (!findings.length) {
-  console.log("PASS — five 40-card banks; canonical Comfort source; 3 distinct choices; balanced H/A/C/K; unique strongest move; diagnostic coverage; duplicate protection.\n");
+  console.log("PASS — five 48-card banks (12/12/12/12 H/A/C/K, four 12-card rounds); canonical Comfort source; 3 distinct choices; unique strongest move; diagnostic coverage; duplicate protection.\n");
   process.exit(0);
 }
 console.log(`FAIL — ${findings.length} finding(s).\n`);

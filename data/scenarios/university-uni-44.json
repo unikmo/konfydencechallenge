@@ -1,0 +1,33 @@
+{
+  "id": "university-uni-44",
+  "title": "Your device isn't compliant - install this profile",
+  "edition": "university",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "University IT",
+  "scenario": "A pop-up while on campus Wi-Fi says your laptop isn't compliant with university security policy and you must install a configuration profile immediately to keep network access.",
+  "answers": {
+    "A": "Ignore the pop-up and check with university IT directly through their known help desk.",
+    "B": "Install it, and also grant it full admin permissions when asked.",
+    "C": "Install the profile right away to keep working."
+  },
+  "scores": {
+    "A": 4,
+    "B": 0,
+    "C": 1
+  },
+  "safeActions": [
+    "A"
+  ],
+  "explanation": "A configuration profile can give an attacker deep control over your device. Universities don't push mandatory installs through a browser pop-up on public Wi-Fi.",
+  "proTip": "IT changes to your device come from IT you contacted, not a pop-up that contacted you.",
+  "hackKey": "A",
+  "hackTrigger": "Authority",
+  "tags": [
+    "university",
+    "a",
+    "fake-it",
+    "device-compliance"
+  ],
+  "active": true
+}

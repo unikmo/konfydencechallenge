@@ -1,0 +1,33 @@
+{
+  "id": "school-sch-46",
+  "title": "Everyone's doing the 'expose' poll",
+  "edition": "school",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Group chats",
+  "scenario": "A poll app going around your grade asks you to rank classmates and answer questions about them, and says it needs access to your contacts to 'unlock' more questions.",
+  "answers": {
+    "A": "Answer the questions but skip the contacts permission.",
+    "B": "Don't use the app at all, and tell a friend why.",
+    "C": "Use it fully, including granting contacts access, since everyone else is."
+  },
+  "scores": {
+    "A": 2,
+    "B": 4,
+    "C": 0
+  },
+  "safeActions": [
+    "B"
+  ],
+  "explanation": "These apps exist to harvest contact lists and produce content that turns into bullying - the 'everyone's doing it' pressure is the mechanism, not a reason it's safe.",
+  "proTip": "An app that needs your contacts to work is collecting more than a poll answer.",
+  "hackKey": "C",
+  "hackTrigger": "Comfort",
+  "tags": [
+    "school",
+    "c",
+    "group-chats",
+    "app-permissions"
+  ],
+  "active": true
+}

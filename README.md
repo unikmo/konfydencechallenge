@@ -12,7 +12,7 @@ Konfydence ships five challenge editions:
 - **Workplace** — invoices, payroll, executive impersonation, phishing and sensitive-data requests.
 - **TravelSafe** — flights, refunds, hotels, taxis, QR codes, Wi-Fi, payments, documents and travel pressure.
 
-Each edition has a **40-scenario source bank** balanced across the H.A.C.K. pressure framework:
+Each edition has a source bank of **48 scored scenarios** (12/12/12/12, added to regularly — public copy always says "40+") balanced across the H.A.C.K. pressure framework:
 
 - **H — Hurry**: urgency, deadlines, scarcity or fear of missing out.
 - **A — Authority**: official-looking requests, status, titles, uniforms or institutional pressure.
@@ -21,8 +21,9 @@ Each edition has a **40-scenario source bank** balanced across the H.A.C.K. pres
 
 ### Session structure
 
-- **Free readiness check:** 8 scored scenarios — 2 each from H/A/C/K.
-- **Full challenge:** 24 scored scenarios — 6 each from H/A/C/K.
+- **Free readiness check:** a short scored run, balanced 2 each across H/A/C/K (internal: 8 cards).
+- **Full challenge:** played in short balanced rounds of 12 (3 each across H/A/C/K). Four rounds clear the full 48-card bank before anything repeats.
+- Round size is game design and is deliberately kept out of product copy — see `scripts/validate-product-claims.cjs`.
 - Session generation prioritizes unseen cards while preserving pressure-pattern balance.
 - Every scored scenario has exactly three plausible actions with one unique strongest move.
 - Results show a Konfydence Readiness Score and a separate H.A.C.K. vulnerability profile so an overall percentage cannot hide a repeatable weak pattern.
@@ -30,8 +31,8 @@ Each edition has a **40-scenario source bank** balanced across the H.A.C.K. pres
 ## Commercial model
 
 - Free readiness check: **$0**
-- Single full challenge: **$4.99**
-- All five challenges: **$19.99**
+- Single full challenge: **$6.99**
+- All five challenges: **$24.99**
 - Shopify handles checkout. Paid access is granted from signed Shopify purchase webhooks and represented by server-side entitlements.
 
 The free result is useful on its own. Paid conversion is based on deeper practice and broader scenario coverage, not on withholding the diagnostic insight needed to understand the result.
@@ -71,15 +72,15 @@ The repository treats scenario content as production code. Every release to `mai
 
 1. locked dependency installation (`npm ci`)
 2. production dependency security audit (`npm audit --omit=dev --audit-level=high`)
-3. five complete 40-card scenario banks
-4. 10/10/10/10 H/A/C/K balance per edition
+3. five complete 48-card scenario banks
+4. 12/12/12/12 H/A/C/K balance per edition
 5. 8 curated diagnostic cards per edition, 2 per pressure dimension
 6. exactly three playable choices per scored scenario
 7. one unique strongest answer and valid 0–4 scoring
 8. duplicate scenario/title protection
 9. minimum explanation, rule and category coverage quality
 10. canonical **Comfort** source metadata for C-pattern cards
-11. public 8/24/40 product-claim consistency
+11. public product-claim consistency — "40+ scenarios" only, never the per-round count
 12. unit tests
 13. ESLint with zero warnings
 14. strict TypeScript

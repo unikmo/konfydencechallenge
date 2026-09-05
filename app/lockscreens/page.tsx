@@ -49,8 +49,8 @@ const tiers = [
     unit: "per managed computer / year",
     renew: "Sized for shared and MDM-managed devices",
     copy: "One licence per managed computer. Rolled out to lab, library and classroom machines through your device management.",
-    cta: "Get a school quote",
-    href: "/contact?topic=lockscreens-schools",
+    cta: "Get an instant quote",
+    href: "/lockscreens/school/order",
   },
   {
     name: "Workplace",
@@ -58,8 +58,8 @@ const tiers = [
     unit: "per employee / year",
     renew: "$300 minimum annual licence",
     copy: "Per-employee licensing for company devices. Pairs with a CoMaSy pilot when you also want to measure behaviour.",
-    cta: "Get a workplace quote",
-    href: "/contact?topic=lockscreens-workplace",
+    cta: "Get an instant quote",
+    href: "/lockscreens/workplace/order",
   },
 ];
 

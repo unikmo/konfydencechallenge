@@ -1,0 +1,33 @@
+{
+  "id": "workplace-wrk-42",
+  "title": "The auditors need this file before they leave at noon",
+  "edition": "workplace",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Legal",
+  "scenario": "An email claiming to be from an external audit firm says a sensitive financial file must be uploaded to a shared link before the auditors leave at noon, or the finding goes down as unresolved.",
+  "answers": {
+    "A": "Upload the file quickly to the link to meet the deadline.",
+    "B": "Confirm the request with your own audit or compliance contact before sending anything.",
+    "C": "Upload the file, and also send a follow-up file they ask for afterward."
+  },
+  "scores": {
+    "A": 1,
+    "B": 4,
+    "C": 0
+  },
+  "safeActions": [
+    "B"
+  ],
+  "explanation": "Real audit requests go through an established engagement contact and process; a same-day external deadline attached to a random shared link is a hallmark of a pretext for data theft.",
+  "proTip": "A deadline set by the email itself is not a reason to skip verifying who's asking.",
+  "hackKey": "H",
+  "hackTrigger": "Hurry",
+  "tags": [
+    "workplace",
+    "h",
+    "fake-audit",
+    "legal"
+  ],
+  "active": true
+}

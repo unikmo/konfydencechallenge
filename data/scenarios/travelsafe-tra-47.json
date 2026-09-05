@@ -1,0 +1,33 @@
+{
+  "id": "travelsafe-tra-47",
+  "title": "The property messaged you - re-enter your card",
+  "edition": "travelsafe",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Vacation rentals",
+  "scenario": "Through the booking platform's own messaging system, 'the property' says there was a payment issue and asks you to re-enter your card details on a linked page to keep your reservation.",
+  "answers": {
+    "A": "Re-enter your card through the link since the message came through the platform.",
+    "B": "Re-enter your card, and also send a photo of it for verification.",
+    "C": "Contact the platform's official support directly instead of using the link in the message."
+  },
+  "scores": {
+    "A": 1,
+    "B": 0,
+    "C": 4
+  },
+  "safeActions": [
+    "C"
+  ],
+  "explanation": "Compromised host accounts are used to message guests through the real platform, making the request look legitimate - the platform itself never asks for card details through a chat link.",
+  "proTip": "A message coming through the real app doesn't guarantee the request inside it is real.",
+  "hackKey": "K",
+  "hackTrigger": "Kill-Switch",
+  "tags": [
+    "travelsafe",
+    "k",
+    "vacation-rentals",
+    "compromised-account"
+  ],
+  "active": true
+}
