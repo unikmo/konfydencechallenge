@@ -441,17 +441,18 @@ model GiftCode {
 
 model LockscreenAsset {
   id        String   @id @default(cuid())
-  track     String                   // "workplace" | "school" -- each track has its own 1..60 numbering
-  number    Int                      // 1..60 within the track
+  track     String                   // "workplace" | "school" | "home" | "teen" -- each track has its own numbering
+  number    Int                      // within the track (1..60 for workplace/school; original source-pack numbers for home/teen)
+  format    String                   // "desktop" | "notebook-16x10" | "notebook-3x2" | "tablet-landscape" | "tablet-portrait" | "phone"
   category  String
   hook      String
   body      String
   action    String
-  imagePath String                   // desktop preview/reference render, "/lockscreens/{track}/desktop/NN.png"
+  imagePath String                   // "/lockscreens/{track}/{format}/NN.png"
   status    String   @default("live") // live | draft | retired
   createdAt DateTime @default(now())
 
-  @@unique([track, number])
+  @@unique([track, number, format])
   @@index([status])
   @@index([track])
 }

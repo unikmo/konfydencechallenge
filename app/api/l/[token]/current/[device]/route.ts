@@ -9,8 +9,9 @@ export const dynamic = "force-dynamic";
 // current screen is a pure function of elapsed time since the plan anchor.
 //
 // Device coverage is per track, matching what's actually been ingested:
-// Workplace/School are MDM/desktop tracks (only "desktop" ingested so far;
-// notebook/tablet formats return 501 until pulled into a real asset host).
+// Workplace/School are MDM/desktop tracks, ingested across all 5 device
+// formats (desktop, notebook 16:10, notebook 3:2, tablet landscape, tablet
+// portrait) since MDM can push any of them to an org-owned device.
 // Home/Teen are the Personal engine and are phone-only by design (user
 // decision 2026-09-04) -- there's no MDM to push a lock-screen image to a
 // personal device, and no reason to ship desktop/notebook/tablet renders
@@ -22,9 +23,11 @@ const CADENCE_MS: Record<string, number> = {
   monthly: 30 * 24 * 60 * 60 * 1000,
 };
 
+const MDM_DEVICE_FORMATS = ["desktop", "notebook-16x10", "notebook-3x2", "tablet-landscape", "tablet-portrait"];
+
 const SUPPORTED_DEVICES_BY_TRACK: Record<string, Set<string>> = {
-  workplace: new Set(["desktop"]),
-  school: new Set(["desktop"]),
+  workplace: new Set(MDM_DEVICE_FORMATS),
+  school: new Set(MDM_DEVICE_FORMATS),
   home: new Set(["phone"]),
   teen: new Set(["phone"]),
 };
@@ -63,7 +66,7 @@ export async function GET(
   const assetNumber = plan.sequence[position];
 
   const asset = await prisma.lockscreenAsset.findUnique({
-    where: { track_number: { track: tenant.kind, number: assetNumber } },
+    where: { track_number_format: { track: tenant.kind, number: assetNumber, format: device } },
   });
   if (!asset) {
     return NextResponse.json({ error: "Current screen could not be resolved." }, { status: 500 });

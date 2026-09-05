@@ -1,29 +1,21 @@
 // Ingests the lock-screen content libraries into the DB, one track at a time.
 //
 // Source of truth per track:
-//   data/lockscreens/{track}-{expectedCount}.json                 (prompt text)
-//   public/lockscreens/{track}/{format}/{NN}.png                  (reference renders)
+//   data/lockscreens/{track}-{expectedCount}.json                 (prompt text, same across all formats)
+//   public/lockscreens/{track}/{format}/{NN}.png                  (one render per format)
 //
-// Workplace and School are MDM/desktop tracks with a full 60-prompt library.
+// Workplace and School are MDM/desktop tracks with a full 60-prompt library,
+// now shipped across all 5 device formats (desktop, notebook 16:10, notebook
+// 3:2, tablet landscape, tablet portrait) -- Workplace/School own the
+// non-phone formats since MDM can push any of them to an org-owned device.
+//
 // Home and Teen are Personal-engine, phone-first tracks with a curated
 // 27-screen library (picked from a larger source pack, fixed order, no
-// reshuffling -- per user decision 2026-09-04). Asset `number` keeps the
+// reshuffling -- per user decision 2026-09-04) and are phone-only by design
+// (user decision 2026-09-04) -- no desktop/notebook/tablet renders, since
+// the Personal engine only ever targets a phone. Asset `number` keeps the
 // original source-pack prompt number (e.g. Home uses 11,12,13...60, not a
 // renumbered 1..27) so content stays traceable back to its manifest/CSV.
-//
-// Only the reference render format per track is ingested today. The other
-// delivery formats (notebook 16:10, notebook 3:2, tablet landscape/portrait
-// for Workplace/School) exist in the source Drive folders but are not yet
-// pulled into the repo/CDN -- that needs a real asset host (Vercel Blob /
-// S3 / Cloudflare, per the "open decisions" in docs/LOCKSCREENS_ARCHITECTURE.md
-// §10) before the rotating-URL resolver can serve every device class.
-// Re-run this ingest once those are wired to backfill the other formats.
-//
-// Note: Home/Teen assets land in LockscreenAsset here (content layer only).
-// The Personal Delivery Engine that would actually sell/deliver them --
-// tenant/plan creation from a Shopify order, the phone Shortcut/app,
-// the resolver's phone device classes -- is a separate, not-yet-built
-// project (see docs/LOCKSCREENS_ARCHITECTURE.md §7-8).
 import fs from "fs";
 import path from "path";
 import { prisma } from "../lib/prisma";
@@ -36,17 +28,17 @@ type ManifestEntry = {
   action: string;
 };
 
-type TrackDef = { format: string; expectedCount: number };
+type TrackDef = { formats: string[]; expectedCount: number };
 
 const TRACKS: Record<string, TrackDef> = {
-  workplace: { format: "desktop", expectedCount: 60 },
-  school: { format: "desktop", expectedCount: 60 },
-  home: { format: "smartphone", expectedCount: 27 },
-  teen: { format: "smartphone", expectedCount: 27 },
+  workplace: { formats: ["desktop", "notebook-16x10", "notebook-3x2", "tablet-landscape", "tablet-portrait"], expectedCount: 60 },
+  school: { formats: ["desktop", "notebook-16x10", "notebook-3x2", "tablet-landscape", "tablet-portrait"], expectedCount: 60 },
+  home: { formats: ["phone"], expectedCount: 27 },
+  teen: { formats: ["phone"], expectedCount: 27 },
 };
 
 async function ingestTrack(track: string) {
-  const { format, expectedCount } = TRACKS[track];
+  const { formats, expectedCount } = TRACKS[track];
   const manifestPath = path.join(process.cwd(), "data", "lockscreens", `${track}-${expectedCount}.json`);
   const manifest: ManifestEntry[] = JSON.parse(fs.readFileSync(manifestPath, "utf8"));
 
@@ -54,46 +46,51 @@ async function ingestTrack(track: string) {
     throw new Error(`Expected ${expectedCount} ${track} lockscreen prompts, found ${manifest.length}`);
   }
 
-  const assetDir = path.join(process.cwd(), "public", "lockscreens", track, format);
   let imported = 0;
 
-  for (const entry of manifest) {
-    const filename = `${String(entry.number).padStart(2, "0")}.png`;
-    const imagePath = `/lockscreens/${track}/${format}/${filename}`;
-    if (!fs.existsSync(path.join(assetDir, filename))) {
-      throw new Error(`Missing ingested image for ${track} prompt ${entry.number}: ${imagePath}`);
-    }
+  for (const format of formats) {
+    const assetDir = path.join(process.cwd(), "public", "lockscreens", track, format);
 
-    await prisma.lockscreenAsset.upsert({
-      where: { track_number: { track, number: entry.number } },
-      update: {
-        category: entry.category,
-        hook: entry.hook,
-        body: entry.body,
-        action: entry.action,
-        imagePath,
-        status: "live",
-      },
-      create: {
-        track,
-        number: entry.number,
-        category: entry.category,
-        hook: entry.hook,
-        body: entry.body,
-        action: entry.action,
-        imagePath,
-        status: "live",
-      },
-    });
-    imported += 1;
+    for (const entry of manifest) {
+      const filename = `${String(entry.number).padStart(2, "0")}.png`;
+      const imagePath = `/lockscreens/${track}/${format}/${filename}`;
+      if (!fs.existsSync(path.join(assetDir, filename))) {
+        throw new Error(`Missing ingested image for ${track}/${format} prompt ${entry.number}: ${imagePath}`);
+      }
+
+      await prisma.lockscreenAsset.upsert({
+        where: { track_number_format: { track, number: entry.number, format } },
+        update: {
+          category: entry.category,
+          hook: entry.hook,
+          body: entry.body,
+          action: entry.action,
+          imagePath,
+          status: "live",
+        },
+        create: {
+          track,
+          number: entry.number,
+          format,
+          category: entry.category,
+          hook: entry.hook,
+          body: entry.body,
+          action: entry.action,
+          imagePath,
+          status: "live",
+        },
+      });
+      imported += 1;
+    }
   }
 
   const liveCount = await prisma.lockscreenAsset.count({ where: { status: "live", track } });
+  const expectedLive = expectedCount * formats.length;
   console.log(`[${track}] Lockscreen assets ingested: ${imported}`);
-  console.log(`[${track}] Live assets in DB: ${liveCount}`);
+  console.log(`[${track}] Live assets in DB: ${liveCount} (${formats.length} format(s) x ${expectedCount})`);
 
-  if (liveCount !== expectedCount) {
-    throw new Error(`Expected ${expectedCount} live ${track} lockscreen assets, found ${liveCount}`);
+  if (liveCount !== expectedLive) {
+    throw new Error(`Expected ${expectedLive} live ${track} lockscreen assets, found ${liveCount}`);
   }
 }
 

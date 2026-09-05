@@ -5,16 +5,23 @@ devices. One-time setup; Konfydence rotates the image behind the URL on
 your chosen cadence — nothing to update on your side afterward.
 
 Your delivery URL is on your admin page: `/lockscreens/{workplace|school}/admin/{your-token}`,
-under **Delivery**. It looks like:
+under **Delivery**. The base URL is the same for every platform — only the
+last path segment changes to match the device's native aspect ratio:
 
 ```
-https://konfydence.com/api/l/{token}/current/desktop
+https://konfydence.com/api/l/{token}/current/{format}
 ```
 
-**Scope today:** this URL currently serves the desktop 16:9 render for every
-device class. Notebook and tablet-native aspect formats are being added —
-your existing policy doesn't need to change when they land, the same URL
-keeps working.
+| Platform | `{format}` |
+| --- | --- |
+| Windows (Intune) | `desktop` (16:9) |
+| macOS (Jamf) | `notebook-16x10` |
+| ChromeOS (Google Admin) | `notebook-3x2` |
+| iPad, landscape | `tablet-landscape` (4:3) |
+| iPad / Android tablet, portrait | `tablet-portrait` (3:4) |
+
+Using the wrong format still works (the image just won't quite fill the
+screen at its native aspect) — match the table above for the cleanest fit.
 
 **Platform coverage** (per `docs/LOCKSCREENS_ARCHITECTURE.md` §6) — Konfydence
 only claims what actually works:
@@ -45,6 +52,7 @@ fleet you've confirmed checks in weekly.
    ```
    https://konfydence.com/api/l/{token}/current/desktop
    ```
+   (Windows always uses `desktop` — it's the only Windows-native format.)
    Intune's Personalization template wants a `.jpg`/`.png` URL your devices can reach — it re-fetches on its own policy refresh, so no local caching config is needed on your end.
 3. Assign to the device group(s) you want covered → **Create**.
 4. Devices pick up the change on their next check-in (typically within a few hours; force it with `Settings → Accounts → Access work or school → Info → Sync` on a test device to confirm).
@@ -54,19 +62,19 @@ fleet you've confirmed checks in weekly.
 ## Jamf Pro / Jamf School (iOS/iPadOS, supervised)
 
 1. **Jamf School:** Classes/Devices → **Lock Screen Wallpaper** (or **Configuration → Wallpaper** in Jamf Pro).
-2. Choose **URL-based wallpaper** if your Jamf tier supports it; otherwise use a **Web Clip / declarative config profile** referencing:
+2. Choose **URL-based wallpaper** if your Jamf tier supports it; otherwise use a **Web Clip / declarative config profile** referencing (use `tablet-landscape` or `tablet-portrait` to match how the iPad is mounted/used):
    ```
-   https://konfydence.com/api/l/{token}/current/desktop
+   https://konfydence.com/api/l/{token}/current/tablet-landscape
    ```
 3. Scope to the supervised device group.
-4. **macOS via Jamf:** wallpaper policies use `com.apple.desktop` (desktop picture) and `LoginwindowText` (login-screen message) payloads — this sets the desktop picture and a login message, not a true lock-screen image. Set expectations with your team accordingly.
+4. **macOS via Jamf:** wallpaper policies use `com.apple.desktop` (desktop picture) and `LoginwindowText` (login-screen message) payloads — this sets the desktop picture and a login message, not a true lock-screen image. Use `notebook-16x10` for the image URL. Set expectations with your team accordingly.
 
 ## Google Admin console (ChromeOS)
 
 1. **Devices → Chrome → Settings → Device settings** (scope to the right OU).
 2. Under **Device wallpaper** (or **Sign-in wallpaper** for the login screen), set the image source to:
    ```
-   https://konfydence.com/api/l/{token}/current/desktop
+   https://konfydence.com/api/l/{token}/current/notebook-3x2
    ```
 3. Save. ChromeOS devices refresh device policy frequently — this is the platform where **weekly cadence is genuinely reliable**.
 
