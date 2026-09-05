@@ -51,9 +51,13 @@ CREATE TABLE IF NOT EXISTS "LockscreenPlan" (
   CONSTRAINT "LockscreenPlan_pkey" PRIMARY KEY ("id")
 );
 CREATE UNIQUE INDEX IF NOT EXISTS "LockscreenPlan_tenantId_key" ON "LockscreenPlan"("tenantId");
-ALTER TABLE "LockscreenPlan"
-  ADD CONSTRAINT "LockscreenPlan_tenantId_fkey"
-  FOREIGN KEY ("tenantId") REFERENCES "LockscreenTenant"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
+DO $$ BEGIN
+  IF NOT EXISTS (SELECT 1 FROM pg_constraint WHERE conname = 'LockscreenPlan_tenantId_fkey') THEN
+    ALTER TABLE "LockscreenPlan"
+      ADD CONSTRAINT "LockscreenPlan_tenantId_fkey"
+      FOREIGN KEY ("tenantId") REFERENCES "LockscreenTenant"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
+  END IF;
+END $$;
 
 -- CreateTable
 CREATE TABLE IF NOT EXISTS "LockscreenOrder" (
@@ -88,6 +92,10 @@ CREATE UNIQUE INDEX IF NOT EXISTS "LockscreenOrder_poNumber_key" ON "LockscreenO
 CREATE UNIQUE INDEX IF NOT EXISTS "LockscreenOrder_shopifyOrderId_key" ON "LockscreenOrder"("shopifyOrderId");
 CREATE INDEX IF NOT EXISTS "LockscreenOrder_contactEmail_idx" ON "LockscreenOrder"("contactEmail");
 CREATE INDEX IF NOT EXISTS "LockscreenOrder_status_idx" ON "LockscreenOrder"("status");
-ALTER TABLE "LockscreenOrder"
-  ADD CONSTRAINT "LockscreenOrder_tenantId_fkey"
-  FOREIGN KEY ("tenantId") REFERENCES "LockscreenTenant"("id") ON DELETE SET NULL ON UPDATE CASCADE;
+DO $$ BEGIN
+  IF NOT EXISTS (SELECT 1 FROM pg_constraint WHERE conname = 'LockscreenOrder_tenantId_fkey') THEN
+    ALTER TABLE "LockscreenOrder"
+      ADD CONSTRAINT "LockscreenOrder_tenantId_fkey"
+      FOREIGN KEY ("tenantId") REFERENCES "LockscreenTenant"("id") ON DELETE SET NULL ON UPDATE CASCADE;
+  END IF;
+END $$;
