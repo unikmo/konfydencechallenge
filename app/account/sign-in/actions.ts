@@ -7,6 +7,7 @@ import { getClientIp } from "@/lib/auth/request";
 import { normalizeEmail } from "@/lib/auth/email";
 import { createSession, setSessionCookie, hashIp } from "@/lib/auth/session";
 import { claimPlayerForAccount } from "@/lib/auth/claim";
+import { linkLockscreenSubscriptions } from "@/lib/lockscreens/linkToAccount";
 import { KF_UID_COOKIE, KF_UID_COOKIE_OPTIONS } from "@/lib/challenge/kfUidCookie";
 
 function safeNext(value: string): string {
@@ -73,6 +74,7 @@ export async function submitCode(formData: FormData): Promise<void> {
   const store = await cookies();
   const canonicalPlayerId = await claimPlayerForAccount(result.account, store.get(KF_UID_COOKIE)?.value ?? null);
   store.set(KF_UID_COOKIE, canonicalPlayerId, KF_UID_COOKIE_OPTIONS);
+  await linkLockscreenSubscriptions(result.account);
 
   redirect(next);
 }

@@ -78,8 +78,7 @@ export type VerifyResult =
 
 async function completeLogin(email: string): Promise<Account> {
   const account = await findOrCreateAccount(email);
-  await markEmailVerified(account.id);
-  return account;
+  return markEmailVerified(account.id);
 }
 
 export async function verifyLoginCode(rawEmail: string, code: string, ip: string | null): Promise<VerifyResult> {
