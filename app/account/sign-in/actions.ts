@@ -1,11 +1,13 @@
 "use server";
 
-import { headers } from "next/headers";
+import { cookies, headers } from "next/headers";
 import { redirect } from "next/navigation";
 import { issueLoginCode, verifyLoginCode } from "@/lib/auth/loginCode";
 import { getClientIp } from "@/lib/auth/request";
 import { normalizeEmail } from "@/lib/auth/email";
 import { createSession, setSessionCookie, hashIp } from "@/lib/auth/session";
+import { claimPlayerForAccount } from "@/lib/auth/claim";
+import { KF_UID_COOKIE, KF_UID_COOKIE_OPTIONS } from "@/lib/challenge/kfUidCookie";
 
 function safeNext(value: string): string {
   return value.startsWith("/") && !value.startsWith("//") ? value : "/account";
@@ -67,5 +69,10 @@ export async function submitCode(formData: FormData): Promise<void> {
     ipHash: hashIp(ip),
   });
   await setSessionCookie(token, expiresAt);
+
+  const store = await cookies();
+  const canonicalPlayerId = await claimPlayerForAccount(result.account, store.get(KF_UID_COOKIE)?.value ?? null);
+  store.set(KF_UID_COOKIE, canonicalPlayerId, KF_UID_COOKIE_OPTIONS);
+
   redirect(next);
 }
