@@ -143,6 +143,45 @@ export default function LockscreensPage() {
         </p>
       </section>
 
+      <section className="kg-shell k-section">
+        <div className="k-section-head">
+          <div>
+            <p className="k-kicker">Learn more</p>
+            <h2 className="k-display-sm">How it works for your situation.</h2>
+          </div>
+          <p className="k-copy">
+            The lock screen is one idea applied a few different ways — a fleet under device management, a school's shared
+            machines, or one phone in a family. Each has its own page.
+          </p>
+        </div>
+        <div className="kc-linkcards">
+          <Link href="/lockscreens/security-awareness-lock-screens">
+            <b>Security awareness lock screens</b>
+            <span>The overview — what it is, who it's for, what it costs.</span>
+          </Link>
+          <Link href="/lockscreens/phishing-awareness-between-trainings">
+            <b>Between the trainings</b>
+            <span>Keep staff phishing-aware in the eleven months after the annual module.</span>
+          </Link>
+          <Link href="/lockscreens/security-awareness-posters">
+            <b>Vs. awareness posters</b>
+            <span>Reach remote staff and change the message every fortnight.</span>
+          </Link>
+          <Link href="/lockscreens/intune">
+            <b>Microsoft Intune</b>
+            <span>One wallpaper policy, one URL, always current.</span>
+          </Link>
+          <Link href="/lockscreens/jamf">
+            <b>Jamf (Mac &amp; iPad)</b>
+            <span>Deploy once to your Apple fleet; the message stays fresh.</span>
+          </Link>
+          <Link href="/lockscreens/family-scam-protection">
+            <b>For the family</b>
+            <span>A calm reminder on a parent's or teenager's phone.</span>
+          </Link>
+        </div>
+      </section>
+
       <PortfolioStrip exclude={["lockscreens"]} kicker="Also from Konfydence" heading="Practise the decision, not just the reminder." />
     </PremiumPage>
   );
