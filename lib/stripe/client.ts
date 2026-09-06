@@ -34,3 +34,12 @@ export function getStripe(): Stripe {
 export function stripeIsTestMode(): boolean {
   return (process.env.STRIPE_SECRET_KEY || "").startsWith("sk_test_");
 }
+
+// automatic_tax on Checkout / Invoices errors unless Stripe Tax is activated on
+// the account (the Tax wizard: origin address + registrations + plan). Flip
+// STRIPE_TAX_ENABLED=true once that's done. Until then, no tax line is applied —
+// which is already the correct outcome for the dominant US→EU B2B reverse-charge
+// case; the reverse-charge statement is on invoices regardless.
+export function stripeTaxEnabled(): boolean {
+  return process.env.STRIPE_TAX_ENABLED === "true";
+}

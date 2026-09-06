@@ -47,9 +47,9 @@ especially the first public-sector/school order without a VAT ID.
 | 2 | Schema: `ProcessedWebhookEvent` dedupe table; `source`/`shopifyOrderId` columns reused as opaque source-order keys | ✅ done |
 | 3 | Consumer checkout → Stripe Checkout Session; same `{sku}→{checkoutUrl}` contract | ✅ done |
 | 4 | `POST /api/webhooks/stripe` → `checkout.session.completed` reuses shared fulfilment; `charge.refunded` → revoke | ✅ done |
-| 5 | Workplace/School: PO submit also raises a Stripe invoice; `invoice.paid` auto-activates the tenant | pending |
-| 6 | Home/Teen: Stripe subscription products ($19.99 y1 → $14.99/yr), `mode: subscription` checkout, renewal webhooks | pending |
-| 7 | Flip to live keys, monitor, delete `lib/shopify/` + Shopify webhook + env; cancel Shopify plan | pending |
+| 5 | Workplace/School: PO submit also raises a Stripe invoice; `invoice.paid` auto-activates the tenant | ✅ done |
+| 6 | Home/Teen: Stripe subscription (`mode: subscription`, one-time $19.99 y1 + trialing $14.99/yr renewal), checkout + renewal + cancel webhooks | ✅ backend done |
+| 7 | Flip to live keys, monitor, delete `lib/shopify/` + Shopify webhook + env; cancel Shopify plan; drop `/products` merch | pending |
 
 ## Catalogue
 
@@ -64,15 +64,21 @@ Run it once per account (test, then live):
 STRIPE_SECRET_KEY=sk_test_... npm run stripe:sync
 ```
 
-## Open decisions
+## Open items
 
-- **Physical merch** (`/products`: KG-WALLET $14.99, KG-MAGNET $9.99) currently
-  checks out through Shopify. Not in the Stripe catalogue — checkout returns
-  "not available right now" for these SKUs. Decide: move to Stripe with manual
-  shipping, keep Shopify for merch only, or drop the products.
-- **Consumer B2C EU VAT**: `automatic_tax` is on, but selling digital to EU
-  consumers requires non-Union OSS registration for PlanetHike. Until that
-  exists, Stripe Tax will still compute the rate but PlanetHike is not filing it.
+- **Physical merch** (`/products`: KG-WALLET, KG-MAGNET): decided — **drop**.
+  Stage 7 removes the page, `CrossSellStrip`, and the KG SKUs.
+- **Home/Teen buy button**: stage 6 is backend-only. Nothing on the site sells
+  `LOCKSCREENS-HOME`/`-TEEN` yet — a `CheckoutRedirectButton sku="LOCKSCREENS-HOME"`
+  will work as soon as `stripe:sync` has run, but the page/copy/price display is
+  a product decision. Likely home: `/lockscreens` or the family-scam-protection
+  SEO page.
+- **Consumer B2C EU VAT**: once `STRIPE_TAX_ENABLED=true`, Stripe Tax computes
+  the rate, but selling digital to EU consumers still needs PlanetHike to hold a
+  non-Union OSS registration to actually remit it.
+- **Stripe Tax wizard** must be completed before `STRIPE_TAX_ENABLED=true`;
+  until then invoices/checkout carry no tax line (correct for EU B2B reverse
+  charge; under-collects for US-nexus and EU-B2C until switched on).
 
 ## Idempotency
 

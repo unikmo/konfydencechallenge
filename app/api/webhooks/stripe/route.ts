@@ -12,6 +12,11 @@ import {
   activateOrderFromPaidInvoice,
   syncInvoiceStatus,
 } from "@/lib/lockscreens/stripeInvoice";
+import {
+  handleSubscriptionCheckout,
+  handleSubscriptionRenewal,
+  handleSubscriptionCancelled,
+} from "@/lib/lockscreens/stripeSubscription";
 
 export const dynamic = "force-dynamic";
 
@@ -43,13 +48,22 @@ export async function POST(request: NextRequest) {
   try {
     switch (event.type) {
       case "checkout.session.completed":
-        await handleCheckoutCompleted(event.data.object);
+        if (event.data.object.mode === "subscription") {
+          await handleSubscriptionCheckout(event.data.object);
+        } else {
+          await handleCheckoutCompleted(event.data.object);
+        }
         break;
       case "charge.refunded":
         await handleChargeRefunded(event.data.object);
         break;
       case "invoice.paid":
+        // B2B invoice → activate the licence; subscription renewal → next term.
         await activateOrderFromPaidInvoice(event.data.object.id);
+        await handleSubscriptionRenewal(event.data.object);
+        break;
+      case "customer.subscription.deleted":
+        await handleSubscriptionCancelled(event.data.object);
         break;
       case "invoice.finalized":
         await syncInvoiceStatus(event.data.object.id, "open", event.data.object.hosted_invoice_url);
