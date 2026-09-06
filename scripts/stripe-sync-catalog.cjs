@@ -15,8 +15,21 @@ if (!key) {
   console.error('  $env:STRIPE_SECRET_KEY="sk_live_..."; node scripts/stripe-sync-catalog.cjs');
   process.exit(1);
 }
-const stripe = new Stripe(key, { appInfo: { name: "konfydence-catalog-sync" } });
+const stripe = new Stripe(key, { appInfo: { name: "konfydence-catalog-sync" }, maxNetworkRetries: 5, timeout: 40000 });
 const mode = key.startsWith("sk_test_") ? "TEST" : "LIVE";
+
+// Fetched once: all existing products, so we match on metadata without the
+// search index (which has propagation lag and occasional connection quirks).
+let productIndex = null;
+async function loadProductIndex() {
+  if (productIndex) return productIndex;
+  productIndex = new Map();
+  for await (const p of stripe.products.list({ limit: 100 })) {
+    const sku = p.metadata && p.metadata.konfydence_sku;
+    if (sku) productIndex.set(sku, p);
+  }
+  return productIndex;
+}
 
 const TAX = "txcd_10103000"; // SaaS / electronically supplied services
 
@@ -36,14 +49,16 @@ const SUBSCRIPTION = [
 ];
 
 async function upsertProduct(sku, name, description) {
-  const found = await stripe.products.search({ query: `metadata['konfydence_sku']:'${sku}'`, limit: 1 });
+  const index = await loadProductIndex();
   const fields = { name, description, tax_code: TAX, metadata: { konfydence_sku: sku } };
-  if (found.data[0]) {
-    const p = await stripe.products.update(found.data[0].id, fields);
+  const existing = index.get(sku);
+  if (existing) {
+    const p = await stripe.products.update(existing.id, fields);
     console.log(`  product ${sku} -> updated ${p.id}`);
     return p.id;
   }
   const p = await stripe.products.create(fields);
+  index.set(sku, p);
   console.log(`  product ${sku} -> created ${p.id}`);
   return p.id;
 }
