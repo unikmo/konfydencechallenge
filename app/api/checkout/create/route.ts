@@ -97,7 +97,9 @@ export async function POST(request: NextRequest) {
       customer_creation: "always",
       client_reference_id: kfUid,
       metadata,
-      payment_intent_data: { metadata },
+      // Konfydence bills through PlanetHike's Stripe account; the suffix puts
+      // "KONFYDENCE" on the card statement so buyers recognise the charge.
+      payment_intent_data: { metadata, statement_descriptor_suffix: "KONFYDENCE" },
       success_url: successUrl,
       cancel_url: cancelUrl,
       allow_promotion_codes: true,

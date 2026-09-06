@@ -1,9 +1,9 @@
 // Stripe SDK singleton. All server-side Stripe calls go through getStripe().
 //
-// The account is a dedicated Konfydence account under the PlanetHike legal
-// entity (separate from the Planethike venture's own Stripe account) so that
-// receipts read "KONFYDENCE", payouts are ring-fenced, and Stripe Tax /
-// invoicing carry Konfydence's own registration set.
+// Konfydence is a project of PlanetHike (same legal entity), so it bills through
+// PlanetHike's Stripe account. Konfydence products are namespaced by
+// metadata.konfydence_sku and named "Konfydence …"; card statements carry a
+// "KONFYDENCE" descriptor suffix (see app/api/checkout/create).
 //
 // No apiVersion is pinned here on purpose: the installed `stripe` package
 // already locks a version (see node_modules/stripe/cjs/apiVersion.js). Bump

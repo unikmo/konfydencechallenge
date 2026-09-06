@@ -4,15 +4,17 @@ Konfydence sells only digital licences (no physical goods, no shipping), so the
 storefront platform is unnecessary overhead. Stripe covers checkout, invoicing,
 subscriptions and tax determination in one account, one payout, one tax config.
 
-**Stripe account:** a dedicated *Konfydence* account under the **PlanetHike**
-legal entity — separate from the Planethike venture's own Stripe account, so
-receipts read `KONFYDENCE`, payouts are ring-fenced, and Stripe Tax carries
-Konfydence's own registration set.
+**Stripe account:** Konfydence is a project of **PlanetHike** (same legal
+entity), so it bills through PlanetHike's existing Stripe account
+(`acct_1Ta8VcCJ0OrrcvFZ`). No separate account. Konfydence products are
+namespaced (`metadata.konfydence_sku`, `Konfydence …` names) and card statements
+carry a `KONFYDENCE` descriptor suffix, so the two projects stay legible in one
+account, one payout, one tax registration set.
 
 ## VAT / tax position
 
-Billing entity is **PlanetHike** (US). For electronically-supplied digital
-services:
+Billing entity is **PlanetHike** (US); Konfydence is one of its projects. For
+electronically-supplied digital services:
 
 | Customer | Treatment | Invoice shows |
 |---|---|---|
@@ -29,7 +31,7 @@ especially the first public-sector/school order without a VAT ID.
 
 | Stage | Scope | Status |
 |---|---|---|
-| 0 | Create Konfydence Stripe account, enable Stripe Tax, branding, keys | **user** |
+| 0 | In PlanetHike's Stripe account: enable Stripe Tax, add `KONFYDENCE` to allowed descriptor suffixes, keys | **user** |
 | 1 | `lib/stripe/` foundation, `stripe` dep, catalogue + sync script, env scaffold | ✅ done |
 | 2 | Schema: `ProcessedWebhookEvent` dedupe table; `source`/`shopifyOrderId` columns reused as opaque source-order keys | ✅ done |
 | 3 | Consumer checkout → Stripe Checkout Session; same `{sku}→{checkoutUrl}` contract | ✅ done |
