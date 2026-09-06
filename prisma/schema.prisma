@@ -184,12 +184,27 @@ model Entitlement {
   user           User     @relation(fields: [userId], references: [id])
   tier           String
   edition        String?
+  // "shopify" (legacy) | "stripe" | "gift". Fulfilment provider of record.
   source         String   @default("shopify")
+  // Opaque, globally-unique idempotency key for the purchase that granted this.
+  // Shopify: the numeric order id. Stripe: "stripe_cs_<checkout_session_id>".
+  // Gift redemption: "gift:<code>". Column name kept for migration safety.
   shopifyOrderId String   @unique
   status         String   @default("active")
   createdAt      DateTime @default(now())
 
   @@index([userId])
+}
+
+// Cross-provider webhook idempotency. One row per delivered event id
+// (Stripe "evt_..."); a retried or duplicated delivery is a no-op.
+model ProcessedWebhookEvent {
+  id         String   @id
+  provider   String   @default("stripe")
+  type       String
+  receivedAt DateTime @default(now())
+
+  @@index([receivedAt])
 }
 
 model ComasyOrganization {
