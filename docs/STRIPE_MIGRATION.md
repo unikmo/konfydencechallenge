@@ -22,19 +22,29 @@ live key at cutover.
 
 ## VAT / tax position
 
-Billing entity is **PlanetHike** (US); Konfydence is one of its projects. For
-electronically-supplied digital services:
+**PlanetHike's Stripe account is registered in Estonia (`country: EE`), base
+currency EUR** — i.e. an EU-established company (very likely an e-Residency OÜ),
+NOT a US entity. This changes the tax picture from earlier drafts:
 
-| Customer | Treatment | Invoice shows |
-|---|---|---|
-| EU business with a valid VAT ID | **Reverse charge** — customer self-accounts | VAT ID + "Reverse charge — VAT to be accounted for by the recipient", €0 VAT |
-| EU consumer (no VAT ID) | Destination-country VAT — needs **non-Union OSS** registration | local VAT rate |
-| US customer | US sales tax where PlanetHike has nexus | per state |
-| Rest of world | Generally no US tax; local rules vary | — |
+| Customer | Treatment |
+|---|---|
+| Estonian customer | Estonian VAT (22%, 24% from mid-2025) — **PlanetHike must be VAT-registered in EE** |
+| Other EU consumer (no VAT ID) | Destination-country VAT via **Union OSS** |
+| Other EU business (valid VAT ID) | **Reverse charge** — customer self-accounts, invoice shows €0 VAT + the reverse-charge note |
+| Non-EU customer | Outside EU VAT scope (0%) |
 
-Stripe Tax resolves all of this per transaction once the account's origin
-address and registrations are set. Confirm the setup once with an accountant,
-especially the first public-sector/school order without a VAT ID.
+Konfydence prices are set in **USD** on this EUR account — Stripe handles the
+settlement/FX; EU buyers see USD and a conversion. Acceptable but worth revisiting.
+
+`STRIPE_TAX_ENABLED` is currently **off**, so no VAT is charged on any sale. For a
+US seller that was defensible for the dominant EU-B2B case; **for an EU seller it
+means under-collecting on every Estonian and EU-consumer sale.** Complete the
+Stripe Tax wizard (origin = EE address, add the EE VAT registration + Union OSS)
+and set `STRIPE_TAX_ENABLED=true` — ideally before, or immediately after, the
+live cutover. Confirm the whole setup with an accountant.
+
+The `stripeInvoice.ts` footer currently states the reverse-charge case only;
+once Stripe Tax is on it will add the correct VAT line for domestic/B2C.
 
 ## Stages
 
@@ -42,7 +52,10 @@ especially the first public-sector/school order without a VAT ID.
 |---|---|---|
 | 0a | Konfydence sandbox created; `sk_test_`/`pk_test_` keys issued | ✅ done |
 | 0b | *You:* run `npm run stripe:sync` (sandbox key); complete the Stripe Tax wizard (origin address, registrations); add keys to Vercel Preview+Dev | **user** |
-| 0c | *You, at cutover:* enable Stripe Tax on PlanetHike live; add `KONFYDENCE` descriptor suffix; live keys to Vercel Production; `npm run stripe:sync` (live key) | **user** |
+| 0c | Live catalogue: 9 products + 11 prices created in PlanetHike live (`acct_1Ta8VcCJ0OrrcvFZ`) via API — the machine running the sync could not reach `api.stripe.com`, and names use a plain hyphen (Stripe's form API rejected the em-dash); a later `stripe:sync` from a machine with API access will normalise them | ✅ done |
+| 0d | Live webhook endpoint `we_1UCia6CJ0OrrcvFZePNh9fCv` → `konfydence.com/api/webhooks/stripe`, 7 events | ✅ done |
+| 0e | *You:* set the 3 Vercel **Production** env vars to the live values (`sk_live_`/`pk_live_`/live `whsec_`) | **user** |
+| 0f | Stripe Tax wizard (EE origin + registrations) → `STRIPE_TAX_ENABLED=true` | **user, before/at cutover** |
 | 1 | `lib/stripe/` foundation, `stripe` dep, catalogue + sync script, env scaffold | ✅ done |
 | 2 | Schema: `ProcessedWebhookEvent` dedupe table; `source`/`shopifyOrderId` columns reused as opaque source-order keys | ✅ done |
 | 3 | Consumer checkout → Stripe Checkout Session; same `{sku}→{checkoutUrl}` contract | ✅ done |
