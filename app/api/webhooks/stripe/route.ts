@@ -8,6 +8,10 @@ import {
   revokeSourceOrder,
   type ChallengeTier,
 } from "@/lib/commerce/fulfilment";
+import {
+  activateOrderFromPaidInvoice,
+  syncInvoiceStatus,
+} from "@/lib/lockscreens/stripeInvoice";
 
 export const dynamic = "force-dynamic";
 
@@ -44,8 +48,20 @@ export async function POST(request: NextRequest) {
       case "charge.refunded":
         await handleChargeRefunded(event.data.object);
         break;
+      case "invoice.paid":
+        await activateOrderFromPaidInvoice(event.data.object.id);
+        break;
+      case "invoice.finalized":
+        await syncInvoiceStatus(event.data.object.id, "open", event.data.object.hosted_invoice_url);
+        break;
+      case "invoice.voided":
+        await syncInvoiceStatus(event.data.object.id, "void");
+        break;
+      case "invoice.marked_uncollectible":
+        await syncInvoiceStatus(event.data.object.id, "uncollectible");
+        break;
       default:
-        // Subscription / invoice events land here until stages 5–6 wire them.
+        // Subscription events land here until stage 6 wires them.
         break;
     }
   } catch (err) {

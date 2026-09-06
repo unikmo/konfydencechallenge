@@ -638,6 +638,13 @@ model LockscreenOrder {
   overriddenAt        DateTime?
   createdAt           DateTime          @default(now())
 
+  // Stripe invoice raised for this B2B order (Workplace/School). Paying it
+  // auto-activates the tenant via the invoice.paid webhook; the manual admin
+  // "Activate" button stays as a fallback. Null until the invoice is created.
+  stripeInvoiceId     String?           @unique
+  stripeInvoiceUrl    String? // hosted_invoice_url — "Pay this invoice" link
+  stripeInvoiceStatus String? // draft | open | paid | void | uncollectible
+
   @@index([contactEmail])
   @@index([status])
 }
