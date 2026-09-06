@@ -31,9 +31,9 @@ especially the first public-sector/school order without a VAT ID.
 |---|---|---|
 | 0 | Create Konfydence Stripe account, enable Stripe Tax, branding, keys | **user** |
 | 1 | `lib/stripe/` foundation, `stripe` dep, catalogue + sync script, env scaffold | ✅ done |
-| 2 | Schema: `ProcessedWebhookEvent` dedupe table; `source`/`shopifyOrderId` columns reused as opaque source-order keys | pending |
-| 3 | Consumer checkout → Stripe Checkout Session; same `{sku}→{checkoutUrl}` contract | pending |
-| 4 | `POST /api/webhooks/stripe` → `checkout.session.completed` reuses existing fulfilment; `charge.refunded` → revoke | pending |
+| 2 | Schema: `ProcessedWebhookEvent` dedupe table; `source`/`shopifyOrderId` columns reused as opaque source-order keys | ✅ done |
+| 3 | Consumer checkout → Stripe Checkout Session; same `{sku}→{checkoutUrl}` contract | ✅ done |
+| 4 | `POST /api/webhooks/stripe` → `checkout.session.completed` reuses shared fulfilment; `charge.refunded` → revoke | ✅ done |
 | 5 | Workplace/School: PO submit also raises a Stripe invoice; `invoice.paid` auto-activates the tenant | pending |
 | 6 | Home/Teen: Stripe subscription products ($19.99 y1 → $14.99/yr), `mode: subscription` checkout, renewal webhooks | pending |
 | 7 | Flip to live keys, monitor, delete `lib/shopify/` + Shopify webhook + env; cancel Shopify plan | pending |
@@ -50,6 +50,16 @@ Run it once per account (test, then live):
 ```
 STRIPE_SECRET_KEY=sk_test_... npm run stripe:sync
 ```
+
+## Open decisions
+
+- **Physical merch** (`/products`: KG-WALLET $14.99, KG-MAGNET $9.99) currently
+  checks out through Shopify. Not in the Stripe catalogue — checkout returns
+  "not available right now" for these SKUs. Decide: move to Stripe with manual
+  shipping, keep Shopify for merch only, or drop the products.
+- **Consumer B2C EU VAT**: `automatic_tax` is on, but selling digital to EU
+  consumers requires non-Union OSS registration for PlanetHike. Until that
+  exists, Stripe Tax will still compute the rate but PlanetHike is not filing it.
 
 ## Idempotency
 

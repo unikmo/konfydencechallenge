@@ -1,12 +1,17 @@
 import { NextRequest, NextResponse } from "next/server";
 import { cookies } from "next/headers";
 import { randomUUID } from "crypto";
-import { getVariantIds, SHOPIFY_API_VERSION } from "@/lib/shopify/testData";
 import { rateLimit, getClientIp } from "@/lib/rateLimit";
-
-const SKU_TO_VARIANT_GID = getVariantIds();
+import { getStripe, stripeConfigured } from "@/lib/stripe/client";
+import { CONSUMER_CATALOG, isConsumerSku, isSubscriptionSku } from "@/lib/stripe/catalog";
+import { resolvePriceId } from "@/lib/stripe/prices";
 
 export const dynamic = "force-dynamic";
+
+const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+const KF_UID_COOKIE = "kf_uid";
+
+type GiftInput = { toEmail: string; fromName: string; message: string };
 
 export async function POST(request: NextRequest) {
   try {
@@ -15,25 +20,35 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ error: "Too many requests, please try again shortly." }, { status: 429 });
     }
 
-    const body = await request.json();
-    const { sku, quantity = 1, gift } = body;
+    if (!stripeConfigured()) {
+      return NextResponse.json({ error: "Checkout is not configured." }, { status: 500 });
+    }
 
-    if (!sku || typeof sku !== "string") {
+    const body = await request.json().catch(() => ({}));
+    const sku = typeof body.sku === "string" ? body.sku : "";
+    const { gift } = body;
+
+    if (!sku) {
       return NextResponse.json({ error: "sku is required" }, { status: 400 });
     }
-    if (!Number.isInteger(quantity) || quantity < 1 || quantity > 10) {
-      return NextResponse.json({ error: "quantity must be between 1 and 10" }, { status: 400 });
+    if (isSubscriptionSku(sku)) {
+      return NextResponse.json({ error: "This subscription is not available for purchase yet." }, { status: 400 });
+    }
+    if (!isConsumerSku(sku)) {
+      // Physical merch (KG-*) and anything else: no Stripe catalogue entry.
+      return NextResponse.json({ error: "This item is not available for purchase right now." }, { status: 400 });
     }
 
-    const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    let giftAttrs: { toEmail: string; fromName: string; message: string } | null = null;
+    const entry = CONSUMER_CATALOG[sku];
+
+    let giftAttrs: GiftInput | null = null;
     if (gift && typeof gift === "object") {
+      if (!entry.giftable) {
+        return NextResponse.json({ error: "This item cannot be gifted." }, { status: 400 });
+      }
       const toEmail = String(gift.toEmail || "").trim().toLowerCase();
       if (!EMAIL_RE.test(toEmail) || toEmail.length > 254) {
         return NextResponse.json({ error: "A valid recipient email is required for a gift." }, { status: 400 });
-      }
-      if (!sku.startsWith("CHAL-SINGLE-") && sku !== "CHAL-UNLIMITED") {
-        return NextResponse.json({ error: "This item cannot be gifted." }, { status: 400 });
       }
       giftAttrs = {
         toEmail,
@@ -42,84 +57,58 @@ export async function POST(request: NextRequest) {
       };
     }
 
-    const variantId = (SKU_TO_VARIANT_GID as Record<string, string | undefined>)[sku];
-    if (!variantId) {
-      return NextResponse.json({ error: "Unknown SKU" }, { status: 400 });
-    }
-
     const cookieStore = await cookies();
-    const kfUid = cookieStore.get("kf_uid")?.value ?? randomUUID();
-
-    const storeDomain = process.env.SHOPIFY_STORE_DOMAIN;
-    const accessToken = process.env.SHOPIFY_STOREFRONT_ACCESS_TOKEN;
-    if (!storeDomain || !accessToken) {
-      return NextResponse.json({ error: "Shopify credentials not configured" }, { status: 500 });
-    }
+    const kfUid = cookieStore.get(KF_UID_COOKIE)?.value ?? randomUUID();
 
     const appUrl = process.env.NEXT_PUBLIC_APP_URL || "http://localhost:3000";
-    const returnUrl = giftAttrs
+    const editionSlug = sku.startsWith("CHAL-SINGLE-") ? sku.slice("CHAL-SINGLE-".length).toLowerCase() : null;
+    const successUrl = giftAttrs
       ? `${appUrl}/gift/thank-you`
-      : sku === "LOCKSCREENS-HOME" || sku === "LOCKSCREENS-TEEN"
-        ? `${appUrl}/lockscreens/thank-you`
-        : `${appUrl}/challenge/claim?edition=${sku.includes("SINGLE") ? sku.split("-").pop()?.toLowerCase() : "travelsafe"}`;
+      : editionSlug
+        ? `${appUrl}/challenge/claim?edition=${editionSlug}`
+        : `${appUrl}/challenge/claim`;
+    const cancelUrl = `${appUrl}/pricing`;
 
-    const query = `
-      mutation cartCreate($lines: [CartLineInput!]!, $attributes: [AttributeInput!]!, $buyerIdentity: CartBuyerIdentityInput) {
-        cartCreate(input: { lines: $lines, attributes: $attributes, buyerIdentity: $buyerIdentity }) {
-          cart { checkoutUrl }
-          userErrors { field message }
-        }
-      }
-    `;
+    const priceId = await resolvePriceId(entry.lookupKey);
 
-    const response = await fetch(`https://${storeDomain}/api/${SHOPIFY_API_VERSION}/graphql.json`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        "X-Shopify-Storefront-Access-Token": accessToken,
-      },
-      body: JSON.stringify({
-        query,
-        variables: {
-          lines: [{ merchandiseId: variantId, quantity }],
-          attributes: [
-            { key: "konfydenceUserId", value: kfUid },
-            { key: "returnUrl", value: returnUrl },
-            ...(giftAttrs
-              ? [
-                  { key: "isGift", value: "true" },
-                  { key: "giftToEmail", value: giftAttrs.toEmail },
-                  { key: "giftFromName", value: giftAttrs.fromName },
-                  { key: "giftMessage", value: giftAttrs.message },
-                ]
-              : []),
-          ],
-        },
-      }),
+    // Metadata is the fulfilment contract: the webhook reads it to grant the
+    // right entitlement / mint the right gift code. Stripe caps each value at
+    // 500 chars and the whole map at 50 keys — well within range here.
+    const metadata: Record<string, string> = {
+      konfydenceUserId: kfUid,
+      sku,
+      tier: sku === "CHAL-UNLIMITED" || sku === "CHAL-UPGRADE" ? "unlimited" : "single",
+      edition: editionSlug ?? "",
+    };
+    if (giftAttrs) {
+      metadata.isGift = "true";
+      metadata.giftToEmail = giftAttrs.toEmail;
+      metadata.giftFromName = giftAttrs.fromName;
+      metadata.giftMessage = giftAttrs.message;
+    }
+
+    const stripe = getStripe();
+    const session = await stripe.checkout.sessions.create({
+      mode: "payment",
+      line_items: [{ price: priceId, quantity: 1 }],
+      automatic_tax: { enabled: true },
+      billing_address_collection: "required",
+      tax_id_collection: { enabled: true },
+      customer_creation: "always",
+      client_reference_id: kfUid,
+      metadata,
+      payment_intent_data: { metadata },
+      success_url: successUrl,
+      cancel_url: cancelUrl,
+      allow_promotion_codes: true,
     });
 
-    if (!response.ok) {
-      console.error("Shopify Storefront request failed:", response.status);
-      return NextResponse.json({ error: "Failed to create cart" }, { status: 502 });
+    if (!session.url) {
+      return NextResponse.json({ error: "Stripe did not return a checkout URL" }, { status: 502 });
     }
 
-    const data = await response.json();
-    if (data.errors) {
-      console.error("Shopify GraphQL errors:", data.errors);
-      return NextResponse.json({ error: "Failed to create cart" }, { status: 500 });
-    }
-
-    const { cart, userErrors } = data.data.cartCreate;
-    if (userErrors?.length) {
-      console.error("Shopify user errors:", userErrors);
-      return NextResponse.json({ error: "Failed to create cart" }, { status: 500 });
-    }
-    if (!cart?.checkoutUrl) {
-      return NextResponse.json({ error: "Shopify did not return a checkout URL" }, { status: 502 });
-    }
-
-    const result = NextResponse.json({ checkoutUrl: cart.checkoutUrl });
-    result.cookies.set("kf_uid", kfUid, {
+    const result = NextResponse.json({ checkoutUrl: session.url });
+    result.cookies.set(KF_UID_COOKIE, kfUid, {
       httpOnly: true,
       secure: process.env.NODE_ENV === "production",
       sameSite: "lax",

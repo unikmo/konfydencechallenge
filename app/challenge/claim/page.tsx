@@ -89,7 +89,7 @@ function ClaimContent() {
           <>
             <div className="spinner" />
             <h1 style={{ margin: "0 0 12px", fontSize: 28 }}>Confirming your access</h1>
-            <p style={{ margin: 0, color: ui.muted, fontSize: 14, lineHeight: 1.6 }}>Shopify is confirming the purchase. Keep this page open; access normally appears within a few seconds.</p>
+            <p style={{ margin: 0, color: ui.muted, fontSize: 14, lineHeight: 1.6 }}>We&rsquo;re confirming your payment. Keep this page open; access normally appears within a few seconds.</p>
             <p style={{ marginTop: 14, color: ui.muted, fontSize: 11 }}>Verification attempt {attempt} of {MAX_ATTEMPTS}</p>
           </>
         )}
