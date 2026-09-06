@@ -5,11 +5,20 @@ storefront platform is unnecessary overhead. Stripe covers checkout, invoicing,
 subscriptions and tax determination in one account, one payout, one tax config.
 
 **Stripe account:** Konfydence is a project of **PlanetHike** (same legal
-entity), so it bills through PlanetHike's existing Stripe account
-(`acct_1Ta8VcCJ0OrrcvFZ`). No separate account. Konfydence products are
-namespaced (`metadata.konfydence_sku`, `Konfydence …` names) and card statements
-carry a `KONFYDENCE` descriptor suffix, so the two projects stay legible in one
-account, one payout, one tax registration set.
+entity).
+
+- **Test / build:** a dedicated Stripe **Sandbox** — "Konfydence sandbox",
+  `acct_1UCcuwGWznsZfuhr` — isolated test data, its own `sk_test_`/`pk_test_`
+  keys. All of stages 1–6 are built and verified here.
+- **Live:** runs through **PlanetHike's live account** (`acct_1Ta8VcCJ0OrrcvFZ`).
+  A sandbox cannot be activated for live payments. Production env vars point at
+  PlanetHike's live keys; Konfydence products are namespaced
+  (`metadata.konfydence_sku`, `Konfydence …` names) and card statements carry a
+  `KONFYDENCE` descriptor suffix so the two projects stay legible in one
+  account, one payout, one tax registration set.
+
+Run `npm run stripe:sync` once against the sandbox key, then again against the
+live key at cutover.
 
 ## VAT / tax position
 
@@ -31,7 +40,9 @@ especially the first public-sector/school order without a VAT ID.
 
 | Stage | Scope | Status |
 |---|---|---|
-| 0 | In PlanetHike's Stripe account: enable Stripe Tax, add `KONFYDENCE` to allowed descriptor suffixes, keys | **user** |
+| 0a | Konfydence sandbox created; `sk_test_`/`pk_test_` keys issued | ✅ done |
+| 0b | *You:* run `npm run stripe:sync` (sandbox key); complete the Stripe Tax wizard (origin address, registrations); add keys to Vercel Preview+Dev | **user** |
+| 0c | *You, at cutover:* enable Stripe Tax on PlanetHike live; add `KONFYDENCE` descriptor suffix; live keys to Vercel Production; `npm run stripe:sync` (live key) | **user** |
 | 1 | `lib/stripe/` foundation, `stripe` dep, catalogue + sync script, env scaffold | ✅ done |
 | 2 | Schema: `ProcessedWebhookEvent` dedupe table; `source`/`shopifyOrderId` columns reused as opaque source-order keys | ✅ done |
 | 3 | Consumer checkout → Stripe Checkout Session; same `{sku}→{checkoutUrl}` contract | ✅ done |
