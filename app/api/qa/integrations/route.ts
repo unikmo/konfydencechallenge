@@ -128,7 +128,7 @@ async function checkShopify(): Promise<Result> {
 
 async function checkStripe(): Promise<Result> {
   const key = process.env.STRIPE_SECRET_KEY;
-  if (!key) return { state: "not_applicable", detail: "Current commerce checkout uses Shopify" };
+  if (!key) return { state: "not_applicable", detail: "Stripe checkout not yet configured (see docs/STRIPE_MIGRATION.md)" };
   try {
     const res = await fetch("https://api.stripe.com/v1/account", {
       headers: { Authorization: `Bearer ${key}` },
@@ -165,7 +165,10 @@ export async function POST(request: NextRequest) {
     : { state: "not_configured" };
 
   const cms: Result = { state: "not_applicable", detail: "No production CMS connector is used by this application" };
-  const required = [database, crm, email, analytics, commerceShopify];
+  // During the Shopify→Stripe migration, whichever checkout provider is
+  // configured is the one that must be healthy. Stripe wins once its key is set.
+  const commerce = process.env.STRIPE_SECRET_KEY ? commerceStripe : commerceShopify;
+  const required = [database, crm, email, analytics, commerce];
 
   return NextResponse.json(
     {

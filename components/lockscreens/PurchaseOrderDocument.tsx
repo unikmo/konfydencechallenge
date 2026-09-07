@@ -139,12 +139,26 @@ export function PurchaseOrderDocument({
           </div>
         ) : null}
 
+        {order.stripeInvoiceUrl && order.status !== "confirmed" ? (
+          <div className="poPrintHide" style={{ background: "#111417", borderRadius: 6, padding: "16px 18px", marginBottom: 24, textAlign: "center" }}>
+            <a
+              href={order.stripeInvoiceUrl}
+              style={{ color: "#fffdf9", fontWeight: 700, textDecoration: "none", fontSize: 15 }}
+            >
+              Pay this invoice — {formatUsd(order.overrideAnnualTotal ?? order.annualTotal)} →
+            </a>
+            <div style={{ color: "#c9c6c0", fontSize: 12, marginTop: 6 }}>Card or bank transfer. Your licence activates automatically once it clears.</div>
+          </div>
+        ) : null}
+
         <div style={{ fontSize: 12, color: "#66645f", borderTop: "1px solid rgba(17,20,23,.1)", paddingTop: 16 }}>
           <p>
-            This purchase order confirms pricing and does not itself activate the licence. A Konfydence team
-            member will follow up to confirm payment terms; the lockscreen sequence goes live once the order
-            is confirmed. Konfydence is an educational scam-readiness product and does not guarantee
-            protection from fraud.
+            {order.stripeInvoiceUrl
+              ? "This purchase order sets out pricing; the invoice above is how you pay it. The lockscreen sequence goes live automatically once payment clears."
+              : "This purchase order confirms pricing and does not itself activate the licence. A Konfydence team member will send your invoice; the sequence goes live once it is paid."}{" "}
+            Where the customer is a business established in the EU, VAT is not charged — the reverse charge
+            applies and the recipient accounts for VAT. Konfydence is a product of PlanetHike, an educational
+            scam-readiness product, and does not guarantee protection from fraud.
           </p>
           <p style={{ marginTop: 8 }}>Questions? Reply to the email this PO arrived in, or contact concierge@konfydence.com.</p>
         </div>

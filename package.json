@@ -21,6 +21,7 @@
     "db:bootstrap": "npm run db:seed && npm run db:verify",
     "seed": "npm run db:seed",
     "qa:webhooks": "ts-node --transpile-only scripts/qa-webhook-matrix.ts",
+    "stripe:sync": "ts-node --transpile-only scripts/stripe-sync-catalog.ts",
     "audit:scenarios": "node scripts/audit-scenario-quality.cjs",
     "audit:claims": "node scripts/validate-product-claims.cjs",
     "audit:production": "npm audit --omit=dev --audit-level=high",
@@ -43,6 +44,7 @@
     "qrcode": "^1.5.4",
     "react": "19.2.0",
     "react-dom": "19.2.0",
+    "stripe": "^22.6.1",
     "zod": "^3.23.8"
   },
   "devDependencies": {
