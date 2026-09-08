@@ -56,17 +56,23 @@ export default async function BusinessAdmin({ searchParams }: { searchParams: Pr
   const { view: raw } = await searchParams;
   const view: View = (VIEWS.some(([k]) => k === raw) ? raw : "overview") as View;
 
-  const [stripe, entitlements, gifts, orders, tenants, accountCount, accounts, sessionAgg] = await Promise.all([
+  // A missing table (an un-run migration) must not blank the whole page.
+  const dbErrors: string[] = [];
+  const safe = async <T,>(p: Promise<T>, fallback: T, tag: string): Promise<T> => {
+    try { return await p; } catch (e) { console.error(`business dashboard: ${tag} failed`, e instanceof Error ? e.message : e); dbErrors.push(tag); return fallback; }
+  };
+
+  const [stripe, entitlements, gifts, orders, tenants, accountCount, accounts, sessionAgg, completedCount] = await Promise.all([
     loadStripe(),
-    prisma.entitlement.findMany({ orderBy: { createdAt: "desc" }, take: 80, include: { user: { select: { email: true } } } }),
-    prisma.giftCode.findMany({ orderBy: { createdAt: "desc" }, take: 80 }),
-    prisma.lockscreenOrder.findMany({ orderBy: { createdAt: "desc" }, include: { tenant: { select: { tokenStatus: true, kind: true, termEnd: true } } } }),
-    prisma.lockscreenTenant.findMany({ orderBy: { createdAt: "desc" } }),
-    prisma.account.count(),
-    prisma.account.findMany({ orderBy: { createdAt: "desc" }, take: 60, include: { _count: { select: { players: true, subscriptions: true, sessions: true } } } }),
-    prisma.challengeSession.aggregate({ _count: { _all: true } }),
+    safe(prisma.entitlement.findMany({ orderBy: { createdAt: "desc" }, take: 80, include: { user: { select: { email: true } } } }), [], "entitlements"),
+    safe(prisma.giftCode.findMany({ orderBy: { createdAt: "desc" }, take: 80 }), [], "giftCode"),
+    safe(prisma.lockscreenOrder.findMany({ orderBy: { createdAt: "desc" }, include: { tenant: { select: { tokenStatus: true, kind: true, termEnd: true } } } }), [], "lockscreenOrder"),
+    safe(prisma.lockscreenTenant.findMany({ orderBy: { createdAt: "desc" } }), [], "lockscreenTenant"),
+    safe(prisma.account.count(), 0, "account.count"),
+    safe(prisma.account.findMany({ orderBy: { createdAt: "desc" }, take: 60, include: { _count: { select: { players: true, subscriptions: true, sessions: true } } } }), [], "account"),
+    safe(prisma.challengeSession.aggregate({ _count: { _all: true } }), { _count: { _all: 0 } }, "challengeSession.aggregate"),
+    safe(prisma.challengeSession.count({ where: { status: "COMPLETED" } }), 0, "challengeSession.count"),
   ]);
-  const completedCount = await prisma.challengeSession.count({ where: { status: "COMPLETED" } });
 
   const stripeErr = stripe && "error" in stripe ? stripe.error : null;
   const charges = stripe && !("error" in stripe) ? stripe.charges : [];
@@ -101,6 +107,7 @@ export default async function BusinessAdmin({ searchParams }: { searchParams: Pr
       <section>
         <header><h2>{VIEWS.find(([k]) => k === view)?.[1]}</h2><span>INTERNAL · AUTHENTICATED</span></header>
         {stripeErr && <div className="warn">Stripe read failed: {stripeErr}. DB figures below are still accurate.</div>}
+        {dbErrors.length > 0 && <div className="warn">Data unavailable: {dbErrors.join(", ")} — likely an un-run migration. Those sections show 0 / empty.</div>}
 
         {view === "overview" && <>
           <div className="tiles">

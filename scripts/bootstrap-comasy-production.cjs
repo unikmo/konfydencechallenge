@@ -28,6 +28,7 @@ const migrationFiles = [
   "prisma/migrations/20260822101500_comasy_tenant_guard/migration.sql",
   "prisma/migrations/20260822103000_comasy_tenant_guard_search_path/migration.sql",
   "prisma/migrations/20260822103100_comasy_covering_indexes/migration.sql",
+  "prisma/migrations/20260904120000_gift_codes/migration.sql",
   "prisma/migrations/20260904150000_lockscreen_workplace/migration.sql",
   "prisma/migrations/20260905180000_accounts/migration.sql",
   "prisma/migrations/20260905190000_login/migration.sql",
