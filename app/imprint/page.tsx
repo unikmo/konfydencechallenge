@@ -94,8 +94,8 @@ export default function ImprintPage() {
           <h2 style={headingStyle}>2. Service Information</h2>
           <p style={paragraphStyle}>
             Konfydence Challenge is an educational game designed to build scam awareness and readiness. The service
-            provides interactive scenario-based training with Readiness Score rating and optional paid challenge access
-            through Shopify.
+            provides interactive scenario-based training with Readiness Score rating and optional paid challenge access,
+            with payments processed by Stripe.
           </p>
         </div>
 
@@ -176,7 +176,7 @@ export default function ImprintPage() {
         <div style={sectionStyle}>
           <h2 style={headingStyle}>7. Third-Party Services</h2>
           <p style={paragraphStyle}>
-            This website integrates with third-party services including Shopify for payment processing. These services
+            This website integrates with third-party services including Stripe for payment processing. These services
             have their own terms of service and privacy policies. PlanetHike OÜ is not responsible for the practices of
             these third parties.
           </p>

@@ -23,8 +23,8 @@ export default function Page() {
       eyebrow="HOME & TEEN"
       title="The scam reminder that's already on their phone."
       intro="You can't be there when the fake courier text arrives, or the message from a friend's hacked account, or the call that says the bank account is compromised. But a lock screen can. Konfydence puts one calm prompt — Pause, Assess, Talk — on a parent's or teenager's phone, and quietly swaps it for a new one every two weeks."
-      primaryCtaHref="/contact?topic=lockscreens-home"
-      primaryCtaLabel="Get early access"
+      primaryCtaHref="/lockscreens#pricing"
+      primaryCtaLabel="Get Home or Teen — $19.99"
       heroImage={{
         src: "/lockscreens/home/phone/11.png",
         alt: "A Konfydence phone lock screen reading 'Tax refund waiting? Open the official tax portal yourself.'",

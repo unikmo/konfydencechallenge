@@ -29,7 +29,7 @@ export default function PrivacyPolicyPage() {
         <li><strong>Free-resource requests:</strong> Email address, the scam-safety resources selected, source page and whether you separately requested occasional marketing communications.</li>
         <li><strong>CoMaSy pilot-request information:</strong> Role, organisation size, primary objective, current awareness platform, notes, consent and campaign/source attribution where supplied.</li>
         <li><strong>Challenge and programme responses:</strong> Answers to challenge or simulation scenarios and resulting training signals where the relevant service requires them.</li>
-        <li><strong>Purchase information:</strong> Email address and order information received through Shopify for consumer purchases.</li>
+        <li><strong>Purchase information:</strong> Email address, billing details and order information processed by Stripe for consumer purchases.</li>
         <li><strong>Device and usage information:</strong> Technical information such as IP address, browser type and pages visited where collected by the service.</li>
         <li><strong>Cookies and analytics:</strong> Analytics cookies are subject to the consent choices described in our Cookie Policy.</li>
       </ul></div>
@@ -40,7 +40,7 @@ export default function PrivacyPolicyPage() {
         <li>Sending scam-safety tips or other marketing communications only where you separately opt in.</li>
         <li>Responding to contact and CoMaSy pilot requests.</li>
         <li>Configuring and administering agreed pilots or customer programmes.</li>
-        <li>Processing consumer purchases through Shopify.</li>
+        <li>Processing consumer purchases, invoices and subscriptions through Stripe.</li>
         <li>Sending account, purchase, pilot or service-related communications.</li>
         <li>Analyzing usage where analytics consent has been granted.</li>
         <li>Complying with legal obligations and protecting the service.</li>

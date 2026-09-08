@@ -93,7 +93,7 @@ export default function SecurityPage() {
             <p className="k-copy" style={{ marginTop: 14 }}>
               The current Konfydence application is built on Next.js/React with Prisma and PostgreSQL/Supabase
               architecture and is deployed through Vercel. The pilot workflow includes a Resend email integration
-              when configured. Consumer checkout uses Shopify.
+              when configured. Consumer checkout, invoicing and subscriptions use Stripe.
             </p>
           </div>
           <div className="kc-note">

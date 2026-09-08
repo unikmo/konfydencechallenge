@@ -5,7 +5,6 @@ import {
   isSubscriptionSku,
   catalogName,
 } from "../lib/stripe/catalog";
-import { SHOPIFY_PRODUCTS } from "../lib/shopify/testData";
 
 describe("stripe catalogue", () => {
   it("has a unique lookup key per price", () => {
@@ -21,10 +20,10 @@ describe("stripe catalogue", () => {
       expect(Number.isInteger(entry.unitAmount)).toBe(true);
       expect(entry.unitAmount).toBeGreaterThan(0);
     }
-    // Spot-check against the Shopify source of truth being retired.
-    expect(CONSUMER_CATALOG["CHAL-SINGLE-SCHOOL"].unitAmount).toBe(Math.round(SHOPIFY_PRODUCTS.CHAL_SINGLE.variants.SCHOOL.price * 100));
-    expect(CONSUMER_CATALOG["CHAL-UNLIMITED"].unitAmount).toBe(Math.round(SHOPIFY_PRODUCTS.CHAL_UNLIMITED.price * 100));
-    expect(CONSUMER_CATALOG["CHAL-UPGRADE"].unitAmount).toBe(Math.round(SHOPIFY_PRODUCTS.CHAL_UPGRADE.price * 100));
+    // The published consumer prices ($6.99 single edition, $24.99 pack, $18 upgrade).
+    expect(CONSUMER_CATALOG["CHAL-SINGLE-SCHOOL"].unitAmount).toBe(699);
+    expect(CONSUMER_CATALOG["CHAL-UNLIMITED"].unitAmount).toBe(2499);
+    expect(CONSUMER_CATALOG["CHAL-UPGRADE"].unitAmount).toBe(1800);
   });
 
   it("charges the first Lockscreens year higher than the renewal", () => {

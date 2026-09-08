@@ -30,7 +30,7 @@ export default function TermsOfServicePage() {
 
       <div style={sectionStyle}><h2 style={headingStyle}>4. Challenges & Scoring</h2><p style={paragraphStyle}><strong>Educational purpose:</strong> Konfydence challenges are designed to build scam and security-decision awareness. They do not guarantee protection from fraud, cyber incidents or financial loss.</p><p style={paragraphStyle}><strong>Scores:</strong> Readiness Scores and other training signals are based on participant responses and are intended for educational feedback and programme review, subject to the limits described in the relevant methodology.</p></div>
 
-      <div style={sectionStyle}><h2 style={headingStyle}>5. Consumer Purchases & Refunds</h2><p style={paragraphStyle}>Consumer purchases are processed through Shopify. Digital challenge access is provided after purchase and refund eligibility may depend on the type of product and applicable law. For consumer refund inquiries, contact support@konfydence.com.</p></div>
+      <div style={sectionStyle}><h2 style={headingStyle}>5. Consumer Purchases & Refunds</h2><p style={paragraphStyle}>Consumer purchases are processed through Stripe. Digital challenge access is provided after purchase and refund eligibility may depend on the type of product and applicable law. For consumer refund inquiries, contact support@konfydence.com.</p></div>
 
       <div style={sectionStyle}><h2 style={headingStyle}>6. Disclaimer of Warranties</h2><p style={paragraphStyle}>The website and services are provided on an "as is" and "as available" basis to the extent permitted by applicable law. Konfydence does not guarantee that challenge content, scoring or service availability will be error-free or suitable for every use case.</p></div>
 

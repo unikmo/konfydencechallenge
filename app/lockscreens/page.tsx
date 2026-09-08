@@ -2,6 +2,7 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import { PremiumPage } from "@/components/PremiumSiteChrome";
 import { PortfolioStrip } from "@/components/PortfolioStrip";
+import { CheckoutRedirectButton } from "@/components/commerce/CheckoutRedirectButton";
 
 export const metadata: Metadata = {
   title: { absolute: "Konfydence Lockscreens | Pause. Assess. Talk." },
@@ -24,15 +25,26 @@ const howItWorks = [
   ["A new screen every two weeks", "“Your next Konfydence screen is ready.” One click, one download. The wording and the scam patterns stay current."],
 ];
 
-const tiers = [
+type Tier = {
+  name: string;
+  price: string;
+  unit: string;
+  renew: string;
+  copy: string;
+  cta: string;
+  href?: string;
+  sku?: "LOCKSCREENS-HOME" | "LOCKSCREENS-TEEN";
+};
+
+const tiers: Tier[] = [
   {
     name: "Home",
     price: "$19.99",
     unit: "first year",
     renew: "then $14.99 / year",
-    copy: "Every device in the household. A new prompt every two weeks and continued access to the full set.",
-    cta: "Get early access",
-    href: "/contact?topic=lockscreens-home",
+    copy: "One phone. A new prompt every two weeks and continued access to the full set. Delivered by email — save each screen as your wallpaper.",
+    cta: "Get Home — $19.99",
+    sku: "LOCKSCREENS-HOME",
   },
   {
     name: "Teen Home",
@@ -40,8 +52,8 @@ const tiers = [
     unit: "first year",
     renew: "then $14.99 / year",
     copy: "The same service with prompts written for a teenager's phone — gaming, social and peer-pressure scams.",
-    cta: "Get early access",
-    href: "/contact?topic=lockscreens-teen",
+    cta: "Get Teen Home — $19.99",
+    sku: "LOCKSCREENS-TEEN",
   },
   {
     name: "Schools",
@@ -132,14 +144,17 @@ export default function LockscreensPage() {
               <p className="kls-tier-renew">{tier.renew}</p>
               <p className="kls-tier-copy">{tier.copy}</p>
               <div className="kls-tier-cta">
-                <Link className="k-button-quiet" href={tier.href}>{tier.cta}</Link>
+                {tier.sku
+                  ? <CheckoutRedirectButton sku={tier.sku} label={tier.cta} />
+                  : <Link className="k-button-quiet" href={tier.href!}>{tier.cta}</Link>}
               </div>
             </article>
           ))}
         </div>
         <p className="kls-buy-note">
-          Checkout and device onboarding are being set up now — the quote links reach us directly in the meantime. Prefer a
-          free reminder first? The <Link href="/free-scam-safety-pack">Emergency Scam Protocol</Link> is a free download.
+          Home and Teen check out instantly. Schools and Workplace get a numbered quote and a Stripe invoice you can pay by
+          card or bank transfer. Prefer a free reminder first? The{" "}
+          <Link href="/free-scam-safety-pack">Emergency Scam Protocol</Link> is a free download.
         </p>
       </section>
 

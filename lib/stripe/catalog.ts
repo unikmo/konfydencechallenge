@@ -3,9 +3,7 @@
 // upserts a Stripe Product + Price per entry (matched on `lookupKey`), so there
 // is no manual product setup in the dashboard and no price IDs in env vars.
 //
-// Amounts are in the smallest currency unit (USD cents). These mirror the legacy
-// figures in lib/shopify/testData.ts during the migration; that file is deleted
-// in the final cleanup stage.
+// Amounts are in the smallest currency unit (USD cents).
 //
 // Tax: every price is created with tax_behavior "exclusive" and a Stripe tax
 // code so `automatic_tax` on Checkout / Invoices resolves the right treatment

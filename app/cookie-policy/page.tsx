@@ -104,7 +104,7 @@ export default function CookiePolicyPage() {
             <li style={paragraphStyle}>User authentication (login sessions)</li>
             <li style={paragraphStyle}>Security (CSRF protection)</li>
             <li style={paragraphStyle}>Cookie consent preferences</li>
-            <li style={paragraphStyle}>kf_uid (unique visitor identifier for Shopify integration)</li>
+            <li style={paragraphStyle}>kf_uid (unique visitor identifier linking a purchase to your access)</li>
           </ul>
 
           <h3 style={{ fontSize: 16, fontWeight: 800, marginTop: 16, marginBottom: 8 }}>
@@ -145,7 +145,7 @@ export default function CookiePolicyPage() {
                 <td style={tdStyle}>
                   <strong>kf_uid</strong>
                 </td>
-                <td style={tdStyle}>User identifier for Shopify integration</td>
+                <td style={tdStyle}>User identifier linking a purchase to your access</td>
                 <td style={tdStyle}>1 year</td>
                 <td style={tdStyle}>Essential</td>
               </tr>
@@ -192,7 +192,7 @@ export default function CookiePolicyPage() {
           </p>
           <ul style={{ marginLeft: 20, marginBottom: 12 }}>
             <li style={paragraphStyle}>
-              <strong>Shopify:</strong> For payment processing and order management
+              <strong>Stripe:</strong> For payment processing, invoicing and subscription management
             </li>
             <li style={paragraphStyle}>
               <strong>Google Analytics:</strong> For website traffic analysis (only if you consent)

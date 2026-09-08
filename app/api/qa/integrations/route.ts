@@ -106,29 +106,9 @@ async function checkResend(): Promise<Result> {
   }
 }
 
-async function checkShopify(): Promise<Result> {
-  const domain = process.env.SHOPIFY_STORE_DOMAIN;
-  const token = process.env.SHOPIFY_STOREFRONT_ACCESS_TOKEN;
-  if (!domain || !token) return { state: "not_configured" };
-  try {
-    const res = await fetch(`https://${domain}/api/2025-07/graphql.json`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        "X-Shopify-Storefront-Access-Token": token,
-      },
-      body: JSON.stringify({ query: "{ shop { name } }" }),
-      cache: "no-store",
-    });
-    return res.ok ? { state: "ok", status: res.status } : { state: "failed", status: res.status };
-  } catch {
-    return { state: "failed", detail: "shopify_network_failed" };
-  }
-}
-
 async function checkStripe(): Promise<Result> {
   const key = process.env.STRIPE_SECRET_KEY;
-  if (!key) return { state: "not_applicable", detail: "Stripe checkout not yet configured (see docs/STRIPE_MIGRATION.md)" };
+  if (!key) return { state: "not_configured" };
   try {
     const res = await fetch("https://api.stripe.com/v1/account", {
       headers: { Authorization: `Bearer ${key}` },
@@ -152,11 +132,10 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ error: "unauthorized", reason }, { status: 401 });
   }
 
-  const [database, crm, email, commerceShopify, commerceStripe] = await Promise.all([
+  const [database, crm, email, commerceStripe] = await Promise.all([
     checkDatabase(),
     checkCrmWrite(),
     checkResend(),
-    checkShopify(),
     checkStripe(),
   ]);
 
@@ -165,15 +144,12 @@ export async function POST(request: NextRequest) {
     : { state: "not_configured" };
 
   const cms: Result = { state: "not_applicable", detail: "No production CMS connector is used by this application" };
-  // During the Shopify→Stripe migration, whichever checkout provider is
-  // configured is the one that must be healthy. Stripe wins once its key is set.
-  const commerce = process.env.STRIPE_SECRET_KEY ? commerceStripe : commerceShopify;
-  const required = [database, crm, email, analytics, commerce];
+  const required = [database, crm, email, analytics, commerceStripe];
 
   return NextResponse.json(
     {
       ok: required.every((item) => item.state === "ok"),
-      integrations: { database, crm, email, analytics, commerceShopify, commerceStripe, cms },
+      integrations: { database, crm, email, analytics, commerceStripe, cms },
     },
     { headers: { "Cache-Control": "no-store" } },
   );

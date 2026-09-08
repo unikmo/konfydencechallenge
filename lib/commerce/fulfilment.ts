@@ -1,12 +1,12 @@
-// Provider-agnostic commerce fulfilment. Both the Stripe webhook
-// (app/api/webhooks/stripe) and the legacy Shopify webhook
-// (app/api/webhooks/shopify-purchase) call into here so the entitlement /
-// gift-code / revoke semantics stay identical across the migration.
+// Commerce fulfilment for the Stripe webhook (app/api/webhooks/stripe):
+// entitlement grant, gift-code issue, revoke.
 //
-// `sourceOrderId` is the opaque, globally-unique idempotency key stored on
-// Entitlement.shopifyOrderId / GiftCode.shopifyOrderId:
-//   Stripe:  "stripe_cs_<checkout_session_id>"
-//   Shopify: the numeric order id (legacy)
+// `sourceOrderId` is the opaque, globally-unique idempotency key stored on the
+// `shopifyOrderId` column of Entitlement / GiftCode (the column keeps its
+// historical name):
+//   Stripe checkout:  "stripe_cs_<checkout_session_id>"
+//   Gift redemption:  "gift:<code>"
+//   Legacy rows:      a numeric Shopify order id (pre-migration)
 import { prisma } from "@/lib/prisma";
 import { generateGiftCode } from "@/lib/gift";
 import { sendTransactionalEmail, escapeHtml } from "@/lib/email";
