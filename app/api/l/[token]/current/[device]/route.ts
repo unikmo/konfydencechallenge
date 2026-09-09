@@ -75,9 +75,11 @@ export async function GET(
   const appUrl = process.env.NEXT_PUBLIC_APP_URL || "https://konfydence.com";
   const redirectUrl = new URL(asset.imagePath, appUrl);
 
-  // Short cache: fortnightly cadence can afford hours of staleness without
-  // anyone noticing a flip landing late.
+  // Short cache only: the fortnightly cadence could tolerate hours of
+  // staleness on *which* screen, but this redirect also gates on tenant
+  // status — a revoked or lapsed licence must stop serving quickly, so keep
+  // the window to a few minutes.
   const response = NextResponse.redirect(redirectUrl, 302);
-  response.headers.set("Cache-Control", "public, max-age=3600");
+  response.headers.set("Cache-Control", "public, max-age=300, must-revalidate");
   return response;
 }

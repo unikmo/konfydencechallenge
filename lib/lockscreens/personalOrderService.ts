@@ -1,10 +1,13 @@
-// Personal Delivery Engine order fulfillment -- Home / Teen Home.
+// Personal Delivery Engine order fulfilment -- Home / Teen Home.
 //
 // Unlike Workplace/School (quote -> auto-PO -> human confirms payment ->
-// licence activates), Home/Teen is a flat-fee Shopify purchase: Shopify has
-// already collected payment (one-time first year, then an annual
-// subscription renewal via a selling plan) by the time this runs, so the
-// licence activates immediately -- no PO, no manual activate step.
+// licence activates), Home/Teen is a Stripe subscription: Stripe has already
+// collected payment (one-time first-year line, then an annual recurring
+// renewal that trials 365 days) by the time this runs, so the licence
+// activates immediately -- no PO, no manual activate step. The caller is
+// lib/lockscreens/stripeSubscription.ts; the `shopifyOrderId` field below is
+// the historical column name and now carries a `stripe_sub_*` / `stripe_inv_*`
+// value (deliberately not renamed).
 //
 // Delivery is phone-only (see docs/LOCKSCREENS_ARCHITECTURE.md and the
 // user's 2026-09-04 decision): there's no MDM to push a lock-screen image to
@@ -30,7 +33,7 @@ const TRACK_LABEL: Record<PersonalTrack, string> = {
   teen: "Teen Home",
 };
 
-// First-year vs renewal pricing, per lib/shopify/testData.ts SHOPIFY_PRODUCTS.
+// First-year vs renewal pricing, mirrors lib/stripe/catalog.ts SUBSCRIPTION_CATALOG.
 const FIRST_YEAR_PRICE = 19.99;
 const RENEWAL_PRICE = 14.99;
 

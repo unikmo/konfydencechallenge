@@ -17,10 +17,17 @@ export const dynamic = "force-dynamic";
 
 export async function POST(request: NextRequest, props: { params: Promise<{ sessionId: string }> }) {
   const { sessionId } = await props.params;
-  const form = await request.formData();
+  const resultsUrl = new URL(`/challenge/session/${sessionId}/results`, request.url);
+
+  let form: FormData;
+  try {
+    form = await request.formData();
+  } catch {
+    resultsUrl.searchParams.set("claim", "invalid");
+    return NextResponse.redirect(resultsUrl);
+  }
   const email = normalizeEmail(String(form.get("email") ?? ""));
   const consent = String(form.get("consent") ?? "");
-  const resultsUrl = new URL(`/challenge/session/${sessionId}/results`, request.url);
 
   const kfUid = request.cookies.get("kf_uid")?.value;
   if (!kfUid) {

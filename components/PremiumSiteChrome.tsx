@@ -23,6 +23,7 @@ export function PremiumHeader({
         <Link href="/challenge">Challenges</Link>
         <Link href="/travelsafe">TravelSafe</Link>
         <Link href="/lockscreens">Lockscreens</Link>
+        <Link href="/pricing">Pricing</Link>
         <Link href="/comasy">For organisations</Link>
         <Link href="/free-scam-safety-pack">Resources</Link>
       </nav>
@@ -45,6 +46,7 @@ export function PremiumFooter() {
           <Link href="/challenge">Challenges</Link>
           <Link href="/travelsafe">TravelSafe</Link>
           <Link href="/lockscreens">Lockscreens</Link>
+          <Link href="/pricing">Pricing</Link>
           <Link href="/comasy">CoMaSy</Link>
           <Link href="/gift">Gift a challenge</Link>
           <Link href="/free-scam-safety-pack">Free safety resources</Link>

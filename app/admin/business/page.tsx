@@ -79,6 +79,9 @@ export default async function BusinessAdmin({ searchParams }: { searchParams: Pr
   const subs = stripe && !("error" in stripe) ? stripe.subs : [];
   const invoices = stripe && !("error" in stripe) ? stripe.invoices : [];
 
+  // Per-request server component (force-dynamic): this is the request timestamp,
+  // used only to bucket already-fetched Stripe charges — not a render-purity hazard.
+  // eslint-disable-next-line react-hooks/purity
   const now = Date.now() / 1000;
   const sumSince = (secs: number) => charges.filter((c) => c.paid && c.created >= now - secs).reduce((s, c) => s + c.amount - c.amount_refunded, 0);
   const rev = { today: sumSince(86400), week: sumSince(7 * 86400), month: sumSince(30 * 86400), recent100: charges.reduce((s, c) => s + (c.paid ? c.amount - c.amount_refunded : 0), 0) };

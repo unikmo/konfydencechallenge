@@ -19,7 +19,12 @@ function safeNext(value: string | null) {
 }
 
 export async function POST(request: Request) {
-  const formData = await request.formData();
+  let formData: FormData;
+  try {
+    formData = await request.formData();
+  } catch {
+    return NextResponse.redirect(new URL("/challenge/register?error=invalid", request.url));
+  }
   const email = String(formData.get("email") ?? "").trim().toLowerCase();
   const consent = String(formData.get("consent") ?? "");
   const next = safeNext(String(formData.get("next") ?? ""));

@@ -75,6 +75,56 @@ const tiers: Tier[] = [
   },
 ];
 
+const screenGalleries: {
+  name: string;
+  blurb: string;
+  frame: "phone" | "desktop";
+  shots: string[];
+}[] = [
+  {
+    name: "Home",
+    blurb: "Bank, courier, family and refund scams — for one adult phone.",
+    frame: "phone",
+    shots: [
+      "/lockscreens/home/phone/21.png",
+      "/lockscreens/home/phone/45.png",
+      "/lockscreens/home/phone/25.png",
+    ],
+  },
+  {
+    name: "Teen Home",
+    blurb: "Gaming, social, deepfake and money-request scams — in a teenager's language.",
+    frame: "phone",
+    shots: [
+      "/lockscreens/teen/phone/58.png",
+      "/lockscreens/teen/phone/24.png",
+      "/lockscreens/teen/phone/43.png",
+    ],
+  },
+  {
+    name: "Workplace",
+    blurb: "Invoice fraud, executive impersonation and credential theft — on company devices.",
+    frame: "desktop",
+    shots: [
+      "/lockscreens/workplace/desktop/30.png",
+      "/lockscreens/workplace/desktop/44.png",
+      "/lockscreens/workplace/desktop/05.png",
+      "/lockscreens/workplace/desktop/12.png",
+    ],
+  },
+  {
+    name: "Schools",
+    blurb: "Account trading, QR codes and login phishing — on shared and managed machines.",
+    frame: "desktop",
+    shots: [
+      "/lockscreens/school/desktop/10.png",
+      "/lockscreens/school/desktop/33.png",
+      "/lockscreens/school/desktop/05.png",
+      "/lockscreens/school/desktop/40.png",
+    ],
+  },
+];
+
 export default function LockscreensPage() {
   return (
     <PremiumPage ctaHref="#pricing" ctaLabel="See pricing">
@@ -91,16 +141,51 @@ export default function LockscreensPage() {
             <Link className="k-button-quiet" href="/hack-method">See the method</Link>
           </div>
         </div>
-        <div className="kls-devices" aria-hidden="true">
+        <div className="kls-devices">
           <div className="kls-phone">
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/resources/konfydence-phone-lock-screen.svg" alt="" />
+            <img src="/lockscreens/home/phone/21.png" alt="A Konfydence phone lock screen reading “Card blocked. Call now?” with the advice to open your banking app yourself." />
           </div>
           <div className="kls-desktop">
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/resources/konfydence-desktop-lock-screen.svg" alt="" />
+            <img src="/lockscreens/workplace/desktop/30.png" alt="A Konfydence desktop lock screen reading “Before the click becomes an incident…” with Pause · Assess · Talk." />
           </div>
         </div>
+      </section>
+
+      <section className="kg-shell k-section" aria-labelledby="see-the-screens">
+        <div className="k-section-head">
+          <div>
+            <p className="k-kicker">See the screens</p>
+            <h2 id="see-the-screens" className="k-display-sm">Real prompts, not stock posters.</h2>
+          </div>
+          <p className="k-copy">
+            Every screen names a specific move a scam makes and the one calm response. A sample from each library —
+            the full sets rotate a new one to your device every two weeks.
+          </p>
+        </div>
+        <div className="kls-galleries">
+          {screenGalleries.map((g) => (
+            <article className="kls-gallery" key={g.name}>
+              <header>
+                <h3>{g.name}</h3>
+                <p>{g.blurb}</p>
+              </header>
+              <div className={`kls-gallery-grid is-${g.frame}`}>
+                {g.shots.map((src) => (
+                  <div className={g.frame === "phone" ? "kls-shot-phone" : "kls-shot-desktop"} key={src}>
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img src={src} alt={`Sample ${g.name} Konfydence lock screen`} loading="lazy" />
+                  </div>
+                ))}
+              </div>
+            </article>
+          ))}
+        </div>
+        <p className="kls-gallery-note">
+          Home and Teen screens are sized for a phone; Schools and Workplace ship in desktop, laptop and tablet formats
+          for your device management. The message and the scams stay current all year.
+        </p>
       </section>
 
       <section className="kg-shell k-section">
