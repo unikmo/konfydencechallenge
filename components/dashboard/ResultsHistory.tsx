@@ -18,7 +18,18 @@ export async function ResultsHistory({ playerId }: { playerId: string | null }) 
     ? await prisma.challengeSession.findMany({
         where: { userId: playerId },
         orderBy: { createdAt: "desc" },
-        select: { id: true, edition: true, mode: true, status: true, scoreTotal: true, scoreMax: true, createdAt: true },
+        select: {
+          id: true,
+          edition: true,
+          mode: true,
+          status: true,
+          scoreTotal: true,
+          scoreMax: true,
+          currentIndex: true,
+          runNumber: true,
+          createdAt: true,
+          _count: { select: { cards: true } },
+        },
       })
     : [];
 
@@ -99,10 +110,21 @@ export async function ResultsHistory({ playerId }: { playerId: string | null }) 
                       <div style={{ fontWeight: 1000, fontSize: 18, color }}>{Math.round(totals.totalPercent)}%</div>
                       <div style={{ fontSize: 11, color: tokens.textMuted, fontWeight: 750 }}>{totals.level}</div>
                     </>
+                  ) : s.status === "IN_PROGRESS" ? (
+                    (() => {
+                      const total = s._count.cards || 12;
+                      const done = Math.min(s.currentIndex, total);
+                      return (
+                        <>
+                          <div style={{ fontWeight: 900, fontSize: 13, color: tokens.textOnLight }}>Continue →</div>
+                          <div style={{ fontSize: 11, color: tokens.textMuted, fontWeight: 750, marginTop: 2 }}>
+                            {done} of {total} · round {s.runNumber}
+                          </div>
+                        </>
+                      );
+                    })()
                   ) : (
-                    <div style={{ fontWeight: 800, fontSize: 13, color: tokens.textMuted }}>
-                      {s.status === "IN_PROGRESS" ? "Continue →" : "—"}
-                    </div>
+                    <div style={{ fontWeight: 800, fontSize: 13, color: tokens.textMuted }}>—</div>
                   )}
                 </div>
               </Link>

@@ -66,10 +66,22 @@ export default async function AccountPage() {
     ? await prisma.challengeSession.findMany({
         where: { userId: playerId, mode: "full", status: "IN_PROGRESS" },
         orderBy: { updatedAt: "desc" },
-        select: { id: true, edition: true, currentIndex: true, scoreMax: true },
+        select: {
+          id: true,
+          edition: true,
+          currentIndex: true,
+          runNumber: true,
+          _count: { select: { cards: true } },
+        },
       })
     : [];
-  const resumeByEdition = new Map(inProgress.map((s) => [s.edition, s.id]));
+  const resumeByEdition = new Map(
+    inProgress.map((s) => {
+      const total = s._count.cards || 12;
+      const done = Math.min(s.currentIndex, total);
+      return [s.edition, { id: s.id, done, total, round: s.runNumber, pct: Math.round((done / total) * 100) }];
+    })
+  );
 
   return (
     <main style={styles.page}>
@@ -146,17 +158,29 @@ export default async function AccountPage() {
             </p>
             <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
               {ownedEditions.map((ed) => {
-                const resumeId = resumeByEdition.get(ed);
+                const resume = resumeByEdition.get(ed);
                 return (
                   <Link
                     key={ed}
-                    href={resumeId ? `/challenge/session/${resumeId}` : `/challenge/${ed}/start?mode=full`}
-                    style={styles.subRow}
+                    href={resume ? `/challenge/session/${resume.id}` : `/challenge/${ed}/start?mode=full`}
+                    style={{ ...styles.subRow, alignItems: resume ? "stretch" : "center", flexDirection: resume ? "column" : "row", gap: resume ? 8 : 12 }}
                   >
-                    <div style={{ fontWeight: 800 }}>{EDITION_LABELS[ed]}</div>
-                    <span style={{ fontSize: 12, fontWeight: 800, color: tokens.textOnLight }}>
-                      {resumeId ? "Continue →" : "Play →"}
-                    </span>
+                    <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", width: "100%" }}>
+                      <div style={{ fontWeight: 800 }}>{EDITION_LABELS[ed]}</div>
+                      <span style={{ fontSize: 12, fontWeight: 800, color: tokens.textOnLight }}>
+                        {resume ? "Continue →" : "Play →"}
+                      </span>
+                    </div>
+                    {resume ? (
+                      <div style={{ width: "100%" }}>
+                        <div style={{ fontSize: 11, color: tokens.textMuted, fontWeight: 700, marginBottom: 5 }}>
+                          Round {resume.round} · scenario {resume.done + 1} of {resume.total}
+                        </div>
+                        <div style={{ height: 5, borderRadius: 999, background: "rgba(11,27,43,0.12)", overflow: "hidden" }}>
+                          <div style={{ width: `${resume.pct}%`, height: "100%", background: tokens.accentAmber }} />
+                        </div>
+                      </div>
+                    ) : null}
                   </Link>
                 );
               })}
