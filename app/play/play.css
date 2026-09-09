@@ -1,0 +1,57 @@
+.pl-wrap{min-height:100vh;background:#f7f4ee;color:#111417;display:grid;place-items:start center;padding:20px;font-family:Inter,ui-sans-serif,system-ui,sans-serif}
+.pl-card{width:100%;max-width:560px;background:#fffdf9;border:1px solid #e4ddd0;border-radius:20px;padding:32px;box-shadow:0 30px 70px -30px rgba(17,20,23,.3);margin-top:min(6vh,60px)}
+.pl-back{color:#8a8378;font-size:13px;font-weight:600;text-decoration:none}
+.pl-back:hover{color:#af8752}
+.pl-kicker{margin:20px 0 6px;font-size:11px;letter-spacing:.14em;text-transform:uppercase;font-weight:800;color:#af8752}
+.pl-card h1{font-family:"Iowan Old Style",Palatino,Georgia,serif;font-weight:400;font-size:27px;line-height:1.15;letter-spacing:-.02em;margin:0 0 12px}
+.pl-lede{font-size:14px;line-height:1.6;color:#5f5a54;margin:0 0 24px}
+.pl-card label{display:block;font-size:12px;font-weight:700;margin:0 0 7px}
+.pl-card input{width:100%;box-sizing:border-box;border:1px solid #ddd5c6;border-radius:12px;padding:13px 14px;font:inherit;background:#f7f4ee;color:#111417}
+.pl-card input:focus{outline:2px solid #af8752;outline-offset:1px}
+.pl-btn{width:100%;margin-top:14px;border:0;border-radius:999px;padding:13px 18px;font:inherit;font-weight:900;background:#111417;color:#fffdf9;cursor:pointer;transition:opacity .15s}
+.pl-btn:disabled{opacity:.55;cursor:not-allowed}
+.pl-btn-quiet{background:transparent;color:#111417;border:2px solid #111417;width:auto;margin:0;padding:11px 18px}
+.pl-or{display:flex;align-items:center;gap:12px;margin:22px 0 14px;color:#9a9388;font-size:11px;letter-spacing:.1em;text-transform:uppercase;font-weight:700}
+.pl-or::before,.pl-or::after{content:"";flex:1;height:1px;background:#e4ddd0}
+.pl-join{display:flex;gap:10px}
+.pl-join input{flex:1;letter-spacing:.35em;font-weight:800;text-align:center}
+.pl-error{margin:14px 0 0;font-size:13px;color:#9f2f25;background:#fbeee9;border:1px solid #ecccc4;border-radius:10px;padding:10px 12px}
+
+/* room */
+.pl-top{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:6px}
+.pl-progress{font-size:12px;font-weight:800;color:#8a8378}
+.pl-share{display:flex;gap:8px;align-items:center;margin:10px 0 4px}
+.pl-code{font-family:"Iowan Old Style",Palatino,Georgia,serif;font-size:34px;letter-spacing:.12em;font-weight:400}
+.pl-copy{border:1px solid #ddd5c6;background:#f7f4ee;border-radius:999px;padding:7px 13px;font-size:12px;font-weight:800;cursor:pointer}
+.pl-players{display:flex;flex-direction:column;gap:7px;margin:16px 0}
+.pl-player{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:11px 14px;border:1px solid #eae3d5;border-radius:12px;background:#f7f4ee;font-size:14px}
+.pl-player.me{border-color:#af8752;background:#fbf4e9}
+.pl-player .pl-pname{font-weight:800}
+.pl-player .pl-pmeta{font-size:11px;font-weight:800;color:#8a8378}
+.pl-dot{width:8px;height:8px;border-radius:999px;background:#c9c1b2;display:inline-block;margin-right:7px}
+.pl-dot.on{background:#4f8a10}
+.pl-score{font-weight:900;font-variant-numeric:tabular-nums}
+.pl-rank{width:22px;text-align:center;color:#8a8378;font-weight:900}
+.pl-prompt{font-family:"Iowan Old Style",Palatino,Georgia,serif;font-weight:400;font-size:20px;line-height:1.4;margin:14px 0 18px}
+.pl-opts{display:flex;flex-direction:column;gap:9px}
+.pl-opt{text-align:left;border:1px solid #ddd5c6;background:#f7f4ee;border-radius:14px;padding:14px 16px;font:inherit;font-size:14px;line-height:1.45;cursor:pointer;transition:border-color .12s,background .12s}
+.pl-opt:hover:not(:disabled){border-color:#af8752}
+.pl-opt:disabled{cursor:default}
+.pl-opt.picked{border-color:#111417;background:#fff;box-shadow:0 0 0 2px #111417 inset}
+.pl-opt.best{border-color:#4f8a10;background:#f1f8e9}
+.pl-opt.best.picked{box-shadow:0 0 0 2px #4f8a10 inset}
+.pl-opt .pl-optk{font-weight:900;margin-right:8px}
+.pl-opt .pl-optpts{float:right;font-weight:900;color:#4f8a10}
+.pl-wait{margin:16px 0 0;font-size:13px;font-weight:700;color:#8a8378;text-align:center}
+.pl-explain{margin:16px 0 0;font-size:13px;line-height:1.6;color:#5f5a54;background:#f7f4ee;border-left:3px solid #af8752;border-radius:8px;padding:12px 14px}
+.pl-picks{display:flex;flex-wrap:wrap;gap:6px;margin:14px 0 0}
+.pl-pick{font-size:12px;font-weight:800;border:1px solid #eae3d5;border-radius:999px;padding:5px 10px;background:#f7f4ee}
+.pl-win{text-align:center;padding:8px 0 4px}
+.pl-win .pl-trophy{font-size:40px}
+.pl-win h2{font-family:"Iowan Old Style",Palatino,Georgia,serif;font-weight:400;font-size:26px;margin:6px 0 2px}
+.pl-win p{color:#5f5a54;font-size:13px;margin:0}
+.pl-cta{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}
+.pl-cta a{flex:1;min-width:140px;text-align:center;text-decoration:none;border-radius:999px;padding:12px 16px;font-weight:900;font-size:13px}
+.pl-cta a.primary{background:#111417;color:#fffdf9}
+.pl-cta a.quiet{border:2px solid #111417;color:#111417}
+.pl-hint{font-size:12px;color:#8a8378;margin:16px 0 0;text-align:center}

@@ -69,6 +69,9 @@ export default function ChallengeLanding() {
         <div className="kg-promise">
           <span>Quick scored check</span><span>About 4 minutes</span><span>No account for round one</span><span>Immediate H.A.C.K. profile</span>
         </div>
+        <p className="k-copy" style={{ marginTop: 18 }}>
+          Rather do it with people? <Link href="/play" style={{ fontWeight: 700 }}>Play with friends</Link> — same scenarios, same room, running leaderboard.
+        </p>
       </section>
 
       <section className="k-shell k-section" aria-labelledby="choose-edition">

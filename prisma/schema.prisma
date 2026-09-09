@@ -648,3 +648,44 @@ model LockscreenOrder {
   @@index([contactEmail])
   @@index([status])
 }
+
+// ---------------------------------------------------------------------------
+// Play-with-friends — a synchronous party round. A host creates a room, distant
+// friends join with a display name, everyone answers the SAME scenario, then a
+// reveal + running leaderboard. Consumer/social; not org/team competition.
+// State is polled (GET /api/play/[code]); no realtime infra.
+
+model GameRoom {
+  id            String       @id @default(cuid())
+  code          String       @unique // short join code, e.g. "KPTR"
+  hostPlayerId  String? // RoomPlayer.id of the host
+  scenarioIds   String[] // fixed deck for this room
+  status        String       @default("lobby") // lobby | playing | revealed | finished
+  currentIndex  Int          @default(0)
+  createdAt     DateTime     @default(now())
+  updatedAt     DateTime     @updatedAt
+  players       RoomPlayer[]
+
+  @@index([code])
+  @@index([createdAt])
+}
+
+model RoomPlayer {
+  id          String   @id @default(cuid())
+  roomId      String
+  room        GameRoom @relation(fields: [roomId], references: [id], onDelete: Cascade)
+  accountId   String? // null for guests
+  name        String
+  isHost      Boolean  @default(false)
+  score       Int      @default(0)
+  // current-round answer; answerIndex guards against a stale submit landing on
+  // the next scenario.
+  answerKey   String?
+  answerIndex Int?
+  answerScore Int?
+  joinedAt    DateTime @default(now())
+  lastSeenAt  DateTime @default(now())
+
+  @@unique([roomId, name])
+  @@index([roomId])
+}
