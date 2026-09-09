@@ -1,6 +1,6 @@
 import type { Account } from "@prisma/client";
 import { prisma } from "@/lib/prisma";
-import { findOrCreateAccount } from "@/lib/auth/account";
+import { findOrCreateAccount, markEmailVerified } from "@/lib/auth/account";
 import { claimPlayerForAccount } from "@/lib/auth/claim";
 import { normalizeEmail, isValidEmail } from "@/lib/auth/email";
 
@@ -8,19 +8,22 @@ import { normalizeEmail, isValidEmail } from "@/lib/auth/email";
 // without this the entitlement / subscription is tied only to the kf_uid
 // device cookie and is lost on a cookie clear or a new device.
 //
-// The account is created UNVERIFIED — paying with a card at an address is
-// strong intent, but only a sign-in code/link proves the address. Same stance
-// as the free results-email gate. Signing in later with that email folds the
-// purchase in via the shared claim/merge logic.
+// A completed card purchase confirms the buyer's email (Stripe collected it,
+// billed the card, and sends the receipt there) — the account is marked
+// verified, so the buyer is a confirmed user with no extra code step. The
+// challenge/lockscreen access is then anchored to the account, not the
+// kf_uid cookie, and survives a cache clear.
 //
 // These run from the Stripe webhook (server-authoritative, no cookie context).
 // The buyer's device is signed in separately by /api/challenge/claim-purchase.
 
-/** Resolve or create the account for a checkout email. Null if the email is unusable. */
+/** Resolve or create the (verified) account for a checkout email. Null if unusable. */
 export async function ensurePurchaseAccount(rawEmail: string | null | undefined): Promise<Account | null> {
   const email = normalizeEmail(rawEmail ?? "");
   if (!isValidEmail(email) || email.length > 254) return null;
-  return findOrCreateAccount(email);
+  const account = await findOrCreateAccount(email);
+  if (account.emailVerifiedAt) return account;
+  return markEmailVerified(account.id);
 }
 
 /** Challenge purchase → account + consolidate the kf_uid player onto it. */

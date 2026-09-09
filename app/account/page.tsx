@@ -7,6 +7,7 @@ import { tokens } from "@/lib/theme/tokens";
 import { getAccount } from "@/lib/auth/session";
 import { ResultsHistory } from "@/components/dashboard/ResultsHistory";
 import { KF_UID_COOKIE } from "@/lib/challenge/kfUidCookie";
+import { EDITION_LABELS, type ChallengeEdition } from "@/lib/challenge/labels";
 import { linkLockscreenSubscriptions, getAccountSubscriptions } from "@/lib/lockscreens/linkToAccount";
 
 export const metadata: Metadata = {
@@ -48,6 +49,27 @@ export default async function AccountPage() {
   // Catch any Lockscreens subscription bought after sign-in, then list them.
   if (account) await linkLockscreenSubscriptions(account).catch(() => {});
   const subscriptions = account ? await getAccountSubscriptions(account.id) : [];
+
+  const entitlements = playerId
+    ? await prisma.entitlement.findMany({
+        where: { userId: playerId, status: "active" },
+        select: { tier: true, edition: true },
+      })
+    : [];
+  const hasUnlimited = entitlements.some((e) => e.tier === "unlimited");
+  const ownedEditions: ChallengeEdition[] = hasUnlimited
+    ? (["travelsafe", "school", "university", "family", "workplace"] as ChallengeEdition[])
+    : (entitlements
+        .map((e) => e.edition)
+        .filter((e): e is ChallengeEdition => !!e && e in EDITION_LABELS));
+  const inProgress = playerId
+    ? await prisma.challengeSession.findMany({
+        where: { userId: playerId, mode: "full", status: "IN_PROGRESS" },
+        orderBy: { updatedAt: "desc" },
+        select: { id: true, edition: true, currentIndex: true, scoreMax: true },
+      })
+    : [];
+  const resumeByEdition = new Map(inProgress.map((s) => [s.edition, s.id]));
 
   return (
     <main style={styles.page}>
@@ -115,6 +137,32 @@ export default async function AccountPage() {
             <Link href="/account/sign-in" style={{ ...styles.button, marginTop: 12 }}>Sign in to keep them</Link>
           </div>
         )}
+
+        {ownedEditions.length > 0 ? (
+          <div style={{ ...styles.card, marginTop: 14 }}>
+            <h2 style={{ margin: 0, fontSize: 18 }}>Your challenges</h2>
+            <p style={{ color: tokens.textMuted, fontWeight: 700, fontSize: 13, margin: "4px 0 12px" }}>
+              {hasUnlimited ? "All five editions — unlimited rounds." : "Full access, unlimited rounds."} Progress is saved to your account.
+            </p>
+            <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
+              {ownedEditions.map((ed) => {
+                const resumeId = resumeByEdition.get(ed);
+                return (
+                  <Link
+                    key={ed}
+                    href={resumeId ? `/challenge/session/${resumeId}` : `/challenge/${ed}/start?mode=full`}
+                    style={styles.subRow}
+                  >
+                    <div style={{ fontWeight: 800 }}>{EDITION_LABELS[ed]}</div>
+                    <span style={{ fontSize: 12, fontWeight: 800, color: tokens.textOnLight }}>
+                      {resumeId ? "Continue →" : "Play →"}
+                    </span>
+                  </Link>
+                );
+              })}
+            </div>
+          </div>
+        ) : null}
 
         <div style={{ marginTop: 14 }}>
           <div style={{ ...styles.card, marginBottom: 14 }}>

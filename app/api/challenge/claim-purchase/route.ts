@@ -2,10 +2,10 @@ import { NextRequest, NextResponse } from "next/server";
 import { cookies } from "next/headers";
 import { prisma } from "@/lib/prisma";
 import { getStripe, stripeConfigured } from "@/lib/stripe/client";
-import { findOrCreateAccount } from "@/lib/auth/account";
 import { claimPlayerForAccount } from "@/lib/auth/claim";
 import { finishSignInAction } from "@/lib/auth/finishSignIn";
 import { getSession } from "@/lib/auth/session";
+import { ensurePurchaseAccount } from "@/lib/commerce/purchaseAccount";
 import { KF_UID_COOKIE } from "@/lib/challenge/kfUidCookie";
 
 export const dynamic = "force-dynamic";
@@ -66,7 +66,11 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ linked: false, entitlements: await entitlementsForCookie() });
   }
 
-  const account = await findOrCreateAccount(email);
+  // Paid session → confirmed account.
+  const account = await ensurePurchaseAccount(email);
+  if (!account) {
+    return NextResponse.json({ linked: false, entitlements: await entitlementsForCookie() });
+  }
 
   // Sign this device in once. The claim page polls this endpoint while the
   // fulfilment webhook lands, so skip if the cookie already holds this account.

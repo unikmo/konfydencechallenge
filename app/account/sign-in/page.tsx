@@ -13,7 +13,12 @@ export const metadata: Metadata = {
 
 export const dynamic = "force-dynamic";
 
-type SP = { step?: string; email?: string; next?: string; error?: string; sent?: string };
+type SP = { step?: string; email?: string; next?: string; error?: string; sent?: string; reason?: string };
+
+const REASONS: Record<string, string> = {
+  "free-round-2": "Your second free round saves to an account so your Readiness Score history follows you.",
+  "full-challenge": "The full challenge needs an account — your progress, results and purchase stay with you on any device.",
+};
 
 const ERRORS: Record<string, string> = {
   consent: "Tick the box to continue.",
@@ -34,6 +39,7 @@ export default async function SignInPage(props: { searchParams: Promise<SP> }) {
   const email = sp.email ?? "";
   const next = sp.next?.startsWith("/") ? sp.next : "/account";
   const error = sp.error ? ERRORS[sp.error] : null;
+  const reason = sp.reason ? REASONS[sp.reason] : null;
 
   return (
     <main className="kg-state">
@@ -72,6 +78,7 @@ export default async function SignInPage(props: { searchParams: Promise<SP> }) {
               No password. Enter your email and we&rsquo;ll send a one-time code. The same account holds your
               Challenge results and any Lockscreens subscription.
             </p>
+            {reason ? <p className="kf-reason">{reason}</p> : null}
             {error ? <p className="kf-error" role="alert">{error}</p> : null}
             <form action={requestCode} className="kf-form">
               <input type="hidden" name="next" value={next} />
@@ -129,6 +136,7 @@ export default async function SignInPage(props: { searchParams: Promise<SP> }) {
         .kf-back{color:var(--k-muted);font-size:13px;font-weight:600;text-decoration:none}
         .kf-back:hover{color:var(--k-gold)}
         .kf-error{padding:12px 14px;border-radius:12px;background:#fbeee9;color:#9f2f25;border:1px solid #ecccc4;font-size:13px;line-height:1.5}
+        .kf-reason{padding:12px 14px;border-radius:12px;background:#f3efe4;color:#5a5344;border:1px solid #e4dcc9;font-size:13px;line-height:1.55}
         .kf-form{display:grid;gap:12px}
         .kf-form label{font-weight:650;color:var(--k-ink);font-size:13px}
         .kf-form input[type=email],.kf-form input[name=code]{width:100%;box-sizing:border-box;border:1px solid var(--k-line);border-radius:12px;padding:13px 14px;font:inherit;color:var(--k-ink);background:var(--k-paper)}
