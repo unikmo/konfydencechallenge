@@ -76,6 +76,28 @@
   .k-pack-page-intro{padding:58px 0 10px}
 }
 
+/* ---- Free protocol: direct download page ---- */
+.k-free-dl{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(280px,.85fr);gap:64px;align-items:start;padding:88px 0 76px}
+.k-free-dl-copy .k-lede strong{color:var(--k-ink);font-weight:600}
+.k-free-dl-actions{display:flex;flex-wrap:wrap;gap:12px;margin:30px 0 8px}
+.k-free-dl-steps{list-style:none;margin:34px 0 0;padding:0;display:grid;gap:14px;counter-reset:dl}
+.k-free-dl-steps li{display:grid;grid-template-columns:auto 1fr;gap:14px;align-items:baseline;border-top:1px solid var(--k-line);padding-top:14px}
+.k-free-dl-steps li::before{counter-increment:dl;content:counter(dl);font-family:var(--k-display);font-size:24px;color:var(--k-gold);line-height:1}
+.k-free-dl-steps b{grid-column:2;font-size:12px;letter-spacing:.12em;text-transform:uppercase}
+.k-free-dl-steps span{grid-column:2;font-size:13px;line-height:1.6;color:var(--k-muted)}
+.k-free-dl-preview a{display:block;border:1px solid var(--k-line);border-radius:14px;overflow:hidden;background:var(--k-white);box-shadow:0 34px 66px -30px rgba(17,20,23,.32);transition:transform .18s ease,box-shadow .18s ease}
+.k-free-dl-preview a:hover{transform:translateY(-3px);box-shadow:0 40px 74px -28px rgba(17,20,23,.4)}
+.k-free-dl-preview img{display:block;width:100%}
+.k-free-dl-lockscreen{display:grid;grid-template-columns:220px minmax(0,1fr);gap:56px;align-items:center}
+.k-free-dl-lockscreen-shot{border-radius:26px;overflow:hidden;border:7px solid #12191f;background:#12191f;box-shadow:0 40px 70px -24px rgba(0,0,0,.5)}
+.k-free-dl-lockscreen-shot img{display:block;width:100%}
+@media (max-width:900px){
+  .k-free-dl{grid-template-columns:1fr;gap:40px;padding:60px 0 56px}
+  .k-free-dl-preview{max-width:440px}
+  .k-free-dl-lockscreen{grid-template-columns:1fr;gap:30px;justify-items:start}
+  .k-free-dl-lockscreen-shot{width:180px}
+}
+
 /* Homepage audience art grid replaces the broken single hero crop. */
 .k-hero-audiences{padding:28px;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;gap:12px}
 .k-hero-audiences .k-audience-tile{min-width:0;min-height:0;background:#fffdf9;border:1px solid rgba(17,20,23,.09);border-radius:18px;display:grid;grid-template-rows:1fr auto;align-items:center;justify-items:center;padding:14px;overflow:hidden}

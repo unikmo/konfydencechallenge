@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { PremiumPage } from "@/components/PremiumSiteChrome";
 import { PortfolioStrip } from "@/components/PortfolioStrip";
 import { CheckoutRedirectButton } from "@/components/commerce/CheckoutRedirectButton";
+import { ScreenGallery, type GalleryTier } from "@/components/lockscreens/ScreenGallery";
 
 export const metadata: Metadata = {
   title: { absolute: "Konfydence Lockscreens | Pause. Assess. Talk." },
@@ -75,12 +76,7 @@ const tiers: Tier[] = [
   },
 ];
 
-const screenGalleries: {
-  name: string;
-  blurb: string;
-  frame: "phone" | "desktop";
-  shots: string[];
-}[] = [
+const screenGalleries: GalleryTier[] = [
   {
     name: "Home",
     blurb: "Bank, courier, family and refund scams — for one adult phone.",
@@ -164,27 +160,10 @@ export default function LockscreensPage() {
             the full sets rotate a new one to your device every two weeks.
           </p>
         </div>
-        <div className="kls-galleries">
-          {screenGalleries.map((g) => (
-            <article className="kls-gallery" key={g.name}>
-              <header>
-                <h3>{g.name}</h3>
-                <p>{g.blurb}</p>
-              </header>
-              <div className={`kls-gallery-grid is-${g.frame}`}>
-                {g.shots.map((src) => (
-                  <div className={g.frame === "phone" ? "kls-shot-phone" : "kls-shot-desktop"} key={src}>
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img src={src} alt={`Sample ${g.name} Konfydence lock screen`} loading="lazy" />
-                  </div>
-                ))}
-              </div>
-            </article>
-          ))}
-        </div>
+        <ScreenGallery tiers={screenGalleries} />
         <p className="kls-gallery-note">
-          Home and Teen screens are sized for a phone; Schools and Workplace ship in desktop, laptop and tablet formats
-          for your device management. The message and the scams stay current all year.
+          Tap any screen to see it full size. Home and Teen screens are sized for a phone; Schools and Workplace ship in
+          desktop, laptop and tablet formats for your device management. The message and the scams stay current all year.
         </p>
       </section>
 

@@ -33,6 +33,15 @@ export async function GET(request: NextRequest) {
     return NextResponse.redirect(new URL(resource.previewPath, request.url), 307);
   }
 
+  // The Emergency Scam Protocol now ships as a static file — serve it directly
+  // instead of proxying Google Drive (which broke when the Drive share lapsed).
+  if (resource.kind === "protocol") {
+    return NextResponse.redirect(
+      new URL("/resources/konfydence-emergency-scam-protocol.pdf", request.url),
+      308
+    );
+  }
+
   const fileId = resource.fileId;
   const upstreamUrl = `https://drive.google.com/uc?export=download&id=${encodeURIComponent(fileId)}`;
 
