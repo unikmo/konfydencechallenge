@@ -7,7 +7,6 @@ import { prisma } from "@/lib/prisma";
 const DECK_SIZE = 6;
 const MAX_PLAYERS = 12;
 const NAME_MAX = 24;
-const STALE_MS = 25_000; // a player quiet longer than this doesn't block a reveal
 const ROOM_TTL_MS = 3 * 60 * 60 * 1000;
 
 const ANSWER_KEYS = ["A", "B", "C"] as const;
@@ -185,11 +184,11 @@ export async function submitAnswer(
     },
   });
 
-  // Everyone still present has answered -> reveal.
+  // Auto-reveal once every player in the room has answered this scenario. A
+  // genuine leaver blocks this — the host's "Reveal now" is the escape hatch.
   const fresh = await loadRoom(code);
   if (fresh && fresh.status === "playing") {
-    const active = fresh.players.filter((p) => Date.now() - p.lastSeenAt.getTime() < STALE_MS);
-    const waiting = active.filter((p) => p.answerIndex !== fresh.currentIndex);
+    const waiting = fresh.players.filter((p) => p.answerIndex !== fresh.currentIndex);
     if (waiting.length === 0) {
       await prisma.gameRoom.update({ where: { id: fresh.id }, data: { status: "revealed" } });
     }
