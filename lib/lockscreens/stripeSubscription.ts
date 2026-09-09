@@ -18,6 +18,7 @@ import {
   revokePersonalLockscreenTenant,
   type PersonalTrack,
 } from "@/lib/lockscreens/personalOrderService";
+import { linkLockscreenPurchase } from "@/lib/commerce/purchaseAccount";
 
 function asTrack(value: unknown): PersonalTrack | null {
   return value === "home" || value === "teen" ? value : null;
@@ -65,13 +66,23 @@ export async function handleSubscriptionCheckout(session: Stripe.Checkout.Sessio
     return;
   }
 
-  await createPersonalLockscreenTenant({
+  const result = await createPersonalLockscreenTenant({
     track,
     shopifyOrderId: `stripe_sub_${subId}`,
     contactEmail: email,
     contactName: session.customer_details?.name ?? null,
     isRenewal: false,
   });
+
+  // Make it portable: a recoverable account keyed on the checkout email, with
+  // this subscription linked directly. Best-effort.
+  if (result) {
+    try {
+      await linkLockscreenPurchase({ email, tenantId: result.tenantId });
+    } catch (err) {
+      console.error("linkLockscreenPurchase failed", subId, err);
+    }
+  }
 }
 
 /** invoice.paid with billing_reason "subscription_cycle" → renewal fulfilment. */

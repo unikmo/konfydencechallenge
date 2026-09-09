@@ -10,9 +10,17 @@ const ui = {
   gold: "#af8752",
 } as const;
 
-type Entitlement = { tier: "single" | "unlimited"; edition: string | null };
-const MAX_ATTEMPTS = 10;
+type Entitlement = { tier: string; edition: string | null };
+const MAX_ATTEMPTS = 12;
 const POLL_DELAY_MS = 1500;
+
+function destinationFor(entitlements: Entitlement[], edition: string | null): string | null {
+  const purchased = entitlements.find(
+    (item) => item.tier === "unlimited" || (item.tier === "single" && edition && item.edition === edition)
+  );
+  if (!purchased) return null;
+  return purchased.tier === "unlimited" ? "/challenge" : `/challenge/${purchased.edition}/start?mode=full`;
+}
 
 export default function ClaimPage() {
   return <Suspense fallback={null}><ClaimContent /></Suspense>;
@@ -22,40 +30,67 @@ function ClaimContent() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const edition = searchParams.get("edition");
+  const checkoutSessionId = searchParams.get("cs");
+
   const [attempt, setAttempt] = useState(1);
   const [error, setError] = useState<string | null>(null);
+  const [account, setAccount] = useState<string | null>(null);
   const [verified, setVerified] = useState(false);
 
   useEffect(() => {
     let cancelled = false;
     let timer: ReturnType<typeof setTimeout> | undefined;
 
+    function go(dest: string, email: string | null) {
+      setVerified(true);
+      setAccount(email);
+      timer = setTimeout(() => {
+        if (!cancelled) router.replace(dest);
+      }, email ? 1600 : 700);
+    }
+
     async function poll(currentAttempt: number) {
       if (cancelled) return;
       setAttempt(currentAttempt);
 
       try {
-        const response = await fetch("/api/entitlements/me", { cache: "no-store" });
-        if (!response.ok) throw new Error("Entitlement lookup failed");
-        const data = (await response.json()) as { entitlements?: Entitlement[] };
-        const purchased = (data.entitlements ?? []).find(
-          (item) => item.tier === "unlimited" || (item.tier === "single" && edition && item.edition === edition)
-        );
-
-        if (purchased) {
-          setVerified(true);
-          timer = setTimeout(() => {
-            if (cancelled) return;
-            router.replace(purchased.tier === "unlimited" ? "/challenge" : `/challenge/${purchased.edition}/start?mode=full`);
-          }, 700);
-          return;
+        if (checkoutSessionId) {
+          // Signs this device in and returns the account's entitlements.
+          const res = await fetch("/api/challenge/claim-purchase", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ sessionId: checkoutSessionId }),
+            cache: "no-store",
+          });
+          if (res.ok) {
+            const data = (await res.json()) as {
+              linked?: boolean;
+              email?: string;
+              entitlements?: Entitlement[];
+            };
+            const dest = destinationFor(data.entitlements ?? [], edition);
+            if (dest) {
+              go(dest, data.linked && data.email ? data.email : null);
+              return;
+            }
+          }
+        } else {
+          const res = await fetch("/api/entitlements/me", { cache: "no-store" });
+          if (res.ok) {
+            const data = (await res.json()) as { entitlements?: Entitlement[] };
+            const dest = destinationFor(data.entitlements ?? [], edition);
+            if (dest) {
+              go(dest, null);
+              return;
+            }
+          }
         }
       } catch (lookupError) {
-        console.error("Entitlement verification failed:", lookupError);
+        console.error("Purchase verification failed:", lookupError);
       }
 
       if (currentAttempt >= MAX_ATTEMPTS) {
-        setError("Purchase verification is taking longer than expected. Refresh this page or contact support if access still does not appear.");
+        setError("Purchase verification is taking longer than expected. Refresh this page, or contact support@konfydence.com if access still does not appear.");
         return;
       }
       timer = setTimeout(() => void poll(currentAttempt + 1), POLL_DELAY_MS);
@@ -66,7 +101,7 @@ function ClaimContent() {
       cancelled = true;
       if (timer) clearTimeout(timer);
     };
-  }, [edition, router]);
+  }, [edition, checkoutSessionId, router]);
 
   return (
     <main style={{ minHeight: "100vh", background: ui.bg, color: ui.ink, display: "grid", placeItems: "center", padding: 20, fontFamily: "Inter,ui-sans-serif,system-ui,sans-serif" }}>
@@ -82,14 +117,21 @@ function ClaimContent() {
         ) : verified ? (
           <>
             <div style={{ fontSize: 48, color: ui.gold }}>✓</div>
-            <h1 style={{ margin: "12px 0", fontSize: 28 }}>Access confirmed.</h1>
-            <p style={{ color: ui.muted }}>Opening your challenge…</p>
+            <h1 style={{ margin: "12px 0 8px", fontSize: 28 }}>Access confirmed.</h1>
+            {account ? (
+              <p style={{ color: ui.muted, fontSize: 14, lineHeight: 1.6 }}>
+                Secured to <strong style={{ color: ui.ink }}>{account}</strong> and signed in on this device.
+                Sign in with that email on any device to restore your access.
+              </p>
+            ) : (
+              <p style={{ color: ui.muted }}>Opening your challenge…</p>
+            )}
           </>
         ) : (
           <>
             <div className="spinner" />
             <h1 style={{ margin: "0 0 12px", fontSize: 28 }}>Confirming your access</h1>
-            <p style={{ margin: 0, color: ui.muted, fontSize: 14, lineHeight: 1.6 }}>We&rsquo;re confirming your payment. Keep this page open; access normally appears within a few seconds.</p>
+            <p style={{ margin: 0, color: ui.muted, fontSize: 14, lineHeight: 1.6 }}>We&rsquo;re confirming your payment and setting up your account. Keep this page open; this normally takes a few seconds.</p>
             <p style={{ marginTop: 14, color: ui.muted, fontSize: 11 }}>Verification attempt {attempt} of {MAX_ATTEMPTS}</p>
           </>
         )}

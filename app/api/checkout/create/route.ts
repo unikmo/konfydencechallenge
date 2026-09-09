@@ -3,6 +3,8 @@ import { cookies } from "next/headers";
 import { randomUUID } from "crypto";
 import type Stripe from "stripe";
 import { rateLimit, getClientIp } from "@/lib/rateLimit";
+import { prisma } from "@/lib/prisma";
+import { isGuestEmail } from "@/lib/challenge/startSessionUtil";
 import { getStripe, stripeConfigured, stripeTaxEnabled } from "@/lib/stripe/client";
 import {
   CONSUMER_CATALOG,
@@ -65,11 +67,20 @@ export async function POST(request: NextRequest) {
     const taxEnabled = stripeTaxEnabled();
     const stripe = getStripe();
 
+    // Prefill the buyer's email at Stripe if we already know it (a returning
+    // player who signed in before) — one less field, and it keeps the
+    // post-purchase account link keyed on the same address.
+    const player = await prisma.user
+      .findUnique({ where: { id: kfUid }, select: { email: true } })
+      .catch(() => null);
+    const knownEmail = player && !isGuestEmail(player.email) ? player.email : null;
+
     const common: Stripe.Checkout.SessionCreateParams = {
       client_reference_id: kfUid,
       billing_address_collection: "required",
       tax_id_collection: { enabled: true },
       cancel_url: `${appUrl}/pricing`,
+      ...(knownEmail ? { customer_email: knownEmail } : {}),
       ...(taxEnabled ? { automatic_tax: { enabled: true } } : {}),
     };
 
@@ -100,8 +111,8 @@ export async function POST(request: NextRequest) {
       const successUrl = giftAttrs
         ? `${appUrl}/gift/thank-you`
         : editionSlug
-          ? `${appUrl}/challenge/claim?edition=${editionSlug}`
-          : `${appUrl}/challenge/claim`;
+          ? `${appUrl}/challenge/claim?edition=${editionSlug}&cs={CHECKOUT_SESSION_ID}`
+          : `${appUrl}/challenge/claim?cs={CHECKOUT_SESSION_ID}`;
 
       const metadata: Record<string, string> = {
         konfydenceUserId: kfUid,

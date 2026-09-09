@@ -8,6 +8,7 @@ import {
   revokeSourceOrder,
   type ChallengeTier,
 } from "@/lib/commerce/fulfilment";
+import { linkChallengePurchase } from "@/lib/commerce/purchaseAccount";
 import {
   activateOrderFromPaidInvoice,
   syncInvoiceStatus,
@@ -116,14 +117,22 @@ async function handleCheckoutCompleted(session: Stripe.Checkout.Session) {
   }
 
   if (sku.startsWith("CHAL-")) {
+    const kfUid = md.konfydenceUserId || session.client_reference_id || null;
     await grantChallengeEntitlement({
       sourceOrderId,
       source: "stripe",
-      kfUid: md.konfydenceUserId || session.client_reference_id || null,
+      kfUid,
       email: customerEmail,
       tier,
       edition,
     });
+    // Make it portable: create a recoverable account from the checkout email
+    // and consolidate this player onto it. Best-effort — never fail the grant.
+    try {
+      await linkChallengePurchase({ email: customerEmail, kfUid });
+    } catch (err) {
+      console.error("linkChallengePurchase failed", sourceOrderId, err);
+    }
     return;
   }
 
