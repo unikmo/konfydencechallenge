@@ -20,10 +20,9 @@ describe("stripe catalogue", () => {
       expect(Number.isInteger(entry.unitAmount)).toBe(true);
       expect(entry.unitAmount).toBeGreaterThan(0);
     }
-    // The published consumer prices ($6.99 single edition, $24.99 pack, $18 upgrade).
+    // The published annual consumer prices ($6.99/yr single edition, $24.99/yr pack).
     expect(CONSUMER_CATALOG["CHAL-SINGLE-SCHOOL"].unitAmount).toBe(699);
     expect(CONSUMER_CATALOG["CHAL-UNLIMITED"].unitAmount).toBe(2499);
-    expect(CONSUMER_CATALOG["CHAL-UPGRADE"].unitAmount).toBe(1800);
   });
 
   it("charges the first Lockscreens year higher than the renewal", () => {
@@ -34,9 +33,9 @@ describe("stripe catalogue", () => {
     }
   });
 
-  it("only marks the upgrade SKU as non-giftable", () => {
+  it("every consumer edition is giftable", () => {
     const notGiftable = Object.values(CONSUMER_CATALOG).filter((e) => !e.giftable).map((e) => e.sku);
-    expect(notGiftable).toEqual(["CHAL-UPGRADE"]);
+    expect(notGiftable).toEqual([]);
   });
 
   it("classifies SKUs correctly", () => {
@@ -44,7 +43,7 @@ describe("stripe catalogue", () => {
     expect(isConsumerSku("LOCKSCREENS-HOME")).toBe(false);
     expect(isSubscriptionSku("LOCKSCREENS-TEEN")).toBe(true);
     expect(isSubscriptionSku("KG-WALLET")).toBe(false);
-    expect(catalogName("CHAL-UPGRADE")).toMatch(/Upgrade/);
+    expect(catalogName("CHAL-UNLIMITED")).toMatch(/Unlimited/);
     expect(catalogName("mystery")).toBe("mystery");
   });
 });

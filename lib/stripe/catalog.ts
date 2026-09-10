@@ -15,8 +15,7 @@ export type ConsumerSku =
   | "CHAL-SINGLE-FAMILY"
   | "CHAL-SINGLE-TRAVELSAFE"
   | "CHAL-SINGLE-WORKPLACE"
-  | "CHAL-UNLIMITED"
-  | "CHAL-UPGRADE";
+  | "CHAL-UNLIMITED";
 
 export type SubscriptionSku = "LOCKSCREENS-HOME" | "LOCKSCREENS-TEEN";
 
@@ -34,12 +33,18 @@ export type ConsumerCatalogEntry = {
   lookupKey: string;
   name: string;
   description: string;
-  unitAmount: number; // USD cents
+  unitAmount: number; // USD cents — charged yearly
   currency: "usd";
   taxCode: string;
   /** true → offered on the gift flow (recipient email captured at checkout). */
   giftable: boolean;
 };
+
+// Every Challenge edition is now an annual subscription: the lookupKey resolves
+// to a recurring yearly Price. A gift is billed as a one-time payment (inline
+// price_data) that grants the recipient one year — not a subscription in their
+// name.
+export const CHALLENGE_INTERVAL = "year" as const;
 
 export type SubscriptionCatalogEntry = {
   sku: SubscriptionSku;
@@ -111,23 +116,27 @@ export const CONSUMER_CATALOG: Record<ConsumerSku, ConsumerCatalogEntry> = {
     sku: "CHAL-UNLIMITED",
     lookupKey: "chal_unlimited",
     name: "Konfydence Challenge — Unlimited Access",
-    description: "All five Konfydence Challenge editions plus unlimited replays.",
+    description: "All five Konfydence Challenge editions plus unlimited replays. Renews annually.",
     unitAmount: 2499,
     currency: "usd",
     taxCode: DIGITAL_SERVICE_TAX_CODE,
     giftable: true,
   },
-  "CHAL-UPGRADE": {
-    sku: "CHAL-UPGRADE",
-    lookupKey: "chal_upgrade",
-    name: "Konfydence Challenge — Upgrade to Unlimited",
-    description: "Upgrade from any single edition to Unlimited Access ($18 credit applied for the edition already owned).",
-    unitAmount: 1800,
-    currency: "usd",
-    taxCode: DIGITAL_SERVICE_TAX_CODE,
-    giftable: false,
-  },
 };
+
+// Challenge Teams — org buys N seats, $4.99/seat/year, adjustable quantity.
+export const TEAM_SEAT = {
+  sku: "CHAL-TEAM" as const,
+  lookupKey: "chal_team_seat",
+  name: "Konfydence Challenge — Team seat",
+  description: "One Konfydence Challenge seat — all five editions, unlimited rounds, per member. Billed per seat, per year.",
+  unitAmount: 499, // USD cents / seat / year
+  currency: "usd" as const,
+  taxCode: DIGITAL_SERVICE_TAX_CODE,
+  minSeats: 3,
+  maxSeats: 500,
+};
+export type TeamSku = typeof TEAM_SEAT.sku;
 
 export const SUBSCRIPTION_CATALOG: Record<SubscriptionSku, SubscriptionCatalogEntry> = {
   "LOCKSCREENS-HOME": {

@@ -108,37 +108,56 @@ export async function POST(request: NextRequest) {
     } else {
       const entry = CONSUMER_CATALOG[sku];
       const editionSlug = sku.startsWith("CHAL-SINGLE-") ? sku.slice("CHAL-SINGLE-".length).toLowerCase() : null;
-      const successUrl = giftAttrs
-        ? `${appUrl}/gift/thank-you`
-        : editionSlug
-          ? `${appUrl}/challenge/claim?edition=${editionSlug}&cs={CHECKOUT_SESSION_ID}`
-          : `${appUrl}/challenge/claim?cs={CHECKOUT_SESSION_ID}`;
+      const tier = sku === "CHAL-UNLIMITED" ? "unlimited" : "single";
 
       const metadata: Record<string, string> = {
         konfydenceUserId: kfUid,
         sku,
-        tier: sku === "CHAL-UNLIMITED" || sku === "CHAL-UPGRADE" ? "unlimited" : "single",
+        tier,
         edition: editionSlug ?? "",
       };
+
       if (giftAttrs) {
+        // A gift is a one-time payment that grants the recipient one year — not
+        // a subscription in their name. Inline price_data keeps it off the
+        // recurring catalogue.
         metadata.isGift = "true";
         metadata.giftToEmail = giftAttrs.toEmail;
         metadata.giftFromName = giftAttrs.fromName;
         metadata.giftMessage = giftAttrs.message;
+        session = await stripe.checkout.sessions.create({
+          ...common,
+          mode: "payment",
+          line_items: [{
+            quantity: 1,
+            price_data: {
+              currency: entry.currency,
+              unit_amount: entry.unitAmount,
+              tax_behavior: "exclusive",
+              product_data: { name: `${entry.name} — 1-year gift` },
+            },
+          }],
+          customer_creation: "always",
+          metadata,
+          payment_intent_data: { metadata, statement_descriptor_suffix: "KONFYDENCE" },
+          success_url: `${appUrl}/gift/thank-you`,
+          allow_promotion_codes: true,
+        });
+      } else {
+        // Direct purchase: an annual subscription.
+        const successUrl = editionSlug
+          ? `${appUrl}/challenge/claim?edition=${editionSlug}&cs={CHECKOUT_SESSION_ID}`
+          : `${appUrl}/challenge/claim?cs={CHECKOUT_SESSION_ID}`;
+        session = await stripe.checkout.sessions.create({
+          ...common,
+          mode: "subscription",
+          line_items: [{ price: await resolvePriceId(entry.lookupKey), quantity: 1 }],
+          metadata,
+          subscription_data: { metadata },
+          success_url: successUrl,
+          allow_promotion_codes: true,
+        });
       }
-
-      session = await stripe.checkout.sessions.create({
-        ...common,
-        mode: "payment",
-        line_items: [{ price: await resolvePriceId(entry.lookupKey), quantity: 1 }],
-        customer_creation: "always",
-        metadata,
-        // Konfydence bills through PlanetHike's Stripe account; the suffix puts
-        // "KONFYDENCE" on the card statement so buyers recognise the charge.
-        payment_intent_data: { metadata, statement_descriptor_suffix: "KONFYDENCE" },
-        success_url: successUrl,
-        allow_promotion_codes: true,
-      });
     }
 
     if (!session.url) {
