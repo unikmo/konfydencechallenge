@@ -2,7 +2,7 @@
 
 import { Suspense, useState } from "react";
 import Link from "next/link";
-import { useSearchParams } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import { PremiumPage } from "@/components/PremiumSiteChrome";
 import { PortfolioStrip } from "@/components/PortfolioStrip";
 import { CheckoutRedirectButton } from "@/components/commerce/CheckoutRedirectButton";
@@ -45,6 +45,72 @@ function PriceCard({
       </ul>
       <div className="kc-price-cta">{children}</div>
     </article>
+  );
+}
+
+function TeamBuy() {
+  const router = useRouter();
+  const [orgName, setOrgName] = useState("");
+  const [seats, setSeats] = useState(5);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+
+  const go = async () => {
+    setLoading(true);
+    setError(null);
+    try {
+      const res = await fetch("/api/checkout/create", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ sku: "CHAL-TEAM", orgName, seats }),
+      });
+      const data = (await res.json()) as { checkoutUrl?: string; error?: string; needsAuth?: boolean };
+      if (res.status === 401 && data.needsAuth) {
+        router.push(`/account/sign-in?next=${encodeURIComponent("/pricing?team=1")}&reason=team-invite`);
+        return;
+      }
+      if (!res.ok || !data.checkoutUrl) {
+        setError(data.error || "Could not start checkout.");
+        setLoading(false);
+        return;
+      }
+      window.location.assign(data.checkoutUrl);
+    } catch {
+      setError("Something went wrong. Please try again.");
+      setLoading(false);
+    }
+  };
+
+  return (
+    <div className="kc-team-buy">
+      <label>
+        Team or school name
+        <input
+          type="text"
+          value={orgName}
+          onChange={(e) => setOrgName(e.target.value)}
+          placeholder="Lincoln High School"
+          maxLength={120}
+        />
+      </label>
+      <label>
+        Seats (min 3)
+        <input
+          type="number"
+          min={3}
+          max={500}
+          value={seats}
+          onChange={(e) => setSeats(Math.max(3, Math.min(500, Number(e.target.value) || 0)))}
+        />
+      </label>
+      <button type="button" className="k-button" onClick={go} disabled={loading || !orgName.trim() || seats < 3}>
+        {loading ? "Opening checkout…" : `Buy ${seats} seats — $${((seats * 499) / 100).toFixed(2)}/yr`}
+      </button>
+      {error ? <p role="alert" style={{ color: "#c0392b", fontSize: 12, marginTop: 6 }}>{error}</p> : null}
+      <p style={{ fontSize: 11, opacity: 0.7, marginTop: 6 }}>
+        You&rsquo;ll sign in first — the buyer becomes the team admin.
+      </p>
+    </div>
   );
 }
 
@@ -133,15 +199,16 @@ function PricingContent() {
 
         <PriceCard
           kicker="Schools & workplaces"
-          price="Per seat"
+          price="$4.99"
+          sub="/ seat · year"
           includes={[
-            "School and Workplace editions across a cohort",
-            "Baseline and post measurement",
-            "Onboarding and reporting",
-            "Pairs with a CoMaSy pilot",
+            "All five editions per member, unlimited rounds",
+            "Invite by email or one join link",
+            "Admin dashboard — per-name completion and scores",
+            "Add seats any time · price negotiable for larger groups",
           ]}
         >
-          <Link className="k-button-quiet" href="/contact?topic=schools-teams">Request a quote</Link>
+          <TeamBuy />
         </PriceCard>
       </section>
 

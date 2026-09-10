@@ -1,8 +1,10 @@
 import {
   CONSUMER_CATALOG,
   SUBSCRIPTION_CATALOG,
+  TEAM_SEAT,
   isConsumerSku,
   isSubscriptionSku,
+  isTeamSku,
   catalogName,
 } from "../lib/stripe/catalog";
 
@@ -36,6 +38,26 @@ describe("stripe catalogue", () => {
   it("every consumer edition is giftable", () => {
     const notGiftable = Object.values(CONSUMER_CATALOG).filter((e) => !e.giftable).map((e) => e.sku);
     expect(notGiftable).toEqual([]);
+  });
+
+  it("prices the team seat at $4.99/seat/year with a sane seat range", () => {
+    expect(TEAM_SEAT.unitAmount).toBe(499);
+    expect(TEAM_SEAT.lookupKey).toBe("chal_team_seat");
+    expect(TEAM_SEAT.minSeats).toBeGreaterThanOrEqual(2);
+    expect(TEAM_SEAT.maxSeats).toBeGreaterThan(TEAM_SEAT.minSeats);
+    expect(isTeamSku("CHAL-TEAM")).toBe(true);
+    expect(isTeamSku("CHAL-UNLIMITED")).toBe(false);
+    // The team seat is not a consumer/gift SKU.
+    expect(isConsumerSku("CHAL-TEAM")).toBe(false);
+  });
+
+  it("keeps the team lookup key distinct from every other price", () => {
+    const keys = [
+      ...Object.values(CONSUMER_CATALOG).map((e) => e.lookupKey),
+      ...Object.values(SUBSCRIPTION_CATALOG).flatMap((e) => [e.lookupKey, e.firstYearLookupKey]),
+      TEAM_SEAT.lookupKey,
+    ];
+    expect(new Set(keys).size).toBe(keys.length);
   });
 
   it("classifies SKUs correctly", () => {

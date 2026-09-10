@@ -138,6 +138,10 @@ export const TEAM_SEAT = {
 };
 export type TeamSku = typeof TEAM_SEAT.sku;
 
+export function isTeamSku(sku: string): sku is TeamSku {
+  return sku === TEAM_SEAT.sku;
+}
+
 export const SUBSCRIPTION_CATALOG: Record<SubscriptionSku, SubscriptionCatalogEntry> = {
   "LOCKSCREENS-HOME": {
     sku: "LOCKSCREENS-HOME",

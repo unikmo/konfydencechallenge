@@ -9,10 +9,13 @@ import { getStripe, stripeConfigured, stripeTaxEnabled } from "@/lib/stripe/clie
 import {
   CONSUMER_CATALOG,
   SUBSCRIPTION_CATALOG,
+  TEAM_SEAT,
   isConsumerSku,
   isSubscriptionSku,
+  isTeamSku,
 } from "@/lib/stripe/catalog";
 import { resolvePriceId, resolvePriceIds } from "@/lib/stripe/prices";
+import { getAccount } from "@/lib/auth/session";
 
 export const dynamic = "force-dynamic";
 
@@ -39,7 +42,7 @@ export async function POST(request: NextRequest) {
     if (!sku) {
       return NextResponse.json({ error: "sku is required" }, { status: 400 });
     }
-    if (!isConsumerSku(sku) && !isSubscriptionSku(sku)) {
+    if (!isConsumerSku(sku) && !isSubscriptionSku(sku) && !isTeamSku(sku)) {
       // Physical merch (KG-*) and anything else: no Stripe catalogue entry.
       return NextResponse.json({ error: "This item is not available for purchase right now." }, { status: 400 });
     }
@@ -86,7 +89,45 @@ export async function POST(request: NextRequest) {
 
     let session: Stripe.Checkout.Session;
 
-    if (isSubscriptionSku(sku)) {
+    if (isTeamSku(sku)) {
+      // Challenge Teams — the buyer becomes the org admin, so they must be a
+      // signed-in account. Seats are an adjustable-quantity yearly subscription.
+      const account = await getAccount();
+      if (!account) {
+        return NextResponse.json(
+          { error: "Please sign in first — the buyer becomes the team admin.", needsAuth: true },
+          { status: 401 },
+        );
+      }
+      const orgName = String(body.orgName || "").trim().slice(0, 120);
+      if (!orgName) {
+        return NextResponse.json({ error: "A team or organisation name is required." }, { status: 400 });
+      }
+      const seats = Math.floor(Number(body.seats));
+      if (!Number.isFinite(seats) || seats < TEAM_SEAT.minSeats || seats > TEAM_SEAT.maxSeats) {
+        return NextResponse.json(
+          { error: `Choose between ${TEAM_SEAT.minSeats} and ${TEAM_SEAT.maxSeats} seats.` },
+          { status: 400 },
+        );
+      }
+      const metadata = { konfydenceUserId: kfUid, sku, orgName, ownerAccountId: account.id };
+      session = await stripe.checkout.sessions.create({
+        ...common,
+        customer_email: account.email,
+        mode: "subscription",
+        line_items: [
+          {
+            price: await resolvePriceId(TEAM_SEAT.lookupKey),
+            quantity: seats,
+            adjustable_quantity: { enabled: true, minimum: TEAM_SEAT.minSeats, maximum: TEAM_SEAT.maxSeats },
+          },
+        ],
+        subscription_data: { metadata },
+        metadata,
+        success_url: `${appUrl}/teams?welcome=1`,
+        allow_promotion_codes: true,
+      });
+    } else if (isSubscriptionSku(sku)) {
       const entry = SUBSCRIPTION_CATALOG[sku];
       const prices = await resolvePriceIds([entry.lookupKey, entry.firstYearLookupKey]);
       const metadata = { konfydenceUserId: kfUid, sku, track: entry.track };
