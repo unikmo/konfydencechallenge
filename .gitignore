@@ -38,3 +38,6 @@ Thumbs.db
 
 .vercel
 .env*
+
+# Local secret/scratch dumps (never commit)
+envcheck.txt
