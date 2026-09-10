@@ -33,14 +33,16 @@ async function loadProductIndex() {
 
 const TAX = "txcd_10103000"; // SaaS / electronically supplied services
 
+// Every Challenge edition is an annual subscription now (recurring yearly).
+const YEARLY = { interval: "year" };
 const CONSUMER = [
-  { sku: "CHAL-SINGLE-SCHOOL",     lookupKey: "chal_single_school",     name: "Konfydence Challenge — School Edition",     description: "Full School-edition scenario deck: 40+ scam scenarios with scored feedback.",     unitAmount: 699 },
-  { sku: "CHAL-SINGLE-UNIVERSITY", lookupKey: "chal_single_university", name: "Konfydence Challenge — University Edition", description: "Full University-edition scenario deck: 40+ scam scenarios with scored feedback.", unitAmount: 699 },
-  { sku: "CHAL-SINGLE-FAMILY",     lookupKey: "chal_single_family",     name: "Konfydence Challenge — Family Edition",     description: "Full Family-edition scenario deck: 40+ scam scenarios with scored feedback.",     unitAmount: 699 },
-  { sku: "CHAL-SINGLE-TRAVELSAFE", lookupKey: "chal_single_travelsafe", name: "Konfydence Challenge — TravelSafe Edition", description: "Full TravelSafe scenario deck: 40+ travel and holiday scam scenarios with scored feedback.", unitAmount: 699 },
-  { sku: "CHAL-SINGLE-WORKPLACE",  lookupKey: "chal_single_workplace",  name: "Konfydence Challenge — Workplace Edition",  description: "Full Workplace scenario deck: 40+ workplace scam and social-engineering scenarios with scored feedback.", unitAmount: 699 },
-  { sku: "CHAL-UNLIMITED",         lookupKey: "chal_unlimited",         name: "Konfydence Challenge — Unlimited Access",  description: "All five Konfydence Challenge editions plus unlimited replays.", unitAmount: 2499 },
-  { sku: "CHAL-UPGRADE",           lookupKey: "chal_upgrade",           name: "Konfydence Challenge — Upgrade to Unlimited", description: "Upgrade from any single edition to Unlimited Access ($18 credit applied for the edition already owned).", unitAmount: 1800 },
+  { sku: "CHAL-SINGLE-SCHOOL",     lookupKey: "chal_single_school",     name: "Konfydence Challenge — School Edition",     description: "Full School-edition scenario deck: 40+ scam scenarios with scored feedback. Renews annually.",     unitAmount: 699, recurring: YEARLY },
+  { sku: "CHAL-SINGLE-UNIVERSITY", lookupKey: "chal_single_university", name: "Konfydence Challenge — University Edition", description: "Full University-edition scenario deck: 40+ scam scenarios with scored feedback. Renews annually.", unitAmount: 699, recurring: YEARLY },
+  { sku: "CHAL-SINGLE-FAMILY",     lookupKey: "chal_single_family",     name: "Konfydence Challenge — Family Edition",     description: "Full Family-edition scenario deck: 40+ scam scenarios with scored feedback. Renews annually.",     unitAmount: 699, recurring: YEARLY },
+  { sku: "CHAL-SINGLE-TRAVELSAFE", lookupKey: "chal_single_travelsafe", name: "Konfydence Challenge — TravelSafe Edition", description: "Full TravelSafe scenario deck: 40+ travel and holiday scam scenarios with scored feedback. Renews annually.", unitAmount: 699, recurring: YEARLY },
+  { sku: "CHAL-SINGLE-WORKPLACE",  lookupKey: "chal_single_workplace",  name: "Konfydence Challenge — Workplace Edition",  description: "Full Workplace scenario deck: 40+ workplace scam and social-engineering scenarios with scored feedback. Renews annually.", unitAmount: 699, recurring: YEARLY },
+  { sku: "CHAL-UNLIMITED",         lookupKey: "chal_unlimited",         name: "Konfydence Challenge — Unlimited Access",  description: "All five Konfydence Challenge editions plus unlimited replays. Renews annually.", unitAmount: 2499, recurring: YEARLY },
+  { sku: "CHAL-TEAM",              lookupKey: "chal_team_seat",         name: "Konfydence Challenge — Team seat",         description: "One Konfydence Challenge seat — all five editions, unlimited rounds, per member. Billed per seat, per year.", unitAmount: 499, recurring: YEARLY },
 ];
 
 const SUBSCRIPTION = [
@@ -77,6 +79,10 @@ async function upsertPrice(productId, spec) {
     ...(spec.recurring ? { recurring: spec.recurring } : {}),
   });
   console.log(`    price ${spec.lookupKey} -> ${current ? "replaced" : "created"} ${created.id}`);
+  if (current && current.id !== created.id) {
+    await stripe.prices.update(current.id, { active: false });
+    console.log(`    price ${current.id} -> archived (was one-time / stale)`);
+  }
   return created.id;
 }
 
@@ -85,7 +91,7 @@ async function main() {
   for (const e of CONSUMER) {
     console.log(e.sku);
     const pid = await upsertProduct(e.sku, e.name, e.description);
-    await upsertPrice(pid, { lookupKey: e.lookupKey, unitAmount: e.unitAmount, nickname: e.name });
+    await upsertPrice(pid, { lookupKey: e.lookupKey, unitAmount: e.unitAmount, nickname: e.name, recurring: e.recurring });
   }
   for (const e of SUBSCRIPTION) {
     console.log(e.sku);

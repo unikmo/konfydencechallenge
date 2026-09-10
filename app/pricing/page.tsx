@@ -1,6 +1,6 @@
 "use client";
 
-import { Suspense, useEffect, useState } from "react";
+import { Suspense, useState } from "react";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import { PremiumPage } from "@/components/PremiumSiteChrome";
@@ -55,17 +55,6 @@ function PricingContent() {
   const [selectedEdition, setSelectedEdition] = useState<EditionKey | null>(
     isEditionKey(editionParam) ? editionParam : null
   );
-  const [hasSingle, setHasSingle] = useState(false);
-
-  useEffect(() => {
-    fetch("/api/entitlements/me")
-      .then((res) => res.json())
-      .then((data) => {
-        const entitlements = data.entitlements || [];
-        setHasSingle(entitlements.some((e: { tier: string }) => e.tier === "single"));
-      })
-      .catch(() => {});
-  }, []);
 
   const selectedLabel = selectedEdition
     ? EDITIONS.find((e) => e.key === selectedEdition)!.label
@@ -78,7 +67,7 @@ function PricingContent() {
         <h1>Start free. Pay only when you want the full challenge.</h1>
         <p>
           The free readiness check gives you a real result — your Konfydence Readiness Score and the
-          H.A.C.K. pressure pattern most likely to move you. Upgrade an edition, or take the set.
+          H.A.C.K. pressure pattern most likely to move you. Unlock an edition, or take the set. Each is an annual plan.
         </p>
       </section>
 
@@ -99,7 +88,7 @@ function PricingContent() {
         <PriceCard
           kicker="Full challenge"
           price="$6.99"
-          sub="one edition"
+          sub="/ year · one edition"
           includes={[
             "40+ real-life scenarios, added to regularly",
             "Played in short rounds — new scenarios each time",
@@ -110,11 +99,11 @@ function PricingContent() {
           {selectedEdition ? (
             <CheckoutRedirectButton
               sku={`CHAL-SINGLE-${selectedEdition.toUpperCase()}`}
-              label={`Unlock ${selectedLabel} — $6.99`}
+              label={`Unlock ${selectedLabel} — $6.99/yr`}
             />
           ) : (
             <div className="kc-price-pick">
-              <p>Choose an edition — each is $6.99:</p>
+              <p>Choose an edition — each is $6.99/year:</p>
               <div className="kc-price-pills">
                 {EDITIONS.map((e) => (
                   <button key={e.key} type="button" onClick={() => setSelectedEdition(e.key)}>
@@ -129,7 +118,7 @@ function PricingContent() {
         <PriceCard
           kicker="Complete pack"
           price="$24.99"
-          sub="all five editions"
+          sub="/ year · all five editions"
           featured
           includes={[
             "All 5 challenge editions",
@@ -139,11 +128,7 @@ function PricingContent() {
             "Best value",
           ]}
         >
-          {hasSingle ? (
-            <CheckoutRedirectButton sku="CHAL-UPGRADE" label="Upgrade to the pack — $18" />
-          ) : (
-            <CheckoutRedirectButton sku="CHAL-UNLIMITED" label="Get all five — $24.99" />
-          )}
+          <CheckoutRedirectButton sku="CHAL-UNLIMITED" label="Get all five — $24.99/yr" />
         </PriceCard>
 
         <PriceCard
@@ -166,7 +151,7 @@ function PricingContent() {
           code and your note.
         </p>
         <p className="k-copy" style={{ fontSize: 12 }}>
-          Every purchase unlocks instantly after checkout — no account required. Konfydence is an
+          Every plan is annual and unlocks instantly after checkout; your Konfydence account keeps progress and access across devices. Konfydence is an
           educational scam-readiness game; it does not guarantee protection from fraud or financial loss.
         </p>
       </section>

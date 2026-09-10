@@ -81,7 +81,7 @@ export default function ChallengeLanding() {
             <h2 id="choose-edition" className="k-display-sm">Where are you most likely to be targeted?</h2>
           </div>
           <p className="k-copy">
-            Each edition has 40+ real-life scenarios — balanced across Hurry, Authority, Comfort and Kill-Switch, and added to regularly. Try it free, or unlock the full edition for $6.99 and play the whole set in short rounds.
+            Each edition has 40+ real-life scenarios — balanced across Hurry, Authority, Comfort and Kill-Switch, and added to regularly. Try it free, or unlock the full edition for $6.99/year and play the whole set in short rounds.
           </p>
         </div>
         <div className="kg-edition-grid">
@@ -93,7 +93,7 @@ export default function ChallengeLanding() {
               <small>{edition.signal}</small>
               <div className="kg-edition-actions">
                 <Link href={`/challenge/${edition.key}/start?mode=diagnostic`}>Try free check <span aria-hidden="true">→</span></Link>
-                <Link className="kg-edition-buy" href={`/pricing?edition=${edition.key}`}>Buy — $6.99</Link>
+                <Link className="kg-edition-buy" href={`/pricing?edition=${edition.key}`}>Buy — $6.99/yr</Link>
               </div>
             </article>
           ))}
@@ -108,21 +108,21 @@ export default function ChallengeLanding() {
               <h2 id="buy-now" className="k-display-sm">Already know you want the full set?</h2>
             </div>
             <p className="k-copy">
-              All five editions — 200+ real-life scenarios, unlimited rounds, a readiness dashboard and certificate for each. Unlocks instantly after checkout, no account required.
+              All five editions — 200+ real-life scenarios, unlimited rounds, a readiness dashboard and certificate for each. Instant access after checkout. Annual plan — cancel anytime.
             </p>
           </div>
           <div className="kg-buy-band">
             <div className="kg-buy-card">
               <p className="kg-buy-name">One edition</p>
-              <p className="kg-buy-price"><strong>$6.99</strong> per edition</p>
+              <p className="kg-buy-price"><strong>$6.99</strong> / year · per edition</p>
               <p className="kg-buy-copy">Pick the version closest to your life and unlock the whole scenario bank.</p>
               <Link className="k-button-quiet" href="/pricing">Choose an edition</Link>
             </div>
             <div className="kg-buy-card is-featured">
               <p className="kg-buy-name">Complete pack</p>
-              <p className="kg-buy-price"><strong>$24.99</strong> all five</p>
+              <p className="kg-buy-price"><strong>$24.99</strong> / year · all five</p>
               <p className="kg-buy-copy">Every edition, best value — Family, School, University, Workplace and TravelSafe.</p>
-              <CheckoutRedirectButton sku="CHAL-UNLIMITED" label="Get all five — $24.99" />
+              <CheckoutRedirectButton sku="CHAL-UNLIMITED" label="Get all five — $24.99/yr" />
             </div>
           </div>
           <p className="k-copy" style={{ marginTop: 18, fontSize: 13 }}>

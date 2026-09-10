@@ -59,11 +59,13 @@ export async function POST(request: NextRequest) {
     }
 
     const redeemOrderId = `gift:${gift.code}`;
+    // A gift is one prepaid year (not a subscription in the recipient's name).
+    const giftExpiresAt = new Date(Date.now() + 366 * 24 * 60 * 60 * 1000);
 
     await prisma.$transaction([
       prisma.entitlement.upsert({
         where: { shopifyOrderId: redeemOrderId },
-        update: { status: "active", tier: gift.tier, edition: gift.edition },
+        update: { status: "active", tier: gift.tier, edition: gift.edition, expiresAt: giftExpiresAt },
         create: {
           userId: user.id,
           tier: gift.tier,
@@ -71,6 +73,7 @@ export async function POST(request: NextRequest) {
           source: "gift",
           shopifyOrderId: redeemOrderId,
           status: "active",
+          expiresAt: giftExpiresAt,
         },
       }),
       prisma.giftCode.update({

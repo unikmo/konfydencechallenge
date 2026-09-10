@@ -15,6 +15,7 @@ import Stripe from "stripe";
 import {
   CONSUMER_CATALOG,
   SUBSCRIPTION_CATALOG,
+  TEAM_SEAT,
   type ConsumerCatalogEntry,
   type SubscriptionCatalogEntry,
 } from "../lib/stripe/catalog";
@@ -86,17 +87,23 @@ async function upsertPrice(productId: string, spec: PriceSpec): Promise<string> 
     ...(spec.recurring ? { recurring: spec.recurring } : {}),
   });
   console.log(`    price ${spec.lookupKey} → ${current ? "replaced" : "created"} ${created.id}`);
+  if (current && current.id !== created.id) {
+    await stripe.prices.update(current.id, { active: false });
+    console.log(`    price ${current.id} → archived (was one-time / stale)`);
+  }
   return created.id;
 }
 
 async function syncConsumer(entry: ConsumerCatalogEntry) {
   console.log(`${entry.sku}`);
   const productId = await upsertProduct(entry.sku, entry.name, entry.description, entry.taxCode);
+  // Challenge editions are annual subscriptions now — a recurring yearly price.
   await upsertPrice(productId, {
     lookupKey: entry.lookupKey,
     unitAmount: entry.unitAmount,
     currency: entry.currency,
     nickname: entry.name,
+    recurring: { interval: "year" },
   });
 }
 
@@ -120,9 +127,22 @@ async function syncSubscription(entry: SubscriptionCatalogEntry) {
   });
 }
 
+async function syncTeamSeat() {
+  console.log(`${TEAM_SEAT.sku}`);
+  const productId = await upsertProduct(TEAM_SEAT.sku, TEAM_SEAT.name, TEAM_SEAT.description, TEAM_SEAT.taxCode);
+  await upsertPrice(productId, {
+    lookupKey: TEAM_SEAT.lookupKey,
+    unitAmount: TEAM_SEAT.unitAmount,
+    currency: TEAM_SEAT.currency,
+    nickname: TEAM_SEAT.name,
+    recurring: { interval: "year" },
+  });
+}
+
 async function main() {
   console.log(`Syncing Konfydence catalogue into Stripe [${mode} mode]\n`);
   for (const entry of Object.values(CONSUMER_CATALOG)) await syncConsumer(entry);
+  await syncTeamSeat();
   for (const entry of Object.values(SUBSCRIPTION_CATALOG)) await syncSubscription(entry);
   console.log(`\nDone. ${mode} catalogue is in sync.`);
 }

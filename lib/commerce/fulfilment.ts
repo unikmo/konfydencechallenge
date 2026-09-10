@@ -32,6 +32,12 @@ export type GrantEntitlementInput = {
   email?: string | null;
   tier: ChallengeTier;
   edition: string | null;
+  /** Annual model: when this access lapses. Omit for a permanent unlock. */
+  expiresAt?: Date | null;
+  /** The Stripe subscription that renews this, if any. */
+  stripeSubscriptionId?: string | null;
+  /** The org seat that granted this (Teams tier), if any. */
+  orgId?: string | null;
 };
 
 /** Idempotent on sourceOrderId (Entitlement.shopifyOrderId is @unique). */
@@ -49,10 +55,18 @@ export async function grantChallengeEntitlement(input: GrantEntitlementInput): P
     return "skipped";
   }
 
+  const shared = {
+    status: "active",
+    tier,
+    edition,
+    expiresAt: input.expiresAt ?? null,
+    stripeSubscriptionId: input.stripeSubscriptionId ?? null,
+    orgId: input.orgId ?? null,
+  };
   await prisma.entitlement.upsert({
     where: { shopifyOrderId: sourceOrderId },
-    update: { status: "active", tier, edition },
-    create: { userId: user.id, tier, edition, source, shopifyOrderId: sourceOrderId, status: "active" },
+    update: shared,
+    create: { userId: user.id, source, shopifyOrderId: sourceOrderId, ...shared },
   });
   return "granted";
 }

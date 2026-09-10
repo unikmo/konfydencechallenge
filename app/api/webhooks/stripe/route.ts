@@ -18,6 +18,11 @@ import {
   handleSubscriptionRenewal,
   handleSubscriptionCancelled,
 } from "@/lib/lockscreens/stripeSubscription";
+import {
+  handleChallengeSubscriptionCheckout,
+  handleChallengeSubscriptionRenewal,
+  handleChallengeSubscriptionCancelled,
+} from "@/lib/commerce/challengeSubscription";
 
 export const dynamic = "force-dynamic";
 
@@ -50,9 +55,14 @@ export async function POST(request: NextRequest) {
     switch (event.type) {
       case "checkout.session.completed":
         if (event.data.object.mode === "subscription") {
-          await handleSubscriptionCheckout(event.data.object);
+          const md = event.data.object.metadata || {};
+          if (md.track) {
+            await handleSubscriptionCheckout(event.data.object); // Lockscreens Home/Teen
+          } else {
+            await handleChallengeSubscriptionCheckout(event.data.object); // annual Challenge edition
+          }
         } else {
-          await handleCheckoutCompleted(event.data.object);
+          await handleCheckoutCompleted(event.data.object); // one-time: gifts, legacy
         }
         break;
       case "charge.refunded":
@@ -62,9 +72,11 @@ export async function POST(request: NextRequest) {
         // B2B invoice → activate the licence; subscription renewal → next term.
         await activateOrderFromPaidInvoice(event.data.object.id);
         await handleSubscriptionRenewal(event.data.object);
+        await handleChallengeSubscriptionRenewal(event.data.object);
         break;
       case "customer.subscription.deleted":
         await handleSubscriptionCancelled(event.data.object);
+        await handleChallengeSubscriptionCancelled(event.data.object);
         break;
       case "invoice.finalized":
         await syncInvoiceStatus(event.data.object.id, "open", event.data.object.hosted_invoice_url);
@@ -117,7 +129,11 @@ async function handleCheckoutCompleted(session: Stripe.Checkout.Session) {
   }
 
   if (sku.startsWith("CHAL-")) {
+    // Direct challenge purchases are annual subscriptions now (handled in
+    // challengeSubscription.ts). A one-time CHAL payment reaching here is a
+    // legacy / promo case — grant a one-year term.
     const kfUid = md.konfydenceUserId || session.client_reference_id || null;
+    const oneYear = new Date(Date.now() + 366 * 24 * 60 * 60 * 1000);
     await grantChallengeEntitlement({
       sourceOrderId,
       source: "stripe",
@@ -125,6 +141,7 @@ async function handleCheckoutCompleted(session: Stripe.Checkout.Session) {
       email: customerEmail,
       tier,
       edition,
+      expiresAt: oneYear,
     });
     // Make it portable: create a recoverable account from the checkout email
     // and consolidate this player onto it. Best-effort — never fail the grant.
