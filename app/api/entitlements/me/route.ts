@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { cookies } from "next/headers";
 import { prisma } from "@/lib/prisma";
+import { activeEntitlementWhere } from "@/lib/commerce/entitlementAccess";
 
 export const dynamic = "force-dynamic";
 
@@ -15,7 +16,7 @@ export async function GET() {
       where: { id: kfUid },
       include: {
         entitlements: {
-          where: { status: "active" },
+          where: activeEntitlementWhere(),
           select: { tier: true, edition: true },
         },
       },

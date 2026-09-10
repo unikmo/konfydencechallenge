@@ -8,6 +8,7 @@ import { getAccount } from "@/lib/auth/session";
 import { ResultsHistory } from "@/components/dashboard/ResultsHistory";
 import { KF_UID_COOKIE } from "@/lib/challenge/kfUidCookie";
 import { EDITION_LABELS, type ChallengeEdition } from "@/lib/challenge/labels";
+import { activeEntitlementWhere } from "@/lib/commerce/entitlementAccess";
 import { linkLockscreenSubscriptions, getAccountSubscriptions } from "@/lib/lockscreens/linkToAccount";
 
 export const metadata: Metadata = {
@@ -52,10 +53,15 @@ export default async function AccountPage() {
 
   const entitlements = playerId
     ? await prisma.entitlement.findMany({
-        where: { userId: playerId, status: "active" },
-        select: { tier: true, edition: true },
+        where: { userId: playerId, ...activeEntitlementWhere() },
+        select: { tier: true, edition: true, expiresAt: true, stripeSubscriptionId: true, orgId: true },
       })
     : [];
+  const renewsAt = entitlements
+    .map((e) => e.expiresAt)
+    .filter((d): d is Date => d != null)
+    .sort((a, b) => a.getTime() - b.getTime())[0] ?? null;
+  const viaTeam = entitlements.some((e) => e.orgId != null);
   const hasUnlimited = entitlements.some((e) => e.tier === "unlimited");
   const ownedEditions: ChallengeEdition[] = hasUnlimited
     ? (["travelsafe", "school", "university", "family", "workplace"] as ChallengeEdition[])
@@ -155,6 +161,11 @@ export default async function AccountPage() {
             <h2 style={{ margin: 0, fontSize: 18 }}>Your challenges</h2>
             <p style={{ color: tokens.textMuted, fontWeight: 700, fontSize: 13, margin: "4px 0 12px" }}>
               {hasUnlimited ? "All five editions — unlimited rounds." : "Full access, unlimited rounds."} Progress is saved to your account.
+              {viaTeam
+                ? " Access is provided by your team."
+                : renewsAt
+                  ? ` Renews ${renewsAt.toLocaleDateString(undefined, { year: "numeric", month: "long", day: "numeric" })}.`
+                  : ""}
             </p>
             <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
               {ownedEditions.map((ed) => {

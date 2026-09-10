@@ -193,7 +193,20 @@ model Entitlement {
   status         String   @default("active")
   createdAt      DateTime @default(now())
 
+  // Annual model: when the paid access lapses. NULL = never expires (legacy
+  // one-time unlocks, gifts pre-annual). An entitlement counts as usable only
+  // when status = "active" AND (expiresAt IS NULL OR expiresAt > now).
+  expiresAt            DateTime?
+  // The Stripe subscription that keeps this entitlement renewed. NULL for
+  // one-time / gift grants. Renewals (invoice.paid) push expiresAt forward;
+  // cancellation lets it lapse at expiresAt.
+  stripeSubscriptionId String?
+  // Which org seat granted this, if any (Teams tier).
+  orgId               String?
+
   @@index([userId])
+  @@index([stripeSubscriptionId])
+  @@index([orgId])
 }
 
 // Cross-provider webhook idempotency. One row per delivered event id
@@ -688,4 +701,49 @@ model RoomPlayer {
 
   @@unique([roomId, name])
   @@index([roomId])
+}
+
+// ---------------------------------------------------------------------------
+// Challenge Teams — a school/company buys N seats (Stripe subscription,
+// $4.99/seat/year, adjustable quantity, price overridable per org). Each
+// claimed seat grants the member an all-editions entitlement for the org's
+// term. Admin sees per-member completion + scores (per-name reporting).
+
+model Org {
+  id                   String   @id @default(cuid())
+  name                 String
+  ownerAccountId       String // Account.id of the admin/buyer
+  seatCount            Int      @default(0)
+  stripeCustomerId     String?
+  stripeSubscriptionId String?  @unique
+  // Term end from the subscription's current_period_end — members' entitlements
+  // track this.
+  termEnd              DateTime?
+  status               String   @default("active") // active | past_due | cancelled
+  // Negotiated override: internal-only, set from the admin tools. Informational
+  // on the org dashboard; actual billing stays whatever Stripe charges.
+  overrideSeatPrice    Int? // cents/seat/year
+  overrideReason       String?
+  inviteCode           String   @unique // one shareable join code for the org
+  createdAt            DateTime @default(now())
+  updatedAt            DateTime @updatedAt
+  seats                OrgSeat[]
+
+  @@index([ownerAccountId])
+}
+
+model OrgSeat {
+  id          String   @id @default(cuid())
+  orgId       String
+  org         Org      @relation(fields: [orgId], references: [id], onDelete: Cascade)
+  // Filled once the invite is claimed.
+  accountId   String?
+  inviteEmail String?
+  status      String   @default("open") // open | invited | active | removed
+  claimedAt   DateTime?
+  createdAt   DateTime @default(now())
+
+  @@unique([orgId, accountId])
+  @@index([orgId])
+  @@index([accountId])
 }

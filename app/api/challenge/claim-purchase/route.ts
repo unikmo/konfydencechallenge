@@ -7,6 +7,7 @@ import { finishSignInAction } from "@/lib/auth/finishSignIn";
 import { getSession } from "@/lib/auth/session";
 import { ensurePurchaseAccount } from "@/lib/commerce/purchaseAccount";
 import { KF_UID_COOKIE } from "@/lib/challenge/kfUidCookie";
+import { activeEntitlementWhere } from "@/lib/commerce/entitlementAccess";
 
 export const dynamic = "force-dynamic";
 
@@ -23,7 +24,7 @@ type ActiveEntitlement = { tier: string; edition: string | null };
 async function entitlementsForAccount(accountId: string): Promise<ActiveEntitlement[]> {
   const player = await prisma.user.findFirst({
     where: { accountId },
-    select: { entitlements: { where: { status: "active" }, select: { tier: true, edition: true } } },
+    select: { entitlements: { where: activeEntitlementWhere(), select: { tier: true, edition: true } } },
   });
   return player?.entitlements ?? [];
 }
@@ -34,7 +35,7 @@ async function entitlementsForCookie(): Promise<ActiveEntitlement[]> {
   if (!kfUid) return [];
   const player = await prisma.user.findUnique({
     where: { id: kfUid },
-    select: { entitlements: { where: { status: "active" }, select: { tier: true, edition: true } } },
+    select: { entitlements: { where: activeEntitlementWhere(), select: { tier: true, edition: true } } },
   });
   return player?.entitlements ?? [];
 }

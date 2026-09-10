@@ -5,6 +5,7 @@ import { validateSessionToken } from "@/lib/auth/session";
 import { claimPlayerForAccount } from "@/lib/auth/claim";
 import { SESSION_COOKIE_NAME } from "@/lib/auth/tokens";
 import { ensureVisitorUser } from "@/lib/challenge/startSessionUtil";
+import { activeEntitlementWhere } from "@/lib/commerce/entitlementAccess";
 import { KF_UID_COOKIE } from "@/lib/challenge/kfUidCookie";
 
 export type ResolvedPlayer = {
@@ -56,13 +57,15 @@ export async function resolveChallengePlayer(request: NextRequest): Promise<Reso
   };
 }
 
-/** Whether the resolved player already owns full access to an edition. */
+/** Whether the resolved player has current full access to an edition. */
 export async function hasEditionAccess(playerId: string, edition: string): Promise<boolean> {
   const row = await prisma.entitlement.findFirst({
     where: {
       userId: playerId,
-      status: "active",
-      OR: [{ tier: "unlimited" }, { tier: "single", edition }],
+      AND: [
+        activeEntitlementWhere(),
+        { OR: [{ tier: "unlimited" }, { tier: "team" }, { tier: "single", edition }] },
+      ],
     },
     select: { id: true },
   });
