@@ -23,6 +23,12 @@ import {
   handleChallengeSubscriptionRenewal,
   handleChallengeSubscriptionCancelled,
 } from "@/lib/commerce/challengeSubscription";
+import {
+  handleTeamSubscriptionCheckout,
+  handleTeamSubscriptionRenewal,
+  handleTeamSubscriptionUpdated,
+  handleTeamSubscriptionCancelled,
+} from "@/lib/commerce/teamSubscription";
 
 export const dynamic = "force-dynamic";
 
@@ -58,6 +64,8 @@ export async function POST(request: NextRequest) {
           const md = event.data.object.metadata || {};
           if (md.track) {
             await handleSubscriptionCheckout(event.data.object); // Lockscreens Home/Teen
+          } else if (md.sku === "CHAL-TEAM") {
+            await handleTeamSubscriptionCheckout(event.data.object); // Challenge Teams — org seats
           } else {
             await handleChallengeSubscriptionCheckout(event.data.object); // annual Challenge edition
           }
@@ -73,10 +81,15 @@ export async function POST(request: NextRequest) {
         await activateOrderFromPaidInvoice(event.data.object.id);
         await handleSubscriptionRenewal(event.data.object);
         await handleChallengeSubscriptionRenewal(event.data.object);
+        await handleTeamSubscriptionRenewal(event.data.object);
+        break;
+      case "customer.subscription.updated":
+        await handleTeamSubscriptionUpdated(event.data.object);
         break;
       case "customer.subscription.deleted":
         await handleSubscriptionCancelled(event.data.object);
         await handleChallengeSubscriptionCancelled(event.data.object);
+        await handleTeamSubscriptionCancelled(event.data.object);
         break;
       case "invoice.finalized":
         await syncInvoiceStatus(event.data.object.id, "open", event.data.object.hosted_invoice_url);

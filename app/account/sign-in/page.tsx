@@ -18,6 +18,7 @@ type SP = { step?: string; email?: string; next?: string; error?: string; sent?:
 const REASONS: Record<string, string> = {
   "free-round-2": "Your second free round saves to an account so your Readiness Score history follows you.",
   "full-challenge": "The full challenge needs an account — your progress, results and purchase stay with you on any device.",
+  "team-invite": "Sign in to claim your team seat — your progress stays private to you; your admin sees completion only.",
 };
 
 const ERRORS: Record<string, string> = {

@@ -11,7 +11,7 @@ import { prisma } from "@/lib/prisma";
 import { generateGiftCode } from "@/lib/gift";
 import { sendTransactionalEmail, escapeHtml } from "@/lib/email";
 
-export type ChallengeTier = "single" | "unlimited";
+export type ChallengeTier = "single" | "unlimited" | "team";
 
 /** Resolve or create the challenge player this purchase belongs to. */
 async function resolveUser(ref: { kfUid?: string | null; email?: string | null }) {

@@ -51,6 +51,16 @@ export default async function AccountPage() {
   if (account) await linkLockscreenSubscriptions(account).catch(() => {});
   const subscriptions = account ? await getAccountSubscriptions(account.id) : [];
 
+  const ownedOrg = account
+    ? await prisma.org.findFirst({ where: { ownerAccountId: account.id }, select: { name: true } })
+    : null;
+  const memberSeat = account && !ownedOrg
+    ? await prisma.orgSeat.findFirst({
+        where: { accountId: account.id, status: "active" },
+        select: { org: { select: { name: true } } },
+      })
+    : null;
+
   const entitlements = playerId
     ? await prisma.entitlement.findMany({
         where: { userId: playerId, ...activeEntitlementWhere() },
@@ -62,7 +72,7 @@ export default async function AccountPage() {
     .filter((d): d is Date => d != null)
     .sort((a, b) => a.getTime() - b.getTime())[0] ?? null;
   const viaTeam = entitlements.some((e) => e.orgId != null);
-  const hasUnlimited = entitlements.some((e) => e.tier === "unlimited");
+  const hasUnlimited = entitlements.some((e) => e.tier === "unlimited" || e.tier === "team");
   const ownedEditions: ChallengeEdition[] = hasUnlimited
     ? (["travelsafe", "school", "university", "family", "workplace"] as ChallengeEdition[])
     : (entitlements
@@ -155,6 +165,28 @@ export default async function AccountPage() {
             <Link href="/account/sign-in" style={{ ...styles.button, marginTop: 12 }}>Sign in to keep them</Link>
           </div>
         )}
+
+        {ownedOrg ? (
+          <div style={{ ...styles.card, marginTop: 14, display: "flex", justifyContent: "space-between", alignItems: "center", gap: 12 }}>
+            <div>
+              <div style={{ fontWeight: 900, fontSize: 15 }}>{ownedOrg.name}</div>
+              <div style={{ fontSize: 12, color: tokens.textMuted, fontWeight: 700, marginTop: 2 }}>
+                You&rsquo;re the team admin.
+              </div>
+            </div>
+            <Link href="/teams" style={{ fontSize: 13, fontWeight: 800, color: tokens.textOnLight }}>Manage team →</Link>
+          </div>
+        ) : memberSeat ? (
+          <div style={{ ...styles.card, marginTop: 14, display: "flex", justifyContent: "space-between", alignItems: "center", gap: 12 }}>
+            <div>
+              <div style={{ fontWeight: 900, fontSize: 15 }}>{memberSeat.org.name}</div>
+              <div style={{ fontSize: 12, color: tokens.textMuted, fontWeight: 700, marginTop: 2 }}>
+                Your team seat — all five editions.
+              </div>
+            </div>
+            <Link href="/teams" style={{ fontSize: 13, fontWeight: 800, color: tokens.textOnLight }}>View →</Link>
+          </div>
+        ) : null}
 
         {ownedEditions.length > 0 ? (
           <div style={{ ...styles.card, marginTop: 14 }}>
