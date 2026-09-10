@@ -60,6 +60,22 @@ execFileSync(npm, ["run", "db:seed"], childOptions);
 console.log("[comasy-bootstrap] synchronizing Workplace + Schools + Home + Teen lockscreen asset libraries");
 execFileSync(npm, ["run", "db:seed:lockscreens"], childOptions);
 
+// Mirror lib/stripe/catalog.ts into the live Stripe account (idempotent —
+// products matched on metadata.konfydence_sku, prices on lookup_key). Reads
+// STRIPE_SECRET_KEY from the Vercel env; the build environment can reach the
+// Stripe API. Non-fatal: a transient Stripe error must not block a deploy —
+// the catalogue simply syncs on the next one.
+if (process.env.STRIPE_SECRET_KEY) {
+  console.log("[comasy-bootstrap] synchronizing Stripe catalogue");
+  try {
+    execFileSync(npm, ["run", "stripe:sync"], childOptions);
+  } catch (err) {
+    console.warn("[comasy-bootstrap] Stripe catalogue sync failed (non-fatal):", err && err.message ? err.message : err);
+  }
+} else {
+  console.log("[comasy-bootstrap] STRIPE_SECRET_KEY not set — skipping Stripe catalogue sync");
+}
+
 console.log("[comasy-bootstrap] verifying production backend invariants");
 execFileSync(npm, ["run", "db:verify"], childOptions);
 
