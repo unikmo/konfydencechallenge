@@ -10,6 +10,7 @@ export type UiLang = "en" | "de";
 
 export const EDITION_LABELS_DE: Record<string, string> = {
   family: "Familie-Edition",
+  school: "Schule-Edition",
 };
 
 export function editionLabelFor(edition: string, lang: UiLang, fallback: string): string {
