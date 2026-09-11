@@ -1,0 +1,34 @@
+{
+  "id": "family-de-fam-43",
+  "lang": "de",
+  "title": "Ein Familienmitglied braucht deinen Reset-Link",
+  "edition": "family",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Passwörter",
+  "scenario": "Dein Bruder schreibt dir, sein E-Mail-Konto sei gesperrt, und bittet dich, den Link weiterzuleiten, den du „gleich für ihn“ als Passwort-Reset bekommst, weil eure Konten „aus Versehen verknüpft“ seien.",
+  "answers": {
+    "A": "Den Reset-Link weiterleiten, sobald er ankommt, um deinem Bruder zu helfen.",
+    "B": "Deinen Bruder über einen anderen Kanal (Anruf, persönlich) erreichen und ihm sagen, dass Konten sich nicht „aus Versehen verknüpfen“ — einen Reset-Link gibst du nie weiter.",
+    "C": "Ihm nur einen Teil des Codes aus dem Link durchgeben."
+  },
+  "scores": {
+    "A": 0,
+    "B": 4,
+    "C": 0
+  },
+  "safeActions": [
+    "B"
+  ],
+  "explanation": "Konten „verknüpfen“ sich nicht zufällig so, dass dein Reset-Link fremde Konten entsperrt — das ist eine erfundene Erklärung, damit du einen echten Sicherheitscode weitergibst. Ein Reset-Link oder -Code ist ausschließlich für dich bestimmt.",
+  "proTip": "Ein Reset-Link, der bei dir ankommt, ist für dein Konto — für kein anderes.",
+  "hackKey": "K",
+  "hackTrigger": "Notbremse",
+  "tags": [
+    "family",
+    "k",
+    "passwords",
+    "account-takeover"
+  ],
+  "active": true
+}

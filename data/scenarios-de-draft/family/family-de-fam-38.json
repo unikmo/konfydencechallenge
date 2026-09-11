@@ -1,0 +1,35 @@
+{
+  "id": "family-de-fam-38",
+  "lang": "de",
+  "title": "Bitte installieren Sie kurz AnyDesk",
+  "edition": "family",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Fernzugriff / Banking",
+  "scenario": "Nach einer angeblichen Abbuchung meldet sich die „Betrugsabteilung deiner Bank“. Um die Zahlung zu stoppen, sollst du ein Fernwartungsprogramm (AnyDesk oder TeamViewer) installieren, damit ein Mitarbeiter „das gesperrte Konto entsperrt“. Anschließend sollst du eine „Testüberweisung“ per Echtzeitüberweisung bestätigen.",
+  "answers": {
+    "A": "Installieren und die Testüberweisung bestätigen — der Mitarbeiter braucht das, um die Sperre aufzuheben.",
+    "B": "Das Programm installieren, aber die Testüberweisung erst nach einem Rückruf bei der Bank bestätigen.",
+    "C": "Sofort auflegen, nichts installieren, keine Überweisung bestätigen — und die Bank über die Nummer auf der Karte anrufen."
+  },
+  "scores": {
+    "A": 0,
+    "B": 1,
+    "C": 4
+  },
+  "safeActions": [
+    "C"
+  ],
+  "explanation": "Keine Bank lässt sich per Fernwartung auf deinen Rechner. Wer das Programm installiert, gibt Tastatur und Bildschirm ab; eine bestätigte Echtzeitüberweisung ist in Sekunden weg und nicht rückholbar. Die „Testüberweisung“ ist die echte Überweisung.",
+  "proTip": "Deine Bank fragt nie nach Fernzugriff — und eine „Testüberweisung“ gibt es nicht.",
+  "hackKey": "K",
+  "hackTrigger": "Notbremse",
+  "tags": [
+    "family",
+    "k",
+    "remote-access",
+    "banking",
+    "diagnostic"
+  ],
+  "active": true
+}

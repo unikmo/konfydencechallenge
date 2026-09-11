@@ -1,0 +1,35 @@
+{
+  "id": "family-de-fam-26",
+  "lang": "de",
+  "title": "Sicher bezahlen bei Kleinanzeigen",
+  "edition": "family",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Online-Marktplatz",
+  "scenario": "Du verkaufst einen Kinderwagen auf Kleinanzeigen. Ein Käufer mit jahrelangem Profil und guten Bewertungen will sofort kaufen und schickt dir einen Link zu „Kleinanzeigen — Sichere Bezahlung“, wo du zur „Bestätigung des Verkäufers“ deine Bankdaten und eine TAN eingeben sollst.",
+  "answers": {
+    "A": "Die Bezahlung ausschließlich über die offizielle Funktion in der Kleinanzeigen-App abwickeln und den externen Link ignorieren.",
+    "B": "Nur die Kontonummer eingeben, aber keine TAN.",
+    "C": "Über den Link gehen und die Daten eingeben, weil das Profil alt und gut bewertet ist."
+  },
+  "scores": {
+    "A": 4,
+    "B": 0,
+    "C": 0
+  },
+  "safeActions": [
+    "A"
+  ],
+  "explanation": "Auch alte, gut bewertete Konten werden übernommen oder gekauft. Die echte „Sichere Bezahlung“ läuft komplett in der App — sie fragt nie über einen externen Link nach TANs. Wer als Verkäufer eine TAN eingibt, gibt eine Abbuchung frei, keine Gutschrift.",
+  "proTip": "Als Verkäufer gibst du nie eine TAN ein — TANs geben Geld weg, nicht her.",
+  "hackKey": "C",
+  "hackTrigger": "Vertrautheit",
+  "tags": [
+    "family",
+    "c",
+    "marketplace",
+    "phishing",
+    "diagnostic"
+  ],
+  "active": true
+}

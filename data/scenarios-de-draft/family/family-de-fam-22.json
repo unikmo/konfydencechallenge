@@ -1,0 +1,34 @@
+{
+  "id": "family-de-fam-22",
+  "lang": "de",
+  "title": "Dein Rentenkonto ist „eingefroren“",
+  "edition": "family",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Rente",
+  "scenario": "Ein Anruf im Namen der Deutschen Rentenversicherung sagt, dein Konto sei wegen eines „Datenabgleichs“ eingefroren, und deine nächste Rentenzahlung gehe verloren, wenn du nicht sofort deine Versicherungsnummer und Kontodaten bestätigst.",
+  "answers": {
+    "A": "Nur die Versicherungsnummer bestätigen, aber keine Kontodaten.",
+    "B": "Die Daten am Telefon bestätigen, damit die Zahlung nicht verloren geht.",
+    "C": "Auflegen und über die offizielle Servicenummer der Deutschen Rentenversicherung selbst nachfragen."
+  },
+  "scores": {
+    "A": 1,
+    "B": 0,
+    "C": 4
+  },
+  "safeActions": [
+    "C"
+  ],
+  "explanation": "Die Rentenversicherung „friert“ Konten nicht per Anruf ein und braucht keine telefonische Bestätigung von Daten, die ihr bereits vorliegen. Ein Rückruf über die bekannte Nummer klärt es in Minuten.",
+  "proTip": "Eine Behörde, die deine eigenen Daten von dir „bestätigt“ haben will, hat sie meist schon.",
+  "hackKey": "A",
+  "hackTrigger": "Autorität",
+  "tags": [
+    "family",
+    "a",
+    "benefits",
+    "vishing"
+  ],
+  "active": true
+}

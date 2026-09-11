@@ -1,0 +1,34 @@
+{
+  "id": "family-de-fam-08",
+  "lang": "de",
+  "title": "Heute Abend ausverkauft, sofortige Rückerstattung",
+  "edition": "family",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Tickets",
+  "scenario": "In einer Facebook-Gruppe bietet jemand zwei Tickets für das heutige Konzert zum Originalpreis an, weil er „kurzfristig verhindert“ sei. Er verlangt Zahlung per PayPal „Familie und Freunde“, da das schneller gehe.",
+  "answers": {
+    "A": "Sofort per „Familie und Freunde“ zahlen, um die Tickets vor jemand anderem zu sichern.",
+    "B": "Zahlung nur über den regulären PayPal-Warenkauf mit Käuferschutz anbieten — oder ganz ablehnen, wenn der Verkäufer das nicht akzeptiert.",
+    "C": "Die Hälfte anzahlen und den Rest bei Übergabe zahlen."
+  },
+  "scores": {
+    "A": 0,
+    "B": 4,
+    "C": 1
+  },
+  "safeActions": [
+    "B"
+  ],
+  "explanation": "„Familie und Freunde“ hat keinen Käuferschutz — genau deshalb bestehen Betrüger darauf. Ein Verkäufer, der das ablehnt, ist ein Warnsignal, kein Grund zur Eile.",
+  "proTip": "Kein Käuferschutz, kein Geld — egal wie knapp die Zeit ist.",
+  "hackKey": "H",
+  "hackTrigger": "Hetze",
+  "tags": [
+    "family",
+    "h",
+    "tickets",
+    "payment-app"
+  ],
+  "active": true
+}

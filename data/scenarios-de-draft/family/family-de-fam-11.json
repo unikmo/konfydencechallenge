@@ -1,0 +1,34 @@
+{
+  "id": "family-de-fam-11",
+  "lang": "de",
+  "title": "Amazon meldet: 749 € Abbuchung läuft",
+  "edition": "family",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Online-Shopping",
+  "scenario": "Eine automatisierte Anrufstimme meldet eine Abbuchung von 749 € für ein Amazon-Prime-Abo und bittet, „1“ zu drücken, um mit einem Mitarbeiter verbunden zu werden und die Zahlung zu stoppen.",
+  "answers": {
+    "A": "Auflegen und direkt in der Amazon-App unter „Meine Bestellungen“ und den Zahlungen nachsehen, ob wirklich etwas abgebucht wurde.",
+    "B": "Zurückrufen unter der angezeigten Nummer, um sicherzugehen.",
+    "C": "„1“ drücken und dem Mitarbeiter die gewünschten Daten geben, um die Abbuchung zu stoppen."
+  },
+  "scores": {
+    "A": 4,
+    "B": 0,
+    "C": 0
+  },
+  "safeActions": [
+    "A"
+  ],
+  "explanation": "Amazon ruft nicht mit automatisierten Warnungen über angebliche Abbuchungen an. Die App zeigt jede echte Zahlung sofort und zuverlässig.",
+  "proTip": "Prüfe in der App, nicht am Telefon, das dich anruft.",
+  "hackKey": "H",
+  "hackTrigger": "Hetze",
+  "tags": [
+    "family",
+    "h",
+    "online-shopping",
+    "robocall"
+  ],
+  "active": true
+}

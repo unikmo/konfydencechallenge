@@ -1,0 +1,34 @@
+{
+  "id": "family-de-fam-44",
+  "lang": "de",
+  "title": "Die „sichere“ Kontoüberweisung",
+  "edition": "family",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Bankbetrug",
+  "scenario": "Nachdem ein Anrufer dich von einem „Betrugsversuch“ auf deinem Konto überzeugt hat, sagt er, das Geld müsse jetzt auf ein „geschütztes Übergangskonto der Bank“ überwiesen werden, während die Ermittlung läuft. Er bleibt am Telefon und leitet dich Schritt für Schritt durch die Überweisung.",
+  "answers": {
+    "A": "Auflegen — egal, wie überzeugend das Gespräch bisher war — und die Bank über die Nummer auf der Karte anrufen, bevor irgendeine Überweisung bestätigt wird.",
+    "B": "Nur einen Teilbetrag überweisen, um zu sehen, was passiert.",
+    "C": "Die Überweisung wie angeleitet ausführen, weil er dich schon lange am Telefon überzeugt hat."
+  },
+  "scores": {
+    "A": 4,
+    "B": 0,
+    "C": 0
+  },
+  "safeActions": [
+    "A"
+  ],
+  "explanation": "Der Moment direkt vor dem Bestätigen der Überweisung ist deine letzte und wichtigste Gelegenheit zum Stopp — egal, wie lange und überzeugend das Gespräch vorher war. Keine Bank hat ein „Übergangskonto“ für Kunden.",
+  "proTip": "Je länger das Gespräch, desto wichtiger, genau vor der Bestätigung aufzulegen.",
+  "hackKey": "K",
+  "hackTrigger": "Notbremse",
+  "tags": [
+    "family",
+    "k",
+    "banking",
+    "safe-account"
+  ],
+  "active": true
+}

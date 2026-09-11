@@ -1,0 +1,34 @@
+{
+  "id": "family-de-fam-46",
+  "lang": "de",
+  "title": "Der Krypto-Automat mit QR-Code",
+  "edition": "family",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Krypto-ATM",
+  "scenario": "Ein Anrufer, angeblich von der „Bundespolizei“, sagt, dein Name tauche in einem Geldwäscheverfahren auf. Um dein Vermögen „unter staatlichen Schutz“ zu stellen, sollst du Bargeld abheben, zu einem Krypto-Geldautomaten fahren und einen QR-Code einscannen, den er dir schickt.",
+  "answers": {
+    "A": "Bargeld abheben und einen Teilbetrag am Automaten einzahlen, während du die Fallnummer prüfst.",
+    "B": "Zum Automaten fahren, aber vorher bei der echten Polizei über die 110 nachfragen.",
+    "C": "Auflegen, kein Bargeld abheben, keinen QR-Code scannen — und die Polizei über die 110 oder eine örtliche Wache selbst kontaktieren, um den Anruf zu melden."
+  },
+  "scores": {
+    "A": 0,
+    "B": 2,
+    "C": 4
+  },
+  "safeActions": [
+    "C"
+  ],
+  "explanation": "Keine Behörde „schützt“ Vermögen, indem sie es über einen von einem Anrufer verschickten QR-Code in eine Kryptowährung umwandeln lässt. Der QR-Code ist schlicht die Zahlungsadresse der Täter.",
+  "proTip": "Ein QR-Code am Geldautomaten ist eine Adresse für Täter, kein staatlicher Schutz.",
+  "hackKey": "K",
+  "hackTrigger": "Notbremse",
+  "tags": [
+    "family",
+    "k",
+    "crypto-atm",
+    "government-impostor"
+  ],
+  "active": true
+}

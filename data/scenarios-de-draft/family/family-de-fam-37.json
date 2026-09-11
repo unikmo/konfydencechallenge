@@ -1,0 +1,35 @@
+{
+  "id": "family-de-fam-37",
+  "lang": "de",
+  "title": "Der Bote steht gleich vor der Tür",
+  "edition": "family",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Enkeltrick / Übergabe",
+  "scenario": "Am Telefon weint eine Stimme, es klinge wie deine Tochter: Sie habe einen schweren Unfall verursacht, jemand liege im Krankenhaus. Dann übernimmt ein „Staatsanwalt“: Nur eine Kaution von 15.000 € in bar verhindere die Untersuchungshaft. Ein Gerichtsbote sei schon unterwegs zu deiner Adresse und hole das Geld in 20 Minuten ab.",
+  "answers": {
+    "A": "Das Geld zusammensuchen und dem Boten übergeben — die Tochter geht vor, den Rest klärt man später.",
+    "B": "Dich nicht am Telefon halten lassen, von einem zweiten Telefon deine Tochter direkt anrufen — und der Übergabe erst zustimmen, wenn du sie selbst gesprochen hast.",
+    "C": "Einen Teilbetrag übergeben und den Rest zusagen, sobald du die Tochter erreicht hast."
+  },
+  "scores": {
+    "A": 0,
+    "B": 4,
+    "C": 0
+  },
+  "safeActions": [
+    "B"
+  ],
+  "explanation": "Gerichte und Staatsanwaltschaften nehmen keine Kautionen in bar an der Haustür entgegen. Sobald das Geld beim Boten ist, ist es weg. Der Moment vor der Übergabe ist deine Notbremse — ein einziger echter Anruf bei deiner Tochter beendet den Betrug.",
+  "proTip": "Bevor Bargeld die Hand verlässt: die echte Person selbst anrufen.",
+  "hackKey": "K",
+  "hackTrigger": "Notbremse",
+  "tags": [
+    "family",
+    "k",
+    "family-emergency",
+    "cash-pickup",
+    "diagnostic"
+  ],
+  "active": true
+}

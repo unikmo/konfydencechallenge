@@ -1,0 +1,34 @@
+{
+  "id": "family-de-fam-35",
+  "lang": "de",
+  "title": "Der Tierschutzverein kennt deinen Hund",
+  "edition": "family",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Gemeinschaft",
+  "scenario": "Eine Nachricht eines lokalen Tierschutzvereins, dem du früher gespendet hast, zeigt ein Foto, das deinem eigenen Hund verblüffend ähnlich sieht, angeblich „heute entlaufen aufgefunden“. Für die „Rückgabegebühr“ von 80 € solle über einen Link gezahlt werden.",
+  "answers": {
+    "A": "Sofort selbst nachsehen, ob dein Hund überhaupt zu Hause ist, und den Verein über die bekannte Nummer anrufen statt über den Link zu zahlen.",
+    "B": "Um ein aktuelles Foto mit Zeitstempel bitten, bevor du zahlst.",
+    "C": "Sofort über den Link zahlen, um deinen Hund zurückzubekommen."
+  },
+  "scores": {
+    "A": 4,
+    "B": 2,
+    "C": 0
+  },
+  "safeActions": [
+    "A"
+  ],
+  "explanation": "Öffentlich geteilte Fotos früherer Spenden lassen sich leicht wiederverwenden, um Panik zu erzeugen. Der erste, einfachste Check — ist der eigene Hund gerade zu Hause — entlarvt die Masche sofort.",
+  "proTip": "Bevor du zahlst, schau nach, ob das Problem überhaupt existiert.",
+  "hackKey": "C",
+  "hackTrigger": "Vertrautheit",
+  "tags": [
+    "family",
+    "c",
+    "community",
+    "fake-charity"
+  ],
+  "active": true
+}

@@ -1,0 +1,36 @@
+{
+  "id": "family-de-fam-02",
+  "lang": "de",
+  "title": "In 30 Minuten ist der Strom weg",
+  "edition": "family",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Energieversorger",
+  "scenario": "Ein Anruf sagt, dein Stromkonto sei überfällig und werde in 30 Minuten abgeklemmt. Der Betrag klingt realistisch. Man bietet an, die Sperre „aufzuhalten“, wenn du sofort per Überweisung oder Guthabenkarte zahlst.",
+  "answers": {
+    "A": "Nach Kundennummer und offenem Betrag fragen und beides mit deiner letzten Rechnung abgleichen, bevor du irgendetwas tust.",
+    "B": "Zahlen, wenn der Betrag zu deinem üblichen Monatsabschlag passt, und notfalls später widersprechen.",
+    "C": "Auflegen und im Kundenkonto oder über die Nummer auf deiner Rechnung selbst nachsehen."
+  },
+  "scores": {
+    "A": 3,
+    "B": 0,
+    "C": 4
+  },
+  "safeActions": [
+    "A",
+    "C"
+  ],
+  "explanation": "Zeitdruck plus ein glaubwürdiger Betrag erzeugt falsche Sicherheit. Ein echter Grundversorger sperrt nicht binnen 30 Minuten und verlangt keine Guthabenkarten. Prüfe die Forderung unabhängig, bevor du zahlst.",
+  "proTip": "Ein vertrauter Rechnungsbetrag ist kein Beweis für einen echten Anrufer.",
+  "hackKey": "H",
+  "hackTrigger": "Hetze",
+  "tags": [
+    "family",
+    "h",
+    "utility",
+    "vishing",
+    "diagnostic"
+  ],
+  "active": true
+}

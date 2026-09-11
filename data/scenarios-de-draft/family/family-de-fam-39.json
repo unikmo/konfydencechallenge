@@ -1,0 +1,34 @@
+{
+  "id": "family-de-fam-39",
+  "lang": "de",
+  "title": "Support will „das Problem sehen“",
+  "edition": "family",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Fernzugriff",
+  "scenario": "Nach einem Anruf beim Kundenservice deines Internetanbieters wegen einer langsamen Verbindung bittet der „Techniker“, per Fernwartungssoftware auf deinen Rechner zuzugreifen, um „das Problem live zu sehen“ — inklusive eines kurzen Blicks ins Online-Banking, „um zu prüfen, ob die Verbindung dort auch stabil ist“.",
+  "answers": {
+    "A": "Die Software installieren, aber das Online-Banking-Fenster vorher schließen.",
+    "B": "Die Software installieren und dem Techniker beim Banking-Test zusehen lassen.",
+    "C": "Auflegen; ein Internetproblem wird nie durch einen Blick ins Online-Banking gelöst — nötigenfalls über die offizielle Hotline neu anfragen."
+  },
+  "scores": {
+    "A": 1,
+    "B": 0,
+    "C": 4
+  },
+  "safeActions": [
+    "C"
+  ],
+  "explanation": "Ein Internetproblem hat nichts mit deinem Bankkonto zu tun — der Wunsch, „kurz reinzuschauen“, ist der eigentliche Zweck des Anrufs. Fernwartungssoftware gibt vollen Zugriff auf alles, was gerade offen ist.",
+  "proTip": "Ein Internet-Techniker braucht dein Online-Banking nie zu sehen.",
+  "hackKey": "K",
+  "hackTrigger": "Notbremse",
+  "tags": [
+    "family",
+    "k",
+    "remote-access",
+    "tech-support"
+  ],
+  "active": true
+}

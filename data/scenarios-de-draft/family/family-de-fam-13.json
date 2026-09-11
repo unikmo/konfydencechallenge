@@ -1,0 +1,35 @@
+{
+  "id": "family-de-fam-13",
+  "lang": "de",
+  "title": "Falsche Polizei am Telefon",
+  "edition": "family",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Amtspersonen",
+  "scenario": "Ein Anrufer gibt sich als Kriminalpolizei aus. In deiner Nachbarschaft sei eingebrochen worden, auf einer Liste der Täter stehe dein Name — dein Bargeld und dein Schmuck seien zu Hause nicht mehr sicher. Ein Kollege in Zivil komme vorbei und nehme die Wertsachen „zur Sicherung“ in Verwahrung.",
+  "answers": {
+    "A": "Nichts übergeben. Auflegen und selbst die 110 wählen oder die örtliche Wache über eine offizielle Nummer anrufen und den Anruf schildern.",
+    "B": "Die Wertsachen übergeben, aber auf einer schriftlichen Quittung mit Dienstausweisnummer bestehen.",
+    "C": "Am Telefon bleiben und nach Name und Dienststelle fragen, um die Geschichte zu prüfen."
+  },
+  "scores": {
+    "A": 4,
+    "B": 0,
+    "C": 1
+  },
+  "safeActions": [
+    "A"
+  ],
+  "explanation": "Die echte Polizei ruft nicht an, um Bargeld oder Schmuck abzuholen, und nennt am Telefon nie die „110“ als Rückrufnummer. Autorität und eine bedrohliche Geschichte sollen dich davon abhalten, selbst nachzufragen. Wer auflegt und neu wählt, erreicht die echte Wache.",
+  "proTip": "Kein echter Beamter holt deine Wertsachen zur „Sicherung“ ab.",
+  "hackKey": "A",
+  "hackTrigger": "Autorität",
+  "tags": [
+    "family",
+    "a",
+    "government-impostor",
+    "shock-call",
+    "diagnostic"
+  ],
+  "active": true
+}

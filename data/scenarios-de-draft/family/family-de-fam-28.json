@@ -1,0 +1,34 @@
+{
+  "id": "family-de-fam-28",
+  "lang": "de",
+  "title": "Der Enkel mit dem kaputten Akku",
+  "edition": "family",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Enkeltrick",
+  "scenario": "Ein Anruf beginnt mit „Rate mal, wer dran ist“ — eine jüngere männliche Stimme, ähnlich wie dein Enkel, aber undeutlich, „weil das Handy kaum noch Akku hat“. Er erzählt von einem Unfall mit einem Mietwagen im Ausland und braucht dringend Geld für die Reparatur.",
+  "answers": {
+    "A": "Auflegen und den Enkel über die gespeicherte Nummer zurückrufen, um zu prüfen, ob er wirklich im Ausland ist.",
+    "B": "Nach Details zum Unfall fragen, die nur der echte Enkel wissen kann.",
+    "C": "Mitspielen und den Namen selbst nennen, um das Gespräch nicht unhöflich abzubrechen."
+  },
+  "scores": {
+    "A": 4,
+    "B": 2,
+    "C": 0
+  },
+  "safeActions": [
+    "A"
+  ],
+  "explanation": "Der Trick lebt davon, dass DU den Namen zuerst nennst — dann übernimmt der Anrufer ihn. Kontrollfragen lassen sich oft erraten oder umgehen; ein Rückruf auf der eigenen, gespeicherten Nummer nicht.",
+  "proTip": "Nenn nie zuerst den Namen — lass den Anrufer sagen, wer er ist.",
+  "hackKey": "C",
+  "hackTrigger": "Vertrautheit",
+  "tags": [
+    "family",
+    "c",
+    "grandparent-scam",
+    "vishing"
+  ],
+  "active": true
+}

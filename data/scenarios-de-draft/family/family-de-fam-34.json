@@ -1,0 +1,34 @@
+{
+  "id": "family-de-fam-34",
+  "lang": "de",
+  "title": "Deine Cousine sitzt im Ausland fest",
+  "edition": "family",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Reisenotfall",
+  "scenario": "Eine Nachricht über Facebook Messenger von deiner Cousine, die gerade in Thailand Urlaub macht, sagt, ihr sei die Handtasche gestohlen worden und sie brauche sofort 300 € für ein Hotel und den Rückflug, bis ihre Bank das Problem löst.",
+  "answers": {
+    "A": "Das Geld über den im Chat genannten Weg schicken, damit sie nicht mittellos dasteht.",
+    "B": "In der Familiengruppe fragen, ob jemand schon mit ihr gesprochen hat.",
+    "C": "Sie über eine andere, dir bekannte Nummer per Anruf oder Videoanruf erreichen, bevor du irgendetwas schickst."
+  },
+  "scores": {
+    "A": 0,
+    "B": 2,
+    "C": 4
+  },
+  "safeActions": [
+    "C"
+  ],
+  "explanation": "Reisenotfälle über einen Chat, der plötzlich nur noch Text erlaubt, sind ein klassisches Zeichen für ein übernommenes Konto. Ein Videoanruf zeigt sofort, ob wirklich deine Cousine am anderen Ende ist.",
+  "proTip": "Wer wirklich im Ausland festsitzt, kann fast immer telefonieren oder sich per Video zeigen.",
+  "hackKey": "C",
+  "hackTrigger": "Vertrautheit",
+  "tags": [
+    "family",
+    "c",
+    "travel-emergency",
+    "account-takeover"
+  ],
+  "active": true
+}

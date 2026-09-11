@@ -1,0 +1,35 @@
+{
+  "id": "family-de-fam-20",
+  "lang": "de",
+  "title": "Steuerschuld, sonst Vollstreckung",
+  "edition": "family",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Steuern",
+  "scenario": "Ein Anruf behauptet, du schuldest dem Finanzamt 1.850 € aus einer alten Veranlagung, und ohne sofortige Zahlung per Überweisung werde noch heute die Vollstreckung eingeleitet.",
+  "answers": {
+    "A": "Sofort überweisen, um die Vollstreckung zu vermeiden.",
+    "B": "Auflegen und im ELSTER-Portal oder direkt beim zuständigen Finanzamt nachfragen, ob wirklich eine Forderung besteht.",
+    "C": "Um einen schriftlichen Bescheid per Post bitten und dann entscheiden."
+  },
+  "scores": {
+    "A": 0,
+    "B": 4,
+    "C": 3
+  },
+  "safeActions": [
+    "B",
+    "C"
+  ],
+  "explanation": "Vollstreckungen werden nicht am selben Tag per Telefonanruf angedroht und eingezogen — es gibt immer einen schriftlichen, förmlichen Weg davor. Das Finanzamt kann jede echte Forderung sofort bestätigen.",
+  "proTip": "Echte Steuerschulden kommen immer zuerst auf Papier, nie zuerst per Anruf.",
+  "hackKey": "A",
+  "hackTrigger": "Autorität",
+  "tags": [
+    "family",
+    "a",
+    "taxes",
+    "vishing"
+  ],
+  "active": true
+}

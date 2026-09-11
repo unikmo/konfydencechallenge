@@ -1,0 +1,35 @@
+{
+  "id": "family-de-fam-33",
+  "lang": "de",
+  "title": "Die neue Pflegekraft braucht Kontozugang",
+  "edition": "family",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Pflege",
+  "scenario": "Die neue ambulante Pflegekraft deiner Mutter ist bisher freundlich und zuverlässig gewesen. Nach zwei Wochen bittet sie, damit sie „Einkäufe erledigen kann, ohne dich jedes Mal stören zu müssen“, um die Zugangsdaten zum Online-Banking deiner Mutter.",
+  "answers": {
+    "A": "Stattdessen eine Vollmacht über einen begrenzten Betrag oder eine Prepaid-Karte für Einkäufe einrichten, ohne die eigentlichen Bankzugangsdaten weiterzugeben.",
+    "B": "Der Pflegekraft eine Liste mit Einkäufen geben und das Geld bar mitgeben.",
+    "C": "Die Zugangsdaten geben, weil die Pflegekraft bisher zuverlässig war."
+  },
+  "scores": {
+    "A": 4,
+    "B": 3,
+    "C": 0
+  },
+  "safeActions": [
+    "A",
+    "B"
+  ],
+  "explanation": "Zuverlässigkeit bisher ist kein Grund, vollen Kontozugang zu teilen — auch gute Absicht kann später ausgenutzt oder das Konto kompromittiert werden. Eine begrenzte, kontrollierbare Lösung schützt beide Seiten.",
+  "proTip": "Vertrauen in eine Person heißt nicht, ihr die Bank-PIN zu geben.",
+  "hackKey": "C",
+  "hackTrigger": "Vertrautheit",
+  "tags": [
+    "family",
+    "c",
+    "caregiving",
+    "account-access"
+  ],
+  "active": true
+}

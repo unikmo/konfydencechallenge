@@ -1,0 +1,35 @@
+{
+  "id": "family-de-fam-31",
+  "lang": "de",
+  "title": "Dein Freund schickt einen „Stimm für mich“-Link",
+  "edition": "family",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Soziale Medien",
+  "scenario": "Der Instagram-Account eines Freundes bittet dich, für ihn bei einem Gewinnspiel abzustimmen. Der Link führt zu einer Login-Seite, und er schreibt dazu: „Bitte schnell, die Abstimmung endet gleich.“ Der Schreibstil klingt genau wie er.",
+  "answers": {
+    "A": "Deinen Freund über einen anderen Kanal fragen, ob er wirklich bei diesem Gewinnspiel mitmacht, und keine Zugangsdaten auf der verlinkten Seite eingeben.",
+    "B": "Die Gewinnspiel-Seite unabhängig suchen und selbst nachsehen, ob dein Freund dort wirklich gelistet ist.",
+    "C": "Über die Login-Seite abstimmen, weil der Nachrichtenstil zu deinem Freund passt."
+  },
+  "scores": {
+    "A": 4,
+    "B": 3,
+    "C": 0
+  },
+  "safeActions": [
+    "A",
+    "B"
+  ],
+  "explanation": "Übernommene Konten erben den echten Schreibstil und die Kontakthistorie ihres Opfers. Eine Rückfrage über einen zweiten Kanal zeigt, ob dein Freund noch selbst am Drücker ist.",
+  "proTip": "Ein vertrautes Konto kann eine unbekannte Person dahinter haben.",
+  "hackKey": "C",
+  "hackTrigger": "Vertrautheit",
+  "tags": [
+    "family",
+    "c",
+    "social-media",
+    "account-takeover"
+  ],
+  "active": true
+}

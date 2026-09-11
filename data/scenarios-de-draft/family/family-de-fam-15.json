@@ -1,0 +1,34 @@
+{
+  "id": "family-de-fam-15",
+  "lang": "de",
+  "title": "Anrufer-ID zeigt deine Bank",
+  "edition": "family",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Bankbetrug",
+  "scenario": "Dein Handy zeigt beim eingehenden Anruf den echten Namen deiner Sparkasse an. Der Anrufer sagt, es gebe verdächtige Abbuchungen, und bittet dich, dich mit deiner Banking-PIN in einer „Sicherheitsleitung“ zu identifizieren.",
+  "answers": {
+    "A": "Auflegen und die Bank selbst über die Nummer aus der App anrufen — eine angezeigte Nummer ist kein Beweis.",
+    "B": "Die PIN nennen, weil die Anzeige eindeutig die Bank zeigt.",
+    "C": "Nach dem Namen des Mitarbeiters fragen und ihn dann zurückrufen lassen."
+  },
+  "scores": {
+    "A": 4,
+    "B": 0,
+    "C": 1
+  },
+  "safeActions": [
+    "A"
+  ],
+  "explanation": "Die angezeigte Anrufer-ID lässt sich technisch fälschen (Call-ID-Spoofing) und beweist nichts. Deine PIN gibst du niemals am Telefon weiter, auch nicht an „die Bank“.",
+  "proTip": "Die Anzeige auf dem Display kann lügen, deine PIN nie preisgeben.",
+  "hackKey": "A",
+  "hackTrigger": "Autorität",
+  "tags": [
+    "family",
+    "a",
+    "banking",
+    "caller-id-spoofing"
+  ],
+  "active": true
+}

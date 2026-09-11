@@ -1,0 +1,34 @@
+{
+  "id": "family-de-fam-03",
+  "lang": "de",
+  "title": "Der Kita-Ausflug: Zahlung heute Abend",
+  "edition": "family",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Schulzahlungen",
+  "scenario": "Eine Nachricht der Kita-Leitung im Eltern-Chat sagt, die Zahlung für den morgigen Ausflug müsse heute Abend bis 20 Uhr per Sofortüberweisung an ein neues Konto gehen, sonst falle der Platz weg. Der Name der Erzieherin stimmt, das Konto ist neu.",
+  "answers": {
+    "A": "Sofort überweisen, damit der Platz für dein Kind nicht verloren geht.",
+    "B": "In der Elternschaft nachfragen, ob noch jemand die Nachricht bekommen hat.",
+    "C": "Die Erzieherin über die bekannte Kita-Nummer oder persönlich anrufen und die neue Kontoverbindung bestätigen lassen, bevor du zahlst."
+  },
+  "scores": {
+    "A": 0,
+    "B": 2,
+    "C": 4
+  },
+  "safeActions": [
+    "C"
+  ],
+  "explanation": "Ein gehacktes Chat-Konto sieht aus wie die echte Person, nur die Kontoverbindung ist neu. Eine kurze Rückfrage über einen zweiten Kanal deckt das sofort auf.",
+  "proTip": "Neue Kontoverbindung, altes Vertrauen — erst anrufen, dann zahlen.",
+  "hackKey": "H",
+  "hackTrigger": "Hetze",
+  "tags": [
+    "family",
+    "h",
+    "school",
+    "account-takeover"
+  ],
+  "active": true
+}

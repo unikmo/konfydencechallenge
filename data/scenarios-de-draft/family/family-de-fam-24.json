@@ -1,0 +1,34 @@
+{
+  "id": "family-de-fam-24",
+  "lang": "de",
+  "title": "Der Mobilfunk-Support rettet deine Nummer",
+  "edition": "family",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Mobilfunk",
+  "scenario": "Ein Anrufer gibt sich als Support deines Mobilfunkanbieters aus und sagt, deine Nummer solle in wenigen Minuten „aus Sicherheitsgründen“ zu einem anderen Anbieter portiert werden — außer du bestätigst sofort den PIN-Code, den du gerade per SMS bekommst, um das zu verhindern.",
+  "answers": {
+    "A": "Auflegen, die eigene SIM-Karte nicht anfassen und den Anbieter über die offizielle Hotline oder App kontaktieren.",
+    "B": "Den Code notieren, aber erst später weitergeben.",
+    "C": "Den PIN-Code sofort am Telefon vorlesen, um die Portierung zu stoppen."
+  },
+  "scores": {
+    "A": 4,
+    "B": 1,
+    "C": 0
+  },
+  "safeActions": [
+    "A"
+  ],
+  "explanation": "Wer den per SMS gesendeten Code vorliest, bestätigt in Wahrheit selbst eine SIM-Portierung an die Täter — das Gegenteil von „schützen“. Anbieter-Support fragt nie nach einem SMS-Code, den du gerade erhalten hast.",
+  "proTip": "Ein Code, der gerade erst ankam, gehört nur dir — auch nicht dem „Support“.",
+  "hackKey": "A",
+  "hackTrigger": "Autorität",
+  "tags": [
+    "family",
+    "a",
+    "mobile-service",
+    "sim-swap"
+  ],
+  "active": true
+}

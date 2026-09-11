@@ -1,0 +1,36 @@
+{
+  "id": "family-de-fam-01",
+  "lang": "de",
+  "title": "Deine Bank meldet: sofort verschieben",
+  "edition": "family",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Bankbetrug",
+  "scenario": "Eine SMS im Namen deiner Sparkasse meldet eine „nicht autorisierte Überweisung über 2.340 €“. Sekunden später ruft jemand an, kennt deinen Namen und sagt, du müsstest dein Guthaben sofort per push-TAN auf ein „Sicherheitskonto“ freigeben, bevor die Abbuchung durchläuft.",
+  "answers": {
+    "A": "Auflegen und die Bank über die Nummer aus der App oder von der Rückseite deiner Karte anrufen; auf Zuruf am Telefon kein Geld bewegen und keine TAN freigeben.",
+    "B": "In der Banking-App zuerst die Karte sperren, dann die Bank über einen bekannten Weg kontaktieren.",
+    "C": "Eine push-TAN nur für die eine „Sicherheitsüberweisung“ freigeben und den Rest danach in Ruhe prüfen."
+  },
+  "scores": {
+    "A": 4,
+    "B": 3,
+    "C": 0
+  },
+  "safeActions": [
+    "A",
+    "B"
+  ],
+  "explanation": "Echte Betrugsabteilungen arbeiten manchmal schnell — aber sie brauchen nie, dass du dein eigenes Geld überweist oder eine TAN freigibst, damit es „sicher“ ist. Jede TAN bestätigt genau die Überweisung, die auf deinem Display steht.",
+  "proTip": "Ein „Sicherheitskonto“, das dir jemand am Telefon nennt, ist kein sicheres Konto.",
+  "hackKey": "H",
+  "hackTrigger": "Hetze",
+  "tags": [
+    "family",
+    "h",
+    "bank-impostor",
+    "push-tan",
+    "diagnostic"
+  ],
+  "active": true
+}
