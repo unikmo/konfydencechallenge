@@ -142,6 +142,30 @@ export function isTeamSku(sku: string): sku is TeamSku {
   return sku === TEAM_SEAT.sku;
 }
 
+// --- Multi-currency pricing (2026-09-11, Tichi) ---------------------------
+// Every catalogue entry's `unitAmount` doubles as its EUR price at the same
+// numeral: an item priced 699 (USD cents) is both $6.99 and €6.99. Every
+// other presentment currency is NOT same-numeral — it's computed from that
+// EUR figure at the live ECB rate each time the catalogue syncs (see
+// scripts/stripe-sync-catalog.ts), via Stripe's per-Price `currency_options`.
+// Stripe then auto-presents the buyer's local currency at Checkout based on
+// their location; nothing in the checkout route needs to choose a currency.
+//
+// Not covered: the gift flow's inline `price_data` line item (one-time,
+// ad hoc, not a stored catalogue Price) stays USD-only — multi-currency
+// `currency_options` only exist on real Price objects with a lookup_key.
+export const SAME_NUMERAL_CURRENCIES = ["usd", "eur"] as const;
+
+// Curated presentment currencies priced explicitly (from the EUR figure)
+// rather than left to Stripe's own default single-currency behaviour.
+// Stripe amounts are in the currency's smallest unit; these are all normal
+// 2-decimal currencies except "jpy", which has no minor unit — see
+// ZERO_DECIMAL_CURRENCIES in the sync scripts.
+export const PEGGED_CURRENCIES = [
+  "gbp", "cad", "aud", "chf", "jpy", "sek", "nok", "dkk", "pln", "czk",
+  "huf", "nzd", "sgd", "hkd", "mxn", "brl", "inr", "zar",
+] as const;
+
 export const SUBSCRIPTION_CATALOG: Record<SubscriptionSku, SubscriptionCatalogEntry> = {
   "LOCKSCREENS-HOME": {
     sku: "LOCKSCREENS-HOME",
