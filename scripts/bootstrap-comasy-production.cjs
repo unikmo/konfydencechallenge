@@ -37,6 +37,7 @@ const migrationFiles = [
   "prisma/migrations/20260906130000_lockscreen_stripe_invoice/migration.sql",
   "prisma/migrations/20260909120000_play_rooms/migration.sql",
   "prisma/migrations/20260910120000_annual_and_teams/migration.sql",
+  "prisma/migrations/20260911090000_scenario_lang/migration.sql",
 ];
 
 const npx = process.platform === "win32" ? "npx.cmd" : "npx";
