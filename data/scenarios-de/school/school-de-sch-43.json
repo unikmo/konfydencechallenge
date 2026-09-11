@@ -1,0 +1,34 @@
+{
+  "id": "school-de-sch-43",
+  "lang": "de",
+  "title": "„Support“ will dein Handy sehen",
+  "edition": "school",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Bildschirmfreigabe",
+  "scenario": "Nach einem Problem mit einer App schlägt ein Chat-„Support“ vor, per Bildschirmfreigabe-App live mitzusehen, „um das Problem live zu lösen“ — inklusive eines kurzen Blicks in deine Banking-App.",
+  "answers": {
+    "A": "Die Bildschirmfreigabe erlauben und dem Support beim Banking-Check zusehen lassen.",
+    "B": "Die Freigabe erlauben, aber die Banking-App vorher schließen.",
+    "C": "Die Bildschirmfreigabe ablehnen; ein App-Problem hat nichts mit deiner Banking-App zu tun."
+  },
+  "scores": {
+    "A": 0,
+    "B": 1,
+    "C": 4
+  },
+  "safeActions": [
+    "C"
+  ],
+  "explanation": "Ein App-Problem braucht nie einen Blick in deine Banking-App — der Wunsch, „live mitzusehen“, ist der eigentliche Zweck des Anrufs. Bildschirmfreigabe gibt vollen Zugriff auf alles, was gerade offen ist.",
+  "proTip": "Ein App-Support braucht dein Banking nie zu sehen.",
+  "hackKey": "K",
+  "hackTrigger": "Notbremse",
+  "tags": [
+    "school",
+    "k",
+    "screen-sharing",
+    "remote-access"
+  ],
+  "active": true
+}

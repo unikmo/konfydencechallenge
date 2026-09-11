@@ -1,0 +1,35 @@
+{
+  "id": "school-de-sch-37",
+  "lang": "de",
+  "title": "Das Plakat verspricht kostenlose Pizza",
+  "edition": "school",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "QR-Codes",
+  "scenario": "Ein Plakat am Schuleingang zeigt einen QR-Code: „Scan für kostenlose Pizza — nur heute!“ Der Code führt zu einer Seite, die nach deinem Namen, deiner Handynummer und einer App-Installation fragt.",
+  "answers": {
+    "A": "Den Code scannen und die App installieren, um die kostenlose Pizza zu bekommen.",
+    "B": "Den Code nicht scannen und bei der Schulleitung fragen, ob das Plakat wirklich von der Schule oder einem bekannten Sponsor stammt.",
+    "C": "Den Code scannen, aber die App nicht installieren."
+  },
+  "scores": {
+    "A": 0,
+    "B": 4,
+    "C": 1
+  },
+  "safeActions": [
+    "B"
+  ],
+  "explanation": "Ein QR-Code an einem unbeaufsichtigten Plakat, der eine App-Installation und persönliche Daten verlangt, ist eine bekannte Masche („Quishing“) — die App kann Schadsoftware sein. Die Schulleitung kennt echte Aktionen.",
+  "proTip": "Kostenlose Pizza braucht keine App-Installation.",
+  "hackKey": "K",
+  "hackTrigger": "Notbremse",
+  "tags": [
+    "school",
+    "k",
+    "qr-codes",
+    "quishing",
+    "diagnostic"
+  ],
+  "active": true
+}

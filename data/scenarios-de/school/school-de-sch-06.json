@@ -1,0 +1,34 @@
+{
+  "id": "school-de-sch-06",
+  "lang": "de",
+  "title": "Der Skin-Drop endet in 90 Sekunden",
+  "edition": "school",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Gaming",
+  "scenario": "Eine Werbeanzeige zeigt einen seltenen Valorant-Skin für 1 € statt 20 € — „Angebot endet in 90 Sekunden“ — und verlangt dazu deinen Riot-Account-Login auf einer externen Seite.",
+  "answers": {
+    "A": "Schnell einloggen, um das Angebot nicht zu verpassen.",
+    "B": "Ein Zweit-Account zum Testen der Seite benutzen.",
+    "C": "Den Skin nur im offiziellen Riot-/Valorant-Shop kaufen und die externe Seite ignorieren."
+  },
+  "scores": {
+    "A": 0,
+    "B": 1,
+    "C": 4
+  },
+  "safeActions": [
+    "C"
+  ],
+  "explanation": "Ein 90-Sekunden-Countdown soll verhindern, dass du merkst: Riot verkauft Skins nie über eine externe Login-Seite. Wer sich dort einloggt, gibt sein Passwort direkt an Angreifer weiter.",
+  "proTip": "Skins kauft man im Spiel, nie auf einer fremden Login-Seite.",
+  "hackKey": "H",
+  "hackTrigger": "Hetze",
+  "tags": [
+    "school",
+    "h",
+    "gaming",
+    "credential-phishing"
+  ],
+  "active": true
+}

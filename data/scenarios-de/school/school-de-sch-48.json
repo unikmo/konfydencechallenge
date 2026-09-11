@@ -1,0 +1,34 @@
+{
+  "id": "school-de-sch-48",
+  "lang": "de",
+  "title": "Werde bezahlt fürs Posten — installiere nur unsere Creator-App",
+  "edition": "school",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Influencer",
+  "scenario": "Eine angebliche Marketing-Agentur bietet dir Bezahlung fürs Teilen von Beiträgen an — du musst dafür nur ihre „Creator-App“ außerhalb des offiziellen App-Stores installieren.",
+  "answers": {
+    "A": "Die App installieren, um mit dem Bezahlt-Posten anzufangen.",
+    "B": "Die App auf einem alten Zweitgerät installieren, um vorsichtig zu bleiben.",
+    "C": "Die App nicht außerhalb des offiziellen Stores installieren; eine seriöse Agentur arbeitet über die normalen Plattform-Funktionen."
+  },
+  "scores": {
+    "A": 0,
+    "B": 1,
+    "C": 4
+  },
+  "safeActions": [
+    "C"
+  ],
+  "explanation": "Eine App außerhalb des offiziellen Stores zu installieren, hebelt die Sicherheitsprüfung des Stores komplett aus. Seriöse Kooperationen brauchen das nie — sie laufen über die Plattform selbst.",
+  "proTip": "Eine App von außerhalb des Stores ist ein Risiko, kein Job-Angebot.",
+  "hackKey": "K",
+  "hackTrigger": "Notbremse",
+  "tags": [
+    "school",
+    "k",
+    "influencers",
+    "malware"
+  ],
+  "active": true
+}

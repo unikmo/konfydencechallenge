@@ -1,0 +1,35 @@
+{
+  "id": "school-de-sch-02",
+  "lang": "de",
+  "title": "Die „Prüfungsfragen“-Liste schließt um Mitternacht",
+  "edition": "school",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Schularbeiten",
+  "scenario": "In eurem Klassenchat kursiert ein Link zu angeblich echten Fragen der morgigen Mathe-Klausur — der Zugang „schließt um Mitternacht“ und kostet 5 € per Handy-Guthaben.",
+  "answers": {
+    "A": "Den Link nicht öffnen und stattdessen für die Klausur lernen; solche Listen sind fast immer Betrug oder Fake.",
+    "B": "Zahlen und die Liste noch schnell ansehen, bevor der Zugang schließt.",
+    "C": "Erst eine Freundin fragen, ob die Liste echt aussieht."
+  },
+  "scores": {
+    "A": 4,
+    "B": 0,
+    "C": 1
+  },
+  "safeActions": [
+    "A"
+  ],
+  "explanation": "Echte Klausurfragen kursieren nicht gegen Bezahlung mit Mitternachtsfrist in einem Klassenchat. Selbst wenn etwas echt aussieht, ist die Nutzung ein Betrugsrisiko UND ein Schulproblem — der Zeitdruck soll dich davon abhalten, das zu merken.",
+  "proTip": "Eine Klausur, die man kaufen muss, ist keine Abkürzung — sie ist eine Falle.",
+  "hackKey": "H",
+  "hackTrigger": "Hetze",
+  "tags": [
+    "school",
+    "h",
+    "schoolwork",
+    "scam",
+    "diagnostic"
+  ],
+  "active": true
+}

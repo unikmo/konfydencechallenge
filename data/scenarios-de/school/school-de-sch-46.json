@@ -1,0 +1,34 @@
+{
+  "id": "school-de-sch-46",
+  "lang": "de",
+  "title": "Ein „Support-Bot“ fragt nach deinen Wiederherstellungswörtern",
+  "edition": "school",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Wallet-Wiederherstellung",
+  "scenario": "Ein Chatbot auf einer Krypto-Wallet-Seite, die du zum ersten Mal benutzt, bittet dich, deine 12 Wiederherstellungswörter einzugeben, „um dein Konto zu verbinden“.",
+  "answers": {
+    "A": "Die Wörter für niemanden und keine Website eingeben; sie sind nur für die Wiederherstellung im eigenen Wallet gedacht.",
+    "B": "Die Wörter eingeben, um das Konto zu verbinden.",
+    "C": "Nur die ersten sechs Wörter eingeben."
+  },
+  "scores": {
+    "A": 4,
+    "B": 0,
+    "C": 0
+  },
+  "safeActions": [
+    "A"
+  ],
+  "explanation": "Wiederherstellungswörter sind der Generalschlüssel zu einer Krypto-Wallet — keine echte Seite oder Bot braucht sie, um „zu verbinden“. Wer sie eingibt, übergibt die vollständige Kontrolle.",
+  "proTip": "Wiederherstellungswörter gehören nirgendwo hin außer in dein eigenes Wallet.",
+  "hackKey": "K",
+  "hackTrigger": "Notbremse",
+  "tags": [
+    "school",
+    "k",
+    "wallet-recovery",
+    "crypto-phishing"
+  ],
+  "active": true
+}

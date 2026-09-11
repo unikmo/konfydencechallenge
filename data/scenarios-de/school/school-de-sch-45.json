@@ -1,0 +1,34 @@
+{
+  "id": "school-de-sch-45",
+  "lang": "de",
+  "title": "Die Rechnung steckt in der DM",
+  "edition": "school",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Zahlungen",
+  "scenario": "Nach einem Gruppenkauf für ein Geschenk bekommst du eine private Nachricht mit einer „Rechnung“ und der Bitte, deinen Anteil sofort per Sofortüberweisung an ein neues Konto zu schicken.",
+  "answers": {
+    "A": "Sofort per Sofortüberweisung an das genannte Konto zahlen.",
+    "B": "In der Gruppe nachfragen, ob das genannte Konto und der Betrag wirklich stimmen, bevor du zahlst.",
+    "C": "Nur die Hälfte des genannten Betrags zahlen."
+  },
+  "scores": {
+    "A": 0,
+    "B": 4,
+    "C": 0
+  },
+  "safeActions": [
+    "B"
+  ],
+  "explanation": "Eine private Nachricht mit einer „Rechnung“ und einem neuen Konto ist ein einfacher Weg, Zahlungen abzufangen. Eine kurze Rückfrage in der eigentlichen Gruppe klärt es sofort.",
+  "proTip": "Eine Rechnung per DM ist keine echte Rechnung.",
+  "hackKey": "K",
+  "hackTrigger": "Notbremse",
+  "tags": [
+    "school",
+    "k",
+    "payments",
+    "invoice-scam"
+  ],
+  "active": true
+}

@@ -1,0 +1,34 @@
+{
+  "id": "school-de-sch-21",
+  "lang": "de",
+  "title": "„Apple/Google Support“ hat eine Abbuchung gefunden",
+  "edition": "school",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "App-Stores",
+  "scenario": "Eine Nachricht im Namen des App-Store-Supports meldet eine ungewöhnliche Abbuchung auf deinem Konto und bittet, dich über einen Link anzumelden, um sie „zu stornieren“.",
+  "answers": {
+    "A": "Sich über den Link anmelden, um die Abbuchung sofort zu stornieren.",
+    "B": "Den Link öffnen, aber die Anmeldung abbrechen, sobald nach dem Passwort gefragt wird.",
+    "C": "Den Link ignorieren und den Kauf- und Abo-Verlauf direkt in den App-Store-Einstellungen prüfen."
+  },
+  "scores": {
+    "A": 0,
+    "B": 1,
+    "C": 4
+  },
+  "safeActions": [
+    "C"
+  ],
+  "explanation": "App-Store-Support kontaktiert dich nicht per Link-Anmeldung wegen einer Abbuchung — der komplette Kaufverlauf steht immer direkt in den Store-Einstellungen deines Geräts.",
+  "proTip": "Kaufverlauf prüfst du in den Einstellungen, nie über einen Link aus einer Nachricht.",
+  "hackKey": "A",
+  "hackTrigger": "Autorität",
+  "tags": [
+    "school",
+    "a",
+    "app-stores",
+    "phishing"
+  ],
+  "active": true
+}

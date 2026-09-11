@@ -1,0 +1,34 @@
+{
+  "id": "school-de-sch-44",
+  "lang": "de",
+  "title": "Deine Skin kann eine „Investition“ werden",
+  "edition": "school",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Krypto & Trends",
+  "scenario": "Ein Trend auf TikTok zeigt, wie man seltene Gaming-Skins in eine Krypto-Plattform „investiert“, um sie angeblich zu vervielfachen — du musst dafür deinen Account mit der Plattform verknüpfen.",
+  "answers": {
+    "A": "Nicht mitmachen; Skins „vervielfachen“ sich nicht über eine externe Plattform, und eine Verknüpfung gibt Fremden Zugriff auf deinen Account.",
+    "B": "Den Account verknüpfen und mitmachen, weil der Trend viele Klicks hat.",
+    "C": "Nur einen unwichtigen Skin zum Testen verknüpfen."
+  },
+  "scores": {
+    "A": 4,
+    "B": 0,
+    "C": 0
+  },
+  "safeActions": [
+    "A"
+  ],
+  "explanation": "Viele Klicks bei einem Trend sind kein Sicherheitsbeweis. Eine Kontoverknüpfung mit einer fremden Plattform gibt Zugriff auf dein gesamtes Konto, nicht nur auf den einen Skin.",
+  "proTip": "Ein virtueller Gegenstand vervielfacht sich nicht durch eine fremde Plattform.",
+  "hackKey": "K",
+  "hackTrigger": "Notbremse",
+  "tags": [
+    "school",
+    "k",
+    "crypto",
+    "account-takeover"
+  ],
+  "active": true
+}

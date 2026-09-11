@@ -1,0 +1,34 @@
+{
+  "id": "school-de-sch-30",
+  "lang": "de",
+  "title": "Ein Creator will dich im Team haben",
+  "edition": "school",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Influencer",
+  "scenario": "Ein bekannter Creator, dem du seit Jahren folgst, schreibt dir persönlich und bietet an, dich „ins Team“ zu holen — du müsstest dafür nur kurz seinen Zugangsdaten-Check auf einer verlinkten Seite bestätigen.",
+  "answers": {
+    "A": "Die verlinkte Seite ignorieren; echte Kooperationen laufen über offizielle Kanäle, nie über eine Login-Bestätigung.",
+    "B": "Die Zugangsdaten bestätigen, weil es eine große Chance ist, vom Lieblings-Creator entdeckt zu werden.",
+    "C": "Antworten und nach mehr Details zum Team fragen, bevor du etwas bestätigst."
+  },
+  "scores": {
+    "A": 4,
+    "B": 0,
+    "C": 2
+  },
+  "safeActions": [
+    "A"
+  ],
+  "explanation": "Große, bekannte Creator holen niemanden über eine private Login-Bestätigungsseite ins Team — das ist Autoritäts-Camouflage über einen vertrauten Namen, der Account kann selbst gekapert sein.",
+  "proTip": "Eine große Chance, die einen Login-Check verlangt, ist keine echte Chance.",
+  "hackKey": "C",
+  "hackTrigger": "Vertrautheit",
+  "tags": [
+    "school",
+    "c",
+    "influencers",
+    "credential-phishing"
+  ],
+  "active": true
+}

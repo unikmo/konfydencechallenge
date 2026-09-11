@@ -1,0 +1,34 @@
+{
+  "id": "school-de-sch-36",
+  "lang": "de",
+  "title": "Alle machen bei der „Enthüllungs“-Umfrage mit",
+  "edition": "school",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Gruppenchats",
+  "scenario": "In eurem Klassenchat verbreitet sich eine anonyme Umfrage-App, bei der man peinliche Fragen über Mitschüler beantworten kann — fast die ganze Klasse hat sich schon mit ihrem Instagram-Login angemeldet.",
+  "answers": {
+    "A": "Nicht mitmachen; eine App, die für „anonyme“ Umfragen einen echten Social-Media-Login verlangt, ist ein Warnsignal, egal wie viele mitmachen.",
+    "B": "Sich auch mit dem eigenen Instagram-Login anmelden, weil alle anderen es schon gemacht haben.",
+    "C": "Sich mit einem Fake-Account anmelden, um mitzumachen, ohne den echten Account zu riskieren."
+  },
+  "scores": {
+    "A": 4,
+    "B": 0,
+    "C": 2
+  },
+  "safeActions": [
+    "A"
+  ],
+  "explanation": "Dass viele andere schon mitgemacht haben, macht eine unsichere App nicht sicherer — es erhöht nur den Druck, nicht die Sicherheit. Eine echte anonyme Umfrage braucht keinen Social-Media-Login.",
+  "proTip": "Viele Mitmacher sind kein Sicherheitscheck.",
+  "hackKey": "C",
+  "hackTrigger": "Vertrautheit",
+  "tags": [
+    "school",
+    "c",
+    "group-chats",
+    "app-phishing"
+  ],
+  "active": true
+}

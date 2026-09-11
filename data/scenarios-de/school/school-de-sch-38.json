@@ -1,0 +1,35 @@
+{
+  "id": "school-de-sch-38",
+  "lang": "de",
+  "title": "Schick mir den Reset-Code",
+  "edition": "school",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Account-Wiederherstellung",
+  "scenario": "Ein „Support-Mitarbeiter“ in einem Spiele-Chat sagt, er könne dein gesperrtes Konto entsperren, wenn du ihm den Reset-Code vorliest, den du gerade per SMS bekommst.",
+  "answers": {
+    "A": "Den Code vorlesen, damit das Konto entsperrt wird.",
+    "B": "Den Code für niemanden vorlesen und die Sperrung ausschließlich über den offiziellen Support-Kanal des Spiels klären.",
+    "C": "Nur einen Teil des Codes vorlesen."
+  },
+  "scores": {
+    "A": 0,
+    "B": 4,
+    "C": 0
+  },
+  "safeActions": [
+    "B"
+  ],
+  "explanation": "Ein gerade erhaltener Reset-Code ist für dich allein bestimmt — wer ihn vorliest, entsperrt in Wahrheit das Konto für die Angreifer, nicht für sich selbst.",
+  "proTip": "Ein Reset-Code, den du gerade bekommen hast, liest du niemandem vor.",
+  "hackKey": "K",
+  "hackTrigger": "Notbremse",
+  "tags": [
+    "school",
+    "k",
+    "account-recovery",
+    "otp-phishing",
+    "diagnostic"
+  ],
+  "active": true
+}

@@ -1,0 +1,34 @@
+{
+  "id": "school-de-sch-41",
+  "lang": "de",
+  "title": "Der „Cheat“ braucht Geräte-Admin-Rechte",
+  "edition": "school",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Downloads",
+  "scenario": "Ein herunterladbares „Cheat-Tool“ für dein Lieblingsspiel verlangt bei der Installation Geräte-Administrator-Rechte, „um die Erkennung zu umgehen“.",
+  "answers": {
+    "A": "Die Rechte erteilen, damit der Cheat richtig funktioniert.",
+    "B": "Die Rechte erteilen, aber sie danach in den Einstellungen wieder entziehen.",
+    "C": "Die Installation abbrechen und das Tool löschen; ein Programm, das Geräte-Admin-Rechte für ein Spiel verlangt, ist praktisch immer Schadsoftware."
+  },
+  "scores": {
+    "A": 0,
+    "B": 1,
+    "C": 4
+  },
+  "safeActions": [
+    "C"
+  ],
+  "explanation": "Geräte-Administrator-Rechte geben einer App nahezu vollständige Kontrolle über dein Gerät — kein Spiel-Cheat braucht das legitim. Das ist praktisch immer Malware.",
+  "proTip": "Kein Cheat braucht die Kontrolle über dein ganzes Gerät.",
+  "hackKey": "K",
+  "hackTrigger": "Notbremse",
+  "tags": [
+    "school",
+    "k",
+    "downloads",
+    "malware"
+  ],
+  "active": true
+}

@@ -1,0 +1,34 @@
+{
+  "id": "school-de-sch-11",
+  "lang": "de",
+  "title": "Kostenloses Discord Nitro — Link läuft heute Nacht ab",
+  "edition": "school",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Gaming",
+  "scenario": "Eine Nachricht in einem Discord-Server verspricht kostenloses Nitro für ein Jahr, wenn du dich „noch heute Nacht“ über einen Link mit deinem Discord-Login anmeldest.",
+  "answers": {
+    "A": "Den Link ignorieren; Discord verschenkt Nitro nicht über Links in Server-Nachrichten mit Fristen.",
+    "B": "Sich sofort über den Link anmelden, um das kostenlose Nitro zu sichern.",
+    "C": "Den Link öffnen, aber ein anderes Passwort als sonst benutzen."
+  },
+  "scores": {
+    "A": 4,
+    "B": 0,
+    "C": 0
+  },
+  "safeActions": [
+    "A"
+  ],
+  "explanation": "„Kostenloses Nitro, Login-Link, heute Nacht“ ist eine der verbreitetsten Discord-Phishing-Maschen. Discord vergibt Geschenke nie so.",
+  "proTip": "Kostenloses Nitro über einen fremden Link gibt es nicht — nur gestohlene Logins.",
+  "hackKey": "H",
+  "hackTrigger": "Hetze",
+  "tags": [
+    "school",
+    "h",
+    "gaming",
+    "discord-phishing"
+  ],
+  "active": true
+}

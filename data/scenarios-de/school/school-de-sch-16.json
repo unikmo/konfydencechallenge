@@ -1,0 +1,34 @@
+{
+  "id": "school-de-sch-16",
+  "lang": "de",
+  "title": "Der „Spieladmin“ kann deinen Gegenstand wiederherstellen",
+  "edition": "school",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Gaming",
+  "scenario": "Nach einem verlorenen seltenen Item schreibt dir jemand mit dem Namen „[Admin] Support“, er könne es wiederherstellen, wenn du dich kurz über einen Link mit deinem Account einloggst, „damit er den Fehler sieht“.",
+  "answers": {
+    "A": "Den Link ignorieren und den Vorfall über den offiziellen Support des Spiels melden.",
+    "B": "Sich über den Link einloggen, damit der Admin den Fehler beheben kann.",
+    "C": "Dem „Admin“ Screenshots des Fehlers schicken, aber nicht einloggen."
+  },
+  "scores": {
+    "A": 4,
+    "B": 0,
+    "C": 2
+  },
+  "safeActions": [
+    "A"
+  ],
+  "explanation": "Echte Spiele-Admins reparieren Accounts nie, indem sie dich auf eine externe Login-Seite schicken — sie arbeiten über das offizielle Support-System. Ein „[Admin]“ im Namen ist leicht zu fälschen.",
+  "proTip": "Ein Name mit „Admin“ drin macht aus einem Link kein offizielles Tool.",
+  "hackKey": "A",
+  "hackTrigger": "Autorität",
+  "tags": [
+    "school",
+    "a",
+    "gaming",
+    "account-phishing"
+  ],
+  "active": true
+}

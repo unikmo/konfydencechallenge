@@ -1,0 +1,34 @@
+{
+  "id": "school-de-sch-42",
+  "lang": "de",
+  "title": "Das Klassenfahrt-WLAN will deinen Social-Login",
+  "edition": "school",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "WLAN",
+  "scenario": "Im Hotel-WLAN während der Klassenfahrt musst du dich angeblich über deinen Instagram- oder Google-Login „anmelden“, statt nur ein einfaches Passwort einzugeben.",
+  "answers": {
+    "A": "Die Lehrkraft fragen, ob das wirklich das offizielle Hotel-WLAN ist, und keinen Social-Login für ein öffentliches Netzwerk nutzen.",
+    "B": "Sich mit dem Social-Login anmelden, um Internet zu haben.",
+    "C": "Ein Zweit-Account für die WLAN-Anmeldung nutzen."
+  },
+  "scores": {
+    "A": 4,
+    "B": 0,
+    "C": 2
+  },
+  "safeActions": [
+    "A"
+  ],
+  "explanation": "Ein legitimes Gäste-WLAN braucht nie deinen echten Social-Media-Login — das ist ein Weg, Zugangsdaten abzugreifen, getarnt als harmlose Anmeldeseite.",
+  "proTip": "Ein WLAN-Login ist nie ein guter Grund für deinen echten Social-Login.",
+  "hackKey": "K",
+  "hackTrigger": "Notbremse",
+  "tags": [
+    "school",
+    "k",
+    "wifi",
+    "credential-phishing"
+  ],
+  "active": true
+}

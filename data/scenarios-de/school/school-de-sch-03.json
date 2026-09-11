@@ -1,0 +1,34 @@
+{
+  "id": "school-de-sch-03",
+  "lang": "de",
+  "title": "Zwei Tickets. Fünf Minuten.",
+  "edition": "school",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Tickets",
+  "scenario": "In einer Ticketbörse-Gruppe auf Telegram bietet jemand zwei Konzertkarten zum Originalpreis an — „nur die nächsten 5 Minuten reserviert“, Zahlung per Überweisung an eine Privatperson.",
+  "answers": {
+    "A": "Sofort überweisen, um die Tickets nicht zu verpassen.",
+    "B": "Die Hälfte anzahlen, um Interesse zu zeigen.",
+    "C": "Nur über eine Plattform mit Käuferschutz zahlen oder persönliche Übergabe gegen Bargeld vorschlagen."
+  },
+  "scores": {
+    "A": 0,
+    "B": 0,
+    "C": 4
+  },
+  "safeActions": [
+    "C"
+  ],
+  "explanation": "Ein enges Zeitfenster bei einer Vorauszahlung an eine unbekannte Person ist die klassische Ticket-Betrugsmasche. Käuferschutz oder eine persönliche Übergabe schützen dich, ein Countdown tut das nie.",
+  "proTip": "Tickets, die in 5 Minuten weg sind, sind meist gar nicht da.",
+  "hackKey": "H",
+  "hackTrigger": "Hetze",
+  "tags": [
+    "school",
+    "h",
+    "tickets",
+    "payment-scam"
+  ],
+  "active": true
+}

@@ -1,0 +1,34 @@
+{
+  "id": "school-de-sch-22",
+  "lang": "de",
+  "title": "Der Trainer braucht ein neues Anmeldeformular",
+  "edition": "school",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Sportvereine",
+  "scenario": "Eine E-Mail, angeblich vom Trainer deines Vereins, verlangt, dass deine Eltern ein „neues Anmeldeformular“ mit Bankdaten für die Vereinsbeiträge über einen Link ausfüllen, sonst dürftest du nicht mehr mitspielen.",
+  "answers": {
+    "A": "Die Bankdaten der Eltern sofort über den Link eingeben, damit du weiter mitspielen darfst.",
+    "B": "Den Trainer persönlich oder über den Verein direkt fragen, ob dieses Formular wirklich von ihm kommt.",
+    "C": "Nur den Namen ausfüllen, aber keine Bankdaten."
+  },
+  "scores": {
+    "A": 0,
+    "B": 4,
+    "C": 1
+  },
+  "safeActions": [
+    "B"
+  ],
+  "explanation": "Vereinsbeiträge laufen über bekannte, angekündigte Wege — ein plötzlicher neuer Link mit Bankdatenabfrage und Drohung ist ein klares Warnsignal. Der Trainer kann es in einem Gespräch sofort bestätigen.",
+  "proTip": "Eine Drohung mit Vereinsausschluss soll dich vom Nachfragen abhalten.",
+  "hackKey": "A",
+  "hackTrigger": "Autorität",
+  "tags": [
+    "school",
+    "a",
+    "sports-teams",
+    "phishing"
+  ],
+  "active": true
+}

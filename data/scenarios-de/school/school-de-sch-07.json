@@ -1,0 +1,34 @@
+{
+  "id": "school-de-sch-07",
+  "lang": "de",
+  "title": "Anmeldeschluss in einer Stunde",
+  "edition": "school",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Wettbewerbe",
+  "scenario": "Eine E-Mail zu einem bundesweiten Schülerwettbewerb sagt, die Anmeldung schließe in einer Stunde und verlangt eine „Bearbeitungsgebühr“ von 15 € per Guthabenkarte, um den Platz zu sichern.",
+  "answers": {
+    "A": "Bei deiner Schule oder Lehrkraft nachfragen, ob der Wettbewerb und die Gebühr echt sind, bevor du zahlst.",
+    "B": "Die Gebühr sofort per Guthabenkarte zahlen, um die Anmeldung nicht zu verpassen.",
+    "C": "Nur die Hälfte der Gebühr zahlen, um vorsichtig zu bleiben."
+  },
+  "scores": {
+    "A": 4,
+    "B": 0,
+    "C": 0
+  },
+  "safeActions": [
+    "A"
+  ],
+  "explanation": "Seriöse Schülerwettbewerbe verlangen keine Guthabenkarten-Zahlung unter Zeitdruck. Deine Schule oder Lehrkraft kennt echte Wettbewerbe und kann das in Minuten bestätigen.",
+  "proTip": "Eine Guthabenkarte als „Bearbeitungsgebühr“ ist immer ein Warnsignal.",
+  "hackKey": "H",
+  "hackTrigger": "Hetze",
+  "tags": [
+    "school",
+    "h",
+    "competitions",
+    "gift-card"
+  ],
+  "active": true
+}

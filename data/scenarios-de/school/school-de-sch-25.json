@@ -1,0 +1,36 @@
+{
+  "id": "school-de-sch-25",
+  "lang": "de",
+  "title": "Dein bester Freund braucht einen winzigen Gefallen",
+  "edition": "school",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Freunde",
+  "scenario": "Dein bester Freund schreibt dir auf Snapchat: „Kannst du mir kurz deinen Insta-Login geben, meiner ist gesperrt und ich muss was für die Schule posten, dauert nur 2 Minuten.“",
+  "answers": {
+    "A": "Den Login schicken, weil es dein bester Freund ist und es schnell gehen soll.",
+    "B": "Ihn anrufen, um zu verstehen, warum sein Account gesperrt ist, bevor du irgendetwas gibst.",
+    "C": "Anbieten, das gewünschte Ding selbst für ihn zu posten, statt den eigenen Login weiterzugeben."
+  },
+  "scores": {
+    "A": 0,
+    "B": 3,
+    "C": 4
+  },
+  "safeActions": [
+    "C",
+    "B"
+  ],
+  "explanation": "Ein enges Freundschaftsverhältnis ist kein Grund, Zugangsdaten weiterzugeben — dein Account bleibt deine Verantwortung, egal wer fragt. Und ein Account kann selbst gekapert worden sein.",
+  "proTip": "Ein guter Freund fragt nie nach deinem Passwort, nur nach Hilfe.",
+  "hackKey": "C",
+  "hackTrigger": "Vertrautheit",
+  "tags": [
+    "school",
+    "c",
+    "friends",
+    "account-sharing",
+    "diagnostic"
+  ],
+  "active": true
+}

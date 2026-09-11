@@ -1,0 +1,34 @@
+{
+  "id": "school-de-sch-27",
+  "lang": "de",
+  "title": "Dein Online-Teammate will sich deinen Login „leihen“",
+  "edition": "school",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Gaming-Freunde",
+  "scenario": "Ein Teammate, mit dem du seit Monaten regelmäßig spielst, bittet, sich kurz in deinen Account einzuloggen, um „ein seltenes Item für dich abzuholen“, das nur er bekommen kann.",
+  "answers": {
+    "A": "Den Login teilen, weil ihr schon lange zusammen spielt und er vertrauenswürdig wirkt.",
+    "B": "Das Passwort für diese eine Aktion kurz ändern und danach wieder zurücksetzen.",
+    "C": "Ablehnen und ihn bitten, das Item direkt an dich zu schicken, statt sich einzuloggen."
+  },
+  "scores": {
+    "A": 0,
+    "B": 1,
+    "C": 4
+  },
+  "safeActions": [
+    "C"
+  ],
+  "explanation": "Lange gemeinsame Spielzeit ist kein Beweis für echte Identität oder Absicht — Accounts werden auch nach Monaten noch übernommen. Ein Item lässt sich immer direkt schicken, ohne Login-Weitergabe.",
+  "proTip": "Monate zusammen gespielt ersetzen keinen sicheren Übergabeweg.",
+  "hackKey": "C",
+  "hackTrigger": "Vertrautheit",
+  "tags": [
+    "school",
+    "c",
+    "gaming-friends",
+    "account-sharing"
+  ],
+  "active": true
+}

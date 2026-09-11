@@ -1,0 +1,34 @@
+{
+  "id": "school-de-sch-20",
+  "lang": "de",
+  "title": "Du hast ein „Stipendium“ gewonnen",
+  "edition": "school",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Stipendien",
+  "scenario": "Eine E-Mail gratuliert dir zu einem 500-€-Schülerstipendium, an das du dich nie beworben hast, und bittet um Kontodaten und eine Ausweiskopie, um die Auszahlung „zu verifizieren“.",
+  "answers": {
+    "A": "Die Daten schicken, um das Geld nicht zu verpassen.",
+    "B": "Die Stiftung unabhängig recherchieren und bei deiner Schule nachfragen, ob sie das Stipendium kennt, bevor du irgendetwas schickst.",
+    "C": "Nur die Kontodaten schicken, aber keine Ausweiskopie."
+  },
+  "scores": {
+    "A": 0,
+    "B": 4,
+    "C": 0
+  },
+  "safeActions": [
+    "B"
+  ],
+  "explanation": "Ein Gewinn, für den man sich nie beworben hat, ist ein klassisches Warnsignal. Echte Stipendien verlangen keine Ausweiskopie per E-Mail, um Geld auszuzahlen.",
+  "proTip": "Ein Stipendium, das du nie beantragt hast, hast du auch nicht gewonnen.",
+  "hackKey": "A",
+  "hackTrigger": "Autorität",
+  "tags": [
+    "school",
+    "a",
+    "scholarships",
+    "identity-phishing"
+  ],
+  "active": true
+}

@@ -1,0 +1,35 @@
+{
+  "id": "school-de-wild-sch-w1",
+  "lang": "de",
+  "title": "Schul-Blitzrunde: Rote Flaggen",
+  "edition": "school",
+  "cardType": "wild",
+  "scored": false,
+  "category": "Online-Spiel",
+  "scenario": "Schul-Onlinerunde: Jede Person hat 20 Sekunden, um ein Warnsignal aus der letzten Schul-Karte zu nennen, ohne eine andere Person zu wiederholen.",
+  "answers": {
+    "A": "Die Runde ohne Wiederholung durchspielen.",
+    "B": "Passen.",
+    "C": "Eine schwache Antwort höflich infrage stellen.",
+    "D": "Der Gastgeber verrät die Musterantwort."
+  },
+  "scores": {
+    "A": 4,
+    "B": 0,
+    "C": 2,
+    "D": 0
+  },
+  "safeActions": [
+    "A",
+    "C"
+  ],
+  "explanation": "Schul-Blitzrunde: Ziel ist es, die letzte Szenariokarte in aktives Erinnern zu verwandeln statt nur zu lesen. Eine genaue, konkrete sichere Handlung zählt mehr als ein vager Ratschlag.",
+  "proTip": "Nur direkt nach einer Szenariokarte einsetzen, nie als eigenständiges Minispiel.",
+  "hackKey": null,
+  "hackTrigger": null,
+  "tags": [
+    "school",
+    "online-play"
+  ],
+  "active": true
+}

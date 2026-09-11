@@ -1,0 +1,34 @@
+{
+  "id": "school-de-sch-12",
+  "lang": "de",
+  "title": "Die Testphase deiner Lern-App endet um Mitternacht",
+  "edition": "school",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Apps & Abos",
+  "scenario": "Eine Push-Nachricht deiner Lern-App sagt, die kostenlose Testphase ende um Mitternacht und du müsstest sofort über einen externen Zahlungslink bezahlen, sonst gingen deine Lernfortschritte verloren.",
+  "answers": {
+    "A": "Das Abo direkt in der App oder im App-Store-Konto verwalten statt über einen externen Link zu zahlen.",
+    "B": "Sofort über den externen Link zahlen, um die Fortschritte zu retten.",
+    "C": "Screenshots der Fortschritte machen und dann entscheiden."
+  },
+  "scores": {
+    "A": 4,
+    "B": 0,
+    "C": 1
+  },
+  "safeActions": [
+    "A"
+  ],
+  "explanation": "Lernfortschritte gehen nicht verloren, weil eine Testphase endet, und Abo-Zahlungen laufen über die App oder den App-Store, nie über einen externen Link in einer Push-Nachricht.",
+  "proTip": "Ein Abo verwaltet man in der App — nie über einen fremden Zahlungslink.",
+  "hackKey": "H",
+  "hackTrigger": "Hetze",
+  "tags": [
+    "school",
+    "h",
+    "apps",
+    "subscription-scam"
+  ],
+  "active": true
+}
