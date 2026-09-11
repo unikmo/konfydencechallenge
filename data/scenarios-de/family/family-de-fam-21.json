@@ -1,0 +1,34 @@
+{
+  "id": "family-de-fam-21",
+  "lang": "de",
+  "title": "Ladung: Nichterscheinen kostet",
+  "edition": "family",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Gerichte",
+  "scenario": "Ein Brief mit Gerichtssiegel-Optik droht ein Bußgeld von 500 €, weil du angeblich eine Zeugenladung ignoriert hast. Eine beigelegte Nummer soll die Sache „außergerichtlich“ gegen sofortige Zahlung klären.",
+  "answers": {
+    "A": "Beim zuständigen Amtsgericht über die im Telefonbuch oder online verifizierte Nummer nachfragen, ob eine solche Ladung existiert.",
+    "B": "Einen Anwalt aus der eigenen Familie um Rat fragen, bevor du reagierst.",
+    "C": "Die Nummer aus dem Brief anrufen und die 500 € zahlen, um ein Gerichtsverfahren zu vermeiden."
+  },
+  "scores": {
+    "A": 4,
+    "B": 2,
+    "C": 0
+  },
+  "safeActions": [
+    "A"
+  ],
+  "explanation": "Gerichte klären Bußgelder nicht „außergerichtlich“ gegen eine Zahlung an eine im Brief genannte Nummer. Das Amtsgericht selbst kann sofort sagen, ob überhaupt eine Ladung existiert.",
+  "proTip": "Ein Gericht schickt dich nie zu einer Zahlnummer im selben Brief.",
+  "hackKey": "A",
+  "hackTrigger": "Autorität",
+  "tags": [
+    "family",
+    "a",
+    "courts",
+    "fake-summons"
+  ],
+  "active": true
+}

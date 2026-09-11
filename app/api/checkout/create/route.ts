@@ -38,6 +38,7 @@ export async function POST(request: NextRequest) {
     const body = await request.json().catch(() => ({}));
     const sku = typeof body.sku === "string" ? body.sku : "";
     const { gift } = body;
+    const stripeLocale: Stripe.Checkout.SessionCreateParams.Locale = body.locale === "de" ? "de" : "auto";
 
     if (!sku) {
       return NextResponse.json({ error: "sku is required" }, { status: 400 });
@@ -83,6 +84,7 @@ export async function POST(request: NextRequest) {
       billing_address_collection: "required",
       tax_id_collection: { enabled: true },
       cancel_url: `${appUrl}/pricing`,
+      locale: stripeLocale,
       ...(knownEmail ? { customer_email: knownEmail } : {}),
       ...(taxEnabled ? { automatic_tax: { enabled: true } } : {}),
     };

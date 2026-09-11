@@ -1,0 +1,34 @@
+{
+  "id": "family-de-fam-27",
+  "lang": "de",
+  "title": "Mama, ich brauch dich, sag's nicht Papa",
+  "edition": "family",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Familiennotfall",
+  "scenario": "Eine SMS von einer unbekannten Nummer schreibt: „Mama, ich hab richtig Stress, brauch dringend Geld, aber bitte sag's Papa nicht, er flippt aus.“ Der Ton trifft genau die Art, wie dein Kind manchmal schreibt.",
+  "answers": {
+    "A": "Genau wie gewünscht reagieren und niemandem sonst davon erzählen.",
+    "B": "Über die gespeicherte Nummer deines Kindes anrufen oder es persönlich fragen, bevor du etwas unternimmst — die Bitte um Geheimhaltung ändert daran nichts.",
+    "C": "Erst mal fragen, wie viel Geld es genau sein soll."
+  },
+  "scores": {
+    "A": 0,
+    "B": 4,
+    "C": 1
+  },
+  "safeActions": [
+    "B"
+  ],
+  "explanation": "„Sag es niemandem“ ist selbst ein Warnsignal — echte Familienmitglieder wollen normalerweise nicht, dass du allein mit einem Problem bleibst. Ein Anruf auf der bekannten Nummer klärt es sofort.",
+  "proTip": "Eine Bitte um Geheimhaltung ist der Moment, gerade jemanden einzuweihen.",
+  "hackKey": "C",
+  "hackTrigger": "Vertrautheit",
+  "tags": [
+    "family",
+    "c",
+    "family-emergency",
+    "smishing"
+  ],
+  "active": true
+}

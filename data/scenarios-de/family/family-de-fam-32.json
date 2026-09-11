@@ -1,0 +1,34 @@
+{
+  "id": "family-de-fam-32",
+  "lang": "de",
+  "title": "Der Spendenaufruf in der Familien-Chatgruppe",
+  "edition": "family",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Spenden",
+  "scenario": "In der Familien-WhatsApp-Gruppe taucht eine Nachricht auf, angeblich von einer Cousine: Eine Nachbarsfamilie habe einen Hausbrand erlitten, es werde für Spenden über einen Zahlungslink gesammelt. Mehrere Familienmitglieder haben schon „geliked“.",
+  "answers": {
+    "A": "Über den Link spenden, weil es aus der eigenen Familiengruppe kommt und andere schon reagiert haben.",
+    "B": "Einen kleinen Betrag spenden, um auf Nummer sicher zu gehen.",
+    "C": "Die Cousine direkt persönlich oder telefonisch fragen, ob sie diese Nachricht wirklich geschickt hat, bevor du über den Link zahlst."
+  },
+  "scores": {
+    "A": 0,
+    "B": 0,
+    "C": 4
+  },
+  "safeActions": [
+    "C"
+  ],
+  "explanation": "Ein gehacktes Konto in der eigenen Familiengruppe wirkt besonders glaubwürdig, gerade weil andere schon reagiert haben. Eine echte Person kann die Bitte in einem kurzen Anruf bestätigen.",
+  "proTip": "Auch in der eigenen Familiengruppe gilt: erst fragen, dann zahlen.",
+  "hackKey": "C",
+  "hackTrigger": "Vertrautheit",
+  "tags": [
+    "family",
+    "c",
+    "charity",
+    "account-takeover"
+  ],
+  "active": true
+}

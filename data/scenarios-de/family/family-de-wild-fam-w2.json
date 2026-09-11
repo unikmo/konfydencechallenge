@@ -1,0 +1,34 @@
+{
+  "id": "family-de-wild-fam-w2",
+  "lang": "de",
+  "title": "Familien-Kanalwechsel",
+  "edition": "family",
+  "cardType": "wild",
+  "scored": false,
+  "category": "Online-Spiel",
+  "scenario": "Familien-Onlinerunde: Ersetze den riskanten Kanal aus der letzten Familien-Karte durch den sichersten passenden Prüfkanal.",
+  "answers": {
+    "A": "Einen konkreten, sichereren Kanal nennen.",
+    "B": "Nur „sei vorsichtig“ sagen.",
+    "C": "Den ursprünglichen riskanten Kanal wiederholen.",
+    "D": "Den Gastgeber bitten, die Karte zu überspringen."
+  },
+  "scores": {
+    "A": 4,
+    "B": 1,
+    "C": 1,
+    "D": 0
+  },
+  "safeActions": [
+    "A"
+  ],
+  "explanation": "Familien-Kanalwechsel: Ziel ist es, die letzte Szenariokarte in aktives Erinnern zu verwandeln statt nur zu lesen. Eine gute Antwort nennt den konkreten Kanal.",
+  "proTip": "Gute Antworten nennen den genauen Kanal: App, Bankportal, gespeicherte Nummer, offizielle Stelle, Familienmitglied direkt, Anbieter-Hotline.",
+  "hackKey": null,
+  "hackTrigger": null,
+  "tags": [
+    "family",
+    "online-play"
+  ],
+  "active": true
+}

@@ -1,0 +1,34 @@
+{
+  "id": "family-de-fam-42",
+  "lang": "de",
+  "title": "Der Fernseher will einen Kopplungscode",
+  "edition": "family",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Smart-Geräte",
+  "scenario": "Beim Einrichten eines neuen Streaming-Kontos auf dem Fernseher erscheint ein Anruf angeblich vom Streaminganbieter: Man müsse den gerade angezeigten 6-stelligen Kopplungscode am Telefon durchgeben, um „ein Sicherheitsproblem mit dem Konto zu beheben“.",
+  "answers": {
+    "A": "Auflegen, den Code für niemanden vorlesen, und das Konto direkt über die offizielle App oder Webseite prüfen.",
+    "B": "Den Fernseher ausschalten und es später erneut versuchen.",
+    "C": "Den Code vorlesen, damit das Konto wieder funktioniert."
+  },
+  "scores": {
+    "A": 4,
+    "B": 2,
+    "C": 0
+  },
+  "safeActions": [
+    "A"
+  ],
+  "explanation": "Ein Kopplungscode auf dem Bildschirm dient dazu, ein Gerät mit einem Konto zu verbinden — wer ihn vorliest, verknüpft das Konto mit dem Gerät der Täter. Streaminganbieter rufen dafür nie an.",
+  "proTip": "Ein Code auf deinem Bildschirm ist für dein Gerät bestimmt, für niemandes Ohr.",
+  "hackKey": "K",
+  "hackTrigger": "Notbremse",
+  "tags": [
+    "family",
+    "k",
+    "smart-devices",
+    "account-takeover"
+  ],
+  "active": true
+}

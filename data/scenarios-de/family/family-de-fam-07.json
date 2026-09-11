@@ -1,0 +1,34 @@
+{
+  "id": "family-de-fam-07",
+  "lang": "de",
+  "title": "Dein PC hat noch 4 Minuten",
+  "edition": "family",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Technischer Support",
+  "scenario": "Ein lautes Pop-up auf dem Bildschirm deiner Mutter meldet einen Virus und zählt rückwärts: „Ihr PC wird in 4 Minuten gesperrt.“ Eine Telefonnummer für „Microsoft-Support“ wird angezeigt.",
+  "answers": {
+    "A": "Die Nummer anrufen, um den Computer noch rechtzeitig retten zu lassen.",
+    "B": "Auf der Seite nach einer anderen Kontaktmöglichkeit suchen, die seriöser wirkt.",
+    "C": "Den Computer einfach ausschalten und neu starten; ein Countdown auf einer Webseite kann nichts sperren."
+  },
+  "scores": {
+    "A": 0,
+    "B": 0,
+    "C": 4
+  },
+  "safeActions": [
+    "C"
+  ],
+  "explanation": "Microsoft ruft niemanden an oder lässt anrufen wegen eines Virus, und eine Webseite kann deinen Computer nicht wirklich sperren. Ein Neustart beendet die Anzeige.",
+  "proTip": "Ein Countdown im Browser ist Theater, kein technisches Problem.",
+  "hackKey": "H",
+  "hackTrigger": "Hetze",
+  "tags": [
+    "family",
+    "h",
+    "tech-support",
+    "pop-up"
+  ],
+  "active": true
+}

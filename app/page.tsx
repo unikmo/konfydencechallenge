@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   title: { absolute: "TravelSafe by Konfydence | Practise safer travel decisions" },
   description:
     "TravelSafe helps travellers practise calm, confident decisions before an urgent message, call or request puts them under pressure.",
-  alternates: { canonical: "/" },
+  alternates: { canonical: "/", languages: { en: "https://konfydence.com", de: "https://konfydence.com/de" } },
   openGraph: {
     title: "TravelSafe by Konfydence | Your trip should be the adventure. Not the scam.",
     description: "Practise the decision before the pressure is real.",

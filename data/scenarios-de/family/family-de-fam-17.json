@@ -1,0 +1,34 @@
+{
+  "id": "family-de-fam-17",
+  "lang": "de",
+  "title": "Die Kita will Gutscheinkarten für die Spendenaktion",
+  "edition": "family",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Schule/Kita",
+  "scenario": "Eine E-Mail im Namen der Kita-Leitung bittet dich, für eine „Abschiedsspende“ an eine ausscheidende Erzieherin Gutscheinkarten im Wert von 50 € zu kaufen und die Codes per E-Mail zurückzuschicken, da sie „gerade in einer Besprechung“ sei.",
+  "answers": {
+    "A": "Die Karten kaufen und die Codes wie gewünscht per E-Mail schicken.",
+    "B": "Die Anfrage über die bekannte Kita-Nummer oder persönlich bei der Leitung bestätigen lassen, bevor du etwas kaufst.",
+    "C": "Erst im Elternbeirat nachfragen, ob andere die Mail auch bekommen haben."
+  },
+  "scores": {
+    "A": 0,
+    "B": 4,
+    "C": 2
+  },
+  "safeActions": [
+    "B"
+  ],
+  "explanation": "Die Kombination „dringend, aber gerade nicht erreichbar“ soll verhindern, dass du nachfragst. Ein Anruf bei der Kita klärt es in einer Minute.",
+  "proTip": "Wer „gerade in einer Besprechung“ ist, kann trotzdem später ans Telefon.",
+  "hackKey": "A",
+  "hackTrigger": "Autorität",
+  "tags": [
+    "family",
+    "a",
+    "school",
+    "gift-card"
+  ],
+  "active": true
+}

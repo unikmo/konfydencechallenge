@@ -1,0 +1,34 @@
+{
+  "id": "family-de-fam-16",
+  "lang": "de",
+  "title": "Haftbefehl, zahlbar am Kiosk",
+  "edition": "family",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Behörden",
+  "scenario": "Ein Anrufer gibt sich als Mitarbeiter der Staatsanwaltschaft aus und sagt, wegen einer angeblichen Geldwäsche liege ein Haftbefehl vor. Die Sache lasse sich sofort erledigen, wenn du am nächsten Kiosk oder Zahlungsautomaten einen Betrag über einen Zahlschein-Code begleichst.",
+  "answers": {
+    "A": "Zum Kiosk gehen und wie beschrieben zahlen, um die Verhaftung abzuwenden.",
+    "B": "Auflegen und über die offizielle Nummer der Staatsanwaltschaft oder Polizei nachfragen, ob es das Verfahren wirklich gibt.",
+    "C": "Fragen, ob eine Ratenzahlung möglich ist."
+  },
+  "scores": {
+    "A": 0,
+    "B": 4,
+    "C": 0
+  },
+  "safeActions": [
+    "B"
+  ],
+  "explanation": "Deutsche Behörden ziehen keine Geldbußen oder Kautionen über Zahlungsautomaten oder Codes ein. Diese Zahlwege sind für Betrüger attraktiv, weil sie sofort und kaum rückverfolgbar sind.",
+  "proTip": "Kein Amt kassiert am Kiosk.",
+  "hackKey": "A",
+  "hackTrigger": "Autorität",
+  "tags": [
+    "family",
+    "a",
+    "government",
+    "payment-kiosk"
+  ],
+  "active": true
+}

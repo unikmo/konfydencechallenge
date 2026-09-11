@@ -5,6 +5,7 @@ import { prisma } from "@/lib/prisma";
 import { EDITION_LABELS } from "@/lib/challenge/labels";
 import { getCurrentChallengeCard } from "@/lib/challenge/sessionGenerator";
 import { SessionEventHooks, AnswerTrackerForm } from "@/components/SessionEventHooks";
+import { SESSION_STRINGS, editionLabelFor, type UiLang } from "@/lib/challenge/uiStrings";
 
 type AnswerKey = "A" | "B" | "C";
 type AnswerOption = { key: AnswerKey; text: string };
@@ -19,10 +20,16 @@ export default async function SessionPage(props: { params: Promise<{ sessionId: 
   });
   if (!session) notFound();
 
-  if (session.status !== "IN_PROGRESS") return <CompleteState sessionId={sessionId} />;
+  if (session.status !== "IN_PROGRESS") return <CompleteState sessionId={sessionId} lang="en" />;
 
   const current = await getCurrentChallengeCard({ sessionId });
-  if (!current) return <CompleteState sessionId={sessionId} />;
+  if (!current) {
+    const completedScenario = await prisma.scenario.findFirst({
+      where: { sessionCards: { some: { sessionId } } },
+      select: { lang: true },
+    });
+    return <CompleteState sessionId={sessionId} lang={completedScenario?.lang === "de" ? "de" : "en"} />;
+  }
 
   const scenario = await prisma.scenario.findUnique({
     where: { id: current.scenarioId },
@@ -33,6 +40,7 @@ export default async function SessionPage(props: { params: Promise<{ sessionId: 
       answersA: true,
       answersB: true,
       answersC: true,
+      lang: true,
     },
   });
   if (!scenario) notFound();
@@ -45,40 +53,46 @@ export default async function SessionPage(props: { params: Promise<{ sessionId: 
   const answers = allAnswers.filter((answer) => answer.text.trim().length > 0);
   if (answers.length !== 3) throw new Error(`Scenario ${scenario.id} is not playable: expected exactly three answers`);
 
+  // A session's language is whatever its own scenario rows were seeded in
+  // (see lib/challenge/sessionGenerator.ts) — there's no separate column.
+  const lang: UiLang = scenario.lang === "de" ? "de" : "en";
+  const t = SESSION_STRINGS[lang];
+
   const questionNumber = current.currentIndex + 1;
   const totalCards = current.totalCards;
   const progressPercent = Math.round((questionNumber / totalCards) * 100);
-  const editionLabel = (EDITION_LABELS as Record<string, string>)[session.edition] ?? session.edition;
-  const modeLabel = session.mode === "diagnostic" ? "READINESS CHECK" : "FULL CHALLENGE";
-  const title = scenario.title ?? `Scenario ${questionNumber}`;
+  const editionLabelEn = (EDITION_LABELS as Record<string, string>)[session.edition] ?? session.edition;
+  const editionLabel = editionLabelFor(session.edition, lang, editionLabelEn);
+  const modeLabel = session.mode === "diagnostic" ? t.modeReadiness : t.modeFull;
+  const title = scenario.title ?? t.scenarioFallbackTitle(questionNumber);
 
   return (
     <main className="kg-page">
       <div className="kg-shell">
         <header className="kg-top">
           <Link href="/" className="k-wordmark" aria-label="Konfydence home">Konfydence</Link>
-          <div className="kg-top-meta"><span>{editionLabel}</span><i /><span>{modeLabel}</span><Link href="/">Exit</Link></div>
+          <div className="kg-top-meta"><span>{editionLabel}</span><i /><span>{modeLabel}</span><Link href="/">{t.exit}</Link></div>
         </header>
       </div>
 
       <div className="kg-narrow kg-game">
         <div className="kg-progress">
-          <span className="kg-progress-label">Scenario <b>{String(questionNumber).padStart(2, "0")}</b> / {String(totalCards).padStart(2, "0")}</span>
-          <span className="kg-progress-track" aria-label={`${progressPercent}% complete`}><span style={{ width: `${progressPercent}%` }} /></span>
+          <span className="kg-progress-label">{t.scenarioLabel} <b>{String(questionNumber).padStart(2, "0")}</b> / {String(totalCards).padStart(2, "0")}</span>
+          <span className="kg-progress-track" aria-label={`${progressPercent}%`}><span style={{ width: `${progressPercent}%` }} /></span>
           <span className="kg-progress-pct">{progressPercent}%</span>
         </div>
 
         <section className="kg-card">
           <div className="kg-card-chrome">
-            <span className="kg-live"><span className="kg-dot" /> Live decision</span>
-            <span>Three moves · one strongest</span>
+            <span className="kg-live"><span className="kg-dot" /> {t.liveDecision}</span>
+            <span>{t.threeMoves}</span>
           </div>
 
           <div className="kg-scenario">
-            <p className="k-kicker">What happens next?</p>
+            <p className="k-kicker">{t.kicker}</p>
             <h1>{title}</h1>
             <p className="kg-prompt">{scenario.prompt}</p>
-            <div className="kg-rule"><span>Rule</span><p>Choose the move you would trust with your own money, identity, account or safety.</p></div>
+            <div className="kg-rule"><span>{t.ruleLabel}</span><p>{t.ruleText}</p></div>
           </div>
 
           <SessionEventHooks
@@ -92,14 +106,14 @@ export default async function SessionPage(props: { params: Promise<{ sessionId: 
 
           <AnswerTrackerForm sessionId={sessionId} scenarioIndex={current.currentIndex}>
             <fieldset style={{ margin: 0, padding: 0, border: 0 }}>
-              <legend className="srOnly">Choose your response</legend>
+              <legend className="srOnly">{t.chooseResponse}</legend>
               <div className="kg-answers">
                 {answers.map(({ key, text }) => (
                   <label className="kg-answer" key={key}>
                     <input type="radio" name="selectedAnswerKey" value={key} required />
                     <span className="kg-answer-key">{key}</span>
                     <span className="kg-answer-text">{text}</span>
-                    <span className="kg-answer-pick" aria-hidden="true">Select</span>
+                    <span className="kg-answer-pick" aria-hidden="true">{t.select}</span>
                   </label>
                 ))}
               </div>
@@ -109,13 +123,13 @@ export default async function SessionPage(props: { params: Promise<{ sessionId: 
             <input type="hidden" name="scenarioId" value={scenario.id} />
 
             <div className="kg-submit">
-              <div className="kg-submit-hint"><span>No trick wording</span><p>The strongest move breaks the requester&apos;s control of what happens next.</p></div>
-              <button type="submit"><span>Lock in my move</span><b aria-hidden="true">→</b></button>
+              <div className="kg-submit-hint"><span>{t.submitHintLabel}</span><p>{t.submitHintText}</p></div>
+              <button type="submit"><span>{t.submitButton}</span><b aria-hidden="true">→</b></button>
             </div>
           </AnswerTrackerForm>
         </section>
 
-        <footer className="kg-game-footer"><span>Konfydence · Decision practice</span><span>Pause → verify → act</span></footer>
+        <footer className="kg-game-footer"><span>{t.footerBrand}</span><span>{t.footerFramework}</span></footer>
       </div>
 
       <style>{`
@@ -125,13 +139,15 @@ export default async function SessionPage(props: { params: Promise<{ sessionId: 
   );
 }
 
-function CompleteState({ sessionId }: { sessionId: string }) {
+function CompleteState({ sessionId, lang }: { sessionId: string; lang: UiLang }) {
+  const t = SESSION_STRINGS[lang];
   return (
     <main className="kg-state">
       <section className="kg-state-card">
-        <p className="k-kicker">Round complete</p>
-        <h1>Your result is ready.</h1>
-        <Link className="k-button" href={`/challenge/session/${sessionId}/results`}>View my result →</Link>
+        <p className="k-kicker">{t.roundComplete}</p>
+        {/* The results page itself is still English-only chrome (Stage 4 follow-up). */}
+        <h1>{t.resultReadyHeading}</h1>
+        <Link className="k-button" href={`/challenge/session/${sessionId}/results`}>{t.viewResult}</Link>
       </section>
     </main>
   );

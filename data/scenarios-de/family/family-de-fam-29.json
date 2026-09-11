@@ -1,0 +1,34 @@
+{
+  "id": "family-de-fam-29",
+  "lang": "de",
+  "title": "Papa hat eine neue Nummer, bitte PayPal",
+  "edition": "family",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Messenger-Betrug",
+  "scenario": "Eine SMS von unbekannter Nummer: „Hey, bin's, altes Handy kaputt. Kannst du mir 250 € per PayPal an diese Mail-Adresse schicken? Bin gerade unterwegs, erklär's dir später.“ Die Wortwahl klingt wie dein Vater.",
+  "answers": {
+    "A": "Das Geld per PayPal schicken, weil die Formulierung genau passt.",
+    "B": "Nach etwas fragen, das nur dein Vater wissen kann, und danach entscheiden.",
+    "C": "Über die alte, gespeicherte Nummer anrufen oder eine Sprachnachricht verlangen, bevor du irgendetwas schickst."
+  },
+  "scores": {
+    "A": 0,
+    "B": 2,
+    "C": 4
+  },
+  "safeActions": [
+    "C"
+  ],
+  "explanation": "Wortwahl und Tonfall lassen sich aus alten Nachrichten oder gehackten Konten leicht kopieren. Ein kurzer Anruf auf der alten Nummer zeigt sofort, ob die Person überhaupt eine neue Nummer hat.",
+  "proTip": "Neues Handy, alte Bitte um Geld — erst die alte Nummer anrufen.",
+  "hackKey": "C",
+  "hackTrigger": "Vertrautheit",
+  "tags": [
+    "family",
+    "c",
+    "messaging",
+    "smishing"
+  ],
+  "active": true
+}

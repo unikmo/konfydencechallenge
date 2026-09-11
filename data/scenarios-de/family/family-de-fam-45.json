@@ -1,0 +1,34 @@
+{
+  "id": "family-de-fam-45",
+  "lang": "de",
+  "title": "Der Code ist die Bezahlung",
+  "edition": "family",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Gutscheinkarten",
+  "scenario": "Ein Anrufer, der sich als Mitarbeiter deines Stromanbieters ausgibt, sagt, eine Nachzahlung von 340 € könne nur noch heute per Guthabenkarten aus dem Supermarkt beglichen werden — du sollst die Codes von der Rückseite der Karten am Telefon vorlesen.",
+  "answers": {
+    "A": "Die Karten kaufen und die Codes wie gewünscht vorlesen.",
+    "B": "Die Karten kaufen, aber erst beim Stromanbieter direkt nachfragen, bevor du die Codes durchgibst.",
+    "C": "Auflegen — kein Energieversorger lässt sich mit Guthabenkarten bezahlen — und die Rechnung über den bekannten Kundenweg prüfen."
+  },
+  "scores": {
+    "A": 0,
+    "B": 2,
+    "C": 4
+  },
+  "safeActions": [
+    "C"
+  ],
+  "explanation": "Sobald der Code von der Karte vorgelesen ist, ist das Geld wie Bargeld weg und nicht rückholbar. Kein Energieversorger, keine Behörde und keine Bank akzeptiert Guthabenkarten als Zahlungsmittel.",
+  "proTip": "Wenn die „Rechnung“ eine Kartennummer zum Vorlesen ist, ist es keine Rechnung.",
+  "hackKey": "K",
+  "hackTrigger": "Notbremse",
+  "tags": [
+    "family",
+    "k",
+    "gift-cards",
+    "utility"
+  ],
+  "active": true
+}

@@ -1,0 +1,34 @@
+{
+  "id": "family-de-fam-06",
+  "lang": "de",
+  "title": "Die Steuererstattung läuft heute Nacht ab",
+  "edition": "family",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Steuern",
+  "scenario": "Eine SMS behauptet, deine Steuererstattung von 412 € verfalle um Mitternacht, wenn du nicht sofort über einen Link deine Bankdaten bestätigst. Der Absendername zeigt „ELSTER“.",
+  "answers": {
+    "A": "Abwarten und morgen im ELSTER-Portal nachsehen, ob wirklich etwas offen ist.",
+    "B": "Anrufen bei der Nummer aus der SMS, um nachzufragen.",
+    "C": "Die Bankdaten sofort über den Link eingeben, um die Frist nicht zu verpassen."
+  },
+  "scores": {
+    "A": 4,
+    "B": 0,
+    "C": 0
+  },
+  "safeActions": [
+    "A"
+  ],
+  "explanation": "Steuererstattungen verfallen nicht über Nacht, und ELSTER verschickt keine Zahlungslinks per SMS. Sowohl der Link als auch eine Nummer aus derselben SMS führen zu den Tätern.",
+  "proTip": "Eine Frist, die nur bis Mitternacht gilt, ist gemacht, damit du nicht nachdenkst.",
+  "hackKey": "H",
+  "hackTrigger": "Hetze",
+  "tags": [
+    "family",
+    "h",
+    "taxes",
+    "smishing"
+  ],
+  "active": true
+}

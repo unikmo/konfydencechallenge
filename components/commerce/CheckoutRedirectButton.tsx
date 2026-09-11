@@ -4,9 +4,9 @@ import React, { useState } from "react";
 import { tokens } from "@/lib/theme/tokens";
 import { trackCheckoutStarted } from "@/lib/events";
 
-type Props = { sku: string; label: string; variant?: "primary" | "outline" };
+type Props = { sku: string; label: string; variant?: "primary" | "outline"; locale?: "en" | "de" };
 
-export function CheckoutRedirectButton({ sku, label, variant = "primary" }: Props) {
+export function CheckoutRedirectButton({ sku, label, variant = "primary", locale }: Props) {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
@@ -18,7 +18,7 @@ export function CheckoutRedirectButton({ sku, label, variant = "primary" }: Prop
       const response = await fetch("/api/checkout/create", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ sku }),
+        body: JSON.stringify({ sku, ...(locale ? { locale } : {}) }),
       });
       if (!response.ok) {
         const errorData = (await response.json()) as { error?: string };

@@ -1,0 +1,34 @@
+{
+  "id": "family-de-fam-19",
+  "lang": "de",
+  "title": "Die Notaranweisungen haben sich geändert",
+  "edition": "family",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Hauskauf",
+  "scenario": "Kurz vor der Beurkundung meldet sich eine E-Mail „vom Notariat“: Die Bankverbindung für die Kaufpreiszahlung habe sich geändert, die neuen Daten seien angehängt. Ton und Signatur wirken identisch zu bisherigen Mails.",
+  "answers": {
+    "A": "Die neue Kontoverbindung wie angewiesen für die Überweisung nutzen.",
+    "B": "Nur einen kleinen Teilbetrag an das neue Konto schicken, um zu testen, ob es funktioniert.",
+    "C": "Das Notariat unter der bekannten, bisher genutzten Telefonnummer anrufen und die Änderung mündlich bestätigen lassen, bevor irgendetwas überwiesen wird."
+  },
+  "scores": {
+    "A": 0,
+    "B": 0,
+    "C": 4
+  },
+  "safeActions": [
+    "C"
+  ],
+  "explanation": "E-Mail-Konten von Notariaten werden gezielt kompromittiert, gerade weil hohe Summen fließen. Eine geänderte Kontoverbindung wird ausschließlich telefonisch über eine unabhängig bekannte Nummer bestätigt — nie per Antwort auf dieselbe E-Mail.",
+  "proTip": "Bei großen Summen zählt nur ein Anruf auf einer Nummer, die du schon vorher hattest.",
+  "hackKey": "A",
+  "hackTrigger": "Autorität",
+  "tags": [
+    "family",
+    "a",
+    "home-buying",
+    "business-email-compromise"
+  ],
+  "active": true
+}

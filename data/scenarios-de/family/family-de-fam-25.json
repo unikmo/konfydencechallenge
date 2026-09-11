@@ -1,0 +1,35 @@
+{
+  "id": "family-de-fam-25",
+  "lang": "de",
+  "title": "Hallo Mama, neue Nummer",
+  "edition": "family",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Messenger-Betrug",
+  "scenario": "Eine unbekannte Nummer schreibt dir auf WhatsApp: „Hallo Mama, mein Handy ist kaputt, das ist meine neue Nummer.“ Kurz darauf: „Kannst du mir schnell eine Rechnung über 980 € überweisen? Ich komme gerade nicht ans Online-Banking, ich zahl's dir morgen zurück.“ Der Ton klingt wie dein Kind.",
+  "answers": {
+    "A": "Eine kleine Kontrollfrage stellen, die nur dein Kind beantworten kann, und bei richtiger Antwort überweisen.",
+    "B": "Überweisen, weil die Formulierungen und Emojis genau wie bei deinem Kind klingen.",
+    "C": "Über die alte, gespeicherte Nummer anrufen oder eine Sprachnachricht verlangen, bevor du irgendetwas überweist."
+  },
+  "scores": {
+    "A": 2,
+    "B": 0,
+    "C": 4
+  },
+  "safeActions": [
+    "C"
+  ],
+  "explanation": "Betrüger übernehmen Tonfall und Familienrolle mühelos — der vertraute Stil ist kein Nachweis. Eine Kontrollfrage lässt sich oft erraten oder ergoogeln; ein kurzer Anruf auf der bekannten Nummer klärt in Sekunden, wer da wirklich schreibt.",
+  "proTip": "Neue Nummer, alte Stimme im Kopf — erst hören, dann handeln.",
+  "hackKey": "C",
+  "hackTrigger": "Vertrautheit",
+  "tags": [
+    "family",
+    "c",
+    "messaging",
+    "smishing",
+    "diagnostic"
+  ],
+  "active": true
+}

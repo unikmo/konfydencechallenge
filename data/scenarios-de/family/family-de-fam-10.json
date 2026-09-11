@@ -1,0 +1,34 @@
+{
+  "id": "family-de-fam-10",
+  "lang": "de",
+  "title": "Zahl heute, spar 35 % auf die Arztrechnung",
+  "edition": "family",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Arztrechnungen",
+  "scenario": "Ein Brief einer unbekannten „Abrechnungsstelle“ bietet 35 % Rabatt auf eine offene Arztrechnung, wenn du innerhalb von 48 Stunden per Überweisung an ein privates Konto zahlst statt über die Praxis.",
+  "answers": {
+    "A": "Nur die Hälfte des Rabattbetrags überweisen, um vorsichtig zu bleiben.",
+    "B": "Sofort zahlen, um den Rabatt zu sichern.",
+    "C": "Bei der Arztpraxis direkt nachfragen, ob diese Abrechnungsstelle bekannt ist und ob überhaupt eine Rechnung offen ist."
+  },
+  "scores": {
+    "A": 0,
+    "B": 0,
+    "C": 4
+  },
+  "safeActions": [
+    "C"
+  ],
+  "explanation": "Echte Praxen und Abrechnungsstellen bieten keine Rabatte fürs schnelle Zahlen an ein privates Konto. Die Praxis selbst kann die Rechnung in einem Anruf bestätigen oder entkräften.",
+  "proTip": "Ein Rabatt fürs schnelle Zahlen ist ein Grund, langsamer zu werden.",
+  "hackKey": "H",
+  "hackTrigger": "Hetze",
+  "tags": [
+    "family",
+    "h",
+    "medical-bills",
+    "invoice-fraud"
+  ],
+  "active": true
+}

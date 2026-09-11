@@ -1,0 +1,34 @@
+{
+  "id": "family-de-fam-41",
+  "lang": "de",
+  "title": "Ein mysteriöses Paket mit QR-Karte",
+  "edition": "family",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Brushing / QR-Codes",
+  "scenario": "Ein Paket, das du nicht bestellt hast, liegt vor der Tür. Eine beigelegte Karte bittet, per QR-Code „die Lieferung zu bestätigen“ oder eine „Rücksendung zu veranlassen“, da sonst automatisch eine Rechnung folge.",
+  "answers": {
+    "A": "Den QR-Code scannen, um die Rücksendung zu veranlassen und keine Rechnung zu riskieren.",
+    "B": "Das Paket ungeöffnet oder ohne den QR-Code zu scannen behalten oder wegwerfen; für unbestellte Ware entsteht ohnehin keine Zahlungspflicht.",
+    "C": "Beim Absender auf dem Paket telefonisch nachfragen."
+  },
+  "scores": {
+    "A": 0,
+    "B": 4,
+    "C": 2
+  },
+  "safeActions": [
+    "B"
+  ],
+  "explanation": "Für unbestellte Ware besteht in Deutschland gesetzlich keine Zahlungspflicht („Brushing“). Der QR-Code führt oft zu einer Phishing-Seite oder installiert Schadsoftware — ihn zu scannen ist der eigentliche Angriff.",
+  "proTip": "Unbestellte Ware bezahlst du nie — und ihren QR-Code scannst du erst recht nicht.",
+  "hackKey": "K",
+  "hackTrigger": "Notbremse",
+  "tags": [
+    "family",
+    "k",
+    "qr-codes",
+    "brushing"
+  ],
+  "active": true
+}

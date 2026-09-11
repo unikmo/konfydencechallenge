@@ -1,0 +1,35 @@
+{
+  "id": "family-de-fam-14",
+  "lang": "de",
+  "title": "E-Mail vom Finanzamt",
+  "edition": "family",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Behörden / Steuer",
+  "scenario": "Eine E-Mail im Design des Bundeszentralamts für Steuern kündigt eine Steuererstattung von 328,50 € an. Du müsstest nur über den Link deine Kontodaten „zur Auszahlung bestätigen“. Absendername und Logo wirken echt.",
+  "answers": {
+    "A": "Die Kontodaten über den Link eingeben, weil Absenderadresse und Logo stimmen.",
+    "B": "Den Link ignorieren und im ELSTER-Portal oder telefonisch bei deinem Finanzamt nachfragen, ob wirklich etwas offen ist.",
+    "C": "Die E-Mail an einen Bekannten weiterleiten und fragen, ob sie echt aussieht."
+  },
+  "scores": {
+    "A": 0,
+    "B": 4,
+    "C": 1
+  },
+  "safeActions": [
+    "B"
+  ],
+  "explanation": "Finanzämter kündigen Erstattungen per Post oder über ELSTER an, nie per E-Mail-Link mit Dateneingabe. Die kleine, plausible Summe soll dich zum schnellen Klick bewegen. Deine Bankverbindung liegt dem Finanzamt längst vor.",
+  "proTip": "Das Finanzamt schreibt dir — es verlinkt dich nicht auf ein Formular.",
+  "hackKey": "A",
+  "hackTrigger": "Autorität",
+  "tags": [
+    "family",
+    "a",
+    "taxes",
+    "phishing",
+    "diagnostic"
+  ],
+  "active": true
+}

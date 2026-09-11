@@ -1,0 +1,34 @@
+{
+  "id": "family-de-fam-30",
+  "lang": "de",
+  "title": "Die Beziehung wird zum Investment-Club",
+  "edition": "family",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Romance-Betrug",
+  "scenario": "Seit Monaten schreibst du täglich mit jemandem, den du online kennengelernt hast. Er erzählt jetzt begeistert von einer Krypto-Plattform, auf der er „richtig gutes Geld“ macht, und schickt dir einen Einladungslink mit Screenshots seiner angeblichen Gewinne.",
+  "answers": {
+    "A": "Einen kleinen Betrag investieren, um zu sehen, ob es wirklich funktioniert.",
+    "B": "Nach den Kontodaten fragen, damit du das Geld direkt an ihn statt an die Plattform schickst.",
+    "C": "Die Plattform unabhängig recherchieren (Name plus „Betrug“ suchen, bei der BaFin prüfen) und mit niemandem, den du nur online kennst, über eine Geldanlage entscheiden."
+  },
+  "scores": {
+    "A": 0,
+    "B": 0,
+    "C": 4
+  },
+  "safeActions": [
+    "C"
+  ],
+  "explanation": "Screenshots von „Gewinnen“ lassen sich beliebig fälschen, und echte Investment-Plattformen werben nicht über Liebesbriefe. Eine Suche nach Namen plus „Betrug“ oder eine Prüfung bei der BaFin zeigt die Masche meist sofort.",
+  "proTip": "Wer dich zuerst verliebt und dann investieren lässt, will dein Geld, nicht dein Herz.",
+  "hackKey": "C",
+  "hackTrigger": "Vertrautheit",
+  "tags": [
+    "family",
+    "c",
+    "romance-scam",
+    "crypto"
+  ],
+  "active": true
+}
