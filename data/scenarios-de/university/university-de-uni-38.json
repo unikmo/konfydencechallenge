@@ -1,0 +1,35 @@
+{
+  "id": "university-de-uni-38",
+  "lang": "de",
+  "title": "Installier diese App fürs Interview",
+  "edition": "university",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Vorstellungsgespräche",
+  "scenario": "Vor einem angeblichen Online-Vorstellungsgespräch verlangt der „Recruiter“, statt Zoom oder Teams eine unbekannte Interview-App zu installieren, die weitreichende Geräteberechtigungen braucht.",
+  "answers": {
+    "B": "Die App nicht installieren und stattdessen auf ein gängiges, bekanntes Videotool bestehen; ein echtes Interview braucht keine App mit weitreichenden Berechtigungen.",
+    "A": "Die App installieren, um das Vorstellungsgespräch nicht zu verpassen.",
+    "C": "Die App installieren, aber die Berechtigungen danach einschränken."
+  },
+  "scores": {
+    "B": 4,
+    "A": 0,
+    "C": 1
+  },
+  "safeActions": [
+    "B"
+  ],
+  "explanation": "Seriöse Unternehmen führen Interviews über bekannte, geprüfte Videotools. Eine unbekannte App mit weitreichenden Rechten ist ein bekanntes Einfallstor für Schadsoftware.",
+  "proTip": "Ein echtes Interview braucht kein Programm mit Vollzugriff auf dein Gerät.",
+  "hackKey": "K",
+  "hackTrigger": "Notbremse",
+  "tags": [
+    "university",
+    "k",
+    "interviews",
+    "malware",
+    "diagnostic"
+  ],
+  "active": true
+}

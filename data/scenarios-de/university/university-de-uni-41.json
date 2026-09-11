@@ -1,0 +1,34 @@
+{
+  "id": "university-de-uni-41",
+  "lang": "de",
+  "title": "Lade den Reisepass hoch „zur Studierendenverifizierung“",
+  "edition": "university",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Identität",
+  "scenario": "Eine E-Mail einer angeblichen internationalen Studierendenplattform verlangt, für die „Verifizierung deines Studierendenstatus“ eine Kopie deines Reisepasses und eine Selfie-Verifizierung auf einer externen Seite hochzuladen.",
+  "answers": {
+    "C": "Nichts hochladen und stattdessen die offizielle Verifizierung über deine eigene Uni oder eine bekannte, geprüfte Plattform nutzen.",
+    "A": "Reisepass und Selfie sofort hochladen, um verifiziert zu werden.",
+    "B": "Nur den Reisepass hochladen, aber kein Selfie."
+  },
+  "scores": {
+    "C": 4,
+    "A": 0,
+    "B": 1
+  },
+  "safeActions": [
+    "C"
+  ],
+  "explanation": "Eine echte Studierendenverifizierung läuft über die eigene Uni oder etablierte, geprüfte Anbieter — nicht über eine unbekannte externe Seite, die Reisepass und Selfie gleichzeitig verlangt.",
+  "proTip": "Reisepass und Selfie zusammen sind der Rohstoff für Identitätsdiebstahl.",
+  "hackKey": "K",
+  "hackTrigger": "Notbremse",
+  "tags": [
+    "university",
+    "k",
+    "identity",
+    "identity-theft"
+  ],
+  "active": true
+}

@@ -1,0 +1,35 @@
+{
+  "id": "university-de-uni-13",
+  "lang": "de",
+  "title": "Der „Sachbearbeiter“ bleibt in der Leitung",
+  "edition": "university",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Ausländerbehörde",
+  "scenario": "Ein Anrufer gibt sich als Sachbearbeiter der Ausländerbehörde aus und sagt, es gebe ein Problem mit deinem Aufenthaltstitel — du müsstest, während er in der Leitung bleibt, eine „Bearbeitungsgebühr“ per Guthabenkarte zahlen, sonst drohe die Ausreise.",
+  "answers": {
+    "B": "Auflegen und die Ausländerbehörde über die offizielle, unabhängig gefundene Nummer selbst kontaktieren, um nachzufragen.",
+    "A": "In der Leitung bleiben und die Gebühr per Guthabenkarte zahlen, um die Ausreise zu vermeiden.",
+    "C": "Nach dem Namen und der Dienststelle des Sachbearbeiters fragen, um die Geschichte zu prüfen."
+  },
+  "scores": {
+    "B": 4,
+    "A": 0,
+    "C": 1
+  },
+  "safeActions": [
+    "B"
+  ],
+  "explanation": "Behörden verlangen keine Gebühren per Guthabenkarte am Telefon, und sie halten dich nicht absichtlich in der Leitung. Ein Rückruf über die offizielle Nummer erreicht die echte Behörde.",
+  "proTip": "Keine Behörde kassiert per Guthabenkarte am Telefon.",
+  "hackKey": "A",
+  "hackTrigger": "Autorität",
+  "tags": [
+    "university",
+    "a",
+    "immigration",
+    "government-impostor",
+    "diagnostic"
+  ],
+  "active": true
+}

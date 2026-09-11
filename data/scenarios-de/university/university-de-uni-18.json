@@ -1,0 +1,34 @@
+{
+  "id": "university-de-uni-18",
+  "lang": "de",
+  "title": "Dein Studierendenkonto wird „geprüft“",
+  "edition": "university",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Banking",
+  "scenario": "Ein Anruf im Namen deiner Bank sagt, dein kostenloses Studierendenkonto werde wegen „ungewöhnlicher Aktivität“ geprüft, und bittet dich, eine push-TAN zu bestätigen, um es „freizugeben“.",
+  "answers": {
+    "A": "Auflegen und die Bank über die Nummer aus der App oder von der Kartenrückseite selbst anrufen; keine TAN am Telefon freigeben.",
+    "B": "Die push-TAN bestätigen, um das Konto freizugeben.",
+    "C": "Nach dem Namen der Mitarbeiterin fragen und zurückrufen lassen."
+  },
+  "scores": {
+    "A": 4,
+    "B": 0,
+    "C": 1
+  },
+  "safeActions": [
+    "A"
+  ],
+  "explanation": "Keine Bank braucht eine TAN-Freigabe am Telefon, um ein Konto zu „prüfen“ — jede TAN bestätigt eine konkrete Aktion, meist eine Überweisung an die Täter.",
+  "proTip": "Eine TAN gibst du nie am Telefon frei — auch nicht zur „Prüfung“.",
+  "hackKey": "A",
+  "hackTrigger": "Autorität",
+  "tags": [
+    "university",
+    "a",
+    "banking",
+    "push-tan"
+  ],
+  "active": true
+}

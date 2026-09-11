@@ -1,0 +1,34 @@
+{
+  "id": "university-de-uni-45",
+  "lang": "de",
+  "title": "Dein erster Job: Pakete empfangen",
+  "edition": "university",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Nebenjobs",
+  "scenario": "Ein angebliches „Logistik-Nebenjob“-Angebot besteht nur darin, fremde Pakete an deiner eigenen Adresse anzunehmen und sie an eine andere Adresse weiterzuschicken, gegen eine Aufwandsentschädigung.",
+  "answers": {
+    "A": "Das Angebot ablehnen; das Weiterleiten fremder Pakete an eine Privatadresse ist ein bekanntes Muster für Warenbetrug oder Hehlerei, egal wie legal es klingt.",
+    "B": "Annehmen, weil es einfach klingt und gut bezahlt wird.",
+    "C": "Nur ein oder zwei Pakete testweise annehmen."
+  },
+  "scores": {
+    "A": 4,
+    "B": 0,
+    "C": 0
+  },
+  "safeActions": [
+    "A"
+  ],
+  "explanation": "„Pakete empfangen und weiterschicken“ ist eine bekannte Masche, bei der Betrogene unwissentlich Teil einer Warenbetrugs- oder Hehlerei-Kette werden — mit echtem strafrechtlichem Risiko für dich.",
+  "proTip": "Fremde Pakete über deine Adresse weiterzuleiten ist kein harmloser Nebenjob.",
+  "hackKey": "K",
+  "hackTrigger": "Notbremse",
+  "tags": [
+    "university",
+    "k",
+    "jobs",
+    "reshipping-scam"
+  ],
+  "active": true
+}

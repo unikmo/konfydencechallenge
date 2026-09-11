@@ -1,0 +1,34 @@
+{
+  "id": "university-de-uni-30",
+  "lang": "de",
+  "title": "Der Kassenwart hat ein neues Konto",
+  "edition": "university",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Studierendenclubs",
+  "scenario": "Der Kassenwart deines Fachschafts-/Vereinsvorstands schreibt in der Gruppe, die Vereinskasse habe ein „neues, sichereres Konto“, und bittet alle, ausstehende Beiträge dorthin zu überweisen.",
+  "answers": {
+    "B": "Bei einer Vorstandssitzung oder persönlich nachfragen, ob das neue Konto wirklich vom Verein stammt, bevor Beiträge dorthin gehen.",
+    "A": "Den Beitrag sofort an das neue Konto überweisen.",
+    "C": "In der Gruppe fragen, warum das Konto gewechselt wurde."
+  },
+  "scores": {
+    "B": 4,
+    "A": 0,
+    "C": 2
+  },
+  "safeActions": [
+    "B"
+  ],
+  "explanation": "Ein Kontowechsel für eine Vereinskasse wird auf einer Sitzung beschlossen, nicht per einzelner Chat-Ansage — ein gehacktes Konto im Vorstand ist ein bekanntes Muster.",
+  "proTip": "Ein neues Vereinskonto wird auf einer Sitzung bestätigt, nicht im Chat.",
+  "hackKey": "C",
+  "hackTrigger": "Vertrautheit",
+  "tags": [
+    "university",
+    "c",
+    "student-clubs",
+    "account-takeover"
+  ],
+  "active": true
+}

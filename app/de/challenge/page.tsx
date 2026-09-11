@@ -4,7 +4,7 @@ import { PremiumPageDe } from "@/components/PremiumSiteChrome";
 
 export const metadata: Metadata = {
   title: { absolute: "Challenge | Konfydence" },
-  description: "Die Konfydence Challenge auf Deutsch — Familie- und Schule-Edition, je 48 reale Betrugsszenarien.",
+  description: "Die Konfydence Challenge auf Deutsch — Familie-, Schule- und Universität-Edition, je 48 reale Betrugsszenarien.",
   alternates: { canonical: "/de/challenge", languages: { en: "https://konfydence.com/challenge", de: "https://konfydence.com/de/challenge" } },
 };
 
@@ -19,10 +19,14 @@ const VERFUEGBAR = [
     label: "Schule-Edition",
     text: "Discord- und Gaming-Betrug, WhatsApp-Klassenchat-Fallen, IServ-Phishing, Deepfakes und mehr — 48 Szenarien für Schüler:innen, kulturell für Deutschland geschrieben.",
   },
+  {
+    key: "university",
+    label: "Universität-Edition",
+    text: "WG-Zimmer-Betrug, BAföG-Phishing, Ausländerbehörde-Impostoren, Hiwi-Jobs, Prüfungsamt-Fallen und mehr — 48 Szenarien für Studierende, kulturell für Deutschland geschrieben.",
+  },
 ];
 
 const ANDERE_EDITIONEN = [
-  { key: "university", label: "Universität" },
   { key: "travelsafe", label: "TravelSafe" },
   { key: "workplace", label: "Arbeitsplatz" },
 ];
@@ -95,8 +99,8 @@ async function BaldHinweis({ searchParams }: { searchParams: Promise<{ bald?: st
   return (
     <div className="k-shell" style={{ paddingTop: 24 }}>
       <div style={{ background: "#fdf0dc", color: "#5a4118", borderRadius: 12, padding: "14px 18px", fontSize: 14 }}>
-        Diese Edition gibt es auf Deutsch noch nicht — bisher nur Familie und Schule. Sobald sie fertig ist, erscheint
-        sie hier.
+        Diese Edition gibt es auf Deutsch noch nicht — bisher nur Familie, Schule und Universität. Sobald sie fertig
+        ist, erscheint sie hier.
       </div>
     </div>
   );

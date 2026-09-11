@@ -1,0 +1,34 @@
+{
+  "id": "university-de-uni-48",
+  "lang": "de",
+  "title": "Logg dich im Uni-Portal ein, um deine Daten zu bestätigen",
+  "edition": "university",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Uni-IT",
+  "scenario": "Eine SMS im Namen des Studierendensekretariats bittet, sich über einen verlinkten „Schnellzugang“ im Uni-Portal einzuloggen und persönliche Daten zu bestätigen, da sonst „administrative Nachteile“ drohten.",
+  "answers": {
+    "A": "Den Link ignorieren und dich wie gewohnt direkt über die offizielle Uni-Adresse ins Portal einloggen, um dort selbst nachzusehen, ob etwas zu bestätigen ist.",
+    "B": "Sich über den verlinkten Schnellzugang einloggen und die Daten bestätigen.",
+    "C": "Den Link öffnen, aber nur den Namen bestätigen."
+  },
+  "scores": {
+    "A": 4,
+    "B": 0,
+    "C": 0
+  },
+  "safeActions": [
+    "A"
+  ],
+  "explanation": "Ein „Schnellzugang“-Link mit vager Drohung ist eine klassische Phishing-Formulierung — das echte Portal erreichst du immer über die offizielle, bekannte Adresse deiner Uni.",
+  "proTip": "Ein „Schnellzugang“ per Link ist nie schneller als der gewohnte, sichere Weg.",
+  "hackKey": "K",
+  "hackTrigger": "Notbremse",
+  "tags": [
+    "university",
+    "k",
+    "university-it",
+    "phishing"
+  ],
+  "active": true
+}

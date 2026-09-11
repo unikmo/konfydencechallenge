@@ -1,0 +1,35 @@
+{
+  "id": "university-de-uni-14",
+  "lang": "de",
+  "title": "Der „kleine Gefallen“ deines Professors",
+  "edition": "university",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Nebenjobs",
+  "scenario": "Eine E-Mail, die aussieht, als käme sie vom Uni-Account eines Professors, bittet dich dringend, für ihn Gutscheinkarten für eine Konferenz zu kaufen, und verspricht sofortige Rückerstattung — er sei „gerade auf einer Tagung nicht erreichbar“.",
+  "answers": {
+    "C": "Den Professor persönlich in der Sprechstunde oder über eine dir bekannte Telefonnummer fragen, ob die Bitte wirklich von ihm kommt, bevor du etwas kaufst.",
+    "A": "Die Karten kaufen und die Codes wie gewünscht schicken.",
+    "B": "Im Sekretariat des Lehrstuhls fragen, ob andere Studierende dieselbe Mail bekommen haben."
+  },
+  "scores": {
+    "C": 4,
+    "A": 0,
+    "B": 2
+  },
+  "safeActions": [
+    "C"
+  ],
+  "explanation": "„Dringend, aber gerade nicht erreichbar“ soll Rückfragen verhindern. Ein E-Mail-Konto einer Lehrkraft kann kompromittiert sein — eine persönliche Rückfrage klärt es sofort.",
+  "proTip": "Wer „gerade auf einer Tagung“ ist, kann trotzdem später bestätigen.",
+  "hackKey": "A",
+  "hackTrigger": "Autorität",
+  "tags": [
+    "university",
+    "a",
+    "jobs",
+    "gift-card",
+    "diagnostic"
+  ],
+  "active": true
+}

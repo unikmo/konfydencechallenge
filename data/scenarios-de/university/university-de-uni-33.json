@@ -1,0 +1,34 @@
+{
+  "id": "university-de-uni-33",
+  "lang": "de",
+  "title": "Dein Laborpartner teilt ein „neues Analyse-Tool“",
+  "edition": "university",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Forschung",
+  "scenario": "Dein Laborpartner, mit dem du seit dem ersten Semester zusammenarbeitest, schickt einen Link zu einem „viel schnelleren“ Analyse-Tool für eure gemeinsamen Forschungsdaten — es verlangt aber deinen Uni-Login, um „die Daten zu synchronisieren“.",
+  "answers": {
+    "B": "Den Laborpartner fragen, ob das Tool offiziell von der Uni oder dem Lehrstuhl freigegeben ist, bevor du dich mit dem Uni-Login anmeldest.",
+    "A": "Sich sofort mit dem Uni-Login anmelden, weil man dem Partner seit Jahren vertraut.",
+    "C": "Das Tool auf einem privaten Test-Account ausprobieren."
+  },
+  "scores": {
+    "B": 4,
+    "A": 0,
+    "C": 1
+  },
+  "safeActions": [
+    "B"
+  ],
+  "explanation": "Lange Zusammenarbeit ist kein Sicherheitsnachweis für ein Tool von außerhalb der offiziellen Uni-Infrastruktur — und der Uni-Login gehört nur in offizielle Uni-Systeme.",
+  "proTip": "Jahre der Zusammenarbeit ersetzen keine offizielle Freigabe eines Tools.",
+  "hackKey": "C",
+  "hackTrigger": "Vertrautheit",
+  "tags": [
+    "university",
+    "c",
+    "research",
+    "credential-phishing"
+  ],
+  "active": true
+}

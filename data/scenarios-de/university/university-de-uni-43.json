@@ -1,0 +1,34 @@
+{
+  "id": "university-de-uni-43",
+  "lang": "de",
+  "title": "Bestätige, um „dein Postfach wiederherzustellen“",
+  "edition": "university",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "MFA",
+  "scenario": "Nach einer angeblichen Wartung bittet eine Mail, eine MFA-Anfrage auf deinem Handy zu bestätigen, um „dein E-Mail-Postfach wiederherzustellen“ — die Anfrage kommt aber, ohne dass du selbst etwas angefragt hast.",
+  "answers": {
+    "B": "Die MFA-Anfrage ablehnen, wenn du selbst nichts angefragt hast, und dein Passwort ändern; eine unerwartete MFA-Anfrage bestätigt meist einen fremden Login-Versuch.",
+    "A": "Die Anfrage bestätigen, um das Postfach wiederherzustellen.",
+    "C": "Die Anfrage einmal ignorieren, aber bei der zweiten Anfrage bestätigen."
+  },
+  "scores": {
+    "B": 4,
+    "A": 0,
+    "C": 0
+  },
+  "safeActions": [
+    "B"
+  ],
+  "explanation": "Eine MFA-Anfrage, die du selbst nicht ausgelöst hast, bestätigt fast immer einen Login-Versuch der Täter, nicht eine „Wiederherstellung“ auf deiner Seite.",
+  "proTip": "Eine MFA-Anfrage, die du nicht selbst ausgelöst hast, ist ein Nein.",
+  "hackKey": "K",
+  "hackTrigger": "Notbremse",
+  "tags": [
+    "university",
+    "k",
+    "mfa",
+    "mfa-fatigue"
+  ],
+  "active": true
+}

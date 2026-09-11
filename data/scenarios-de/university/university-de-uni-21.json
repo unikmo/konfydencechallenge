@@ -1,0 +1,34 @@
+{
+  "id": "university-de-uni-21",
+  "lang": "de",
+  "title": "Ein bekannter Konzern-Recruiter braucht sofort Unterlagen",
+  "edition": "university",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Recruiting",
+  "scenario": "Eine Nachricht auf LinkedIn, angeblich von einer Recruiterin eines bekannten Konzerns, bietet dir ein Praktikum an, wenn du „noch heute“ eine Ausweiskopie und deine IBAN für die „Vertragsvorbereitung“ schickst.",
+  "answers": {
+    "A": "Die Anfrage über die offizielle Karriereseite des Unternehmens verifizieren und keine IBAN oder Ausweiskopie vor einem echten, unterschriebenen Vertrag schicken.",
+    "B": "Die Unterlagen sofort schicken, um das Praktikum nicht zu verlieren.",
+    "C": "Nur die Ausweiskopie schicken, aber nicht die IBAN."
+  },
+  "scores": {
+    "A": 4,
+    "B": 0,
+    "C": 1
+  },
+  "safeActions": [
+    "A"
+  ],
+  "explanation": "Ein bekannter Firmenname macht eine Anfrage nicht automatisch echt — echte Praktikumsverträge verlangen keine IBAN vor Vertragsunterschrift. Die offizielle Karriereseite bestätigt echte Angebote.",
+  "proTip": "Ein großer Name ersetzt keine echte Vertragsunterschrift.",
+  "hackKey": "A",
+  "hackTrigger": "Autorität",
+  "tags": [
+    "university",
+    "a",
+    "recruiting",
+    "identity-phishing"
+  ],
+  "active": true
+}

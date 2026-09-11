@@ -1,0 +1,34 @@
+{
+  "id": "university-de-uni-36",
+  "lang": "de",
+  "title": "Werde bezahlte Campus-Botschafterin für eine Trading-App",
+  "edition": "university",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Investitionen",
+  "scenario": "Eine bekannte Kommilitonin mit großer Instagram-Reichweite bietet dir an, als bezahlte „Campus-Botschafterin“ für eine Trading-App zu arbeiten — du müsstest dafür nur zuerst selbst „aktiv investieren“, um „authentisch“ zu wirken.",
+  "answers": {
+    "C": "Das Angebot ablehnen oder die Trading-App unabhängig recherchieren, bevor du eigenes Geld investierst, egal wie bekannt und vertrauenswürdig die Person wirkt.",
+    "A": "Selbst investieren, um die Botschafterrolle zu bekommen, weil die Kommilitonin bekannt und beliebt ist.",
+    "B": "Nur einen kleinen Betrag investieren, um „authentisch“ zu wirken."
+  },
+  "scores": {
+    "C": 4,
+    "A": 0,
+    "B": 0
+  },
+  "safeActions": [
+    "C"
+  ],
+  "explanation": "Eine bekannte, sympathische Person zu sein, macht eine Trading-App nicht seriöser — „erst selbst investieren, um authentisch zu wirken“ ist ein bekanntes Werbe-für-Betrug-Muster.",
+  "proTip": "Bekanntheit ist kein Beweis für eine seriöse Geldanlage.",
+  "hackKey": "C",
+  "hackTrigger": "Vertrautheit",
+  "tags": [
+    "university",
+    "c",
+    "investments",
+    "affiliate-scam"
+  ],
+  "active": true
+}

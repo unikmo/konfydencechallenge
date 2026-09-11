@@ -1,0 +1,34 @@
+{
+  "id": "university-de-uni-16",
+  "lang": "de",
+  "title": "Das Prüfungsamt sagt, dein Konto sei gesperrt",
+  "edition": "university",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Studierendenkonten",
+  "scenario": "Eine E-Mail im Namen des Prüfungsamts sagt, dein Studierendenkonto sei „aus Sicherheitsgründen gesperrt“, und du müsstest sofort über einen Link dein Passwort neu setzen, um Klausuranmeldungen nicht zu verpassen.",
+  "answers": {
+    "B": "Die Mail ignorieren und dich direkt im gewohnten Studierendenportal einloggen, um zu prüfen, ob wirklich eine Sperrung vorliegt.",
+    "A": "Das Passwort sofort über den Link neu setzen.",
+    "C": "Den Link öffnen, aber ein anderes Passwort als sonst verwenden."
+  },
+  "scores": {
+    "B": 4,
+    "A": 0,
+    "C": 0
+  },
+  "safeActions": [
+    "B"
+  ],
+  "explanation": "Ein direkter Login im gewohnten Portal zeigt sofort, ob eine Sperrung überhaupt existiert — das Prüfungsamt verschickt keine Passwort-Reset-Links per E-Mail.",
+  "proTip": "Ein Login im gewohnten Portal ist immer sicherer als ein Link aus einer Mail.",
+  "hackKey": "A",
+  "hackTrigger": "Autorität",
+  "tags": [
+    "university",
+    "a",
+    "student-accounts",
+    "phishing"
+  ],
+  "active": true
+}

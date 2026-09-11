@@ -1,0 +1,34 @@
+{
+  "id": "university-de-uni-04",
+  "lang": "de",
+  "title": "Nimm dein Stipendium in 60 Minuten an",
+  "edition": "university",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Stipendien",
+  "scenario": "Eine E-Mail gratuliert dir zu einem Deutschlandstipendium, für das du dich nie beworben hast, und verlangt, die Zusage innerhalb von 60 Minuten über einen Link mit Kontodaten zu bestätigen.",
+  "answers": {
+    "A": "Beim Career Service oder Studierendensekretariat deiner Uni nachfragen, ob ein solches Stipendium und eine Bewerbung von dir überhaupt existieren, bevor du irgendetwas bestätigst.",
+    "B": "Die Kontodaten über den Link bestätigen, um das Stipendium nicht zu verlieren.",
+    "C": "Nur den Namen bestätigen, aber keine Kontodaten."
+  },
+  "scores": {
+    "A": 4,
+    "B": 0,
+    "C": 1
+  },
+  "safeActions": [
+    "A"
+  ],
+  "explanation": "Ein Stipendium, für das man sich nie beworben hat, gewinnt man auch nicht. Deine Uni kann in einem Anruf sofort bestätigen, ob es das Programm überhaupt gibt.",
+  "proTip": "Ein Gewinn ohne Bewerbung ist kein Gewinn.",
+  "hackKey": "H",
+  "hackTrigger": "Hetze",
+  "tags": [
+    "university",
+    "h",
+    "scholarships",
+    "phishing"
+  ],
+  "active": true
+}

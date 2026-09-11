@@ -1,0 +1,34 @@
+{
+  "id": "university-de-uni-20",
+  "lang": "de",
+  "title": "Der Vermieter hat das Mietkonto geändert",
+  "edition": "university",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Wohnen",
+  "scenario": "Eine E-Mail „vom Vermieter“ deiner WG informiert alle Mitbewohner:innen, dass die Miete ab sofort auf ein neues Konto überwiesen werden soll — angeblich wegen eines Bankwechsels.",
+  "answers": {
+    "B": "Den Vermieter über die bekannte Telefonnummer oder persönlich nach dem angeblichen Bankwechsel fragen, bevor die erste Miete auf das neue Konto geht.",
+    "A": "Ab sofort auf das neue Konto überweisen, wie in der Mail beschrieben.",
+    "C": "Mit den Mitbewohnern besprechen, ob sie dieselbe Mail bekommen haben."
+  },
+  "scores": {
+    "B": 4,
+    "A": 0,
+    "C": 2
+  },
+  "safeActions": [
+    "B"
+  ],
+  "explanation": "E-Mail-Konten von Vermietern werden gezielt übernommen, gerade weil regelmäßig Miete fließt. Eine geänderte Kontoverbindung wird immer telefonisch über eine unabhängig bekannte Nummer bestätigt.",
+  "proTip": "Miete geht nur auf ein Konto, das dir am Telefon bestätigt wurde.",
+  "hackKey": "A",
+  "hackTrigger": "Autorität",
+  "tags": [
+    "university",
+    "a",
+    "housing",
+    "business-email-compromise"
+  ],
+  "active": true
+}

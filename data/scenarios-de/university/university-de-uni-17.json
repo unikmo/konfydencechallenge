@@ -1,0 +1,34 @@
+{
+  "id": "university-de-uni-17",
+  "lang": "de",
+  "title": "„BAföG-Rückzahlungserleichterung“ kennt deinen Saldo",
+  "edition": "university",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Studienkredite",
+  "scenario": "Ein Anruf im Namen einer „staatlichen Rückzahlungsstelle“ nennt dir korrekt deine offene BAföG-Summe und bietet einen „Sondererlass“ an, wenn du sofort eine Bearbeitungsgebühr überweist.",
+  "answers": {
+    "B": "Auflegen und beim Bundesverwaltungsamt (der echten BAföG-Rückzahlungsstelle) über die offizielle Nummer nachfragen, ob ein solcher Erlass existiert.",
+    "A": "Die Bearbeitungsgebühr sofort überweisen, um den Sondererlass zu sichern.",
+    "C": "Nach schriftlichen Unterlagen zum Erlass fragen, bevor du zahlst."
+  },
+  "scores": {
+    "B": 4,
+    "A": 0,
+    "C": 2
+  },
+  "safeActions": [
+    "B"
+  ],
+  "explanation": "Die richtige Kenntnis deines Saldos kann aus einem Datenleck stammen und ist kein Echtheitsbeweis. Echte Erlassregelungen kosten keine vorab zu zahlende „Bearbeitungsgebühr“.",
+  "proTip": "Den richtigen Betrag zu kennen macht einen Anrufer nicht echt.",
+  "hackKey": "A",
+  "hackTrigger": "Autorität",
+  "tags": [
+    "university",
+    "a",
+    "loans",
+    "vishing"
+  ],
+  "active": true
+}

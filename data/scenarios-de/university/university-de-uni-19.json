@@ -1,0 +1,34 @@
+{
+  "id": "university-de-uni-19",
+  "lang": "de",
+  "title": "Die IT „migriert“ dein Postfach",
+  "edition": "university",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Uni-IT",
+  "scenario": "Eine Mail im Namen des Hochschulrechenzentrums kündigt eine Postfach-Migration an und bittet, die Zugangsdaten über ein verlinktes Formular „zur Sicherung“ erneut einzugeben.",
+  "answers": {
+    "A": "Das Formular ignorieren und sich wie gewohnt direkt im Uni-Webmail einloggen; eine echte Migration verlangt keine externe Dateneingabe.",
+    "B": "Die Zugangsdaten über das Formular erneut eingeben.",
+    "C": "Ein neues, unbekanntes Passwort im Formular verwenden."
+  },
+  "scores": {
+    "A": 4,
+    "B": 0,
+    "C": 0
+  },
+  "safeActions": [
+    "A"
+  ],
+  "explanation": "Eine echte Systemmigration läuft im Hintergrund — sie verlangt nie, dass alle Nutzer ihre Zugangsdaten über ein externes Formular neu eingeben.",
+  "proTip": "Migrationen passieren ohne dich — Zugangsdaten gibst du dafür nie erneut ein.",
+  "hackKey": "A",
+  "hackTrigger": "Autorität",
+  "tags": [
+    "university",
+    "a",
+    "university-it",
+    "mass-phishing"
+  ],
+  "active": true
+}

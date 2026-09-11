@@ -1,0 +1,34 @@
+{
+  "id": "university-de-uni-15",
+  "lang": "de",
+  "title": "Der Objektschutz sagt, du schuldest ein Bußgeld",
+  "edition": "university",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Campus-Sicherheit",
+  "scenario": "Eine Person in Uniform am Campus-Eingang behauptet, du hättest unerlaubt im Sperrbereich geparkt, und verlangt ein Bußgeld von 80 € sofort in bar, sonst werde dein Fahrzeug abgeschleppt.",
+  "answers": {
+    "B": "Nach einem offiziellen, nummerierten Bußgeldbescheid fragen und das Bußgeld nur über den regulären, bekannten Weg der Uni-Verwaltung zahlen — nicht bar am Ort.",
+    "A": "Die 80 € sofort bar zahlen, um das Abschleppen zu vermeiden.",
+    "C": "Um eine Quittung mit Dienstnummer bitten und dann bar zahlen."
+  },
+  "scores": {
+    "B": 4,
+    "A": 0,
+    "C": 1
+  },
+  "safeActions": [
+    "B"
+  ],
+  "explanation": "Echte Bußgelder auf dem Campus laufen über einen offiziellen, nummerierten Bescheid und die reguläre Kassen- oder Verwaltungsstelle, nie über sofortige Barzahlung an eine Person am Eingang.",
+  "proTip": "Bar am Ort zahlen ist bei einem echten Bußgeld nie nötig.",
+  "hackKey": "A",
+  "hackTrigger": "Autorität",
+  "tags": [
+    "university",
+    "a",
+    "campus-safety",
+    "impostor"
+  ],
+  "active": true
+}

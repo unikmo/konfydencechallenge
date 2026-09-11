@@ -1,0 +1,34 @@
+{
+  "id": "university-de-uni-09",
+  "lang": "de",
+  "title": "Der Professor braucht heute sofort eine Hiwi",
+  "edition": "university",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Hiwi-Jobs",
+  "scenario": "Eine E-Mail, angeblich von einem Professor, den du nur aus einer großen Vorlesung kennst, bietet dir spontan eine gut bezahlte Hiwi-Stelle an — du müsstest aber noch heute deine Kontodaten für die „sofortige erste Zahlung“ schicken.",
+  "answers": {
+    "C": "Den Professor über die offizielle Uni-E-Mail-Adresse oder in der Sprechstunde persönlich fragen, ob das Angebot wirklich von ihm kommt, bevor du Kontodaten schickst.",
+    "A": "Die Kontodaten sofort schicken, um die Stelle nicht zu verpassen.",
+    "B": "Nur den Namen und die Matrikelnummer schicken."
+  },
+  "scores": {
+    "C": 4,
+    "A": 0,
+    "B": 1
+  },
+  "safeActions": [
+    "C"
+  ],
+  "explanation": "Hiwi-Stellen laufen über offizielle Uni-Prozesse, nicht über eine spontane E-Mail mit Sofort-Kontodaten-Anfrage. Eine kurze Rückfrage über einen bekannten Kanal klärt es.",
+  "proTip": "Eine echte Hiwi-Stelle läuft nie über eine Mail mit Zeitdruck und Kontodatenwunsch.",
+  "hackKey": "H",
+  "hackTrigger": "Hetze",
+  "tags": [
+    "university",
+    "h",
+    "research-jobs",
+    "phishing"
+  ],
+  "active": true
+}

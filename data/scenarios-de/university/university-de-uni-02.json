@@ -1,0 +1,35 @@
+{
+  "id": "university-de-uni-02",
+  "lang": "de",
+  "title": "Deine BAföG-Nachzahlung läuft heute Mitternacht ab",
+  "edition": "university",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "BAföG",
+  "scenario": "Eine SMS im Namen des Studierendenwerks sagt, eine BAföG-Nachzahlung von 340 € verfalle um Mitternacht, wenn du nicht sofort über einen Link deine IBAN bestätigst.",
+  "answers": {
+    "C": "Abwarten und morgen direkt im BAföG-Online-Portal oder beim Studierendenwerk nachfragen, ob wirklich etwas offen ist.",
+    "A": "Die IBAN sofort über den Link bestätigen, um die Nachzahlung nicht zu verlieren.",
+    "B": "Bei der im Link angegebenen Nummer zurückrufen."
+  },
+  "scores": {
+    "C": 4,
+    "A": 0,
+    "B": 0
+  },
+  "safeActions": [
+    "C"
+  ],
+  "explanation": "BAföG-Nachzahlungen verfallen nicht über Nacht, und das Studierendenwerk verschickt keine SMS-Links mit Kontodatenabfrage. Sowohl der Link als auch eine Nummer daraus führen zu den Tätern.",
+  "proTip": "Eine Frist bis Mitternacht ist gemacht, damit du nicht nachdenkst.",
+  "hackKey": "H",
+  "hackTrigger": "Hetze",
+  "tags": [
+    "university",
+    "h",
+    "financial-aid",
+    "smishing",
+    "diagnostic"
+  ],
+  "active": true
+}

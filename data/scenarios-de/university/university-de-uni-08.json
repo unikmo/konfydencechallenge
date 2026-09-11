@@ -1,0 +1,34 @@
+{
+  "id": "university-de-uni-08",
+  "lang": "de",
+  "title": "Der Nothilfefonds läuft heute Abend ab",
+  "edition": "university",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Studienfinanzierung",
+  "scenario": "Eine Mail im Namen des Studierendenwerks kündigt einen einmaligen Nothilfefonds für in Not geratene Studierende an — die Bewerbung mit vollständigen Kontodaten müsse heute Abend über einen externen Link eingereicht werden.",
+  "answers": {
+    "A": "Direkt beim Studierendenwerk über die offizielle Website oder Telefonnummer nachfragen, ob dieser Fonds und der Link wirklich echt sind.",
+    "B": "Die Kontodaten sofort über den Link einreichen, um die Frist nicht zu verpassen.",
+    "C": "Nur einen Teil der Daten einreichen, um vorsichtig zu bleiben."
+  },
+  "scores": {
+    "A": 4,
+    "B": 0,
+    "C": 0
+  },
+  "safeActions": [
+    "A"
+  ],
+  "explanation": "Echte Nothilfefonds laufen über die offizielle Studierendenwerk-Website, nicht über einen externen Abendfrist-Link. Ein Anruf klärt es in Minuten.",
+  "proTip": "Ein Fonds mit Abendfrist über einen fremden Link ist kein echter Fonds.",
+  "hackKey": "H",
+  "hackTrigger": "Hetze",
+  "tags": [
+    "university",
+    "h",
+    "financial-aid",
+    "phishing"
+  ],
+  "active": true
+}

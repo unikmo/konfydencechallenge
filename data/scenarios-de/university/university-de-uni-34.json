@@ -1,0 +1,34 @@
+{
+  "id": "university-de-uni-34",
+  "lang": "de",
+  "title": "Der Lehrbuch-Käufer hat gemeinsame Freunde",
+  "edition": "university",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Marktplätze",
+  "scenario": "Du verkaufst ein teures Lehrbuch auf Kleinanzeigen. Ein Käufer mit mehreren gemeinsamen Facebook-Freunden will sofort kaufen und schickt einen Link zu „Kleinanzeigen — Sichere Bezahlung“, der nach Bankdaten und TAN fragt.",
+  "answers": {
+    "C": "Die Bezahlung ausschließlich über die offizielle Funktion in der Kleinanzeigen-App abwickeln und den externen Link ignorieren.",
+    "A": "Über den Link gehen, weil ihr gemeinsame Freunde habt.",
+    "B": "Nur die Kontonummer eingeben, aber keine TAN."
+  },
+  "scores": {
+    "C": 4,
+    "A": 0,
+    "B": 0
+  },
+  "safeActions": [
+    "C"
+  ],
+  "explanation": "Gemeinsame Freunde sind kein Identitätsnachweis — auch alte, vernetzte Konten werden übernommen. Die echte „Sichere Bezahlung“ läuft komplett in der App, nie über einen externen Link.",
+  "proTip": "Gemeinsame Freunde sind kein TAN-Schutz.",
+  "hackKey": "C",
+  "hackTrigger": "Vertrautheit",
+  "tags": [
+    "university",
+    "c",
+    "marketplaces",
+    "phishing"
+  ],
+  "active": true
+}

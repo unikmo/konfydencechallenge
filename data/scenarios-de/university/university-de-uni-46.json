@@ -1,0 +1,34 @@
+{
+  "id": "university-de-uni-46",
+  "lang": "de",
+  "title": "Die „Bonitätsprüfung“ braucht deinen Bank-Login",
+  "edition": "university",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Wohnen",
+  "scenario": "Für eine WG-Bewerbung verlangt eine vermeintliche Vermieterin, dass du dich über einen Link bei deiner Bank einloggst, damit ein „automatisches Bonitätstool“ direkt deinen Kontostand prüfen kann.",
+  "answers": {
+    "C": "Ablehnen und stattdessen einen offiziellen Bonitätsnachweis (Schufa-Auskunft, Gehaltsnachweis) anbieten; eine echte Vermieterin braucht nie deinen direkten Bank-Login.",
+    "A": "Sich über den Link bei der Bank einloggen, um die Bonität zu belegen.",
+    "B": "Nur den Kontostand als Screenshot schicken."
+  },
+  "scores": {
+    "C": 4,
+    "A": 0,
+    "B": 2
+  },
+  "safeActions": [
+    "C"
+  ],
+  "explanation": "Ein Bank-Login über einen fremden Link gibt vollen Zugriff auf dein Konto — das hat mit einer legitimen Bonitätsprüfung nichts zu tun. Offizielle Nachweise wie eine Schufa-Auskunft reichen aus.",
+  "proTip": "Für eine Bonitätsprüfung gibst du nie deinen Bank-Login weiter.",
+  "hackKey": "K",
+  "hackTrigger": "Notbremse",
+  "tags": [
+    "university",
+    "k",
+    "housing",
+    "credential-phishing"
+  ],
+  "active": true
+}

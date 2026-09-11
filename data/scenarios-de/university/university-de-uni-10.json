@@ -1,0 +1,34 @@
+{
+  "id": "university-de-uni-10",
+  "lang": "de",
+  "title": "Zwischenmiete-Zimmer — Kaution jetzt sichern",
+  "edition": "university",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Zwischenmiete",
+  "scenario": "Für ein Auslandssemester suchst du eine Zwischenmiete. Ein Angebot passt perfekt — die Person bittet aber, die Kaution „jetzt sofort“ zu überweisen, weil „noch zwei andere Leute Interesse haben“.",
+  "answers": {
+    "B": "Erst das Zimmer besichtigen oder mit der Person videotelefonieren und einen echten Untermietvertrag sehen, bevor irgendetwas überwiesen wird.",
+    "A": "Die Kaution sofort überweisen, um das Zimmer zu sichern.",
+    "C": "Nur die Hälfte der Kaution überweisen."
+  },
+  "scores": {
+    "B": 4,
+    "A": 0,
+    "C": 0
+  },
+  "safeActions": [
+    "B"
+  ],
+  "explanation": "„Noch zwei andere Interessenten“ ist der Standard-Zeitdrucksatz bei Zwischenmiete-Betrug. Ein echter Vertrag und eine Besichtigung — auch per Video — kommen immer vor der Zahlung.",
+  "proTip": "Kein Vertrag gesehen, keine Kaution überwiesen.",
+  "hackKey": "H",
+  "hackTrigger": "Hetze",
+  "tags": [
+    "university",
+    "h",
+    "sublets",
+    "rental-scam"
+  ],
+  "active": true
+}

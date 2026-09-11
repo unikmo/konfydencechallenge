@@ -1,0 +1,34 @@
+{
+  "id": "university-de-uni-44",
+  "lang": "de",
+  "title": "Der Käufer hat „aus Versehen zu viel überwiesen“",
+  "edition": "university",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Zahlungen",
+  "scenario": "Du verkaufst dein altes Fahrrad. Der Käufer schickt einen Screenshot einer Überweisung über 150 € mehr als vereinbart und bittet, die Differenz per Sofortüberweisung zurückzuschicken, bevor er das Rad abholt.",
+  "answers": {
+    "B": "Erst im eigenen Konto prüfen, ob das Geld tatsächlich eingegangen ist, bevor irgendetwas zurücküberwiesen wird; ein Screenshot ist kein Zahlungseingang.",
+    "A": "Die Differenz sofort zurücküberweisen, damit die Abholung klappt.",
+    "C": "Die Hälfte der Differenz zurücküberweisen, um entgegenzukommen."
+  },
+  "scores": {
+    "B": 4,
+    "A": 0,
+    "C": 0
+  },
+  "safeActions": [
+    "B"
+  ],
+  "explanation": "Ein Screenshot lässt sich fälschen, oder die ursprüngliche Zahlung wird später storniert, sobald die „Rückerstattung“ schon geschickt ist. Nur der eigene Kontostand beweist einen echten Zahlungseingang.",
+  "proTip": "Ein Screenshot ist kein Geldeingang — schau in dein eigenes Konto.",
+  "hackKey": "K",
+  "hackTrigger": "Notbremse",
+  "tags": [
+    "university",
+    "k",
+    "payments",
+    "overpayment"
+  ],
+  "active": true
+}

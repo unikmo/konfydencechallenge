@@ -1,0 +1,34 @@
+{
+  "id": "university-de-uni-06",
+  "lang": "de",
+  "title": "Studierendenblock, halber Preis, nur zehn Minuten",
+  "edition": "university",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Tickets",
+  "scenario": "In einer Ticketbörse-Gruppe bietet jemand ein Stadion-Ticket im Studierendenblock zum halben Preis an — „reserviert nur die nächsten zehn Minuten“ — Zahlung per Überweisung an eine Privatperson.",
+  "answers": {
+    "A": "Nur über eine Plattform mit Käuferschutz zahlen oder eine persönliche Übergabe gegen Bargeld vorschlagen.",
+    "B": "Sofort überweisen, um das Ticket nicht zu verpassen.",
+    "C": "Die Hälfte anzahlen, den Rest bei Übergabe."
+  },
+  "scores": {
+    "A": 4,
+    "B": 0,
+    "C": 0
+  },
+  "safeActions": [
+    "A"
+  ],
+  "explanation": "Ein enges Zeitfenster bei Vorauszahlung an eine unbekannte Person ist die klassische Ticket-Betrugsmasche — Käuferschutz oder persönliche Übergabe schützen dich, ein Countdown nie.",
+  "proTip": "Ein Ticket, das in zehn Minuten weg ist, ist meist gar nicht da.",
+  "hackKey": "H",
+  "hackTrigger": "Hetze",
+  "tags": [
+    "university",
+    "h",
+    "tickets",
+    "payment-scam"
+  ],
+  "active": true
+}
