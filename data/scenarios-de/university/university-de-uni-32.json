@@ -1,0 +1,34 @@
+{
+  "id": "university-de-uni-32",
+  "lang": "de",
+  "title": "Dein Freund „sitzt an der Grenze fest“",
+  "edition": "university",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Freunde im Ausland",
+  "scenario": "Eine Nachricht über Facebook Messenger von einem Freund im Auslandssemester sagt, ihm sei an der Grenze das Geld gestohlen worden, und er brauche sofort 300 € per Zahlungs-App, bis seine Bank das Problem löst.",
+  "answers": {
+    "A": "Ihn über eine andere, dir bekannte Nummer per Anruf oder Videoanruf erreichen, bevor du irgendetwas schickst.",
+    "B": "Das Geld über den im Chat genannten Weg sofort schicken.",
+    "C": "In der gemeinsamen Freundesgruppe fragen, ob schon jemand mit ihm gesprochen hat."
+  },
+  "scores": {
+    "A": 4,
+    "B": 0,
+    "C": 2
+  },
+  "safeActions": [
+    "A"
+  ],
+  "explanation": "Ein Chat, der plötzlich nur noch Text erlaubt und um Geld bittet, ist ein klassisches Zeichen für ein übernommenes Konto. Ein Videoanruf zeigt sofort, wer wirklich am anderen Ende ist.",
+  "proTip": "Wer wirklich an der Grenze festsitzt, kann fast immer telefonieren oder sich per Video zeigen.",
+  "hackKey": "C",
+  "hackTrigger": "Vertrautheit",
+  "tags": [
+    "university",
+    "c",
+    "friends-abroad",
+    "account-takeover"
+  ],
+  "active": true
+}

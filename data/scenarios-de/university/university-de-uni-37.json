@@ -1,0 +1,35 @@
+{
+  "id": "university-de-uni-37",
+  "lang": "de",
+  "title": "Der Scheck ist „eingegangen“ — kauf den Laptop",
+  "edition": "university",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Nebenjobs",
+  "scenario": "Ein neuer „Arbeitgeber“ für einen Remote-Nebenjob schickt dir einen Scheck, der laut Banking-App bereits „eingegangen“ ist, und bittet dich, davon sofort einen teuren Laptop zu kaufen und ihm die Quittung zu schicken.",
+  "answers": {
+    "C": "Nicht kaufen und abwarten, bis der Scheck tatsächlich vollständig gebucht und nicht mehr rückbuchbar ist — im Zweifel bei der eigenen Bank nachfragen.",
+    "A": "Den Laptop sofort kaufen, weil der Scheck laut App schon eingegangen ist.",
+    "B": "Nur einen Teil des Betrags ausgeben und den Rest zurückhalten."
+  },
+  "scores": {
+    "C": 4,
+    "A": 0,
+    "B": 0
+  },
+  "safeActions": [
+    "C"
+  ],
+  "explanation": "Ein Scheck kann Tage später als ungültig zurückgebucht werden, auch wenn er kurzfristig als „eingegangen“ angezeigt wird — das ausgegebene Geld ist dann trotzdem weg und du haftest.",
+  "proTip": "„Eingegangen“ in der App ist nicht dasselbe wie endgültig gebucht.",
+  "hackKey": "K",
+  "hackTrigger": "Notbremse",
+  "tags": [
+    "university",
+    "k",
+    "jobs",
+    "check-scam",
+    "diagnostic"
+  ],
+  "active": true
+}

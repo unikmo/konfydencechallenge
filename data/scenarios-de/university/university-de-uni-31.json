@@ -1,0 +1,34 @@
+{
+  "id": "university-de-uni-31",
+  "lang": "de",
+  "title": "Der Alumni-Mentor will „deiner Bonität helfen“",
+  "edition": "university",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Mentoring",
+  "scenario": "Ein Alumni-Mentor aus einem offiziellen Uni-Mentoring-Programm bietet an, „deine Bonität zu verbessern“, wenn du ihm kurz Zugriff auf dein Online-Banking gibst, um „ein paar Einträge zu korrigieren“.",
+  "answers": {
+    "C": "Das Angebot ablehnen; kein legitimer Mentor braucht oder sollte je Zugriff auf dein Online-Banking bekommen.",
+    "A": "Den Zugriff gewähren, weil das Mentoring-Programm offiziell ist.",
+    "B": "Nur Leserechte ohne Überweisungsmöglichkeit gewähren."
+  },
+  "scores": {
+    "C": 4,
+    "A": 0,
+    "B": 0
+  },
+  "safeActions": [
+    "C"
+  ],
+  "explanation": "Der offizielle Rahmen des Mentoring-Programms macht diese konkrete Bitte nicht legitim — kein echter Mentor braucht Zugriff auf dein Bankkonto, um Bonität zu „verbessern“.",
+  "proTip": "Ein Mentor gibt Rat — er braucht nie deinen Bankzugang.",
+  "hackKey": "C",
+  "hackTrigger": "Vertrautheit",
+  "tags": [
+    "university",
+    "c",
+    "mentoring",
+    "account-access"
+  ],
+  "active": true
+}

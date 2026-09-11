@@ -1,0 +1,34 @@
+{
+  "id": "university-de-uni-47",
+  "lang": "de",
+  "title": "Dein Stipendium hat dich überzahlt — zahl den Rest zurück",
+  "edition": "university",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Finanzielle Unterstützung",
+  "scenario": "Nach einer Stipendienauszahlung zeigt dein Konto plötzlich 600 € mehr als erwartet. Eine Mail meldet einen „Systemfehler“ und bittet, die Differenz sofort per Überweisung zurückzuschicken, bevor „das System es automatisch meldet“.",
+  "answers": {
+    "C": "Nicht zurücküberweisen, sondern zuerst beim Studierendenwerk direkt über die bekannte Nummer nachfragen, ob wirklich ein Fehler vorliegt.",
+    "A": "Die Differenz sofort zurücküberweisen, um Ärger zu vermeiden.",
+    "B": "Nur einen Teil der Differenz zurücküberweisen."
+  },
+  "scores": {
+    "C": 4,
+    "A": 0,
+    "B": 0
+  },
+  "safeActions": [
+    "C"
+  ],
+  "explanation": "Eine „versehentliche Überzahlung“, die man selbst per Überweisung korrigieren soll, ist eine bekannte Masche — der ursprüngliche Betrag verschwindet später oft wieder, und die Rücküberweisung ist dann echter Verlust.",
+  "proTip": "Ein Systemfehler wird vom System korrigiert, nicht von einer hastigen Rücküberweisung.",
+  "hackKey": "K",
+  "hackTrigger": "Notbremse",
+  "tags": [
+    "university",
+    "k",
+    "financial-aid",
+    "overpayment"
+  ],
+  "active": true
+}

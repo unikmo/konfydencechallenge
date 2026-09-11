@@ -1,0 +1,34 @@
+{
+  "id": "university-de-uni-05",
+  "lang": "de",
+  "title": "Ausländerbehörde: Antworte vor Mitternacht",
+  "edition": "university",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Internationale Studierende",
+  "scenario": "Eine E-Mail im Namen der Ausländerbehörde warnt, dein Aufenthaltstitel werde „automatisch widerrufen“, wenn du nicht vor Mitternacht über einen Link deine Passdaten bestätigst.",
+  "answers": {
+    "C": "Die E-Mail ignorieren und direkt bei der zuständigen Ausländerbehörde oder dem International Office deiner Uni über die bekannte Nummer nachfragen.",
+    "A": "Die Passdaten sofort über den Link bestätigen, um den Aufenthaltstitel nicht zu verlieren.",
+    "B": "Auf die E-Mail antworten und um mehr Zeit bitten."
+  },
+  "scores": {
+    "C": 4,
+    "A": 0,
+    "B": 0
+  },
+  "safeActions": [
+    "C"
+  ],
+  "explanation": "Behörden entscheiden nicht per Mitternachtsfrist über einen Aufenthaltstitel per E-Mail-Link. Das International Office kennt den echten Stand deines Verfahrens.",
+  "proTip": "Ein Aufenthaltstitel verfällt nicht per E-Mail-Countdown.",
+  "hackKey": "H",
+  "hackTrigger": "Hetze",
+  "tags": [
+    "university",
+    "h",
+    "international-students",
+    "phishing"
+  ],
+  "active": true
+}

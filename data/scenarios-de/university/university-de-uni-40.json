@@ -1,0 +1,34 @@
+{
+  "id": "university-de-uni-40",
+  "lang": "de",
+  "title": "Zahl 60 €, um 480 € freizuschalten",
+  "edition": "university",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Aufgaben-Betrug",
+  "scenario": "Bei einem angeblichen Nebenjob „einfache Online-Aufgaben erledigen“ zeigt eine App ein Guthaben von 480 €, das aber erst durch eine „Freischaltungsgebühr“ von 60 € ausgezahlt werden kann.",
+  "answers": {
+    "A": "Nicht zahlen und die App löschen; ein angezeigtes Guthaben, das erst durch eigene Zahlung „freigeschaltet“ werden muss, ist kein echtes Geld.",
+    "B": "Die 60 € zahlen, um die 480 € zu bekommen.",
+    "C": "Nur die Hälfte der Gebühr zahlen, um zu testen, ob es funktioniert."
+  },
+  "scores": {
+    "A": 4,
+    "B": 0,
+    "C": 0
+  },
+  "safeActions": [
+    "A"
+  ],
+  "explanation": "Ein „Guthaben“, das man erst durch eigene Vorabzahlung freischalten muss, existiert nur in der App-Anzeige — echtes Geld wird nie so ausgezahlt.",
+  "proTip": "Ein Guthaben, das eine Gebühr braucht, um „frei“ zu werden, ist nie echt.",
+  "hackKey": "K",
+  "hackTrigger": "Notbremse",
+  "tags": [
+    "university",
+    "k",
+    "task-scams",
+    "advance-fee"
+  ],
+  "active": true
+}

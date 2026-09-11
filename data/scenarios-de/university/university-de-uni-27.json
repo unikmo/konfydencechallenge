@@ -1,0 +1,34 @@
+{
+  "id": "university-de-uni-27",
+  "lang": "de",
+  "title": "Dein neuer Wohnheim-Kumpel hat „eine sichere Sache“",
+  "edition": "university",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Investitionen",
+  "scenario": "Ein neuer Bekannter aus dem Wohnheim, mit dem du dich gut verstehst, erzählt begeistert von einer Krypto-Plattform, auf der er „garantiert“ Geld verdient, und bietet an, dich mit seinem Einladungslink einzuweisen.",
+  "answers": {
+    "A": "Die Plattform unabhängig recherchieren (Name plus „Betrug“, BaFin-Warnliste prüfen) und mit niemandem, den du erst seit kurzem kennst, über eine Geldanlage entscheiden.",
+    "B": "Über den Einladungslink einsteigen, weil er im Wohnheim vertrauenswürdig wirkt.",
+    "C": "Einen kleinen Betrag investieren, um es auszuprobieren."
+  },
+  "scores": {
+    "A": 4,
+    "B": 0,
+    "C": 0
+  },
+  "safeActions": [
+    "A"
+  ],
+  "explanation": "„Garantiert“ gibt es bei echten Geldanlagen nicht — das ist das klassische Signal einer Investment-Betrugsmasche. Eine kurze Recherche und die BaFin-Warnliste zeigen es meist sofort.",
+  "proTip": "„Garantiert“ ist bei Geldanlagen immer ein Warnwort.",
+  "hackKey": "C",
+  "hackTrigger": "Vertrautheit",
+  "tags": [
+    "university",
+    "c",
+    "investments",
+    "crypto-scam"
+  ],
+  "active": true
+}

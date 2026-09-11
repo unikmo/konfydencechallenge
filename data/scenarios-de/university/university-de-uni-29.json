@@ -1,0 +1,34 @@
+{
+  "id": "university-de-uni-29",
+  "lang": "de",
+  "title": "Aus dem Date wird ein Trading-Mentor",
+  "edition": "university",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Dating",
+  "scenario": "Nach ein paar netten Dates auf einer Dating-App beginnt die Person, dir enthusiastisch von einer Trading-Plattform zu erzählen, auf der sie „gutes Geld“ macht, und bietet an, dich persönlich anzuleiten.",
+  "answers": {
+    "A": "Die Plattform unabhängig recherchieren und mit niemandem, den du erst über eine Dating-App kennst, über eine Geldanlage entscheiden.",
+    "B": "Ihr vertrauen und mit dem Investieren beginnen, weil die Dates gut gelaufen sind.",
+    "C": "Nach den Kontodaten der Plattform fragen, um selbst direkt einzuzahlen."
+  },
+  "scores": {
+    "A": 4,
+    "B": 0,
+    "C": 0
+  },
+  "safeActions": [
+    "A"
+  ],
+  "explanation": "Romantisches Interesse und eine plötzliche Trading-Empfehlung zusammen sind ein bekanntes Muster („Pig Butchering“) — echte Zuneigung braucht keine gemeinsame Geldanlage.",
+  "proTip": "Wer dich zuerst verliebt und dann investieren lässt, will dein Geld, nicht dein Herz.",
+  "hackKey": "C",
+  "hackTrigger": "Vertrautheit",
+  "tags": [
+    "university",
+    "c",
+    "dating",
+    "romance-scam"
+  ],
+  "active": true
+}

@@ -1,0 +1,35 @@
+{
+  "id": "university-de-uni-26",
+  "lang": "de",
+  "title": "Der Lernleitfaden im Gruppenchat will deinen Login",
+  "edition": "university",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Lernchats",
+  "scenario": "Im WhatsApp-Lerngruppenchat für die anstehende Klausur teilt jemand einen Link zu einem „geteilten Lernleitfaden“, der zum Öffnen deinen Uni-Portal-Login verlangt.",
+  "answers": {
+    "C": "Den Link nicht öffnen und stattdessen direkt im Uni-Portal oder auf der offiziellen Kursseite nach Lernmaterial suchen.",
+    "A": "Sich über den Link mit dem Uni-Login anmelden, um den Leitfaden zu sehen.",
+    "B": "Fragen, wer den Link ursprünglich geteilt hat, und dann einloggen."
+  },
+  "scores": {
+    "C": 4,
+    "A": 0,
+    "B": 1
+  },
+  "safeActions": [
+    "C"
+  ],
+  "explanation": "Ein echter geteilter Leitfaden braucht nie deinen vollen Uni-Portal-Login — das ist eine Login-Phishing-Masche, die sich den Druck der Klausurphase zunutze macht.",
+  "proTip": "Lernmaterial braucht nie deinen Uni-Login.",
+  "hackKey": "C",
+  "hackTrigger": "Vertrautheit",
+  "tags": [
+    "university",
+    "c",
+    "class-chats",
+    "credential-phishing",
+    "diagnostic"
+  ],
+  "active": true
+}

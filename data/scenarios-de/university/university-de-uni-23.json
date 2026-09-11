@@ -1,0 +1,34 @@
+{
+  "id": "university-de-uni-23",
+  "lang": "de",
+  "title": "Wissenschaftliches Fehlverhalten — antworte in 24 Stunden",
+  "edition": "university",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Prüfungsausschuss",
+  "scenario": "Eine E-Mail im Namen des Prüfungsausschusses beschuldigt dich wissenschaftlichen Fehlverhaltens in einer Hausarbeit und verlangt, innerhalb von 24 Stunden über einen Link eine „Stellungnahme mit Login-Bestätigung“ einzureichen, sonst drohe die Exmatrikulation.",
+  "answers": {
+    "B": "Direkt beim Prüfungsausschuss oder Studierendensekretariat über die offizielle Nummer der Uni nachfragen, ob dieses Verfahren wirklich läuft, statt über den Link zu reagieren.",
+    "A": "Über den Link sofort eine Stellungnahme mit Login einreichen, um die Exmatrikulation zu vermeiden.",
+    "C": "Direkt auf die E-Mail antworten und sich verteidigen."
+  },
+  "scores": {
+    "B": 4,
+    "A": 0,
+    "C": 1
+  },
+  "safeActions": [
+    "B"
+  ],
+  "explanation": "Formale Disziplinarverfahren laufen über offizielle, schriftliche Wege der Uni, nicht über einen Link mit Login-Bestätigung und Tagesfrist. Ein Anruf bei der Uni klärt es sicher.",
+  "proTip": "Ein echtes Verfahren schickt dich nie zu einem Login-Link.",
+  "hackKey": "A",
+  "hackTrigger": "Autorität",
+  "tags": [
+    "university",
+    "a",
+    "university-it",
+    "fake-disciplinary"
+  ],
+  "active": true
+}

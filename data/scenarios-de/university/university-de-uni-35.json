@@ -1,0 +1,34 @@
+{
+  "id": "university-de-uni-35",
+  "lang": "de",
+  "title": "Das Premium-KI-Lerntool, das alle nutzen",
+  "edition": "university",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Lerntools",
+  "scenario": "In der Klausurphase teilt fast der ganze Semester-Chat den Zugang zu einem „Premium-KI-Lerntool“, das kostenlos ist, wenn man sich mit dem eigenen Uni-Account anmeldet und die Chrome-Erweiterung installiert.",
+  "answers": {
+    "A": "Sich nicht mit dem Uni-Account anmelden und die Erweiterung nicht installieren, egal wie viele andere es schon getan haben; ein echtes Tool braucht keinen fremden Zugriff auf den Uni-Account.",
+    "B": "Sich anmelden und die Erweiterung installieren, weil fast alle im Chat es schon nutzen.",
+    "C": "Sich mit einem separaten, neuen Account anmelden, um vorsichtig zu bleiben."
+  },
+  "scores": {
+    "A": 4,
+    "B": 0,
+    "C": 2
+  },
+  "safeActions": [
+    "A"
+  ],
+  "explanation": "Dass viele andere mitmachen, macht ein Tool, das vollen Kontozugriff und eine Browser-Erweiterung verlangt, nicht sicherer — Gruppendruck ersetzt keine Prüfung der Berechtigungen.",
+  "proTip": "Viele Mitmacher sind kein Sicherheitscheck.",
+  "hackKey": "C",
+  "hackTrigger": "Vertrautheit",
+  "tags": [
+    "university",
+    "c",
+    "class-chats",
+    "app-phishing"
+  ],
+  "active": true
+}

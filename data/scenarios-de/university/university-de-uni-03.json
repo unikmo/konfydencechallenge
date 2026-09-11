@@ -1,0 +1,34 @@
+{
+  "id": "university-de-uni-03",
+  "lang": "de",
+  "title": "Leichter Nebenjob — heute Abend geht's schon los",
+  "edition": "university",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Nebenjobs",
+  "scenario": "Eine Jobanzeige in der Fachschafts-WhatsApp-Gruppe verspricht 25 €/Stunde für „Produkttests von zuhause“, Start noch heute Abend — du müsstest dich dafür nur sofort mit Ausweis und Kontodaten registrieren.",
+  "answers": {
+    "C": "Die Anzeige unabhängig recherchieren (Firmenname plus „Betrug“ suchen) und dich nicht unter Zeitdruck sofort mit Ausweis- und Kontodaten registrieren.",
+    "A": "Dich sofort registrieren, um den Job noch heute zu bekommen.",
+    "B": "Nur den Ausweis hochladen, aber die Kontodaten weglassen."
+  },
+  "scores": {
+    "C": 4,
+    "A": 0,
+    "B": 1
+  },
+  "safeActions": [
+    "C"
+  ],
+  "explanation": "Ein Nebenjob, der sofortige Ausweis- und Kontodaten unter Zeitdruck verlangt, ist eine Standard-Masche für Identitätsdiebstahl oder Geldwäsche über dein Konto. Eine kurze Recherche zeigt es meist sofort.",
+  "proTip": "25 €/Stunde für „Produkttests“ ist ein Warnsignal, kein Angebot.",
+  "hackKey": "H",
+  "hackTrigger": "Hetze",
+  "tags": [
+    "university",
+    "h",
+    "jobs",
+    "job-scam"
+  ],
+  "active": true
+}

@@ -1,0 +1,34 @@
+{
+  "id": "university-de-uni-24",
+  "lang": "de",
+  "title": "„Dein Gerät ist nicht konform“ — installier dieses Profil",
+  "edition": "university",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Uni-IT",
+  "scenario": "Eine Mail im Namen der Uni-IT sagt, dein Laptop erfülle nicht die „Sicherheitsanforderungen“ für den WLAN-Zugang und verlangt die Installation eines Verwaltungsprofils von einer externen Seite, bevor du weiter das Uni-WLAN nutzen darfst.",
+  "answers": {
+    "B": "Das Profil nicht von der externen Seite installieren und die Uni-IT über den offiziellen Helpdesk-Kanal fragen, ob eine solche Anforderung wirklich existiert.",
+    "A": "Das Profil sofort installieren, um den WLAN-Zugang nicht zu verlieren.",
+    "C": "Das Profil installieren, aber danach die Berechtigungen prüfen."
+  },
+  "scores": {
+    "B": 4,
+    "A": 0,
+    "C": 1
+  },
+  "safeActions": [
+    "B"
+  ],
+  "explanation": "Ein Verwaltungsprofil gibt weitreichende Kontrolle über ein Gerät — echte Uni-IT verteilt so etwas nie über eine externe Seite ohne offizielle Ankündigung über den Helpdesk.",
+  "proTip": "Ein Verwaltungsprofil von einer fremden Seite ist keine WLAN-Voraussetzung.",
+  "hackKey": "A",
+  "hackTrigger": "Autorität",
+  "tags": [
+    "university",
+    "a",
+    "university-it",
+    "malicious-profile"
+  ],
+  "active": true
+}

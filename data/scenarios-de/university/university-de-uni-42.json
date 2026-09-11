@@ -1,0 +1,34 @@
+{
+  "id": "university-de-uni-42",
+  "lang": "de",
+  "title": "Der kostenlose Kaffee-QR-Code auf dem Campus",
+  "edition": "university",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "QR-Codes",
+  "scenario": "An mehreren Stellen auf dem Campus kleben Sticker mit QR-Code: „Kostenloser Kaffee — scann hier!“ Der Code führt zu einer Seite, die eine App-Installation und deine Kartendaten „zur Verifizierung“ verlangt.",
+  "answers": {
+    "C": "Den Code nicht scannen oder zumindest keine Kartendaten eingeben; ein echter Kaffee-Aktion braucht keine Kartendaten „zur Verifizierung“.",
+    "A": "Den Code scannen und die Kartendaten eingeben, um den Kaffee zu bekommen.",
+    "B": "Den Code scannen, aber die App nicht installieren."
+  },
+  "scores": {
+    "C": 4,
+    "A": 0,
+    "B": 1
+  },
+  "safeActions": [
+    "C"
+  ],
+  "explanation": "Aufgeklebte QR-Codes an öffentlichen Orten sind eine bekannte Betrugsmasche („Quishing“). Eine echte Aktion würde nie Kartendaten „zur Verifizierung“ eines kostenlosen Getränks verlangen.",
+  "proTip": "Kostenloser Kaffee braucht nie deine Kartendaten.",
+  "hackKey": "K",
+  "hackTrigger": "Notbremse",
+  "tags": [
+    "university",
+    "k",
+    "qr-codes",
+    "quishing"
+  ],
+  "active": true
+}

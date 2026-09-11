@@ -1,0 +1,34 @@
+{
+  "id": "university-de-uni-22",
+  "lang": "de",
+  "title": "Die Krankenkasse sagt: Versicherungsschutz läuft ab",
+  "edition": "university",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Krankenversicherung",
+  "scenario": "Eine Mail im Namen deiner studentischen Krankenkasse sagt, dein Versicherungsschutz laufe morgen ab, wenn du nicht sofort über einen Link deine Kontodaten zur „Beitragsbestätigung“ eingibst.",
+  "answers": {
+    "A": "Die Mail ignorieren und direkt im Kundenportal der Krankenkasse oder über die bekannte Servicenummer nachfragen, ob wirklich etwas offen ist.",
+    "B": "Die Kontodaten sofort über den Link eingeben, um den Versicherungsschutz zu sichern.",
+    "C": "Bei der Nummer aus der Mail anrufen, um nachzufragen."
+  },
+  "scores": {
+    "A": 4,
+    "B": 0,
+    "C": 0
+  },
+  "safeActions": [
+    "A"
+  ],
+  "explanation": "Krankenkassen kündigen einen Versicherungsablauf nicht per Link-Formular mit Kontodatenabfrage an — das Kundenportal zeigt den echten Status sofort.",
+  "proTip": "Versicherungsstatus prüfst du im Portal, nie über einen Link aus einer Mail.",
+  "hackKey": "A",
+  "hackTrigger": "Autorität",
+  "tags": [
+    "university",
+    "a",
+    "health-insurance",
+    "phishing"
+  ],
+  "active": true
+}

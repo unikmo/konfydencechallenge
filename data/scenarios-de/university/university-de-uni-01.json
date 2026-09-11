@@ -1,0 +1,35 @@
+{
+  "id": "university-de-uni-01",
+  "lang": "de",
+  "title": "Kaution bis zum Mittagessen, sonst ist das Zimmer weg",
+  "edition": "university",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Wohnen",
+  "scenario": "Auf WG-Gesucht meldet sich eine Vermieterin für ein günstiges WG-Zimmer, das perfekt zur Uni passt. Sie will das Zimmer aber nicht persönlich zeigen — nur die Kaution von 600 € per Überweisung bis zum Mittag, „sonst geht das Zimmer an die nächste Interessentin“.",
+  "answers": {
+    "C": "Kein Geld überweisen, ohne das Zimmer und die vermietende Person persönlich oder per Videocall gesehen zu haben.",
+    "A": "Nur die halbe Kaution überweisen, um vorsichtig zu bleiben.",
+    "B": "Die Kaution überweisen, weil so viele andere Interessent:innen Druck machen."
+  },
+  "scores": {
+    "C": 4,
+    "A": 0,
+    "B": 0
+  },
+  "safeActions": [
+    "C"
+  ],
+  "explanation": "Ein Zimmer, das man nie sehen darf, aber sofort per Überweisung sichern soll, ist die klassische WG-Betrugsmasche. Echte Vermieter:innen zeigen Zimmer — persönlich oder per Video — bevor Geld fließt.",
+  "proTip": "Kein Zimmer, keine Besichtigung, kein Geld.",
+  "hackKey": "H",
+  "hackTrigger": "Hetze",
+  "tags": [
+    "university",
+    "h",
+    "housing",
+    "rental-scam",
+    "diagnostic"
+  ],
+  "active": true
+}

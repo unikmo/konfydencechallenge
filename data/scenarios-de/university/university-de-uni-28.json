@@ -1,0 +1,34 @@
+{
+  "id": "university-de-uni-28",
+  "lang": "de",
+  "title": "Kannst du das kurz für mich empfangen?",
+  "edition": "university",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Freunde & Geld",
+  "scenario": "Eine Bekannte aus dem Seminar bittet dich, eine Zahlung von 800 € auf dein Konto empfangen zu dürfen, weil ihr eigenes „gerade Probleme macht“ — sie hole das Geld dann bar bei dir ab.",
+  "answers": {
+    "B": "Ablehnen; über ein fremdes Konto Geld weiterzuleiten kann als Geldwäsche gelten, egal wie gut man sich kennt.",
+    "A": "Zustimmen, um kurzfristig zu helfen.",
+    "C": "Nur zustimmen, wenn sie den Grund genauer erklärt."
+  },
+  "scores": {
+    "B": 4,
+    "A": 0,
+    "C": 1
+  },
+  "safeActions": [
+    "B"
+  ],
+  "explanation": "Wer Geld über ein fremdes Konto „durchleitet“, macht sich strafbar mitverantwortlich — auch wenn die eigene Absicht gut ist und die Person bekannt wirkt.",
+  "proTip": "Dein Konto ist kein Durchlaufposten für fremdes Geld.",
+  "hackKey": "C",
+  "hackTrigger": "Vertrautheit",
+  "tags": [
+    "university",
+    "c",
+    "friends-and-money",
+    "money-mule"
+  ],
+  "active": true
+}

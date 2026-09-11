@@ -1,0 +1,34 @@
+{
+  "id": "university-de-uni-07",
+  "lang": "de",
+  "title": "Deine Laptop-Lieferung braucht 2,40 €",
+  "edition": "university",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Lieferungen",
+  "scenario": "Eine SMS im Namen von DHL sagt, dein neu bestellter Laptop könne wegen einer offenen Zollgebühr von 2,40 € nicht zugestellt werden. Der Link verlangt Kartendaten und Adresse.",
+  "answers": {
+    "B": "Die SMS ignorieren und die Sendung direkt in der DHL-App oder auf dhl.de mit der Sendungsnummer verfolgen.",
+    "A": "Über den Link zahlen, um die Zustellung nicht zu verzögern.",
+    "C": "Den Link öffnen, aber nur die Adresse bestätigen, keine Kartendaten."
+  },
+  "scores": {
+    "B": 4,
+    "A": 0,
+    "C": 1
+  },
+  "safeActions": [
+    "B"
+  ],
+  "explanation": "Zollgebühren werden nicht per SMS-Link mit Kartennummer eingezogen — der winzige Betrag soll das Risiko klein wirken lassen. Der echte Status steht in der Versand-App.",
+  "proTip": "Ein Paket, das eine Kartennummer will, ist kein Paket.",
+  "hackKey": "H",
+  "hackTrigger": "Hetze",
+  "tags": [
+    "university",
+    "h",
+    "deliveries",
+    "smishing"
+  ],
+  "active": true
+}

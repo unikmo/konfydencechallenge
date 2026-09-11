@@ -1,0 +1,34 @@
+{
+  "id": "university-de-uni-12",
+  "lang": "de",
+  "title": "Rückmeldefrist — heute Abend letzte Chance",
+  "edition": "university",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Rückmeldung",
+  "scenario": "Eine SMS warnt, deine Rückmeldung fürs nächste Semester sei noch offen und du würdest exmatrikuliert, wenn du nicht heute Abend über einen Link den Semesterbeitrag per Karte zahlst.",
+  "answers": {
+    "C": "Direkt im Studierendenportal nachsehen, ob die Rückmeldung wirklich noch offen ist, statt über den SMS-Link zu zahlen.",
+    "A": "Über den Link sofort zahlen, um die Exmatrikulation zu vermeiden.",
+    "B": "Beim Studierendensekretariat über die Nummer aus der SMS nachfragen."
+  },
+  "scores": {
+    "C": 4,
+    "A": 0,
+    "B": 0
+  },
+  "safeActions": [
+    "C"
+  ],
+  "explanation": "Die Rückmeldung läuft ausschließlich über das offizielle Studierendenportal, niemals über einen SMS-Link mit Kartenzahlung. Der echte Status steht direkt im Portal.",
+  "proTip": "Rückmeldung prüfst du im Portal — nie über einen Link aus einer SMS.",
+  "hackKey": "H",
+  "hackTrigger": "Hetze",
+  "tags": [
+    "university",
+    "h",
+    "campus-finance",
+    "smishing"
+  ],
+  "active": true
+}

@@ -1,0 +1,35 @@
+{
+  "id": "university-de-uni-25",
+  "lang": "de",
+  "title": "Dein Mitbewohner hat eine neue Zahlungs-Handle",
+  "edition": "university",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Mitbewohner",
+  "scenario": "Dein WG-Mitbewohner schreibt in der Haushaltskasse-Gruppe, sein PayPal sei gesperrt, und bittet, deinen Anteil für die Nebenkosten diesmal an eine „neue“ PayPal-Adresse zu schicken.",
+  "answers": {
+    "A": "Ihn persönlich oder per Anruf fragen, ob die neue Adresse wirklich seine ist, bevor du dorthin etwas schickst.",
+    "B": "Sofort an die neue Adresse zahlen, weil es aus der WG-Gruppe kommt.",
+    "C": "In der Gruppe fragen, ob andere die Nachricht auch bekommen haben."
+  },
+  "scores": {
+    "A": 4,
+    "B": 0,
+    "C": 2
+  },
+  "safeActions": [
+    "A"
+  ],
+  "explanation": "Ein gehacktes Konto in der eigenen WG-Gruppe wirkt besonders glaubwürdig. Eine kurze persönliche Rückfrage klärt es in Sekunden, bevor Geld an die falsche Adresse geht.",
+  "proTip": "Eine neue Zahlungsadresse bestätigst du persönlich, nicht nur im Chat.",
+  "hackKey": "C",
+  "hackTrigger": "Vertrautheit",
+  "tags": [
+    "university",
+    "c",
+    "roommates",
+    "account-takeover",
+    "diagnostic"
+  ],
+  "active": true
+}

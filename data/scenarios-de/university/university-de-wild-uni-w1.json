@@ -1,0 +1,35 @@
+{
+  "id": "university-de-wild-uni-w1",
+  "lang": "de",
+  "title": "Uni-Blitzrunde: Rote Flaggen",
+  "edition": "university",
+  "cardType": "wild",
+  "scored": false,
+  "category": "Online-Spiel",
+  "scenario": "Uni-Onlinerunde: Jede Person hat 20 Sekunden, um ein Warnsignal aus der letzten Uni-Karte zu nennen, ohne eine andere Person zu wiederholen.",
+  "answers": {
+    "A": "Die Runde ohne Wiederholung durchspielen.",
+    "B": "Passen.",
+    "C": "Eine schwache Antwort höflich infrage stellen.",
+    "D": "Der Gastgeber verrät die Musterantwort."
+  },
+  "scores": {
+    "A": 4,
+    "B": 0,
+    "C": 2,
+    "D": 0
+  },
+  "safeActions": [
+    "A",
+    "C"
+  ],
+  "explanation": "Uni-Blitzrunde: Ziel ist es, die letzte Szenariokarte in aktives Erinnern zu verwandeln statt nur zu lesen. Eine genaue, konkrete sichere Handlung zählt mehr als ein vager Ratschlag.",
+  "proTip": "Nur direkt nach einer Szenariokarte einsetzen, nie als eigenständiges Minispiel.",
+  "hackKey": null,
+  "hackTrigger": null,
+  "tags": [
+    "university",
+    "online-play"
+  ],
+  "active": true
+}

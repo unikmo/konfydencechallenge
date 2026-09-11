@@ -1,0 +1,34 @@
+{
+  "id": "university-de-uni-39",
+  "lang": "de",
+  "title": "Das geteilte Dokument will OAuth-Zugriff",
+  "edition": "university",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Cloud-Apps",
+  "scenario": "Ein Kommilitone teilt ein Google Doc für ein gemeinsames Referat. Beim Öffnen erscheint eine Aufforderung, einer fremden App „OAuth-Zugriff auf dein gesamtes Google-Konto“ zu erlauben, um das Dokument zu sehen.",
+  "answers": {
+    "B": "Den Zugriff verweigern und das Dokument direkt über die Google-Docs-Oberfläche öffnen; ein normales Dokument braucht keine OAuth-Freigabe für eine fremde App.",
+    "A": "Den Zugriff erlauben, um das Dokument sehen zu können.",
+    "C": "Den Zugriff nur für einen begrenzten Zeitraum erlauben."
+  },
+  "scores": {
+    "B": 4,
+    "A": 0,
+    "C": 0
+  },
+  "safeActions": [
+    "B"
+  ],
+  "explanation": "Eine OAuth-Freigabe für eine fremde App gibt dauerhaften Zugriff auf E-Mails, Dateien und Kontakte — weit mehr, als ein geteiltes Dokument je braucht.",
+  "proTip": "Ein Dokument öffnet man, man verknüpft dafür kein fremdes Konto.",
+  "hackKey": "K",
+  "hackTrigger": "Notbremse",
+  "tags": [
+    "university",
+    "k",
+    "cloud-apps",
+    "oauth-phishing"
+  ],
+  "active": true
+}
