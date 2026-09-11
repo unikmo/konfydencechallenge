@@ -65,7 +65,7 @@ export default function GermanPricingPage() {
 
         <PreisKarte
           kicker="Volle Challenge — Familie"
-          price="$6,99"
+          price="€6,99"
           sub="/ Jahr"
           includes={[
             "48 reale Szenarien, kulturell für Deutschland geschrieben",
@@ -75,12 +75,12 @@ export default function GermanPricingPage() {
           ]}
           featured
         >
-          <CheckoutRedirectButton sku="CHAL-SINGLE-FAMILY" label="Familie-Edition freischalten — $6,99/Jahr" locale="de" />
+          <CheckoutRedirectButton sku="CHAL-SINGLE-FAMILY" label="Familie-Edition freischalten — €6,99/Jahr" locale="de" />
         </PreisKarte>
 
         <PreisKarte
           kicker="Komplettpaket"
-          price="$24,99"
+          price="€24,99"
           sub="/ Jahr · alle fünf Editionen"
           includes={[
             "Alle 5 Challenge-Editionen (vier davon derzeit auf Englisch)",
@@ -89,12 +89,12 @@ export default function GermanPricingPage() {
             "Dashboards und Zertifikate für jede Edition",
           ]}
         >
-          <CheckoutRedirectButton sku="CHAL-UNLIMITED" label="Alle fünf freischalten — $24,99/Jahr" locale="de" />
+          <CheckoutRedirectButton sku="CHAL-UNLIMITED" label="Alle fünf freischalten — €24,99/Jahr" locale="de" />
         </PreisKarte>
 
         <PreisKarte
           kicker="Schulen & Unternehmen"
-          price="$4,99"
+          price="€4,99"
           sub="/ Platz · Jahr"
           includes={[
             "Alle Editionen pro Mitglied, unbegrenzte Runden",
@@ -109,10 +109,10 @@ export default function GermanPricingPage() {
 
       <section className="kg-shell" style={{ paddingBottom: 40 }}>
         <p className="k-copy" style={{ marginBottom: 12, fontSize: 12 }}>
-          Preise werden derzeit in US-Dollar abgerechnet (wie im gesamten Konfydence-Katalog) — eine EUR-Preisstellung
-          ist noch nicht entschieden. Jeder Plan ist ein Jahresabo und wird sofort nach dem Bezahlvorgang freigeschaltet;
-          dein Konfydence-Konto speichert Fortschritt und Zugang geräteübergreifend. Konfydence ist ein pädagogisches
-          Betrugs-Awareness-Spiel; es garantiert keinen Schutz vor Betrug oder finanziellem Schaden.
+          Die angezeigten Preise gelten in Euro — €6,99 bei uns entspricht genau $6,99. Beim Bezahlvorgang zeigt
+          Stripe automatisch deine Landeswährung. Jeder Plan ist ein Jahresabo und wird sofort nach dem Bezahlvorgang
+          freigeschaltet; dein Konfydence-Konto speichert Fortschritt und Zugang geräteübergreifend. Konfydence ist ein
+          pädagogisches Betrugs-Awareness-Spiel; es garantiert keinen Schutz vor Betrug oder finanziellem Schaden.
         </p>
       </section>
     </PremiumPageDe>

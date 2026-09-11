@@ -2,6 +2,8 @@ import {
   CONSUMER_CATALOG,
   SUBSCRIPTION_CATALOG,
   TEAM_SEAT,
+  SAME_NUMERAL_CURRENCIES,
+  PEGGED_CURRENCIES,
   isConsumerSku,
   isSubscriptionSku,
   isTeamSku,
@@ -58,6 +60,17 @@ describe("stripe catalogue", () => {
       TEAM_SEAT.lookupKey,
     ];
     expect(new Set(keys).size).toBe(keys.length);
+  });
+
+  it("prices USD and EUR at the same numeral, with a distinct pegged-currency list", () => {
+    expect(SAME_NUMERAL_CURRENCIES).toEqual(["usd", "eur"]);
+    expect(new Set(PEGGED_CURRENCIES).size).toBe(PEGGED_CURRENCIES.length);
+    // Pegged currencies must never overlap the same-numeral pair — those are
+    // computed from a live FX rate, not the same digits as USD/EUR.
+    for (const c of PEGGED_CURRENCIES) {
+      expect(SAME_NUMERAL_CURRENCIES as readonly string[]).not.toContain(c);
+    }
+    expect(PEGGED_CURRENCIES).toContain("gbp");
   });
 
   it("classifies SKUs correctly", () => {

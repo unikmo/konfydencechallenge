@@ -218,7 +218,7 @@ function PricingContent() {
           code and your note.
         </p>
         <p className="k-copy" style={{ fontSize: 12 }}>
-          Every plan is annual and unlocks instantly after checkout; your Konfydence account keeps progress and access across devices. Konfydence is an
+          Every plan is annual and unlocks instantly after checkout; your Konfydence account keeps progress and access across devices. Prices shown are in USD ($6.99 = €6.99 at checkout for EUR); GBP and other currencies are shown at checkout, priced from the EUR rate. Konfydence is an
           educational scam-readiness game; it does not guarantee protection from fraud or financial loss.
         </p>
       </section>
