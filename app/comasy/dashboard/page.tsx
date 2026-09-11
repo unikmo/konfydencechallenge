@@ -23,7 +23,7 @@ export default async function CoMaSyDashboard({ searchParams }: { searchParams: 
     prisma.comasyCohort.findMany({ where: { organizationId }, orderBy: { name: "asc" }, include: { _count: { select: { participants: true } } } }),
     prisma.comasyParticipant.findMany({ where: { organizationId }, orderBy: { createdAt: "desc" }, take: 200, include: { cohort: { select: { name: true } } } }),
     prisma.comasyCampaign.findMany({ where: { organizationId }, orderBy: { createdAt: "desc" }, take: 100, include: { cohort: { select: { name: true } }, _count: { select: { responses: true } } } }),
-    prisma.scenario.findMany({ where: { active: true, scored: true, edition: "workplace" }, orderBy: [{ hackKey: "asc" }, { externalId: "asc" }], take: 24 }),
+    prisma.scenario.findMany({ where: { active: true, scored: true, lang: "en", edition: "workplace" }, orderBy: [{ hackKey: "asc" }, { externalId: "asc" }], take: 24 }),
   ]);
 
   const activeCampaign = campaigns.find((c) => c.status === "ACTIVE");

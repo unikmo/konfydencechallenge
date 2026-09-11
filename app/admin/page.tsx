@@ -28,7 +28,7 @@ export default async function AdminPage({searchParams}:{searchParams:Promise<{vi
     prisma.comasyParticipant.findMany({orderBy:{createdAt:"desc"},take:300,include:{organization:{select:{name:true}},cohort:{select:{name:true}}}}),
     prisma.comasyCampaign.findMany({orderBy:{createdAt:"desc"},take:200,include:{organization:{select:{name:true}},cohort:{select:{name:true}},_count:{select:{responses:true}}}}),
     prisma.comasyResponse.findMany({orderBy:{createdAt:"desc"},take:2000}),
-    prisma.scenario.findMany({where:{active:true,scored:true},orderBy:[{edition:"asc"},{externalId:"asc"}],take:200,include:{comasyProfile:true,_count:{select:{comasyVersions:true}}}}),
+    prisma.scenario.findMany({where:{active:true,scored:true,lang:"en"},orderBy:[{edition:"asc"},{externalId:"asc"}],take:200,include:{comasyProfile:true,_count:{select:{comasyVersions:true}}}}),
   ]);
 
   const paid=orgs.filter(o=>o.arr>0||["WON","EXPANSION"].includes(o.stage));

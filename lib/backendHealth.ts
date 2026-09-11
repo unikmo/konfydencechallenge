@@ -16,10 +16,16 @@ export type BackendHealth = {
 };
 
 export async function getBackendHealth(): Promise<BackendHealth> {
+  // This checks the canonical English bank specifically (240 cards, 48/edition,
+  // 12/H-A-C-K). German scenarios (lang="de", currently just the Familie
+  // edition) are a separate, independently validated pool — see
+  // data/scenarios-de/README.md and prisma/seed.ts — and must not be counted
+  // here or an edition with both languages seeded would look doubled.
   const rows = await prisma.scenario.findMany({
     where: {
       active: true,
       scored: true,
+      lang: "en",
       edition: { in: [...BACKEND_EDITIONS] },
       hackKey: { in: [...BACKEND_HACK_KEYS] },
     },

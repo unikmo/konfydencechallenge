@@ -41,8 +41,11 @@ const fail = (error: PlayError): Fail => ({ ok: false, error });
 // ---- deck ----------------------------------------------------------------
 
 async function pickPartyDeck(): Promise<string[]> {
+  // Play-with-friends has no locale-aware UI yet (host/join/reveal chrome is
+  // English-only) — pin the pool to English so a room never silently mixes in
+  // German cards (data/scenarios-de) once other editions grow a German bank.
   const pool = await prisma.scenario.findMany({
-    where: { active: true, scored: true, hackKey: { in: ["H", "A", "C", "K"] } },
+    where: { active: true, scored: true, lang: "en", hackKey: { in: ["H", "A", "C", "K"] } },
     select: { id: true, hackKey: true },
   });
   if (pool.length === 0) return [];
