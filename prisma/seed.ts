@@ -12,38 +12,38 @@ function score(value: unknown): number {
   return Math.max(0, Math.min(4, Math.trunc(number)));
 }
 
-async function main() {
-  const dir = path.join(process.cwd(), "data", "scenarios");
-  const files = fs
+function loadFiles(dir: string): string[] {
+  if (!fs.existsSync(dir)) return [];
+  return fs
     .readdirSync(dir)
     .filter((file) => file.endsWith(".json"))
     .filter((file) => !file.includes("schema"))
-    .filter((file) => !file.includes("example"));
+    .filter((file) => !file.includes("example"))
+    .map((file) => path.join(dir, file));
+}
 
-  console.log("Scenario files found:", files.length);
-
-  if (files.length < 240) {
-    throw new Error(`Expected at least the 240 scored scenario JSON files, found ${files.length}`);
-  }
-
-  // Preserve historical rows so old results remain valid, but retire the previous
-  // scored bank before reactivating the current canonical scored bank. Non-scored
-  // wild/host-mode cards are allowed alongside the 240 scored cards.
-  await prisma.scenario.updateMany({
-    where: { edition: { in: [...EDITIONS] }, scored: true },
-    data: { active: false },
-  });
+/** Upserts one language's scenario files. Returns per-edition H/A/C/K counts
+ *  among the active scored bank for that language only. */
+async function importScenarioSet(
+  lang: string,
+  files: string[]
+): Promise<Record<string, { total: number; H: number; A: number; C: number; K: number }>> {
+  const editionsSeen = new Set<string>();
 
   let imported = 0;
-  for (const file of files) {
-    const fullPath = path.join(dir, file);
+  for (const fullPath of files) {
     const raw = fs.readFileSync(fullPath, "utf8").replace(/^\uFEFF/, "");
     const s = JSON.parse(raw);
     const scored = s.scored ?? true;
+    const file = path.basename(fullPath);
 
     if (!EDITIONS.includes(s.edition)) {
       throw new Error(`${file}: unsupported edition ${String(s.edition)}`);
     }
+    if ((s.lang ?? "en") !== lang) {
+      throw new Error(`${file}: expected lang "${lang}", file declares "${s.lang}"`);
+    }
+    editionsSeen.add(s.edition);
 
     if (scored) {
       if (!HACK_KEYS.includes(s.hackKey)) {
@@ -64,6 +64,7 @@ async function main() {
     const data = {
       title: s.title ?? null,
       edition: s.edition,
+      lang,
       category: s.category ?? null,
       cardType: s.cardType ?? "scenario",
       scored,
@@ -95,7 +96,8 @@ async function main() {
 
   const bankRows = await prisma.scenario.findMany({
     where: {
-      edition: { in: [...EDITIONS] },
+      edition: { in: [...editionsSeen] },
+      lang,
       active: true,
       scored: true,
       hackKey: { in: [...HACK_KEYS] },
@@ -103,34 +105,74 @@ async function main() {
     select: { edition: true, hackKey: true },
   });
 
-  const counts = Object.fromEntries(
-    EDITIONS.map((edition) => [edition, { total: 0, H: 0, A: 0, C: 0, K: 0 }])
-  ) as Record<(typeof EDITIONS)[number], { total: number; H: number; A: number; C: number; K: number }>;
-
+  const counts: Record<string, { total: number; H: number; A: number; C: number; K: number }> = {};
+  for (const edition of editionsSeen) counts[edition] = { total: 0, H: 0, A: 0, C: 0, K: 0 };
   for (const row of bankRows) {
-    const edition = row.edition as (typeof EDITIONS)[number];
     const key = row.hackKey as (typeof HACK_KEYS)[number];
-    if (!counts[edition] || !HACK_KEYS.includes(key)) continue;
-    counts[edition].total += 1;
-    counts[edition][key] += 1;
+    if (!counts[row.edition] || !HACK_KEYS.includes(key)) continue;
+    counts[row.edition].total += 1;
+    counts[row.edition][key] += 1;
   }
 
-  const validBank =
-    bankRows.length === 240 &&
-    EDITIONS.every((edition) =>
-      counts[edition].total === 48 && HACK_KEYS.every((key) => counts[edition][key] === 12)
-    );
+  console.log(`[${lang}] Scenario files imported:`, imported);
+  console.log(`[${lang}] Active scored bank:`, counts);
+  return counts;
+}
 
-  console.log("Scenario files imported:", imported);
-  console.log("Active scored bank:", counts);
+async function main() {
+  const enFiles = loadFiles(path.join(process.cwd(), "data", "scenarios"));
+  console.log("Scenario files found (en):", enFiles.length);
+  if (enFiles.length < 240) {
+    throw new Error(`Expected at least the 240 scored scenario JSON files, found ${enFiles.length}`);
+  }
 
-  if (!validBank) {
+  // Preserve historical rows so old results remain valid, but retire the previous
+  // scored bank before reactivating the current canonical scored bank. Non-scored
+  // wild/host-mode cards are allowed alongside the 240 scored cards.
+  await prisma.scenario.updateMany({
+    where: { edition: { in: [...EDITIONS] }, lang: "en", scored: true },
+    data: { active: false },
+  });
+  const enCounts = await importScenarioSet("en", enFiles);
+
+  const validEnBank =
+    Object.values(enCounts).reduce((sum, c) => sum + c.total, 0) === 240 &&
+    EDITIONS.every((edition) => enCounts[edition]?.total === 48 && HACK_KEYS.every((key) => enCounts[edition][key] === 12));
+  if (!validEnBank) {
     throw new Error(
-      "Scenario bank validation failed: expected 240 active scored cards, 48 per edition and 12 per H/A/C/K."
+      "English scenario bank validation failed: expected 240 active scored cards, 48 per edition and 12 per H/A/C/K."
     );
   }
+  console.log("English scenario bank validation: PASS");
 
-  console.log("Scenario bank validation: PASS");
+  // German \u2014 grows one edition at a time (Familie shipped first); only
+  // validate the 12/12/12/12-per-edition shape for whichever editions exist.
+  const deDir = path.join(process.cwd(), "data", "scenarios-de");
+  const deFiles = fs.existsSync(deDir)
+    ? fs
+        .readdirSync(deDir, { withFileTypes: true })
+        .filter((entry) => entry.isDirectory())
+        .flatMap((entry) => loadFiles(path.join(deDir, entry.name)))
+    : [];
+  if (deFiles.length > 0) {
+    await prisma.scenario.updateMany({
+      where: { edition: { in: [...EDITIONS] }, lang: "de", scored: true },
+      data: { active: false },
+    });
+    const deCounts = await importScenarioSet("de", deFiles);
+    const validDeBank = Object.values(deCounts).every(
+      (c) => c.total === 48 && HACK_KEYS.every((key) => c[key] === 12)
+    );
+    if (!validDeBank) {
+      throw new Error(
+        `German scenario bank validation failed for ${Object.keys(deCounts).join(", ")}: ` +
+          "expected 48 active scored cards per edition, 12 per H/A/C/K."
+      );
+    }
+    console.log("German scenario bank validation: PASS", Object.keys(deCounts));
+  } else {
+    console.log("[de] no German scenario files found \u2014 skipping (expected until Stage 4 content ships)");
+  }
 }
 
 main()

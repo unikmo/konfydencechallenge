@@ -1,13 +1,13 @@
 # -*- coding: utf-8 -*-
 # Generates the German (de) Familie edition draft deck — Stage 4 content,
-# NOT wired into any seed/app code yet. Output: data/scenarios-de-draft/family/.
+# NOT wired into any seed/app code yet. Output: data/scenarios-de/family/.
 # Culturally adapted (not translated) German scam patterns, approved voice:
 # "du", H.A.C.K. kept as a brand term with German trigger glosses
 # (H-Hetze, A-Autoritaet, C-Vertrautheit, K-Notbremse).
 import json
 import os
 
-OUT_DIR = os.path.join("data", "scenarios-de-draft", "family")
+OUT_DIR = os.path.join("data", "scenarios-de", "family")
 os.makedirs(OUT_DIR, exist_ok=True)
 
 TRIGGER_LABEL = {"H": "Hetze", "A": "Autorität", "C": "Vertrautheit", "K": "Notbremse"}

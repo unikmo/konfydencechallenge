@@ -7,6 +7,7 @@ export const metadata: Metadata = {
   title: { absolute: "Pricing | Konfydence" },
   description:
     "Unlock the full Konfydence Challenge — 40+ real-life scenarios per edition, balanced across the H.A.C.K. pressure patterns, with a deeper profile and completion certificate. $6.99 per edition or unlock all five challenges.",
+  alternates: { languages: { en: "https://konfydence.com/pricing", de: "https://konfydence.com/de/pricing" } },
 };
 
 export default function PricingLayout({ children }: { children: ReactNode }) {

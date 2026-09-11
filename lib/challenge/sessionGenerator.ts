@@ -76,7 +76,8 @@ export type GeneratedSessionPlan = {
 export async function generateChallengeSessionPlan(
   edition: ChallengeEdition,
   mode: ChallengeMode,
-  userId: string
+  userId: string,
+  lang: string = "en"
 ): Promise<GeneratedSessionPlan> {
   const needed = MODE_CARD_COUNT[mode];
   const perKey = PER_KEY_COUNT[mode];
@@ -84,6 +85,7 @@ export async function generateChallengeSessionPlan(
   const candidates: Candidate[] = await prisma.scenario.findMany({
     where: {
       edition,
+      lang,
       active: true,
       scored: true,
       hackKey: { in: HACK_KEYS },
@@ -144,8 +146,8 @@ export async function generateChallengeSessionPlan(
 
   if (scenarioIds.length !== needed) {
     throw new Error(
-      `Scenario bank for ${edition} cannot build a balanced ${mode} run: expected ${needed}, got ${scenarioIds.length}. ` +
-      `Each edition needs at least ${perKey} active scored cards for every H/A/C/K pressure pattern.`
+      `Scenario bank for ${edition} (lang=${lang}) cannot build a balanced ${mode} run: expected ${needed}, got ${scenarioIds.length}. ` +
+      `Each edition needs at least ${perKey} active scored cards for every H/A/C/K pressure pattern in that language.`
     );
   }
 
@@ -156,9 +158,10 @@ export async function createChallengeSessionWithCardOrder(params: {
   userId: string;
   edition: ChallengeEdition;
   mode?: ChallengeMode;
+  lang?: string;
 }): Promise<{ sessionId: string }> {
   const mode = params.mode ?? "full";
-  const plan = await generateChallengeSessionPlan(params.edition, mode, params.userId);
+  const plan = await generateChallengeSessionPlan(params.edition, mode, params.userId, params.lang ?? "en");
 
   const priorRuns = await prisma.challengeSession.count({
     where: { userId: params.userId, edition: params.edition, mode },

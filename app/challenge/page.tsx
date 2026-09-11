@@ -7,7 +7,10 @@ import { CheckoutRedirectButton } from "@/components/commerce/CheckoutRedirectBu
 export const metadata: Metadata = {
   title: "Choose Your Konfydence Challenge",
   description: "Choose the pressure test that matches your real life. Eight free scenarios reveal which scam pressure pattern is most likely to move you.",
-  alternates: { canonical: "/challenge" },
+  alternates: {
+    canonical: "/challenge",
+    languages: { en: "https://konfydence.com/challenge", de: "https://konfydence.com/de/challenge" },
+  },
 };
 
 const editions = [

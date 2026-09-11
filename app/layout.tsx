@@ -57,6 +57,12 @@ const GA_MEASUREMENT_ID = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID;
 export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
+  // Only one root layout can render <html>, and reading the request path
+  // there (via headers()/cookies()) would force every page in the app to
+  // render dynamically — a real regression for a site full of statically
+  // generated marketing/SEO pages. Instead app/de/layout.tsx corrects
+  // documentElement.lang client-side after hydration; screen readers and
+  // browsers read the live DOM, not just the first server-sent byte.
   return (
     <html lang="en">
       <body>

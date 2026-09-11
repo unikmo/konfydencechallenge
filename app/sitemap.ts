@@ -38,6 +38,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE}/terms-of-service`, changeFrequency: "yearly", priority: 0.4 },
     { url: `${BASE}/cookie-policy`, changeFrequency: "yearly", priority: 0.4 },
     { url: `${BASE}/imprint`, changeFrequency: "yearly", priority: 0.4 },
+    // German funnel (Stage 4, in progress) — only the Familie edition plays in German so far.
+    { url: `${BASE}/de`, changeFrequency: "weekly", priority: 0.9 },
+    { url: `${BASE}/de/challenge`, changeFrequency: "weekly", priority: 0.8 },
+    { url: `${BASE}/de/pricing`, changeFrequency: "monthly", priority: 0.6 },
+    { url: `${BASE}/de/impressum`, changeFrequency: "yearly", priority: 0.4 },
+    { url: `${BASE}/de/datenschutz`, changeFrequency: "yearly", priority: 0.4 },
+    { url: `${BASE}/de/agb`, changeFrequency: "yearly", priority: 0.4 },
   ];
 
   const countryPages: MetadataRoute.Sitemap = Object.values(COUNTRY_PROFILES)

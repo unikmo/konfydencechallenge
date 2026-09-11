@@ -29,12 +29,16 @@ export async function createChallengeSessionForVisitor(params: {
   kfUid: string;
   edition: ChallengeEdition;
   mode?: ChallengeMode;
+  lang?: string;
 }) {
   const user = await ensureVisitorUser(params.kfUid);
   const mode = params.mode ?? "full";
 
   // Duolingo-style continuation: refreshes and later visits return to the
-  // unfinished round instead of silently creating a second deck.
+  // unfinished round instead of silently creating a second deck. A session's
+  // language is fixed at creation (its cards are all one lang's Scenario
+  // rows), so resuming an in-progress session naturally continues in the
+  // language it was started in even if the visitor's locale changed since.
   const existingSession = await prisma.challengeSession.findFirst({
     where: {
       userId: user.id,
@@ -52,6 +56,7 @@ export async function createChallengeSessionForVisitor(params: {
     userId: user.id,
     edition: params.edition,
     mode,
+    lang: params.lang,
   });
 
   return { sessionId, resumed: false };

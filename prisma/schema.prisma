@@ -110,6 +110,11 @@ model Scenario {
   id          String   @id @default(cuid())
   externalId  String   @unique
   edition     String
+  // ISO 639-1. "en" (default) for the original bank; "de" for the German
+  // Familie deck and, over time, the other editions. A session's cards are
+  // drawn from one language pool at creation (generateChallengeSessionPlan),
+  // so every card in a session shares session.cards[0].scenario.lang.
+  lang        String   @default("en")
   category    String?
   cardType    String   @default("scenario")
   scored      Boolean  @default(true)
@@ -139,6 +144,7 @@ model Scenario {
   comasyVersions  ComasyScenarioVersion[]
 
   @@index([edition, active, scored, hackKey])
+  @@index([edition, lang, active, scored, hackKey])
 }
 
 model ChallengeSession {
