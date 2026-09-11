@@ -1,0 +1,34 @@
+{
+  "id": "school-de-sch-10",
+  "lang": "de",
+  "title": "Der Spendenlink für die Klassenfahrt „schließt heute Abend“",
+  "edition": "school",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Schul-AGs",
+  "scenario": "Eine Nachricht in der Eltern-/Schüler-WhatsApp-Gruppe sagt, der Spendenlink für die Klassenfahrtkasse schließe heute Abend und bittet um sofortige Überweisung über einen neuen, unbekannten Zahlungsdienst.",
+  "answers": {
+    "A": "Sofort über den neuen Dienst spenden, damit die Frist nicht verstreicht.",
+    "B": "Nur einen kleinen Betrag über den Link schicken.",
+    "C": "Bei der Klassenlehrkraft oder Elternvertretung nachfragen, ob dieser Link und Zahlungsweg wirklich von der Schule kommt."
+  },
+  "scores": {
+    "A": 0,
+    "B": 0,
+    "C": 4
+  },
+  "safeActions": [
+    "C"
+  ],
+  "explanation": "Echte Klassenfahrtkassen nutzen bekannte, angekündigte Zahlungswege, keine plötzlich neuen Links mit Abendfrist. Eine kurze Rückfrage bei der Lehrkraft klärt es sofort.",
+  "proTip": "Ein neuer Zahlungsweg mit Frist ist verdächtiger als der alte, bekannte.",
+  "hackKey": "H",
+  "hackTrigger": "Hetze",
+  "tags": [
+    "school",
+    "h",
+    "school-clubs",
+    "payment-scam"
+  ],
+  "active": true
+}

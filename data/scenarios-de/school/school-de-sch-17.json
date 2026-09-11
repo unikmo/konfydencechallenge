@@ -1,0 +1,34 @@
+{
+  "id": "school-de-sch-17",
+  "lang": "de",
+  "title": "„Verifizierungs-Team“ bietet ein blaues Häkchen an",
+  "edition": "school",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Soziale Plattformen",
+  "scenario": "Eine Nachricht im Namen des „Instagram Verifizierungs-Teams“ bietet dir ein blaues Häkchen an, wenn du deine Login-Daten zur „Identitätsprüfung“ auf einer verlinkten Seite bestätigst.",
+  "answers": {
+    "A": "Die Nachricht ignorieren; eine echte Verifizierung läuft ausschließlich über die Einstellungen in der App selbst.",
+    "B": "Die Login-Daten auf der verlinkten Seite bestätigen, um das Häkchen zu bekommen.",
+    "C": "Nach mehr Informationen über den Prozess fragen."
+  },
+  "scores": {
+    "A": 4,
+    "B": 0,
+    "C": 1
+  },
+  "safeActions": [
+    "A"
+  ],
+  "explanation": "Plattformen verifizieren Accounts nie über einen externen Link mit Login-Eingabe. Das Verlangen ist reine Autoritäts-Camouflage, um deine Zugangsdaten zu stehlen.",
+  "proTip": "Verifizierung passiert in der App — nie auf einer fremden Seite.",
+  "hackKey": "A",
+  "hackTrigger": "Autorität",
+  "tags": [
+    "school",
+    "a",
+    "social-platforms",
+    "credential-phishing"
+  ],
+  "active": true
+}

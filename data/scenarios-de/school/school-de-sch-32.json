@@ -1,0 +1,34 @@
+{
+  "id": "school-de-sch-32",
+  "lang": "de",
+  "title": "Kann ich dein Konto für einen Tag benutzen?",
+  "edition": "school",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Accounts",
+  "scenario": "Eine Mitschülerin bittet, für einen Tag deinen Netflix- oder Spotify-Account zu benutzen, weil ihr eigenes „gerade Probleme macht“ — sie brauche nur schnell dein Passwort.",
+  "answers": {
+    "A": "Das Passwort geben, weil es nur für einen Tag ist.",
+    "B": "Ablehnen oder eine Familienfreigabe-Funktion des Dienstes nutzen, statt das eigene Passwort zu teilen.",
+    "C": "Das Passwort geben, aber danach sofort ändern."
+  },
+  "scores": {
+    "A": 0,
+    "B": 4,
+    "C": 1
+  },
+  "safeActions": [
+    "B"
+  ],
+  "explanation": "Ein geteiltes Passwort bleibt nicht „nur für einen Tag“ unter Kontrolle — viele Dienste haben eigene, sichere Freigabefunktionen, die genau dafür gemacht sind.",
+  "proTip": "„Nur für einen Tag“ ist keine Kontrolle über dein Passwort.",
+  "hackKey": "C",
+  "hackTrigger": "Vertrautheit",
+  "tags": [
+    "school",
+    "c",
+    "accounts",
+    "account-sharing"
+  ],
+  "active": true
+}

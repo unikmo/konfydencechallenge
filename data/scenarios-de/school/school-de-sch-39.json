@@ -1,0 +1,34 @@
+{
+  "id": "school-de-sch-39",
+  "lang": "de",
+  "title": "Dieser Filter will deine ganze Fotobibliothek",
+  "edition": "school",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "App-Berechtigungen",
+  "scenario": "Eine angesagte Foto-Filter-App aus einem TikTok-Trend verlangt beim ersten Öffnen vollen Zugriff auf deine komplette Fotobibliothek, deine Kontakte und deinen Standort, um „bessere Filter“ anzubieten.",
+  "answers": {
+    "A": "Alle Berechtigungen erlauben, um den Trend-Filter nutzen zu können.",
+    "B": "Nur den Zugriff auf die konkret ausgewählten Fotos erlauben und Kontakte/Standort verweigern; ein Filter braucht das nicht.",
+    "C": "Alle Berechtigungen erlauben, sie aber nach der Nutzung wieder entziehen."
+  },
+  "scores": {
+    "A": 0,
+    "B": 4,
+    "C": 1
+  },
+  "safeActions": [
+    "B"
+  ],
+  "explanation": "Ein Fotofilter braucht kein volles Adressbuch und keinen Standort, um ein Bild zu bearbeiten. Übermäßige Berechtigungen sind oft der eigentliche Zweck solcher Trend-Apps.",
+  "proTip": "Ein Filter fürs Foto braucht nie dein ganzes Adressbuch.",
+  "hackKey": "K",
+  "hackTrigger": "Notbremse",
+  "tags": [
+    "school",
+    "k",
+    "app-permissions",
+    "data-harvesting"
+  ],
+  "active": true
+}

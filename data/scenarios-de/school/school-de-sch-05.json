@@ -1,0 +1,34 @@
+{
+  "id": "school-de-sch-05",
+  "lang": "de",
+  "title": "Urheberrechts-Meldung: 15 Minuten zum Widerspruch",
+  "edition": "school",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Soziale Medien",
+  "scenario": "Eine Nachricht meldet einen „Copyright-Strike“ auf deinem Instagram-Account und gibt dir 15 Minuten, über einen Link Widerspruch einzulegen, sonst werde der Account „endgültig gelöscht“.",
+  "answers": {
+    "A": "Die Nachricht ignorieren und den Account-Status direkt in der Instagram-App unter „Konto-Status“ prüfen.",
+    "B": "Sofort auf den Link klicken und Widerspruch einlegen, um die Löschung zu verhindern.",
+    "C": "Den Link öffnen, aber keine Zugangsdaten eingeben."
+  },
+  "scores": {
+    "A": 4,
+    "B": 0,
+    "C": 1
+  },
+  "safeActions": [
+    "A"
+  ],
+  "explanation": "Instagram löscht Accounts nicht mit einer 15-Minuten-Frist per DM oder E-Mail-Link. Der echte Konto-Status steht immer direkt in der App.",
+  "proTip": "15 Minuten für einen „endgültigen“ Schritt gibt es bei echten Plattformen nicht.",
+  "hackKey": "H",
+  "hackTrigger": "Hetze",
+  "tags": [
+    "school",
+    "h",
+    "social-media",
+    "phishing"
+  ],
+  "active": true
+}

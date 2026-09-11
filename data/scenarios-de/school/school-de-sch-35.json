@@ -1,0 +1,34 @@
+{
+  "id": "school-de-sch-35",
+  "lang": "de",
+  "title": "„Hallo, hier ist deine beste Freundin, neue Nummer“",
+  "edition": "school",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Messenger",
+  "scenario": "Eine unbekannte Nummer schreibt im WhatsApp-Klassenchat: „Hey, bin's, neue Nummer, mein altes Handy ist kaputt — kannst du mir 20 € für den Pausenkiosk schicken? Zahl's dir morgen zurück.“",
+  "answers": {
+    "A": "Das Geld schicken, weil der Schreibstil genauso klingt wie deine Freundin.",
+    "B": "Über die alte, gespeicherte Nummer schreiben oder anrufen, bevor du irgendetwas schickst.",
+    "C": "In der Klasse fragen, ob jemand die neue Nummer schon kennt."
+  },
+  "scores": {
+    "A": 0,
+    "B": 4,
+    "C": 2
+  },
+  "safeActions": [
+    "B"
+  ],
+  "explanation": "Ein vertrauter Schreibstil lässt sich aus alten Nachrichten leicht kopieren, besonders bei einem gekaperten Konto im Klassenchat. Eine Nachricht an die alte, bekannte Nummer klärt es in Sekunden.",
+  "proTip": "Neue Nummer, alter Schreibstil — erst die alte Nummer fragen.",
+  "hackKey": "C",
+  "hackTrigger": "Vertrautheit",
+  "tags": [
+    "school",
+    "c",
+    "messaging",
+    "account-takeover"
+  ],
+  "active": true
+}

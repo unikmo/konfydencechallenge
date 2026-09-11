@@ -1,0 +1,34 @@
+{
+  "id": "school-de-sch-28",
+  "lang": "de",
+  "title": "Eine Drohung mit einem privaten Foto",
+  "edition": "school",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Bildmissbrauch",
+  "scenario": "Eine Person, mit der du online geschrieben hast, droht, ein peinliches Foto von dir in eurer Schulgruppe zu teilen, wenn du nicht sofort Geld per Gutscheinkarte schickst.",
+  "answers": {
+    "A": "Die Gutscheinkarte sofort schicken, um die Verbreitung zu verhindern.",
+    "B": "Die Person blockieren und hoffen, dass sich das Problem erledigt.",
+    "C": "Nicht zahlen, das Gespräch nicht löschen und dich einem Erwachsenen anvertrauen oder die Nummer 116 111 (Kinder- und Jugendtelefon) anrufen."
+  },
+  "scores": {
+    "A": 0,
+    "B": 2,
+    "C": 4
+  },
+  "safeActions": [
+    "C"
+  ],
+  "explanation": "Zahlen beendet solche Drohungen fast nie — es zeigt nur, dass die Drohung funktioniert, und oft folgen weitere Forderungen. Das ist strafbar, und Hilfe holen ist der richtige, sichere Weg.",
+  "proTip": "Zahlen bestätigt der Person, dass die Drohung wirkt — hol dir stattdessen Hilfe.",
+  "hackKey": "C",
+  "hackTrigger": "Vertrautheit",
+  "tags": [
+    "school",
+    "c",
+    "image-abuse",
+    "extortion"
+  ],
+  "active": true
+}

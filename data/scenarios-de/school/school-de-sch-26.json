@@ -1,0 +1,35 @@
+{
+  "id": "school-de-sch-26",
+  "lang": "de",
+  "title": "Ist das ein Video von dir? Oder nicht?",
+  "edition": "school",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Deepfakes",
+  "scenario": "Ein Klassenkamerad schickt einen Link mit dem Text „Krass, ist das echt du in dem Video??“ und einem täuschend echten Vorschaubild. Der Link verlangt einen Instagram-Login, um das Video „anzusehen“.",
+  "answers": {
+    "A": "Sich einloggen, um zu sehen, ob es wirklich um dich geht.",
+    "B": "Den Klassenkameraden über einen anderen Kanal fragen, ob er die Nachricht wirklich geschickt hat, und den Link nicht öffnen.",
+    "C": "Den Link in einem Inkognito-Fenster ohne Login öffnen."
+  },
+  "scores": {
+    "A": 0,
+    "B": 4,
+    "C": 1
+  },
+  "safeActions": [
+    "B"
+  ],
+  "explanation": "„Ist das du im Video“ ist eine der ältesten Neugier-Köder-Maschen und verbreitet sich über gekaperte Konten weiter. Neugier ist hier kein guter Ratgeber — eine Rückfrage schon.",
+  "proTip": "Neugier ist der Köder, eine Rückfrage ist der Haken, den du nicht schluckst.",
+  "hackKey": "C",
+  "hackTrigger": "Vertrautheit",
+  "tags": [
+    "school",
+    "c",
+    "deepfakes",
+    "social-engineering",
+    "diagnostic"
+  ],
+  "active": true
+}

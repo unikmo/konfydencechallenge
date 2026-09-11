@@ -1,0 +1,34 @@
+{
+  "id": "school-de-sch-23",
+  "lang": "de",
+  "title": "Die Schulleitung will Gutscheinkarten",
+  "edition": "school",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Schulleitung",
+  "scenario": "Eine E-Mail im Namen der Schulleitung bittet die Klassensprecherin, für ein Abschiedsgeschenk an eine Lehrkraft Gutscheinkarten zu kaufen und die Codes per Antwort-Mail zu schicken, da die Schulleitung „gerade in einer Konferenz“ sei.",
+  "answers": {
+    "A": "Die Karten kaufen und die Codes wie gewünscht per Mail schicken.",
+    "B": "Die Anfrage im Sekretariat oder direkt bei der Schulleitung persönlich bestätigen lassen, bevor irgendetwas gekauft wird.",
+    "C": "Erst in der Klasse fragen, ob das normal ist."
+  },
+  "scores": {
+    "A": 0,
+    "B": 4,
+    "C": 2
+  },
+  "safeActions": [
+    "B"
+  ],
+  "explanation": "„Dringend, aber gerade nicht erreichbar“ ist die Standardformel, um Rückfragen zu verhindern. Das Sekretariat kann die Anfrage in einer Minute persönlich bestätigen oder entkräften.",
+  "proTip": "Wer „gerade in einer Konferenz“ ist, kann trotzdem später bestätigen.",
+  "hackKey": "A",
+  "hackTrigger": "Autorität",
+  "tags": [
+    "school",
+    "a",
+    "school-staff",
+    "gift-card"
+  ],
+  "active": true
+}

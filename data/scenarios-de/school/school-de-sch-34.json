@@ -1,0 +1,35 @@
+{
+  "id": "school-de-sch-34",
+  "lang": "de",
+  "title": "Die geteilten Notizen brauchen „erweiterten Zugriff“",
+  "edition": "school",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Lerngruppen",
+  "scenario": "Ein Mitglied deiner Lerngruppe teilt ein Google-Doc mit gemeinsamen Notizen und schreibt, du müsstest „erweiterten Zugriff“ über einen zusätzlichen Link gewähren, um alles sehen zu können.",
+  "answers": {
+    "A": "Den zusätzlichen Link öffnen und den erweiterten Zugriff gewähren, um die Notizen vollständig zu sehen.",
+    "B": "In der Lerngruppe direkt nachfragen, ob dieser zusätzliche Link wirklich nötig und von jemandem aus der Gruppe kommt.",
+    "C": "Nur den ursprünglichen Google-Doc-Link öffnen und den zusätzlichen ignorieren."
+  },
+  "scores": {
+    "A": 0,
+    "B": 3,
+    "C": 4
+  },
+  "safeActions": [
+    "B",
+    "C"
+  ],
+  "explanation": "Ein normales geteiltes Google-Doc braucht keinen „zusätzlichen Zugriffslink“ — das ist ein typischer Trick, um dich auf eine Phishing-Seite zu locken. Der ursprüngliche, direkt geteilte Link reicht.",
+  "proTip": "Ein echtes geteiltes Dokument braucht keinen zweiten „Zugriffs“-Link.",
+  "hackKey": "C",
+  "hackTrigger": "Vertrautheit",
+  "tags": [
+    "school",
+    "c",
+    "study-groups",
+    "phishing"
+  ],
+  "active": true
+}

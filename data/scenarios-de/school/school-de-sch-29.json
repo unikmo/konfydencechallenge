@@ -1,0 +1,34 @@
+{
+  "id": "school-de-sch-29",
+  "lang": "de",
+  "title": "Stimm für unsere Klasse ab — ein Login",
+  "edition": "school",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Gruppenchats",
+  "scenario": "In eurer Klassen-WhatsApp-Gruppe bittet jemand, für einen Schulwettbewerb über einen Link „mit eurem Google-Account“ abzustimmen, damit die Klasse gewinnt.",
+  "answers": {
+    "A": "Über den Link mit dem eigenen Google-Account abstimmen, um der Klasse zu helfen.",
+    "B": "Die offizielle Wettbewerbsseite unabhängig suchen und dort abstimmen, ohne dich über den Link einzuloggen.",
+    "C": "Fragen, wer den Link ursprünglich geteilt hat."
+  },
+  "scores": {
+    "A": 0,
+    "B": 4,
+    "C": 2
+  },
+  "safeActions": [
+    "B"
+  ],
+  "explanation": "Eine echte Abstimmung braucht nie deinen vollen Google-Login über einen fremden Link — das ist eine Login-Phishing-Masche, die sich Gruppendruck zunutze macht.",
+  "proTip": "Abstimmen geht ohne deinen Account-Login — such die echte Seite selbst.",
+  "hackKey": "C",
+  "hackTrigger": "Vertrautheit",
+  "tags": [
+    "school",
+    "c",
+    "group-chats",
+    "credential-phishing"
+  ],
+  "active": true
+}

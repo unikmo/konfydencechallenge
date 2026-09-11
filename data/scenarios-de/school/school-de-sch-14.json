@@ -1,0 +1,35 @@
+{
+  "id": "school-de-sch-14",
+  "lang": "de",
+  "title": "Dein Lehrer hat „eine private Datei geteilt“",
+  "edition": "school",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Schulpersonal",
+  "scenario": "Eine E-Mail, die aussieht, als käme sie vom Schulaccount deines Lehrers, meldet eine „private Datei zu deinen Noten“ und bittet um dein Schulportal-Passwort, um sie zu öffnen.",
+  "answers": {
+    "A": "Das Passwort eingeben, weil die Mail von der Adresse des Lehrers kommt.",
+    "B": "Die Mail an eine Mitschülerin weiterleiten und fragen, ob sie dieselbe bekommen hat.",
+    "C": "Den Lehrer persönlich oder über die Schule direkt fragen, ob er diese Mail wirklich geschickt hat, bevor du irgendetwas eingibst."
+  },
+  "scores": {
+    "A": 0,
+    "B": 1,
+    "C": 4
+  },
+  "safeActions": [
+    "C"
+  ],
+  "explanation": "Lehrkräfte brauchen dein Schulportal-Passwort nie, um dir eine Datei zu zeigen — und ein Schulaccount kann gehackt oder gefälscht sein. Eine kurze persönliche Rückfrage klärt es sofort.",
+  "proTip": "Kein Lehrer braucht dein Passwort, um dir etwas zu zeigen.",
+  "hackKey": "A",
+  "hackTrigger": "Autorität",
+  "tags": [
+    "school",
+    "a",
+    "school-staff",
+    "credential-phishing",
+    "diagnostic"
+  ],
+  "active": true
+}

@@ -1,13 +1,21 @@
+"use client";
+
+import { Suspense, useState } from "react";
 import Link from "next/link";
-import type { Metadata } from "next";
+import { useSearchParams } from "next/navigation";
 import { PremiumPageDe } from "@/components/PremiumSiteChrome";
 import { CheckoutRedirectButton } from "@/components/commerce/CheckoutRedirectButton";
 
-export const metadata: Metadata = {
-  title: { absolute: "Preise | Konfydence" },
-  description: "Konfydence-Preise — kostenloser Check, Familie-Edition oder das komplette Paket.",
-  alternates: { canonical: "/de/pricing", languages: { en: "https://konfydence.com/pricing", de: "https://konfydence.com/de/pricing" } },
-};
+const EDITIONEN = [
+  { key: "family", label: "Familie" },
+  { key: "school", label: "Schule" },
+] as const;
+
+type EditionKey = (typeof EDITIONEN)[number]["key"];
+
+function isEditionKey(value: string | null): value is EditionKey {
+  return !!value && EDITIONEN.some((e) => e.key === value);
+}
 
 function PreisKarte({
   kicker,
@@ -36,7 +44,17 @@ function PreisKarte({
   );
 }
 
-export default function GermanPricingPage() {
+function GermanPricingContent() {
+  const searchParams = useSearchParams();
+  const editionParam = (searchParams.get("edition") || "").toLowerCase();
+
+  const [selectedEdition, setSelectedEdition] = useState<EditionKey | null>(
+    isEditionKey(editionParam) ? editionParam : null
+  );
+  const selectedLabel = selectedEdition
+    ? EDITIONEN.find((e) => e.key === selectedEdition)!.label
+    : null;
+
   return (
     <PremiumPageDe ctaHref="/de/challenge/family/start?mode=diagnostic" ctaLabel="Kostenlos starten">
       <section className="kg-shell kc-hero is-narrow" style={{ paddingBottom: 40 }}>
@@ -44,7 +62,7 @@ export default function GermanPricingPage() {
         <h1>Kostenlos starten. Nur zahlen, wenn du die volle Challenge willst.</h1>
         <p>
           Der kostenlose Check gibt dir ein echtes Ergebnis — deinen Konfydence Readiness Score und das
-          H.A.C.K.-Druckmuster, das dir am ehesten zum Verhängnis werden könnte. Schalte die Familie-Edition frei,
+          H.A.C.K.-Druckmuster, das dir am ehesten zum Verhängnis werden könnte. Schalte eine Edition frei,
           oder gleich das komplette Paket. Beides sind Jahrespläne.
         </p>
       </section>
@@ -64,18 +82,35 @@ export default function GermanPricingPage() {
         </PreisKarte>
 
         <PreisKarte
-          kicker="Volle Challenge — Familie"
+          kicker="Volle Challenge"
           price="€6,99"
           sub="/ Jahr"
           includes={[
-            "48 reale Szenarien, kulturell für Deutschland geschrieben",
+            "48 reale Szenarien pro Edition, kulturell für Deutschland geschrieben",
             "Gespielt in kurzen Runden — jedes Mal neue Szenarien",
             "Volles Readiness-Dashboard + Druckprofil",
             "Abschlusszertifikat",
           ]}
           featured
         >
-          <CheckoutRedirectButton sku="CHAL-SINGLE-FAMILY" label="Familie-Edition freischalten — €6,99/Jahr" locale="de" />
+          {selectedEdition ? (
+            <CheckoutRedirectButton
+              sku={`CHAL-SINGLE-${selectedEdition.toUpperCase()}`}
+              label={`${selectedLabel}-Edition freischalten — €6,99/Jahr`}
+              locale="de"
+            />
+          ) : (
+            <div className="kc-price-pick">
+              <p>Welche Edition — je €6,99/Jahr?</p>
+              <div className="kc-price-pills">
+                {EDITIONEN.map((e) => (
+                  <button key={e.key} type="button" onClick={() => setSelectedEdition(e.key)}>
+                    {e.label}
+                  </button>
+                ))}
+              </div>
+            </div>
+          )}
         </PreisKarte>
 
         <PreisKarte
@@ -83,7 +118,7 @@ export default function GermanPricingPage() {
           price="€24,99"
           sub="/ Jahr · alle fünf Editionen"
           includes={[
-            "Alle 5 Challenge-Editionen (vier davon derzeit auf Englisch)",
+            "Alle 5 Challenge-Editionen (drei davon derzeit auf Englisch)",
             "200+ reale Szenarien insgesamt",
             "Unbegrenzte Runden, immer neue Szenarien",
             "Dashboards und Zertifikate für jede Edition",
@@ -116,5 +151,13 @@ export default function GermanPricingPage() {
         </p>
       </section>
     </PremiumPageDe>
+  );
+}
+
+export default function GermanPricingPage() {
+  return (
+    <Suspense fallback={null}>
+      <GermanPricingContent />
+    </Suspense>
   );
 }

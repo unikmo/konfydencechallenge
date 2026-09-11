@@ -1,0 +1,34 @@
+{
+  "id": "school-de-sch-09",
+  "lang": "de",
+  "title": "„Schick den Code, bevor mein Vater es sieht“",
+  "edition": "school",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Freunde",
+  "scenario": "Ein Freund schreibt dir auf WhatsApp panisch, er brauche sofort deinen gerade erhaltenen SMS-Code für ein Konto, „bevor mein Vater das Handy sieht“ — es dauere nur eine Minute.",
+  "answers": {
+    "A": "Den Code sofort schicken, um ihm schnell zu helfen.",
+    "B": "Nur die Hälfte des Codes schicken.",
+    "C": "Den Code für niemanden weiterschicken und ihn stattdessen anrufen, um zu verstehen, was wirklich los ist."
+  },
+  "scores": {
+    "A": 0,
+    "B": 0,
+    "C": 4
+  },
+  "safeActions": [
+    "C"
+  ],
+  "explanation": "Ein Code, der gerade bei dir ankommt, gehört zu deinem eigenen Konto — kein echter Grund macht daraus ein Konto deines Freundes. Panik und Zeitdruck sollen dich davon abhalten, das zu hinterfragen.",
+  "proTip": "Ein SMS-Code ist immer für dich — auch wenn ein Freund in Eile ist.",
+  "hackKey": "H",
+  "hackTrigger": "Hetze",
+  "tags": [
+    "school",
+    "h",
+    "friends",
+    "otp-phishing"
+  ],
+  "active": true
+}

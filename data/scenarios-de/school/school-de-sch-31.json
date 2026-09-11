@@ -1,0 +1,34 @@
+{
+  "id": "school-de-sch-31",
+  "lang": "de",
+  "title": "Dein Teamkollege braucht Gutscheinkarten",
+  "edition": "school",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Team-Geld",
+  "scenario": "Ein Mitspieler aus deinem Gaming-Team, den du seit einer Weile kennst, bittet dich, ihm schnell Gutscheinkarten für „den Server“ zu kaufen — er zahle es dir „nächste Woche zurück“.",
+  "answers": {
+    "A": "Ablehnen oder ihn bitten, einen anderen, nachvollziehbaren Zahlungsweg zu nutzen, statt Gutscheincodes.",
+    "B": "Die Karten kaufen, weil er ein bekanntes Team-Mitglied ist.",
+    "C": "Nur eine kleine Karte kaufen, um zu helfen."
+  },
+  "scores": {
+    "A": 4,
+    "B": 0,
+    "C": 0
+  },
+  "safeActions": [
+    "A"
+  ],
+  "explanation": "Gutscheincodes sind wie Bargeld — sobald sie weg sind, sind sie nicht rückholbar, egal wie bekannt die Person ist. Ein „zahl's dir zurück“ ändert daran nichts.",
+  "proTip": "Gutscheincodes sind Bargeld ohne Rückgabe — auch unter Teammitgliedern.",
+  "hackKey": "C",
+  "hackTrigger": "Vertrautheit",
+  "tags": [
+    "school",
+    "c",
+    "team-money",
+    "gift-card"
+  ],
+  "active": true
+}

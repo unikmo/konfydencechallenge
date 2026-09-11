@@ -1,0 +1,34 @@
+{
+  "id": "school-de-sch-19",
+  "lang": "de",
+  "title": "Der Turnierveranstalter braucht deinen Login",
+  "edition": "school",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Esport",
+  "scenario": "Ein Organisator eines Online-Turniers verlangt vor dem Start deinen vollständigen Riot- oder Steam-Login, „um die Teilnahme zu bestätigen“, statt der üblichen Team-Anmeldung.",
+  "answers": {
+    "A": "Ablehnen und stattdessen die übliche Team-/Spieler-ID-Anmeldung nutzen; ein echtes Turnier braucht nie deinen Login.",
+    "B": "Den Login schicken, um sicher am Turnier teilnehmen zu können.",
+    "C": "Ein Zweit-Account für die Anmeldung nutzen."
+  },
+  "scores": {
+    "A": 4,
+    "B": 0,
+    "C": 2
+  },
+  "safeActions": [
+    "A"
+  ],
+  "explanation": "Turniere bestätigen Teilnahme über Spieler-IDs oder Team-Codes, niemals über volle Kontozugangsdaten. Wer danach fragt, will den Account übernehmen, nicht die Teilnahme prüfen.",
+  "proTip": "Ein Turnier braucht deine Spieler-ID, nie dein Passwort.",
+  "hackKey": "A",
+  "hackTrigger": "Autorität",
+  "tags": [
+    "school",
+    "a",
+    "esports",
+    "credential-phishing"
+  ],
+  "active": true
+}

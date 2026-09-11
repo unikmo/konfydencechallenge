@@ -1,0 +1,34 @@
+{
+  "id": "school-de-sch-33",
+  "lang": "de",
+  "title": "Mamas Stimme sagt: Abholzeit hat sich geändert",
+  "edition": "school",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Familie",
+  "scenario": "Ein Anruf auf dem Schulhandy klingt wie deine Mutter: Sie könne dich heute nicht wie geplant abholen, ein „Freund der Familie“ komme stattdessen und warte am Seiteneingang.",
+  "answers": {
+    "A": "Zum Seiteneingang gehen und mit der fremden Person mitgehen, weil die Stimme wie Mama klang.",
+    "B": "Die Person am Seiteneingang nach ihrem Namen fragen.",
+    "C": "Deine Mutter über die gespeicherte Nummer zurückrufen und mit dem Sekretariat sprechen, bevor du mit irgendjemandem mitgehst."
+  },
+  "scores": {
+    "A": 0,
+    "B": 1,
+    "C": 4
+  },
+  "safeActions": [
+    "C"
+  ],
+  "explanation": "KI-Stimmenklone werden immer überzeugender — eine geklonte Stimme ist kein Beweis. Ein Rückruf auf der bekannten Nummer und das Sekretariat der Schule klären es in Minuten, bevor du mit jemandem mitgehst.",
+  "proTip": "Bevor du mit jemand Fremdem mitgehst: die echte Person selbst zurückrufen.",
+  "hackKey": "C",
+  "hackTrigger": "Vertrautheit",
+  "tags": [
+    "school",
+    "c",
+    "family",
+    "voice-clone"
+  ],
+  "active": true
+}

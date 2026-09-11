@@ -1,0 +1,35 @@
+{
+  "id": "school-de-sch-01",
+  "lang": "de",
+  "title": "Dein Account wird in 9 Minuten gelöscht",
+  "edition": "school",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Gaming",
+  "scenario": "Eine E-Mail im Namen von Epic Games sagt, dein Fortnite-Account werde wegen eines „Verstoßes“ in 9 Minuten gelöscht — es sei denn, du „verifizierst“ dich jetzt über einen Link mit E-Mail und Passwort.",
+  "answers": {
+    "A": "Auf den Link klicken und dich sofort verifizieren, bevor der Account gelöscht wird.",
+    "B": "Den Link ignorieren und dich direkt in der Fortnite-App oder auf epicgames.com einloggen, um nachzusehen.",
+    "C": "Nur die E-Mail-Adresse eingeben, aber nicht das Passwort."
+  },
+  "scores": {
+    "A": 0,
+    "B": 4,
+    "C": 0
+  },
+  "safeActions": [
+    "B"
+  ],
+  "explanation": "Epic Games löscht Accounts nicht per 9-Minuten-Countdown in einer E-Mail. Ein Login über einen fremden Link gibt Angreifern genau die Daten, die sie wollen — die App oder die offizielle Seite zeigt den echten Status sofort.",
+  "proTip": "Ein Countdown in einer Mail ist kein echtes Zeitlimit deines Accounts.",
+  "hackKey": "H",
+  "hackTrigger": "Hetze",
+  "tags": [
+    "school",
+    "h",
+    "gaming",
+    "phishing",
+    "diagnostic"
+  ],
+  "active": true
+}

@@ -1,0 +1,34 @@
+{
+  "id": "school-de-sch-18",
+  "lang": "de",
+  "title": "„Cyber-Abteilung der Polizei“ schreibt dir",
+  "edition": "school",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Sicherheit",
+  "scenario": "Eine Nachricht, angeblich von der „Cyberkriminalitätsabteilung“ der Polizei, sagt, du seist in einen Vorfall verwickelt, und verlangt sofort Screenshots deines Chatverlaufs und deine Zugangsdaten „zur Prüfung“.",
+  "answers": {
+    "A": "Nichts schicken, mit einem Erwachsenen sprechen und die Sache über die offizielle Nummer der örtlichen Polizei prüfen lassen.",
+    "B": "Die Zugangsdaten und Screenshots sofort schicken, um zu kooperieren.",
+    "C": "Nur die Screenshots schicken, aber keine Zugangsdaten."
+  },
+  "scores": {
+    "A": 4,
+    "B": 0,
+    "C": 1
+  },
+  "safeActions": [
+    "A"
+  ],
+  "explanation": "Die echte Polizei verlangt niemals Zugangsdaten per Chat-Nachricht — das ist bei jeder Behörde ein Warnsignal. Ein Erwachsener und die offizielle Nummer klären es sicher.",
+  "proTip": "Zugangsdaten gibt keine echte Behörde per Chat heraus — auch nicht „zur Prüfung“.",
+  "hackKey": "A",
+  "hackTrigger": "Autorität",
+  "tags": [
+    "school",
+    "a",
+    "safety",
+    "government-impostor"
+  ],
+  "active": true
+}

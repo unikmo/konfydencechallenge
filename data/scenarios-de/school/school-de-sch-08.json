@@ -1,0 +1,34 @@
+{
+  "id": "school-de-sch-08",
+  "lang": "de",
+  "title": "Versandgebühr vor der Mittagspause",
+  "edition": "school",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Sneaker & Shopping",
+  "scenario": "Nach einer Sneaker-Bestellung kommt eine SMS: Eine Versandgebühr von 2,50 € müsse vor 12 Uhr per Kartendaten über einen Link nachgezahlt werden, sonst gehe das Paket zurück.",
+  "answers": {
+    "A": "Die Kartendaten sofort über den Link eingeben, um das Paket nicht zu verlieren.",
+    "B": "Die Gebühr überweisen statt Kartendaten einzugeben.",
+    "C": "Den Bestellstatus direkt beim Shop oder Versanddienst über die offizielle App oder Website prüfen."
+  },
+  "scores": {
+    "A": 0,
+    "B": 0,
+    "C": 4
+  },
+  "safeActions": [
+    "C"
+  ],
+  "explanation": "Eine winzige Nachgebühr mit knapper Frist ist eine klassische Smishing-Masche — der kleine Betrag soll dich zum schnellen Klick verleiten. Der echte Status steht immer in der Versand-App.",
+  "proTip": "Ein kleiner Betrag mit großer Eile ist trotzdem eine Falle.",
+  "hackKey": "H",
+  "hackTrigger": "Hetze",
+  "tags": [
+    "school",
+    "h",
+    "shopping",
+    "smishing"
+  ],
+  "active": true
+}

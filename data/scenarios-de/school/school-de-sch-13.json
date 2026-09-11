@@ -1,0 +1,35 @@
+{
+  "id": "school-de-sch-13",
+  "lang": "de",
+  "title": "Ein „Discord-Mod“ braucht deine Verifizierung",
+  "edition": "school",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Gaming",
+  "scenario": "Jemand mit dem Titel „Moderator“ schreibt dir auf Discord, dein Account sei wegen eines Berichts „vorübergehend eingeschränkt“ — du müsstest dich über einen Link „verifizieren“, sonst folge ein permanenter Bann.",
+  "answers": {
+    "A": "Sich sofort über den Link verifizieren, um den Bann zu vermeiden.",
+    "B": "Dem „Mod“ per DM Fragen stellen, um die Geschichte zu prüfen.",
+    "C": "Den Link nicht öffnen und den Vorfall über die offiziellen Discord-Support-Kanäle prüfen."
+  },
+  "scores": {
+    "A": 0,
+    "B": 1,
+    "C": 4
+  },
+  "safeActions": [
+    "C"
+  ],
+  "explanation": "Echte Discord-Moderatoren schreiben Nutzer nicht per DM an, um sie über einen Link zu „verifizieren“. Der Titel „Moderator“ ist leicht vorzutäuschen und soll allein durch Autorität wirken.",
+  "proTip": "Ein Titel in einem Profil ist kein Beweis für echte Autorität.",
+  "hackKey": "A",
+  "hackTrigger": "Autorität",
+  "tags": [
+    "school",
+    "a",
+    "gaming",
+    "discord-phishing",
+    "diagnostic"
+  ],
+  "active": true
+}
