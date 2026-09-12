@@ -1,0 +1,34 @@
+{
+  "id": "workplace-de-wrk-29",
+  "lang": "de",
+  "title": "Der Link zum geteilten Laufwerk kommt vom Projektleiter",
+  "edition": "workplace",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Projekte",
+  "scenario": "Der Projektleiter, den du gut kennst, teilt einen Link zu einem „aktualisierten“ gemeinsamen Laufwerk — der Link verlangt aber eine App-Installation, bevor der Ordner sichtbar wird.",
+  "answers": {
+    "B": "Den Projektleiter fragen, ob die App-Installation wirklich nötig und von der IT freigegeben ist, bevor irgendetwas installiert wird.",
+    "A": "Die App sofort installieren, um auf das Laufwerk zuzugreifen.",
+    "C": "Die App installieren, aber die Berechtigungen danach einschränken."
+  },
+  "scores": {
+    "B": 4,
+    "A": 0,
+    "C": 1
+  },
+  "safeActions": [
+    "B"
+  ],
+  "explanation": "Ein bekannter Name im Absender macht eine ungewöhnliche App-Installationsanforderung nicht sicherer — sein Konto kann kompromittiert sein.",
+  "proTip": "Eine App-Installation für ein Laufwerk braucht immer eine IT-Freigabe.",
+  "hackKey": "C",
+  "hackTrigger": "Vertrautheit",
+  "tags": [
+    "workplace",
+    "c",
+    "projects",
+    "malware"
+  ],
+  "active": true
+}

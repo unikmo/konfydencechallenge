@@ -4,10 +4,11 @@ import { PremiumPageDe } from "@/components/PremiumSiteChrome";
 
 export const metadata: Metadata = {
   title: { absolute: "Challenge | Konfydence" },
-  description: "Die Konfydence Challenge auf Deutsch — Familie-, Schule-, Universität- und TravelSafe-Edition, je 48 reale Betrugsszenarien.",
+  description: "Die Konfydence Challenge auf Deutsch — alle fünf Editionen, je 48 reale Betrugsszenarien.",
   alternates: { canonical: "/de/challenge", languages: { en: "https://konfydence.com/challenge", de: "https://konfydence.com/de/challenge" } },
 };
 
+// Stage 4 complete (2026-09-12): all five editions have a German deck.
 const VERFUEGBAR = [
   {
     key: "family",
@@ -29,10 +30,11 @@ const VERFUEGBAR = [
     label: "TravelSafe-Edition",
     text: "Ferienwohnungs-Betrug, ADAC-Impostoren, falsche Grenzpolizei, Zoll-Phishing, Geldautomaten-Fallen und mehr — 48 Szenarien für Reisende, kulturell für Deutschland geschrieben.",
   },
-];
-
-const ANDERE_EDITIONEN = [
-  { key: "workplace", label: "Arbeitsplatz" },
+  {
+    key: "workplace",
+    label: "Arbeitsplatz-Edition",
+    text: "Chef-Betrug mit geänderter Bankverbindung, Deepfake-Anrufe der Geschäftsführung, IT-Support-Impostoren, DSGVO-Phishing und mehr — 48 Szenarien für den Berufsalltag, kulturell für Deutschland geschrieben.",
+  },
 ];
 
 export default function GermanChallengePage(props: { searchParams: Promise<{ bald?: string }> }) {
@@ -71,40 +73,24 @@ export default function GermanChallengePage(props: { searchParams: Promise<{ bal
           </article>
         ))}
 
-        <div style={{ opacity: 0.75 }}>
-          <p style={{ fontWeight: 800, marginBottom: 10, fontSize: 13 }}>Bald auf Deutsch:</p>
-          <div style={{ display: "flex", gap: 10, flexWrap: "wrap" }}>
-            {ANDERE_EDITIONEN.map((e) => (
-              <span
-                key={e.key}
-                style={{
-                  padding: "8px 14px",
-                  borderRadius: 999,
-                  border: "1px solid var(--k-line)",
-                  fontSize: 13,
-                }}
-              >
-                {e.label}
-              </span>
-            ))}
-          </div>
-          <p style={{ fontSize: 12, marginTop: 12 }}>
-            Bereits verfügbar auf Englisch: <Link href="/challenge" className="k-lang-switch" style={{ padding: "3px 8px" }}>Challenge (EN) →</Link>
-          </p>
-        </div>
+        <p style={{ fontSize: 12, opacity: 0.6, marginTop: 8 }}>
+          Team-Zugang für Schulen und Unternehmen? <Link href="/pricing?team=1" className="k-lang-switch" style={{ padding: "3px 8px" }}>Team-Kauf (auf Englisch) →</Link>
+        </p>
       </section>
     </PremiumPageDe>
   );
 }
 
+// Kept as a defensive fallback: if a future edition is added without a
+// German deck yet, its start route redirects here with ?bald=<edition>
+// instead of silently dropping the player into an English deck.
 async function BaldHinweis({ searchParams }: { searchParams: Promise<{ bald?: string }> }) {
   const sp = await searchParams;
   if (!sp.bald) return null;
   return (
     <div className="k-shell" style={{ paddingTop: 24 }}>
       <div style={{ background: "#fdf0dc", color: "#5a4118", borderRadius: 12, padding: "14px 18px", fontSize: 14 }}>
-        Diese Edition gibt es auf Deutsch noch nicht — bisher nur Familie, Schule, Universität und TravelSafe. Sobald
-        sie fertig ist, erscheint sie hier.
+        Diese Edition gibt es auf Deutsch noch nicht. Sobald sie fertig ist, erscheint sie hier.
       </div>
     </div>
   );

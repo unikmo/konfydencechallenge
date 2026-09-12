@@ -1,0 +1,34 @@
+{
+  "id": "workplace-de-wrk-46",
+  "lang": "de",
+  "title": "Support will ein Wiederherstellungs-Token",
+  "edition": "workplace",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Cloud-Administration",
+  "scenario": "Ein Anrufer, angeblich vom Cloud-Anbieter, bittet um das Wiederherstellungs-Token des Administrator-Kontos, um „einen Ausfall zu beheben“, den es angeblich gerade gibt.",
+  "answers": {
+    "C": "Das Token für niemanden herausgeben und den Ausfall über die offizielle Statusseite des Anbieters oder das interne IT-Team prüfen.",
+    "A": "Das Token durchgeben, um den Ausfall schnell zu beheben.",
+    "B": "Nur einen Teil des Tokens durchgeben."
+  },
+  "scores": {
+    "C": 4,
+    "A": 0,
+    "B": 0
+  },
+  "safeActions": [
+    "C"
+  ],
+  "explanation": "Ein Wiederherstellungs-Token für ein Administratorkonto ist der Generalschlüssel — kein echter Support braucht ihn am Telefon, um einen Ausfall zu beheben.",
+  "proTip": "Ein Wiederherstellungs-Token gibst du nie am Telefon heraus.",
+  "hackKey": "K",
+  "hackTrigger": "Notbremse",
+  "tags": [
+    "workplace",
+    "k",
+    "cloud-admin",
+    "credential-phishing"
+  ],
+  "active": true
+}

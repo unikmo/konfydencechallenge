@@ -1,0 +1,35 @@
+{
+  "id": "workplace-de-wrk-26",
+  "lang": "de",
+  "title": "Dein Kollege schickt eine Teams-Datei",
+  "edition": "workplace",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Zusammenarbeit",
+  "scenario": "Ein Kollege, mit dem du regelmäßig zusammenarbeitest, schickt über Teams einen Link zu einer „wichtigen Datei“ — der Link verlangt aber, dich erneut mit deinem vollen Unternehmens-Login anzumelden.",
+  "answers": {
+    "B": "Den Kollegen kurz fragen, ob er die Datei wirklich geschickt hat, bevor du dich über den Link erneut anmeldest — normale geteilte Dateien verlangen das nicht.",
+    "A": "Sich sofort über den Link erneut anmelden, um die Datei zu öffnen.",
+    "C": "Den Link öffnen, aber ein anderes Passwort verwenden."
+  },
+  "scores": {
+    "B": 4,
+    "A": 0,
+    "C": 0
+  },
+  "safeActions": [
+    "B"
+  ],
+  "explanation": "Eine normale Teams-geteilte Datei öffnet sich direkt, ohne erneute volle Anmeldung zu verlangen — das ist ein bekanntes Zeichen für ein kompromittiertes Kollegenkonto.",
+  "proTip": "Eine echte geteilte Datei verlangt keine erneute volle Anmeldung.",
+  "hackKey": "C",
+  "hackTrigger": "Vertrautheit",
+  "tags": [
+    "workplace",
+    "c",
+    "collaboration",
+    "account-takeover",
+    "diagnostic"
+  ],
+  "active": true
+}

@@ -1,0 +1,34 @@
+{
+  "id": "workplace-de-wrk-41",
+  "lang": "de",
+  "title": "„Exportier deinen Passwort-Tresor zur Wiederherstellung“",
+  "edition": "workplace",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Passwort-Manager",
+  "scenario": "Eine Mail im Namen des Passwort-Manager-Anbieters des Unternehmens bittet, den gesamten Passwort-Tresor als Datei zu exportieren und über ein Formular „zur Kontowiederherstellung“ hochzuladen.",
+  "answers": {
+    "A": "Den Tresor nicht exportieren; eine echte Kontowiederherstellung beim Passwort-Manager läuft nie über den Export und Upload des gesamten Tresors an Dritte.",
+    "B": "Den Tresor exportieren und über das Formular hochladen.",
+    "C": "Nur einen Teil der Passwörter exportieren."
+  },
+  "scores": {
+    "A": 4,
+    "B": 0,
+    "C": 0
+  },
+  "safeActions": [
+    "A"
+  ],
+  "explanation": "Ein exportierter Passwort-Tresor enthält alle Zugangsdaten im Klartext — kein legitimer Wiederherstellungsprozess verlangt, ihn an ein externes Formular zu schicken.",
+  "proTip": "Ein Passwort-Tresor verlässt nie das eigene Gerät als Export an Dritte.",
+  "hackKey": "K",
+  "hackTrigger": "Notbremse",
+  "tags": [
+    "workplace",
+    "k",
+    "password-managers",
+    "data-exfiltration"
+  ],
+  "active": true
+}

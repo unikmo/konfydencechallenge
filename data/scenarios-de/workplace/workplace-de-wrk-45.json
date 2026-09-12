@@ -1,0 +1,34 @@
+{
+  "id": "workplace-de-wrk-45",
+  "lang": "de",
+  "title": "Der Konferenz-USB-Stick sagt „Vortragsunterlagen“",
+  "edition": "workplace",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Wechselmedien",
+  "scenario": "Am Stand einer Fachkonferenz wird ein USB-Stick mit „Vortragsunterlagen zum Nachlesen“ verteilt — zurück im Büro steckt ein Kollege ihn direkt in seinen Arbeitsrechner.",
+  "answers": {
+    "C": "Den Stick nicht in einen Arbeitsrechner stecken und stattdessen bei der IT-Abteilung prüfen lassen oder die Unterlagen über die offizielle Konferenz-Website anfragen.",
+    "A": "Den Stick in den Arbeitsrechner stecken, um die Unterlagen zu lesen.",
+    "B": "Den Stick in einem privaten Rechner testen, bevor er ins Büro kommt."
+  },
+  "scores": {
+    "C": 4,
+    "A": 0,
+    "B": 1
+  },
+  "safeActions": [
+    "C"
+  ],
+  "explanation": "Unbekannte USB-Sticks von einer Konferenz sind ein klassischer Weg, Schadsoftware ins Firmennetz einzuschleusen — die IT-Abteilung kann sie sicher isoliert prüfen.",
+  "proTip": "Ein unbekannter USB-Stick gehört zuerst zur IT, nie direkt in den Arbeitsrechner.",
+  "hackKey": "K",
+  "hackTrigger": "Notbremse",
+  "tags": [
+    "workplace",
+    "k",
+    "removable-media",
+    "malware"
+  ],
+  "active": true
+}

@@ -1,0 +1,34 @@
+{
+  "id": "workplace-de-wrk-17",
+  "lang": "de",
+  "title": "Die externe Anwaltskanzlei fordert einen Datenexport",
+  "edition": "workplace",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Recht",
+  "scenario": "Eine Mail, angeblich von einer externen Anwaltskanzlei, mit der das Unternehmen tatsächlich zusammenarbeitet, fordert einen vollständigen Export von Personaldaten „für ein laufendes Mandat“ über einen externen Link.",
+  "answers": {
+    "A": "Die Anfrage über den internen Rechts- oder Datenschutzverantwortlichen prüfen lassen, bevor irgendein Datenexport über einen externen Link erfolgt.",
+    "B": "Den Datenexport sofort über den Link bereitstellen, weil die Kanzlei bekannt ist.",
+    "C": "Nur einen Teil der Daten über den Link bereitstellen."
+  },
+  "scores": {
+    "A": 4,
+    "B": 0,
+    "C": 0
+  },
+  "safeActions": [
+    "A"
+  ],
+  "explanation": "Eine bekannte Zusammenarbeit macht eine konkrete E-Mail nicht automatisch echt — E-Mail-Konten von Kanzleien werden gezielt kompromittiert. Der interne Datenschutzverantwortliche prüft solche Anfragen immer zuerst.",
+  "proTip": "Ein bekannter Name ersetzt keine interne Freigabe für einen Datenexport.",
+  "hackKey": "A",
+  "hackTrigger": "Autorität",
+  "tags": [
+    "workplace",
+    "a",
+    "legal",
+    "business-email-compromise"
+  ],
+  "active": true
+}

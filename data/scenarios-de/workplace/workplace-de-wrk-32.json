@@ -1,0 +1,34 @@
+{
+  "id": "workplace-de-wrk-32",
+  "lang": "de",
+  "title": "Der Bewerber hat sein Portfolio geschickt",
+  "edition": "workplace",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Bewerbungen",
+  "scenario": "Ein Bewerber auf eine offene Stelle schickt sein Portfolio als „interaktive Datei“, die beim Öffnen eine Makro-Aktivierung verlangt, um „alle Projekte korrekt anzuzeigen“.",
+  "answers": {
+    "B": "Die Datei nicht mit aktivierten Makros öffnen und stattdessen um ein PDF oder einen Link zu einem Online-Portfolio bitten.",
+    "A": "Die Makros aktivieren, um das Portfolio vollständig zu sehen.",
+    "C": "Die Datei in einer isolierten Testumgebung mit Makros öffnen."
+  },
+  "scores": {
+    "B": 4,
+    "A": 0,
+    "C": 1
+  },
+  "safeActions": [
+    "B"
+  ],
+  "explanation": "Eine Bewerbung, die eine Makro-Aktivierung verlangt, ist eine bekannte Schadsoftware-Einschleusung — ein normales Portfolio braucht das nie.",
+  "proTip": "Ein Portfolio, das Makros braucht, ist verdächtiger als ein fehlendes Feature.",
+  "hackKey": "C",
+  "hackTrigger": "Vertrautheit",
+  "tags": [
+    "workplace",
+    "c",
+    "hr-relationships",
+    "malware"
+  ],
+  "active": true
+}

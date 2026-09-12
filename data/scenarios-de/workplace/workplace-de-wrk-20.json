@@ -1,0 +1,34 @@
+{
+  "id": "workplace-de-wrk-20",
+  "lang": "de",
+  "title": "Der Geschäftsführer des Lieferanten will eine Ausnahme",
+  "edition": "workplace",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Lieferanten-Führung",
+  "scenario": "Eine Mail, angeblich vom Geschäftsführer eines langjährigen Lieferanten, bittet persönlich um eine Ausnahme von den üblichen Zahlungsbedingungen — Vorauszahlung auf ein neues Konto statt der üblichen Rechnung nach Lieferung.",
+  "answers": {
+    "B": "Die Bitte über den bekannten, üblichen Ansprechpartner beim Lieferanten bestätigen lassen, bevor von den normalen Zahlungsbedingungen abgewichen wird.",
+    "A": "Die Ausnahme gewähren, weil die Bitte persönlich von der Geschäftsführung kommt.",
+    "C": "Nur eine kleine Vorauszahlung als Ausnahme leisten."
+  },
+  "scores": {
+    "B": 4,
+    "A": 0,
+    "C": 0
+  },
+  "safeActions": [
+    "B"
+  ],
+  "explanation": "Ein persönlicher Name an der Spitze macht eine Ausnahme von etablierten Zahlungsprozessen nicht sicherer — genau das nutzen Betrüger gezielt aus, wenn sie sich als Führungsperson ausgeben.",
+  "proTip": "Eine Ausnahme von der Regel bestätigst du über den üblichen Kontakt, nicht nur per Mail von „oben“.",
+  "hackKey": "A",
+  "hackTrigger": "Autorität",
+  "tags": [
+    "workplace",
+    "a",
+    "vendor-leadership",
+    "impostor"
+  ],
+  "active": true
+}

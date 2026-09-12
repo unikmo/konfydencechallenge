@@ -1,0 +1,34 @@
+{
+  "id": "workplace-de-wrk-12",
+  "lang": "de",
+  "title": "Die Wirtschaftsprüfer brauchen diese Datei vor Mittag",
+  "edition": "workplace",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Recht",
+  "scenario": "Eine Mail, angeblich von den externen Wirtschaftsprüfern, verlangt eine vertrauliche Finanzdatei „vor ihrer Abreise um 12 Uhr“ über einen externen Link, statt über den vereinbarten sicheren Datenraum.",
+  "answers": {
+    "A": "Die Anfrage über den internen Ansprechpartner für die Prüfung bestätigen und Dateien ausschließlich über den vereinbarten sicheren Datenraum teilen.",
+    "B": "Die Datei sofort über den externen Link schicken, um die Frist einzuhalten.",
+    "C": "Nur einen Teil der Datei über den Link schicken."
+  },
+  "scores": {
+    "A": 4,
+    "B": 0,
+    "C": 0
+  },
+  "safeActions": [
+    "A"
+  ],
+  "explanation": "Wirtschaftsprüfungen laufen über einen vorher vereinbarten, sicheren Datenraum — ein plötzlicher externer Link mit Mittagsfrist weicht vom vereinbarten Prozess ab und ist ein Warnsignal.",
+  "proTip": "Prüfungsunterlagen gehen nur über den vereinbarten Datenraum, nie über einen neuen Link.",
+  "hackKey": "H",
+  "hackTrigger": "Hetze",
+  "tags": [
+    "workplace",
+    "h",
+    "legal",
+    "data-exfiltration"
+  ],
+  "active": true
+}

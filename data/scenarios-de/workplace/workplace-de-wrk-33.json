@@ -1,0 +1,34 @@
+{
+  "id": "workplace-de-wrk-33",
+  "lang": "de",
+  "title": "Der Meeting-Bot ist schon in der Konferenz",
+  "edition": "workplace",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Zusammenarbeit",
+  "scenario": "Zu Beginn eines wichtigen Videocalls ist bereits ein unbekannter „Notiz-Bot“ mit professionellem Namen im Meeting, der automatisch mitschreibt und die Zusammenfassung „an alle Teilnehmer per Link“ verschicken will.",
+  "answers": {
+    "B": "Den Bot aus dem Meeting entfernen, wenn ihn niemand eingeladen hat, und die Zusammenfassung nur über den offiziellen, bekannten Kanal des Unternehmens teilen lassen.",
+    "A": "Den Bot mitschreiben lassen und den Link zur Zusammenfassung später anklicken.",
+    "C": "Den Bot fragen, wer ihn eingeladen hat, und ihn dann weiterlaufen lassen."
+  },
+  "scores": {
+    "B": 4,
+    "A": 0,
+    "C": 1
+  },
+  "safeActions": [
+    "B"
+  ],
+  "explanation": "Ein professionell aussehender Name macht einen unbekannten Meeting-Bot nicht automatisch legitim — solche Bots werden genutzt, um vertrauliche Gespräche mitzuschneiden oder Phishing-Links zu verbreiten.",
+  "proTip": "Ein Bot, den niemand eingeladen hat, gehört nicht ins Meeting.",
+  "hackKey": "C",
+  "hackTrigger": "Vertrautheit",
+  "tags": [
+    "workplace",
+    "c",
+    "collaboration",
+    "meeting-bot-scam"
+  ],
+  "active": true
+}

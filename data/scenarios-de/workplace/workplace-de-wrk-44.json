@@ -1,0 +1,34 @@
+{
+  "id": "workplace-de-wrk-44",
+  "lang": "de",
+  "title": "Der CFO ist live im Video",
+  "edition": "workplace",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Deepfake-Video",
+  "scenario": "In einem Videocall, der wie ein echtes Meeting mit dem Finanzvorstand aussieht, wird live angewiesen, eine große Überweisung an ein neues Konto vorzunehmen — Bild und Stimme wirken überzeugend echt.",
+  "answers": {
+    "A": "Die Anweisung über einen zweiten, unabhängigen Kanal (Anruf auf bekannter Nummer, persönliches Gespräch) beim Finanzvorstand bestätigen, unabhängig davon, wie echt das Video wirkte.",
+    "B": "Die Überweisung sofort vornehmen, weil das Video überzeugend echt aussah.",
+    "C": "Im Videocall selbst nach zusätzlichen Details fragen und dann überweisen."
+  },
+  "scores": {
+    "A": 4,
+    "B": 0,
+    "C": 1
+  },
+  "safeActions": [
+    "A"
+  ],
+  "explanation": "Deepfake-Video-Technologie macht auch Bild und Bewegung täuschend echt — bei ungewöhnlichen Zahlungsanweisungen ist ein zweiter, unabhängiger Kanal die einzige verlässliche Bestätigung.",
+  "proTip": "Ein überzeugendes Video ersetzt bei einer Großüberweisung nie eine zweite Bestätigung.",
+  "hackKey": "K",
+  "hackTrigger": "Notbremse",
+  "tags": [
+    "workplace",
+    "k",
+    "deepfake-video",
+    "voice-clone"
+  ],
+  "active": true
+}

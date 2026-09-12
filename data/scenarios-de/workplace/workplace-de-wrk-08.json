@@ -1,0 +1,34 @@
+{
+  "id": "workplace-de-wrk-08",
+  "lang": "de",
+  "title": "Erstatte diesen Kunden, bevor er eskaliert",
+  "edition": "workplace",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Kundenerstattungen",
+  "scenario": "Eine Mail, angeblich vom Vorgesetzten, drängt, einem unbekannten Kunden sofort eine hohe Erstattung ohne die übliche Prüfung auszuzahlen, „bevor er in den sozialen Medien eskaliert“.",
+  "answers": {
+    "A": "Die Erstattung durch die reguläre Prüfung laufen lassen und die Anweisung beim Vorgesetzten persönlich oder telefonisch bestätigen, bevor ausgezahlt wird.",
+    "B": "Die Erstattung sofort ohne Prüfung auszahlen, um eine öffentliche Eskalation zu vermeiden.",
+    "C": "Nur die Hälfte der Erstattung sofort auszahlen."
+  },
+  "scores": {
+    "A": 4,
+    "B": 0,
+    "C": 0
+  },
+  "safeActions": [
+    "A"
+  ],
+  "explanation": "Die Angst vor öffentlicher Eskalation wird gezielt genutzt, um Kontrollprozesse zu umgehen — eine kurze Rückfrage beim echten Vorgesetzten kostet keine zusätzliche Eskalation.",
+  "proTip": "Reputationsangst ist kein Grund, eine Prüfung zu überspringen.",
+  "hackKey": "H",
+  "hackTrigger": "Hetze",
+  "tags": [
+    "workplace",
+    "h",
+    "customer-refunds",
+    "social-engineering"
+  ],
+  "active": true
+}

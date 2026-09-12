@@ -1,0 +1,35 @@
+{
+  "id": "workplace-de-wrk-25",
+  "lang": "de",
+  "title": "Der E-Mail-Verlauf ist echt; das Bankkonto ist neu",
+  "edition": "workplace",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Lieferanten",
+  "scenario": "In einem langen, echten E-Mail-Verlauf mit einem bekannten Lieferanten taucht plötzlich eine neue Nachricht auf: Die Bankverbindung habe sich geändert, bitte die nächste Zahlung auf das neue Konto überweisen.",
+  "answers": {
+    "C": "Die neue Kontoverbindung über eine unabhängig bekannte Telefonnummer beim Lieferanten bestätigen lassen, auch wenn der E-Mail-Verlauf echt und lange bekannt ist.",
+    "A": "Auf das neue Konto überweisen, weil der gesamte E-Mail-Verlauf echt aussieht.",
+    "B": "Nur einen Teilbetrag auf das neue Konto überweisen."
+  },
+  "scores": {
+    "C": 4,
+    "A": 0,
+    "B": 0
+  },
+  "safeActions": [
+    "C"
+  ],
+  "explanation": "Ein echter, langer E-Mail-Verlauf beweist nicht, dass das E-Mail-Konto gerade nicht kompromittiert ist — Angreifer klinken sich oft mitten in echte Threads ein, gerade weil das Vertrauen schafft.",
+  "proTip": "Ein echter E-Mail-Verlauf ist kein Beweis für eine echte neue Kontoverbindung.",
+  "hackKey": "C",
+  "hackTrigger": "Vertrautheit",
+  "tags": [
+    "workplace",
+    "c",
+    "suppliers",
+    "business-email-compromise",
+    "diagnostic"
+  ],
+  "active": true
+}

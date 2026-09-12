@@ -1,0 +1,35 @@
+{
+  "id": "workplace-de-wrk-37",
+  "lang": "de",
+  "title": "MFA-Erschöpfung um 7:03 Uhr",
+  "edition": "workplace",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Identität",
+  "scenario": "Schon vor Arbeitsbeginn kommen mehrere MFA-Bestätigungsanfragen für dein Konto hintereinander, obwohl du selbst noch nichts angefragt hast — bis eine davon endlich bestätigt wird, hören sie nicht auf.",
+  "answers": {
+    "C": "Keine der Anfragen bestätigen, das Passwort sofort ändern und den IT-Service-Desk kontaktieren; wiederholte unerwartete MFA-Anfragen sind ein bekanntes Angriffsmuster (MFA-Fatigue).",
+    "A": "Eine der Anfragen bestätigen, damit die Flut aufhört.",
+    "B": "Eine Anfrage bestätigen und danach das Passwort ändern."
+  },
+  "scores": {
+    "C": 4,
+    "A": 0,
+    "B": 1
+  },
+  "safeActions": [
+    "C"
+  ],
+  "explanation": "„MFA-Fatigue“ setzt genau darauf, dass Genervtheit irgendwann zum Bestätigen führt — jede einzelne Anfrage, die du selbst nicht ausgelöst hast, ist ein Nein.",
+  "proTip": "Viele Anfragen hintereinander sind ein Angriff, keine Ausrede zum Bestätigen.",
+  "hackKey": "K",
+  "hackTrigger": "Notbremse",
+  "tags": [
+    "workplace",
+    "k",
+    "identity",
+    "mfa-fatigue",
+    "diagnostic"
+  ],
+  "active": true
+}

@@ -1,0 +1,35 @@
+{
+  "id": "workplace-de-wrk-03",
+  "lang": "de",
+  "title": "Der Geschäftsführer braucht zwischen zwei Flügen Gutscheinkarten",
+  "edition": "workplace",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Anfragen der Geschäftsführung",
+  "scenario": "Eine SMS, angeblich vom Geschäftsführer, der gerade auf Dienstreise ist, bittet dringend um den Kauf von Gutscheinkarten für „ein Kundengeschenk“ zwischen zwei Flügen — die Codes sollen sofort per Foto geschickt werden.",
+  "answers": {
+    "B": "Den Geschäftsführer über eine bekannte, unabhängige Nummer oder den Assistenten im Büro erreichen, bevor irgendetwas gekauft wird — Reisestress ändert daran nichts.",
+    "A": "Die Gutscheinkarten sofort kaufen und die Codes fotografieren und schicken.",
+    "C": "Erst im Sekretariat fragen, ob die Geschäftsführung wirklich gerade reist."
+  },
+  "scores": {
+    "B": 4,
+    "A": 0,
+    "C": 3
+  },
+  "safeActions": [
+    "B",
+    "C"
+  ],
+  "explanation": "„Zwischen zwei Flügen, kann nicht lange reden“ ist die Standardformel, um eine Rückfrage zu verhindern — Gutscheincodes sind wie Bargeld und nicht rückholbar.",
+  "proTip": "Reisestress der Chefin ist kein Grund, eine Rückfrage zu überspringen.",
+  "hackKey": "H",
+  "hackTrigger": "Hetze",
+  "tags": [
+    "workplace",
+    "h",
+    "executive-requests",
+    "gift-card"
+  ],
+  "active": true
+}

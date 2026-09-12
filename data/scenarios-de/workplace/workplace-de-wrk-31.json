@@ -1,0 +1,34 @@
+{
+  "id": "workplace-de-wrk-31",
+  "lang": "de",
+  "title": "Die Einladung der Assistentin hat einen Login-Button",
+  "edition": "workplace",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Kalender",
+  "scenario": "Eine Kalendereinladung, die aussieht, als käme sie von der Assistentin eines wichtigen Kontakts, enthält einen Button „Anmelden, um am Meeting teilzunehmen“, der nach dem vollen Unternehmens-Login fragt.",
+  "answers": {
+    "A": "Den Kalendereintrag direkt im eigenen Kalendersystem öffnen, statt sich über einen Button in der Einladung mit dem vollen Login anzumelden.",
+    "B": "Sich über den Button in der Einladung mit dem vollen Login anmelden.",
+    "C": "Den Button öffnen, aber ein anderes Passwort verwenden."
+  },
+  "scores": {
+    "A": 4,
+    "B": 0,
+    "C": 0
+  },
+  "safeActions": [
+    "A"
+  ],
+  "explanation": "Echte Meeting-Einladungen öffnen sich direkt im eigenen Kalender- oder Videokonferenzsystem, ohne eine erneute volle Login-Eingabe über einen Button in der Mail zu verlangen.",
+  "proTip": "Ein Meeting öffnest du im eigenen Kalender, nicht über einen Login-Button in der Einladung.",
+  "hackKey": "C",
+  "hackTrigger": "Vertrautheit",
+  "tags": [
+    "workplace",
+    "c",
+    "calendars",
+    "credential-phishing"
+  ],
+  "active": true
+}
