@@ -1,0 +1,34 @@
+{
+  "id": "travelsafe-de-tra-29",
+  "lang": "de",
+  "title": "Dein Lieblings-Creator hat einen geheimen Rabattcode",
+  "edition": "travelsafe",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Reiseangebote",
+  "scenario": "Ein Reise-Influencer, dem du seit Jahren folgst, bewirbt einen „geheimen“ Rabattcode für ein Luxushotel — Buchung nur über einen externen Link mit sofortiger Vollzahlung per Überweisung.",
+  "answers": {
+    "A": "Das Hotel unabhängig über die offizielle Website oder eine bekannte Buchungsplattform prüfen und dort buchen, statt über den externen Link mit Vorkasse.",
+    "B": "Über den externen Link sofort per Überweisung buchen, weil der Creator vertrauenswürdig wirkt.",
+    "C": "Nur eine Anzahlung über den Link leisten."
+  },
+  "scores": {
+    "A": 4,
+    "B": 0,
+    "C": 0
+  },
+  "safeActions": [
+    "A"
+  ],
+  "explanation": "Bekanntheit und Vertrauen in einen Creator sind kein Ersatz für eine geprüfte Buchung — ein „geheimer“ Code mit Vorkasse per Überweisung ist ein Warnsignal, unabhängig davon, wer ihn bewirbt.",
+  "proTip": "Ein bekannter Name macht eine Vorkasse-Überweisung nicht sicherer.",
+  "hackKey": "C",
+  "hackTrigger": "Vertrautheit",
+  "tags": [
+    "travelsafe",
+    "c",
+    "travel-deals",
+    "advance-fee"
+  ],
+  "active": true
+}

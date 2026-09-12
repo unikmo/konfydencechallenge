@@ -1,0 +1,34 @@
+{
+  "id": "travelsafe-de-tra-23",
+  "lang": "de",
+  "title": "Dein vergessenes Paket „wird vom Zoll einbehalten“",
+  "edition": "travelsafe",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Zoll",
+  "scenario": "Eine Mail im Namen des Zolls sagt, ein an dich adressiertes Paket werde einbehalten, bis eine „Einfuhrabgabe“ von 15 € per Guthabenkarte über einen Link beglichen wird.",
+  "answers": {
+    "B": "Den Link ignorieren und den tatsächlichen Sendungsstatus direkt beim Zoll oder Versanddienst über die offizielle Nummer prüfen.",
+    "A": "Die Einfuhrabgabe sofort per Guthabenkarte über den Link zahlen.",
+    "C": "Nur die Hälfte der Gebühr über den Link zahlen."
+  },
+  "scores": {
+    "B": 4,
+    "A": 0,
+    "C": 1
+  },
+  "safeActions": [
+    "B"
+  ],
+  "explanation": "Der Zoll erhebt Einfuhrabgaben nie per Guthabenkarte über einen E-Mail-Link — das ist eine bekannte Paket-Phishing-Masche.",
+  "proTip": "Der Zoll kassiert nie per Guthabenkarte.",
+  "hackKey": "A",
+  "hackTrigger": "Autorität",
+  "tags": [
+    "travelsafe",
+    "a",
+    "customs-parcels",
+    "phishing"
+  ],
+  "active": true
+}

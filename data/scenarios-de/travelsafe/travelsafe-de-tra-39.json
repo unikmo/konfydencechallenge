@@ -1,0 +1,34 @@
+{
+  "id": "travelsafe-de-tra-39",
+  "lang": "de",
+  "title": "Ein hilfsbereiter Fremder kennt den Trick",
+  "edition": "travelsafe",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Geldautomaten",
+  "scenario": "Am Geldautomaten scheint die Karte stecken zu bleiben. Ein hilfsbereiter Fremder erklärt, man müsse dafür die PIN „noch einmal zur Bestätigung“ eingeben, während er in der Nähe steht.",
+  "answers": {
+    "A": "Die PIN nicht in Anwesenheit der fremden Person eingeben; den Automaten verlassen und die Bank über die Sperr-Hotline kontaktieren.",
+    "B": "Die PIN wie vorgeschlagen erneut eingeben, während die Person zusieht.",
+    "C": "Die PIN eingeben, aber die Hand dabei verdecken."
+  },
+  "scores": {
+    "A": 4,
+    "B": 0,
+    "C": 1
+  },
+  "safeActions": [
+    "A"
+  ],
+  "explanation": "Ein „steckengebliebener“ Automat mit einem zufällig hilfsbereiten Fremden in der Nähe ist eine bekannte Kartenfallen-Masche — die richtige Reaktion ist, die Karte sperren zu lassen, nicht die PIN erneut einzugeben.",
+  "proTip": "Bei einer feststeckenden Karte: Bank anrufen, nicht die PIN vor Fremden wiederholen.",
+  "hackKey": "K",
+  "hackTrigger": "Notbremse",
+  "tags": [
+    "travelsafe",
+    "k",
+    "atms",
+    "card-trapping"
+  ],
+  "active": true
+}

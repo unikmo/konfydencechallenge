@@ -1,0 +1,34 @@
+{
+  "id": "travelsafe-de-tra-43",
+  "lang": "de",
+  "title": "Füg diese Bordkarte deiner Wallet hinzu",
+  "edition": "travelsafe",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Bordkarten",
+  "scenario": "Eine SMS im Namen der Airline schickt einen Link, um die Bordkarte „bequem zur Handy-Wallet hinzuzufügen“ — der Link führt aber zu einer Seite außerhalb der offiziellen Airline-App.",
+  "answers": {
+    "A": "Die Bordkarte ausschließlich über die offizielle Airline-App oder die offizielle Check-in-Bestätigung zur Wallet hinzufügen, nicht über einen externen Link.",
+    "B": "Über den Link die Bordkarte zur Wallet hinzufügen.",
+    "C": "Den Link öffnen, um nur die Flugdaten zu prüfen."
+  },
+  "scores": {
+    "A": 4,
+    "B": 0,
+    "C": 1
+  },
+  "safeActions": [
+    "A"
+  ],
+  "explanation": "Eine echte digitale Bordkarte kommt immer aus der offiziellen Airline-App oder dem offiziellen Check-in, nie über einen separaten SMS-Link.",
+  "proTip": "Eine Bordkarte holst du dir aus der Airline-App, nie aus einem SMS-Link.",
+  "hackKey": "K",
+  "hackTrigger": "Notbremse",
+  "tags": [
+    "travelsafe",
+    "k",
+    "boarding-passes",
+    "phishing"
+  ],
+  "active": true
+}

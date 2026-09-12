@@ -1,0 +1,34 @@
+{
+  "id": "travelsafe-de-tra-12",
+  "lang": "de",
+  "title": "Deine Buchung steht auf Halt — bestätige in 30 Minuten",
+  "edition": "travelsafe",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Hotelbuchungen",
+  "scenario": "Eine E-Mail sagt, deine Hotelbuchung stehe „auf Halt“ und werde in 30 Minuten storniert, wenn du nicht über einen Link deine Kreditkartendaten erneut eingibst.",
+  "answers": {
+    "B": "Die Buchung direkt beim Hotel oder über die Buchungsplattform-App prüfen, statt über den Link erneut Kartendaten einzugeben.",
+    "A": "Die Kartendaten sofort über den Link erneut eingeben.",
+    "C": "Beim Hotel über die im Link angegebene Nummer anrufen."
+  },
+  "scores": {
+    "B": 4,
+    "A": 0,
+    "C": 0
+  },
+  "safeActions": [
+    "B"
+  ],
+  "explanation": "Eine echte Buchungsplattform verlangt nie eine erneute Kartendateneingabe über einen externen Link mit Minutenfrist — der Buchungsstatus steht immer in der App.",
+  "proTip": "Buchungsstatus prüfst du in der App, nie über einen Link mit Countdown.",
+  "hackKey": "H",
+  "hackTrigger": "Hetze",
+  "tags": [
+    "travelsafe",
+    "h",
+    "hotel-bookings",
+    "phishing"
+  ],
+  "active": true
+}

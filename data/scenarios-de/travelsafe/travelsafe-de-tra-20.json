@@ -1,0 +1,34 @@
+{
+  "id": "travelsafe-de-tra-20",
+  "lang": "de",
+  "title": "Der blau-verifizierte Airline-Support-Account",
+  "edition": "travelsafe",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Airline-Support",
+  "scenario": "Nach einer öffentlichen Beschwerde auf X/Twitter meldet sich ein Account mit blauem Häkchen und Airline-Logo, bietet Entschädigung an und bittet um deine Buchungsdaten und IBAN per Direktnachricht.",
+  "answers": {
+    "B": "Die offizielle Airline-Website oder App nutzen, statt einem Account per Direktnachricht IBAN und Buchungsdaten zu schicken — ein blaues Häkchen beweist keine echte Airline-Identität.",
+    "A": "Die Buchungsdaten und IBAN per Direktnachricht schicken, weil der Account verifiziert wirkt.",
+    "C": "Nur die Buchungsdaten schicken, aber keine IBAN."
+  },
+  "scores": {
+    "B": 4,
+    "A": 0,
+    "C": 1
+  },
+  "safeActions": [
+    "B"
+  ],
+  "explanation": "Ein blaues Häkchen bestätigt nur ein bezahltes Abo, keine echte Identität — Fake-Support-Accounts nutzen genau diesen Anschein von Autorität aus.",
+  "proTip": "Ein Häkchen ist kein Echtheitsbeweis für einen Airline-Account.",
+  "hackKey": "A",
+  "hackTrigger": "Autorität",
+  "tags": [
+    "travelsafe",
+    "a",
+    "airline-support",
+    "impostor"
+  ],
+  "active": true
+}

@@ -1,0 +1,34 @@
+{
+  "id": "travelsafe-de-tra-07",
+  "lang": "de",
+  "title": "Flughafen-eSIM: 70 % Rabatt, nur noch sechs Minuten",
+  "edition": "travelsafe",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Konnektivität",
+  "scenario": "Ein Bildschirm am Gate zeigt Werbung für eine eSIM mit 70 % Rabatt, „nur noch sechs Minuten gültig“ — der QR-Code führt zu einer Seite außerhalb bekannter eSIM-Anbieter, die volle Kartendaten verlangt.",
+  "answers": {
+    "B": "Den Rabatt ignorieren und eine eSIM nur über einen bekannten, etablierten Anbieter direkt in dessen eigener App kaufen.",
+    "A": "Den QR-Code scannen und die Kartendaten eingeben, um den Rabatt zu sichern.",
+    "C": "Den Code scannen, aber ein virtuelles Karten-Duplikat verwenden."
+  },
+  "scores": {
+    "B": 4,
+    "A": 0,
+    "C": 1
+  },
+  "safeActions": [
+    "B"
+  ],
+  "explanation": "Ein Countdown auf einem Werbebildschirm am Gate hat keinen Einfluss auf echte eSIM-Preise — echte Anbieter verkaufen über ihre eigene, bekannte App.",
+  "proTip": "Ein Rabatt-Countdown am Gate ist Werbepsychologie, kein echtes Angebot.",
+  "hackKey": "H",
+  "hackTrigger": "Hetze",
+  "tags": [
+    "travelsafe",
+    "h",
+    "connectivity",
+    "esim-scam"
+  ],
+  "active": true
+}

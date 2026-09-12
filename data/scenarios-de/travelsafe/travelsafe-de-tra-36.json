@@ -1,0 +1,34 @@
+{
+  "id": "travelsafe-de-tra-36",
+  "lang": "de",
+  "title": "Der Gastgeber empfiehlt seinen Cousin als Fahrer",
+  "edition": "travelsafe",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Bodenverkehr",
+  "scenario": "Der Gastgeber deiner Ferienwohnung empfiehlt herzlich seinen „Cousin“ als privaten Fahrer für Flughafentransfers, deutlich günstiger als ein reguläres Taxi oder eine App.",
+  "answers": {
+    "C": "Für den Flughafentransfer eine offizielle Taxi-App oder den regulären Taxistand nutzen, auch wenn die Empfehlung persönlich und freundlich gemeint ist.",
+    "A": "Den Cousin nehmen, weil die Empfehlung vom Gastgeber persönlich kommt.",
+    "B": "Nach dem Preis fragen und dann trotzdem mitfahren."
+  },
+  "scores": {
+    "C": 4,
+    "A": 0,
+    "B": 0
+  },
+  "safeActions": [
+    "C"
+  ],
+  "explanation": "Eine persönliche Empfehlung ist kein Sicherheits- oder Preisschutz — ein unregulierter privater Fahrer hat keine Versicherung oder Aufsicht wie ein offizielles Taxi.",
+  "proTip": "Eine herzliche Empfehlung ersetzt keine Taxi-Lizenz.",
+  "hackKey": "C",
+  "hackTrigger": "Vertrautheit",
+  "tags": [
+    "travelsafe",
+    "c",
+    "ground-transport",
+    "unlicensed-transport"
+  ],
+  "active": true
+}

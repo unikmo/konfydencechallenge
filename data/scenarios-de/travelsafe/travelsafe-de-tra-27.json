@@ -1,0 +1,34 @@
+{
+  "id": "travelsafe-de-tra-27",
+  "lang": "de",
+  "title": "Der Reiseleiter hat ein „neues Zahlungskonto“",
+  "edition": "travelsafe",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Touren",
+  "scenario": "Mitten in einer gebuchten Gruppenreise teilt der Reiseleiter mit, das Zahlungskonto für die Resttagesausflüge habe sich geändert — Zahlung jetzt an ein neues, privates Konto statt an den Reiseveranstalter.",
+  "answers": {
+    "A": "Beim Reiseveranstalter direkt über die offizielle Nummer nachfragen, ob der Kontowechsel wirklich stimmt, bevor Geld an das neue Konto geht.",
+    "B": "Sofort an das neue Konto zahlen, weil der Reiseleiter es persönlich vor Ort sagt.",
+    "C": "Mit anderen Mitreisenden besprechen, ob sie dasselbe gehört haben."
+  },
+  "scores": {
+    "A": 4,
+    "B": 0,
+    "C": 2
+  },
+  "safeActions": [
+    "A"
+  ],
+  "explanation": "Eine persönliche Ansage vor Ort ersetzt keine Bestätigung beim Veranstalter — ein Kontowechsel wird immer offiziell und nachprüfbar kommuniziert.",
+  "proTip": "Ein neues Konto bestätigst du beim Veranstalter, nicht nur vor Ort.",
+  "hackKey": "C",
+  "hackTrigger": "Vertrautheit",
+  "tags": [
+    "travelsafe",
+    "c",
+    "tours",
+    "payment-scam"
+  ],
+  "active": true
+}

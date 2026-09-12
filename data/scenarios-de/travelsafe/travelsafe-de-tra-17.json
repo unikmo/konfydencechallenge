@@ -1,0 +1,34 @@
+{
+  "id": "travelsafe-de-tra-17",
+  "lang": "de",
+  "title": "Ein „Konsularbeamter“ hat gute Nachrichten",
+  "edition": "travelsafe",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Konsularhilfe",
+  "scenario": "Nach einem gemeldeten Notfall im Ausland ruft jemand an, der sich als Mitarbeiter des Auswärtigen Amts ausgibt, und bittet um deine Kreditkartendaten, um „die Rückreise vorzufinanzieren“.",
+  "answers": {
+    "B": "Auflegen und die Botschaft oder das Konsulat über die offizielle, unabhängig gefundene Nummer selbst kontaktieren.",
+    "A": "Die Kreditkartendaten sofort durchgeben, um die Rückreise zu sichern.",
+    "C": "Nach dem Namen des Beamten fragen und dann die Daten durchgeben."
+  },
+  "scores": {
+    "B": 4,
+    "A": 0,
+    "C": 1
+  },
+  "safeActions": [
+    "B"
+  ],
+  "explanation": "Konsularmitarbeiter verlangen keine Kreditkartendaten am Telefon — echte konsularische Hilfe läuft über offizielle, verifizierbare Kanäle.",
+  "proTip": "Das Auswärtige Amt braucht deine Kartendaten nie am Telefon.",
+  "hackKey": "A",
+  "hackTrigger": "Autorität",
+  "tags": [
+    "travelsafe",
+    "a",
+    "consular-help",
+    "government-impostor"
+  ],
+  "active": true
+}

@@ -1,0 +1,34 @@
+{
+  "id": "travelsafe-de-tra-44",
+  "lang": "de",
+  "title": "Deine vergessene Jacke wird „vom Zoll einbehalten“",
+  "edition": "travelsafe",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Zoll & Pakete",
+  "scenario": "Eine Mail meldet, eine im Hotel vergessene Jacke sei per Post an dich unterwegs, werde aber „vom Zoll einbehalten“, bis eine Gebühr per Überweisung an ein privates Konto gezahlt wird.",
+  "answers": {
+    "C": "Nicht an das private Konto zahlen und den Sendungsstatus direkt beim Hotel oder Versanddienst über die offizielle Nummer nachfragen.",
+    "A": "Die Gebühr sofort an das private Konto überweisen, um die Jacke zurückzubekommen.",
+    "B": "Nur die Hälfte der Gebühr überweisen."
+  },
+  "scores": {
+    "C": 4,
+    "A": 0,
+    "B": 0
+  },
+  "safeActions": [
+    "C"
+  ],
+  "explanation": "Echte Zollgebühren gehen nie an ein privates Konto — sie werden über den offiziellen Versanddienst oder direkt beim Zoll erhoben.",
+  "proTip": "Der Zoll hat kein privates Konto.",
+  "hackKey": "K",
+  "hackTrigger": "Notbremse",
+  "tags": [
+    "travelsafe",
+    "k",
+    "customs-parcels",
+    "payment-scam"
+  ],
+  "active": true
+}

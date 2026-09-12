@@ -1,0 +1,34 @@
+{
+  "id": "travelsafe-de-tra-30",
+  "lang": "de",
+  "title": "Der Gastgeber braucht „noch eine Kaution“",
+  "edition": "travelsafe",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Ferienwohnungen",
+  "scenario": "Kurz nach der bestätigten Buchung schreibt der Gastgeber der Ferienwohnung, es sei „noch eine zusätzliche Kaution“ nötig, diesmal per Überweisung direkt an ihn statt über die Buchungsplattform.",
+  "answers": {
+    "A": "Die Zahlung ausschließlich über die Buchungsplattform abwickeln und eine Zahlungsaufforderung außerhalb der Plattform ablehnen oder beim Support der Plattform melden.",
+    "B": "Die zusätzliche Kaution direkt an den Gastgeber überweisen.",
+    "C": "Nur die Hälfte der zusätzlichen Kaution überweisen."
+  },
+  "scores": {
+    "A": 4,
+    "B": 0,
+    "C": 0
+  },
+  "safeActions": [
+    "A"
+  ],
+  "explanation": "Zahlungsaufforderungen außerhalb der Buchungsplattform sind die häufigste Betrugsmasche bei Ferienwohnungen — die Plattform-eigene Zahlung ist immer der sichere Weg.",
+  "proTip": "Jede Zahlung außerhalb der Plattform ist ein Warnsignal.",
+  "hackKey": "C",
+  "hackTrigger": "Vertrautheit",
+  "tags": [
+    "travelsafe",
+    "c",
+    "vacation-rentals",
+    "payment-scam"
+  ],
+  "active": true
+}

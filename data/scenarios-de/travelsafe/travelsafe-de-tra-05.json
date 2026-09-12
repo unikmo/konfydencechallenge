@@ -1,0 +1,34 @@
+{
+  "id": "travelsafe-de-tra-05",
+  "lang": "de",
+  "title": "Unterschreib hier — der Shuttle wartet",
+  "edition": "travelsafe",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Mietwagen",
+  "scenario": "Am Mietwagenschalter drängt der Mitarbeiter, schnell einen zusätzlichen „Vollkasko-Plus“-Vertrag auf einem Tablet zu unterschreiben, ohne die Details zu erklären, weil „der Shuttle draußen wartet“.",
+  "answers": {
+    "C": "Um einen Moment und eine ausgedruckte Übersicht der Zusatzkosten bitten, bevor irgendetwas unterschrieben wird — der Shuttle wartet notfalls eine Minute.",
+    "A": "Schnell unterschreiben, um den Shuttle nicht zu verpassen.",
+    "B": "Nur mündlich nach den Kosten fragen und dann unterschreiben."
+  },
+  "scores": {
+    "C": 4,
+    "A": 0,
+    "B": 1
+  },
+  "safeActions": [
+    "C"
+  ],
+  "explanation": "Zeitdruck am Schalter ist eine bekannte Verkaufstaktik für teure Zusatzverträge — ein seriöser Anbieter gibt dir die Zeit, das zu lesen, was du unterschreibst.",
+  "proTip": "Ein wartender Shuttle ist kein Grund, ungelesen zu unterschreiben.",
+  "hackKey": "H",
+  "hackTrigger": "Hetze",
+  "tags": [
+    "travelsafe",
+    "h",
+    "car-rental",
+    "high-pressure-sales"
+  ],
+  "active": true
+}

@@ -1,0 +1,35 @@
+{
+  "id": "travelsafe-de-tra-37",
+  "lang": "de",
+  "title": "Das Taxi-Terminal ist „kaputt“",
+  "edition": "travelsafe",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Bodenverkehr",
+  "scenario": "Am Taxistand sagt der Fahrer, das Kartenterminal sei „gerade kaputt“, und schickt dich zu einem „Kollegen“ nebenan, der das Geld in bar für ihn entgegennimmt.",
+  "answers": {
+    "B": "Nicht bei einer fremden Person bar zahlen; entweder auf ein funktionierendes Terminal bestehen oder ein anderes, reguläres Taxi nehmen.",
+    "A": "Bei dem „Kollegen“ nebenan bar zahlen, wie vorgeschlagen.",
+    "C": "Nur die Hälfte des Fahrpreises beim Kollegen zahlen."
+  },
+  "scores": {
+    "B": 4,
+    "A": 0,
+    "C": 0
+  },
+  "safeActions": [
+    "B"
+  ],
+  "explanation": "Eine dritte, fremde Person, die „für den Fahrer“ Geld entgegennimmt, ist ein bekanntes Muster, um die Zahlung unnachvollziehbar zu machen.",
+  "proTip": "Zahl immer direkt an die Person, die dich gefahren hat — nie an einen „Kollegen“.",
+  "hackKey": "K",
+  "hackTrigger": "Notbremse",
+  "tags": [
+    "travelsafe",
+    "k",
+    "ground-transport",
+    "cash-scam",
+    "diagnostic"
+  ],
+  "active": true
+}

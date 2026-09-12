@@ -1,0 +1,34 @@
+{
+  "id": "travelsafe-de-tra-32",
+  "lang": "de",
+  "title": "Ein Forums-Veteran bietet die fehlenden Meilen an",
+  "edition": "travelsafe",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Meilen & Punkte",
+  "scenario": "In einem Vielflieger-Forum bietet ein langjähriges, angesehenes Mitglied an, dir gegen eine kleine Gebühr „fehlende Meilen“ auf dein Konto zu übertragen — dafür brauche er kurz deinen Programm-Login.",
+  "answers": {
+    "C": "Das Angebot ablehnen; kein legitimer Meilentransfer läuft über die Weitergabe deines Programm-Logins an eine fremde Person, egal wie angesehen sie im Forum ist.",
+    "A": "Den Login weitergeben, weil die Person im Forum einen guten Ruf hat.",
+    "B": "Ein Zweit-Konto für den Transfer erstellen."
+  },
+  "scores": {
+    "C": 4,
+    "A": 0,
+    "B": 1
+  },
+  "safeActions": [
+    "C"
+  ],
+  "explanation": "Ein guter Ruf in einem Forum ist kein Identitätsnachweis — Meilentransfers laufen ausschließlich über die offiziellen Programme der Airline, nie über einen weitergegebenen Login.",
+  "proTip": "Ein Forumsruf ersetzt keinen offiziellen Meilentransfer.",
+  "hackKey": "C",
+  "hackTrigger": "Vertrautheit",
+  "tags": [
+    "travelsafe",
+    "c",
+    "points-miles",
+    "credential-phishing"
+  ],
+  "active": true
+}

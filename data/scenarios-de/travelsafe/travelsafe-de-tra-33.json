@@ -1,0 +1,34 @@
+{
+  "id": "travelsafe-de-tra-33",
+  "lang": "de",
+  "title": "Dein Urlaubsflirt hat eine „einfache Investition“",
+  "edition": "travelsafe",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Romantik im Urlaub",
+  "scenario": "Eine Urlaubsbekanntschaft, mit der du seit der Reise täglich schreibst, erzählt begeistert von einer Trading-App, in die ihr „gemeinsam“ investieren könntet, um „die nächste Reise zu finanzieren“.",
+  "answers": {
+    "B": "Die Plattform unabhängig recherchieren und mit niemandem, den du erst aus dem Urlaub kennst, gemeinsam über eine Geldanlage entscheiden.",
+    "A": "Gemeinsam investieren, weil die Verbindung sich echt anfühlt.",
+    "C": "Nur einen kleinen Betrag investieren, um es zu testen."
+  },
+  "scores": {
+    "B": 4,
+    "A": 0,
+    "C": 0
+  },
+  "safeActions": [
+    "B"
+  ],
+  "explanation": "Eine echte Verbindung braucht keine gemeinsame Geldanlage, um zu wachsen — das ist ein bekanntes Muster romantisch getarnter Investment-Betrugsmaschen.",
+  "proTip": "Wer dich zuerst verliebt und dann investieren lässt, will dein Geld, nicht dein Herz.",
+  "hackKey": "C",
+  "hackTrigger": "Vertrautheit",
+  "tags": [
+    "travelsafe",
+    "c",
+    "romance-abroad",
+    "romance-scam"
+  ],
+  "active": true
+}

@@ -1,0 +1,34 @@
+{
+  "id": "travelsafe-de-tra-16",
+  "lang": "de",
+  "title": "Die Sicherheitskontrolle hat dein Tablet gefunden",
+  "edition": "travelsafe",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Flughafensicherheit",
+  "scenario": "Nach der Sicherheitskontrolle meldet sich jemand mit Ausweis und sagt, dein Tablet sei liegen geblieben — du müsstest aber zur „Identitätsprüfung“ kurz dein Handy entsperren und ihm zeigen.",
+  "answers": {
+    "A": "Das Handy nicht entsperren und stattdessen direkt zum offiziellen Fundbüro des Sicherheitsbereichs gehen, um das Tablet dort abzuholen.",
+    "B": "Das Handy entsperren und zeigen, um das Tablet zurückzubekommen.",
+    "C": "Nur den Sperrbildschirm zeigen, ohne zu entsperren."
+  },
+  "scores": {
+    "A": 4,
+    "B": 0,
+    "C": 1
+  },
+  "safeActions": [
+    "A"
+  ],
+  "explanation": "Ein Ausweis beweist keine echte Berechtigung, dein entsperrtes Handy zu sehen — das offizielle Fundbüro braucht das nie, um ein gefundenes Gerät zurückzugeben.",
+  "proTip": "Ein gefundenes Tablet braucht nie dein entsperrtes Handy als Gegenleistung.",
+  "hackKey": "A",
+  "hackTrigger": "Autorität",
+  "tags": [
+    "travelsafe",
+    "a",
+    "airport-security",
+    "impostor"
+  ],
+  "active": true
+}

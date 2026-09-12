@@ -1,0 +1,34 @@
+{
+  "id": "travelsafe-de-tra-46",
+  "lang": "de",
+  "title": "Der „offizielle“ Kartenpin verkauft Tickets",
+  "edition": "travelsafe",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Karten & Buchungen",
+  "scenario": "In einer beliebten Karten-App zeigt ein Pin an einer Sehenswürdigkeit „offizielle Tickets, kein Anstehen“ — der Link führt zu einer Seite außerhalb der echten Website der Sehenswürdigkeit.",
+  "answers": {
+    "C": "Tickets nur über die offizielle Website der Sehenswürdigkeit oder eine bekannte, geprüfte Ticketplattform kaufen, nicht über einen Kartenpin-Link.",
+    "A": "Über den Kartenpin-Link kaufen, weil er „offiziell“ aussieht.",
+    "B": "Den Link öffnen, aber nur mit einer Wegwerf-Kreditkarte zahlen."
+  },
+  "scores": {
+    "C": 4,
+    "A": 0,
+    "B": 1
+  },
+  "safeActions": [
+    "C"
+  ],
+  "explanation": "Jeder kann einen Kartenpin mit beliebigem Text und Link versehen — das macht ihn nicht offiziell. Die echte Website der Sehenswürdigkeit ist immer der sichere Weg.",
+  "proTip": "Ein Pin auf der Karte ist keine offizielle Ticketstelle.",
+  "hackKey": "K",
+  "hackTrigger": "Notbremse",
+  "tags": [
+    "travelsafe",
+    "k",
+    "maps-bookings",
+    "fake-listing"
+  ],
+  "active": true
+}

@@ -1,0 +1,34 @@
+{
+  "id": "travelsafe-de-tra-41",
+  "lang": "de",
+  "title": "Das Ladegerät braucht eine App — per QR-Code",
+  "edition": "travelsafe",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Laden & Apps",
+  "scenario": "An einer öffentlichen Ladestation am Flughafen verlangt ein Aufkleber, vor dem Laden eine App über einen QR-Code zu installieren, um „die Ladeleistung zu optimieren“.",
+  "answers": {
+    "B": "Die App nicht installieren; ein normales USB- oder Steckdosen-Ladegerät braucht nie eine zusätzliche App über einen aufgeklebten QR-Code.",
+    "A": "Die App installieren, um besser laden zu können.",
+    "C": "Die App installieren, aber die Berechtigungen danach einschränken."
+  },
+  "scores": {
+    "B": 4,
+    "A": 0,
+    "C": 1
+  },
+  "safeActions": [
+    "B"
+  ],
+  "explanation": "Öffentliche Ladestationen, die eine App-Installation über einen Aufkleber-QR-Code verlangen, sind eine bekannte Schadsoftware-Masche („Juice Jacking“-Variante).",
+  "proTip": "Ein Ladegerät braucht keine App, um Strom zu liefern.",
+  "hackKey": "K",
+  "hackTrigger": "Notbremse",
+  "tags": [
+    "travelsafe",
+    "k",
+    "charging-apps",
+    "malware"
+  ],
+  "active": true
+}

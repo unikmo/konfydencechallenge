@@ -1,0 +1,34 @@
+{
+  "id": "travelsafe-de-tra-31",
+  "lang": "de",
+  "title": "Der Kassenwart der Gruppe will einen schnellen Nachschuss",
+  "edition": "travelsafe",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Gruppenreisen",
+  "scenario": "In der Gruppenreise-Chatgruppe bittet der Kassenwart plötzlich um einen zusätzlichen Nachschuss von 50 € pro Person, „weil die Unterkunft teurer wurde“, an ein Konto, das du noch nicht kennst.",
+  "answers": {
+    "B": "In der Gruppe direkt nachfragen und die neue Kontoverbindung persönlich beim Kassenwart bestätigen lassen, bevor du zahlst.",
+    "A": "Den Nachschuss sofort an das unbekannte Konto überweisen.",
+    "C": "Nur die Hälfte des Nachschusses überweisen."
+  },
+  "scores": {
+    "B": 4,
+    "A": 0,
+    "C": 0
+  },
+  "safeActions": [
+    "B"
+  ],
+  "explanation": "Eine unbekannte neue Kontoverbindung in einer Gruppenchat-Nachricht ist ein bekanntes Zeichen für einen übernommenen Account oder eine unterwanderte Gruppe.",
+  "proTip": "Eine neue Kontoverbindung bestätigst du persönlich, nicht nur im Chat.",
+  "hackKey": "C",
+  "hackTrigger": "Vertrautheit",
+  "tags": [
+    "travelsafe",
+    "c",
+    "group-travel",
+    "account-takeover"
+  ],
+  "active": true
+}

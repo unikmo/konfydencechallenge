@@ -1,0 +1,35 @@
+{
+  "id": "travelsafe-de-tra-38",
+  "lang": "de",
+  "title": "Der SIM-Kiosk will zwei Fotos",
+  "edition": "travelsafe",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Konnektivität",
+  "scenario": "Ein SIM-Kartenkiosk am Bahnhof verlangt für die Aktivierung einer Prepaid-Karte ein Foto deines Ausweises UND ein Selfie mit dem Ausweis in der Hand, angeblich „zur gesetzlichen Registrierung“.",
+  "answers": {
+    "A": "Nur bei einem etablierten, bekannten Mobilfunkanbieter registrieren und keine Selfie-mit-Ausweis-Kombination an einen kleinen Straßenkiosk geben.",
+    "B": "Beide Fotos machen und dem Kiosk geben, um die SIM-Karte zu aktivieren.",
+    "C": "Nur das Ausweisfoto geben, aber kein Selfie."
+  },
+  "scores": {
+    "A": 4,
+    "B": 0,
+    "C": 1
+  },
+  "safeActions": [
+    "A"
+  ],
+  "explanation": "Ein Foto des Ausweises zusammen mit einem Selfie ist der Rohstoff für Identitätsdiebstahl — echte, gesetzlich vorgeschriebene Registrierungen laufen über etablierte Anbieter mit nachvollziehbarem Prozess.",
+  "proTip": "Ausweis plus Selfie zusammen gehören nur zu einem vertrauenswürdigen, bekannten Anbieter.",
+  "hackKey": "K",
+  "hackTrigger": "Notbremse",
+  "tags": [
+    "travelsafe",
+    "k",
+    "connectivity",
+    "identity-theft",
+    "diagnostic"
+  ],
+  "active": true
+}

@@ -1,0 +1,35 @@
+{
+  "id": "travelsafe-de-tra-01",
+  "lang": "de",
+  "title": "Dein Koffer hat noch 12 Minuten",
+  "edition": "travelsafe",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Flughafen & Gepäck",
+  "scenario": "Am Frankfurter Flughafen meldet eine SMS, dein aufgegebenes Gepäck sei „falsch zugeordnet“ und werde in 12 Minuten „endgültig aussortiert“, wenn du nicht über einen Link deine Buchungs- und Kartendaten bestätigst.",
+  "answers": {
+    "A": "Die SMS ignorieren und direkt am Gepäckschalter oder über die offizielle App der Airline nachfragen, ob wirklich ein Problem vorliegt.",
+    "B": "Sofort über den Link die Daten bestätigen, um das Gepäck zu retten.",
+    "C": "Nur die Buchungsnummer eingeben, aber keine Kartendaten."
+  },
+  "scores": {
+    "A": 4,
+    "B": 0,
+    "C": 1
+  },
+  "safeActions": [
+    "A"
+  ],
+  "explanation": "Gepäckprobleme werden am Schalter oder in der Airline-App gelöst, nie über eine SMS mit Kartendatenabfrage und Minutenfrist.",
+  "proTip": "Ein Countdown per SMS löst nie ein echtes Gepäckproblem.",
+  "hackKey": "H",
+  "hackTrigger": "Hetze",
+  "tags": [
+    "travelsafe",
+    "h",
+    "airport-baggage",
+    "smishing",
+    "diagnostic"
+  ],
+  "active": true
+}
