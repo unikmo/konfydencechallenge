@@ -5,15 +5,22 @@ import { computeChallengeTotals } from "@/lib/scoring/scoringEngine";
 import { EDITION_LABELS, type ChallengeEdition } from "@/lib/challenge/labels";
 import { readinessTierColor, tokens } from "@/lib/theme/tokens";
 import { EditionSummaryCard } from "@/components/dashboard/EditionSummaryCard";
+import type { UiLang } from "@/lib/challenge/uiStrings";
+import { RESULTS_HISTORY_STRINGS } from "@/lib/challenge/accountStrings";
+import { localizeLevel, EDITION_DECK_NAME_DE } from "@/lib/challenge/resultStrings";
 
 // The player's Challenge results — edition rollups + run history. Rendered on
 // /account for a signed-in account's consolidated player, and (with a "sign in
 // to keep these" nudge) for a signed-out visitor who has a device history.
+// A player's run history mixes English and German sessions (same
+// ChallengeSession.edition value for both), so edition labels and level names
+// are localized per row, not per page.
 
 const EDITION_ORDER: ChallengeEdition[] = ["travelsafe", "school", "university", "family", "workplace"];
-const MODE_LABEL: Record<string, string> = { diagnostic: "Free diagnostic", full: "Full challenge" };
 
-export async function ResultsHistory({ playerId }: { playerId: string | null }) {
+export async function ResultsHistory({ playerId, lang = "en" }: { playerId: string | null; lang?: UiLang }) {
+  const t = RESULTS_HISTORY_STRINGS[lang];
+  const editionLabelFor = (ed: string) => (lang === "de" ? EDITION_DECK_NAME_DE[ed] : EDITION_LABELS[ed as ChallengeEdition]) ?? ed;
   const sessions = playerId
     ? await prisma.challengeSession.findMany({
         where: { userId: playerId },
@@ -37,9 +44,9 @@ export async function ResultsHistory({ playerId }: { playerId: string | null }) 
     return (
       <div style={styles.card}>
         <p style={{ color: tokens.textMuted, fontWeight: 700, lineHeight: 1.5, margin: 0 }}>
-          No Konfydence Challenge runs here yet. Take a free challenge to start building your Readiness Score history.
+          {t.emptyBody}
         </p>
-        <Link href="/challenge" style={styles.button}>Start a free challenge</Link>
+        <Link href={lang === "de" ? "/de/challenge" : "/challenge"} style={styles.button}>{t.startFree}</Link>
       </div>
     );
   }
@@ -67,7 +74,7 @@ export async function ResultsHistory({ playerId }: { playerId: string | null }) 
     <>
       <div style={styles.card}>
         <p style={{ color: tokens.textMuted, fontWeight: 750, marginTop: 0 }}>
-          {totalCompleted} completed {totalCompleted === 1 ? "run" : "runs"}.
+          {t.completedRuns(totalCompleted)}
         </p>
         <div style={{ display: "flex", flexWrap: "wrap", gap: 12, marginTop: 6 }}>
           {EDITION_ORDER.map((edition) => {
@@ -75,11 +82,12 @@ export async function ResultsHistory({ playerId }: { playerId: string | null }) 
             return (
               <EditionSummaryCard
                 key={edition}
-                editionLabel={EDITION_LABELS[edition]}
+                editionLabel={editionLabelFor(edition)}
                 attempts={stat?.attempts ?? 0}
                 bestPercent={stat?.bestPercent ?? null}
                 latestPercent={stat?.latestPercent ?? null}
-                latestLevel={stat?.latestLevel ?? null}
+                latestLevel={stat ? localizeLevel(stat.latestLevel, lang) : null}
+                lang={lang}
               />
             );
           })}
@@ -87,20 +95,20 @@ export async function ResultsHistory({ playerId }: { playerId: string | null }) 
       </div>
 
       <div style={{ ...styles.card, marginTop: 14 }}>
-        <div style={{ fontWeight: 950, marginBottom: 10 }}>Run history</div>
+        <div style={{ fontWeight: 950, marginBottom: 10 }}>{t.runHistory}</div>
         <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
           {sessions.map((s) => {
             const isCompleted = s.status === "COMPLETED" && s.scoreMax > 0;
             const totals = isCompleted ? computeChallengeTotals({ scoreTotal: s.scoreTotal, scoreMax: s.scoreMax }) : null;
             const color = totals ? readinessTierColor(totals.totalPercent) : tokens.textMuted;
-            const editionLabel = EDITION_LABELS[s.edition as ChallengeEdition] ?? s.edition;
+            const editionLabel = editionLabelFor(s.edition);
             const href = isCompleted ? `/challenge/session/${s.id}/results` : `/challenge/session/${s.id}`;
-            const dateLabel = new Date(s.createdAt).toLocaleDateString(undefined, { year: "numeric", month: "short", day: "numeric" });
+            const dateLabel = new Date(s.createdAt).toLocaleDateString(t.dateLocale, { year: "numeric", month: "short", day: "numeric" });
             return (
               <Link key={s.id} href={href} style={styles.row}>
                 <div>
                   <div style={{ fontWeight: 900 }}>
-                    {editionLabel} <span style={{ color: tokens.textMuted, fontWeight: 700 }}>· {MODE_LABEL[s.mode] ?? s.mode}</span>
+                    {editionLabel} <span style={{ color: tokens.textMuted, fontWeight: 700 }}>· {t.modeLabel[s.mode] ?? s.mode}</span>
                   </div>
                   <div style={{ fontSize: 12, color: tokens.textMuted, fontWeight: 700, marginTop: 2 }}>{dateLabel}</div>
                 </div>
@@ -108,7 +116,7 @@ export async function ResultsHistory({ playerId }: { playerId: string | null }) 
                   {isCompleted && totals ? (
                     <>
                       <div style={{ fontWeight: 1000, fontSize: 18, color }}>{Math.round(totals.totalPercent)}%</div>
-                      <div style={{ fontSize: 11, color: tokens.textMuted, fontWeight: 750 }}>{totals.level}</div>
+                      <div style={{ fontSize: 11, color: tokens.textMuted, fontWeight: 750 }}>{localizeLevel(totals.level, lang)}</div>
                     </>
                   ) : s.status === "IN_PROGRESS" ? (
                     (() => {
@@ -116,9 +124,9 @@ export async function ResultsHistory({ playerId }: { playerId: string | null }) 
                       const done = Math.min(s.currentIndex, total);
                       return (
                         <>
-                          <div style={{ fontWeight: 900, fontSize: 13, color: tokens.textOnLight }}>Continue →</div>
+                          <div style={{ fontWeight: 900, fontSize: 13, color: tokens.textOnLight }}>{t.continueLabel}</div>
                           <div style={{ fontSize: 11, color: tokens.textMuted, fontWeight: 750, marginTop: 2 }}>
-                            {done} of {total} · round {s.runNumber}
+                            {t.ofScenario(done, total, s.runNumber)}
                           </div>
                         </>
                       );

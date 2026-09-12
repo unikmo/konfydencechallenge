@@ -48,7 +48,7 @@ export function ResultEmailGate({
           <button type="submit" className="k-button">{t.submit}</button>
         </form>
         <p className="kf-legal">
-          {t.alreadyHaveAccount} <Link href={`/account/sign-in?next=${encodeURIComponent(`/challenge/session/${sessionId}/results`)}`}>{t.signIn}</Link> {t.signInSuffix}
+          {t.alreadyHaveAccount} <Link href={`/account/sign-in?next=${encodeURIComponent(`/challenge/session/${sessionId}/results`)}${lang === "de" ? "&lang=de" : ""}`}>{t.signIn}</Link> {t.signInSuffix}
           <br />
           {t.legalPrefix} <Link href={t.privacyHref}>{t.privacyPolicy}</Link> {t.and}{" "}
           <Link href={t.termsHref}>{t.terms}</Link>.

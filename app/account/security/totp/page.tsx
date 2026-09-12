@@ -8,6 +8,8 @@ import { decryptSecret } from "@/lib/auth/secretCrypto";
 import { TOTP_RECOVERY_FLASH_COOKIE } from "@/lib/auth/totpFlash";
 import * as OTPAuth from "otpauth";
 import QRCode from "qrcode";
+import type { UiLang } from "@/lib/challenge/uiStrings";
+import { TOTP_SETUP_STRINGS } from "@/lib/challenge/accountStrings";
 
 export const metadata: Metadata = {
   title: { absolute: "Two-step verification | Konfydence" },
@@ -16,10 +18,12 @@ export const metadata: Metadata = {
 
 export const dynamic = "force-dynamic";
 
-export default async function TotpSetupPage(props: { searchParams: Promise<{ done?: string; error?: string }> }) {
-  const account = await getAccount();
-  if (!account) redirect("/account/sign-in?next=/account/security/totp");
+export default async function TotpSetupPage(props: { searchParams: Promise<{ done?: string; error?: string; lang?: string }> }) {
   const sp = await props.searchParams;
+  const lang: UiLang = sp.lang === "de" ? "de" : "en";
+  const t = TOTP_SETUP_STRINGS[lang];
+  const account = await getAccount();
+  if (!account) redirect(`/account/sign-in?next=/account/security/totp${lang === "de" ? "&lang=de" : ""}`);
 
   const row = await prisma.totpCredential.findUnique({ where: { accountId: account.id } });
   const store = await cookies();
@@ -29,16 +33,16 @@ export default async function TotpSetupPage(props: { searchParams: Promise<{ don
     const flash = store.get(TOTP_RECOVERY_FLASH_COOKIE)?.value;
     const codes = flash ? flash.split(",") : [];
     return (
-      <Shell title="Two-step verification is on.">
+      <Shell title={t.doneTitle} lang={lang}>
         {codes.length > 0 ? (
           <>
-            <p>Save these recovery codes somewhere safe. Each works once if you lose your authenticator. This is the only time they&rsquo;re shown.</p>
+            <p>{t.doneSaveCodes}</p>
             <div className="kf-codes">{codes.map((c) => <code key={c}>{c}</code>)}</div>
           </>
         ) : (
-          <p>Two-step verification is active on your account.</p>
+          <p>{t.doneActiveOnly}</p>
         )}
-        <Link className="k-button" href="/account/security">Back to security</Link>
+        <Link className="k-button" href={`/account/security${lang === "de" ? "?lang=de" : ""}`}>{t.backToSecurity}</Link>
       </Shell>
     );
   }
@@ -46,9 +50,9 @@ export default async function TotpSetupPage(props: { searchParams: Promise<{ don
   // Already on.
   if (row?.confirmedAt) {
     return (
-      <Shell title="Two-step verification is already on.">
-        <p>You can turn it off from the security page.</p>
-        <Link className="k-button" href="/account/security">Back to security</Link>
+      <Shell title={t.alreadyOnTitle} lang={lang}>
+        <p>{t.alreadyOnBody}</p>
+        <Link className="k-button" href={`/account/security${lang === "de" ? "?lang=de" : ""}`}>{t.backToSecurity}</Link>
       </Shell>
     );
   }
@@ -58,23 +62,23 @@ export default async function TotpSetupPage(props: { searchParams: Promise<{ don
     const secret = decryptSecret(row.secret);
     if (!secret) {
       return (
-        <Shell title="Something went wrong.">
-          <form method="post" action="/api/account/totp/begin"><button className="k-button" type="submit">Start again</button></form>
+        <Shell title={t.brokenTitle} lang={lang}>
+          <form method="post" action={`/api/account/totp/begin${lang === "de" ? "?lang=de" : ""}`}><button className="k-button" type="submit">{t.startAgain}</button></form>
         </Shell>
       );
     }
     const uri = new OTPAuth.TOTP({ issuer: "Konfydence", label: account.email, secret: OTPAuth.Secret.fromBase32(secret) }).toString();
     const qr = await QRCode.toDataURL(uri, { margin: 1, width: 200 });
     return (
-      <Shell title="Scan this with your authenticator.">
-        <p>Use Google Authenticator, 1Password, Authy or similar. Can&rsquo;t scan? Enter this key: <code>{secret}</code></p>
+      <Shell title={t.scanTitle} lang={lang}>
+        <p>{t.cantScan} <code>{secret}</code></p>
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img src={qr} alt="TOTP setup QR code" width={200} height={200} style={{ borderRadius: 12, border: "1px solid var(--k-line)" }} />
-        {sp.error ? <p className="kf-error" role="alert">That code didn&rsquo;t match. Try the current one.</p> : null}
-        <form method="post" action="/api/account/totp/confirm" className="kf-form">
-          <label htmlFor="code">Enter the 6-digit code to confirm</label>
+        {sp.error ? <p className="kf-error" role="alert">{t.badCode}</p> : null}
+        <form method="post" action={`/api/account/totp/confirm${lang === "de" ? "?lang=de" : ""}`} className="kf-form">
+          <label htmlFor="code">{t.confirmLabel}</label>
           <input id="code" name="code" inputMode="numeric" autoComplete="one-time-code" pattern="[0-9 ]*" maxLength={7} required placeholder="123456" className="kf-code-input" />
-          <button type="submit" className="k-button">Confirm</button>
+          <button type="submit" className="k-button">{t.confirm}</button>
         </form>
       </Shell>
     );
@@ -82,24 +86,22 @@ export default async function TotpSetupPage(props: { searchParams: Promise<{ don
 
   // Nothing yet: start.
   return (
-    <Shell title="Add two-step verification.">
-      <p>
-        A time-based code from an authenticator app, asked for after your email code. It doesn&rsquo;t replace a
-        passkey — if you have one, you already have strong sign-in.
-      </p>
-      <form method="post" action="/api/account/totp/begin">
-        <button type="submit" className="k-button">Set it up</button>
+    <Shell title={t.startTitle} lang={lang}>
+      <p>{t.startBody}</p>
+      <form method="post" action={`/api/account/totp/begin${lang === "de" ? "?lang=de" : ""}`}>
+        <button type="submit" className="k-button">{t.setItUp}</button>
       </form>
     </Shell>
   );
 }
 
-function Shell({ title, children }: { title: string; children: React.ReactNode }) {
+function Shell({ title, lang, children }: { title: string; lang: UiLang; children: React.ReactNode }) {
+  const t = TOTP_SETUP_STRINGS[lang];
   return (
     <main className="kg-state">
       <section className="kg-state-card" style={{ textAlign: "left" }}>
-        <Link className="kf-back" href="/account/security">← Security</Link>
-        <p className="k-kicker" style={{ marginTop: 18 }}>Two-step verification</p>
+        <Link className="kf-back" href={`/account/security${lang === "de" ? "?lang=de" : ""}`}>{t.backSecurity}</Link>
+        <p className="k-kicker" style={{ marginTop: 18 }}>{t.kicker}</p>
         <h1 style={{ fontSize: "clamp(24px,3.2vw,32px)" }}>{title}</h1>
         {children}
       </section>

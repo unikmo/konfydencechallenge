@@ -14,17 +14,18 @@ export async function GET(request: NextRequest) {
   const token = request.nextUrl.searchParams.get("token") ?? "";
   const nextParam = request.nextUrl.searchParams.get("next");
   const next = nextParam && nextParam.startsWith("/") && !nextParam.startsWith("//") ? nextParam : "/account";
+  const lang = request.nextUrl.searchParams.get("lang") === "de" ? "&lang=de" : "";
 
   const result = await verifyLoginLink(token);
   if (!result.ok) {
     const reason = result.reason === "expired" ? "expired" : "code";
-    return NextResponse.redirect(new URL(`/account/sign-in?error=${reason}`, request.url));
+    return NextResponse.redirect(new URL(`/account/sign-in?error=${reason}${lang}`, request.url));
   }
 
   // Second factor owed -> hand off to the TOTP step instead of finishing.
   if (await accountHasTotp(result.account.id)) {
     const res = NextResponse.redirect(
-      new URL(`/account/sign-in?step=totp&next=${encodeURIComponent(next)}`, request.url),
+      new URL(`/account/sign-in?step=totp&next=${encodeURIComponent(next)}${lang}`, request.url),
     );
     res.cookies.set(PENDING_MFA_COOKIE, issuePendingMfa(result.account.id), pendingMfaCookieOptions());
     return res;

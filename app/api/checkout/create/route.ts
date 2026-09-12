@@ -187,10 +187,13 @@ export async function POST(request: NextRequest) {
           allow_promotion_codes: true,
         });
       } else {
-        // Direct purchase: an annual subscription.
+        // Direct purchase: an annual subscription. The claim page has no
+        // scenario row to read a language off, so a German buyer's locale is
+        // carried through via ?lang=de (see lib/challenge/accountStrings.ts).
+        const langQS = stripeLocale === "de" ? "&lang=de" : "";
         const successUrl = editionSlug
-          ? `${appUrl}/challenge/claim?edition=${editionSlug}&cs={CHECKOUT_SESSION_ID}`
-          : `${appUrl}/challenge/claim?cs={CHECKOUT_SESSION_ID}`;
+          ? `${appUrl}/challenge/claim?edition=${editionSlug}&cs={CHECKOUT_SESSION_ID}${langQS}`
+          : `${appUrl}/challenge/claim?cs={CHECKOUT_SESSION_ID}${langQS}`;
         session = await stripe.checkout.sessions.create({
           ...common,
           mode: "subscription",

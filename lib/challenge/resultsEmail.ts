@@ -1,6 +1,9 @@
 import { escapeHtml } from "@/lib/email";
 import { EDITION_LABELS, HACK_LABELS, type ChallengeEdition, type HackTrigger } from "@/lib/challenge/labels";
 import { computeChallengeTotals, type HackProfile } from "@/lib/scoring/scoringEngine";
+import type { UiLang } from "@/lib/challenge/uiStrings";
+import { RESULTS_EMAIL_STRINGS } from "@/lib/challenge/accountStrings";
+import { localizeLevel, localizeSignalLabel, hackLabel, EDITION_DECK_NAME_DE, HACK_COACHING_DE } from "@/lib/challenge/resultStrings";
 
 // The email a player receives after finishing a Konfydence Challenge.
 // Free (diagnostic) play is frictionless to start, but the result is
@@ -45,6 +48,7 @@ export type ResultsEmailInput = {
   accountUrl: string;
   /** One-click unsubscribe. */
   unsubscribeUrl: string;
+  lang?: UiLang;
 };
 
 function bar(labelShort: string, pct: number, level: string, levelLabel: string): string {
@@ -88,57 +92,59 @@ function button(href: string, label: string, primary = true): string {
 }
 
 export function renderChallengeResultsEmail(input: ResultsEmailInput): { subject: string; html: string } {
-  const editionLabel = EDITION_LABELS[input.edition];
+  const lang: UiLang = input.lang ?? "en";
+  const t = RESULTS_EMAIL_STRINGS[lang];
+  const editionLabel = lang === "de" ? EDITION_DECK_NAME_DE[input.edition] ?? input.edition : EDITION_LABELS[input.edition];
   const totals = computeChallengeTotals({ scoreTotal: input.scoreTotal, scoreMax: input.scoreMax });
   const pct = Math.round(totals.totalPercent);
+  const level = localizeLevel(totals.level, lang);
   const isDiagnostic = input.mode === "diagnostic";
 
   const weak = input.hackProfile.primaryVulnerability;
-  const weakLabel = weak ? HACK_LABELS[weak.hackKey as HackTrigger].short : null;
+  const weakLabel = weak ? hackLabel(weak.hackKey as HackTrigger, "short", lang, HACK_LABELS[weak.hackKey as HackTrigger].short) : null;
 
   const resultsUrl = `${APP_URL}${input.resultsPath}`;
   const fullChallengeUrl = `${APP_URL}/pricing?edition=${input.edition}`;
   const packUrl = `${APP_URL}/pricing`;
   const lockscreensUrl = `${APP_URL}/lockscreens`;
 
-  const subject = isDiagnostic
-    ? `Your ${editionLabel} Readiness Score: ${pct}% — ${totals.level}`
-    : `Your ${editionLabel} Challenge result: ${pct}% — ${totals.level}`;
+  const subject = isDiagnostic ? t.subjectDiagnostic(editionLabel, pct, level) : t.subjectFull(editionLabel, pct, level);
 
-  const preheader = weakLabel
-    ? `${pct}% — ${totals.level}. You're most exposed to ${weakLabel} pressure. Here's what that means.`
-    : `${pct}% — ${totals.level}. Your full H.A.C.K. profile is inside.`;
+  const preheader = weakLabel ? t.preheaderWeak(pct, level, weakLabel) : t.preheaderNoWeak(pct, level);
 
   const barsHtml = input.hackProfile.dimensions
-    .map((d) => bar(HACK_LABELS[d.hackKey as HackTrigger].short, d.pct, d.level, d.levelLabel))
+    .map((d) => bar(
+      hackLabel(d.hackKey as HackTrigger, "short", lang, HACK_LABELS[d.hackKey as HackTrigger].short),
+      d.pct,
+      d.level,
+      localizeSignalLabel(d.levelLabel, lang),
+    ))
     .join("");
 
   const convBlock = isDiagnostic
     ? `
-      <p style="margin:0 0 6px;font:400 13px/1.4 ${BODY_FONT};color:${C.soft};letter-spacing:.08em;text-transform:uppercase;">The next step</p>
-      <h2 style="margin:0 0 12px;font:400 22px/1.25 ${DISPLAY_FONT};color:${C.ink};">You've seen the free check. The full ${escapeHtml(editionLabel)} Challenge is the practice.</h2>
+      <p style="margin:0 0 6px;font:400 13px/1.4 ${BODY_FONT};color:${C.soft};letter-spacing:.08em;text-transform:uppercase;">${escapeHtml(t.nextStepOverline)}</p>
+      <h2 style="margin:0 0 12px;font:400 22px/1.25 ${DISPLAY_FONT};color:${C.ink};">${escapeHtml(t.nextStepHeading(editionLabel))}</h2>
       <p style="margin:0 0 20px;font:400 14px/1.7 ${BODY_FONT};color:${C.inkSoft};">
-        40+ real situations, balanced across all four pressure tactics${weakLabel ? ` — including more of the ${escapeHtml(weakLabel)} scenarios you found hardest` : ""}.
-        You work through them in short rounds, and your Readiness Score updates as you go. About 20 minutes to start.
+        ${escapeHtml(t.nextStepBody(weakLabel ? t.weakSuffix(weakLabel) : ""))}
       </p>
-      ${button(fullChallengeUrl, `Take the full ${editionLabel} Challenge — $6.99`)}
+      ${button(fullChallengeUrl, t.unlockFull(editionLabel))}
       <p style="margin:16px 0 0;font:400 13px/1.6 ${BODY_FONT};color:${C.muted};">
-        More than one situation to prepare for? <a href="${escapeHtml(packUrl)}" target="_blank" style="color:${C.ink};font-weight:600;text-decoration:none;">All five editions are $24.99</a>.
+        ${escapeHtml(t.moreThanOne)} <a href="${escapeHtml(packUrl)}" target="_blank" style="color:${C.ink};font-weight:600;text-decoration:none;">${escapeHtml(t.allFiveLink)}</a>.
       </p>`
     : `
-      <p style="margin:0 0 6px;font:400 13px/1.4 ${BODY_FONT};color:${C.soft};letter-spacing:.08em;text-transform:uppercase;">Keep it sharp</p>
-      <h2 style="margin:0 0 12px;font:400 22px/1.25 ${DISPLAY_FONT};color:${C.ink};">A score fades. The habit is what lasts.</h2>
+      <p style="margin:0 0 6px;font:400 13px/1.4 ${BODY_FONT};color:${C.soft};letter-spacing:.08em;text-transform:uppercase;">${escapeHtml(t.keepSharpOverline)}</p>
+      <h2 style="margin:0 0 12px;font:400 22px/1.25 ${DISPLAY_FONT};color:${C.ink};">${escapeHtml(t.keepSharpHeading)}</h2>
       <p style="margin:0 0 20px;font:400 14px/1.7 ${BODY_FONT};color:${C.inkSoft};">
-        Replay the ${escapeHtml(editionLabel)} rounds any time — the engine serves the scenarios you've seen least first.
-        And if you want the reminder somewhere you can't scroll past it, Konfydence Lockscreens puts one Pause · Assess · Talk prompt on your phone, refreshed every two weeks.
+        ${escapeHtml(t.keepSharpBody(editionLabel))}
       </p>
-      ${button(resultsUrl, "Replay a round")}
+      ${button(resultsUrl, t.replay)}
       <p style="margin:16px 0 0;font:400 13px/1.6 ${BODY_FONT};color:${C.muted};">
-        <a href="${escapeHtml(lockscreensUrl)}" target="_blank" style="color:${C.ink};font-weight:600;text-decoration:none;">See Konfydence Lockscreens →</a>
+        <a href="${escapeHtml(lockscreensUrl)}" target="_blank" style="color:${C.ink};font-weight:600;text-decoration:none;">${escapeHtml(t.seeLockscreens)}</a>
       </p>`;
 
   const html = `<!DOCTYPE html>
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<html lang="${lang}" xmlns="http://www.w3.org/1999/xhtml">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
@@ -161,25 +167,25 @@ export function renderChallengeResultsEmail(input: ResultsEmailInput): { subject
           <tr>
             <td style="background:${C.card};border:1px solid ${C.rule};border-radius:16px;padding:34px 34px 30px;">
 
-              <p style="margin:0 0 4px;font:400 12px/1.4 ${BODY_FONT};color:${C.soft};letter-spacing:.1em;text-transform:uppercase;">${escapeHtml(editionLabel)} · ${isDiagnostic ? "Free readiness check" : "Full challenge"}</p>
-              <h1 style="margin:0 0 18px;font:400 20px/1.3 ${DISPLAY_FONT};color:${C.ink};">Your Readiness Score</h1>
+              <p style="margin:0 0 4px;font:400 12px/1.4 ${BODY_FONT};color:${C.soft};letter-spacing:.1em;text-transform:uppercase;">${escapeHtml(editionLabel)} · ${isDiagnostic ? escapeHtml(t.freeCheckLabel) : escapeHtml(t.fullChallengeLabel)}</p>
+              <h1 style="margin:0 0 18px;font:400 20px/1.3 ${DISPLAY_FONT};color:${C.ink};">${escapeHtml(t.readinessScore)}</h1>
 
               <table role="presentation" cellpadding="0" cellspacing="0" border="0">
                 <tr>
                   <td style="font:400 52px/1 ${DISPLAY_FONT};color:${C.ink};padding-right:16px;">${pct}<span style="font-size:22px;color:${C.muted};">%</span></td>
-                  <td style="font:400 20px/1.2 ${DISPLAY_FONT};color:${C.gold};">${escapeHtml(totals.level)}</td>
+                  <td style="font:400 20px/1.2 ${DISPLAY_FONT};color:${C.gold};">${escapeHtml(level)}</td>
                 </tr>
               </table>
 
               ${weak && weakLabel ? `
               <div style="margin:22px 0 0;padding:16px 18px;background:${C.paper};border:1px solid ${C.rule};border-radius:12px;">
-                <p style="margin:0 0 4px;font:700 12px/1.4 ${BODY_FONT};color:${SIGNAL_COLOUR[weak.level] ?? C.ink};letter-spacing:.04em;text-transform:uppercase;">Most exposed to — ${escapeHtml(weakLabel)}</p>
-                <p style="margin:0;font:400 13px/1.6 ${BODY_FONT};color:${C.inkSoft};">${escapeHtml(weak.insight)}</p>
-                <p style="margin:8px 0 0;font:400 13px/1.6 ${BODY_FONT};color:${C.ink};"><strong>Practise:</strong> ${escapeHtml(weak.practice)}</p>
+                <p style="margin:0 0 4px;font:700 12px/1.4 ${BODY_FONT};color:${SIGNAL_COLOUR[weak.level] ?? C.ink};letter-spacing:.04em;text-transform:uppercase;">${escapeHtml(t.mostExposed(weakLabel))}</p>
+                <p style="margin:0;font:400 13px/1.6 ${BODY_FONT};color:${C.inkSoft};">${escapeHtml(lang === "de" ? HACK_COACHING_DE[weak.hackKey as HackTrigger].insight : weak.insight)}</p>
+                <p style="margin:8px 0 0;font:400 13px/1.6 ${BODY_FONT};color:${C.ink};"><strong>${escapeHtml(t.practise)}</strong> ${escapeHtml(lang === "de" ? HACK_COACHING_DE[weak.hackKey as HackTrigger].practice : weak.practice)}</p>
               </div>` : ""}
 
-              <p style="margin:26px 0 2px;font:700 12px/1.4 ${BODY_FONT};color:${C.ink};letter-spacing:.06em;text-transform:uppercase;">Your H.A.C.K. profile</p>
-              <p style="margin:0 0 4px;font:400 12px/1.6 ${BODY_FONT};color:${C.muted};">How you held up against each of the four pressure tactics.</p>
+              <p style="margin:26px 0 2px;font:700 12px/1.4 ${BODY_FONT};color:${C.ink};letter-spacing:.06em;text-transform:uppercase;">${escapeHtml(t.hackProfileHeading)}</p>
+              <p style="margin:0 0 4px;font:400 12px/1.6 ${BODY_FONT};color:${C.muted};">${escapeHtml(t.hackProfileSubtext)}</p>
               <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
                 ${barsHtml}
               </table>
@@ -197,10 +203,10 @@ export function renderChallengeResultsEmail(input: ResultsEmailInput): { subject
 
           <tr>
             <td style="padding:22px 6px 0;">
-              <p style="margin:0 0 4px;font:600 13px/1.5 ${BODY_FONT};color:${C.ink};">This email is your Konfydence account.</p>
+              <p style="margin:0 0 4px;font:600 13px/1.5 ${BODY_FONT};color:${C.ink};">${escapeHtml(t.yourAccount)}</p>
               <p style="margin:0;font:400 13px/1.6 ${BODY_FONT};color:${C.muted};">
-                <a href="${escapeHtml(input.accountUrl)}" target="_blank" style="color:${C.gold};font-weight:600;text-decoration:none;">See your results on any device →</a>
-                &nbsp;No password — this link signs you in.
+                <a href="${escapeHtml(input.accountUrl)}" target="_blank" style="color:${C.gold};font-weight:600;text-decoration:none;">${escapeHtml(t.seeResultsAnyDevice)}</a>
+                &nbsp;${escapeHtml(t.noPasswordNote)}
               </p>
             </td>
           </tr>
@@ -208,12 +214,12 @@ export function renderChallengeResultsEmail(input: ResultsEmailInput): { subject
           <tr>
             <td style="padding:26px 6px 0;">
               <p style="margin:0;font:400 11px/1.7 ${BODY_FONT};color:${C.soft};">
-                Sent to ${escapeHtml(input.toEmail)} because you asked for your Konfydence Challenge result.
-                <a href="${escapeHtml(input.unsubscribeUrl)}" target="_blank" style="color:${C.soft};text-decoration:underline;">Unsubscribe</a>
+                ${escapeHtml(t.sentTo(input.toEmail))}
+                <a href="${escapeHtml(input.unsubscribeUrl)}" target="_blank" style="color:${C.soft};text-decoration:underline;">${escapeHtml(t.unsubscribe)}</a>
                 &nbsp;·&nbsp;
-                <a href="${escapeHtml(APP_URL)}/privacy-policy" target="_blank" style="color:${C.soft};text-decoration:underline;">Privacy</a>
+                <a href="${escapeHtml(APP_URL)}${lang === "de" ? "/de/datenschutz" : "/privacy-policy"}" target="_blank" style="color:${C.soft};text-decoration:underline;">${escapeHtml(t.privacy)}</a>
               </p>
-              <p style="margin:8px 0 0;font:400 11px/1.7 ${BODY_FONT};color:${C.soft};">Konfydence · Confidence under pressure.</p>
+              <p style="margin:8px 0 0;font:400 11px/1.7 ${BODY_FONT};color:${C.soft};">${escapeHtml(t.tagline)}</p>
             </td>
           </tr>
 

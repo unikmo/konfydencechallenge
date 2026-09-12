@@ -6,6 +6,7 @@ import { normalizeEmail, isValidEmail } from "./email";
 import { findOrCreateAccount, markEmailVerified } from "./account";
 import { consumeRateLimit, rateLimitKey } from "./rateLimit";
 import { renderLoginCodeEmail } from "./loginEmail";
+import type { UiLang } from "@/lib/challenge/uiStrings";
 
 // Passwordless sign-in: a 6-digit code (10-minute TTL, single use, 5-attempt
 // cap) plus a magic link carrying a high-entropy token. Either path consumes
@@ -32,7 +33,7 @@ export type IssueResult =
   | { ok: true }
   | { ok: false; reason: "invalid_email" | "rate_limited" | "send_failed"; retryAfterMs?: number };
 
-export async function issueLoginCode(rawEmail: string, ip: string | null): Promise<IssueResult> {
+export async function issueLoginCode(rawEmail: string, ip: string | null, lang: UiLang = "en"): Promise<IssueResult> {
   const email = normalizeEmail(rawEmail);
   if (!isValidEmail(email)) return { ok: false, reason: "invalid_email" };
 
@@ -65,7 +66,8 @@ export async function issueLoginCode(rawEmail: string, ip: string | null): Promi
 
   const { subject, html } = renderLoginCodeEmail({
     code,
-    magicLinkUrl: `${APP_URL}/account/sign-in/link?token=${encodeURIComponent(linkToken)}`,
+    magicLinkUrl: `${APP_URL}/account/sign-in/link?token=${encodeURIComponent(linkToken)}${lang === "de" ? "&lang=de" : ""}`,
+    lang,
   });
   const sent = await sendTransactionalEmail({ to: email, subject, html, tags: ["account", "login-code"] });
   if (!sent) return { ok: false, reason: "send_failed" };

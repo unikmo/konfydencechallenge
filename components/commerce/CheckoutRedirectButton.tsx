@@ -6,7 +6,14 @@ import { trackCheckoutStarted } from "@/lib/events";
 
 type Props = { sku: string; label: string; variant?: "primary" | "outline"; locale?: "en" | "de" };
 
-export function CheckoutRedirectButton({ sku, label, variant = "primary", locale }: Props) {
+const OPENING_CHECKOUT: Record<"en" | "de", string> = { en: "Opening checkout…", de: "Checkout wird geöffnet…" };
+const GENERIC_ERROR: Record<"en" | "de", string> = {
+  en: "An error occurred. Please try again.",
+  de: "Es ist ein Fehler aufgetreten. Bitte versuch es erneut.",
+};
+const CHECKOUT_FAILED: Record<"en" | "de", string> = { en: "Failed to create checkout", de: "Checkout konnte nicht erstellt werden" };
+
+export function CheckoutRedirectButton({ sku, label, variant = "primary", locale = "en" }: Props) {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
@@ -18,11 +25,11 @@ export function CheckoutRedirectButton({ sku, label, variant = "primary", locale
       const response = await fetch("/api/checkout/create", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ sku, ...(locale ? { locale } : {}) }),
+        body: JSON.stringify({ sku, locale }),
       });
       if (!response.ok) {
         const errorData = (await response.json()) as { error?: string };
-        setError(errorData.error || "Failed to create checkout");
+        setError(errorData.error || CHECKOUT_FAILED[locale]);
         setLoading(false);
         return;
       }
@@ -30,7 +37,7 @@ export function CheckoutRedirectButton({ sku, label, variant = "primary", locale
       if (!checkoutUrl) throw new Error("Checkout URL missing");
       window.location.assign(checkoutUrl);
     } catch {
-      setError("An error occurred. Please try again.");
+      setError(GENERIC_ERROR[locale]);
       setLoading(false);
     }
   };
@@ -53,7 +60,7 @@ export function CheckoutRedirectButton({ sku, label, variant = "primary", locale
 
   return (
     <div>
-      <button type="button" style={buttonStyle} onClick={handleClick} disabled={loading}>{loading ? "Opening checkout…" : label}</button>
+      <button type="button" style={buttonStyle} onClick={handleClick} disabled={loading}>{loading ? OPENING_CHECKOUT[locale] : label}</button>
       {error ? <p role="alert" style={{ color: "#ef4444", fontSize: 12, marginTop: 8 }}>{error}</p> : null}
     </div>
   );

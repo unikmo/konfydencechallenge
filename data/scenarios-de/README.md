@@ -70,14 +70,33 @@ H.A.C.K. signal labels, per-dimension coaching insight/practice) via a
 lookup keyed by the English value, so the shared, edition-agnostic scoring
 engine itself never needs to know about locale.
 
-**Stage 4 still open (content complete, infra/business decisions remain):**
-the actual **results email** (`lib/challenge/resultsEmail.ts`,
-`sendChallengeResultEmail`) sent after a full challenge completes is still
-English-only — a 228-line HTML template, not yet localized; the gift flow
-stays USD-only (inline Stripe `price_data`, not a catalogue Price, so it
-has no `currency_options`); a lawyer's review of the AGB Widerrufsrecht
-section before real German consumer sales (see `app/de/agb/page.tsx`);
-German marketing/SEO pages beyond the core funnel (home, challenge,
-pricing, legal) were explicitly out of scope per Tichi's "focused funnel"
-decision; `/account`'s results dashboard (`ResultsHistory.tsx`) also stays
-English chrome, out of scope the same way.
+**The whole German-reachable surface is now bilingual (2026-09-12 audit).**
+Per Tichi's instruction "we cannot have geman version with english texts.
+fix everything" — every page a German player can reach was swept, not just
+the session/results flow:
+
+- The **results email** (`lib/challenge/resultsEmail.ts`) and the
+  **login-code email** (`lib/auth/loginEmail.ts`) render fully in German —
+  both determine `lang` the same way as the in-browser pages, from the
+  session's own scenario rows.
+- **Sign-in, the account dashboard, security/passkeys/2FA settings, and the
+  post-purchase claim page** (`app/account/**`, `app/challenge/claim`) have
+  no `scenario.lang` to peg off, so a German visitor is carried through them
+  via an explicit `?lang=de` query parameter — threaded through every
+  redirect, hidden form field, and form action from the moment
+  `lib/challenge/startHandler.ts` first sends someone to sign in. See
+  `lib/challenge/accountStrings.ts` for the string tables and the
+  architecture note at its top.
+- A real bug was fixed in the same pass: full-mode/round-2 gating redirected
+  to `/de/account/sign-in`, a route that doesn't exist — now `/account/sign-in`
+  (shared across locales) with `&lang=de`.
+- The checkout `success_url` for a German purchase carries `&lang=de` into
+  `/challenge/claim` (see `app/api/checkout/create/route.ts`, keyed off the
+  same `locale: "de"` the Stripe Checkout session itself uses).
+
+Still genuinely out of scope, not translation gaps: the gift flow stays
+USD-only (inline Stripe `price_data`, no `currency_options`); a lawyer's
+review of the AGB Widerrufsrecht section before real German consumer sales
+(see `app/de/agb/page.tsx`); German marketing/SEO pages beyond the core
+funnel (home, challenge, pricing, legal), per Tichi's "focused funnel"
+decision; and the Teams tier (`/teams`), which has no German copy at all yet.
