@@ -1,0 +1,34 @@
+{
+  "id": "workplace-de-wrk-16",
+  "lang": "de",
+  "title": "Die Personalabteilung braucht deinen Login",
+  "edition": "workplace",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Personalabteilung",
+  "scenario": "Eine Mail, angeblich von der Personalabteilung, bittet dich, dich über einen Link mit deinem Unternehmens-Login anzumelden, um „die neuen Sozialleistungen zu bestätigen“.",
+  "answers": {
+    "C": "Den Link ignorieren und dich stattdessen direkt im bekannten HR-Portal des Unternehmens einloggen, um die Information dort zu finden.",
+    "A": "Sich über den Link mit dem Unternehmens-Login anmelden.",
+    "B": "Den Link öffnen, aber ein anderes Passwort verwenden."
+  },
+  "scores": {
+    "C": 4,
+    "A": 0,
+    "B": 0
+  },
+  "safeActions": [
+    "C"
+  ],
+  "explanation": "Die Personalabteilung verschickt Login-Aufforderungen nie über einen externen Link — das bekannte HR-Portal ist immer der richtige Ort für solche Informationen.",
+  "proTip": "Ein HR-Login gehört nur ins bekannte, interne Portal.",
+  "hackKey": "A",
+  "hackTrigger": "Autorität",
+  "tags": [
+    "workplace",
+    "a",
+    "hr",
+    "credential-phishing"
+  ],
+  "active": true
+}

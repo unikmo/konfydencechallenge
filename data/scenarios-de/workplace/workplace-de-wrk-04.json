@@ -1,0 +1,34 @@
+{
+  "id": "workplace-de-wrk-04",
+  "lang": "de",
+  "title": "Der Lieferant sagt: Die Sendung geht in einer Stunde raus",
+  "edition": "workplace",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Überweisungen",
+  "scenario": "Ein Anruf eines Lieferanten drängt, eine ausstehende Zahlung sofort per Blitzüberweisung anzuweisen, sonst werde die für heute geplante Lieferung „in einer Stunde storniert“.",
+  "answers": {
+    "A": "Die Zahlung über den regulären, mit dem Lieferanten vereinbarten Freigabeprozess abwickeln, statt wegen einer Stundenfrist eine ungeprüfte Blitzüberweisung anzuweisen.",
+    "B": "Die Blitzüberweisung sofort anweisen, um die Lieferung nicht zu verlieren.",
+    "C": "Nur einen Teilbetrag als Blitzüberweisung anweisen."
+  },
+  "scores": {
+    "A": 4,
+    "B": 0,
+    "C": 0
+  },
+  "safeActions": [
+    "A"
+  ],
+  "explanation": "Ein regulärer Geschäftspartner droht nicht mit einer Stundenfrist bei einer bereits vereinbarten Zahlung — der interne Freigabeprozess existiert genau für solche Momente.",
+  "proTip": "Interne Freigabeprozesse gelten auch bei angeblicher Eile.",
+  "hackKey": "H",
+  "hackTrigger": "Hetze",
+  "tags": [
+    "workplace",
+    "h",
+    "wire-transfers",
+    "vishing"
+  ],
+  "active": true
+}

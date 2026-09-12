@@ -1,0 +1,34 @@
+{
+  "id": "workplace-de-wrk-15",
+  "lang": "de",
+  "title": "Die Betrugsabteilung deiner Bank ruft die Buchhaltung an",
+  "edition": "workplace",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Banking",
+  "scenario": "Ein Anrufer gibt sich als Betrugsabteilung der Firmenbank aus und bittet die Buchhaltung, eine laufende Überweisung „zur Sicherheit“ auf ein anderes, vom Anrufer genanntes Konto umzuleiten.",
+  "answers": {
+    "B": "Auflegen und die Bank über die offizielle, unabhängig bekannte Firmenkundennummer selbst kontaktieren, bevor irgendeine Umleitung vorgenommen wird.",
+    "A": "Die Überweisung wie gewünscht auf das genannte Konto umleiten.",
+    "C": "Nach dem Namen und der Abteilung des Anrufers fragen und dann umleiten."
+  },
+  "scores": {
+    "B": 4,
+    "A": 0,
+    "C": 1
+  },
+  "safeActions": [
+    "B"
+  ],
+  "explanation": "Eine echte Bank leitet Zahlungen nie telefonisch auf ein vom Anrufer genanntes Konto um — das ist genau die Methode, eine Überweisung zu kapern.",
+  "proTip": "Keine Bank verlangt telefonisch eine Umleitung auf ein neues Konto.",
+  "hackKey": "A",
+  "hackTrigger": "Autorität",
+  "tags": [
+    "workplace",
+    "a",
+    "banking",
+    "vishing"
+  ],
+  "active": true
+}

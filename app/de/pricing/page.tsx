@@ -11,6 +11,7 @@ const EDITIONEN = [
   { key: "school", label: "Schule" },
   { key: "university", label: "Universität" },
   { key: "travelsafe", label: "TravelSafe" },
+  { key: "workplace", label: "Arbeitsplatz" },
 ] as const;
 
 type EditionKey = (typeof EDITIONEN)[number]["key"];
@@ -120,7 +121,7 @@ function GermanPricingContent() {
           price="€24,99"
           sub="/ Jahr · alle fünf Editionen"
           includes={[
-            "Alle 5 Challenge-Editionen (eine davon derzeit auf Englisch)",
+            "Alle 5 Challenge-Editionen, alle auf Deutsch",
             "200+ reale Szenarien insgesamt",
             "Unbegrenzte Runden, immer neue Szenarien",
             "Dashboards und Zertifikate für jede Edition",

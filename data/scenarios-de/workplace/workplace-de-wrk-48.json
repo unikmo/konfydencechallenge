@@ -1,0 +1,34 @@
+{
+  "id": "workplace-de-wrk-48",
+  "lang": "de",
+  "title": "Security ruft an — lies deinen Code vor",
+  "edition": "workplace",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Identität",
+  "scenario": "Ein Anrufer, angeblich vom internen Sicherheitsteam, sagt, es gebe einen Vorfall mit deinem Konto, und bittet dich, den 6-stelligen Code vorzulesen, den du gerade per SMS bekommst, „um den Zugriff zu sperren“.",
+  "answers": {
+    "C": "Auflegen und den Code für niemanden vorlesen; das interne Sicherheitsteam über die bekannte interne Nummer selbst kontaktieren.",
+    "A": "Den Code vorlesen, um den Zugriff sperren zu lassen.",
+    "B": "Nur die ersten drei Ziffern des Codes vorlesen."
+  },
+  "scores": {
+    "C": 4,
+    "A": 0,
+    "B": 0
+  },
+  "safeActions": [
+    "C"
+  ],
+  "explanation": "Ein Code, der gerade per SMS ankommt, bestätigt eine Aktion an deinem Konto — ihn vorzulesen gibt dem Anrufer genau den Zugriff, den er angeblich sperren will.",
+  "proTip": "Ein gerade erhaltener Code wird nie am Telefon vorgelesen — auch nicht an „Security“.",
+  "hackKey": "K",
+  "hackTrigger": "Notbremse",
+  "tags": [
+    "workplace",
+    "k",
+    "identity",
+    "otp-phishing"
+  ],
+  "active": true
+}

@@ -1,0 +1,35 @@
+{
+  "id": "workplace-de-wrk-14",
+  "lang": "de",
+  "title": "IT will Fernzugriff",
+  "edition": "workplace",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "IT-Support",
+  "scenario": "Ein Anrufer, der sich als IT-Support ausgibt, bittet um Fernzugriff auf deinen Arbeitsrechner, um „ein dringendes Sicherheitsproblem“ zu beheben, das angeblich dein Konto betrifft.",
+  "answers": {
+    "C": "Auflegen und den IT-Service-Desk über die bekannte interne Nummer oder das Ticket-System selbst kontaktieren, statt spontanen Fernzugriff zu gewähren.",
+    "A": "Den Fernzugriff sofort gewähren, um das Sicherheitsproblem zu beheben.",
+    "B": "Nach der Ticketnummer fragen und dann Zugriff gewähren."
+  },
+  "scores": {
+    "C": 4,
+    "A": 0,
+    "B": 1
+  },
+  "safeActions": [
+    "C"
+  ],
+  "explanation": "Echter IT-Support meldet sich über bekannte, interne Kanäle und Ticket-Nummern — ein spontaner Anruf mit sofortiger Fernzugriffsanfrage ist eine bekannte Social-Engineering-Masche.",
+  "proTip": "Fernzugriff gewährst du nur über einen selbst eröffneten IT-Kontakt, nie auf spontanen Anruf.",
+  "hackKey": "A",
+  "hackTrigger": "Autorität",
+  "tags": [
+    "workplace",
+    "a",
+    "it-support",
+    "remote-access",
+    "diagnostic"
+  ],
+  "active": true
+}

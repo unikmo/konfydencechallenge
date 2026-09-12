@@ -1,0 +1,34 @@
+{
+  "id": "workplace-de-wrk-22",
+  "lang": "de",
+  "title": "„Betrugsprävention“ will eine Testzahlung",
+  "edition": "workplace",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Bank-Sicherheit",
+  "scenario": "Ein Anrufer, angeblich von der Betrugsprävention der Bank, bittet die Buchhaltung, eine kleine „Testzahlung“ an ein neues Konto zu senden, um „die Sicherheit des Kontos zu überprüfen“.",
+  "answers": {
+    "B": "Auflegen und die Bank über die offizielle Firmenkundennummer selbst kontaktieren; keine Testzahlung an ein vom Anrufer genanntes Konto senden.",
+    "A": "Die Testzahlung senden, um bei der Sicherheitsprüfung zu helfen.",
+    "C": "Nur einen sehr kleinen Betrag als Testzahlung senden."
+  },
+  "scores": {
+    "B": 4,
+    "A": 0,
+    "C": 0
+  },
+  "safeActions": [
+    "B"
+  ],
+  "explanation": "Eine „Testzahlung“ existiert bei echten Banküberweisungen nicht — jede bestätigte Überweisung ist eine echte, unwiderrufliche Zahlung.",
+  "proTip": "Eine „Testzahlung“ ist immer eine echte Zahlung.",
+  "hackKey": "A",
+  "hackTrigger": "Autorität",
+  "tags": [
+    "workplace",
+    "a",
+    "bank-security",
+    "payment-scam"
+  ],
+  "active": true
+}

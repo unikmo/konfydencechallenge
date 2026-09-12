@@ -1,0 +1,34 @@
+{
+  "id": "workplace-de-wrk-21",
+  "lang": "de",
+  "title": "Ein Vorstandsmitglied fragt nach der Gesellschafterliste",
+  "edition": "workplace",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Vorstandskommunikation",
+  "scenario": "Eine Mail, angeblich von einem Vorstandsmitglied, bittet dringend und vertraulich um die aktuelle Gesellschafterliste und Beteiligungsdetails, „für ein Gespräch mit einem Investor heute Nachmittag“.",
+  "answers": {
+    "C": "Die Anfrage direkt beim Vorstandsmitglied über eine bekannte, unabhängige Nummer bestätigen, bevor vertrauliche Gesellschafterdaten verschickt werden.",
+    "A": "Die Liste sofort schicken, weil die Anfrage von einem Vorstandsmitglied kommt.",
+    "B": "Nach dem Namen des Investors fragen und dann schicken."
+  },
+  "scores": {
+    "C": 4,
+    "A": 0,
+    "B": 1
+  },
+  "safeActions": [
+    "C"
+  ],
+  "explanation": "Vertrauliche Gesellschafterdaten werden nicht spontan per E-Mail unter Zeit- und Vertraulichkeitsdruck herausgegeben — ein kompromittiertes Vorstands-E-Mail-Konto sieht genauso aus wie das echte.",
+  "proTip": "„Vertraulich und dringend“ zusammen ist ein Grund für eine zusätzliche Rückfrage, nicht weniger.",
+  "hackKey": "A",
+  "hackTrigger": "Autorität",
+  "tags": [
+    "workplace",
+    "a",
+    "board-communications",
+    "business-email-compromise"
+  ],
+  "active": true
+}

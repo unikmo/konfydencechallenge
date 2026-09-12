@@ -1,0 +1,34 @@
+{
+  "id": "workplace-de-wrk-42",
+  "lang": "de",
+  "title": "Security fragt nach deinem API-Schlüssel",
+  "edition": "workplace",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Quellcode-Verwaltung",
+  "scenario": "Eine Chat-Nachricht, angeblich vom Sicherheitsteam, bittet dich, deinen persönlichen API-Schlüssel für das Quellcode-System zu „einer Sicherheitsüberprüfung“ direkt im Chat zu posten.",
+  "answers": {
+    "A": "Den API-Schlüssel niemals in einem Chat posten und die Anfrage über den offiziellen Sicherheitskanal verifizieren; ein Schlüssel wird bei Bedarf rotiert, nie im Chat geteilt.",
+    "B": "Den API-Schlüssel im Chat posten, um bei der Überprüfung zu helfen.",
+    "C": "Nur die Hälfte des Schlüssels im Chat posten."
+  },
+  "scores": {
+    "A": 4,
+    "B": 0,
+    "C": 0
+  },
+  "safeActions": [
+    "A"
+  ],
+  "explanation": "Ein echtes Sicherheitsteam braucht deinen Schlüssel nie im Klartext im Chat — bei einem echten Verdacht wird der Schlüssel rotiert, nicht abgefragt.",
+  "proTip": "Ein API-Schlüssel gehört nie in eine Chat-Nachricht.",
+  "hackKey": "K",
+  "hackTrigger": "Notbremse",
+  "tags": [
+    "workplace",
+    "k",
+    "source-control",
+    "credential-phishing"
+  ],
+  "active": true
+}

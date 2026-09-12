@@ -1,0 +1,34 @@
+{
+  "id": "workplace-de-wrk-35",
+  "lang": "de",
+  "title": "Ein Kunde antwortet mit einer „Diagnosedatei“",
+  "edition": "workplace",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Kundensupport",
+  "scenario": "Ein Kunde im Support-Ticket schickt eine „Diagnosedatei“ zur Fehleranalyse, die als Word-Dokument mit aktivierten Makros ankommt und beim Öffnen sofort Warnungen der Sicherheitssoftware auslöst.",
+  "answers": {
+    "B": "Die Datei nicht öffnen und den Kunden bitten, stattdessen einen Screenshot oder eine reine Textbeschreibung des Fehlers zu schicken.",
+    "A": "Die Datei trotz Warnung öffnen, um dem Kunden schnell zu helfen.",
+    "C": "Die Datei in einer isolierten Testumgebung öffnen."
+  },
+  "scores": {
+    "B": 4,
+    "A": 0,
+    "C": 1
+  },
+  "safeActions": [
+    "B"
+  ],
+  "explanation": "Eine Sicherheitswarnung beim Öffnen einer Kundendatei ist ein direktes Signal, nicht fortzufahren — ein Screenshot oder eine Textbeschreibung reicht für die meisten Support-Fälle.",
+  "proTip": "Eine Warnung der eigenen Sicherheitssoftware ist kein Hindernis, das man umgeht.",
+  "hackKey": "C",
+  "hackTrigger": "Vertrautheit",
+  "tags": [
+    "workplace",
+    "c",
+    "customer-support",
+    "malware"
+  ],
+  "active": true
+}

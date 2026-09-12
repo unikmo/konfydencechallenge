@@ -1,0 +1,34 @@
+{
+  "id": "workplace-de-wrk-24",
+  "lang": "de",
+  "title": "DSGVO-Auskunftsanfrage: schick alles zu dieser Person",
+  "edition": "workplace",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Datenschutz",
+  "scenario": "Eine E-Mail, angeblich eine Auskunftsanfrage nach Art. 15 DSGVO, verlangt sofort alle gespeicherten Daten zu einer bestimmten Person, ohne den üblichen internen Datenschutzprozess zu durchlaufen.",
+  "answers": {
+    "C": "Die Anfrage über den internen Datenschutzbeauftragten bearbeiten lassen — auch eine DSGVO-Anfrage läuft über den etablierten Prozess, nicht per direkter Sofortauskunft.",
+    "A": "Alle Daten sofort direkt an die anfragende Person schicken.",
+    "B": "Nur einen Teil der Daten sofort schicken."
+  },
+  "scores": {
+    "C": 4,
+    "A": 0,
+    "B": 0
+  },
+  "safeActions": [
+    "C"
+  ],
+  "explanation": "DSGVO-Auskunftsanfragen haben eine gesetzliche Frist von einem Monat, keine Sofortpflicht — und sie laufen über den Datenschutzbeauftragten, der auch die Identität der anfragenden Person prüft.",
+  "proTip": "Auch eine echte DSGVO-Anfrage läuft über den Datenschutzbeauftragten, nicht sofort direkt.",
+  "hackKey": "A",
+  "hackTrigger": "Autorität",
+  "tags": [
+    "workplace",
+    "a",
+    "legal",
+    "identity-phishing"
+  ],
+  "active": true
+}

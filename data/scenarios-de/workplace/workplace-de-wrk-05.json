@@ -1,0 +1,34 @@
+{
+  "id": "workplace-de-wrk-05",
+  "lang": "de",
+  "title": "DocuSign läuft um 17 Uhr ab",
+  "edition": "workplace",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "E-Signatur",
+  "scenario": "Eine Mail meldet, ein wichtiges Vertragsdokument in DocuSign laufe um 17 Uhr ab und müsse sofort über einen Link mit den eigenen Unternehmens-Zugangsdaten signiert werden.",
+  "answers": {
+    "B": "Den Link ignorieren und sich direkt über die offizielle DocuSign-Startseite oder die interne Vertragsverwaltung einloggen, um das Dokument zu finden.",
+    "A": "Über den Link sofort mit den Zugangsdaten signieren, um die Frist nicht zu verpassen.",
+    "C": "Den Link öffnen, aber nur den Dokumentnamen prüfen, ohne sich anzumelden."
+  },
+  "scores": {
+    "B": 4,
+    "A": 0,
+    "C": 1
+  },
+  "safeActions": [
+    "B"
+  ],
+  "explanation": "Echte E-Signatur-Anfragen zeigen sich auch im eigenen DocuSign-Konto direkt — ein externer Link mit Ablauf-Uhrzeit ist eine bekannte Phishing-Masche für Unternehmens-Logins.",
+  "proTip": "Ein Dokument, das signiert werden soll, findest du auch im eigenen Konto direkt.",
+  "hackKey": "H",
+  "hackTrigger": "Hetze",
+  "tags": [
+    "workplace",
+    "h",
+    "e-signature",
+    "credential-phishing"
+  ],
+  "active": true
+}

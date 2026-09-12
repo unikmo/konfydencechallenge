@@ -1,0 +1,34 @@
+{
+  "id": "workplace-de-wrk-47",
+  "lang": "de",
+  "title": "Facilities: erneuere hier deine Zugangskartendaten",
+  "edition": "workplace",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Zugang & Daten",
+  "scenario": "Eine Mail, angeblich von der Haustechnik/Facilities, verlangt, die Zugangskartendaten über ein externes Formular zu „erneuern“, da sonst die Karte am nächsten Morgen nicht mehr funktioniere.",
+  "answers": {
+    "C": "Das Formular ignorieren und die Zugangskarte direkt beim Empfang oder der internen Facilities-Abteilung persönlich prüfen lassen.",
+    "A": "Die Daten über das externe Formular erneuern.",
+    "B": "Nur einen Teil der Daten über das Formular erneuern."
+  },
+  "scores": {
+    "C": 4,
+    "A": 0,
+    "B": 0
+  },
+  "safeActions": [
+    "C"
+  ],
+  "explanation": "Physische Zugangskarten werden persönlich am Empfang oder Werksschutz verwaltet, nie über ein externes Online-Formular mit Datenabfrage.",
+  "proTip": "Zugangskarten verwaltest du persönlich vor Ort, nie über ein externes Formular.",
+  "hackKey": "K",
+  "hackTrigger": "Notbremse",
+  "tags": [
+    "workplace",
+    "k",
+    "access-data",
+    "phishing"
+  ],
+  "active": true
+}

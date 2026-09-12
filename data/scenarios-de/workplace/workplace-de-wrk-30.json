@@ -1,0 +1,34 @@
+{
+  "id": "workplace-de-wrk-30",
+  "lang": "de",
+  "title": "Der Kunde sagt: „Nutz heute meine private Gmail“",
+  "edition": "workplace",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Kundenbeziehungen",
+  "scenario": "Ein wichtiger Kunde schreibt, sein Firmen-E-Mail-Postfach funktioniere gerade nicht, und bittet, vertrauliche Vertragsunterlagen stattdessen an seine private Gmail-Adresse zu schicken.",
+  "answers": {
+    "C": "Vertrauliche Unterlagen nicht an eine private Adresse schicken, sondern anbieten, zu warten oder einen anderen offiziellen Kanal zu nutzen, und die Bitte telefonisch beim Kunden bestätigen.",
+    "A": "Die Unterlagen sofort an die private Gmail-Adresse schicken, um dem Kunden zu helfen.",
+    "B": "Nur einen Teil der Unterlagen an die private Adresse schicken."
+  },
+  "scores": {
+    "C": 4,
+    "A": 0,
+    "B": 0
+  },
+  "safeActions": [
+    "C"
+  ],
+  "explanation": "Eine plötzliche Bitte, vertrauliche Firmenunterlagen an eine private Adresse zu schicken, ist ein bekanntes Muster für ein kompromittiertes Kundenkonto — eine telefonische Bestätigung klärt es sicher.",
+  "proTip": "Vertrauliche Unterlagen bleiben auf offiziellen Kanälen, auch wenn der Kunde um eine Ausnahme bittet.",
+  "hackKey": "C",
+  "hackTrigger": "Vertrautheit",
+  "tags": [
+    "workplace",
+    "c",
+    "client-relationships",
+    "business-email-compromise"
+  ],
+  "active": true
+}

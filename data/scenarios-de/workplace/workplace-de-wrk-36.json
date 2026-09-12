@@ -1,0 +1,34 @@
+{
+  "id": "workplace-de-wrk-36",
+  "lang": "de",
+  "title": "Der Kunde sagt: „Nutz heute meine private Gmail“",
+  "edition": "workplace",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Kunden",
+  "scenario": "Ein Bestandskunde schreibt aus einer neuen, privaten E-Mail-Adresse, sein Geschäftskonto sei „gerade gesperrt“, und bittet, die aktuelle Bestellung samt Zahlungsdetails an diese neue Adresse zu schicken.",
+  "answers": {
+    "B": "Vertrauliche Bestell- und Zahlungsdetails nicht an die neue Adresse schicken, sondern die Bitte telefonisch beim bekannten Ansprechpartner des Kunden bestätigen.",
+    "A": "Die Bestellung sofort an die neue Adresse schicken, um den Kunden nicht zu verlieren.",
+    "C": "Nur einen Teil der Bestellung an die neue Adresse schicken."
+  },
+  "scores": {
+    "B": 4,
+    "A": 0,
+    "C": 0
+  },
+  "safeActions": [
+    "B"
+  ],
+  "explanation": "Eine neue Adresse mit der Begründung „gerade gesperrt“ ist ein bekanntes Muster für ein übernommenes Kundenkonto — ein Anruf beim bekannten Ansprechpartner klärt es sicher.",
+  "proTip": "Eine „gesperrte“ Adresse bestätigst du telefonisch, bevor du auf die neue reagierst.",
+  "hackKey": "C",
+  "hackTrigger": "Vertrautheit",
+  "tags": [
+    "workplace",
+    "c",
+    "client-relationships",
+    "account-takeover"
+  ],
+  "active": true
+}

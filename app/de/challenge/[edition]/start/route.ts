@@ -1,11 +1,11 @@
 import { NextRequest, NextResponse } from "next/server";
 import { handleChallengeStart } from "@/lib/challenge/startHandler";
 
-// Only editions with a seeded German scenario bank so far (Stage 4, in
-// progress) — see data/scenarios-de/README.md. The rest redirect back to
-// the German challenge landing with a "not yet" flag rather than silently
-// dropping the player into an English deck.
-const GERMAN_EDITIONS = new Set(["family", "school", "university", "travelsafe"]);
+// Stage 4 complete (2026-09-12): every edition now has a seeded German
+// scenario bank — see data/scenarios-de/README.md. Kept as an explicit
+// allow-list (not just "any valid edition") so a sixth edition added later
+// defaults to English-only until its German deck actually ships.
+const GERMAN_EDITIONS = new Set(["family", "school", "university", "travelsafe", "workplace"]);
 
 export async function GET(request: NextRequest, props: { params: Promise<{ edition: string }> }): Promise<NextResponse> {
   const params = await props.params;

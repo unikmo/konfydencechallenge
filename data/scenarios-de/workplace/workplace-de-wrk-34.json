@@ -1,0 +1,34 @@
+{
+  "id": "workplace-de-wrk-34",
+  "lang": "de",
+  "title": "Dein Kollege hat eine neue Nummer",
+  "edition": "workplace",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Kollegen",
+  "scenario": "Ein Kollege schreibt von einer neuen Handynummer auf WhatsApp und bittet dringend, ihm bei einer „vertraulichen Zahlungsangelegenheit“ für die Abteilung zu helfen, während er „gerade unterwegs“ ist.",
+  "answers": {
+    "A": "Ihn über die alte, im Firmenverzeichnis bekannte Nummer oder E-Mail-Adresse erreichen, bevor irgendetwas in einer „vertraulichen Zahlungsangelegenheit“ unternommen wird.",
+    "B": "Der Bitte auf der neuen Nummer sofort folgen, weil es wie der Kollege klingt.",
+    "C": "Im Team fragen, ob jemand die neue Nummer schon kennt."
+  },
+  "scores": {
+    "A": 4,
+    "B": 0,
+    "C": 2
+  },
+  "safeActions": [
+    "A"
+  ],
+  "explanation": "Eine neue, unbestätigte Nummer plus eine vertrauliche Zahlungsbitte ist eine klassische Chef-/Kollegen-Betrugsmasche — das Firmenverzeichnis kennt die echte, bekannte Nummer.",
+  "proTip": "Eine neue Nummer bestätigst du über die alte, bekannte — nie umgekehrt.",
+  "hackKey": "C",
+  "hackTrigger": "Vertrautheit",
+  "tags": [
+    "workplace",
+    "c",
+    "coworkers",
+    "impostor"
+  ],
+  "active": true
+}

@@ -13,6 +13,7 @@ export const EDITION_LABELS_DE: Record<string, string> = {
   school: "Schule-Edition",
   university: "Universität-Edition",
   travelsafe: "TravelSafe-Edition",
+  workplace: "Arbeitsplatz-Edition",
 };
 
 export function editionLabelFor(edition: string, lang: UiLang, fallback: string): string {

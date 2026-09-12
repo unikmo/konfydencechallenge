@@ -1,0 +1,34 @@
+{
+  "id": "workplace-de-wrk-10",
+  "lang": "de",
+  "title": "Die Führungskraft sitzt fest — sofort umbuchen",
+  "edition": "workplace",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Dienstreisen der Führungsebene",
+  "scenario": "Eine SMS, angeblich von der reisenden Geschäftsführung, meldet einen verpassten Anschlussflug und bittet, sofort über einen Link einen teuren Ersatzflug mit der Firmenkreditkarte zu buchen.",
+  "answers": {
+    "B": "Die Geschäftsführung über eine bekannte, unabhängige Nummer erreichen oder das Reisebüro des Unternehmens direkt kontaktieren, statt über den Link zu buchen.",
+    "A": "Über den Link sofort den Ersatzflug mit der Firmenkarte buchen.",
+    "C": "Nur die Flugdaten über den Link prüfen, ohne zu buchen."
+  },
+  "scores": {
+    "B": 4,
+    "A": 0,
+    "C": 1
+  },
+  "safeActions": [
+    "B"
+  ],
+  "explanation": "Eine echte gestrandete Führungskraft ruft das Reisebüro oder die Assistenz an — sie schickt keinen Buchungslink mit sofortiger Kartenzahlungsaufforderung per SMS.",
+  "proTip": "Firmenkarten-Buchungen laufen über das Reisebüro, nie über einen SMS-Link.",
+  "hackKey": "H",
+  "hackTrigger": "Hetze",
+  "tags": [
+    "workplace",
+    "h",
+    "executive-travel",
+    "smishing"
+  ],
+  "active": true
+}

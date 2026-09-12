@@ -1,0 +1,34 @@
+{
+  "id": "workplace-de-wrk-18",
+  "lang": "de",
+  "title": "„Microsoft-Admin“ braucht eine Zustimmungsfreigabe",
+  "edition": "workplace",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Cloud-Dienste",
+  "scenario": "Eine Mail, angeblich von Microsoft, bittet dich, einer App eine OAuth-„Zustimmungsfreigabe“ mit weitreichendem Zugriff auf dein Firmenkonto zu erteilen, um „ein Sicherheitsupdate abzuschließen“.",
+  "answers": {
+    "C": "Die Zustimmung verweigern und die IT-Abteilung über den internen Kanal fragen, ob eine solche App wirklich benötigt und freigegeben ist.",
+    "A": "Die Zustimmung sofort erteilen, um das Sicherheitsupdate abzuschließen.",
+    "B": "Die Zustimmung mit eingeschränkten Rechten erteilen."
+  },
+  "scores": {
+    "C": 4,
+    "A": 0,
+    "B": 1
+  },
+  "safeActions": [
+    "C"
+  ],
+  "explanation": "Echte Sicherheitsupdates verlangen keine OAuth-Zustimmung für eine Drittanbieter-App — das ist eine bekannte Methode, dauerhaften Zugriff auf Firmenkonten zu bekommen.",
+  "proTip": "Eine OAuth-Zustimmung für eine unbekannte App ist nie ein „Sicherheitsupdate“.",
+  "hackKey": "A",
+  "hackTrigger": "Autorität",
+  "tags": [
+    "workplace",
+    "a",
+    "cloud-services",
+    "oauth-phishing"
+  ],
+  "active": true
+}

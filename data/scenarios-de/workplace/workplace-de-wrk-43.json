@@ -1,0 +1,34 @@
+{
+  "id": "workplace-de-wrk-43",
+  "lang": "de",
+  "title": "Der Lieferant will dir „die Lösung zeigen“",
+  "edition": "workplace",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Bildschirmfreigabe",
+  "scenario": "Bei einem Support-Anruf mit einem Softwarelieferanten schlägt dieser vor, per Bildschirmfreigabe live mitzuschauen, „um den Fehler direkt zu beheben“ — dabei bittet er, kurz auch das interne Admin-Tool zu öffnen.",
+  "answers": {
+    "A": "Die Bildschirmfreigabe auf den konkreten Fehlerbereich begrenzen und das interne Admin-Tool nicht während der Freigabe öffnen; bei Zweifel den internen IT-Ansprechpartner hinzuziehen.",
+    "B": "Das Admin-Tool wie gewünscht während der Freigabe öffnen und zeigen.",
+    "C": "Das Admin-Tool kurz öffnen, aber ohne sich einzuloggen."
+  },
+  "scores": {
+    "A": 4,
+    "B": 0,
+    "C": 0
+  },
+  "safeActions": [
+    "A"
+  ],
+  "explanation": "Ein Software-Support-Fall rechtfertigt nicht automatisch den Blick eines Fremden ins interne Admin-Tool — Bildschirmfreigaben sollten immer auf das konkrete Problem begrenzt bleiben.",
+  "proTip": "Bildschirmfreigabe zeigt nur das Problem, nie das gesamte Admin-Tool.",
+  "hackKey": "K",
+  "hackTrigger": "Notbremse",
+  "tags": [
+    "workplace",
+    "k",
+    "screen-sharing",
+    "remote-access"
+  ],
+  "active": true
+}

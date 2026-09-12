@@ -1,0 +1,34 @@
+{
+  "id": "workplace-de-wrk-27",
+  "lang": "de",
+  "title": "Der vertraute Berater braucht OAuth-Zugriff",
+  "edition": "workplace",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Berater",
+  "scenario": "Ein externer Berater, mit dem das Unternehmen seit Jahren zusammenarbeitet, bittet um eine OAuth-Zustimmung mit weitreichendem Zugriff auf das Firmen-E-Mail-System, „um die Analyse zu automatisieren“.",
+  "answers": {
+    "A": "Nur den minimal nötigen, zeitlich begrenzten Zugriff über die IT-Abteilung einrichten lassen, statt eine weitreichende OAuth-Zustimmung direkt zu erteilen.",
+    "B": "Die weitreichende OAuth-Zustimmung direkt erteilen, weil der Berater seit Jahren vertrauenswürdig ist.",
+    "C": "Die Zustimmung erteilen, aber sie nach dem Projekt wieder entziehen."
+  },
+  "scores": {
+    "A": 4,
+    "B": 0,
+    "C": 1
+  },
+  "safeActions": [
+    "A"
+  ],
+  "explanation": "Langjähriges Vertrauen rechtfertigt keinen weitreichenderen Zugriff als nötig — ein Beraterkonto kann kompromittiert werden, und die IT-Abteilung kann einen sauber begrenzten Zugang einrichten.",
+  "proTip": "Vertrauen in eine Person ersetzt kein minimal-notwendiges Zugriffsrecht.",
+  "hackKey": "C",
+  "hackTrigger": "Vertrautheit",
+  "tags": [
+    "workplace",
+    "c",
+    "consultants",
+    "oauth-phishing"
+  ],
+  "active": true
+}

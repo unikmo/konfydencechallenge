@@ -1,0 +1,34 @@
+{
+  "id": "workplace-de-wrk-11",
+  "lang": "de",
+  "title": "Registriere dein neues MFA-Gerät, bevor du ausgesperrt wirst",
+  "edition": "workplace",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Identität",
+  "scenario": "Eine Mail im Namen der IT-Abteilung warnt, dass alle Mitarbeitenden ihr MFA-Gerät binnen einer Stunde über einen externen Link neu registrieren müssten, sonst würden sie „vom System ausgesperrt“.",
+  "answers": {
+    "B": "Das MFA-Gerät nur über die offizielle interne IT-Seite neu registrieren und die Frist beim IT-Service-Desk telefonisch überprüfen lassen.",
+    "A": "Das Gerät sofort über den externen Link registrieren, um nicht ausgesperrt zu werden.",
+    "C": "Nur die alte MFA-Methode über den Link bestätigen."
+  },
+  "scores": {
+    "B": 4,
+    "A": 0,
+    "C": 0
+  },
+  "safeActions": [
+    "B"
+  ],
+  "explanation": "Ein unternehmensweiter MFA-Reset mit Stundenfrist über einen externen Link ist ein bekanntes Massen-Phishing-Muster — die interne IT-Seite ist immer der sichere Weg.",
+  "proTip": "MFA-Geräte registrierst du nur über die interne IT-Seite.",
+  "hackKey": "H",
+  "hackTrigger": "Hetze",
+  "tags": [
+    "workplace",
+    "h",
+    "identity",
+    "mass-phishing"
+  ],
+  "active": true
+}

@@ -1,0 +1,34 @@
+{
+  "id": "workplace-de-wrk-19",
+  "lang": "de",
+  "title": "Eine Aufsichtsbehörde will heute Unterlagen",
+  "edition": "workplace",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Aufsichtsbehörden",
+  "scenario": "Eine Mail, angeblich von einer Aufsichtsbehörde, verlangt die sofortige Übermittlung interner Unterlagen „noch heute“ über eine externe Upload-Seite, sonst drohten „rechtliche Konsequenzen“.",
+  "answers": {
+    "B": "Die Anfrage über den internen Compliance- oder Rechtsverantwortlichen bestätigen lassen und Unterlagen nur über offizielle, bekannte Behördenkanäle übermitteln.",
+    "A": "Die Unterlagen sofort über die externe Upload-Seite übermitteln.",
+    "C": "Nur einen Teil der Unterlagen übermitteln."
+  },
+  "scores": {
+    "B": 4,
+    "A": 0,
+    "C": 0
+  },
+  "safeActions": [
+    "B"
+  ],
+  "explanation": "Echte Behördenanfragen laufen über offizielle, formale Kanäle mit angemessenen Fristen, nicht über eine externe Upload-Seite mit Tagesfrist und Drohung.",
+  "proTip": "Behörden drohen nicht per E-Mail mit sofortigen Konsequenzen.",
+  "hackKey": "A",
+  "hackTrigger": "Autorität",
+  "tags": [
+    "workplace",
+    "a",
+    "regulators",
+    "government-impostor"
+  ],
+  "active": true
+}

@@ -1,0 +1,34 @@
+{
+  "id": "workplace-de-wrk-28",
+  "lang": "de",
+  "title": "Der Partner verlegt das Geschäft auf WhatsApp",
+  "edition": "workplace",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Kommunikation",
+  "scenario": "Mitten in einer offiziellen Vertragsverhandlung per E-Mail schlägt der Geschäftspartner plötzlich vor, „der Einfachheit halber“ auf WhatsApp zu wechseln, um Zahlungsdetails zu besprechen.",
+  "answers": {
+    "A": "Beim offiziellen E-Mail-Kanal und den dokumentierten Prozessen bleiben; einen plötzlichen Wechsel zu einem privaten Messenger für Zahlungsdetails ablehnen oder hinterfragen.",
+    "B": "Auf WhatsApp wechseln, um es dem Partner einfacher zu machen.",
+    "C": "Auf WhatsApp wechseln, aber alle Nachrichten zusätzlich per E-Mail bestätigen lassen."
+  },
+  "scores": {
+    "A": 4,
+    "B": 0,
+    "C": 2
+  },
+  "safeActions": [
+    "A"
+  ],
+  "explanation": "Ein plötzlicher Kanalwechsel weg von dokumentierten, offiziellen Systemen — gerade bei Zahlungsdetails — ist ein bekanntes Muster, um Spuren zu verwischen oder ein übernommenes Konto zu nutzen.",
+  "proTip": "Zahlungsdetails bleiben auf dem offiziellen, dokumentierten Kanal.",
+  "hackKey": "C",
+  "hackTrigger": "Vertrautheit",
+  "tags": [
+    "workplace",
+    "c",
+    "messaging",
+    "channel-switch-scam"
+  ],
+  "active": true
+}

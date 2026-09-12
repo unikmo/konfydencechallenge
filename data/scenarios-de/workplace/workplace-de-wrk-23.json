@@ -1,0 +1,34 @@
+{
+  "id": "workplace-de-wrk-23",
+  "lang": "de",
+  "title": "Eine vertraute HR-Partnerin braucht Mitarbeiterdaten",
+  "edition": "workplace",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Personalbeziehungen",
+  "scenario": "Die HR-Partnerin, mit der du seit Jahren zusammenarbeitest, schreibt aus einer neuen, unbekannten E-Mail-Adresse und bittet dringend um eine Liste mit Gehalts- und Kontodaten von Mitarbeitenden.",
+  "answers": {
+    "B": "Sie über die bekannte, alte E-Mail-Adresse oder telefonisch fragen, warum sie von einer neuen Adresse schreibt, bevor sensible Daten geschickt werden.",
+    "A": "Die Daten sofort schicken, weil man die Person seit Jahren kennt.",
+    "C": "Nur einen Teil der Daten schicken."
+  },
+  "scores": {
+    "B": 4,
+    "A": 0,
+    "C": 0
+  },
+  "safeActions": [
+    "B"
+  ],
+  "explanation": "Eine neue, unbekannte Absenderadresse bei einer sonst vertrauten Person ist ein starkes Warnsignal — jahrelange Zusammenarbeit ersetzt keine Bestätigung über den bekannten Kanal.",
+  "proTip": "Eine neue Absenderadresse prüfst du über den alten, bekannten Kanal.",
+  "hackKey": "A",
+  "hackTrigger": "Autorität",
+  "tags": [
+    "workplace",
+    "a",
+    "hr-relationships",
+    "account-takeover"
+  ],
+  "active": true
+}

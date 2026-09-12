@@ -1,0 +1,34 @@
+{
+  "id": "workplace-de-wrk-39",
+  "lang": "de",
+  "title": "Der QR-Code in der Teeküche sagt „Benefits-Update“",
+  "edition": "workplace",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "QR-Phishing",
+  "scenario": "An der Pinnwand in der Teeküche hängt ein Zettel mit QR-Code: „Wichtiges Update zu euren Sozialleistungen — bitte scannen und Login bestätigen.“",
+  "answers": {
+    "A": "Den QR-Code nicht scannen und Informationen zu Sozialleistungen nur über das bekannte, offizielle HR-Portal suchen.",
+    "B": "Den Code scannen und den Login bestätigen, um informiert zu bleiben.",
+    "C": "Den Code scannen, aber ein anderes Passwort verwenden."
+  },
+  "scores": {
+    "A": 4,
+    "B": 0,
+    "C": 0
+  },
+  "safeActions": [
+    "A"
+  ],
+  "explanation": "Ein Zettel mit QR-Code an einer öffentlich zugänglichen Pinnwand kann von jedem aufgehängt werden — echte HR-Kommunikation läuft über bekannte, offizielle interne Kanäle.",
+  "proTip": "Ein Zettel an der Pinnwand ist keine offizielle HR-Kommunikation.",
+  "hackKey": "K",
+  "hackTrigger": "Notbremse",
+  "tags": [
+    "workplace",
+    "k",
+    "qr-phishing",
+    "quishing"
+  ],
+  "active": true
+}

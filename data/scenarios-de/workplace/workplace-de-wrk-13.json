@@ -1,0 +1,35 @@
+{
+  "id": "workplace-de-wrk-13",
+  "lang": "de",
+  "title": "Der Chef ist am Telefon. Irgendwie.",
+  "edition": "workplace",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Deepfake-Stimme",
+  "scenario": "Ein Anruf klingt täuschend echt wie die Stimme des Geschäftsführers und weist an, sofort eine Überweisung für eine „vertrauliche Übernahme“ auszulösen — die Stimme klingt zwar richtig, aber hastiger als sonst.",
+  "answers": {
+    "C": "Auflegen und die Anweisung über einen zweiten, unabhängigen Kanal (persönlich, bekannte Nummer, internes Chatsystem) beim Geschäftsführer selbst bestätigen, bevor irgendetwas überwiesen wird.",
+    "A": "Die Überweisung sofort auslösen, weil die Stimme eindeutig nach dem Geschäftsführer klingt.",
+    "B": "Nach Details zur Übernahme fragen, um die Geschichte zu prüfen."
+  },
+  "scores": {
+    "C": 4,
+    "A": 0,
+    "B": 1
+  },
+  "safeActions": [
+    "C"
+  ],
+  "explanation": "KI-Stimmenklone werden immer überzeugender — eine vertraute Stimme allein ist kein Beweis mehr. Ein zweiter, unabhängiger Kanal ist die einzige verlässliche Bestätigung bei ungewöhnlichen Zahlungen.",
+  "proTip": "Eine vertraute Stimme reicht bei einer ungewöhnlichen Zahlung nicht mehr als Beweis.",
+  "hackKey": "A",
+  "hackTrigger": "Autorität",
+  "tags": [
+    "workplace",
+    "a",
+    "deepfake-voice",
+    "voice-clone",
+    "diagnostic"
+  ],
+  "active": true
+}

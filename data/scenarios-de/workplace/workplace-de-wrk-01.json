@@ -1,0 +1,35 @@
+{
+  "id": "workplace-de-wrk-01",
+  "lang": "de",
+  "title": "Neue Bankverbindung vor Buchungsschluss",
+  "edition": "workplace",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Rechnungen",
+  "scenario": "Eine E-Mail im Namen eines bekannten Lieferanten meldet kurz vor dem monatlichen Buchungsschluss eine geänderte Bankverbindung für eine fällige Rechnung über 12.400 € und bittet, die Zahlung „noch heute“ auf das neue Konto anzuweisen.",
+  "answers": {
+    "A": "Die neue Kontoverbindung beim Lieferanten über eine unabhängig bekannte Telefonnummer bestätigen lassen, bevor die Zahlung angewiesen wird — unabhängig vom Buchungsschluss.",
+    "B": "Die Zahlung sofort auf das neue Konto anweisen, um den Buchungsschluss nicht zu verpassen.",
+    "C": "Nur einen Teilbetrag auf das neue Konto anweisen."
+  },
+  "scores": {
+    "A": 4,
+    "B": 0,
+    "C": 0
+  },
+  "safeActions": [
+    "A"
+  ],
+  "explanation": "Geänderte Bankverbindungen sind die häufigste Rechnungsbetrugsmasche (CEO-/Rechnungs-Fraud) — der Buchungsschluss-Zeitdruck soll genau die Rückfrage verhindern, die den Betrug entlarvt.",
+  "proTip": "Eine neue IBAN bestätigst du immer telefonisch, nie nur per Mail-Antwort.",
+  "hackKey": "H",
+  "hackTrigger": "Hetze",
+  "tags": [
+    "workplace",
+    "h",
+    "invoices",
+    "invoice-fraud",
+    "diagnostic"
+  ],
+  "active": true
+}

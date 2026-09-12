@@ -1,0 +1,35 @@
+{
+  "id": "workplace-de-wrk-02",
+  "lang": "de",
+  "title": "Die Lohnbuchhaltung schließt in 20 Minuten",
+  "edition": "workplace",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Lohnbuchhaltung",
+  "scenario": "Eine Mail im Namen der Personalabteilung sagt, das System für Gehaltsänderungen schließe in 20 Minuten für diesen Monat, und bittet, die eigene Bankverbindung „zur Sicherheit“ über einen Link zu bestätigen.",
+  "answers": {
+    "A": "Die Mail ignorieren und die eigene Bankverbindung nur direkt im offiziellen HR-Portal des Unternehmens prüfen oder ändern.",
+    "B": "Die Bankverbindung sofort über den Link bestätigen, um die Frist nicht zu verpassen.",
+    "C": "Bei der im Link genannten Nummer anrufen, um nachzufragen."
+  },
+  "scores": {
+    "A": 4,
+    "B": 0,
+    "C": 0
+  },
+  "safeActions": [
+    "A"
+  ],
+  "explanation": "Echte Lohnbuchhaltungssysteme laufen über das interne HR-Portal, nie über einen externen Link mit Minutenfrist — die Frist soll verhindern, dass du im Portal selbst nachsiehst.",
+  "proTip": "Bankdaten fürs Gehalt änderst du nur im echten HR-Portal.",
+  "hackKey": "H",
+  "hackTrigger": "Hetze",
+  "tags": [
+    "workplace",
+    "h",
+    "payroll",
+    "phishing",
+    "diagnostic"
+  ],
+  "active": true
+}

@@ -1,0 +1,34 @@
+{
+  "id": "workplace-de-wrk-40",
+  "lang": "de",
+  "title": "Diese Erweiterung repariert das kaputte Portal",
+  "edition": "workplace",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Browser-Erweiterungen",
+  "scenario": "Nach einem gemeldeten Problem mit dem internen Firmenportal empfiehlt ein Chat-Kanal eine Browser-Erweiterung, die das Problem „sofort behebt“ — sie verlangt weitreichenden Zugriff auf alle besuchten Seiten.",
+  "answers": {
+    "A": "Die Erweiterung nicht installieren und das Portalproblem stattdessen über den offiziellen IT-Support melden.",
+    "B": "Die Erweiterung installieren, um das Portal wieder nutzen zu können.",
+    "C": "Die Erweiterung installieren, aber die Berechtigungen danach einschränken."
+  },
+  "scores": {
+    "A": 4,
+    "B": 0,
+    "C": 1
+  },
+  "safeActions": [
+    "A"
+  ],
+  "explanation": "Eine Browser-Erweiterung mit Zugriff auf alle besuchten Seiten kann jedes Login und jede Sitzung mitlesen — ein Portalfehler wird über IT-Support behoben, nie über eine inoffizielle Erweiterung.",
+  "proTip": "Ein IT-Problem löst der IT-Support, keine inoffizielle Erweiterung.",
+  "hackKey": "K",
+  "hackTrigger": "Notbremse",
+  "tags": [
+    "workplace",
+    "k",
+    "browser-extensions",
+    "malware"
+  ],
+  "active": true
+}

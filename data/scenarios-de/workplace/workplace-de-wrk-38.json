@@ -1,0 +1,35 @@
+{
+  "id": "workplace-de-wrk-38",
+  "lang": "de",
+  "title": "Die Login-Seite ist echt; die App ist es nicht",
+  "edition": "workplace",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "OAuth",
+  "scenario": "Ein Link zu einer neuen Produktivitäts-App führt zur echten, offiziellen Microsoft-Login-Seite — nach der Anmeldung fragt aber eine unbekannte App nach weitreichender OAuth-Zustimmung für E-Mail und Dateien.",
+  "answers": {
+    "B": "Die Zustimmung für die unbekannte App verweigern, auch wenn die vorherige Login-Seite echt aussah, und die App bei der IT-Abteilung melden.",
+    "A": "Die Zustimmung erteilen, weil die Login-Seite davor eindeutig echt war.",
+    "C": "Die Zustimmung mit eingeschränkten Rechten erteilen."
+  },
+  "scores": {
+    "B": 4,
+    "A": 0,
+    "C": 1
+  },
+  "safeActions": [
+    "B"
+  ],
+  "explanation": "Eine echte Login-Seite garantiert nicht, dass die App danach vertrauenswürdig ist — genau dieser Zwei-Schritt-Trick nutzt das Vertrauen in die echte Microsoft-Seite aus.",
+  "proTip": "Eine echte Login-Seite macht die App danach nicht automatisch echt.",
+  "hackKey": "K",
+  "hackTrigger": "Notbremse",
+  "tags": [
+    "workplace",
+    "k",
+    "oauth",
+    "oauth-phishing",
+    "diagnostic"
+  ],
+  "active": true
+}
