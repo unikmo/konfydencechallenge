@@ -1,0 +1,35 @@
+{
+  "id": "travelsafe-de-tra-14",
+  "lang": "de",
+  "title": "„Grenzpolizei“ will eine mobile Geldbuße",
+  "edition": "travelsafe",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Grenze & Zoll",
+  "scenario": "Eine Person in Uniform am Grenzübergang behauptet, in deinem Gepäck sei etwas Verbotenes gefunden worden, und verlangt eine Geldbuße sofort per Karte an einem mobilen Kartenlesegerät, um „das Verfahren zu vermeiden“.",
+  "answers": {
+    "C": "Um einen schriftlichen, offiziellen Bußgeldbescheid mit Dienstnummer bitten und die zuständige Behörde über eine unabhängig gefundene Nummer bestätigen lassen, bevor gezahlt wird.",
+    "A": "Sofort per Karte am mobilen Gerät zahlen, um das Verfahren zu vermeiden.",
+    "B": "Nach dem Namen und der Dienststelle fragen und dann zahlen."
+  },
+  "scores": {
+    "C": 4,
+    "A": 0,
+    "B": 1
+  },
+  "safeActions": [
+    "C"
+  ],
+  "explanation": "Echte Grenzbehörden erheben Bußgelder über einen offiziellen, schriftlichen Bescheid, nicht über ein mobiles Kartenlesegerät direkt am Grenzübergang.",
+  "proTip": "Ein Bußgeld ohne schriftlichen Bescheid ist kein echtes Bußgeld.",
+  "hackKey": "A",
+  "hackTrigger": "Autorität",
+  "tags": [
+    "travelsafe",
+    "a",
+    "border-customs",
+    "government-impostor",
+    "diagnostic"
+  ],
+  "active": true
+}

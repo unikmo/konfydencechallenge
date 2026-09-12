@@ -1,0 +1,34 @@
+{
+  "id": "travelsafe-de-tra-24",
+  "lang": "de",
+  "title": "Touristenpolizei — nur Karte",
+  "edition": "travelsafe",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Grenze & Zoll",
+  "scenario": "In einer belebten Altstadt hält dich jemand mit „Touristenpolizei“-Schild an und behauptet, du hättest gegen eine lokale Vorschrift verstoßen — das Bußgeld sei „nur mit Karte an diesem tragbaren Gerät“ zu zahlen.",
+  "answers": {
+    "C": "Um einen offiziellen, schriftlichen Bescheid bitten und den Vorfall bei der nächsten echten Polizeiwache oder über die Botschaft prüfen lassen, statt am tragbaren Gerät zu zahlen.",
+    "A": "Sofort mit Karte am tragbaren Gerät zahlen, um die Sache zu erledigen.",
+    "B": "Nach dem Dienstausweis fragen und dann zahlen."
+  },
+  "scores": {
+    "C": 4,
+    "A": 0,
+    "B": 1
+  },
+  "safeActions": [
+    "C"
+  ],
+  "explanation": "„Nur mit Karte an diesem Gerät“ ist ein starkes Warnsignal — echte Behörden bieten immer einen offiziellen, überprüfbaren Zahlungsweg mit schriftlichem Beleg.",
+  "proTip": "Ein Bußgeld nur per Karte an einem tragbaren Gerät ist meist kein echtes Bußgeld.",
+  "hackKey": "A",
+  "hackTrigger": "Autorität",
+  "tags": [
+    "travelsafe",
+    "a",
+    "border-customs",
+    "government-impostor"
+  ],
+  "active": true
+}

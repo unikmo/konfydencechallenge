@@ -1,0 +1,34 @@
+{
+  "id": "travelsafe-de-tra-04",
+  "lang": "de",
+  "title": "Tippen, um die Fahrpreisnacherhebung zu vermeiden",
+  "edition": "travelsafe",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Nahverkehr",
+  "scenario": "Im ICE klebt an der Sitzlehne ein QR-Code mit dem Hinweis „Fahrschein hier bestätigen, sonst Nacherhebung von 60 €“. Der Code führt zu einer Seite, die Kartendaten verlangt.",
+  "answers": {
+    "C": "Den QR-Code ignorieren und stattdessen dem Zugbegleiter das echte, in der DB-Navigator-App gebuchte Ticket zeigen.",
+    "A": "Den Code scannen und die Kartendaten eingeben, um die Nacherhebung zu vermeiden.",
+    "B": "Den Code scannen, aber nur die Ticketnummer eingeben."
+  },
+  "scores": {
+    "C": 4,
+    "A": 0,
+    "B": 1
+  },
+  "safeActions": [
+    "C"
+  ],
+  "explanation": "Die Deutsche Bahn erhebt Nachzahlungen über den Zugbegleiter, nie über einen aufgeklebten QR-Code an der Sitzlehne. Das ist eine bekannte „Quishing“-Masche im Nahverkehr.",
+  "proTip": "Ein aufgeklebter QR-Code an der Sitzlehne ist nie die Deutsche Bahn.",
+  "hackKey": "H",
+  "hackTrigger": "Hetze",
+  "tags": [
+    "travelsafe",
+    "h",
+    "transit",
+    "quishing"
+  ],
+  "active": true
+}

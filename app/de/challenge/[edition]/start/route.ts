@@ -5,7 +5,7 @@ import { handleChallengeStart } from "@/lib/challenge/startHandler";
 // progress) — see data/scenarios-de/README.md. The rest redirect back to
 // the German challenge landing with a "not yet" flag rather than silently
 // dropping the player into an English deck.
-const GERMAN_EDITIONS = new Set(["family", "school", "university"]);
+const GERMAN_EDITIONS = new Set(["family", "school", "university", "travelsafe"]);
 
 export async function GET(request: NextRequest, props: { params: Promise<{ edition: string }> }): Promise<NextResponse> {
   const params = await props.params;

@@ -1,0 +1,34 @@
+{
+  "id": "travelsafe-de-tra-19",
+  "lang": "de",
+  "title": "Die Bank hat die „Verifizierung nicht bestanden“",
+  "edition": "travelsafe",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Reiseversicherung",
+  "scenario": "Bei der Bearbeitung eines Versicherungsschadens meldet eine Mail, deine Bank habe eine „Verifizierung nicht bestanden“, und bittet, dich über einen Link erneut im Online-Banking anzumelden.",
+  "answers": {
+    "C": "Den Link ignorieren und sich wie gewohnt direkt über die Banking-App einloggen, um zu prüfen, ob wirklich ein Problem vorliegt.",
+    "A": "Sich über den Link im Online-Banking anmelden, um die Verifizierung zu bestehen.",
+    "B": "Den Link öffnen, aber ein anderes Passwort verwenden."
+  },
+  "scores": {
+    "C": 4,
+    "A": 0,
+    "B": 0
+  },
+  "safeActions": [
+    "C"
+  ],
+  "explanation": "Eine Versicherung leitet dich nie zu einem externen Login für dein Online-Banking — das gehört nur in die eigene Banking-App.",
+  "proTip": "Online-Banking loggst du immer nur über die eigene App ein.",
+  "hackKey": "A",
+  "hackTrigger": "Autorität",
+  "tags": [
+    "travelsafe",
+    "a",
+    "travel-insurance",
+    "credential-phishing"
+  ],
+  "active": true
+}

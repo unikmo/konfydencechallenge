@@ -1,0 +1,36 @@
+{
+  "id": "travelsafe-de-tra-25",
+  "lang": "de",
+  "title": "Das Reisebüro braucht deinen Pass — noch einmal",
+  "edition": "travelsafe",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Reisebüro & Identität",
+  "scenario": "Ein Reisebüro, über das du schon öfter gebucht hast, bittet per Mail erneut um eine Passkopie „zur Aktualisierung der Unterlagen“, obwohl die Reise längst bestätigt und bezahlt ist.",
+  "answers": {
+    "B": "Beim Reisebüro persönlich oder telefonisch über die bekannte Nummer nachfragen, warum eine erneute Passkopie nötig sein soll, bevor du sie schickst.",
+    "A": "Die Passkopie sofort schicken, weil du dem Reisebüro schon oft vertraut hast.",
+    "C": "Nur eine teilweise geschwärzte Passkopie schicken."
+  },
+  "scores": {
+    "B": 4,
+    "A": 0,
+    "C": 3
+  },
+  "safeActions": [
+    "B",
+    "C"
+  ],
+  "explanation": "Frühere Zusammenarbeit ist kein Grund für eine unbegründete erneute Datenanfrage — ein E-Mail-Konto kann kompromittiert sein, auch bei einem bekannten Anbieter.",
+  "proTip": "Vertrauen aus der Vergangenheit rechtfertigt keine unbegründete neue Datenanfrage.",
+  "hackKey": "C",
+  "hackTrigger": "Vertrautheit",
+  "tags": [
+    "travelsafe",
+    "c",
+    "travel-agents-identity",
+    "account-takeover",
+    "diagnostic"
+  ],
+  "active": true
+}

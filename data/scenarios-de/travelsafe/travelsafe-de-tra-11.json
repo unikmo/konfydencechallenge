@@ -1,0 +1,34 @@
+{
+  "id": "travelsafe-de-tra-11",
+  "lang": "de",
+  "title": "ADAC-Rechnung sofort zahlen, sonst wird das Auto beschlagnahmt",
+  "edition": "travelsafe",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Pannenhilfe",
+  "scenario": "Nach einer Panne im Ausland ruft angeblich der ADAC an: Die Abschleppkosten müssten sofort per Kartendaten am Telefon beglichen werden, sonst werde das Fahrzeug „von der örtlichen Polizei beschlagnahmt“.",
+  "answers": {
+    "C": "Auflegen und den ADAC über die offizielle Nummer auf deiner Mitgliedskarte oder in der ADAC-App selbst kontaktieren.",
+    "A": "Die Kartendaten sofort am Telefon durchgeben, um die Beschlagnahmung zu vermeiden.",
+    "B": "Nach der Mitgliedsnummer fragen, um die Echtheit zu prüfen."
+  },
+  "scores": {
+    "C": 4,
+    "A": 0,
+    "B": 1
+  },
+  "safeActions": [
+    "C"
+  ],
+  "explanation": "Der ADAC zieht Kosten über die reguläre Abrechnung ein, nie per Drohung mit sofortiger Kartenzahlung am Telefon. Ein Rückruf über die bekannte Nummer klärt es sofort.",
+  "proTip": "Der ADAC droht nie mit sofortiger Beschlagnahmung am Telefon.",
+  "hackKey": "H",
+  "hackTrigger": "Hetze",
+  "tags": [
+    "travelsafe",
+    "h",
+    "car-rental",
+    "vishing"
+  ],
+  "active": true
+}

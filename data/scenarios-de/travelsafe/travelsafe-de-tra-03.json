@@ -1,0 +1,34 @@
+{
+  "id": "travelsafe-de-tra-03",
+  "lang": "de",
+  "title": "Dein Visum braucht „einen letzten Schritt“",
+  "edition": "travelsafe",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Visa & Einreise",
+  "scenario": "Kurz vor deinem Fernreise-Abflug kommt eine E-Mail: Dein Visum sei „fast fertig“, brauche aber „einen letzten Schritt“ — eine sofortige Zahlung über einen Link, sonst platze die Reise.",
+  "answers": {
+    "A": "Den Visumstatus ausschließlich über das offizielle Portal der Botschaft oder des Konsulats prüfen, statt über den Link zu zahlen.",
+    "B": "Über den Link sofort zahlen, um die Reise nicht zu gefährden.",
+    "C": "Bei der im Link genannten Nummer anrufen, um nachzufragen."
+  },
+  "scores": {
+    "A": 4,
+    "B": 0,
+    "C": 0
+  },
+  "safeActions": [
+    "A"
+  ],
+  "explanation": "Visumsgebühren werden ausschließlich über die offiziellen Kanäle von Botschaft oder Konsulat erhoben, nie über einen Last-Minute-Link kurz vor Abflug.",
+  "proTip": "Ein Visum wird nie in letzter Minute per Link „fertig“.",
+  "hackKey": "H",
+  "hackTrigger": "Hetze",
+  "tags": [
+    "travelsafe",
+    "h",
+    "visas-entry",
+    "phishing"
+  ],
+  "active": true
+}

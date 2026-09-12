@@ -1,0 +1,34 @@
+{
+  "id": "travelsafe-de-tra-06",
+  "lang": "de",
+  "title": "Dein Anschlussflug hat sich „gerade geändert“",
+  "edition": "travelsafe",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Flüge",
+  "scenario": "Eine SMS kurz vor dem Abflug meldet, dein Anschlussflug sei geändert worden, und verlangt eine sofortige Umbuchungsgebühr von 45 € über einen Link, sonst verfalle der Sitzplatz.",
+  "answers": {
+    "C": "Den Flugstatus direkt in der App der Airline oder am Check-in-Schalter prüfen, statt über den SMS-Link zu zahlen.",
+    "A": "Die Gebühr sofort über den Link zahlen, um den Sitzplatz zu behalten.",
+    "B": "Bei der Nummer aus der SMS zurückrufen."
+  },
+  "scores": {
+    "C": 4,
+    "A": 0,
+    "B": 0
+  },
+  "safeActions": [
+    "C"
+  ],
+  "explanation": "Airlines erheben Umbuchungsgebühren über ihre eigene App oder den Schalter, nie über einen SMS-Link mit Zeitdruck. Der echte Flugstatus steht immer in der App.",
+  "proTip": "Flugänderungen prüfst du in der App, nie über einen Link aus einer SMS.",
+  "hackKey": "H",
+  "hackTrigger": "Hetze",
+  "tags": [
+    "travelsafe",
+    "h",
+    "flights",
+    "smishing"
+  ],
+  "active": true
+}

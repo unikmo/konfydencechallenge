@@ -1,0 +1,34 @@
+{
+  "id": "travelsafe-de-tra-22",
+  "lang": "de",
+  "title": "Der Mann mit dem Flughafenausweis",
+  "edition": "travelsafe",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Bodenverkehr",
+  "scenario": "Direkt am Ausgang spricht dich jemand mit einem offiziell wirkenden Flughafenausweis an und bietet ein „offizielles“ Taxi zum Festpreis an, deutlich günstiger als der reguläre Taxistand.",
+  "answers": {
+    "C": "Nur an den offiziellen Taxistand oder eine geprüfte Taxi-App gehen; ein Ausweis am Ausgang beweist keine offizielle Taxi-Autorisierung.",
+    "A": "Mitgehen, weil der Ausweis offiziell wirkt und der Preis günstiger ist.",
+    "B": "Nach dem Preis fragen und dann trotzdem mitgehen."
+  },
+  "scores": {
+    "C": 4,
+    "A": 0,
+    "B": 0
+  },
+  "safeActions": [
+    "C"
+  ],
+  "explanation": "Ein Ausweis lässt sich leicht nachmachen oder gehört zu einer anderen Tätigkeit — echte, sichere Taxis erkennt man am offiziellen Stand oder der geprüften App, nicht an einer Ansprache am Ausgang.",
+  "proTip": "Ein Ausweis am Ausgang ist kein Taxischein.",
+  "hackKey": "A",
+  "hackTrigger": "Autorität",
+  "tags": [
+    "travelsafe",
+    "a",
+    "ground-transport",
+    "impostor"
+  ],
+  "active": true
+}

@@ -1,0 +1,35 @@
+{
+  "id": "travelsafe-de-tra-26",
+  "lang": "de",
+  "title": "Deine Schwester weint am Telefon",
+  "edition": "travelsafe",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Familie im Ausland",
+  "scenario": "Ein Anruf klingt wie deine Schwester, die gerade im Ausland unterwegs ist: Sie habe einen Unfall gehabt und brauche sofort 500 € per Überweisung an ein „Krankenhauskonto“, könne aber gerade „nicht lange reden“.",
+  "answers": {
+    "C": "Auflegen und deine Schwester über die gespeicherte Nummer oder einen Videoanruf direkt erreichen, bevor irgendetwas überwiesen wird.",
+    "A": "Sofort überweisen, weil die Stimme genau wie deine Schwester klingt.",
+    "B": "In der Familiengruppe fragen, ob schon jemand mit ihr gesprochen hat."
+  },
+  "scores": {
+    "C": 4,
+    "A": 0,
+    "B": 2
+  },
+  "safeActions": [
+    "C"
+  ],
+  "explanation": "KI-Stimmenklone werden immer überzeugender — „kann gerade nicht lange reden“ soll verhindern, dass du sie direkt erreichst. Ein Rückruf oder Videoanruf klärt es in Minuten.",
+  "proTip": "„Kann nicht lange reden“ ist der Moment, gerade einen Rückruf zu versuchen.",
+  "hackKey": "C",
+  "hackTrigger": "Vertrautheit",
+  "tags": [
+    "travelsafe",
+    "c",
+    "family-abroad",
+    "voice-clone",
+    "diagnostic"
+  ],
+  "active": true
+}

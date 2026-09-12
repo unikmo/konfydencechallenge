@@ -1,0 +1,34 @@
+{
+  "id": "travelsafe-de-tra-48",
+  "lang": "de",
+  "title": "Dein gestohlenes Handy: tippen, um den Standort zu sehen",
+  "edition": "travelsafe",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Gerätesicherheit",
+  "scenario": "Nach einem Handy-Diebstahl im Urlaub bekommst du eine SMS von einer unbekannten Nummer: „Wir haben dein Handy gefunden, tippe hier, um den Standort zu sehen“ — der Link verlangt deine Apple-/Google-ID-Zugangsdaten.",
+  "answers": {
+    "C": "Den Link nicht öffnen und den Standort ausschließlich über die offizielle „Mein Gerät suchen“-Funktion auf einem anderen eigenen Gerät prüfen.",
+    "A": "Über den Link die Apple-/Google-ID eingeben, um den Standort zu sehen.",
+    "B": "Den Link öffnen, aber ein anderes Passwort verwenden."
+  },
+  "scores": {
+    "C": 4,
+    "A": 0,
+    "B": 0
+  },
+  "safeActions": [
+    "C"
+  ],
+  "explanation": "Die echte Standortfunktion läuft ausschließlich über die offizielle App auf einem eigenen Gerät — ein SMS-Link, der nach der ID fragt, will das Konto übernehmen, nicht das Handy zurückgeben.",
+  "proTip": "Ein gestohlenes Handy suchst du in der eigenen offiziellen App, nie über einen fremden SMS-Link.",
+  "hackKey": "K",
+  "hackTrigger": "Notbremse",
+  "tags": [
+    "travelsafe",
+    "k",
+    "device-safety",
+    "credential-phishing"
+  ],
+  "active": true
+}

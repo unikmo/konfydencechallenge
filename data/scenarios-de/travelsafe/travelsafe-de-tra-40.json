@@ -1,0 +1,34 @@
+{
+  "id": "travelsafe-de-tra-40",
+  "lang": "de",
+  "title": "Das Terminal bietet einen „garantierten Wechselkurs“",
+  "edition": "travelsafe",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Zahlungen",
+  "scenario": "An einem Zahlungsterminal im Ausland erscheint die Frage, ob in Euro oder Landeswährung abgerechnet werden soll, mit dem Hinweis „Euro-Abrechnung garantiert den besten Kurs für Sie“.",
+  "answers": {
+    "B": "Immer in der Landeswährung zahlen lassen; die „garantierte“ Euro-Abrechnung des Terminals hat fast immer einen deutlich schlechteren Wechselkurs eingepreist.",
+    "A": "Die Euro-Abrechnung wählen, weil sie „garantiert“ den besten Kurs verspricht.",
+    "C": "Das Terminal fragen, welcher Kurs gilt, und dann Euro wählen."
+  },
+  "scores": {
+    "B": 4,
+    "A": 0,
+    "C": 0
+  },
+  "safeActions": [
+    "B"
+  ],
+  "explanation": "Diese „dynamische Währungsumrechnung“ am Terminal ist eine legale, aber schlechte Wahl — der eingepreiste Kurs ist fast immer teurer als der reguläre Kurs deiner eigenen Bank oder Karte.",
+  "proTip": "Zahl im Ausland immer in der Landeswährung, nie in der „garantierten“ Euro-Option.",
+  "hackKey": "K",
+  "hackTrigger": "Notbremse",
+  "tags": [
+    "travelsafe",
+    "k",
+    "payments",
+    "dynamic-currency-conversion"
+  ],
+  "active": true
+}

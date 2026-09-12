@@ -1,0 +1,34 @@
+{
+  "id": "travelsafe-de-tra-42",
+  "lang": "de",
+  "title": "Eine MFA-Anfrage kommt genau am Gate",
+  "edition": "travelsafe",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Konten",
+  "scenario": "Direkt am Gate, kurz vor dem Boarding, bekommst du eine unerwartete MFA-Bestätigungsanfrage für dein E-Mail-Konto, obwohl du selbst gerade nichts angefragt hast.",
+  "answers": {
+    "C": "Die Anfrage ablehnen, wenn du selbst nichts ausgelöst hast, und das Passwort sobald wie möglich ändern; eine unerwartete MFA-Anfrage bestätigt meist einen fremden Login-Versuch.",
+    "A": "Die Anfrage bestätigen, weil es schnell gehen muss und das Boarding beginnt.",
+    "B": "Die Anfrage ignorieren, aber später eine zweite Anfrage bestätigen."
+  },
+  "scores": {
+    "C": 4,
+    "A": 0,
+    "B": 0
+  },
+  "safeActions": [
+    "C"
+  ],
+  "explanation": "Der Zeitdruck vor dem Boarding ändert nichts daran, dass eine selbst nicht ausgelöste MFA-Anfrage fast immer einen Angreifer bestätigt, nicht dich selbst.",
+  "proTip": "Eine MFA-Anfrage, die du nicht ausgelöst hast, ist immer ein Nein — auch am Gate.",
+  "hackKey": "K",
+  "hackTrigger": "Notbremse",
+  "tags": [
+    "travelsafe",
+    "k",
+    "mfa",
+    "mfa-fatigue"
+  ],
+  "active": true
+}

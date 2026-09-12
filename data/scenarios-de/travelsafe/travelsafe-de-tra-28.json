@@ -1,0 +1,34 @@
+{
+  "id": "travelsafe-de-tra-28",
+  "lang": "de",
+  "title": "40 % Bonusmeilen — alle teilen es gerade",
+  "edition": "travelsafe",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Bonusmeilen",
+  "scenario": "Ein Link zu angeblich 40 % Bonusmeilen beim Vielfliegerprogramm verbreitet sich gerade in einer Reise-Facebook-Gruppe — er verlangt, sich mit dem Programm-Login auf einer externen Seite anzumelden.",
+  "answers": {
+    "B": "Den Link ignorieren und Bonusaktionen nur direkt in der offiziellen App oder Website des Vielfliegerprogramms prüfen.",
+    "A": "Sich über den externen Link anmelden, weil viele in der Gruppe es schon gemacht haben.",
+    "C": "Den Login auf der externen Seite mit einem anderen Passwort testen."
+  },
+  "scores": {
+    "B": 4,
+    "A": 0,
+    "C": 0
+  },
+  "safeActions": [
+    "B"
+  ],
+  "explanation": "Dass viele in einer Gruppe etwas geteilt haben, macht einen externen Login nicht sicherer — echte Bonusaktionen laufen immer über die offizielle App.",
+  "proTip": "Viele Mitmacher in einer Gruppe sind kein Sicherheitsbeweis.",
+  "hackKey": "C",
+  "hackTrigger": "Vertrautheit",
+  "tags": [
+    "travelsafe",
+    "c",
+    "loyalty-points",
+    "credential-phishing"
+  ],
+  "active": true
+}

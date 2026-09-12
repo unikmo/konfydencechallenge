@@ -1,0 +1,35 @@
+{
+  "id": "travelsafe-de-tra-13",
+  "lang": "de",
+  "title": "Deine 486-€-Erstattung ist bereit",
+  "edition": "travelsafe",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Flüge & Erstattungen",
+  "scenario": "Eine Mail im Namen deiner Fluggesellschaft meldet eine Ausgleichszahlung von 486 € für eine alte Verspätung und bittet, Kontodaten und eine Ausweiskopie über ein Formular „zur Auszahlung“ einzureichen.",
+  "answers": {
+    "A": "Die Erstattung direkt im eigenen Kundenkonto bei der Airline prüfen, statt über ein externes Formular Ausweis- und Kontodaten einzureichen.",
+    "B": "Die Daten über das Formular einreichen, um die Erstattung zu bekommen.",
+    "C": "Nur die Kontodaten einreichen, aber keine Ausweiskopie."
+  },
+  "scores": {
+    "A": 4,
+    "B": 0,
+    "C": 1
+  },
+  "safeActions": [
+    "A"
+  ],
+  "explanation": "Airlines zahlen Ausgleichsleistungen über das bestehende Kundenkonto aus — sie verlangen dafür nie eine zusätzliche Ausweiskopie über ein externes Formular.",
+  "proTip": "Eine Erstattung, die eine Ausweiskopie will, ist keine echte Erstattung.",
+  "hackKey": "A",
+  "hackTrigger": "Autorität",
+  "tags": [
+    "travelsafe",
+    "a",
+    "flights-refunds",
+    "identity-phishing",
+    "diagnostic"
+  ],
+  "active": true
+}

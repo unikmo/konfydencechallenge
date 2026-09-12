@@ -1,0 +1,34 @@
+{
+  "id": "travelsafe-de-tra-34",
+  "lang": "de",
+  "title": "Der Haustiersitter braucht den Alarmcode",
+  "edition": "travelsafe",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Zuhause während der Reise",
+  "scenario": "Während du im Urlaub bist, schreibt der Haustiersitter, das Alarmsystem piepe ständig, und bittet um den vollständigen Alarmcode per SMS, um es „auszuschalten“.",
+  "answers": {
+    "B": "Ihn anrufen, um das Problem genauer zu verstehen, und den vollständigen Code nur nennen, wenn er wirklich notwendig ist — besser: einen begrenzten Gastcode einrichten, statt den Hauptcode per SMS zu teilen.",
+    "A": "Den vollständigen Alarmcode sofort per SMS schicken.",
+    "C": "Den Code als Sprachnachricht statt als SMS schicken."
+  },
+  "scores": {
+    "B": 4,
+    "A": 0,
+    "C": 1
+  },
+  "safeActions": [
+    "B"
+  ],
+  "explanation": "Ein per SMS verschickter Code bleibt lesbar gespeichert. Ein begrenzter Gastcode für den Sitter schützt genauso gut, ohne den Hauptcode preiszugeben.",
+  "proTip": "Für einen Sitter reicht ein Gastcode — nie der Hauptcode per SMS.",
+  "hackKey": "C",
+  "hackTrigger": "Vertrautheit",
+  "tags": [
+    "travelsafe",
+    "c",
+    "home-while-away",
+    "physical-security"
+  ],
+  "active": true
+}

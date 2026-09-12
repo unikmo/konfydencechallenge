@@ -1,0 +1,34 @@
+{
+  "id": "travelsafe-de-tra-45",
+  "lang": "de",
+  "title": "Der Händler bittet, Apple Pay „zu verifizieren“",
+  "edition": "travelsafe",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Mobile Zahlungen",
+  "scenario": "An einem Marktstand im Ausland bittet der Verkäufer, statt einfach zu bezahlen, dein Handy zu entsperren und eine „Testzahlung“ über Apple Pay/Google Pay zu bestätigen, „um zu prüfen, ob es funktioniert“.",
+  "answers": {
+    "A": "Das Handy nicht entsperren oder eine „Testzahlung“ bestätigen; eine echte Zahlung ist immer die einzige Zahlung, eine „Testzahlung“ gibt es nicht.",
+    "B": "Das Handy entsperren und die Testzahlung bestätigen.",
+    "C": "Nur einen kleinen Betrag als Testzahlung bestätigen."
+  },
+  "scores": {
+    "A": 4,
+    "B": 0,
+    "C": 0
+  },
+  "safeActions": [
+    "A"
+  ],
+  "explanation": "Eine „Testzahlung“ vor der eigentlichen Zahlung existiert bei mobilen Bezahldiensten nicht — jede bestätigte Zahlung ist eine echte, abgebuchte Zahlung.",
+  "proTip": "Eine „Testzahlung“ ist immer eine echte Zahlung.",
+  "hackKey": "K",
+  "hackTrigger": "Notbremse",
+  "tags": [
+    "travelsafe",
+    "k",
+    "mobile-payments",
+    "payment-scam"
+  ],
+  "active": true
+}

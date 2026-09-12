@@ -1,0 +1,34 @@
+{
+  "id": "travelsafe-de-tra-15",
+  "lang": "de",
+  "title": "Die Rezeption ruft im Zimmer an",
+  "edition": "travelsafe",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Hotels",
+  "scenario": "Ein Anruf im Hotelzimmer, angeblich von der Rezeption, meldet ein Problem mit der Kreditkarte und bittet, die Kartennummer am Telefon erneut durchzugeben, um die Buchung „zu bestätigen“.",
+  "answers": {
+    "B": "Auflegen und persönlich zur Rezeption gehen, um das angebliche Problem zu klären, statt Kartendaten am Telefon durchzugeben.",
+    "A": "Die Kartennummer am Telefon erneut durchgeben.",
+    "C": "Nur die letzten vier Ziffern der Karte durchgeben."
+  },
+  "scores": {
+    "B": 4,
+    "A": 0,
+    "C": 0
+  },
+  "safeActions": [
+    "B"
+  ],
+  "explanation": "Zimmertelefon-Anrufe lassen sich leicht als „Rezeption“ tarnen. Die echte Rezeption ist nur einen kurzen Gang entfernt und braucht deine Kartennummer nie am Telefon.",
+  "proTip": "Ein Weg zur echten Rezeption ist immer kürzer als ein Betrugsanruf lang.",
+  "hackKey": "A",
+  "hackTrigger": "Autorität",
+  "tags": [
+    "travelsafe",
+    "a",
+    "hotels",
+    "vishing"
+  ],
+  "active": true
+}

@@ -1,0 +1,34 @@
+{
+  "id": "travelsafe-de-tra-08",
+  "lang": "de",
+  "title": "Das Schiff legt ab. Der Link läuft ab.",
+  "edition": "travelsafe",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Kreuzfahrt & Ausflüge",
+  "scenario": "Kurz vor dem Ablegen bewirbt ein Stand am Hafen einen „letzten Platz“ für einen Landausflug — Buchung nur über einen privaten Zahlungslink, „bevor das Schiff ablegt“.",
+  "answers": {
+    "B": "Landausflüge nur über die offizielle Buchungsstelle des Reiseveranstalters oder an Bord buchen, nicht über einen privaten Link am Hafen.",
+    "A": "Über den privaten Link sofort buchen und zahlen.",
+    "C": "Nur eine Anzahlung über den Link leisten."
+  },
+  "scores": {
+    "B": 4,
+    "A": 0,
+    "C": 0
+  },
+  "safeActions": [
+    "B"
+  ],
+  "explanation": "Ein „letzter Platz“ unter Zeitdruck am Hafen soll verhindern, dass du die offizielle, geprüfte Buchungsstelle des Reiseveranstalters nutzt.",
+  "proTip": "Landausflüge bucht man an Bord oder offiziell — nie am Hafenstand unter Zeitdruck.",
+  "hackKey": "H",
+  "hackTrigger": "Hetze",
+  "tags": [
+    "travelsafe",
+    "h",
+    "cruise-excursions",
+    "payment-scam"
+  ],
+  "active": true
+}

@@ -1,0 +1,34 @@
+{
+  "id": "travelsafe-de-tra-35",
+  "lang": "de",
+  "title": "Ein Ortsansässiger bietet an, Geld zu wechseln",
+  "edition": "travelsafe",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Geldwechsel",
+  "scenario": "Auf dem Markt bietet dir eine freundliche, ortskundig wirkende Person an, deine Euro „zum besten Kurs der Stadt“ in bar zu wechseln, statt zur offiziellen Wechselstube zu gehen.",
+  "answers": {
+    "A": "Nur bei einer offiziellen Wechselstube oder Bank wechseln, auch wenn der inoffizielle Kurs besser klingt.",
+    "B": "Bei der Person auf dem Markt wechseln, weil sie freundlich und ortskundig wirkt.",
+    "C": "Nur einen kleinen Betrag bei der Person testweise wechseln."
+  },
+  "scores": {
+    "A": 4,
+    "B": 0,
+    "C": 0
+  },
+  "safeActions": [
+    "A"
+  ],
+  "explanation": "Freundlichkeit und Ortskenntnis sind kein Sicherheitsnachweis — inoffizielle Geldwechsler nutzen oft Falschgeld oder Ablenkungstricks beim Zählen.",
+  "proTip": "Der beste Kurs auf der Straße kostet meist mehr, nicht weniger.",
+  "hackKey": "C",
+  "hackTrigger": "Vertrautheit",
+  "tags": [
+    "travelsafe",
+    "c",
+    "currency-exchange",
+    "street-scam"
+  ],
+  "active": true
+}

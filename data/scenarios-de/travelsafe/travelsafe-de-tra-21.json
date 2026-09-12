@@ -1,0 +1,34 @@
+{
+  "id": "travelsafe-de-tra-21",
+  "lang": "de",
+  "title": "„Flughafen-WLAN“ will dein E-Mail-Passwort",
+  "edition": "travelsafe",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Öffentliches WLAN",
+  "scenario": "Das WLAN-Login am Flughafen verlangt statt der üblichen Zustimmung zu den Nutzungsbedingungen eine Anmeldung mit deinem vollen E-Mail-Passwort, um „personalisierte Angebote“ zu erhalten.",
+  "answers": {
+    "A": "Die Anmeldung mit dem E-Mail-Passwort verweigern; ein legitimes Gäste-WLAN braucht nie dein echtes E-Mail-Passwort.",
+    "B": "Sich mit dem E-Mail-Passwort anmelden, um WLAN zu bekommen.",
+    "C": "Ein leicht abgewandeltes Passwort verwenden."
+  },
+  "scores": {
+    "A": 4,
+    "B": 0,
+    "C": 0
+  },
+  "safeActions": [
+    "A"
+  ],
+  "explanation": "Ein Gäste-WLAN braucht höchstens eine E-Mail-Adresse zur Bestätigung, nie dein echtes Passwort — das ist eine Methode, Zugangsdaten zu sammeln.",
+  "proTip": "WLAN-Zugang braucht nie dein echtes E-Mail-Passwort.",
+  "hackKey": "A",
+  "hackTrigger": "Autorität",
+  "tags": [
+    "travelsafe",
+    "a",
+    "public-wifi",
+    "credential-phishing"
+  ],
+  "active": true
+}

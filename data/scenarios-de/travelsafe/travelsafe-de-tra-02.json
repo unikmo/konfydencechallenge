@@ -1,0 +1,35 @@
+{
+  "id": "travelsafe-de-tra-02",
+  "lang": "de",
+  "title": "Die letzte Ferienwohnung auf Mallorca — angeblich",
+  "edition": "travelsafe",
+  "cardType": "scenario",
+  "scored": true,
+  "category": "Unterkunft",
+  "scenario": "Auf einem Ferienwohnungsportal meldet sich eine Vermieterin für eine günstige Wohnung nahe dem Ballermann: „Letzte verfügbare Woche, aber nur wenn du in den nächsten Minuten per Vorkasse-Überweisung buchst.“",
+  "answers": {
+    "A": "Nur über die Zahlungsfunktion der Buchungsplattform selbst bezahlen und keine Vorkasse per Überweisung an eine Privatperson leisten.",
+    "B": "Sofort per Überweisung an die Vermieterin zahlen, um die Wohnung zu sichern.",
+    "C": "Nur eine kleine Anzahlung per Überweisung leisten."
+  },
+  "scores": {
+    "A": 4,
+    "B": 0,
+    "C": 0
+  },
+  "safeActions": [
+    "A"
+  ],
+  "explanation": "Vorkasse per Überweisung außerhalb der Plattform ist die häufigste Ferienwohnungs-Betrugsmasche — die Plattform-eigene Zahlung schützt dich, eine private Überweisung nicht.",
+  "proTip": "Bezahl nie außerhalb der Plattform, auf der du gebucht hast.",
+  "hackKey": "H",
+  "hackTrigger": "Hetze",
+  "tags": [
+    "travelsafe",
+    "h",
+    "accommodation",
+    "rental-scam",
+    "diagnostic"
+  ],
+  "active": true
+}
