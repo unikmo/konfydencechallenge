@@ -10,7 +10,17 @@ export function DownloadCertificateButton({ label }: { label: string }) {
   );
 }
 
-export function ShareCertificateButton({ certificateUrl, shareText }: { certificateUrl: string; shareText: string }) {
+export function ShareCertificateButton({
+  certificateUrl,
+  shareText,
+  buttonLabel = "Share Certificate",
+  copiedAlert = "Certificate link copied to clipboard.",
+}: {
+  certificateUrl: string;
+  shareText: string;
+  buttonLabel?: string;
+  copiedAlert?: string;
+}) {
   const handleShare = async () => {
     if (typeof navigator !== "undefined" && "share" in navigator) {
       try {
@@ -22,13 +32,13 @@ export function ShareCertificateButton({ certificateUrl, shareText }: { certific
     }
     if (typeof navigator !== "undefined" && navigator.clipboard) {
       await navigator.clipboard.writeText(certificateUrl);
-      window.alert("Certificate link copied to clipboard.");
+      window.alert(copiedAlert);
     }
   };
 
   return (
     <button type="button" onClick={handleShare} style={styles.buttonOutline}>
-      Share Certificate
+      {buttonLabel}
     </button>
   );
 }
