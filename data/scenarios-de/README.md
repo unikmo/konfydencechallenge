@@ -60,13 +60,24 @@ must filter by `lang` explicitly — several did not by default and had to be
 fixed when the German banks were seeded (see `lib/backendHealth.ts`,
 `lib/play/room.ts`).
 
+**The full completion flow is now bilingual** (2026-09-12): session play,
+results, certificate, and per-question feedback all render in German for a
+German session — see `lib/challenge/uiStrings.ts` (session play) and
+`lib/challenge/resultStrings.ts` (results/certificate/feedback/the
+free-diagnostic email gate). Both translate the fixed vocabulary
+`lib/scoring/scoringEngine.ts` generates in English (KRS level names,
+H.A.C.K. signal labels, per-dimension coaching insight/practice) via a
+lookup keyed by the English value, so the shared, edition-agnostic scoring
+engine itself never needs to know about locale.
+
 **Stage 4 still open (content complete, infra/business decisions remain):**
-full German UI chrome for results/certificate/feedback screens (only the
-session play screen is bilingual — see
-`app/challenge/session/[sessionId]/page.tsx` and
-`lib/challenge/uiStrings.ts`); the gift flow stays USD-only (inline Stripe
-`price_data`, not a catalogue Price, so it has no `currency_options`); a
-lawyer's review of the AGB Widerrufsrecht section before real German
-consumer sales (see `app/de/agb/page.tsx`); German marketing/SEO pages
-beyond the core funnel (home, challenge, pricing, legal) were explicitly
-out of scope per Tichi's "focused funnel" decision.
+the actual **results email** (`lib/challenge/resultsEmail.ts`,
+`sendChallengeResultEmail`) sent after a full challenge completes is still
+English-only — a 228-line HTML template, not yet localized; the gift flow
+stays USD-only (inline Stripe `price_data`, not a catalogue Price, so it
+has no `currency_options`); a lawyer's review of the AGB Widerrufsrecht
+section before real German consumer sales (see `app/de/agb/page.tsx`);
+German marketing/SEO pages beyond the core funnel (home, challenge,
+pricing, legal) were explicitly out of scope per Tichi's "focused funnel"
+decision; `/account`'s results dashboard (`ResultsHistory.tsx`) also stays
+English chrome, out of scope the same way.

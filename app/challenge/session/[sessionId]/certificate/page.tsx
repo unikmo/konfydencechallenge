@@ -5,6 +5,8 @@ import { headers } from "next/headers";
 import { prisma } from "@/lib/prisma";
 import { computeChallengeTotals } from "@/lib/scoring/scoringEngine";
 import { DownloadCertificateButton, ShareCertificateButton } from "./CertificateActions";
+import type { UiLang } from "@/lib/challenge/uiStrings";
+import { CERTIFICATE_STRINGS, EDITION_DECK_NAME_DE, localizeLevel, downloadButtonLabel } from "@/lib/challenge/resultStrings";
 
 const EDITION_DECK_NAME: Record<string, string> = {
   school: "School",
@@ -20,16 +22,6 @@ const EDITION_ID_ABBR: Record<string, string> = {
   family: "FAMILY",
   travelsafe: "TRAVEL",
   workplace: "WORK",
-};
-
-// Spec §9: exact edition-specific download button copy. Family/TravelSafe aren't
-// specified there — default to the generic label for those two.
-const DOWNLOAD_BUTTON_LABEL: Record<string, string> = {
-  school: "Download Completion Certificate",
-  university: "Download Completion Certificate",
-  workplace: "Download Compliance Certificate",
-  family: "Download Certificate",
-  travelsafe: "Download Certificate",
 };
 
 function certificateIdFor(sessionId: string, edition: string, year: number): string {
@@ -53,8 +45,17 @@ export default async function CertificatePage(props: { params: Promise<{ session
   if (!session) notFound();
 
   const totalCards = await prisma.challengeSessionCard.count({ where: { sessionId } });
+  // A session's language is whatever its own scenario rows were seeded in —
+  // see lib/challenge/sessionGenerator.ts and lib/challenge/uiStrings.ts.
+  const firstCard = await prisma.challengeSessionCard.findFirst({
+    where: { sessionId },
+    select: { scenario: { select: { lang: true } } },
+  });
+  const lang: UiLang = firstCard?.scenario.lang === "de" ? "de" : "en";
+  const t = CERTIFICATE_STRINGS[lang];
 
   const totals = computeChallengeTotals({ scoreTotal: session.scoreTotal, scoreMax: session.scoreMax });
+  const level = localizeLevel(totals.level, lang);
 
   // Certificates are completion-based, not score-gated (spec §9 / HANDOFF.md §2.5).
   const certificateEligible = session.currentIndex >= totalCards;
@@ -64,10 +65,10 @@ export default async function CertificatePage(props: { params: Promise<{ session
       <div style={styles.page}>
         <div style={styles.shell}>
           <div style={styles.card}>
-            <h2 style={{ marginTop: 0 }}>Certificate locked</h2>
-            <p style={styles.p}>Complete the full challenge to unlock your certificate.</p>
+            <h2 style={{ marginTop: 0 }}>{t.lockedHeading}</h2>
+            <p style={styles.p}>{t.lockedBody}</p>
             <Link style={styles.secondary} href={`/challenge/session/${sessionId}/results`}>
-              Back to results
+              {t.backToResults}
             </Link>
           </div>
         </div>
@@ -76,10 +77,10 @@ export default async function CertificatePage(props: { params: Promise<{ session
   }
 
   const completedAt = session.completedAt ?? new Date();
-  const completionDate = completedAt.toLocaleDateString("en-GB", { day: "2-digit", month: "short", year: "numeric" });
+  const completionDate = completedAt.toLocaleDateString(t.dateLocale, { day: "2-digit", month: "short", year: "numeric" });
   const certificateId = certificateIdFor(sessionId, session.edition, completedAt.getFullYear());
-  const deckName = EDITION_DECK_NAME[session.edition] ?? session.edition;
-  const downloadLabel = DOWNLOAD_BUTTON_LABEL[session.edition] ?? "Download Certificate";
+  const deckName = (lang === "de" ? EDITION_DECK_NAME_DE : EDITION_DECK_NAME)[session.edition] ?? session.edition;
+  const downloadLabel = downloadButtonLabel(session.edition, lang);
 
   const host = (await headers()).get("host") ?? "localhost";
   const protocol = host.startsWith("localhost") || host.startsWith("127.0.0.1") ? "http" : "https";
@@ -87,40 +88,39 @@ export default async function CertificatePage(props: { params: Promise<{ session
   const linkedInShareUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(certificateUrl)}`;
 
   // Placeholder participant name — real auth/accounts not built yet (HANDOFF.md §4.5).
-  const participantName = "Challenge Participant";
+  const participantName = t.participantName;
 
   return (
     <div style={styles.page}>
       <div style={styles.shell}>
         <div style={styles.card} id="certificate-print-area">
           <div style={styles.header}>
-            <div style={styles.title}>Konfydence Readiness Certified</div>
-            <div style={styles.sub}>{deckName} Challenge</div>
+            <div style={styles.title}>{t.title}</div>
+            <div style={styles.sub}>{t.deckSuffix(deckName)}</div>
           </div>
 
           <div style={styles.body}>
             <div style={styles.line}>
-              Name: <strong>{participantName}</strong>
+              {t.nameLabel} <strong>{participantName}</strong>
             </div>
             <div style={styles.line}>
-              Deck: <strong>{deckName} Challenge</strong>
+              {t.deckLabel} <strong>{t.deckSuffix(deckName)}</strong>
             </div>
             <div style={styles.line}>
-              Score: <strong>{totals.totalScoreTotal} / {totals.totalScoreMax}</strong>
+              {t.scoreLabel} <strong>{totals.totalScoreTotal} / {totals.totalScoreMax}</strong>
             </div>
             <div style={styles.line}>
-              KRS band: <strong>{totals.level}</strong>
+              {t.bandLabel} <strong>{level}</strong>
             </div>
             <div style={styles.line}>
-              Date: <strong>{completionDate}</strong>
+              {t.dateLabel} <strong>{completionDate}</strong>
             </div>
             <div style={styles.line}>
-              Certificate ID: <strong>{certificateId}</strong>
+              {t.idLabel} <strong>{certificateId}</strong>
             </div>
 
             <div style={styles.disclaimer}>
-              &ldquo;This certifies that {participantName} completed the {deckName} Challenge and demonstrated
-              practical scam-readiness skills under real-life pressure scenarios.&rdquo;
+              {t.disclaimer(participantName, deckName)}
             </div>
           </div>
 
@@ -128,13 +128,15 @@ export default async function CertificatePage(props: { params: Promise<{ session
             <DownloadCertificateButton label={downloadLabel} />
             <ShareCertificateButton
               certificateUrl={certificateUrl}
-              shareText={`I just completed the Konfydence ${deckName} Challenge — ${totals.totalScoreTotal}/${totals.totalScoreMax}, ${totals.level}.`}
+              shareText={t.shareText(deckName, totals.totalScoreTotal, totals.totalScoreMax, level)}
+              buttonLabel={t.shareButton}
+              copiedAlert={t.copiedAlert}
             />
             <a href={linkedInShareUrl} target="_blank" rel="noopener noreferrer" style={styles.secondary}>
-              Add to LinkedIn
+              {t.addToLinkedIn}
             </a>
             <Link style={styles.secondary} href={`/challenge/session/${sessionId}/results`}>
-              Back to results
+              {t.backToResults}
             </Link>
           </div>
         </div>

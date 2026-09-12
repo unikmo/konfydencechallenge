@@ -1,4 +1,6 @@
 import Link from "next/link";
+import type { UiLang } from "@/lib/challenge/uiStrings";
+import { EMAIL_GATE_STRINGS, EDITION_DECK_NAME_DE } from "@/lib/challenge/resultStrings";
 
 const EDITION_LABEL: Record<string, string> = {
   school: "School",
@@ -6,13 +8,6 @@ const EDITION_LABEL: Record<string, string> = {
   family: "Family",
   travelsafe: "TravelSafe",
   workplace: "Workplace",
-};
-
-const CLAIM_MESSAGES: Record<string, string> = {
-  invalid: "Enter a valid email and tick the box to continue.",
-  used: "That email is already linked to another Konfydence account. Use a different address, or sign in first.",
-  changed: "This result is already tied to a different email.",
-  nosession: "We couldn't match this result to your device. Try opening the results link from the same browser you played in.",
 };
 
 /**
@@ -24,39 +19,39 @@ export function ResultEmailGate({
   sessionId,
   edition,
   claim,
+  lang = "en",
 }: {
   sessionId: string;
   edition: string;
   claim?: string;
+  lang?: UiLang;
 }) {
-  const label = EDITION_LABEL[edition] ?? edition;
-  const message = claim ? CLAIM_MESSAGES[claim] : null;
+  const t = EMAIL_GATE_STRINGS[lang];
+  const label = (lang === "de" ? EDITION_DECK_NAME_DE : EDITION_LABEL)[edition] ?? edition;
+  const message = claim ? t.claimMessages[claim] : null;
 
   return (
     <main className="kg-state">
       <section className="kg-state-card">
-        <Link className="kf-back" href="/challenge">← Challenges</Link>
-        <p className="k-kicker" style={{ marginTop: 22 }}>Your {label} result is ready</p>
-        <h1>Where should we send it?</h1>
-        <p>
-          Your Readiness Score and full H.A.C.K. profile land in your inbox — and your Konfydence account keeps
-          them for you on any device. No password.
-        </p>
+        <Link className="kf-back" href="/challenge">{t.backToChallenges}</Link>
+        <p className="k-kicker" style={{ marginTop: 22 }}>{t.readyHeading(label)}</p>
+        <h1>{t.h1}</h1>
+        <p>{t.body}</p>
         {message ? <p className="kf-error" role="alert">{message}</p> : null}
         <form method="post" action={`/api/challenge/session/${sessionId}/claim`} className="kf-form">
-          <label htmlFor="email">Email address</label>
+          <label htmlFor="email">{t.emailLabel}</label>
           <input id="email" name="email" type="email" autoComplete="email" required placeholder="you@example.com" />
           <label className="kf-consent">
             <input type="checkbox" name="consent" value="yes" required />
-            <span>Email me my result and occasional Konfydence updates. Unsubscribe anytime.</span>
+            <span>{t.consentText}</span>
           </label>
-          <button type="submit" className="k-button">Send my result</button>
+          <button type="submit" className="k-button">{t.submit}</button>
         </form>
         <p className="kf-legal">
-          Already have an account? <Link href={`/account/sign-in?next=${encodeURIComponent(`/challenge/session/${sessionId}/results`)}`}>Sign in</Link> to see it.
+          {t.alreadyHaveAccount} <Link href={`/account/sign-in?next=${encodeURIComponent(`/challenge/session/${sessionId}/results`)}`}>{t.signIn}</Link> {t.signInSuffix}
           <br />
-          By continuing you agree to our <Link href="/privacy-policy">Privacy Policy</Link> and{" "}
-          <Link href="/terms-of-service">Terms</Link>.
+          {t.legalPrefix} <Link href={t.privacyHref}>{t.privacyPolicy}</Link> {t.and}{" "}
+          <Link href={t.termsHref}>{t.terms}</Link>.
         </p>
       </section>
 

@@ -13,6 +13,15 @@ import { readinessTierColor } from "@/lib/theme/tokens";
 import { isGuestEmail } from "@/lib/challenge/startSessionUtil";
 import { ResultEmailGate } from "@/components/challenge/ResultEmailGate";
 import { sendChallengeResultEmail } from "@/lib/challenge/sendResultEmail";
+import type { UiLang } from "@/lib/challenge/uiStrings";
+import {
+  RESULTS_STRINGS,
+  EDITION_DECK_NAME_DE,
+  localizeLevel,
+  localizeSignalLabel,
+  hackLabel,
+  HACK_COACHING_DE,
+} from "@/lib/challenge/resultStrings";
 
 const EDITION_DECK_NAME: Record<string, string> = {
   school: "School",
@@ -54,10 +63,14 @@ export default async function ResultsPage({
 
   const cards = await prisma.challengeSessionCard.findMany({
     where: { sessionId },
-    select: { score: true, scenario: { select: { hackKey: true, category: true } } },
+    select: { score: true, scenario: { select: { hackKey: true, category: true, lang: true } } },
   });
   const totalCards = cards.length;
   const completedAll = session.currentIndex >= totalCards;
+  // A session's language is whatever its own scenario rows were seeded in —
+  // see lib/challenge/sessionGenerator.ts and lib/challenge/uiStrings.ts.
+  const lang: UiLang = cards[0]?.scenario.lang === "de" ? "de" : "en";
+  const t = RESULTS_STRINGS[lang];
   const totals = computeChallengeTotals({ scoreTotal: session.scoreTotal, scoreMax: session.scoreMax });
   const profile = computeHackProfile(cards.map((c) => ({ hackKey: c.scenario.hackKey, score: c.score })));
   const categories = computeCategoryBreakdown(cards.map((c) => ({ category: c.scenario.category, score: c.score })));
@@ -65,9 +78,10 @@ export default async function ResultsPage({
   const strongest = profile.strongestReflex;
   const bestCategory = categories[0] ?? null;
   const isDiagnostic = session.mode === "diagnostic";
-  const deckName = EDITION_DECK_NAME[session.edition] ?? session.edition;
+  const deckName = (lang === "de" ? EDITION_DECK_NAME_DE : EDITION_DECK_NAME)[session.edition] ?? session.edition;
   const pct = totals.totalPercent;
   const tierColor = readinessTierColor(pct);
+  const level = localizeLevel(totals.level, lang);
 
   if (completedAll && session.status !== "COMPLETED") {
     await prisma.challengeSession.update({ where: { id: sessionId }, data: { status: "COMPLETED", completedAt: new Date() } });
@@ -76,7 +90,7 @@ export default async function ResultsPage({
   // Free play is free to start, but the result is delivered by email. Stand the
   // email gate in front of the result for a player who has not registered yet.
   if (completedAll && isGuestEmail(session.user.email)) {
-    return <ResultEmailGate sessionId={sessionId} edition={session.edition} claim={claim} />;
+    return <ResultEmailGate sessionId={sessionId} edition={session.edition} claim={claim} lang={lang} />;
   }
 
   // Registered player finishing a run: send the results email (idempotent).
@@ -84,13 +98,7 @@ export default async function ResultsPage({
     await sendChallengeResultEmail(sessionId).catch(() => {});
   }
 
-  const interpretation = pct >= 90
-    ? "Your stop-and-verify reflex held up consistently under pressure."
-    : pct >= 75
-      ? "You caught most traps, but one or two pressure patterns still changed your decisions."
-      : pct >= 55
-        ? "You spot some warning signs, but pressure can still move you before independent verification."
-        : "The scenarios moved you too often toward the action the requester wanted. Your biggest gain will come from slowing the next step down.";
+  const interpretation = t.interpretation(pct);
 
   const diagnosticSessions = isDiagnostic
     ? await prisma.challengeSession.count({ where: { userId: session.user.id, mode: "diagnostic" } })
@@ -100,7 +108,7 @@ export default async function ResultsPage({
   const freeRoundHref = isRegistered
     ? `/challenge/${session.edition}/start?mode=diagnostic`
     : `/challenge/register?next=${encodeURIComponent(`/challenge/${session.edition}/start?mode=diagnostic`)}`;
-  const pressurePattern = weakest ? HACK_LABELS[weakest.hackKey].public : "None identified";
+  const pressurePattern = weakest ? hackLabel(weakest.hackKey, "public", lang, HACK_LABELS[weakest.hackKey].public) : (lang === "de" ? "Keins identifiziert" : "None identified");
 
   return (
     <main style={styles.page}>
@@ -109,82 +117,82 @@ export default async function ResultsPage({
         <header style={styles.header}>
           <Link href="/" className="k-wordmark" style={{ textDecoration: "none" }}>Konfydence</Link>
           <div style={{ display: "flex", gap: 16 }}>
-            <Link style={styles.smallLink} href="/dashboard">My results</Link>
-            <Link style={styles.smallLink} href="/challenge">Choose another test</Link>
+            <Link style={styles.smallLink} href="/dashboard">{t.myResults}</Link>
+            <Link style={styles.smallLink} href="/challenge">{t.chooseAnother}</Link>
           </div>
         </header>
 
         <section style={styles.card}>
-          <p className="overline">{isDiagnostic ? "FREE READINESS CHECK" : "FULL CHALLENGE"}</p>
+          <p className="overline">{isDiagnostic ? t.overlineFree : t.overlineFull}</p>
           <div className="scoreIntro">
             <div>
-              <h1>Your Scam Survival Profile</h1>
+              <h1>{t.h1}</h1>
               <p>{interpretation}</p>
-              <small>{isDiagnostic ? "Directional signal based on two decisions in each H.A.C.K. dimension — not a guarantee of protection." : "A balanced pressure-profile result across six decisions in each H.A.C.K. dimension."}</small>
+              <small>{isDiagnostic ? t.smallFree : t.smallFull}</small>
             </div>
             <div className="ringWrap">
               <ScoreRing percent={pct} color={tierColor}>
                 <strong>{Math.round(pct)}%</strong><span>{totals.totalScoreTotal}/{totals.totalScoreMax}</span>
               </ScoreRing>
-              <b>{totals.level}</b>
+              <b>{level}</b>
             </div>
           </div>
         </section>
 
         <section style={styles.card}>
-          <div className="sectionTitle"><div><p className="overline">YOUR H.A.C.K. PROFILE</p><h2>Where pressure changes your decisions.</h2></div><p>Each dimension is scored separately so a strong overall result cannot hide one repeatable weakness.</p></div>
+          <div className="sectionTitle"><div><p className="overline">{t.hackOverline}</p><h2>{t.hackHeading}</h2></div><p>{t.hackSubtext}</p></div>
           <div className="profileGrid">
             {profile.dimensions.map((item) => (
               <article className={`dimension ${item.level}`} key={item.hackKey}>
                 <div className="dimensionHead">
                   <span className="key"><HackIcon trigger={item.hackKey} color={levelColor[item.level]} size={18} /></span>
-                  <div><p>{HACK_LABELS[item.hackKey].short}</p><small>{item.levelLabel}</small></div>
+                  <div><p>{hackLabel(item.hackKey, "short", lang, HACK_LABELS[item.hackKey].short)}</p><small>{localizeSignalLabel(item.levelLabel, lang)}</small></div>
                   <strong>{Math.round(item.pct)}%</strong>
                 </div>
                 <div className="bar"><span style={{ width: `${item.pct}%`, background: levelColor[item.level] }} /></div>
-                <p className="insight">{item.insight}</p>
-                <small className="sample">Tested across {item.cardCount} decision{item.cardCount === 1 ? "" : "s"}.</small>
+                <p className="insight">{lang === "de" ? HACK_COACHING_DE[item.hackKey].insight : item.insight}</p>
+                <small className="sample">{t.testedAcross(item.cardCount)}</small>
               </article>
             ))}
           </div>
 
           {weakest ? (
             <div className="priority">
-              <div className="priorityTop"><span>PRIORITY TO TRAIN</span><b>{HACK_LABELS[weakest.hackKey].public}</b></div>
-              <h3>{weakest.practice}</h3>
-              <p>Your lowest H.A.C.K. signal was {Math.round(weakest.pct)}%. Practise this rule until it becomes the automatic next move, not something you remember after acting.</p>
+              <div className="priorityTop"><span>{t.priorityToTrain}</span><b>{hackLabel(weakest.hackKey, "public", lang, HACK_LABELS[weakest.hackKey].public)}</b></div>
+              <h3>{lang === "de" ? HACK_COACHING_DE[weakest.hackKey].practice : weakest.practice}</h3>
+              <p>{t.priorityBody(weakest.pct)}</p>
             </div>
           ) : null}
 
           <div className="strengthRow">
-            {strongest ? <p><span>Strongest reflex</span><b>{HACK_LABELS[strongest.hackKey].public} · {Math.round(strongest.pct)}%</b></p> : null}
-            {bestCategory ? <p><span>Strongest situation</span><b>{bestCategory.category} · {Math.round(bestCategory.pct)}%</b></p> : null}
+            {strongest ? <p><span>{t.strongestReflex}</span><b>{hackLabel(strongest.hackKey, "public", lang, HACK_LABELS[strongest.hackKey].public)} · {Math.round(strongest.pct)}%</b></p> : null}
+            {bestCategory ? <p><span>{t.strongestSituation}</span><b>{bestCategory.category} · {Math.round(bestCategory.pct)}%</b></p> : null}
           </div>
         </section>
 
         {isDiagnostic ? (
           <section className="conversion">
-            <p className="overline lime">YOUR FREE CHECK FOUND THE PATTERN</p>
-            <h2>Do not just know the weakness. Train the reflex.</h2>
-            <p>The full {deckName} Challenge works through 40+ real-life scenarios — balanced across Hurry, Authority, Comfort and Kill-Switch — in short rounds, with a deeper profile and completion certificate.</p>
-            <p className="bankNote">Each round prioritises scenarios you have not seen, so practice measures decision quality rather than memory of the previous round.</p>
-            {weakest ? <div className="recommend"><b>Start here:</b> {weakest.practice}</div> : null}
+            <p className="overline lime">{t.conversionOverline}</p>
+            <h2>{t.conversionHeading}</h2>
+            <p>{t.conversionBody(deckName)}</p>
+            <p className="bankNote">{t.conversionBankNote}</p>
+            {weakest ? <div className="recommend"><b>{t.startHere}</b> {lang === "de" ? HACK_COACHING_DE[weakest.hackKey].practice : weakest.practice}</div> : null}
             <div className="commerce">
-              <CheckoutRedirectButton sku={`CHAL-SINGLE-${session.edition.toUpperCase()}`} label="Unlock Full Challenge — $6.99" />
-              <CheckoutRedirectButton sku="CHAL-UNLIMITED" label="Get All 5 Challenges — $24.99" variant="outline" />
+              <CheckoutRedirectButton sku={`CHAL-SINGLE-${session.edition.toUpperCase()}`} label={t.unlockFull} locale={lang} />
+              <CheckoutRedirectButton sku="CHAL-UNLIMITED" label={t.unlockAll} variant="outline" locale={lang} />
             </div>
-            {canPlayAnotherFreeRound ? <Link style={{ ...styles.secondary, background: "white" }} href={freeRoundHref}>{isRegistered ? "Play my second free check" : "Register to unlock my second free check"}</Link> : <p className="limit">Your two free readiness checks are complete.</p>}
+            {canPlayAnotherFreeRound ? <Link style={{ ...styles.secondary, background: "white" }} href={freeRoundHref}>{isRegistered ? t.playSecondFree : t.registerSecondFree}</Link> : <p className="limit">{t.limitReached}</p>}
           </section>
         ) : (
           <section style={styles.card}>
-            <h2 style={{ margin: 0 }}>Keep the reflex fresh.</h2>
-            <p style={{ color: "#5f6c75", lineHeight: 1.6 }}>A replay uses unseen scenarios first, while keeping H.A.C.K. balanced. That makes improvement more meaningful than memorising the previous answers.</p>
-            <Link style={styles.button} href={`/challenge/${session.edition}/start?mode=full`}>Run another balanced challenge</Link>
-            <Link style={styles.secondary} href={`/challenge/session/${sessionId}/certificate`}>{completedAll ? "View certificate" : "Certificate locked until completion"}</Link>
+            <h2 style={{ margin: 0 }}>{t.keepFreshHeading}</h2>
+            <p style={{ color: "#5f6c75", lineHeight: 1.6 }}>{t.keepFreshBody}</p>
+            <Link style={styles.button} href={`/challenge/${session.edition}/start?mode=full`}>{t.runAnother}</Link>
+            <Link style={styles.secondary} href={`/challenge/session/${sessionId}/certificate`}>{completedAll ? t.viewCertificate : t.certificateLocked}</Link>
           </section>
         )}
 
-        {completedAll ? <section style={styles.card}><ShareButtons url={`/challenge/session/${sessionId}/results`} title="Konfydence Challenge" text={`I just tested my Konfydence ${deckName} pressure profile. Take the free check and compare your H.A.C.K. pattern.`} /></section> : null}
+        {completedAll ? <section style={styles.card}><ShareButtons url={`/challenge/session/${sessionId}/results`} title={t.shareTitle} text={t.shareText(deckName)} /></section> : null}
       </div>
 
       <style>{`
