@@ -4,6 +4,7 @@ import { redirect } from "next/navigation";
 // (docs/UNIFIED_ACCOUNTS_PLAN.md). Keep the old URL working.
 export const dynamic = "force-dynamic";
 
-export default function DashboardPage() {
-  redirect("/account");
+export default async function DashboardPage(props: { searchParams: Promise<{ lang?: string }> }) {
+  const sp = await props.searchParams;
+  redirect(sp.lang === "de" ? "/account?lang=de" : "/account");
 }

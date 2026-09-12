@@ -5,16 +5,17 @@ import { computeHackProfile } from "@/lib/scoring/scoringEngine";
 import { renderChallengeResultsEmail } from "@/lib/challenge/resultsEmail";
 import { isGuestEmail } from "@/lib/challenge/startSessionUtil";
 import type { ChallengeEdition } from "@/lib/challenge/labels";
+import type { UiLang } from "@/lib/challenge/uiStrings";
 
 const APP_URL = process.env.NEXT_PUBLIC_APP_URL || "https://konfydence.com";
 const EDITIONS = new Set<ChallengeEdition>(["school", "university", "family", "travelsafe", "workplace"]);
 
-function unsubscribeUrl(email: string): string {
+function unsubscribeUrl(email: string, lang: UiLang): string {
   const sig = createHash("sha256")
     .update(`${process.env.AUTH_SECRET || process.env.DATABASE_URL || "kf"}\0unsub\0${email}`)
     .digest("base64url")
     .slice(0, 24);
-  return `${APP_URL}/account/unsubscribe?e=${encodeURIComponent(email)}&s=${sig}`;
+  return `${APP_URL}/account/unsubscribe?e=${encodeURIComponent(email)}&s=${sig}${lang === "de" ? "&lang=de" : ""}`;
 }
 
 /**
@@ -43,9 +44,12 @@ export async function sendChallengeResultEmail(sessionId: string): Promise<void>
 
   const cards = await prisma.challengeSessionCard.findMany({
     where: { sessionId },
-    select: { score: true, scenario: { select: { hackKey: true } } },
+    select: { score: true, scenario: { select: { hackKey: true, lang: true } } },
   });
   const hackProfile = computeHackProfile(cards.map((c) => ({ hackKey: c.scenario.hackKey, score: c.score })));
+  // Same rule as every other post-session surface: a session's language is
+  // whatever its own scenario rows were seeded in (see resultStrings.ts).
+  const lang: UiLang = cards[0]?.scenario.lang === "de" ? "de" : "en";
 
   const { subject, html } = renderChallengeResultsEmail({
     toEmail: session.user.email,
@@ -54,9 +58,10 @@ export async function sendChallengeResultEmail(sessionId: string): Promise<void>
     scoreTotal: session.scoreTotal,
     scoreMax: session.scoreMax,
     hackProfile,
+    lang,
     resultsPath: `/challenge/session/${session.id}/results`,
-    accountUrl: `${APP_URL}/account/sign-in?email=${encodeURIComponent(session.user.email)}`,
-    unsubscribeUrl: unsubscribeUrl(session.user.email),
+    accountUrl: `${APP_URL}/account/sign-in?email=${encodeURIComponent(session.user.email)}${lang === "de" ? "&lang=de" : ""}`,
+    unsubscribeUrl: unsubscribeUrl(session.user.email, lang),
   });
 
   const sent = await sendTransactionalEmail({

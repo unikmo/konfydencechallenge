@@ -2,9 +2,12 @@
 
 import { useState } from "react";
 import { startRegistration } from "@simplewebauthn/browser";
+import type { UiLang } from "@/lib/challenge/uiStrings";
+import { PASSKEY_ADD_STRINGS } from "@/lib/challenge/accountStrings";
 
-export function AddPasskeyButton() {
+export function AddPasskeyButton({ lang = "en" }: { lang?: UiLang }) {
   const [state, setState] = useState<"idle" | "busy" | "error">("idle");
+  const t = PASSKEY_ADD_STRINGS[lang];
 
   async function add() {
     setState("busy");
@@ -27,11 +30,11 @@ export function AddPasskeyButton() {
   return (
     <div>
       <button onClick={add} disabled={state === "busy"} className="k-button" type="button">
-        {state === "busy" ? "Waiting for your device…" : "Add a passkey"}
+        {state === "busy" ? t.busy : t.label}
       </button>
       {state === "error" ? (
         <p style={{ color: "#9f2f25", fontSize: 13, marginTop: 8 }}>
-          That didn&rsquo;t work — your device may not support passkeys, or the prompt was cancelled.
+          {t.error}
         </p>
       ) : null}
     </div>

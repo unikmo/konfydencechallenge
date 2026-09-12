@@ -3,6 +3,8 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import { prisma } from "@/lib/prisma";
 import { normalizeEmail } from "@/lib/auth/email";
+import type { UiLang } from "@/lib/challenge/uiStrings";
+import { UNSUBSCRIBE_STRINGS } from "@/lib/challenge/accountStrings";
 
 export const metadata: Metadata = {
   title: { absolute: "Unsubscribe | Konfydence" },
@@ -19,9 +21,11 @@ function expectedSig(email: string): string {
 }
 
 export default async function UnsubscribePage(props: {
-  searchParams: Promise<{ e?: string; s?: string }>;
+  searchParams: Promise<{ e?: string; s?: string; lang?: string }>;
 }) {
   const sp = await props.searchParams;
+  const lang: UiLang = sp.lang === "de" ? "de" : "en";
+  const t = UNSUBSCRIBE_STRINGS[lang];
   const email = normalizeEmail(sp.e ?? "");
   const ok = email && sp.s && sp.s === expectedSig(email);
 
@@ -37,22 +41,19 @@ export default async function UnsubscribePage(props: {
   return (
     <main className="kg-state">
       <section className="kg-state-card">
-        <p className="k-kicker">Email preferences</p>
+        <p className="k-kicker">{t.kicker}</p>
         {done ? (
           <>
-            <h1>You&rsquo;re unsubscribed.</h1>
-            <p>
-              We won&rsquo;t send <strong>{email}</strong> non-essential email. You&rsquo;ll still get things you
-              directly ask for, like a sign-in code.
-            </p>
+            <h1>{t.doneHeading}</h1>
+            <p>{t.doneBody(email)}</p>
           </>
         ) : (
           <>
-            <h1>That link didn&rsquo;t check out.</h1>
-            <p>The unsubscribe link may be old or altered. Contact us and we&rsquo;ll sort it.</p>
+            <h1>{t.invalidHeading}</h1>
+            <p>{t.invalidBody}</p>
           </>
         )}
-        <Link className="k-button" href="/">Back to Konfydence</Link>
+        <Link className="k-button" href="/">{t.backHome}</Link>
       </section>
     </main>
   );

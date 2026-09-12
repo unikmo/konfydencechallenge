@@ -4,6 +4,8 @@ import { redirect } from "next/navigation";
 import { getAccount } from "@/lib/auth/session";
 import { requestCode, submitCode, submitTotp } from "./actions";
 import { PasskeySignInButton } from "@/components/account/PasskeySignInButton";
+import type { UiLang } from "@/lib/challenge/uiStrings";
+import { SIGNIN_STRINGS, SIGNIN_REASONS, SIGNIN_ERRORS } from "@/lib/challenge/accountStrings";
 
 export const metadata: Metadata = {
   title: { absolute: "Sign in | Konfydence" },
@@ -13,52 +15,39 @@ export const metadata: Metadata = {
 
 export const dynamic = "force-dynamic";
 
-type SP = { step?: string; email?: string; next?: string; error?: string; sent?: string; reason?: string };
+type SP = { step?: string; email?: string; next?: string; error?: string; sent?: string; reason?: string; lang?: string };
 
-const REASONS: Record<string, string> = {
-  "free-round-2": "Your second free round saves to an account so your Readiness Score history follows you.",
-  "full-challenge": "The full challenge needs an account — your progress, results and purchase stay with you on any device.",
-  "team-invite": "Sign in to claim your team seat — your progress stays private to you; your admin sees completion only.",
-};
-
-const ERRORS: Record<string, string> = {
-  consent: "Tick the box to continue.",
-  email: "That doesn't look like an email address.",
-  send: "We couldn't send the email just now. Try again in a moment.",
-  code: "That code didn't match. Check the latest email and try again.",
-  expired: "That code has expired. Ask for a new one.",
-  attempts: "Too many tries on that code. Ask for a new one.",
-  throttled: "Too many attempts. Wait a few minutes and try again.",
-  totp: "That code didn't match. Try the current one from your authenticator, or a recovery code.",
-};
+// This page is shared across locales (there's no /de/account/sign-in route) —
+// a German visitor is carried here via an explicit ?lang=de param rather than
+// a scenario-derived signal. See lib/challenge/accountStrings.ts.
 
 export default async function SignInPage(props: { searchParams: Promise<SP> }) {
   const sp = await props.searchParams;
+  const lang: UiLang = sp.lang === "de" ? "de" : "en";
   if (await getAccount()) redirect(sp.next?.startsWith("/") ? sp.next : "/account");
 
   const step = sp.step === "code" ? "code" : sp.step === "totp" ? "totp" : "email";
   const email = sp.email ?? "";
   const next = sp.next?.startsWith("/") ? sp.next : "/account";
-  const error = sp.error ? ERRORS[sp.error] : null;
-  const reason = sp.reason ? REASONS[sp.reason] : null;
+  const t = SIGNIN_STRINGS[lang];
+  const error = sp.error ? SIGNIN_ERRORS[lang][sp.error] : null;
+  const reason = sp.reason ? SIGNIN_REASONS[lang][sp.reason] : null;
 
   return (
     <main className="kg-state">
       <section className="kg-state-card">
-        <Link className="kf-back" href="/">← Konfydence</Link>
-        <p className="k-kicker" style={{ marginTop: 22 }}>Your account</p>
+        <Link className="kf-back" href="/">{t.backHome}</Link>
+        <p className="k-kicker" style={{ marginTop: 22 }}>{t.kicker}</p>
 
         {step === "totp" ? (
           <>
-            <h1>One more step.</h1>
-            <p>
-              Two-step verification is on for this account. Enter the current 6-digit code from your
-              authenticator app — or a recovery code.
-            </p>
+            <h1>{t.totpHeading}</h1>
+            <p>{t.totpBody}</p>
             {error ? <p className="kf-error" role="alert">{error}</p> : null}
             <form action={submitTotp} className="kf-form">
               <input type="hidden" name="next" value={next} />
-              <label htmlFor="code">Authenticator or recovery code</label>
+              <input type="hidden" name="lang" value={lang} />
+              <label htmlFor="code">{t.totpLabel}</label>
               <input
                 id="code"
                 name="code"
@@ -69,42 +58,38 @@ export default async function SignInPage(props: { searchParams: Promise<SP> }) {
                 placeholder="123456"
                 className="kf-code-input"
               />
-              <button type="submit" className="k-button">Verify</button>
+              <button type="submit" className="k-button">{t.totpSubmit}</button>
             </form>
           </>
         ) : step === "email" ? (
           <>
-            <h1>Sign in with a code.</h1>
-            <p>
-              No password. Enter your email and we&rsquo;ll send a one-time code. The same account holds your
-              Challenge results and any Lockscreens subscription.
-            </p>
+            <h1>{t.emailHeading}</h1>
+            <p>{t.emailBody}</p>
             {reason ? <p className="kf-reason">{reason}</p> : null}
             {error ? <p className="kf-error" role="alert">{error}</p> : null}
             <form action={requestCode} className="kf-form">
               <input type="hidden" name="next" value={next} />
-              <label htmlFor="email">Email address</label>
+              <input type="hidden" name="lang" value={lang} />
+              <label htmlFor="email">{t.emailLabel}</label>
               <input id="email" name="email" type="email" autoComplete="email" required defaultValue={email} placeholder="you@example.com" />
               <label className="kf-consent">
                 <input type="checkbox" name="consent" value="yes" required />
-                <span>Send me my sign-in code and occasional Konfydence updates. Unsubscribe anytime.</span>
+                <span>{t.consentText}</span>
               </label>
-              <button type="submit" className="k-button">Email me a code</button>
+              <button type="submit" className="k-button">{t.emailSubmit}</button>
             </form>
-            <PasskeySignInButton next={next} />
+            <PasskeySignInButton next={next} lang={lang} />
           </>
         ) : (
           <>
-            <h1>Enter your code.</h1>
-            <p>
-              We sent a 6-digit code to <strong>{email}</strong>. It expires in 10 minutes. You can also tap the
-              link in that email.
-            </p>
+            <h1>{t.codeHeading}</h1>
+            <p>{t.codeBody(email)}</p>
             {error ? <p className="kf-error" role="alert">{error}</p> : null}
             <form action={submitCode} className="kf-form">
               <input type="hidden" name="next" value={next} />
               <input type="hidden" name="email" value={email} />
-              <label htmlFor="code">6-digit code</label>
+              <input type="hidden" name="lang" value={lang} />
+              <label htmlFor="code">{t.codeLabel}</label>
               <input
                 id="code"
                 name="code"
@@ -116,20 +101,21 @@ export default async function SignInPage(props: { searchParams: Promise<SP> }) {
                 placeholder="123456"
                 className="kf-code-input"
               />
-              <button type="submit" className="k-button">Sign in</button>
+              <button type="submit" className="k-button">{t.codeSubmit}</button>
             </form>
             <form action={requestCode} className="kf-resend">
               <input type="hidden" name="next" value={next} />
               <input type="hidden" name="email" value={email} />
               <input type="hidden" name="consent" value="yes" />
-              <button type="submit" className="kf-link-button">Send a new code</button>
+              <input type="hidden" name="lang" value={lang} />
+              <button type="submit" className="kf-link-button">{t.resend}</button>
             </form>
           </>
         )}
 
         <p className="kf-legal">
-          By continuing you agree to our <Link href="/privacy-policy">Privacy Policy</Link> and{" "}
-          <Link href="/terms-of-service">Terms</Link>.
+          {t.legalPrefix} <Link href={t.privacyHref}>{t.privacyPolicy}</Link> {t.and}{" "}
+          <Link href={t.termsHref}>{t.terms}</Link>.
         </p>
       </section>
 

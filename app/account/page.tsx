@@ -10,6 +10,9 @@ import { KF_UID_COOKIE } from "@/lib/challenge/kfUidCookie";
 import { EDITION_LABELS, type ChallengeEdition } from "@/lib/challenge/labels";
 import { activeEntitlementWhere } from "@/lib/commerce/entitlementAccess";
 import { linkLockscreenSubscriptions, getAccountSubscriptions } from "@/lib/lockscreens/linkToAccount";
+import type { UiLang } from "@/lib/challenge/uiStrings";
+import { ACCOUNT_STRINGS } from "@/lib/challenge/accountStrings";
+import { EDITION_DECK_NAME_DE } from "@/lib/challenge/resultStrings";
 
 export const metadata: Metadata = {
   title: { absolute: "Your account | Konfydence" },
@@ -19,7 +22,11 @@ export const metadata: Metadata = {
 
 export const dynamic = "force-dynamic";
 
-export default async function AccountPage() {
+export default async function AccountPage(props: { searchParams: Promise<{ lang?: string }> }) {
+  const sp = await props.searchParams;
+  const lang: UiLang = sp.lang === "de" ? "de" : "en";
+  const t = ACCOUNT_STRINGS[lang];
+  const langQS = lang === "de" ? "?lang=de" : "";
   const account = await getAccount();
   const store = await cookies();
   const kfUid = store.get(KF_UID_COOKIE)?.value ?? null;
@@ -29,14 +36,11 @@ export default async function AccountPage() {
     return (
       <main className="kg-state">
         <section className="kg-state-card">
-          <Link className="kf-back" href="/">← Konfydence</Link>
-          <p className="k-kicker" style={{ marginTop: 22 }}>Your account</p>
-          <h1>One account for everything Konfydence.</h1>
-          <p>
-            Your Challenge results on any device, and your Lockscreens subscription in the same place. Sign in
-            with a one-time email code — no password.
-          </p>
-          <Link className="k-button" href="/account/sign-in">Sign in</Link>
+          <Link className="kf-back" href="/">{t.backHome}</Link>
+          <p className="k-kicker" style={{ marginTop: 22 }}>{t.kicker}</p>
+          <h1>{t.signedOutHeading}</h1>
+          <p>{t.signedOutBody}</p>
+          <Link className="k-button" href={`/account/sign-in${langQS}`}>{t.signInCta}</Link>
         </section>
         <style>{`.kf-back{color:var(--k-muted);font-size:13px;font-weight:600;text-decoration:none}.kf-back:hover{color:var(--k-gold)}`}</style>
       </main>
@@ -103,13 +107,13 @@ export default async function AccountPage() {
     <main style={styles.page}>
       <div style={styles.shell}>
         <div style={styles.header}>
-          <Link href="/" style={styles.smallLink}>← Konfydence</Link>
+          <Link href="/" style={styles.smallLink}>{t.backHome}</Link>
           <div style={{ display: "flex", gap: 16, alignItems: "center" }}>
-            {account ? <Link href="/account/security" style={styles.smallLink}>Security</Link> : null}
-            <Link href="/challenge" style={styles.smallLink}>Take a challenge</Link>
+            {account ? <Link href={`/account/security${langQS}`} style={styles.smallLink}>{t.security}</Link> : null}
+            <Link href={lang === "de" ? "/de/challenge" : "/challenge"} style={styles.smallLink}>{t.takeChallenge}</Link>
             {account ? (
               <form action="/api/account/sign-out" method="post">
-                <button type="submit" style={styles.signOut}>Sign out</button>
+                <button type="submit" style={styles.signOut}>{t.signOut}</button>
               </form>
             ) : null}
           </div>
@@ -117,18 +121,18 @@ export default async function AccountPage() {
 
         {account ? (
           <div style={styles.card}>
-            <h1 style={{ marginTop: 0, fontSize: 22 }}>Your account</h1>
+            <h1 style={{ marginTop: 0, fontSize: 22 }}>{t.yourAccount}</h1>
             <p style={{ color: tokens.textMuted, fontWeight: 700, margin: "4px 0 0" }}>
               {account.email}
               {account.emailVerifiedAt ? (
-                <span style={styles.verified}> · verified</span>
+                <span style={styles.verified}> · {t.verified}</span>
               ) : (
-                <span style={styles.unverified}> · unverified</span>
+                <span style={styles.unverified}> · {t.unverified}</span>
               )}
             </p>
             {subscriptions.length > 0 ? (
               <div style={{ marginTop: 16 }}>
-                <div style={{ fontWeight: 900, fontSize: 13, marginBottom: 8 }}>Lockscreens subscriptions</div>
+                <div style={{ fontWeight: 900, fontSize: 13, marginBottom: 8 }}>{t.lockscreensHeading}</div>
                 <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
                   {subscriptions.map((s) => (
                     <Link key={s.id} href={s.managePath} style={styles.subRow}>
@@ -146,23 +150,22 @@ export default async function AccountPage() {
               </div>
             ) : (
               <div style={styles.acctLinks}>
-                <Link href="/lockscreens" style={styles.acctLink}>Konfydence Lockscreens →</Link>
+                <Link href="/lockscreens" style={styles.acctLink}>{t.lockscreensLink}</Link>
               </div>
             )}
             <p style={{ fontSize: 12, color: tokens.textMuted, marginTop: 12, marginBottom: 0 }}>
               {subscriptions.length > 0
-                ? "Bought a subscription with a different email? Sign in with that address to link it too."
-                : `Lockscreens subscriptions bought with ${account.email} appear here automatically.`}
+                ? t.lockscreensNoteWithSubs
+                : t.lockscreensNoteEmpty(account.email)}
             </p>
           </div>
         ) : (
           <div style={{ ...styles.card, background: "#1c2b1c", color: "#e9efe6" }}>
-            <div style={{ fontWeight: 900, fontSize: 15 }}>These results only live on this device.</div>
+            <div style={{ fontWeight: 900, fontSize: 15 }}>{t.deviceOnlyHeading}</div>
             <p style={{ fontSize: 13, lineHeight: 1.6, margin: "6px 0 0", color: "#c9d4c5" }}>
-              Sign in with your email and we&rsquo;ll keep them on any device — and connect any Lockscreens
-              subscription bought with the same address.
+              {t.deviceOnlyBody}
             </p>
-            <Link href="/account/sign-in" style={{ ...styles.button, marginTop: 12 }}>Sign in to keep them</Link>
+            <Link href={`/account/sign-in${langQS}`} style={{ ...styles.button, marginTop: 12 }}>{t.deviceOnlySignIn}</Link>
           </div>
         )}
 
@@ -171,53 +174,54 @@ export default async function AccountPage() {
             <div>
               <div style={{ fontWeight: 900, fontSize: 15 }}>{ownedOrg.name}</div>
               <div style={{ fontSize: 12, color: tokens.textMuted, fontWeight: 700, marginTop: 2 }}>
-                You&rsquo;re the team admin.
+                {t.teamAdminNote}
               </div>
             </div>
-            <Link href="/teams" style={{ fontSize: 13, fontWeight: 800, color: tokens.textOnLight }}>Manage team →</Link>
+            <Link href="/teams" style={{ fontSize: 13, fontWeight: 800, color: tokens.textOnLight }}>{t.teamAdminManage}</Link>
           </div>
         ) : memberSeat ? (
           <div style={{ ...styles.card, marginTop: 14, display: "flex", justifyContent: "space-between", alignItems: "center", gap: 12 }}>
             <div>
               <div style={{ fontWeight: 900, fontSize: 15 }}>{memberSeat.org.name}</div>
               <div style={{ fontSize: 12, color: tokens.textMuted, fontWeight: 700, marginTop: 2 }}>
-                Your team seat — all five editions.
+                {t.teamMemberNote}
               </div>
             </div>
-            <Link href="/teams" style={{ fontSize: 13, fontWeight: 800, color: tokens.textOnLight }}>View →</Link>
+            <Link href="/teams" style={{ fontSize: 13, fontWeight: 800, color: tokens.textOnLight }}>{t.teamMemberView}</Link>
           </div>
         ) : null}
 
         {ownedEditions.length > 0 ? (
           <div style={{ ...styles.card, marginTop: 14 }}>
-            <h2 style={{ margin: 0, fontSize: 18 }}>Your challenges</h2>
+            <h2 style={{ margin: 0, fontSize: 18 }}>{t.yourChallenges}</h2>
             <p style={{ color: tokens.textMuted, fontWeight: 700, fontSize: 13, margin: "4px 0 12px" }}>
-              {hasUnlimited ? "All five editions — unlimited rounds." : "Full access, unlimited rounds."} Progress is saved to your account.
+              {hasUnlimited ? t.ownedUnlimited : t.ownedSingle}
               {viaTeam
-                ? " Access is provided by your team."
+                ? t.viaTeam
                 : renewsAt
-                  ? ` Renews ${renewsAt.toLocaleDateString(undefined, { year: "numeric", month: "long", day: "numeric" })}.`
+                  ? t.renews(renewsAt.toLocaleDateString(lang === "de" ? "de-DE" : undefined, { year: "numeric", month: "long", day: "numeric" }))
                   : ""}
             </p>
             <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
               {ownedEditions.map((ed) => {
                 const resume = resumeByEdition.get(ed);
+                const startBase = lang === "de" ? "/de/challenge" : "/challenge";
                 return (
                   <Link
                     key={ed}
-                    href={resume ? `/challenge/session/${resume.id}` : `/challenge/${ed}/start?mode=full`}
+                    href={resume ? `/challenge/session/${resume.id}` : `${startBase}/${ed}/start?mode=full`}
                     style={{ ...styles.subRow, alignItems: resume ? "stretch" : "center", flexDirection: resume ? "column" : "row", gap: resume ? 8 : 12 }}
                   >
                     <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", width: "100%" }}>
-                      <div style={{ fontWeight: 800 }}>{EDITION_LABELS[ed]}</div>
+                      <div style={{ fontWeight: 800 }}>{lang === "de" ? EDITION_DECK_NAME_DE[ed] ?? EDITION_LABELS[ed] : EDITION_LABELS[ed]}</div>
                       <span style={{ fontSize: 12, fontWeight: 800, color: tokens.textOnLight }}>
-                        {resume ? "Continue →" : "Play →"}
+                        {resume ? t.continueLabel : t.playLabel}
                       </span>
                     </div>
                     {resume ? (
                       <div style={{ width: "100%" }}>
                         <div style={{ fontSize: 11, color: tokens.textMuted, fontWeight: 700, marginBottom: 5 }}>
-                          Round {resume.round} · scenario {resume.done + 1} of {resume.total}
+                          {t.roundProgress(resume.round, resume.done + 1, resume.total)}
                         </div>
                         <div style={{ height: 5, borderRadius: 999, background: "rgba(11,27,43,0.12)", overflow: "hidden" }}>
                           <div style={{ width: `${resume.pct}%`, height: "100%", background: tokens.accentAmber }} />
@@ -233,9 +237,9 @@ export default async function AccountPage() {
 
         <div style={{ marginTop: 14 }}>
           <div style={{ ...styles.card, marginBottom: 14 }}>
-            <h2 style={{ margin: 0, fontSize: 18 }}>Your Challenge results</h2>
+            <h2 style={{ margin: 0, fontSize: 18 }}>{t.yourResults}</h2>
           </div>
-          <ResultsHistory playerId={playerId} />
+          <ResultsHistory playerId={playerId} lang={lang} />
         </div>
       </div>
     </main>

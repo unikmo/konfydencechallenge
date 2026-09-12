@@ -1,5 +1,7 @@
 import React from "react";
 import { tokens, readinessTierColor } from "@/lib/theme/tokens";
+import type { UiLang } from "@/lib/challenge/uiStrings";
+import { RESULTS_HISTORY_STRINGS } from "@/lib/challenge/accountStrings";
 
 type Props = {
   editionLabel: string;
@@ -7,12 +9,14 @@ type Props = {
   bestPercent: number | null;
   latestPercent: number | null;
   latestLevel: string | null;
+  lang?: UiLang;
 };
 
 // Small per-edition summary tile for the player dashboard — best score, most
 // recent score, and how many completed runs, so a returning player can see
 // improvement at a glance without opening every past session.
-export function EditionSummaryCard({ editionLabel, attempts, bestPercent, latestPercent, latestLevel }: Props) {
+export function EditionSummaryCard({ editionLabel, attempts, bestPercent, latestPercent, latestLevel, lang = "en" }: Props) {
+  const t = RESULTS_HISTORY_STRINGS[lang];
   const hasResults = bestPercent !== null;
   const color = hasResults ? readinessTierColor(bestPercent!) : tokens.textMuted;
 
@@ -33,18 +37,18 @@ export function EditionSummaryCard({ editionLabel, attempts, bestPercent, latest
         <>
           <div style={{ display: "flex", alignItems: "baseline", gap: 8 }}>
             <span style={{ fontWeight: 1000, fontSize: 28, color }}>{Math.round(bestPercent!)}%</span>
-            <span style={{ fontSize: 12, fontWeight: 800, color: tokens.textMuted }}>best</span>
+            <span style={{ fontSize: 12, fontWeight: 800, color: tokens.textMuted }}>{t.best}</span>
           </div>
           <div style={{ fontSize: 12, fontWeight: 750, color: tokens.textMuted, marginTop: 4 }}>
-            Latest: {latestPercent !== null ? `${Math.round(latestPercent)}%` : "—"}
+            {t.latest}: {latestPercent !== null ? `${Math.round(latestPercent)}%` : "—"}
             {latestLevel ? ` · ${latestLevel}` : ""}
           </div>
           <div style={{ fontSize: 12, fontWeight: 750, color: tokens.textMuted, marginTop: 2 }}>
-            {attempts} {attempts === 1 ? "run" : "runs"} completed
+            {t.runsCompleted(attempts)}
           </div>
         </>
       ) : (
-        <div style={{ fontSize: 13, fontWeight: 750, color: tokens.textMuted }}>Not attempted yet</div>
+        <div style={{ fontSize: 13, fontWeight: 750, color: tokens.textMuted }}>{t.notAttempted}</div>
       )}
     </div>
   );

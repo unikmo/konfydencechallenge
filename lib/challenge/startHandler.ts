@@ -33,7 +33,12 @@ export async function handleChallengeStart(
   const edition = raw as ChallengeEdition;
   const mode: ChallengeMode = request.nextUrl.searchParams.get("mode") === "diagnostic" ? "diagnostic" : "full";
   const here = `${opts.basePath}/${edition}/start?mode=${mode}`;
-  const signInBase = opts.lang === "de" ? "/de/account/sign-in" : "/account/sign-in";
+  // Sign-in and account pages are shared across locales (no /de/account/*
+  // route exists) — a German visitor is carried through them via an explicit
+  // ?lang=de query param instead, since these pages have no scenario row to
+  // read a language off (see lib/challenge/accountStrings.ts).
+  const signInBase = "/account/sign-in";
+  const langSuffix = opts.lang === "de" ? "&lang=de" : "";
   const pricingBase = opts.lang === "de" ? "/de/pricing" : "/pricing";
 
   const player = await resolveChallengePlayer(request);
@@ -58,7 +63,7 @@ export async function handleChallengeStart(
     // Round 1 is anonymous and frictionless. Round 2 needs a confirmed account
     // so the history is anchored to a person, not a cookie.
     if (diagnosticCount >= 1 && !(player.accountId && player.verified)) {
-      return go(request, `${signInBase}?next=${encodeURIComponent(here)}&reason=free-round-2`, player.kfUidToSet);
+      return go(request, `${signInBase}?next=${encodeURIComponent(here)}&reason=free-round-2${langSuffix}`, player.kfUidToSet);
     }
   }
 
@@ -66,7 +71,7 @@ export async function handleChallengeStart(
     // The full challenge is always account-anchored: pause, continue, results
     // and your purchase have to follow you across devices.
     if (!(player.accountId && player.verified)) {
-      return go(request, `${signInBase}?next=${encodeURIComponent(here)}&reason=full-challenge`, player.kfUidToSet);
+      return go(request, `${signInBase}?next=${encodeURIComponent(here)}&reason=full-challenge${langSuffix}`, player.kfUidToSet);
     }
 
     if (!(await hasEditionAccess(player.playerId, edition))) {
