@@ -70,15 +70,26 @@ function amountForCurrency(eurUnitAmountCents: number, currency: string, rate: n
 
 type CurrencyOptionsMap = Record<string, Stripe.PriceCreateParams.CurrencyOptions>;
 
-/** currency_options for every pegged currency, keyed off the USD/EUR numeral. */
+/**
+ * currency_options for every pegged currency, keyed off the USD/EUR numeral.
+ *
+ * `tax_behavior` is included on every currency explicitly (matching the
+ * price's own top-level "exclusive") because Stripe treats a currency's
+ * tax_behavior as immutable once set: a resync that omits it is read as
+ * "unset this currency's tax_behavior", which Stripe rejects with
+ * "attempting to update an immutable field for an existing currency in
+ * currency_options" — the exact failure this caused on every deploy before
+ * this fix. Always resending the same value keeps every update a no-op on
+ * that field instead of a change.
+ */
 function buildCurrencyOptions(unitAmountUsdEqualsEur: number, fx: FxTable): CurrencyOptionsMap {
   const options: CurrencyOptionsMap = {
-    eur: { unit_amount: unitAmountUsdEqualsEur },
+    eur: { unit_amount: unitAmountUsdEqualsEur, tax_behavior: "exclusive" },
   };
   for (const currency of PEGGED_CURRENCIES) {
     const rate = fx[currency];
     if (!rate) continue;
-    options[currency] = { unit_amount: amountForCurrency(unitAmountUsdEqualsEur, currency, rate) };
+    options[currency] = { unit_amount: amountForCurrency(unitAmountUsdEqualsEur, currency, rate), tax_behavior: "exclusive" };
   }
   return options;
 }
@@ -155,7 +166,17 @@ async function upsertPrice(productId: string, spec: PriceSpec, fx: FxTable): Pro
   // currency_options aren't part of "sameShape" (unlike unit_amount, Stripe
   // lets you update them in place) — resync every run so FX drift and newly
   // added pegged currencies land on existing prices too, not just new ones.
-  await stripe.prices.update(priceId, { currency_options: currencyOptions });
+  //
+  // Merge onto whatever is already on the price rather than replacing the
+  // whole map: a currency once configured is immutable in the sense that
+  // Stripe won't let it just vanish from a later update, so if this run's FX
+  // fetch missed a currency (see the "left unpriced this sync" warning
+  // above), we must still resend its last-known value — dropping it entirely
+  // is what produced "attempting to update an immutable field for an
+  // existing currency in currency_options" before this fix.
+  const priceWithOptions = await stripe.prices.retrieve(priceId, { expand: ["currency_options"] });
+  const mergedOptions: CurrencyOptionsMap = { ...(priceWithOptions.currency_options as CurrencyOptionsMap | undefined), ...currencyOptions };
+  await stripe.prices.update(priceId, { currency_options: mergedOptions });
   console.log(`    price ${spec.lookupKey} → currency_options synced (eur + ${Object.keys(currencyOptions).length - 1} pegged)`);
 
   return priceId;

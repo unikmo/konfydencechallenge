@@ -64,12 +64,18 @@ function amountForCurrency(eurUnitAmountCents, currency, rate) {
   return ZERO_DECIMAL_CURRENCIES.has(currency) ? Math.round(converted) : Math.round(converted * 100);
 }
 
+// tax_behavior is included on every currency explicitly (mirrors the .ts
+// version's comment): Stripe treats a currency's tax_behavior as immutable
+// once set, so a resync that omits it reads as "unset it", which Stripe
+// rejects with "attempting to update an immutable field for an existing
+// currency in currency_options" — the exact failure this caused on every
+// deploy before this fix.
 function buildCurrencyOptions(unitAmountUsdEqualsEur, fx) {
-  const options = { eur: { unit_amount: unitAmountUsdEqualsEur } };
+  const options = { eur: { unit_amount: unitAmountUsdEqualsEur, tax_behavior: "exclusive" } };
   for (const currency of PEGGED_CURRENCIES) {
     const rate = fx[currency];
     if (!rate) continue;
-    options[currency] = { unit_amount: amountForCurrency(unitAmountUsdEqualsEur, currency, rate) };
+    options[currency] = { unit_amount: amountForCurrency(unitAmountUsdEqualsEur, currency, rate), tax_behavior: "exclusive" };
   }
   return options;
 }
@@ -135,7 +141,14 @@ async function upsertPrice(productId, spec, fx) {
     priceId = created.id;
   }
 
-  await stripe.prices.update(priceId, { currency_options: currencyOptions });
+  // Merge onto whatever's already on the price rather than replacing the
+  // whole map — see buildCurrencyOptions's comment: a currency once
+  // configured can't just vanish from a later update without Stripe
+  // rejecting it, so a currency this run's FX fetch missed must still be
+  // resent with its last-known value.
+  const priceWithOptions = await stripe.prices.retrieve(priceId, { expand: ["currency_options"] });
+  const mergedOptions = { ...(priceWithOptions.currency_options || {}), ...currencyOptions };
+  await stripe.prices.update(priceId, { currency_options: mergedOptions });
   console.log(`    price ${spec.lookupKey} -> currency_options synced (eur + ${Object.keys(currencyOptions).length - 1} pegged)`);
 
   return priceId;
