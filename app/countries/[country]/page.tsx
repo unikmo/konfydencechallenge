@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { COUNTRY_PROFILES } from "@/lib/countries";
 import { COUNTRY_GUIDES, HACK_LABEL, HACK_DEF, dominantPatterns, type HackKey } from "@/lib/country-guides";
+import { COUNTRY_GUIDES_DE } from "@/lib/country-guides-de";
 import { PremiumPage } from "@/components/PremiumSiteChrome";
 import CountryAlert from "../CountryAlert";
 import styles from "../countries.module.css";
@@ -22,7 +23,12 @@ export async function generateMetadata(props: { params: Promise<{ country: strin
     description: indexable
       ? `The scams travellers actually run into in ${profile.name} — how each one works, the pressure tactic behind it, and the simple move that stops it.`
       : `Scam and fraud awareness for travel to ${profile.name}, with links to official government advisories.`,
-    alternates: { canonical: `/countries/${country}` },
+    alternates: {
+      canonical: `/countries/${country}`,
+      ...(COUNTRY_GUIDES_DE[country]
+        ? { languages: { en: `https://konfydence.com/countries/${country}`, de: `https://konfydence.com/de/countries/${country}` } }
+        : {}),
+    },
     robots: indexable ? undefined : { index: false, follow: true },
     openGraph: {
       title: `Common scams in ${profile.name} — and how to avoid them`,

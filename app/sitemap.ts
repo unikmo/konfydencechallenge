@@ -1,6 +1,7 @@
 import type { MetadataRoute } from "next";
 import { COUNTRY_PROFILES } from "@/lib/countries";
 import { COUNTRY_GUIDES } from "@/lib/country-guides";
+import { COUNTRY_GUIDES_DE } from "@/lib/country-guides-de";
 
 const BASE = "https://konfydence.com";
 
@@ -63,6 +64,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE}/de/lockscreens/sicherheitsplakate`, changeFrequency: "monthly", priority: 0.7 },
     { url: `${BASE}/de/lockscreens/phishing-sensibilisierung-zwischen-schulungen`, changeFrequency: "monthly", priority: 0.7 },
     { url: `${BASE}/de/lockscreens/familie-betrugsschutz`, changeFrequency: "monthly", priority: 0.7 },
+    { url: `${BASE}/de/countries`, changeFrequency: "monthly", priority: 0.7 },
   ];
 
   const countryPages: MetadataRoute.Sitemap = Object.values(COUNTRY_PROFILES)
@@ -73,5 +75,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.6,
     }));
 
-  return [...staticPages, ...countryPages];
+  const countryPagesDe: MetadataRoute.Sitemap = Object.keys(COUNTRY_GUIDES_DE)
+    .filter((slug) => COUNTRY_PROFILES[slug])
+    .map((slug) => ({
+      url: `${BASE}/de/countries/${slug}`,
+      changeFrequency: "monthly",
+      priority: 0.6,
+    }));
+
+  return [...staticPages, ...countryPages, ...countryPagesDe];
 }

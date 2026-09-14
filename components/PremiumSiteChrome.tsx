@@ -126,6 +126,7 @@ export function PremiumFooterDe() {
           <Link href="/de/pricing">Preise</Link>
           <Link href="/de/comasy">CoMaSy</Link>
           <Link href="/de/hack-method">Methode</Link>
+          <Link href="/de/countries">Länder-Betrugswarnungen</Link>
           <Link href="/de/impressum">Impressum</Link>
           <Link href="/de/datenschutz">Datenschutz</Link>
           <Link href="/de/agb">AGB</Link>

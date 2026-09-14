@@ -1,8 +1,13 @@
 import Link from "next/link";
+import type { Metadata } from "next";
 import { COUNTRY_PROFILES } from "@/lib/countries";
 import { PremiumPage } from "@/components/PremiumSiteChrome";
 import CountryDirectory from "./CountryDirectory";
 import styles from "./countries.module.css";
+
+export const metadata: Metadata = {
+  alternates: { languages: { en: "https://konfydence.com/countries", de: "https://konfydence.com/de/countries" } },
+};
 
 export default function CountriesPage() {
   const profiles = Object.values(COUNTRY_PROFILES);
