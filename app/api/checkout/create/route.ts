@@ -25,6 +25,28 @@ const SUBSCRIPTION_TRIAL_DAYS = 365; // year 1 is the one-time line; renewals bi
 
 type GiftInput = { toEmail: string; fromName: string; message: string };
 
+// EU/UK consumer law lets the 14-day distance-selling withdrawal right lapse
+// early for immediately-delivered digital content/services, but only if the
+// buyer expressly requested immediate performance AND acknowledged losing
+// the right — captured here, not just stated in the Terms/AGB. Stripe's
+// consent_collection.terms_of_service checkbox is mandatory (blocks payment
+// until checked) and its custom_text is what the buyer actually reads and
+// durably records agreement to; see app/terms-of-service (§5) and
+// app/de/agb (§4) for the corresponding legal text this echoes.
+function digitalAccessConsentText(appUrl: string, lang: "de" | "en"): string {
+  if (lang === "de") {
+    return `Ich habe die [AGB](${appUrl}/de/agb) gelesen und stimme ihnen zu. Ich verlange ausdrücklich, dass Konfydence mit der Bereitstellung sofort beginnt, und weiß, dass ich dadurch mein 14-tägiges Widerrufsrecht verliere, sobald die Leistung vollständig erbracht ist.`;
+  }
+  return `I have read and agree to the [Terms of Service](${appUrl}/terms-of-service). I expressly request that Konfydence begin providing this digital access immediately, and understand that where an EU/UK statutory right of withdrawal would otherwise apply, I lose that right once it is fully delivered.`;
+}
+
+function orgPurchaseConsentText(appUrl: string, lang: "de" | "en"): string {
+  if (lang === "de") {
+    return `Ich habe die [AGB](${appUrl}/de/agb) gelesen und stimme ihnen im Namen meiner Organisation zu.`;
+  }
+  return `I have read and agree to the [Terms of Service](${appUrl}/terms-of-service) on behalf of my organisation.`;
+}
+
 export async function POST(request: NextRequest) {
   try {
     const { allowed } = rateLimit(`checkout:${getClientIp(request)}`, 10, 60_000);
@@ -39,6 +61,7 @@ export async function POST(request: NextRequest) {
     const sku = typeof body.sku === "string" ? body.sku : "";
     const { gift } = body;
     const stripeLocale: Stripe.Checkout.SessionCreateParams.Locale = body.locale === "de" ? "de" : "auto";
+    const consentLang: "de" | "en" = body.locale === "de" ? "de" : "en";
 
     if (!sku) {
       return NextResponse.json({ error: "sku is required" }, { status: 400 });
@@ -128,6 +151,8 @@ export async function POST(request: NextRequest) {
         metadata,
         success_url: `${appUrl}/teams?welcome=1`,
         allow_promotion_codes: true,
+        consent_collection: { terms_of_service: "required" },
+        custom_text: { terms_of_service_acceptance: { message: orgPurchaseConsentText(appUrl, consentLang) } },
       });
     } else if (isSubscriptionSku(sku)) {
       const entry = SUBSCRIPTION_CATALOG[sku];
@@ -147,6 +172,8 @@ export async function POST(request: NextRequest) {
         metadata,
         success_url: `${appUrl}/lockscreens/thank-you`,
         cancel_url: `${appUrl}/lockscreens`,
+        consent_collection: { terms_of_service: "required" },
+        custom_text: { terms_of_service_acceptance: { message: digitalAccessConsentText(appUrl, consentLang) } },
       });
     } else {
       const entry = CONSUMER_CATALOG[sku];
@@ -185,6 +212,8 @@ export async function POST(request: NextRequest) {
           payment_intent_data: { metadata, statement_descriptor_suffix: "KONFYDENCE" },
           success_url: `${appUrl}/gift/thank-you`,
           allow_promotion_codes: true,
+          consent_collection: { terms_of_service: "required" },
+          custom_text: { terms_of_service_acceptance: { message: digitalAccessConsentText(appUrl, consentLang) } },
         });
       } else {
         // Direct purchase: an annual subscription. The claim page has no
@@ -202,6 +231,8 @@ export async function POST(request: NextRequest) {
           subscription_data: { metadata },
           success_url: successUrl,
           allow_promotion_codes: true,
+          consent_collection: { terms_of_service: "required" },
+          custom_text: { terms_of_service_acceptance: { message: digitalAccessConsentText(appUrl, consentLang) } },
         });
       }
     }
