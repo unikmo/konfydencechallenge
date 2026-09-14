@@ -71,6 +71,21 @@ function amountForCurrency(eurUnitAmountCents: number, currency: string, rate: n
 type CurrencyOptionsMap = Record<string, Stripe.PriceCreateParams.CurrencyOptions>;
 
 /**
+ * Stripe rejects a currency_options entry whose key equals the price's own
+ * top-level currency ("You are specifying an update to a currency option
+ * that matches the top-level currency for this price... update the
+ * top-level params instead") — every one of our catalogue entries is
+ * "usd", so this only bites if a currency_options map ever picks up "usd"
+ * (e.g. carried forward from a price whose live currency_options already
+ * had a stray entry). Defensive at both build time and merge time rather
+ * than assuming the catalogue's own currency list never overlaps.
+ */
+function omitOwnCurrency(options: CurrencyOptionsMap, ownCurrency: string): CurrencyOptionsMap {
+  if (!(ownCurrency in options)) return options;
+  return Object.fromEntries(Object.entries(options).filter(([currency]) => currency !== ownCurrency));
+}
+
+/**
  * currency_options for every pegged currency, keyed off the USD/EUR numeral.
  *
  * `tax_behavior` is included on every currency explicitly (matching the
@@ -137,7 +152,7 @@ async function upsertPrice(productId: string, spec: PriceSpec, fx: FxTable): Pro
       (current.recurring?.interval === spec.recurring.interval &&
         (current.recurring?.interval_count ?? 1) === (spec.recurring.interval_count ?? 1)));
 
-  const currencyOptions = buildCurrencyOptions(spec.unitAmount, fx);
+  const currencyOptions = omitOwnCurrency(buildCurrencyOptions(spec.unitAmount, fx), spec.currency);
   let priceId: string;
 
   if (sameShape) {
@@ -184,6 +199,7 @@ async function upsertPrice(productId: string, spec: PriceSpec, fx: FxTable): Pro
   // instead of forwarding the raw retrieved object.
   const carriedForwardOptions: CurrencyOptionsMap = {};
   for (const [currency, existing] of Object.entries(existingOptions)) {
+    if (currency === spec.currency) continue; // Stripe rejects this outright — see omitOwnCurrency
     if (currency in currencyOptions) continue; // this run already has a fresh value
     if (typeof existing.unit_amount !== "number") continue;
     carriedForwardOptions[currency] = {

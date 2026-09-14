@@ -70,6 +70,15 @@ function amountForCurrency(eurUnitAmountCents, currency, rate) {
 // rejects with "attempting to update an immutable field for an existing
 // currency in currency_options" — the exact failure this caused on every
 // deploy before this fix.
+// Stripe rejects a currency_options entry whose key equals the price's own
+// top-level currency (every catalogue price here is "usd") — defensive
+// against a stray "usd" entry ever getting carried forward from a price's
+// existing currency_options.
+function omitOwnCurrency(options, ownCurrency) {
+  if (!(ownCurrency in options)) return options;
+  return Object.fromEntries(Object.entries(options).filter(([currency]) => currency !== ownCurrency));
+}
+
 function buildCurrencyOptions(unitAmountUsdEqualsEur, fx) {
   const options = { eur: { unit_amount: unitAmountUsdEqualsEur, tax_behavior: "exclusive" } };
   for (const currency of PEGGED_CURRENCIES) {
@@ -120,7 +129,7 @@ async function upsertPrice(productId, spec, fx) {
     Boolean(current.recurring) === Boolean(spec.recurring) &&
     (!spec.recurring || (current.recurring.interval === spec.recurring.interval && (current.recurring.interval_count || 1) === (spec.recurring.interval_count || 1)));
 
-  const currencyOptions = buildCurrencyOptions(spec.unitAmount, fx);
+  const currencyOptions = omitOwnCurrency(buildCurrencyOptions(spec.unitAmount, fx), "usd");
   let priceId;
 
   if (same) {
@@ -154,6 +163,7 @@ async function upsertPrice(productId, spec, fx) {
   // currency this run's fx table didn't already refresh.
   const carriedForwardOptions = {};
   for (const [currency, existing] of Object.entries(existingOptions)) {
+    if (currency === "usd") continue; // Stripe rejects this outright — see omitOwnCurrency
     if (currency in currencyOptions) continue;
     if (typeof existing.unit_amount !== "number") continue;
     carriedForwardOptions[currency] = { unit_amount: existing.unit_amount, tax_behavior: existing.tax_behavior || "exclusive" };
