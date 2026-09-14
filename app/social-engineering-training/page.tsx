@@ -4,7 +4,7 @@ import { ComasyIntentPage } from "@/components/ComasyIntentPage";
 export const metadata: Metadata = {
   title: { absolute: "Social Engineering Training for Employees | CoMaSy" },
   description: "Social engineering training built around realistic decisions, compromised identities, independent verification and measurable behavioural signals.",
-  alternates: { canonical: "/social-engineering-training" },
+  alternates: { canonical: "/social-engineering-training", languages: { en: "https://konfydence.com/social-engineering-training", de: "https://konfydence.com/de/social-engineering-schulung" } },
 };
 
 export default function Page() {

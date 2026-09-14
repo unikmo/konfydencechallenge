@@ -5,7 +5,7 @@ export const metadata: Metadata = {
   title: { absolute: "A Scam-Warning Lock Screen for the Family | Konfydence Lockscreens" },
   description:
     "A calm anti-scam reminder on a parent's or teenager's phone. One Pause · Assess · Talk prompt on the lock screen, refreshed every two weeks — no app, no nagging.",
-  alternates: { canonical: "/lockscreens/family-scam-protection" },
+  alternates: { canonical: "/lockscreens/family-scam-protection", languages: { en: "https://konfydence.com/lockscreens/family-scam-protection", de: "https://konfydence.com/de/lockscreens/familie-betrugsschutz" } },
   openGraph: {
     title: "A Scam-Warning Lock Screen for the Family | Konfydence",
     description: "The reminder that's there when the scam text arrives — without you having to send it.",

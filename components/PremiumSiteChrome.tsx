@@ -100,7 +100,9 @@ export function PremiumHeaderDe({
       </Link>
       <nav className="k-nav-links" aria-label="Hauptnavigation">
         <Link href="/de/challenge">Challenge</Link>
+        <Link href="/de/lockscreens">Lockscreens</Link>
         <Link href="/de/pricing">Preise</Link>
+        <Link href="/de/comasy">Für Organisationen</Link>
       </nav>
       <div className="k-nav-actions">
         <Link href="/" className="k-lang-switch" aria-label="View in English">EN</Link>
@@ -120,7 +122,10 @@ export function PremiumFooterDe() {
         </div>
         <nav aria-label="Fußzeilen-Navigation">
           <Link href="/de/challenge">Challenge</Link>
+          <Link href="/de/lockscreens">Lockscreens</Link>
           <Link href="/de/pricing">Preise</Link>
+          <Link href="/de/comasy">CoMaSy</Link>
+          <Link href="/de/hack-method">Methode</Link>
           <Link href="/de/impressum">Impressum</Link>
           <Link href="/de/datenschutz">Datenschutz</Link>
           <Link href="/de/agb">AGB</Link>

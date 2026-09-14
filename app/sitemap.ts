@@ -38,13 +38,31 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE}/terms-of-service`, changeFrequency: "yearly", priority: 0.4 },
     { url: `${BASE}/cookie-policy`, changeFrequency: "yearly", priority: 0.4 },
     { url: `${BASE}/imprint`, changeFrequency: "yearly", priority: 0.4 },
-    // German funnel (Stage 4, in progress) — only the Familie edition plays in German so far.
+    // German funnel — core buyer journey (Stage 4) plus the marketing/SEO
+    // cluster added afterward (CoMaSy, Lockscreens, hack-method).
     { url: `${BASE}/de`, changeFrequency: "weekly", priority: 0.9 },
     { url: `${BASE}/de/challenge`, changeFrequency: "weekly", priority: 0.8 },
     { url: `${BASE}/de/pricing`, changeFrequency: "monthly", priority: 0.6 },
     { url: `${BASE}/de/impressum`, changeFrequency: "yearly", priority: 0.4 },
     { url: `${BASE}/de/datenschutz`, changeFrequency: "yearly", priority: 0.4 },
     { url: `${BASE}/de/agb`, changeFrequency: "yearly", priority: 0.4 },
+    { url: `${BASE}/de/hack-method`, changeFrequency: "monthly", priority: 0.8 },
+    { url: `${BASE}/de/comasy`, changeFrequency: "weekly", priority: 1 },
+    { url: `${BASE}/de/comasy/pilotprojekt`, changeFrequency: "monthly", priority: 0.9 },
+    { url: `${BASE}/de/comasy/methodik`, changeFrequency: "monthly", priority: 0.8 },
+    { url: `${BASE}/de/comasy/sicherheit`, changeFrequency: "monthly", priority: 0.8 },
+    { url: `${BASE}/de/comasy/nis2-sicherheitsbewusstsein`, changeFrequency: "monthly", priority: 0.8 },
+    { url: `${BASE}/de/sicherheitsbewusstsein-schulung`, changeFrequency: "monthly", priority: 0.9 },
+    { url: `${BASE}/de/cybersicherheit-schulung-mitarbeiter`, changeFrequency: "monthly", priority: 0.9 },
+    { url: `${BASE}/de/social-engineering-schulung`, changeFrequency: "monthly", priority: 0.9 },
+    { url: `${BASE}/de/entscheidungssimulation-sicherheit`, changeFrequency: "monthly", priority: 0.9 },
+    { url: `${BASE}/de/lockscreens`, changeFrequency: "monthly", priority: 0.7 },
+    { url: `${BASE}/de/lockscreens/sicherheitsbewusstsein-sperrbildschirm`, changeFrequency: "monthly", priority: 0.8 },
+    { url: `${BASE}/de/lockscreens/intune`, changeFrequency: "monthly", priority: 0.7 },
+    { url: `${BASE}/de/lockscreens/jamf`, changeFrequency: "monthly", priority: 0.7 },
+    { url: `${BASE}/de/lockscreens/sicherheitsplakate`, changeFrequency: "monthly", priority: 0.7 },
+    { url: `${BASE}/de/lockscreens/phishing-sensibilisierung-zwischen-schulungen`, changeFrequency: "monthly", priority: 0.7 },
+    { url: `${BASE}/de/lockscreens/familie-betrugsschutz`, changeFrequency: "monthly", priority: 0.7 },
   ];
 
   const countryPages: MetadataRoute.Sitemap = Object.values(COUNTRY_PROFILES)

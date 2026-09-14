@@ -5,7 +5,7 @@ export const metadata: Metadata = {
   title: { absolute: "Security Awareness Wallpaper for Microsoft Intune | Konfydence Lockscreens" },
   description:
     "Deploy a rotating security awareness lock screen and desktop wallpaper through Microsoft Intune. One policy, one URL, a fresh Pause · Assess · Talk prompt every two weeks — no re-deploy.",
-  alternates: { canonical: "/lockscreens/intune" },
+  alternates: { canonical: "/lockscreens/intune", languages: { en: "https://konfydence.com/lockscreens/intune", de: "https://konfydence.com/de/lockscreens/intune" } },
   openGraph: {
     title: "Security Awareness Wallpaper for Microsoft Intune | Konfydence",
     description: "Point an Intune wallpaper policy at one URL and it stays current all year.",

@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   title: { absolute: "CoMaSy Methodology | Behavioural Security Metrics" },
   description:
     "How CoMaSy defines and interprets Pause Adoption, Verification Rate, Impulse Rate and H.A.C.K. pressure-pattern signals.",
-  alternates: { canonical: "/comasy/methodology" },
+  alternates: { canonical: "/comasy/methodology", languages: { en: "https://konfydence.com/comasy/methodology", de: "https://konfydence.com/de/comasy/methodik" } },
 };
 
 const metrics = [

@@ -5,7 +5,7 @@ export const metadata: Metadata = {
   title: { absolute: "Security Awareness Lock Screen for Jamf-Managed Macs & iPads | Konfydence Lockscreens" },
   description:
     "A rotating security awareness lock screen for Apple fleets managed with Jamf Pro or Jamf School. One configuration profile, a fresh Pause · Assess · Talk prompt every two weeks.",
-  alternates: { canonical: "/lockscreens/jamf" },
+  alternates: { canonical: "/lockscreens/jamf", languages: { en: "https://konfydence.com/lockscreens/jamf", de: "https://konfydence.com/de/lockscreens/jamf" } },
   openGraph: {
     title: "Security Awareness Lock Screen for Jamf | Konfydence",
     description: "Deploy once with a Jamf profile; the message stays current all year.",

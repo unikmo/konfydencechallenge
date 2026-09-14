@@ -5,7 +5,7 @@ export const metadata: Metadata = {
   title: { absolute: "The Digital Alternative to Security Awareness Posters | Konfydence Lockscreens" },
   description:
     "Security awareness posters go stale on the wall and miss remote staff. A rotating lock screen puts one Pause · Assess · Talk prompt on every device and refreshes it every two weeks.",
-  alternates: { canonical: "/lockscreens/security-awareness-posters" },
+  alternates: { canonical: "/lockscreens/security-awareness-posters", languages: { en: "https://konfydence.com/lockscreens/security-awareness-posters", de: "https://konfydence.com/de/lockscreens/sicherheitsplakate" } },
   openGraph: {
     title: "The Digital Alternative to Security Awareness Posters | Konfydence",
     description: "Reach every device, remote staff included — and change the message every fortnight.",

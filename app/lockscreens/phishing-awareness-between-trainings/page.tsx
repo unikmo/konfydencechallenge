@@ -5,7 +5,7 @@ export const metadata: Metadata = {
   title: { absolute: "Keep Staff Phishing-Aware Between Trainings | Konfydence Lockscreens" },
   description:
     "Annual phishing training fades within weeks. A rotating lock screen keeps one Pause · Assess · Talk prompt in front of employees every day, refreshed every two weeks as tactics change.",
-  alternates: { canonical: "/lockscreens/phishing-awareness-between-trainings" },
+  alternates: { canonical: "/lockscreens/phishing-awareness-between-trainings", languages: { en: "https://konfydence.com/lockscreens/phishing-awareness-between-trainings", de: "https://konfydence.com/de/lockscreens/phishing-sensibilisierung-zwischen-schulungen" } },
   openGraph: {
     title: "Keep Staff Phishing-Aware Between Trainings | Konfydence",
     description: "The steady reminder that fills the months between training modules.",

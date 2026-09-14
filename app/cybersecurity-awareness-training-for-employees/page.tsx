@@ -4,7 +4,7 @@ import { ComasyIntentPage } from "@/components/ComasyIntentPage";
 export const metadata: Metadata = {
   title: { absolute: "Cybersecurity Awareness Training for Employees | CoMaSy" },
   description: "Short, realistic cybersecurity decision practice for employees — designed to complement existing awareness programs and measure verification behaviour.",
-  alternates: { canonical: "/cybersecurity-awareness-training-for-employees" },
+  alternates: { canonical: "/cybersecurity-awareness-training-for-employees", languages: { en: "https://konfydence.com/cybersecurity-awareness-training-for-employees", de: "https://konfydence.com/de/cybersicherheit-schulung-mitarbeiter" } },
 };
 
 export default function Page() {

@@ -4,7 +4,7 @@ import { ComasyIntentPage } from "@/components/ComasyIntentPage";
 export const metadata: Metadata = {
   title: { absolute: "Security Decision Simulation | CoMaSy by Konfydence" },
   description: "Security decision simulation for organisations that want employees to rehearse verification, escalation and proportionate action under social-engineering pressure.",
-  alternates: { canonical: "/security-decision-simulation" },
+  alternates: { canonical: "/security-decision-simulation", languages: { en: "https://konfydence.com/security-decision-simulation", de: "https://konfydence.com/de/entscheidungssimulation-sicherheit" } },
 };
 
 export default function Page() {

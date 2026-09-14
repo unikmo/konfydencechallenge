@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   title: { absolute: "Konfydence Lockscreens | Pause. Assess. Talk." },
   description:
     "A lock-screen reminder service. Pick your device, install the first screen, and get a fresh Pause · Assess · Talk prompt every two weeks as scam patterns change.",
-  alternates: { canonical: "/lockscreens" },
+  alternates: { canonical: "/lockscreens", languages: { en: "https://konfydence.com/lockscreens", de: "https://konfydence.com/de/lockscreens" } },
   openGraph: {
     title: "Konfydence Lockscreens | Pause. Assess. Talk.",
     description: "A calm reminder where you will actually see it — refreshed every two weeks.",

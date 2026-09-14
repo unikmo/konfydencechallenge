@@ -24,12 +24,19 @@ async function sendEmail(to: string, subject: string, html: string, replyTo?: st
 }
 
 export async function POST(request: NextRequest) {
+  const preLang = new URL(request.url).searchParams.get("lang") === "de" ? "de" : "en";
+  // Read before the body is consumed, since a rate-limit/validation bounce
+  // needs to send a German visitor back to the German form, not the English
+  // one — /de/comasy/pilotprojekt posts here with a hidden lang=de field.
+  const pilotFormUrl = preLang === "de" ? "/de/comasy/pilotprojekt" : "/comasy/pilot";
   const { allowed } = rateLimit(`comasy-pilot:${getClientIp(request)}`, 5, 10 * 60_000);
-  if (!allowed) return NextResponse.redirect(new URL("/comasy/pilot?error=rate", request.url), 303);
+  if (!allowed) return NextResponse.redirect(new URL(`${pilotFormUrl}?error=rate`, request.url), 303);
   const form = await request.formData();
+  const lang = value(form, "lang") === "de" ? "de" : "en";
+  const formUrl = lang === "de" ? "/de/comasy/pilotprojekt" : "/comasy/pilot";
   const firstName=value(form,"firstName"), lastName=value(form,"lastName"), workEmail=value(form,"workEmail").toLowerCase(), organizationName=value(form,"organization"), role=value(form,"role"), organizationSize=value(form,"organizationSize"), primaryObjective=value(form,"primaryObjective");
   if (!firstName || !lastName || !organizationName || !validEmail(workEmail) || !role || !organizationSize || !primaryObjective || value(form,"consent")!=="yes") {
-    return NextResponse.redirect(new URL("/comasy/pilot?error=validation", request.url), 303);
+    return NextResponse.redirect(new URL(`${formUrl}?error=validation`, request.url), 303);
   }
 
   const emailDomain=workEmail.split("@")[1] || "";
@@ -57,12 +64,14 @@ export async function POST(request: NextRequest) {
   const activeOpportunity=await prisma.comasyOpportunity.findFirst({where:{organizationId:organization.id,stage:{notIn:["WON","LOST"]}}});
   if(!activeOpportunity) await prisma.comasyOpportunity.create({data:{organizationId:organization.id,name:`${organizationName} CoMaSy pilot`,stage:"PILOT_PROPOSED",probability:35,nextAction:"Qualify use case and agree cohort",owner:organization.accountOwner}});
 
-  const internalHtml=`<h2>New CoMaSy pilot request</h2><p><strong>${safe(firstName)} ${safe(lastName)}</strong> · ${safe(role)}<br/>${safe(workEmail)}<br/>${safe(organizationName)} · ${safe(organizationSize)}</p><p><strong>Objective:</strong> ${safe(primaryObjective)}<br/><strong>Current platform:</strong> ${safe(value(form,"currentPlatform")||"Not provided")}<br/><strong>Notes:</strong> ${safe(value(form,"notes")||"—")}</p><p>Source: ${safe([source,medium,campaign].filter(Boolean).join(" / "))}</p>`;
-  const customerHtml=`<h2>Your CoMaSy pilot request is in.</h2><p>Hi ${safe(firstName)},</p><p>We will review the use case, agree the target cohort and risk focus, establish the pilot measures, and configure the programme before any scale decision.</p><p><strong>Defined cohort. Defined metrics. Defined decision point.</strong></p>`;
+  const internalHtml=`<h2>New CoMaSy pilot request${lang==="de"?" (DE)":""}</h2><p><strong>${safe(firstName)} ${safe(lastName)}</strong> · ${safe(role)}<br/>${safe(workEmail)}<br/>${safe(organizationName)} · ${safe(organizationSize)}</p><p><strong>Objective:</strong> ${safe(primaryObjective)}<br/><strong>Current platform:</strong> ${safe(value(form,"currentPlatform")||"Not provided")}<br/><strong>Notes:</strong> ${safe(value(form,"notes")||"—")}</p><p>Source: ${safe([source,medium,campaign].filter(Boolean).join(" / "))}</p>`;
+  const customerHtml = lang === "de"
+    ? `<h2>Deine CoMaSy-Pilotanfrage ist da.</h2><p>Hallo ${safe(firstName)},</p><p>Wir prüfen den Anwendungsfall, vereinbaren die Zielkohorte und den Risikofokus, legen die Pilot-Kennzahlen fest und konfigurieren das Programm — vor jeder Entscheidung über eine Skalierung.</p><p><strong>Definierte Kohorte. Definierte Kennzahlen. Definierter Entscheidungspunkt.</strong></p>`
+    : `<h2>Your CoMaSy pilot request is in.</h2><p>Hi ${safe(firstName)},</p><p>We will review the use case, agree the target cohort and risk focus, establish the pilot measures, and configure the programme before any scale decision.</p><p><strong>Defined cohort. Defined metrics. Defined decision point.</strong></p>`;
   await Promise.all([
     CONTACT_TO_EMAIL ? sendEmail(CONTACT_TO_EMAIL,`CoMaSy pilot request — ${organizationName}`,internalHtml,workEmail):Promise.resolve(false),
-    sendEmail(workEmail,"Your CoMaSy pilot request is in",customerHtml),
+    sendEmail(workEmail, lang === "de" ? "Deine CoMaSy-Pilotanfrage ist da" : "Your CoMaSy pilot request is in", customerHtml),
   ]);
   console.log("CoMaSy pilot request recorded", { leadId: lead.id, organizationId: organization.id, emailConfigured: Boolean(RESEND_API_KEY&&CONTACT_FROM_EMAIL) });
-  return NextResponse.redirect(new URL(`/comasy/pilot/thank-you?org=${encodeURIComponent(organizationName)}`, request.url),303);
+  return NextResponse.redirect(new URL(`/comasy/pilot/thank-you?org=${encodeURIComponent(organizationName)}${lang === "de" ? "&lang=de" : ""}`, request.url),303);
 }
