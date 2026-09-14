@@ -27,4 +27,5 @@ export const legalStyles: Record<string, CSSProperties> = {
     padding: 20,
     marginBottom: 20,
   },
+  subheading: { fontSize: 16, fontWeight: 800, marginBottom: 8, marginTop: 20 },
 };

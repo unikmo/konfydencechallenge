@@ -13,7 +13,7 @@ export default function AgbPage() {
     <div style={s.container}>
       <div style={s.content}>
         <h1 style={s.title}>Allgemeine Geschäftsbedingungen</h1>
-        <p style={s.update}>Stand: 11. September 2026 (spiegelt die englischen Terms of Service)</p>
+        <p style={s.update}>Stand: 14. September 2026 (spiegelt die englischen Terms of Service)</p>
 
         <div style={s.section}>
           <h2 style={s.heading}>1. Geltungsbereich</h2>
@@ -50,17 +50,107 @@ export default function AgbPage() {
         <div style={s.section}>
           <h2 style={s.heading}>4. Käufe, Abonnements &amp; Widerrufsrecht</h2>
           <p style={s.paragraph}>
-            Verbraucherkäufe werden über Stripe abgewickelt. Die Challenge-Editionen und der Team-Zugang sind
-            jährliche Abonnements; ein Geschenkkauf ist eine einmalige Zahlung, die der beschenkten Person ein Jahr
-            Zugang gewährt.
+            Verbraucherkäufe werden über Stripe abgewickelt. Die Challenge-Editionen, Konfydence Lockscreens (Home/Teen)
+            und der Team-Zugang sind jährliche Abonnements mit automatischer Verlängerung, kündbar jederzeit zum Ende
+            der laufenden Laufzeit über dein Konto oder per E-Mail an support@konfydence.com; ein Geschenkkauf ist eine
+            einmalige Zahlung, die der beschenkten Person ein Jahr Zugang gewährt.
           </p>
+
+          <h3 style={s.subheading}>4.1 Widerrufsrecht</h3>
           <p style={s.paragraph}>
-            <strong>Wichtiger Hinweis zum Widerrufsrecht bei digitalen Inhalten:</strong> Nach EU-Verbraucherrecht steht
-            dir bei einem Fernabsatzvertrag über digitale Inhalte grundsätzlich ein 14-tägiges Widerrufsrecht zu — es
-            sei denn, du hast der sofortigen Bereitstellung ausdrücklich zugestimmt und dabei bestätigt, dass du dein
-            Widerrufsrecht damit verlierst. Der Zugang zu deiner Challenge wird sofort nach dem Kauf freigeschaltet.
-            Möchtest du dennoch innerhalb von 14 Tagen widerrufen, wende dich an support@konfydence.com — wir prüfen
-            jede Anfrage individuell und kulant.
+            Verbraucherinnen und Verbrauchern (natürliche Personen, die den Vertrag zu einem Zweck abschließen, der
+            überwiegend weder ihrer gewerblichen noch ihrer selbständigen beruflichen Tätigkeit zugerechnet werden
+            kann) steht bei einem außerhalb von Geschäftsräumen oder im Fernabsatz geschlossenen Vertrag ein
+            gesetzliches Widerrufsrecht zu.
+          </p>
+          <div style={s.infoBox}>
+            <p style={{ ...s.paragraph, marginBottom: 8 }}><strong>Widerrufsbelehrung</strong></p>
+            <p style={s.paragraph}>
+              Du hast das Recht, binnen vierzehn Tagen ohne Angabe von Gründen diesen Vertrag zu widerrufen. Die
+              Widerrufsfrist beträgt vierzehn Tage ab dem Tag des Vertragsabschlusses.
+            </p>
+            <p style={s.paragraph}>
+              Um dein Widerrufsrecht auszuüben, musst du uns (PlanetHike OÜ, Kontaktdaten siehe{" "}
+              <Link href="/de/impressum" style={s.link}>Impressum</Link>, E-Mail: support@konfydence.com) mittels
+              einer eindeutigen Erklärung (z. B. ein mit der Post versandter Brief oder eine E-Mail) über deinen
+              Entschluss, diesen Vertrag zu widerrufen, informieren. Du kannst dafür das unten stehende
+              Muster-Widerrufsformular verwenden, was jedoch nicht vorgeschrieben ist.
+            </p>
+            <p style={s.paragraph}>
+              Zur Wahrung der Widerrufsfrist reicht es aus, dass du die Mitteilung über die Ausübung des
+              Widerrufsrechts vor Ablauf der Widerrufsfrist absendest.
+            </p>
+            <p style={{ ...s.paragraph, marginBottom: 8 }}><strong>Folgen des Widerrufs</strong></p>
+            <p style={s.paragraph}>
+              Wenn du diesen Vertrag widerrufst, haben wir dir alle Zahlungen, die wir von dir erhalten haben,
+              unverzüglich und spätestens binnen vierzehn Tagen ab dem Tag zurückzuzahlen, an dem die Mitteilung über
+              deinen Widerruf bei uns eingegangen ist. Für diese Rückzahlung verwenden wir dasselbe Zahlungsmittel,
+              das du bei der ursprünglichen Transaktion eingesetzt hast, es sei denn, mit dir wurde ausdrücklich etwas
+              anderes vereinbart; in keinem Fall werden dir wegen dieser Rückzahlung Entgelte berechnet.
+            </p>
+            <p style={s.paragraph}>
+              Hast du verlangt, dass die Dienstleistung während der Widerrufsfrist beginnen soll, oder digitale
+              Inhalte, die nicht auf einem körperlichen Datenträger geliefert werden, sollen bereitgestellt werden, so
+              hast du uns einen angemessenen Betrag zu zahlen, der dem Anteil der bis zu dem Zeitpunkt, zu dem du uns
+              von der Ausübung des Widerrufsrechts hinsichtlich dieses Vertrags unterrichtest, bereits erbrachten
+              Leistung im Vergleich zum Gesamtumfang der im Vertrag vorgesehenen Leistungen entspricht — soweit dein
+              Widerrufsrecht nach Ziffer 4.2 nicht bereits vollständig erloschen ist.
+            </p>
+          </div>
+
+          <h3 style={s.subheading}>4.2 Vorzeitiges Erlöschen bei digitalen Inhalten &amp; sofort erbrachten Leistungen</h3>
+          <p style={s.paragraph}>
+            Konfydence-Zugänge (Challenge-Editionen, Lockscreens, Team-Zugang) werden dir unmittelbar nach Zahlungs­
+            eingang vollständig freigeschaltet — es handelt sich um digitale Inhalte, die nicht auf einem körperlichen
+            Datenträger geliefert werden, bzw. um eine Dienstleistung, die vollständig erbracht wird. Dein
+            Widerrufsrecht <strong>erlischt vorzeitig</strong>, sobald wir mit der Ausführung des Vertrags begonnen
+            haben, wenn du
+          </p>
+          <ul style={s.list}>
+            <li>ausdrücklich zugestimmt hast, dass wir mit der Ausführung des Vertrags vor Ablauf der Widerrufsfrist
+              beginnen, und</li>
+            <li>bestätigt hast, dass du dadurch mit vollständiger Vertragserfüllung dein Widerrufsrecht verlierst
+              (bei digitalen Inhalten) bzw. bei vollständig erbrachter Dienstleistung dein Widerrufsrecht verlierst.</li>
+          </ul>
+          <p style={s.paragraph}>
+            Diese Zustimmung holen wir im Bestellprozess vor Vertragsschluss über eine gesondert anzuklickende
+            Checkbox ein, deren Wortlaut die vorstehenden beiden Erklärungen ausdrücklich enthält; deine Bestätigung
+            wird zusammen mit der Bestellung dauerhaft gespeichert. Ohne dieses Häkchen kann die Bestellung nicht
+            abgeschlossen werden. Solltest du diese Zustimmung ausnahmsweise nicht erteilt haben oder ist die
+            Leistung noch nicht vollständig erbracht, gilt das 14-tägige Widerrufsrecht nach Ziffer 4.1 unverändert
+            fort.
+          </p>
+
+          <h3 style={s.subheading}>4.3 Muster-Widerrufsformular</h3>
+          <div style={s.infoBox}>
+            <p style={{ ...s.paragraph, marginBottom: 8 }}>
+              (Wenn du den Vertrag widerrufen willst, fülle bitte dieses Formular aus und sende es zurück.)
+            </p>
+            <p style={{ ...s.paragraph, marginBottom: 4 }}>An: PlanetHike OÜ, support@konfydence.com</p>
+            <p style={{ ...s.paragraph, marginBottom: 4 }}>
+              Hiermit widerrufe(n) ich/wir (*) den von mir/uns (*) abgeschlossenen Vertrag über den Kauf der
+              folgenden Ware/Dienstleistung (*):
+            </p>
+            <p style={{ ...s.paragraph, marginBottom: 4 }}>Bestellt am (*)/erhalten am (*):</p>
+            <p style={{ ...s.paragraph, marginBottom: 4 }}>Name des/der Verbraucher(s):</p>
+            <p style={{ ...s.paragraph, marginBottom: 4 }}>Anschrift des/der Verbraucher(s):</p>
+            <p style={{ ...s.paragraph, marginBottom: 4 }}>
+              Unterschrift des/der Verbraucher(s) (nur bei Mitteilung auf Papier):
+            </p>
+            <p style={{ ...s.paragraph, marginBottom: 0 }}>Datum:</p>
+            <p style={{ ...s.paragraph, marginTop: 12, marginBottom: 0, fontSize: 12 }}>(*) Unzutreffendes streichen.</p>
+          </div>
+
+          <h3 style={s.subheading}>4.4 Rückerstattungen außerhalb des Widerrufsrechts</h3>
+          <p style={s.paragraph}>
+            Unabhängig vom gesetzlichen Widerrufsrecht prüfen wir jede Rückerstattungsanfrage individuell und
+            kulant — schreib uns einfach an support@konfydence.com. Zwingende gesetzliche Gewährleistungsrechte
+            (z. B. bei mangelhafter Leistung) bleiben davon unberührt.
+          </p>
+          <p style={{ ...s.paragraph, fontSize: 12, fontStyle: "italic" }}>
+            Diese Widerrufsbelehrung orientiert sich an der Muster-Widerrufsbelehrung nach Anlage 1 zu Art. 246a §&nbsp;1
+            Abs.&nbsp;2 Satz&nbsp;1 Nr.&nbsp;1 EGBGB und wird vor einer breiteren Vermarktung an deutsche
+            Verbraucherinnen und Verbraucher noch anwaltlich geprüft.
           </p>
         </div>
 
