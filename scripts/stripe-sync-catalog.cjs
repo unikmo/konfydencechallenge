@@ -145,29 +145,27 @@ async function upsertPrice(productId, spec, fx) {
     return created.id;
   }
 
-  console.log(`    price ${spec.lookupKey} -> unchanged ${current.id}`);
+  // Existing, unchanged price: do NOT touch currency_options for any
+  // currency it already has -- even an unchanged unit_amount resend to an
+  // already-configured currency has been observed live to trip Stripe's
+  // immutable-field rejection on this account. Only add a currency that's
+  // genuinely new to this price (e.g. PEGGED_CURRENCIES grew); every
+  // already-configured currency is left completely untouched.
   const priceId = current.id;
-
-  // Existing price: refresh unit_amount for currencies already configured,
-  // and set tax_behavior only for a currency that's genuinely new to this
-  // price. tax_behavior "cannot be changed" once specified per Stripe's own
-  // docs, and resending it unchanged is itself rejected -- only unit_amount
-  // is safe to resend for an already-configured currency.
+  console.log(`    price ${spec.lookupKey} -> unchanged ${priceId}`);
   const priceWithOptions = await stripe.prices.retrieve(priceId, { expand: ["currency_options"] });
   const alreadyConfigured = new Set(Object.keys(priceWithOptions.currency_options || {}));
-  const updatePayload = {};
-  let newCount = 0;
+  const newOnly = {};
   for (const [currency, unitAmount] of Object.entries(targetAmounts)) {
-    if (currency === "usd") continue; // Stripe rejects a currency matching the price's own top-level currency
-    if (alreadyConfigured.has(currency)) {
-      updatePayload[currency] = { unit_amount: unitAmount };
-    } else {
-      updatePayload[currency] = { unit_amount: unitAmount, tax_behavior: "exclusive" };
-      newCount += 1;
-    }
+    if (currency === "usd" || alreadyConfigured.has(currency)) continue;
+    newOnly[currency] = { unit_amount: unitAmount, tax_behavior: "exclusive" };
   }
-  await stripe.prices.update(priceId, { currency_options: updatePayload });
-  console.log(`    price ${spec.lookupKey} -> currency_options synced (${Object.keys(updatePayload).length} currencies, ${newCount} new)`);
+  if (Object.keys(newOnly).length === 0) {
+    console.log(`    price ${spec.lookupKey} -> currency_options already cover every pegged currency, nothing to add`);
+  } else {
+    await stripe.prices.update(priceId, { currency_options: newOnly });
+    console.log(`    price ${spec.lookupKey} -> currency_options: added ${Object.keys(newOnly).join(", ")}`);
+  }
 
   return priceId;
 }
