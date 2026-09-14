@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   title: { absolute: "The H.A.C.K. and P.A.T. method | Konfydence" },
   description:
     "Two simple frameworks: H.A.C.K. (Hurry, Authority, Comfort, Kill-Switch) to spot the pressure behind a scam, and P.A.T. (Pause, Assess, Talk) for what to do about it.",
-  alternates: { canonical: "/hack-method" },
+  alternates: { canonical: "/hack-method", languages: { en: "https://konfydence.com/hack-method", de: "https://konfydence.com/de/hack-method" } },
 };
 
 const patterns = [

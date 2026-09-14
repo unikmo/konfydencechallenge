@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   title: { absolute: "Request a CoMaSy Security Decision Simulation Pilot" },
   description:
     "Run a defined CoMaSy pilot with a selected cohort, baseline, targeted decision practice, post-variant measurement and an executive scale / adapt / stop review.",
-  alternates: { canonical: "/comasy/pilot" },
+  alternates: { canonical: "/comasy/pilot", languages: { en: "https://konfydence.com/comasy/pilot", de: "https://konfydence.com/de/comasy/pilotprojekt" } },
 };
 
 const roles = ["CISO / Security Leadership", "Security Awareness", "Compliance", "Risk", "HR", "L&D", "IT", "Management", "Other"];

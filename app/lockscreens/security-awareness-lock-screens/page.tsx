@@ -5,7 +5,7 @@ export const metadata: Metadata = {
   title: { absolute: "Security Awareness Lock Screens | Konfydence Lockscreens" },
   description:
     "A managed security awareness lock screen: one short Pause · Assess · Talk prompt on every device, refreshed every two weeks as scam patterns change. For workplaces, schools and families.",
-  alternates: { canonical: "/lockscreens/security-awareness-lock-screens" },
+  alternates: { canonical: "/lockscreens/security-awareness-lock-screens", languages: { en: "https://konfydence.com/lockscreens/security-awareness-lock-screens", de: "https://konfydence.com/de/lockscreens/sicherheitsbewusstsein-sperrbildschirm" } },
   openGraph: {
     title: "Security Awareness Lock Screens | Konfydence",
     description: "The reminder where people actually see it — refreshed every two weeks, not a folder of wallpapers.",

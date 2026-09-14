@@ -4,7 +4,7 @@ import { ComasyIntentPage } from "@/components/ComasyIntentPage";
 export const metadata: Metadata = {
   title: { absolute: "NIS2 Security Awareness & Effectiveness Evidence | CoMaSy" },
   description: "A CoMaSy use case for repeated cybersecurity-awareness activity, defined effectiveness indicators and management-ready evidence. CoMaSy does not by itself establish NIS2 compliance.",
-  alternates: { canonical: "/comasy/nis2-security-awareness" },
+  alternates: { canonical: "/comasy/nis2-security-awareness", languages: { en: "https://konfydence.com/comasy/nis2-security-awareness", de: "https://konfydence.com/de/comasy/nis2-sicherheitsbewusstsein" } },
 };
 
 export default function Page() {

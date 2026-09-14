@@ -4,7 +4,7 @@ import { ComasyIntentPage } from "@/components/ComasyIntentPage";
 export const metadata: Metadata = {
   title: { absolute: "Security Awareness Training That Measures Decisions | CoMaSy" },
   description: "Complement security awareness training with realistic decision simulations that measure pause, verification and escalation behaviour under pressure.",
-  alternates: { canonical: "/security-awareness-training" },
+  alternates: { canonical: "/security-awareness-training", languages: { en: "https://konfydence.com/security-awareness-training", de: "https://konfydence.com/de/sicherheitsbewusstsein-schulung" } },
 };
 
 export default function Page() {

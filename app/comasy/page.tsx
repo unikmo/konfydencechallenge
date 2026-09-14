@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   title: { absolute: "CoMaSy | Security Decision Simulation by Konfydence" },
   description:
     "CoMaSy complements security awareness programmes with realistic decision simulations that measure pause, verification and escalation behaviour under pressure.",
-  alternates: { canonical: "/comasy" },
+  alternates: { canonical: "/comasy", languages: { en: "https://konfydence.com/comasy", de: "https://konfydence.com/de/comasy" } },
   openGraph: {
     title: "CoMaSy | Security Decision Simulation",
     description:

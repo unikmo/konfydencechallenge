@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { PremiumPage } from "@/components/PremiumSiteChrome";
+import { PremiumPage, PremiumPageDe } from "@/components/PremiumSiteChrome";
 import { PortfolioStrip } from "@/components/PortfolioStrip";
 
 export type LockscreenIntentSection = {
@@ -25,6 +25,8 @@ export type LockscreenOrgValue = {
   note?: string;
 };
 
+export type LockscreenUiLang = "en" | "de";
+
 export type LockscreenIntentPageProps = {
   slug: string;
   eyebrow: string;
@@ -43,6 +45,45 @@ export type LockscreenIntentPageProps = {
   faq: LockscreenIntentFaq[];
   calloutTitle: string;
   breadcrumbName: string;
+  lang?: LockscreenUiLang;
+};
+
+const STRINGS: Record<LockscreenUiLang, {
+  howItWorks: string;
+  theGap: string;
+  howItRuns: string;
+  whyOrg: string;
+  questions: string;
+  whatBuyersAsk: string;
+  calloutKicker: string;
+  portfolioKicker: string;
+  portfolioHeading: string;
+  breadcrumbRoot: string;
+}> = {
+  en: {
+    howItWorks: "How Lockscreens works",
+    theGap: "The gap",
+    howItRuns: "How it runs",
+    whyOrg: "Why it matters to the organisation",
+    questions: "Questions",
+    whatBuyersAsk: "What buyers ask first.",
+    calloutKicker: "Pause. Assess. Talk — where it’s seen.",
+    portfolioKicker: "Also from Konfydence",
+    portfolioHeading: "Practise the decision, not just the reminder.",
+    breadcrumbRoot: "Konfydence Lockscreens",
+  },
+  de: {
+    howItWorks: "So funktioniert Lockscreens",
+    theGap: "Die Lücke",
+    howItRuns: "So läuft es ab",
+    whyOrg: "Warum das für die Organisation wichtig ist",
+    questions: "Fragen",
+    whatBuyersAsk: "Was Einkäufer zuerst fragen.",
+    calloutKicker: "Anhalten. Abklären. Ansprechen — wo es gesehen wird.",
+    portfolioKicker: "Auch von Konfydence",
+    portfolioHeading: "Die Entscheidung üben, nicht nur die Erinnerung.",
+    breadcrumbRoot: "Konfydence Lockscreens",
+  },
 };
 
 const BASE = "https://konfydence.com";
@@ -65,14 +106,18 @@ export function LockscreenIntentPage({
   faq,
   calloutTitle,
   breadcrumbName,
+  lang = "en",
 }: LockscreenIntentPageProps) {
+  const t = STRINGS[lang];
+  const Page = lang === "de" ? PremiumPageDe : PremiumPage;
+  const pathPrefix = lang === "de" ? "/de" : "";
   const jsonLd: Record<string, unknown>[] = [
     {
       "@context": "https://schema.org",
       "@type": "BreadcrumbList",
       itemListElement: [
-        { "@type": "ListItem", position: 1, name: "Konfydence Lockscreens", item: `${BASE}/lockscreens` },
-        { "@type": "ListItem", position: 2, name: breadcrumbName, item: `${BASE}/lockscreens/${slug}` },
+        { "@type": "ListItem", position: 1, name: t.breadcrumbRoot, item: `${BASE}${pathPrefix}/lockscreens` },
+        { "@type": "ListItem", position: 2, name: breadcrumbName, item: `${BASE}${pathPrefix}/lockscreens/${slug}` },
       ],
     },
   ];
@@ -91,7 +136,7 @@ export function LockscreenIntentPage({
   const frameClass = heroImage.frame === "phone" ? "kls-phone" : "kls-desktop";
 
   return (
-    <PremiumPage ctaHref={primaryCtaHref} ctaLabel={primaryCtaLabel}>
+    <Page ctaHref={primaryCtaHref} ctaLabel={primaryCtaLabel}>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
 
       <section className="kls-hero kg-shell">
@@ -101,7 +146,7 @@ export function LockscreenIntentPage({
           <p className="k-lede">{intro}</p>
           <div className="k-actions">
             <Link className="k-button" href={primaryCtaHref}>{primaryCtaLabel}</Link>
-            <Link className="k-button-quiet" href="/lockscreens">How Lockscreens works</Link>
+            <Link className="k-button-quiet" href={`${pathPrefix}/lockscreens`}>{t.howItWorks}</Link>
           </div>
         </div>
         <div className="kls-devices">
@@ -115,7 +160,7 @@ export function LockscreenIntentPage({
       <section className="kg-shell k-section">
         <div className="k-section-head">
           <div>
-            <p className="k-kicker">The gap</p>
+            <p className="k-kicker">{t.theGap}</p>
             <h2 className="k-display-sm">{problemTitle}</h2>
           </div>
           <p className="k-copy">{problemCopy}</p>
@@ -134,7 +179,7 @@ export function LockscreenIntentPage({
       <section className="k-section-dark">
         <div className="kg-shell kc-split">
           <div>
-            <p className="k-kicker">How it runs</p>
+            <p className="k-kicker">{t.howItRuns}</p>
             <h2 className="k-display-sm">{howTitle}</h2>
           </div>
           <div>
@@ -152,7 +197,7 @@ export function LockscreenIntentPage({
         <section className="kg-shell k-section">
           <div className="k-section-head">
             <div>
-              <p className="k-kicker">Why it matters to the organisation</p>
+              <p className="k-kicker">{t.whyOrg}</p>
               <h2 className="k-display-sm">{orgValue.title}</h2>
             </div>
             <p className="k-copy">{orgValue.copy}</p>
@@ -172,8 +217,8 @@ export function LockscreenIntentPage({
         <section className="kg-shell k-section">
           <div className="k-section-head">
             <div>
-              <p className="k-kicker">Questions</p>
-              <h2 className="k-display-sm">What buyers ask first.</h2>
+              <p className="k-kicker">{t.questions}</p>
+              <h2 className="k-display-sm">{t.whatBuyersAsk}</h2>
             </div>
           </div>
           <div className="kc-cards">
@@ -189,7 +234,7 @@ export function LockscreenIntentPage({
 
       <section className="kg-shell k-callout">
         <div>
-          <p className="k-kicker">Pause. Assess. Talk — where it&rsquo;s seen.</p>
+          <p className="k-kicker">{t.calloutKicker}</p>
           <h2 className="k-display-sm">{calloutTitle}</h2>
         </div>
         <div className="k-actions">
@@ -197,7 +242,9 @@ export function LockscreenIntentPage({
         </div>
       </section>
 
-      <PortfolioStrip exclude={["lockscreens"]} kicker="Also from Konfydence" heading="Practise the decision, not just the reminder." />
-    </PremiumPage>
+      {lang === "de" ? null : (
+        <PortfolioStrip exclude={["lockscreens"]} kicker={t.portfolioKicker} heading={t.portfolioHeading} />
+      )}
+    </Page>
   );
 }

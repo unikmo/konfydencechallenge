@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   title: { absolute: "CoMaSy Security & Privacy | Konfydence" },
   description:
     "Current CoMaSy security, privacy and pilot data-handling information for enterprise review and procurement conversations.",
-  alternates: { canonical: "/comasy/security" },
+  alternates: { canonical: "/comasy/security", languages: { en: "https://konfydence.com/comasy/security", de: "https://konfydence.com/de/comasy/sicherheit" } },
 };
 
 const controls = [

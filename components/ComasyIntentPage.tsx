@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { PremiumPage } from "@/components/PremiumSiteChrome";
+import { PremiumPage, PremiumPageDe } from "@/components/PremiumSiteChrome";
 import { PortfolioStrip } from "@/components/PortfolioStrip";
 
 export type IntentSection = {
@@ -12,6 +12,61 @@ export type IntentFaq = {
   answer: string;
 };
 
+export type UiLang = "en" | "de";
+
+const STRINGS: Record<UiLang, {
+  ctaLabel: string;
+  seeComasy: string;
+  decisionGap: string;
+  measurement: string;
+  readMethodology: string;
+  buyerQuestions: string;
+  buyerQuestionsHeading: string;
+  calloutKicker: string;
+  calloutHeading: string;
+  calloutButton: string;
+  portfolioKicker: string;
+  portfolioHeading: string;
+  pilotHref: string;
+  methodologyHref: string;
+  comasyHref: string;
+}> = {
+  en: {
+    ctaLabel: "Request a pilot",
+    seeComasy: "See CoMaSy",
+    decisionGap: "The decision gap",
+    measurement: "Measurement",
+    readMethodology: "Read the methodology",
+    buyerQuestions: "Buyer questions",
+    buyerQuestionsHeading: "What to know before you pilot it.",
+    calloutKicker: "Defined cohort. Defined metrics. Defined decision point.",
+    calloutHeading: "Test the use case before you scale it.",
+    calloutButton: "Request a CoMaSy pilot",
+    portfolioKicker: "Also from Konfydence",
+    portfolioHeading: "Practise the decision, individually or as a team.",
+    pilotHref: "/comasy/pilot",
+    methodologyHref: "/comasy/methodology",
+    comasyHref: "/comasy",
+  },
+  de: {
+    ctaLabel: "Pilotprojekt anfragen",
+    seeComasy: "CoMaSy ansehen",
+    decisionGap: "Die Entscheidungslücke",
+    measurement: "Messung",
+    readMethodology: "Methodik lesen",
+    buyerQuestions: "Fragen von Einkäufern",
+    buyerQuestionsHeading: "Was du vor dem Pilotprojekt wissen solltest.",
+    calloutKicker: "Definierte Kohorte. Definierte Kennzahlen. Definierter Entscheidungspunkt.",
+    calloutHeading: "Teste den Anwendungsfall, bevor du skalierst.",
+    calloutButton: "CoMaSy-Pilotprojekt anfragen",
+    portfolioKicker: "Auch von Konfydence",
+    portfolioHeading: "Die Entscheidung üben — einzeln oder im Team.",
+    pilotHref: "/de/comasy/pilot",
+    methodologyHref: "/de/comasy/methodology",
+    comasyHref: "/de/comasy",
+  },
+};
+
 export function ComasyIntentPage({
   eyebrow,
   title,
@@ -22,6 +77,7 @@ export function ComasyIntentPage({
   proofTitle,
   proofCopy,
   faq,
+  lang = "en",
 }: {
   eyebrow: string;
   title: string;
@@ -32,23 +88,26 @@ export function ComasyIntentPage({
   proofTitle: string;
   proofCopy: string;
   faq: IntentFaq[];
+  lang?: UiLang;
 }) {
+  const t = STRINGS[lang];
+  const Page = lang === "de" ? PremiumPageDe : PremiumPage;
   return (
-    <PremiumPage ctaHref="/comasy/pilot" ctaLabel="Request a pilot">
+    <Page ctaHref={t.pilotHref} ctaLabel={t.ctaLabel}>
       <section className="kg-shell kc-hero">
         <p className="k-kicker">{eyebrow}</p>
         <h1>{title}</h1>
         <p>{intro}</p>
         <div className="k-actions">
-          <Link className="k-button" href="/comasy/pilot">Request a pilot</Link>
-          <Link className="k-button-quiet" href="/comasy">See CoMaSy</Link>
+          <Link className="k-button" href={t.pilotHref}>{t.ctaLabel}</Link>
+          <Link className="k-button-quiet" href={t.comasyHref}>{t.seeComasy}</Link>
         </div>
       </section>
 
       <section className="kg-shell k-section">
         <div className="k-section-head">
           <div>
-            <p className="k-kicker">The decision gap</p>
+            <p className="k-kicker">{t.decisionGap}</p>
             <h2 className="k-display-sm">{problemTitle}</h2>
           </div>
           <p className="k-copy">{problemCopy}</p>
@@ -67,13 +126,13 @@ export function ComasyIntentPage({
       <section className="k-section-dark">
         <div className="kg-shell kc-split">
           <div>
-            <p className="k-kicker">Measurement</p>
+            <p className="k-kicker">{t.measurement}</p>
             <h2 className="k-display-sm">{proofTitle}</h2>
           </div>
           <div>
             <p className="k-copy">{proofCopy}</p>
             <p style={{ marginTop: 18 }}>
-              <Link className="k-button-quiet" href="/comasy/methodology">Read the methodology</Link>
+              <Link className="k-button-quiet" href={t.methodologyHref}>{t.readMethodology}</Link>
             </p>
           </div>
         </div>
@@ -82,8 +141,8 @@ export function ComasyIntentPage({
       <section className="kg-shell k-section">
         <div className="k-section-head">
           <div>
-            <p className="k-kicker">Buyer questions</p>
-            <h2 className="k-display-sm">What to know before you pilot it.</h2>
+            <p className="k-kicker">{t.buyerQuestions}</p>
+            <h2 className="k-display-sm">{t.buyerQuestionsHeading}</h2>
           </div>
         </div>
         <div className="kc-cards">
@@ -98,15 +157,17 @@ export function ComasyIntentPage({
 
       <section className="kg-shell k-callout">
         <div>
-          <p className="k-kicker">Defined cohort. Defined metrics. Defined decision point.</p>
-          <h2 className="k-display-sm">Test the use case before you scale it.</h2>
+          <p className="k-kicker">{t.calloutKicker}</p>
+          <h2 className="k-display-sm">{t.calloutHeading}</h2>
         </div>
         <div className="k-actions">
-          <Link className="k-button" href="/comasy/pilot">Request a CoMaSy pilot</Link>
+          <Link className="k-button" href={t.pilotHref}>{t.calloutButton}</Link>
         </div>
       </section>
 
-      <PortfolioStrip exclude={["comasy"]} kicker="Also from Konfydence" heading="Practise the decision, individually or as a team." />
-    </PremiumPage>
+      {lang === "de" ? null : (
+        <PortfolioStrip exclude={["comasy"]} kicker={t.portfolioKicker} heading={t.portfolioHeading} />
+      )}
+    </Page>
   );
 }
