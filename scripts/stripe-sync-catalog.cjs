@@ -147,7 +147,18 @@ async function upsertPrice(productId, spec, fx) {
   // rejecting it, so a currency this run's FX fetch missed must still be
   // resent with its last-known value.
   const priceWithOptions = await stripe.prices.retrieve(priceId, { expand: ["currency_options"] });
-  const mergedOptions = { ...(priceWithOptions.currency_options || {}), ...currencyOptions };
+  const existingOptions = priceWithOptions.currency_options || {};
+  // Stripe's GET response includes both unit_amount and unit_amount_decimal
+  // for the same value; resending both on an update is itself rejected. Only
+  // carry forward a clean {unit_amount, tax_behavior} pair, and only for a
+  // currency this run's fx table didn't already refresh.
+  const carriedForwardOptions = {};
+  for (const [currency, existing] of Object.entries(existingOptions)) {
+    if (currency in currencyOptions) continue;
+    if (typeof existing.unit_amount !== "number") continue;
+    carriedForwardOptions[currency] = { unit_amount: existing.unit_amount, tax_behavior: existing.tax_behavior || "exclusive" };
+  }
+  const mergedOptions = { ...carriedForwardOptions, ...currencyOptions };
   await stripe.prices.update(priceId, { currency_options: mergedOptions });
   console.log(`    price ${spec.lookupKey} -> currency_options synced (eur + ${Object.keys(currencyOptions).length - 1} pegged)`);
 

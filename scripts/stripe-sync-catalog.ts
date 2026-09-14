@@ -175,7 +175,23 @@ async function upsertPrice(productId: string, spec: PriceSpec, fx: FxTable): Pro
   // is what produced "attempting to update an immutable field for an
   // existing currency in currency_options" before this fix.
   const priceWithOptions = await stripe.prices.retrieve(priceId, { expand: ["currency_options"] });
-  const mergedOptions: CurrencyOptionsMap = { ...(priceWithOptions.currency_options as CurrencyOptionsMap | undefined), ...currencyOptions };
+  const existingOptions = (priceWithOptions.currency_options ?? {}) as Record<string, { unit_amount?: number | null; tax_behavior?: string | null }>;
+  // Stripe's GET response includes both unit_amount and unit_amount_decimal
+  // for the same value; resending both on an update is itself rejected
+  // ("You may only specify one of these parameters: custom_unit_amount,
+  // unit_amount, unit_amount_decimal"). Re-derive a clean {unit_amount,
+  // tax_behavior} pair for any currency this run's fx table didn't touch,
+  // instead of forwarding the raw retrieved object.
+  const carriedForwardOptions: CurrencyOptionsMap = {};
+  for (const [currency, existing] of Object.entries(existingOptions)) {
+    if (currency in currencyOptions) continue; // this run already has a fresh value
+    if (typeof existing.unit_amount !== "number") continue;
+    carriedForwardOptions[currency] = {
+      unit_amount: existing.unit_amount,
+      tax_behavior: (existing.tax_behavior as CurrencyOptionsMap[string]["tax_behavior"]) ?? "exclusive",
+    };
+  }
+  const mergedOptions: CurrencyOptionsMap = { ...carriedForwardOptions, ...currencyOptions };
   await stripe.prices.update(priceId, { currency_options: mergedOptions });
   console.log(`    price ${spec.lookupKey} → currency_options synced (eur + ${Object.keys(currencyOptions).length - 1} pegged)`);
 
