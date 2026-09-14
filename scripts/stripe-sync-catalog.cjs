@@ -64,29 +64,20 @@ function amountForCurrency(eurUnitAmountCents, currency, rate) {
   return ZERO_DECIMAL_CURRENCIES.has(currency) ? Math.round(converted) : Math.round(converted * 100);
 }
 
-// tax_behavior is included on every currency explicitly (mirrors the .ts
-// version's comment): Stripe treats a currency's tax_behavior as immutable
-// once set, so a resync that omits it reads as "unset it", which Stripe
-// rejects with "attempting to update an immutable field for an existing
-// currency in currency_options" — the exact failure this caused on every
-// deploy before this fix.
-// Stripe rejects a currency_options entry whose key equals the price's own
-// top-level currency (every catalogue price here is "usd") — defensive
-// against a stray "usd" entry ever getting carried forward from a price's
-// existing currency_options.
-function omitOwnCurrency(options, ownCurrency) {
-  if (!(ownCurrency in options)) return options;
-  return Object.fromEntries(Object.entries(options).filter(([currency]) => currency !== ownCurrency));
-}
-
+// Bare {currency: unit_amount} for every pegged currency this run's FX table
+// covers. Deliberately excludes tax_behavior — see upsertPrice: Stripe's own
+// docs say a currency's tax_behavior "cannot be changed" once specified, and
+// in practice that means it can't even be *resent unchanged* on an update
+// without being rejected, so it may only ever be set the first time a
+// currency is added to a price.
 function buildCurrencyOptions(unitAmountUsdEqualsEur, fx) {
-  const options = { eur: { unit_amount: unitAmountUsdEqualsEur, tax_behavior: "exclusive" } };
+  const amounts = { eur: unitAmountUsdEqualsEur };
   for (const currency of PEGGED_CURRENCIES) {
     const rate = fx[currency];
     if (!rate) continue;
-    options[currency] = { unit_amount: amountForCurrency(unitAmountUsdEqualsEur, currency, rate), tax_behavior: "exclusive" };
+    amounts[currency] = amountForCurrency(unitAmountUsdEqualsEur, currency, rate);
   }
-  return options;
+  return amounts;
 }
 
 // Every Challenge edition is an annual subscription now (recurring yearly).
@@ -129,48 +120,54 @@ async function upsertPrice(productId, spec, fx) {
     Boolean(current.recurring) === Boolean(spec.recurring) &&
     (!spec.recurring || (current.recurring.interval === spec.recurring.interval && (current.recurring.interval_count || 1) === (spec.recurring.interval_count || 1)));
 
-  const currencyOptions = omitOwnCurrency(buildCurrencyOptions(spec.unitAmount, fx), "usd");
-  let priceId;
+  const targetAmounts = buildCurrencyOptions(spec.unitAmount, fx);
 
-  if (same) {
-    console.log(`    price ${spec.lookupKey} -> unchanged ${current.id}`);
-    priceId = current.id;
-  } else {
+  if (!same) {
+    // Brand-new price: no currency_options exist yet, so every currency is
+    // being added for the first time — tax_behavior may only ever be set at
+    // this moment (see buildCurrencyOptions's comment).
+    const initialOptions = {};
+    for (const [currency, unitAmount] of Object.entries(targetAmounts)) {
+      initialOptions[currency] = { unit_amount: unitAmount, tax_behavior: "exclusive" };
+    }
     const created = await stripe.prices.create({
       product: productId, currency: "usd", unit_amount: spec.unitAmount, nickname: spec.nickname,
       lookup_key: spec.lookupKey, transfer_lookup_key: Boolean(current), tax_behavior: "exclusive",
-      currency_options: currencyOptions,
+      currency_options: initialOptions,
       ...(spec.recurring ? { recurring: spec.recurring } : {}),
     });
     console.log(`    price ${spec.lookupKey} -> ${current ? "replaced" : "created"} ${created.id}`);
+    console.log(`    price ${spec.lookupKey} -> currency_options set at creation (eur + ${Object.keys(initialOptions).length - 1} pegged)`);
     if (current && current.id !== created.id) {
       await stripe.prices.update(current.id, { active: false });
       console.log(`    price ${current.id} -> archived (was one-time / stale)`);
     }
-    priceId = created.id;
+    return created.id;
   }
 
-  // Merge onto whatever's already on the price rather than replacing the
-  // whole map — see buildCurrencyOptions's comment: a currency once
-  // configured can't just vanish from a later update without Stripe
-  // rejecting it, so a currency this run's FX fetch missed must still be
-  // resent with its last-known value.
+  console.log(`    price ${spec.lookupKey} -> unchanged ${current.id}`);
+  const priceId = current.id;
+
+  // Existing price: refresh unit_amount for currencies already configured,
+  // and set tax_behavior only for a currency that's genuinely new to this
+  // price. tax_behavior "cannot be changed" once specified per Stripe's own
+  // docs, and resending it unchanged is itself rejected -- only unit_amount
+  // is safe to resend for an already-configured currency.
   const priceWithOptions = await stripe.prices.retrieve(priceId, { expand: ["currency_options"] });
-  const existingOptions = priceWithOptions.currency_options || {};
-  // Stripe's GET response includes both unit_amount and unit_amount_decimal
-  // for the same value; resending both on an update is itself rejected. Only
-  // carry forward a clean {unit_amount, tax_behavior} pair, and only for a
-  // currency this run's fx table didn't already refresh.
-  const carriedForwardOptions = {};
-  for (const [currency, existing] of Object.entries(existingOptions)) {
-    if (currency === "usd") continue; // Stripe rejects this outright — see omitOwnCurrency
-    if (currency in currencyOptions) continue;
-    if (typeof existing.unit_amount !== "number") continue;
-    carriedForwardOptions[currency] = { unit_amount: existing.unit_amount, tax_behavior: existing.tax_behavior || "exclusive" };
+  const alreadyConfigured = new Set(Object.keys(priceWithOptions.currency_options || {}));
+  const updatePayload = {};
+  let newCount = 0;
+  for (const [currency, unitAmount] of Object.entries(targetAmounts)) {
+    if (currency === "usd") continue; // Stripe rejects a currency matching the price's own top-level currency
+    if (alreadyConfigured.has(currency)) {
+      updatePayload[currency] = { unit_amount: unitAmount };
+    } else {
+      updatePayload[currency] = { unit_amount: unitAmount, tax_behavior: "exclusive" };
+      newCount += 1;
+    }
   }
-  const mergedOptions = { ...carriedForwardOptions, ...currencyOptions };
-  await stripe.prices.update(priceId, { currency_options: mergedOptions });
-  console.log(`    price ${spec.lookupKey} -> currency_options synced (eur + ${Object.keys(currencyOptions).length - 1} pegged)`);
+  await stripe.prices.update(priceId, { currency_options: updatePayload });
+  console.log(`    price ${spec.lookupKey} -> currency_options synced (${Object.keys(updatePayload).length} currencies, ${newCount} new)`);
 
   return priceId;
 }
