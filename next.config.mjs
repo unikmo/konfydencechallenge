@@ -19,6 +19,16 @@ const CSP = [
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
+  // Short vanity redirects for printed/physical goods (KonfyGuard wallet
+  // card, fridge magnet) — a QR code or a URL stamped on a physical item
+  // can't be edited after it ships, so it points at a short, memorable slug
+  // that redirects to the real page rather than the real page's own path.
+  async redirects() {
+    return [
+      { source: "/scamcheck", destination: "/free-scam-safety-pack", permanent: true },
+      { source: "/de/scamcheck", destination: "/de/hack-method", permanent: true },
+    ];
+  },
   async headers() {
     return [
       {
