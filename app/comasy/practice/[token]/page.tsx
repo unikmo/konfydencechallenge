@@ -1,3 +1,4 @@
+import { pilotExpired, availableComasyScenarios } from "@/lib/comasyPlans";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { prisma } from "@/lib/prisma";
@@ -23,13 +24,14 @@ export default async function PracticePage({
     include: {
       cohort: true,
       organization: {
-        select: { id: true, name: true, brandingName: true },
+        select: { id: true, name: true, brandingName: true, pilotEndsAt:true },
       },
     },
   });
 
   if (!participant || participant.status === "DISABLED") notFound();
 
+  if (pilotExpired(participant.organization)) return <State href={"/comasy/participant/"+token} title="The free pilot has ended." copy="Your organisation can review the results before choosing a paid rollout." />;
   const campaignScope = {
     organizationId: participant.organizationId,
     OR: [
@@ -48,9 +50,10 @@ export default async function PracticePage({
         orderBy: { createdAt: "desc" },
       });
 
+  if (campaign?.scheduledAt && campaign.scheduledAt > new Date()) return <State href={"/comasy/participant/"+token} title="Practice is scheduled." copy="Return on the date shown on your participant page." />;
   if (!campaign) {
     return (
-      <State
+      <State href={"/comasy/participant/"+token}
         title="No practice is assigned right now."
         copy="Your administrator has not assigned an active campaign to your cohort."
       />
@@ -89,7 +92,7 @@ export default async function PracticePage({
         latest.scenario.proTip ||
         "The safer pattern is to slow the request down and verify through an independent channel.";
       return (
-        <State
+        <State href={"/comasy/participant/"+token}
           eyebrow="YOUR LAST MOVE"
           title={verdict}
           copy={`${explanation} ${responses.length} decision${responses.length === 1 ? "" : "s"} completed. Your results are now included in your organisation's behavioural dashboard.`}
@@ -98,15 +101,15 @@ export default async function PracticePage({
     }
 
     return (
-      <State
+      <State href={"/comasy/participant/"+token}
         title="Done."
         copy={`${responses.length} decisions completed. Your results are now included in your organisation's behavioural dashboard.`}
       />
     );
   }
 
-  const scenario = await prisma.scenario.findUnique({
-    where: { id: currentId },
+  const scenario = await prisma.scenario.findFirst({
+    where: { id: currentId, ...availableComasyScenarios(participant.organizationId) },
     include: { comasyProfile: true },
   });
 
@@ -129,7 +132,7 @@ export default async function PracticePage({
           <span>K</span>
           <b>{participant.organization.brandingName || "CoMaSy"}</b>
         </div>
-        <small>{campaign.name}</small>
+        <small>{campaign.name} · <Link href={"/comasy/participant/"+token}>My practice</Link></small>
       </header>
 
       <div className="progress" aria-label={`${progress}% complete`}>
@@ -203,10 +206,12 @@ function State({
   title,
   copy,
   eyebrow = "COMASY",
+  href = "/comasy",
 }: {
   title: string;
   copy: string;
   eyebrow?: string;
+  href?: string;
 }) {
   return (
     <main className="state">
@@ -214,7 +219,7 @@ function State({
         <p className="stateEyebrow">{eyebrow}</p>
         <h1>{title}</h1>
         <p>{copy}</p>
-        <Link href="/comasy">Return to CoMaSy</Link>
+        <Link href={href}>{href.includes("/participant/")?"Back to my practice":"Return to CoMaSy"}</Link>
       </div>
       <style>{`
         :global(*){box-sizing:border-box}:global(body){margin:0;background:#12191f}.state{min-height:100vh;display:grid;place-items:center;background:radial-gradient(circle at 75% 10%,#18486c,transparent 34%),#12191f;color:white;padding:20px;font-family:Inter,system-ui,sans-serif}.state>div{width:min(620px,100%);background:#f8f6f0;color:#12191f;padding:clamp(28px,6vw,52px);border-radius:24px;box-shadow:0 30px 80px #0006}.stateEyebrow{font-size:10px;font-weight:950;letter-spacing:.14em;color:#58707d;margin:0 0 14px}.state h1{font:500 clamp(38px,7vw,58px)/1 "Iowan Old Style",Baskerville,Georgia,serif;letter-spacing:-.035em;margin:0 0 18px}.state p:not(.stateEyebrow){color:#61737c;line-height:1.7}.state a{display:inline-block;margin-top:12px;color:#12191f;font-weight:900}

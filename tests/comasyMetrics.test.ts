@@ -1,6 +1,7 @@
 import { classifyScenarioResponse, summarizeBehaviour } from "../lib/comasyMetrics";
 
 describe("CoMaSy behavioural measurement", () => {
+  it("retains denominators so unmeasured patterns are not shown as failures",()=>{expect(summarizeBehaviour([],20,0).hackResponseCounts).toEqual({H:0,A:0,C:0,K:0});});
   const participant = (id: string) => ({ participantId: id, participant: { cohortId: "finance", cohort: { name: "Finance" } } });
   const row = (participantId: string, designation: string, pause: boolean, verification: boolean, impulse: boolean, hackKey: string, score: number) => ({
     ...participant(participantId), score, pause, verification, impulse, hackKey, campaign: { designation },

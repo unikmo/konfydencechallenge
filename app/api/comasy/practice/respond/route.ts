@@ -1,3 +1,4 @@
+import { pilotExpired, availableComasyScenarios } from "@/lib/comasyPlans";
 import { NextRequest, NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
 import { classifyScenarioResponse } from "@/lib/comasyMetrics";
@@ -12,15 +13,17 @@ export async function POST(request: NextRequest) {
   const selectedAnswerKey = String(form.get("selectedAnswerKey") ?? "");
   if (!token || !campaignId || !scenarioId || !answerKey(selectedAnswerKey)) return NextResponse.json({ error: "invalid_submission" }, { status: 400 });
 
-  const participant = await prisma.comasyParticipant.findUnique({ where: { accessToken: token }, select: { id: true, organizationId: true, cohortId: true, status: true } });
+  const participant = await prisma.comasyParticipant.findUnique({ where: { accessToken: token }, select: { id: true, organizationId: true, cohortId: true, status: true, organization: {select:{pilotEndsAt:true}} } });
   if (!participant || participant.status === "DISABLED") return NextResponse.json({ error: "participant_not_found" }, { status: 404 });
 
+  if (pilotExpired(participant.organization)) return NextResponse.json({error:"pilot_ended"},{status:403});
   const campaign = await prisma.comasyCampaign.findFirst({ where: { id: campaignId, organizationId: participant.organizationId, status: { in: ["ACTIVE", "SCHEDULED"] } } });
+  if (campaign?.scheduledAt && campaign.scheduledAt > new Date()) return NextResponse.json({error:"campaign_not_started"},{status:403});
   if (!campaign || (campaign.cohortId && campaign.cohortId !== participant.cohortId)) return NextResponse.json({ error: "campaign_not_assigned" }, { status: 403 });
   const scenarioIds = campaign.scenarioIds.split(",").map((x) => x.trim()).filter(Boolean);
   if (!scenarioIds.includes(scenarioId)) return NextResponse.json({ error: "scenario_not_in_campaign" }, { status: 403 });
 
-  const scenario = await prisma.scenario.findUnique({ where: { id: scenarioId }, include: { comasyProfile: true } });
+  const scenario = await prisma.scenario.findFirst({ where: { id: scenarioId, ...availableComasyScenarios(participant.organizationId) }, include: { comasyProfile: true } });
   if (!scenario || !scenario.active || !scenario.scored) return NextResponse.json({ error: "scenario_unavailable" }, { status: 404 });
   const score = selectedAnswerKey === "A" ? scenario.scoresA : selectedAnswerKey === "B" ? scenario.scoresB : scenario.scoresC;
   const answerText = selectedAnswerKey === "A" ? scenario.answersA : selectedAnswerKey === "B" ? scenario.answersB : scenario.answersC;
@@ -29,11 +32,11 @@ export async function POST(request: NextRequest) {
   try {
     await prisma.comasyResponse.create({ data: { organizationId: participant.organizationId, campaignId, participantId: participant.id, scenarioId, selectedAnswerKey, score, pause: classified.pause, verification: classified.verification, impulse: classified.impulse, hackKey: scenario.hackKey || "K" } });
   } catch {
-    return NextResponse.redirect(new URL(`/comasy/practice/${token}?campaign=${campaignId}`, request.url), 303);
+    return new NextResponse(null,{status:303,headers:{Location:`/comasy/practice/${token}?campaign=${campaignId}`,"Cache-Control":"no-store"}});
   }
 
   const responseCount = await prisma.comasyResponse.count({ where: { participantId: participant.id, campaignId } });
   await prisma.comasyParticipant.update({ where: { id: participant.id }, data: { status: responseCount >= scenarioIds.length ? "COMPLETED" : "ACTIVE", onboardedAt: participant.status === "INVITED" ? new Date() : undefined, completedAt: responseCount >= scenarioIds.length ? new Date() : null } });
 
-  return NextResponse.redirect(new URL(`/comasy/practice/${token}?campaign=${campaignId}&feedback=1`, request.url), 303);
+  return new NextResponse(null,{status:303,headers:{Location:`/comasy/practice/${token}?campaign=${campaignId}&feedback=1`,"Cache-Control":"no-store"}});
 }

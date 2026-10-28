@@ -62,7 +62,7 @@ export default async function BusinessAdmin({ searchParams }: { searchParams: Pr
     try { return await p; } catch (e) { console.error(`business dashboard: ${tag} failed`, e instanceof Error ? e.message : e); dbErrors.push(tag); return fallback; }
   };
 
-  const [stripe, entitlements, gifts, orders, tenants, accountCount, accounts, sessionAgg, completedCount] = await Promise.all([
+  const [stripe, entitlements, gifts, orders, tenants, accountCount, accounts, sessionAgg, completedCount, comasyPilots, customScenarioCount] = await Promise.all([
     loadStripe(),
     safe(prisma.entitlement.findMany({ orderBy: { createdAt: "desc" }, take: 80, include: { user: { select: { email: true } } } }), [], "entitlements"),
     safe(prisma.giftCode.findMany({ orderBy: { createdAt: "desc" }, take: 80 }), [], "giftCode"),
@@ -72,6 +72,8 @@ export default async function BusinessAdmin({ searchParams }: { searchParams: Pr
     safe(prisma.account.findMany({ orderBy: { createdAt: "desc" }, take: 60, include: { _count: { select: { players: true, subscriptions: true, sessions: true } } } }), [], "account"),
     safe(prisma.challengeSession.aggregate({ _count: { _all: true } }), { _count: { _all: 0 } }, "challengeSession.aggregate"),
     safe(prisma.challengeSession.count({ where: { status: "COMPLETED" } }), 0, "challengeSession.count"),
+    safe(prisma.comasyPilot.findMany({select:{plan:true,feeUsd:true}}), [], "comasyPilot"),
+    safe(prisma.scenario.count({where:{organizationId:{not:null}}}), 0, "customScenarios"),
   ]);
 
   const stripeErr = stripe && "error" in stripe ? stripe.error : null;
@@ -113,6 +115,7 @@ export default async function BusinessAdmin({ searchParams }: { searchParams: Pr
         {dbErrors.length > 0 && <div className="warn">Data unavailable: {dbErrors.join(", ")} — likely an un-run migration. Those sections show 0 / empty.</div>}
 
         {view === "overview" && <>
+          <Box title="CoMaSy pilot offers" note="ONE-TIME · MANUALLY AGREED"><p>{comasyPilots.length} pilot records · {customScenarioCount} customer-authored scenarios</p><p>Quoted fees: {dollars(comasyPilots.reduce((total,p) => total + p.feeUsd, 0))}. These are not collected revenue or ARR.</p><Link href="/admin?view=pilots">Manage pilot offers and authoring access →</Link></Box>
           <div className="tiles">
             <T l="Revenue · today" v={usd(rev.today)} />
             <T l="Revenue · 7 days" v={usd(rev.week)} />

@@ -1,3 +1,4 @@
+import { COMASY_PLANS, isComasyPlan } from "@/lib/comasyPlans";
 import Link from "next/link";
 import type { Metadata } from "next";
 import { PremiumPage } from "@/components/PremiumSiteChrome";
@@ -22,6 +23,7 @@ const proof = [
 
 export default async function PilotPage({ searchParams }: { searchParams: Promise<Record<string, string | undefined>> }) {
   const q = await searchParams;
+  const requestedPlan = isComasyPlan(q.plan || "") ? q.plan : "FREE";
   return (
     <PremiumPage ctaHref="/comasy" ctaLabel="See CoMaSy">
       <section className="kg-shell kc-pilot">
@@ -69,8 +71,10 @@ export default async function PilotPage({ searchParams }: { searchParams: Promis
             <label>Organisation size<select name="organizationSize" required><option value="">Select…</option>{sizes.map((x) => <option key={x}>{x}</option>)}</select></label>
           </div>
           <label>Primary objective<select name="primaryObjective" required><option value="">Select…</option>{objectives.map((x) => <option key={x}>{x}</option>)}</select></label>
+          <label>Pilot option<select name="pilotPlan" defaultValue={requestedPlan}>{Object.entries(COMASY_PLANS).map(([key, plan]) => <option key={key} value={key}>{plan.label} · USD {plan.priceUsd}</option>)}</select></label>
           <label>Current awareness platform <small>optional</small><input name="currentPlatform" /></label>
           <label>Anything we should know? <small>optional</small><textarea name="notes" rows={4} placeholder="Relevant workflows, target cohort, procurement or privacy requirements…" /></label>
+          <p className="kc-form-intro">Free for four weeks, up to 20 participants and 12 programme scenarios. Administrators use the existing library or write their own scenarios in the dashboard. A later paid rollout requires separately agreed onboarding and per-seat fees. No automatic conversion.</p>
           <label className="kc-form-consent">
             <input type="checkbox" name="consent" value="yes" required />
             <span>I agree that Konfydence may use these details to respond to this CoMaSy pilot request.</span>

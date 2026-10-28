@@ -107,6 +107,9 @@ model TotpCredential {
 }
 
 model Scenario {
+  organizationId String?
+  organization ComasyOrganization? @relation(fields: [organizationId], references: [id], onDelete: Restrict)
+  publicationStatus String @default("PUBLISHED")
   id          String   @id @default(cuid())
   externalId  String   @unique
   edition     String
@@ -143,6 +146,7 @@ model Scenario {
   comasyProfile   ComasyScenarioProfile?
   comasyVersions  ComasyScenarioVersion[]
 
+  @@index([organizationId, publicationStatus])
   @@index([edition, active, scored, hackKey])
   @@index([edition, lang, active, scored, hackKey])
 }
@@ -257,6 +261,16 @@ model ComasyOrganization {
   createdAt          DateTime  @default(now())
   updatedAt          DateTime  @updatedAt
 
+  administrators ComasyAdministrator[]
+  pilotStartedAt DateTime?
+  pilotEndsAt DateTime?
+  pilotObjectives String?
+  evidenceOwner String?
+  evidenceReviewAt DateTime?
+  evidenceReviewNotes String?
+  dataHandlingConfirmedAt DateTime?
+  customScenarios Scenario[]
+  pilotPlan String @default("FREE")
   contacts      ComasyContact[]
   cohorts       ComasyCohort[]
   participants  ComasyParticipant[]
@@ -298,6 +312,18 @@ model ComasyContact {
   @@index([email])
 }
 
+model ComasyAdministrator {
+  id String @id @default(cuid())
+  organizationId String
+  organization ComasyOrganization @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+  email String
+  name String
+  active Boolean @default(true)
+  createdAt DateTime @default(now())
+  @@unique([organizationId, email])
+  @@index([email, active])
+}
+
 model ComasyCohort {
   id             String             @id @default(cuid())
   organizationId String
@@ -331,6 +357,8 @@ model ComasyParticipant {
   role           String?
   status         String             @default("INVITED")
   accessToken    String             @unique
+  invitationSentAt DateTime?
+  invitationError String?
   invitedAt      DateTime           @default(now())
   onboardedAt    DateTime?
   completedAt    DateTime?
@@ -420,6 +448,8 @@ model ComasyOpportunity {
 }
 
 model ComasyPilot {
+  plan String @default("FREE")
+  feeUsd Int @default(0)
   id               String             @id @default(cuid())
   organizationId   String
   organization     ComasyOrganization @relation(fields: [organizationId], references: [id], onDelete: Cascade)
@@ -481,6 +511,7 @@ model ComasyRevenueEvent {
 }
 
 model ComasyLead {
+  requestedPlan String @default("FREE")
   id               String              @id @default(cuid())
   organizationId   String?
   organization     ComasyOrganization? @relation(fields: [organizationId], references: [id], onDelete: SetNull)

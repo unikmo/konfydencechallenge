@@ -83,7 +83,7 @@ export async function generateChallengeSessionPlan(
   const perKey = PER_KEY_COUNT[mode];
 
   const candidates: Candidate[] = await prisma.scenario.findMany({
-    where: {
+    where: { organizationId: null,
       edition,
       lang,
       active: true,

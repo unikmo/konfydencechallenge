@@ -2,7 +2,7 @@
 
 import { use, useCallback, useEffect, useRef, useState } from "react";
 import Link from "next/link";
-import { persist } from "../page";
+import { persist } from "@/lib/play/clientStorage";
 
 type AnswerKey = "A" | "B" | "C";
 type State = {

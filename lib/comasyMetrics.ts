@@ -64,6 +64,7 @@ export function summarizeBehaviour(responses: MetricResponse[], participantCount
 
   return {
     participantCount,
+    respondentCount: participantIds.size,
     activeCampaigns,
     participationRate: participantCount ? pct(participantIds.size, participantCount) : 0,
     pauseAdoption: pauseRate,
@@ -73,6 +74,7 @@ export function summarizeBehaviour(responses: MetricResponse[], participantCount
     followupPause,
     prePostChange,
     hackProfile,
+    hackResponseCounts: Object.fromEntries(["H","A","C","K"].map(key=>[key,responses.filter(r=>r.hackKey===key).length])) as Record<"H"|"A"|"C"|"K",number>,
     cohorts,
     attentionCohorts,
     responseCount: responses.length,
@@ -81,7 +83,7 @@ export function summarizeBehaviour(responses: MetricResponse[], participantCount
 
 export async function getOrganizationMetrics(organizationId: string, since?: Date | null) {
   const createdAt = since ? { gte: since } : undefined;
-  const [participantCount, activeCampaigns, rows] = await Promise.all([
+  const [participantCount, activeCampaigns, rows, customScenarioCount, customResponseCount] = await Promise.all([
     prisma.comasyParticipant.count({ where: { organizationId } }),
     prisma.comasyCampaign.count({ where: { organizationId, status: { in: ["ACTIVE", "SCHEDULED"] } } }),
     prisma.comasyResponse.findMany({
@@ -97,8 +99,10 @@ export async function getOrganizationMetrics(organizationId: string, since?: Dat
         participant: { select: { cohortId: true, cohort: { select: { name: true } } } },
       },
     }),
+    prisma.scenario.count({ where: { organizationId, publicationStatus: "PUBLISHED" } }),
+    prisma.comasyResponse.count({ where: { organizationId, ...(createdAt ? { createdAt } : {}), scenario: { organizationId } } }),
   ]);
-  return summarizeBehaviour(rows, participantCount, activeCampaigns);
+  return { ...summarizeBehaviour(rows, participantCount, activeCampaigns), customScenarioCount, customResponseCount };
 }
 
 export async function getOrganizationTrend(organizationId: string, since?: Date | null) {

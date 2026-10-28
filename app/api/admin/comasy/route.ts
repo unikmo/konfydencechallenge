@@ -1,3 +1,4 @@
+import { COMASY_PLANS, isComasyPlan } from "@/lib/comasyPlans";
 import { NextRequest, NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
 import { hashAccessCode } from "@/lib/comasyAuth";
@@ -12,16 +13,38 @@ function back(request: NextRequest, view: string) {
 }
 
 export async function POST(request: NextRequest) {
+  let sameOrigin=false;try{sameOrigin=new URL(request.headers.get("origin")||"").host===request.headers.get("host");}catch{}
+  if(!sameOrigin)return NextResponse.json({error:"invalid_origin"},{status:403});
   const f = await request.formData();
   const action = text(f, "action");
 
+  if (action === "set_pilot_plan") {
+    let sameOrigin = false;
+    try { sameOrigin = new URL(request.headers.get("origin") || "").host === request.headers.get("host"); } catch {}
+    if (!sameOrigin) return NextResponse.json({ error: "invalid_origin" }, { status: 403 });
+    const organizationId = text(f, "organizationId");
+    const pilotPlan = text(f, "pilotPlan");
+    if (!isComasyPlan(pilotPlan)) return back(request, "pilots");
+    await prisma.$transaction(async tx => {
+      await tx.$queryRaw`SELECT id FROM "ComasyOrganization" WHERE id = ${organizationId} FOR UPDATE`;
+      await tx.comasyOrganization.update({ where: { id: organizationId }, data: { pilotPlan } });
+    });
+    return back(request, "pilots");
+  }
+
+  if(action === "provision_admin") {
+    const organizationId=text(f,"organizationId"),email=text(f,"email").toLowerCase(),name=text(f,"name");
+    if(/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)&&name)await prisma.comasyAdministrator.upsert({where:{organizationId_email:{organizationId,email}},create:{organizationId,email,name},update:{name,active:true}});
+    return back(request,"accounts");
+  }
   if (action === "create_org") {
     const name = text(f, "name");
     const slug = text(f, "slug").toLowerCase().replace(/[^a-z0-9-]/g, "-").replace(/-+/g, "-").replace(/^-|-$/g, "");
     const accessCode = text(f, "accessCode");
-    if (!name || !slug) return back(request, "accounts");
+    const adminEmail=text(f,"adminEmail").toLowerCase();
+    if (!name || !slug || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(adminEmail)) return back(request, "accounts");
     const access = accessCode ? hashAccessCode(accessCode) : null;
-    await prisma.comasyOrganization.create({ data: { name, slug, industry: opt(f,"industry"), country: opt(f,"country"), employees: int(f,"employees") || null, nis2Relevant: text(f,"nis2Relevant") === "on", accountOwner: opt(f,"accountOwner"), source: opt(f,"source"), persona: opt(f,"persona"), stage: text(f,"stage") || "TARGET_ACCOUNT", currentPlatform: opt(f,"currentPlatform"), estimatedValue: int(f,"estimatedValue"), nextAction: opt(f,"nextAction"), accessCodeHash: access?.hash, accessCodeSalt: access?.salt } });
+    await prisma.comasyOrganization.create({ data: { administrators:{create:{email:adminEmail,name:text(f,"adminName")||adminEmail}}, name, slug, industry: opt(f,"industry"), country: opt(f,"country"), employees: int(f,"employees") || null, nis2Relevant: text(f,"nis2Relevant") === "on", accountOwner: opt(f,"accountOwner"), source: opt(f,"source"), persona: opt(f,"persona"), stage: text(f,"stage") || "TARGET_ACCOUNT", currentPlatform: opt(f,"currentPlatform"), estimatedValue: int(f,"estimatedValue"), nextAction: opt(f,"nextAction"), accessCodeHash: access?.hash, accessCodeSalt: access?.salt } });
     return back(request, "accounts");
   }
 
@@ -58,8 +81,10 @@ export async function POST(request: NextRequest) {
   }
 
   if (action === "create_pilot") {
-    await prisma.comasyPilot.create({ data:{ organizationId:text(f,"organizationId"), cohortId:opt(f,"cohortId"), startAt:date(f,"startAt"), endAt:date(f,"endAt"), objectives:opt(f,"objectives"), successCriteria:opt(f,"successCriteria"), health:text(f,"health")||"PLANNED", finalReviewDate:date(f,"finalReviewDate") } });
-    await prisma.comasyOrganization.update({ where:{id:text(f,"organizationId")}, data:{stage:"PILOT_ACTIVE"} });
+    const plan = text(f, "plan") || "FREE";
+    if (!isComasyPlan(plan)) return back(request, "pilots");
+    await prisma.comasyPilot.create({ data:{ plan, feeUsd: COMASY_PLANS[plan].priceUsd, organizationId:text(f,"organizationId"), cohortId:opt(f,"cohortId"), startAt:date(f,"startAt"), endAt:date(f,"endAt"), objectives:opt(f,"objectives"), successCriteria:opt(f,"successCriteria"), health:text(f,"health")||"PLANNED", finalReviewDate:date(f,"finalReviewDate") } });
+    await prisma.comasyOrganization.update({ where:{id:text(f,"organizationId")}, data:{stage:"PILOT_PROPOSED"} });
     return back(request,"pilots");
   }
 
@@ -84,6 +109,8 @@ export async function POST(request: NextRequest) {
 
   if (action === "scenario_profile") {
     const scenarioId=text(f,"scenarioId");
+    const scenario = await prisma.scenario.findUnique({ where: { id: scenarioId }, select: { organizationId: true } });
+    if (!scenario || scenario.organizationId) return back(request, "scenarios");
     const current=await prisma.comasyScenarioProfile.findUnique({where:{scenarioId}});
     if(current){
       await prisma.comasyScenarioVersion.upsert({where:{scenarioId_version:{scenarioId,version:current.version}},update:{snapshot:JSON.stringify(current),createdBy:"admin"},create:{scenarioId,version:current.version,snapshot:JSON.stringify(current),createdBy:"admin"}});

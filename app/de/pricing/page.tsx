@@ -1,4 +1,6 @@
 "use client";
+import { ComasyPilotPlans } from "@/components/ComasyPilotPlans";
+
 
 import { Suspense, useState } from "react";
 import Link from "next/link";
@@ -145,10 +147,11 @@ function GermanPricingContent() {
         </PreisKarte>
       </section>
 
+      <ComasyPilotPlans lang="de" />
       <section className="kg-shell" style={{ paddingBottom: 40 }}>
         <p className="k-copy" style={{ marginBottom: 12, fontSize: 12 }}>
-          Die angezeigten Preise gelten in Euro — €6,99 bei uns entspricht genau $6,99. Beim Bezahlvorgang zeigt
-          Stripe automatisch deine Landeswährung. Jeder Plan ist ein Jahresabo und wird sofort nach dem Bezahlvorgang
+          Die angezeigten Challenge-Preise gelten in Euro — €6,99 bei uns entspricht genau $6,99. Beim Bezahlvorgang zeigt
+          Stripe automatisch deine Landeswährung. Jedes Challenge-Abo ist ein Jahresabo und wird sofort nach dem Bezahlvorgang
           freigeschaltet; dein Konfydence-Konto speichert Fortschritt und Zugang geräteübergreifend. Konfydence ist ein
           pädagogisches Betrugs-Awareness-Spiel; es garantiert keinen Schutz vor Betrug oder finanziellem Schaden.
         </p>

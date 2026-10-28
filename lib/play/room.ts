@@ -45,7 +45,7 @@ async function pickPartyDeck(): Promise<string[]> {
   // English-only) — pin the pool to English so a room never silently mixes in
   // German cards (data/scenarios-de) once other editions grow a German bank.
   const pool = await prisma.scenario.findMany({
-    where: { active: true, scored: true, lang: "en", hackKey: { in: ["H", "A", "C", "K"] } },
+    where: { organizationId: null, active: true, scored: true, lang: "en", hackKey: { in: ["H", "A", "C", "K"] } },
     select: { id: true, hackKey: true },
   });
   if (pool.length === 0) return [];

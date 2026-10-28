@@ -19,6 +19,19 @@ export async function sendTransactionalEmail(input: {
   replyTo?: string;
   tags?: string[];
 }): Promise<boolean> {
+  const gateway=process.env.TRANSACTIONAL_EMAIL_GATEWAY_URL;
+  const privateDeployment=process.env.NEXT_PUBLIC_CUSTOMER_HOSTED === "1";
+  if(gateway) {
+    try {
+      const url=new URL(gateway);
+      const localTest=process.env.NODE_ENV!=="production"&&["localhost","127.0.0.1"].includes(url.hostname)&&url.protocol==="http:";
+      if(url.protocol!=="https:"&&!localTest)return false;
+      if(privateDeployment&&(url.hostname==="konfydence.com"||url.hostname.endsWith(".konfydence.com")))return false;
+      const response=await fetch(gateway,{method:"POST",headers:{"Content-Type":"application/json",...(process.env.TRANSACTIONAL_EMAIL_GATEWAY_TOKEN?{Authorization:"Bearer "+process.env.TRANSACTIONAL_EMAIL_GATEWAY_TOKEN}:{})},body:JSON.stringify(input),redirect:"error",signal:AbortSignal.timeout(10000)});
+      return response.ok;
+    }catch{return false;}
+  }
+  if(privateDeployment)return false;
   if (!BREVO_API_KEY) {
     console.error("BREVO_API_KEY not configured; email not sent");
     return false;

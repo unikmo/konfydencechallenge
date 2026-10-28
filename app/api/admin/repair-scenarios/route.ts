@@ -43,6 +43,7 @@ const asRec = (row: unknown) => row as Record<string, string | null>;
 
 export async function POST() {
   const rows = await prisma.scenario.findMany({
+    where: { organizationId: null },
     select: {
       id: true, externalId: true,
       title: true, prompt: true,
@@ -100,6 +101,7 @@ export async function POST() {
 // GET: report only — which rows currently carry mojibake. No writes.
 export async function GET() {
   const rows = await prisma.scenario.findMany({
+    where: { organizationId: null },
     select: {
       externalId: true, title: true, prompt: true,
       answersA: true, answersB: true, answersC: true, answersD: true,

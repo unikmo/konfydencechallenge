@@ -1,3 +1,4 @@
+import { COMASY_PLANS, isComasyPlan } from "@/lib/comasyPlans";
 import Link from "next/link";
 import type { Metadata } from "next";
 import { PremiumPageDe } from "@/components/PremiumSiteChrome";
@@ -25,6 +26,7 @@ const proof = [
 
 export default async function PilotPageDe({ searchParams }: { searchParams: Promise<Record<string, string | undefined>> }) {
   const q = await searchParams;
+  const requestedPlan = isComasyPlan(q.plan || "") ? q.plan : "FREE";
   return (
     <PremiumPageDe ctaHref="/de/comasy" ctaLabel="CoMaSy ansehen">
       <section className="kg-shell kc-pilot">
@@ -70,8 +72,10 @@ export default async function PilotPageDe({ searchParams }: { searchParams: Prom
             <label>Organisationsgröße<select name="organizationSize" required><option value="">Auswählen…</option>{sizes.map((x) => <option key={x}>{x}</option>)}</select></label>
           </div>
           <label>Hauptziel<select name="primaryObjective" required><option value="">Auswählen…</option>{objectives.map((x) => <option key={x}>{x}</option>)}</select></label>
+          <label>Pilotumfang<select name="pilotPlan" defaultValue={requestedPlan}>{Object.entries(COMASY_PLANS).map(([key, plan]) => <option key={key} value={key}>{"Kostenloser Pilot"} · USD {plan.priceUsd}</option>)}</select></label>
           <label>Aktuelle Awareness-Plattform <small>optional</small><input name="currentPlatform" /></label>
           <label>Was sollten wir noch wissen? <small>optional</small><textarea name="notes" rows={4} placeholder="Relevante Arbeitsabläufe, Zielkohorte, Beschaffungs- oder Datenschutzanforderungen…" /></label>
+          <p className="kc-form-intro">Vier Wochen kostenlos, bis zu 20 Teilnehmende und 12 Szenarien. Administratoren nutzen bestehende Inhalte oder erstellen ihre eigenen Szenarien im Dashboard. Ein späterer Rollout erfordert separat vereinbarte Onboarding- und Platzgebühren. Keine automatische Umwandlung.</p>
           <label className="kc-form-consent">
             <input type="checkbox" name="consent" value="yes" required />
             <span>Ich stimme zu, dass Konfydence diese Angaben nutzen darf, um auf diese CoMaSy-Pilotanfrage zu antworten.</span>

@@ -1,3 +1,4 @@
+import { COMASY_PLANS, isComasyPlan } from "@/lib/comasyPlans";
 import { NextRequest, NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
 import { rateLimit, getClientIp } from "@/lib/rateLimit";
@@ -24,6 +25,7 @@ async function sendEmail(to: string, subject: string, html: string, replyTo?: st
 }
 
 export async function POST(request: NextRequest) {
+  if(process.env.NEXT_PUBLIC_CUSTOMER_HOSTED === "1") return NextResponse.json({error:"Use the internal organisation administrator; public lead collection is disabled in this deployment."},{status:403});
   const preLang = new URL(request.url).searchParams.get("lang") === "de" ? "de" : "en";
   // Read before the body is consumed, since a rate-limit/validation bounce
   // needs to send a German visitor back to the German form, not the English
@@ -39,6 +41,9 @@ export async function POST(request: NextRequest) {
     return NextResponse.redirect(new URL(`${formUrl}?error=validation`, request.url), 303);
   }
 
+  const requestedPlan = value(form, "pilotPlan") || "FREE";
+  if (!isComasyPlan(requestedPlan)) return NextResponse.redirect(new URL(formUrl + "?error=validation", request.url), 303);
+  const planLabel = COMASY_PLANS[requestedPlan].label + " · USD " + COMASY_PLANS[requestedPlan].priceUsd;
   const emailDomain=workEmail.split("@")[1] || "";
   const source=value(form,"utm_source") || "Direct";
   const medium=value(form,"utm_medium") || null;
@@ -57,17 +62,17 @@ export async function POST(request: NextRequest) {
   if(!contact) contact=await prisma.comasyContact.create({data:{organizationId:organization.id,firstName,lastName,email:workEmail,jobTitle:role,persona,buyingRole:"Pilot requester",champion:true,notes:value(form,"notes")||null}});
 
   const [lead] = await prisma.$transaction([
-    prisma.comasyLead.create({data:{organizationId:organization.id,firstName,lastName,workEmail,organizationName,role,organizationSize,primaryObjective,currentPlatform:value(form,"currentPlatform")||null,notes:value(form,"notes")||null,source,medium,campaign,landingPage,status:"PILOT_REQUEST"}}),
-    prisma.comasyActivity.create({data:{organizationId:organization.id,contactId:contact.id,type:"pilot_form_complete",source,medium,campaign,page:landingPage,persona,metadata:JSON.stringify({organizationSize,primaryObjective,workEmailType:personalDomains.has(emailDomain)?"personal-domain":"work-domain"})}}),
+    prisma.comasyLead.create({data:{organizationId:organization.id,firstName,lastName,workEmail,organizationName,role,organizationSize,primaryObjective,requestedPlan,currentPlatform:value(form,"currentPlatform")||null,notes:value(form,"notes")||null,source,medium,campaign,landingPage,status:"PILOT_REQUEST"}}),
+    prisma.comasyActivity.create({data:{organizationId:organization.id,contactId:contact.id,type:"pilot_form_complete",source,medium,campaign,page:landingPage,persona,metadata:JSON.stringify({organizationSize,primaryObjective,requestedPlan,workEmailType:personalDomains.has(emailDomain)?"personal-domain":"work-domain"})}}),
   ]);
 
   const activeOpportunity=await prisma.comasyOpportunity.findFirst({where:{organizationId:organization.id,stage:{notIn:["WON","LOST"]}}});
   if(!activeOpportunity) await prisma.comasyOpportunity.create({data:{organizationId:organization.id,name:`${organizationName} CoMaSy pilot`,stage:"PILOT_PROPOSED",probability:35,nextAction:"Qualify use case and agree cohort",owner:organization.accountOwner}});
 
-  const internalHtml=`<h2>New CoMaSy pilot request${lang==="de"?" (DE)":""}</h2><p><strong>${safe(firstName)} ${safe(lastName)}</strong> · ${safe(role)}<br/>${safe(workEmail)}<br/>${safe(organizationName)} · ${safe(organizationSize)}</p><p><strong>Objective:</strong> ${safe(primaryObjective)}<br/><strong>Current platform:</strong> ${safe(value(form,"currentPlatform")||"Not provided")}<br/><strong>Notes:</strong> ${safe(value(form,"notes")||"—")}</p><p>Source: ${safe([source,medium,campaign].filter(Boolean).join(" / "))}</p>`;
+  const internalHtml=`<h2>New CoMaSy pilot request${lang==="de"?" (DE)":""}</h2><p><strong>${safe(firstName)} ${safe(lastName)}</strong> · ${safe(role)}<br/>${safe(workEmail)}<br/>${safe(organizationName)} · ${safe(organizationSize)}</p><p><strong>Pilot option:</strong> ${safe(planLabel)}<br/><strong>Objective:</strong> ${safe(primaryObjective)}<br/><strong>Current platform:</strong> ${safe(value(form,"currentPlatform")||"Not provided")}<br/><strong>Notes:</strong> ${safe(value(form,"notes")||"—")}</p><p>Source: ${safe([source,medium,campaign].filter(Boolean).join(" / "))}</p>`;
   const customerHtml = lang === "de"
-    ? `<h2>Deine CoMaSy-Pilotanfrage ist da.</h2><p>Hallo ${safe(firstName)},</p><p>Wir prüfen den Anwendungsfall, vereinbaren die Zielkohorte und den Risikofokus, legen die Pilot-Kennzahlen fest und konfigurieren das Programm — vor jeder Entscheidung über eine Skalierung.</p><p><strong>Definierte Kohorte. Definierte Kennzahlen. Definierter Entscheidungspunkt.</strong></p>`
-    : `<h2>Your CoMaSy pilot request is in.</h2><p>Hi ${safe(firstName)},</p><p>We will review the use case, agree the target cohort and risk focus, establish the pilot measures, and configure the programme before any scale decision.</p><p><strong>Defined cohort. Defined metrics. Defined decision point.</strong></p>`;
+    ? `<h2>Deine CoMaSy-Pilotanfrage ist da.</h2><p>Hallo ${safe(firstName)},</p><p>Wir prüfen den Anwendungsfall, vereinbaren die Zielkohorte und den Risikofokus, legen die Pilot-Kennzahlen fest und konfigurieren das Programm — vor jeder Entscheidung über eine Skalierung.</p><p>Gewählte Option: ${safe(planLabel)}. Der Pilot ist kostenlos. Onboarding- und Platzgebühren gelten nur für einen separat vereinbarten späteren Rollout.</p><p><strong>Definierte Kohorte. Definierte Kennzahlen. Definierter Entscheidungspunkt.</strong></p>`
+    : `<h2>Your CoMaSy pilot request is in.</h2><p>Hi ${safe(firstName)},</p><p>We will review the use case, agree the target cohort and risk focus, establish the pilot measures, and configure the programme before any scale decision.</p><p>Requested option: ${safe(planLabel)}. The pilot is free. Onboarding and per-seat fees apply only to a separately agreed later rollout.</p><p><strong>Defined cohort. Defined metrics. Defined decision point.</strong></p>`;
   await Promise.all([
     CONTACT_TO_EMAIL ? sendEmail(CONTACT_TO_EMAIL,`CoMaSy pilot request — ${organizationName}`,internalHtml,workEmail):Promise.resolve(false),
     sendEmail(workEmail, lang === "de" ? "Deine CoMaSy-Pilotanfrage ist da" : "Your CoMaSy pilot request is in", customerHtml),

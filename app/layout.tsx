@@ -52,7 +52,7 @@ export const viewport: Viewport = {
   colorScheme: "light",
 };
 
-const GA_MEASUREMENT_ID = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID;
+const GA_MEASUREMENT_ID = process.env.NEXT_PUBLIC_CUSTOMER_HOSTED === "1" ? undefined : process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID;
 
 export default function RootLayout({
   children,

@@ -3,13 +3,14 @@
 // React inline style attributes). Tightening this further requires a dedicated
 // nonce/CSS refactor; the remaining policy still blocks framing, objects and
 // untrusted network origins.
+const customerHosted = process.env.NEXT_PUBLIC_CUSTOMER_HOSTED === "1";
 const CSP = [
   "default-src 'self'",
-  "script-src 'self' 'unsafe-inline' https://www.googletagmanager.com",
+  customerHosted ? "script-src 'self' 'unsafe-inline'" : "script-src 'self' 'unsafe-inline' https://www.googletagmanager.com",
   "style-src 'self' 'unsafe-inline'",
-  "img-src 'self' data: https://www.google-analytics.com https://www.googletagmanager.com https://upload.wikimedia.org https://commons.wikimedia.org https://images.pexels.com",
+  customerHosted ? "img-src 'self' data:" : "img-src 'self' data: https://www.google-analytics.com https://www.googletagmanager.com https://upload.wikimedia.org https://commons.wikimedia.org https://images.pexels.com",
   "font-src 'self' data:",
-  "connect-src 'self' https://www.google-analytics.com https://www.googletagmanager.com",
+  customerHosted ? "connect-src 'self'" : "connect-src 'self' https://www.google-analytics.com https://www.googletagmanager.com",
   "frame-ancestors 'self'",
   "base-uri 'self'",
   "form-action 'self'",
