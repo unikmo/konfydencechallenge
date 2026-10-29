@@ -24,11 +24,13 @@ type SP = { step?: string; email?: string; next?: string; error?: string; sent?:
 export default async function SignInPage(props: { searchParams: Promise<SP> }) {
   const sp = await props.searchParams;
   const lang: UiLang = sp.lang === "de" ? "de" : "en";
-  if (await getAccount()) redirect(sp.next?.startsWith("/") ? sp.next : "/account");
+  const next = sp.next?.startsWith("/") && !sp.next.startsWith("//") ? sp.next : "/account";
+  const organisationSignIn=next.startsWith("/comasy/")||process.env.NEXT_PUBLIC_CUSTOMER_HOSTED==="1";
+  if (await getAccount()) redirect(next);
 
   const step = sp.step === "code" ? "code" : sp.step === "totp" ? "totp" : "email";
   const email = sp.email ?? "";
-  const next = sp.next?.startsWith("/") ? sp.next : "/account";
+
   const t = SIGNIN_STRINGS[lang];
   const error = sp.error ? SIGNIN_ERRORS[lang][sp.error] : null;
   const reason = sp.reason ? SIGNIN_REASONS[lang][sp.reason] : null;
@@ -64,7 +66,7 @@ export default async function SignInPage(props: { searchParams: Promise<SP> }) {
         ) : step === "email" ? (
           <>
             <h1>{t.emailHeading}</h1>
-            <p>{t.emailBody}</p>
+            <p>{organisationSignIn?(lang==="de"?"Melde dich mit deinem Organisationskonto an. Wir senden einen einmaligen Anmeldecode an deine E-Mail-Adresse.":"Sign in to your organisation workspace. We will send a one-time code to your email address."):t.emailBody}</p>
             {reason ? <p className="kf-reason">{reason}</p> : null}
             {error ? <p className="kf-error" role="alert">{error}</p> : null}
             <form action={requestCode} className="kf-form">
@@ -74,7 +76,7 @@ export default async function SignInPage(props: { searchParams: Promise<SP> }) {
               <input id="email" name="email" type="email" autoComplete="email" required defaultValue={email} placeholder="you@example.com" />
               <label className="kf-consent">
                 <input type="checkbox" name="consent" value="yes" required />
-                <span>{t.consentText}</span>
+                <span>{organisationSignIn?(lang==="de"?"Sende mir den einmaligen Anmeldecode.":"Send me my one-time sign-in code."):t.consentText}</span>
               </label>
               <button type="submit" className="k-button">{t.emailSubmit}</button>
             </form>

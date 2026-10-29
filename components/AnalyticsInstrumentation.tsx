@@ -11,10 +11,11 @@ declare global {
 }
 
 const CONSENT_EVENT = "konfydence-cookie-consent";
-const GA_MEASUREMENT_ID = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID;
+const GA_MEASUREMENT_ID = process.env.NEXT_PUBLIC_CUSTOMER_HOSTED === "1" ? undefined : process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID;
 
 function analyticsAllowed() {
-  if (typeof window === "undefined") return false;
+  if (typeof window === "undefined" || process.env.NEXT_PUBLIC_CUSTOMER_HOSTED === "1") return false;
+  if (/^\/(comasy\/(dashboard|practice|participant)|admin|account|api|teams|challenge\/session)(\/|$)/.test(window.location.pathname)) return false;
   try {
     return window.localStorage.getItem("analytics-consent") === "true";
   } catch {

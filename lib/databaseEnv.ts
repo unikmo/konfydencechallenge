@@ -6,6 +6,7 @@
 export function preferVercelPostgresConnectionEnv(
   env: Record<string, string | undefined> = process.env,
 ): void {
+  if (env.NEXT_PUBLIC_CUSTOMER_HOSTED === "1") return;
   if (env.POSTGRES_PRISMA_URL) {
     env.DATABASE_URL = env.POSTGRES_PRISMA_URL;
   }

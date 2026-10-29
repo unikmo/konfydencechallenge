@@ -67,7 +67,13 @@ export function verifyOrgSessionValue(value: string | undefined | null) {
 
 export async function getCustomerOrganizationId() {
   const store = await cookies();
-  return verifyOrgSessionValue(store.get(COOKIE_NAME)?.value);
+  const organizationId = verifyOrgSessionValue(store.get(COOKIE_NAME)?.value);
+  if (!organizationId) return null;
+  const [{ getAccount }, { prisma }] = await Promise.all([import("./auth/session"), import("./prisma")]);
+  const account = await getAccount();
+  if (!account?.emailVerifiedAt) return null;
+  const admin = await prisma.comasyAdministrator.findFirst({ where: { organizationId, email: account.email, active: true }, select: { id: true } });
+  return admin ? organizationId : null;
 }
 
 export function customerSessionCookie(organizationId: string) {

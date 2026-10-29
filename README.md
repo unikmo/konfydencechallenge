@@ -39,7 +39,7 @@ The free result is useful on its own. Paid conversion is based on deeper practic
 
 ## Technology
 
-- **Next.js 16.3.1 Active LTS**
+- **Next.js 16.4.3**
 - **React 19.2**
 - TypeScript with strict checking
 - Prisma 5
@@ -117,3 +117,8 @@ The runtime fields use `hackKey` (`H`, `A`, `C`, `K`). C-pattern source metadata
 Primary site: `https://konfydence.com`
 
 Repository: `unikmo/konfydencechallenge`
+
+
+## Self-service CoMaSy pilot (October 2026)
+
+Free four-week pilot for every organisation, up to 20 participants and 12 scenarios across campaigns. Named verified administrators invite participants and author their own content, or choose existing company scenarios. Overview shows status and evidence gaps before detailed reporting. Continuing requires an explicit onboarding and per-seat agreement; there are no paid-pilot tiers or automatic conversion. See docs/COMASY_CUSTOM_SCENARIOS.md and docs/CUSTOMER_HOSTED_ARCHITECTURE.md. Customer-hosted identity/system adapters are proposed; the current hosted database still stores participant records. Optional aggregate-summary download sends no data to the vendor.

@@ -1,4 +1,8 @@
 type Metrics = {
+  responseCount?:number;
+  hackResponseCounts?:Record<"H"|"A"|"C"|"K",number>;
+  customScenarioCount?: number;
+  customResponseCount?: number;
   participantCount: number;
   activeCampaigns: number;
   participationRate: number;
@@ -11,25 +15,30 @@ type Metrics = {
 };
 
 export function makeComasyCsv(orgName: string, metrics: Metrics, reportType: string) {
+  const measured=(n:number)=>metrics.responseCount===0?"Not measured":n;
+  const hack=(key:"H"|"A"|"C"|"K")=>metrics.hackResponseCounts?.[key]===0?"Not measured":metrics.hackProfile[key];
   const rows: Array<Array<string | number>> = [
     ["CoMaSy report", reportType],
     ["Organisation", orgName],
     ["Participants", metrics.participantCount],
     ["Active campaigns", metrics.activeCampaigns],
+    ["Published custom scenarios (current)", metrics.customScenarioCount ?? 0],
+    ["Custom scenario decisions (report period)", metrics.customResponseCount ?? 0],
+    ["Interpretation", "Scenario mix affects comparability; custom practice is not compliance certification."],
     ["Participation %", metrics.participationRate],
-    ["Pause Adoption %", metrics.pauseAdoption],
-    ["Verification Rate %", metrics.verificationRate],
-    ["Impulse Rate %", metrics.impulseRate],
+    ["Pause Adoption %", measured(metrics.pauseAdoption)],
+    ["Verification Rate %", measured(metrics.verificationRate)],
+    ["Impulse Rate %", measured(metrics.impulseRate)],
     ["Pre/post change (pts)", metrics.prePostChange ?? "n/a"],
-    ["Hurry resilience %", metrics.hackProfile.H],
-    ["Authority resilience %", metrics.hackProfile.A],
-    ["Comfort resilience %", metrics.hackProfile.C],
-    ["Critical Action resilience %", metrics.hackProfile.K],
+    ["Hurry resilience %", hack("H")],
+    ["Authority resilience %", hack("A")],
+    ["Comfort resilience %", hack("C")],
+    ["Critical Action resilience %", hack("K")],
     [],
     ["Cohort", "Responses", "Pause Adoption %", "Verification Rate %", "Impulse Rate %"],
     ...metrics.cohorts.map((c) => [c.name, c.responses, c.pauseAdoption, c.verificationRate, c.impulseRate]),
   ];
-  const escape = (v: string | number) => `"${String(v).replace(/"/g, '""')}"`;
+  const escape = (value: string | number) => { const v=typeof value==="string"&&/^[=+@\t\r-]/.test(value)?"'"+value:value; return `"${String(v).replace(/"/g, '""')}"`; };
   return rows.map((row) => row.map(escape).join(",")).join("\n");
 }
 
@@ -38,6 +47,8 @@ function pdfEscape(value: string) {
 }
 
 export function makeComasyPdf(orgName: string, metrics: Metrics, reportType: string) {
+  const measured=(n:number)=>metrics.responseCount===0?"Not measured":n+"%";
+  const hack=(key:"H"|"A"|"C"|"K")=>metrics.hackResponseCounts?.[key]===0?"Not measured":metrics.hackProfile[key]+"%";
   const title = reportType === "compliance" ? "CoMaSy Compliance / NIS2 Evidence Report" : reportType === "awareness" ? "CoMaSy Security Awareness Report" : "CoMaSy Executive Behaviour Report";
   const lines = [
     title,
@@ -46,16 +57,19 @@ export function makeComasyPdf(orgName: string, metrics: Metrics, reportType: str
     "",
     `Participants: ${metrics.participantCount}`,
     `Active campaigns: ${metrics.activeCampaigns}`,
+    `Published custom scenarios (current): ${metrics.customScenarioCount ?? 0}`,
+    `Custom decisions (report period): ${metrics.customResponseCount ?? 0}`,
+    "Scenario mix affects comparability; custom practice is not compliance certification.",
     `Participation: ${metrics.participationRate}%`,
-    `Pause Adoption: ${metrics.pauseAdoption}%`,
-    `Verification Rate: ${metrics.verificationRate}%`,
-    `Impulse Rate: ${metrics.impulseRate}%`,
+    `Pause Adoption: ${measured(metrics.pauseAdoption)}`,
+    `Verification Rate: ${measured(metrics.verificationRate)}`,
+    `Impulse Rate: ${measured(metrics.impulseRate)}`,
     `Pre/post change: ${metrics.prePostChange == null ? "n/a" : `${metrics.prePostChange} pts`}`,
     "",
-    `Hurry: ${metrics.hackProfile.H}%`,
-    `Authority: ${metrics.hackProfile.A}%`,
-    `Comfort: ${metrics.hackProfile.C}%`,
-    `Critical Action: ${metrics.hackProfile.K}%`,
+    `Hurry: ${hack("H")}`,
+    `Authority: ${hack("A")}`,
+    `Comfort: ${hack("C")}`,
+    `Critical Action: ${hack("K")}`,
     "",
     "Metric note: CoMaSy metrics are operational indicators derived from scenario decisions.",
     "They are not presented as validated psychological constructs.",

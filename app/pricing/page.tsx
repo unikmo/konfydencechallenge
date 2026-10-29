@@ -1,4 +1,6 @@
 "use client";
+import { ComasyPilotPlans } from "@/components/ComasyPilotPlans";
+
 
 import { Suspense, useState } from "react";
 import Link from "next/link";
@@ -212,13 +214,14 @@ function PricingContent() {
         </PriceCard>
       </section>
 
+      <ComasyPilotPlans />
       <section className="kg-shell" style={{ paddingBottom: 40 }}>
         <p className="k-copy" style={{ marginBottom: 12 }}>
           Buying for someone else? <Link href="/gift">Gift a challenge</Link> — we email them a claim
           code and your note.
         </p>
         <p className="k-copy" style={{ fontSize: 12 }}>
-          Every plan is annual and unlocks instantly after checkout; your Konfydence account keeps progress and access across devices. Prices shown are in USD ($6.99 = €6.99 at checkout for EUR); GBP and other currencies are shown at checkout, priced from the EUR rate. Konfydence is an
+          Challenge subscriptions are annual and unlock instantly after checkout; your Konfydence account keeps progress and access across devices. Prices shown are in USD ($6.99 = €6.99 at checkout for EUR); GBP and other currencies are shown at checkout, priced from the EUR rate. Konfydence is an
           educational scam-readiness game; it does not guarantee protection from fraud or financial loss.
         </p>
       </section>

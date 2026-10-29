@@ -1,3 +1,4 @@
+import { buildShareableSummary } from "@/lib/comasySummary";
 import { NextRequest, NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
 import { getCustomerOrganizationId } from "@/lib/comasyAuth";
@@ -16,6 +17,7 @@ export async function GET(request: NextRequest, props: { params: Promise<{ forma
     prisma.comasyOrganization.findUniqueOrThrow({ where: { id: organizationId }, select: { name: true, slug: true } }),
     getOrganizationMetrics(organizationId, periodStart(period)),
   ]);
+  if(format === "summary") return NextResponse.json(buildShareableSummary(metrics),{headers:{"Content-Disposition":"attachment; filename=organisation-summary.json","Cache-Control":"no-store"}});
   const periodLabel = period === "all" ? "all-time" : `${period}-day`;
   const fileBase = `${org.slug}-${reportType}-${periodLabel}-report`;
   if (format === "csv") {

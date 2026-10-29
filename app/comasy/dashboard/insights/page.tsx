@@ -36,6 +36,7 @@ export default async function CustomerInsightsPage({
     getOrganizationTrend(organizationId, since),
   ]);
 
+  const measured=(value:number)=>metrics.responseCount?fmt(value):"Not measured";
   const maxResponses = Math.max(1, ...trend.map((row) => row.responses));
 
   return (
@@ -66,11 +67,12 @@ export default async function CustomerInsightsPage({
         </nav>
       </section>
 
+      <p>{metrics.customScenarioCount} published custom scenarios · {metrics.customResponseCount} custom decisions in this period. Scenario mix affects comparability.</p>
       <section className="metricGrid">
         <Metric label="Participation" value={fmt(metrics.participationRate)} note={`${metrics.participantCount} participants in workspace`} />
-        <Metric label="Pause Adoption" value={fmt(metrics.pauseAdoption)} note="responses that interrupt or safely challenge the risky chain" />
-        <Metric label="Verification Rate" value={fmt(metrics.verificationRate)} note="responses using independent verification" />
-        <Metric label="Impulse Rate" value={fmt(metrics.impulseRate)} note="immediate higher-risk action" danger={metrics.impulseRate > 25} />
+        <Metric label="Pause Adoption" value={measured(metrics.pauseAdoption)} note="responses that interrupt or safely challenge the risky chain" />
+        <Metric label="Verification Rate" value={measured(metrics.verificationRate)} note="responses using independent verification" />
+        <Metric label="Impulse Rate" value={measured(metrics.impulseRate)} note="immediate higher-risk action" danger={metrics.impulseRate > 25} />
         <Metric label="Pre/post change" value={delta(metrics.prePostChange)} note={`Pause: ${fmt(metrics.baselinePause)} → ${fmt(metrics.followupPause)}`} />
         <Metric label="Recorded decisions" value={String(metrics.responseCount)} note={`${metrics.activeCampaigns} active or scheduled campaigns`} />
       </section>

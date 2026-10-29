@@ -22,7 +22,7 @@ export async function getBackendHealth(): Promise<BackendHealth> {
   // data/scenarios-de/README.md and prisma/seed.ts — and must not be counted
   // here or an edition with both languages seeded would look doubled.
   const rows = await prisma.scenario.findMany({
-    where: {
+    where: { organizationId: null,
       active: true,
       scored: true,
       lang: "en",
