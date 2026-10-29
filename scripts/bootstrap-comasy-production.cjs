@@ -40,6 +40,7 @@ const migrationFiles = [
   "prisma/migrations/20260911090000_scenario_lang/migration.sql",
   "prisma/migrations/20261027090000_custom_scenarios/migration.sql",
   "prisma/migrations/20261028100000_self_service_pilot/migration.sql",
+  "prisma/migrations/20261029090000_server_only_public_tables/migration.sql",
 ];
 
 const npx = process.platform === "win32" ? "npx.cmd" : "npx";
