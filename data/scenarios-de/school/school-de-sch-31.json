@@ -1,7 +1,7 @@
 {
   "id": "school-de-sch-31",
   "lang": "de",
-  "title": "Dein Teamkollege braucht Gutscheinkarten",
+  "title": "Mitspieler will Gutscheinkarten für den Server",
   "edition": "school",
   "cardType": "scenario",
   "scored": true,
@@ -20,8 +20,8 @@
   "safeActions": [
     "A"
   ],
-  "explanation": "Gutscheincodes sind wie Bargeld — sobald sie weg sind, sind sie nicht rückholbar, egal wie bekannt die Person ist. Ein „zahl's dir zurück“ ändert daran nichts.",
-  "proTip": "Gutscheincodes sind Bargeld ohne Rückgabe — auch unter Teammitgliedern.",
+  "explanation": "Auch eine bekannte Person im Gaming-Team kann ein fremd übernommenes Konto haben. Bestätige ungewöhnliche Kaufwünsche unabhängig und verschicke keine Gutscheincodes unter Zeitdruck.",
+  "proTip": "Gutscheincodes sind nach der Weitergabe oft nicht mehr zurückzuholen.",
   "hackKey": "C",
   "hackTrigger": "Vertrautheit",
   "tags": [
