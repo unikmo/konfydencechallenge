@@ -1,7 +1,7 @@
 {
   "id": "travelsafe-de-tra-11",
   "lang": "de",
-  "title": "ADAC-Rechnung sofort zahlen, sonst wird das Auto beschlagnahmt",
+  "title": "Panne im Ausland: angeblicher ADAC-Anruf mit Zahlungsdruck",
   "edition": "travelsafe",
   "cardType": "scenario",
   "scored": true,
@@ -20,8 +20,8 @@
   "safeActions": [
     "C"
   ],
-  "explanation": "Der ADAC zieht Kosten über die reguläre Abrechnung ein, nie per Drohung mit sofortiger Kartenzahlung am Telefon. Ein Rückruf über die bekannte Nummer klärt es sofort.",
-  "proTip": "Der ADAC droht nie mit sofortiger Beschlagnahmung am Telefon.",
+  "explanation": "Die Drohung mit einer sofortigen Beschlagnahmung und die Forderung nach Kartendaten am Telefon sind Warnzeichen. Kläre mögliche Kosten direkt über die offiziellen Notruf- oder Kontaktwege des Pannendienstes.",
+  "proTip": "Unbekannten Anrufern keine Kartendaten geben. Den Pannendienst selbst kontaktieren.",
   "hackKey": "H",
   "hackTrigger": "Hetze",
   "tags": [
