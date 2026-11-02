@@ -1,7 +1,7 @@
 {
   "id": "family-de-fam-05",
   "lang": "de",
-  "title": "Die Vignette verdoppelt sich morgen",
+  "title": "Autobahnvignette: angeblich wird sie morgen teurer",
   "edition": "family",
   "cardType": "scenario",
   "scored": true,
@@ -20,8 +20,8 @@
   "safeActions": [
     "B"
   ],
-  "explanation": "Offizielle Vignetten- und Mautstellen erzeugen keinen künstlichen Preisdruck per E-Mail. Ein Blick auf eine gut gefälschte Seite reicht oft nicht, um den Unterschied zu erkennen — der sichere Weg ist, die bekannte Adresse selbst einzutippen.",
-  "proTip": "Kauf direkt bei der Quelle, nie über einen Link aus der Mail.",
+  "explanation": "Die E-Mail setzt dich unter Zeitdruck und führt auf eine unbekannte Bezahlseite. Prüfe den tatsächlichen Status deiner Vignette sowie Preise und Zahlungswege beim offiziellen Anbieter.",
+  "proTip": "Vignetten und Mautgebühren über den offiziellen Anbieter prüfen und bezahlen.",
   "hackKey": "H",
   "hackTrigger": "Hetze",
   "tags": [
