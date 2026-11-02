@@ -1,7 +1,7 @@
 {
   "id": "family-de-fam-23",
   "lang": "de",
-  "title": "Die Hausverwaltung hat das Konto gewechselt",
+  "title": "Hausverwaltung: Miete angeblich auf neues Konto",
   "edition": "family",
   "cardType": "scenario",
   "scored": true,
@@ -20,8 +20,8 @@
   "safeActions": [
     "B"
   ],
-  "explanation": "E-Mail-Konten von Hausverwaltungen werden ebenso gezielt übernommen wie die von Notariaten. Eine geänderte Kontoverbindung wird immer telefonisch über eine unabhängig bekannte Nummer bestätigt.",
-  "proTip": "Miete geht nur auf ein Konto, das dir am Telefon bestätigt wurde — nie nur per Mail.",
+  "explanation": "Auch eine E-Mail mit korrekter Absenderadresse und bekanntem Layout kann gefälscht sein. Lass dir die neue Kontoverbindung unabhängig von der Hausverwaltung bestätigen, bevor du zahlst.",
+  "proTip": "Neue Kontoverbindungen nicht allein aufgrund einer E-Mail übernehmen.",
   "hackKey": "A",
   "hackTrigger": "Autorität",
   "tags": [
