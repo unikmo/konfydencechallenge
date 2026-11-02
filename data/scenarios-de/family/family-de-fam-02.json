@@ -8,7 +8,7 @@
   "category": "Energieversorger",
   "scenario": "Am Telefon behauptet jemand, du hättest deine Stromrechnung nicht bezahlt. In 30 Minuten werde der Strom abgestellt. Der genannte Betrag klingt plausibel. Die Sperre lasse sich angeblich nur durch eine sofortige Überweisung oder Zahlung mit einer Guthabenkarte verhindern.",
   "answers": {
-    "A": "Nach Kundennummer und offenem Betrag fragen und beides mit deiner letzten Rechnung abgleichen, bevor du irgendetwas tust.",
+    "A": "Nach Kundennummer und offenem Betrag fragen und die Angaben später mit deiner Rechnung vergleichen.",
     "B": "Zahlen, wenn der Betrag zu deinem üblichen Monatsabschlag passt, und notfalls später widersprechen.",
     "C": "Auflegen und die Forderung im offiziellen Kundenkonto oder über die Telefonnummer auf deiner Stromrechnung überprüfen."
   },
@@ -21,7 +21,7 @@
     "A",
     "C"
   ],
-  "explanation": "Eine Stromsperre wird nicht einfach telefonisch mit 30 Minuten Vorlauf angekündigt. Die Zahlungsforderung unter Zeitdruck ist ein Warnzeichen. Prüfe unabhängig beim Versorger, ob tatsächlich ein Betrag offen ist.",
+  "explanation": "Eine angebliche Stromsperre innerhalb von 30 Minuten und die Forderung nach sofortiger Zahlung sind deutliche Warnzeichen. Beende das Gespräch und prüfe direkt beim Energieversorger, ob tatsächlich ein Betrag offen ist.",
   "proTip": "Prüfe offene Stromrechnungen über dein Kundenkonto oder die Kontaktdaten auf deiner Rechnung.",
   "hackKey": "H",
   "hackTrigger": "Hetze",
