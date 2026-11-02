@@ -5,7 +5,7 @@ import { PremiumPageDe } from "@/components/PremiumSiteChrome";
 export const metadata: Metadata = {
   title: { absolute: "Pilotprojekte für Schulen und Unternehmen | Konfydence" },
   description:
-    "Probiert das Entscheidungstraining im kleinen Rahmen aus, bevor ihr es ausrollt: klar abgegrenzte Gruppe, Ausgangsmessung, gezieltes Training, Abschlussmessung und eine Entscheidung auf Basis der Ergebnisse.",
+    "Probiert das Entscheidungstraining im kleinen Rahmen aus, bevor ihr es breit einführt: klar abgegrenzte Gruppe, Ausgangsmessung, gezieltes Training, Abschlussmessung und eine Entscheidung auf Basis der Ergebnisse.",
   alternates: {
     canonical: "/de/pilot",
     languages: { en: "https://konfydence.com/pilot", de: "https://konfydence.com/de/pilot" },
@@ -13,8 +13,8 @@ export const metadata: Metadata = {
 };
 
 const steps = [
-  ["01 · Gruppe", "Gruppe und Risikofokus festlegen."],
-  ["02 · Ausgangsmessung", "Zeigen, wie die Gruppe heute entscheidet."],
+  ["01 · Gruppe", "Teilnehmergruppe und Risikoschwerpunkt festlegen."],
+  ["02 · Ausgangsmessung", "Feststellen, wie die Gruppe bislang entscheidet."],
   ["03 · Training", "Kurze, gezielte Übungen."],
   ["04 · Abschlussmessung", "Neue, deutlich andere Situationen – danach die Auswertung."],
   ["05 · Entscheidung", "Ausweiten, anpassen oder beenden."],
@@ -22,8 +22,8 @@ const steps = [
 
 const gets = [
   ["Umfang", "Klar abgegrenzt", "Eine benannte Gruppe, ein Risikofokus, Start- und Enddatum – schriftlich festgehalten, bevor es losgeht."],
-  ["Signale", "Beobachtbares Verhalten", "Innehalten, unabhängig Prüfen und impulsives Handeln bei höherem Risiko – verglichen zwischen Ausgangs- und Abschlussmessung."],
-  ["Auswertung", "Belastbare Ergebnisse", "Was sich verändert hat, was nicht, und ob sich ein Ausbau lohnt. Ein Nachweis aus dem Training, keine Compliance-Zusage."],
+  ["Ergebnisse", "Beobachtbares Verhalten", "Innehalten, eigenständiges Überprüfen und vorschnelles Handeln in riskanten Situationen – verglichen zwischen Ausgangs- und Abschlussmessung."],
+  ["Auswertung", "Belastbare Ergebnisse", "Was sich verändert hat, was nicht, und ob sich ein Ausbau lohnt. Die Ergebnisse beziehen sich auf das Training; sie sind kein Nachweis für die Einhaltung gesetzlicher Vorgaben."],
   ["Datenschutz", "Erst das Datenmodell", "Kennungen, Zugriff, Berichtsebene und Speicherdauer werden geklärt, bevor Daten von Teilnehmenden verwendet werden."],
 ];
 
@@ -32,7 +32,7 @@ export default function PilotHubPageDe() {
     <PremiumPageDe ctaHref="#wege" ctaLabel="Pilotprojekt anfragen">
       <section className="kg-shell kc-hero">
         <p className="k-kicker">Pilotprojekte im kleinen Rahmen</p>
-        <h1>Probiert das Entscheidungstraining aus, bevor ihr es ausrollt.</h1>
+        <h1>Probiert das Entscheidungstraining aus, bevor ihr es breit einführt.</h1>
         <p>
           Klein anfangen, beobachtbares Verhalten messen und anhand klarer Ergebnisse entscheiden: ausweiten, anpassen
           oder beenden. Ab sofort nehmen wir Pilotanfragen von Schulen und Unternehmen entgegen.
