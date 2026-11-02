@@ -72,7 +72,7 @@ export default function ComasyPageDe() {
       <section className="k-comasy-hero">
         <div className="k-comasy-copy">
           <p className="k-breadcrumb">Für Organisationen · CoMaSy</p>
-          <p className="k-kicker">Die Human-Firewall-Simulationsplattform</p>
+          <p className="k-kicker">Entscheidungstraining für Unternehmen</p>
           <h1 className="k-display">Sicher handeln, wenn es darauf ankommt.</h1>
           <p className="k-lede">
             CoMaSy versetzt Mitarbeitende in realistische Vorfälle, in denen Hetze, Autorität, kompromittierte Identitäten und unvollständige Beweise Druck erzeugen — und misst, wie sie innehalten, prüfen und handeln.
@@ -133,7 +133,7 @@ export default function ComasyPageDe() {
               <div className="k-metric"><strong>18%</strong><span>Beispiel: risikoreicher Impuls</span></div>
               <div className="k-metric"><strong>4</strong><span>Druckmuster-Dimensionen</span></div>
             </div>
-            <div className="k-linechart" aria-label="Beispielhafte Verhaltenstrendlinie" />
+            <p className="k-dashboard-explainer">Illustrative Kennzahlen aus einer fiktiven Übung. Im Pilotprojekt werden die tatsächlichen Entscheidungen der Teilnehmenden vor und nach dem Training verglichen.</p>
           </article>
         </div>
       </section>
@@ -152,7 +152,7 @@ export default function ComasyPageDe() {
           <article><b>01</b><h3>Simulieren</h3><p>Eine realistische Situation mit Zeitdruck, unklaren Angaben und schwierigen Entscheidungen.</p></article>
           <article><b>02</b><h3>Entscheiden</h3><p>Mitarbeitende wählen eine Handlung, statt nur die richtige Antwort zu lesen.</p></article>
           <article><b>03</b><h3>Auswerten</h3><p>Die Auswertung zeigt die Warnzeichen, das Druckmuster und einen sicheren Weg zur Überprüfung.</p></article>
-          <article><b>04</b><h3>Verbessern</h3><p>Gezielte Übung wiederholen und definierte Nachvollziehbare Entscheidungen über die Zeit vergleichen.</p></article>
+          <article><b>04</b><h3>Verbessern</h3><p>Mit neuen Situationen weiterüben und Veränderungen im Entscheidungsverhalten vergleichen.</p></article>
         </div>
       </section>
 
@@ -173,8 +173,8 @@ export default function ComasyPageDe() {
             <span>01 · Teilnehmergruppe und Risikothemen festlegen</span>
             <span>02 · Ausgangsmessung durchführen</span>
             <span>03 · Gezieltes Entscheidungstraining durchführen</span>
-            <span>04 · Post-Variante auswerten</span>
-            <span>05 · Skalieren / anpassen / stoppen</span>
+            <span>04 · Abschlussmessung auswerten</span>
+            <span>05 · Ausweiten, anpassen oder beenden</span>
           </div>
         </div>
       </section>
