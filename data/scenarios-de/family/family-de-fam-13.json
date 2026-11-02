@@ -1,7 +1,7 @@
 {
   "id": "family-de-fam-13",
   "lang": "de",
-  "title": "Falsche Polizei am Telefon",
+  "title": "Falsche Polizei will Bargeld und Schmuck abholen",
   "edition": "family",
   "cardType": "scenario",
   "scored": true,
@@ -20,8 +20,8 @@
   "safeActions": [
     "A"
   ],
-  "explanation": "Die echte Polizei ruft nicht an, um Bargeld oder Schmuck abzuholen, und nennt am Telefon nie die „110“ als Rückrufnummer. Autorität und eine bedrohliche Geschichte sollen dich davon abhalten, selbst nachzufragen. Wer auflegt und neu wählt, erreicht die echte Wache.",
-  "proTip": "Kein echter Beamter holt deine Wertsachen zur „Sicherung“ ab.",
+  "explanation": "Die Polizei fordert dich nicht telefonisch auf, Bargeld oder Schmuck zur angeblichen Sicherstellung an Unbekannte zu übergeben. Beende den Anruf und kontaktiere bei Verdacht die Polizei über eine selbst gewählte offizielle Nummer.",
+  "proTip": "Übergib Wertsachen niemals an jemanden, der sie nach einem überraschenden Anruf abholen will.",
   "hackKey": "A",
   "hackTrigger": "Autorität",
   "tags": [
