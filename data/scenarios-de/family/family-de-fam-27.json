@@ -1,7 +1,7 @@
 {
   "id": "family-de-fam-27",
   "lang": "de",
-  "title": "Mama, ich brauch dich, sag's nicht Papa",
+  "title": "„Sag Papa nichts“: angebliche Nachricht deines Kindes",
   "edition": "family",
   "cardType": "scenario",
   "scored": true,
@@ -20,8 +20,8 @@
   "safeActions": [
     "B"
   ],
-  "explanation": "„Sag es niemandem“ ist selbst ein Warnsignal — echte Familienmitglieder wollen normalerweise nicht, dass du allein mit einem Problem bleibst. Ein Anruf auf der bekannten Nummer klärt es sofort.",
-  "proTip": "Eine Bitte um Geheimhaltung ist der Moment, gerade jemanden einzuweihen.",
+  "explanation": "Der vertraute Ton und die Bitte um Geheimhaltung können gezielt eingesetzt werden, um dich unter Druck zu setzen. Rufe dein Kind über die bekannte Nummer an oder frage eine weitere Vertrauensperson.",
+  "proTip": "Bei dringenden Geldforderungen von unbekannten Nummern zuerst nachfragen.",
   "hackKey": "C",
   "hackTrigger": "Vertrautheit",
   "tags": [
