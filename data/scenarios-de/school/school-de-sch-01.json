@@ -1,12 +1,12 @@
 {
   "id": "school-de-sch-01",
   "lang": "de",
-  "title": "Dein Account wird in 9 Minuten gelöscht",
+  "title": "Fortnite-Konto angeblich in neun Minuten gesperrt",
   "edition": "school",
   "cardType": "scenario",
   "scored": true,
   "category": "Gaming",
-  "scenario": "Eine E-Mail im Namen von Epic Games sagt, dein Fortnite-Account werde wegen eines „Verstoßes“ in 9 Minuten gelöscht — es sei denn, du „verifizierst“ dich jetzt über einen Link mit E-Mail und Passwort.",
+  "scenario": "Eine E-Mail, die angeblich von Epic Games stammt, behauptet, dein Fortnite-Konto werde wegen eines Regelverstoßes in neun Minuten gelöscht. Nur wenn du dich sofort über einen Link mit E-Mail-Adresse und Passwort anmeldest, könne das verhindert werden.",
   "answers": {
     "A": "Auf den Link klicken und dich sofort verifizieren, bevor der Account gelöscht wird.",
     "B": "Den Link ignorieren und dich direkt in der Fortnite-App oder auf epicgames.com einloggen, um nachzusehen.",
@@ -20,8 +20,8 @@
   "safeActions": [
     "B"
   ],
-  "explanation": "Epic Games löscht Accounts nicht per 9-Minuten-Countdown in einer E-Mail. Ein Login über einen fremden Link gibt Angreifern genau die Daten, die sie wollen — die App oder die offizielle Seite zeigt den echten Status sofort.",
-  "proTip": "Ein Countdown in einer Mail ist kein echtes Zeitlimit deines Accounts.",
+  "explanation": "Die Nachricht setzt dich mit einer extrem kurzen Frist unter Druck. Öffne die offizielle App oder gib die bekannte Website selbst ein, statt den Link aus der E-Mail zu verwenden. Dort kannst du prüfen, ob es wirklich ein Problem mit deinem Konto gibt.",
+  "proTip": "Ein Countdown in einer E-Mail ist kein Grund, dein Passwort über einen Link einzugeben.",
   "hackKey": "H",
   "hackTrigger": "Hetze",
   "tags": [
