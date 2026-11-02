@@ -109,7 +109,7 @@ export const REGION_DE: Record<string, string> = {
 export const COUNTRY_GUIDES_DE: Record<string, CountryGuide> = {
   thailand: {
     intro:
-      "Manche Betrugsversuche in Thailand beginnen besonders freundlich und unauffällig. Sie beginnen mit einem hilfsbereiten Einheimischen an einem Tempel, einem Tuk-Tuk-Fahrer mit einer tollen Idee oder einem Verleih, der es mit dem Papierkram locker nimmt. Oft fällt erst später auf, dass du zu viel bezahlt hast.",
+      "Bei Reisen durch Thailand begegnen dir gelegentlich Angebote, die zunächst sehr freundlich wirken: eine angeblich geschlossene Sehenswürdigkeit, eine ungefragte Tuk-Tuk-Tour oder unklare Bedingungen beim Fahrzeugverleih. Prüfe Preise und Angaben selbst, bevor du zusagst.",
     lastReviewed: "2026-09",
     status: "published",
     scams: [
@@ -168,7 +168,7 @@ export const COUNTRY_GUIDES_DE: Record<string, CountryGuide> = {
 
   spain: {
     intro:
-      "Bei Betrugsmaschen in Spanien geht es um deine Hände und deine Aufmerksamkeit, nicht um Konfrontation. Barcelona und Madrid haben einige der geübtesten Taschendieb-Teams Europas, und die Straßenspiele sind darauf ausgelegt, den Fokus einer Menschenmenge für drei Sekunden abzulenken.",
+      "In gut besuchten Gegenden Spaniens können Taschendiebe und Ablenkungsmanöver ein Problem sein, besonders an Sehenswürdigkeiten und im Nahverkehr. Achte auf dein Gepäck und lass dich bei unerwarteten Ansprachen nicht zu schnellen Entscheidungen drängen.",
     lastReviewed: "2026-09",
     status: "published",
     scams: [
@@ -223,7 +223,7 @@ export const COUNTRY_GUIDES_DE: Record<string, CountryGuide> = {
 
   italy: {
     intro:
-      "Rom, Florenz und Venedig leben vom Touristenaufkommen, und darüber liegt eine Schicht kleiner Betrugsmaschen: Dinge zum Festpreis, die als Gefälligkeit verkauft werden, offiziell wirkende Helfer an Ticketautomaten und Taxis, die den Flughafen-Festpreis plötzlich vergessen haben.",
+      "In Rom, Florenz und Venedig lohnt sich bei spontanen Angeboten ein genauer Blick: Was kostet die Fahrt, ist die Hilfe wirklich kostenlos und wo kaufst du deine Eintrittskarten? Wer Preise und Anbieter vorher prüft, vermeidet viele unangenehme Überraschungen.",
     lastReviewed: "2026-09",
     status: "published",
     scams: [
@@ -278,7 +278,7 @@ export const COUNTRY_GUIDES_DE: Record<string, CountryGuide> = {
 
   france: {
     intro:
-      "Pariser Betrugsmaschen konzentrieren sich stark auf eine Handvoll Sehenswürdigkeiten — Sacré-Cœur, Eiffelturm, Louvre, Pont Neuf — und auf die Metrolinie zum Flughafen. Abseits davon ist die Stadt meist einfach eine Stadt.",
+      "Rund um bekannte Sehenswürdigkeiten und an stark besuchten Verkehrsknotenpunkten in Paris können Reisende auf Taschendiebe, aufdringliche Angebote und Ablenkungsversuche treffen. Bleib besonders bei Zahlungsaufforderungen und ungefragter Hilfe aufmerksam.",
     lastReviewed: "2026-09",
     status: "published",
     scams: [
@@ -333,7 +333,7 @@ export const COUNTRY_GUIDES_DE: Record<string, CountryGuide> = {
 
   mexico: {
     intro:
-      "Für Reisende ist das Alltagsrisiko in Mexikos Touristengebieten finanziell, nicht gewaltsam: Kartenbetrug am Automaten, überteuerte Taxis, Timeshare-Druck und angebliche Mietwagenschäden. Die beste Gewohnheit: Fahrdienst-Apps und Bankautomaten nutzen.",
+      "In touristischen Gegenden Mexikos solltest du insbesondere bei Geldautomaten, Fahrdiensten, Mietwagen und Ausflugsangeboten auf die Bedingungen achten. Nutze überprüfbare Anbieter und kläre Preis und Zahlungsweg möglichst vorab.",
     lastReviewed: "2026-09",
     status: "published",
     scams: [
@@ -388,7 +388,7 @@ export const COUNTRY_GUIDES_DE: Record<string, CountryGuide> = {
 
   turkey: {
     intro:
-      "Istanbuls Stadtteil Sultanahmet konzentriert die meisten Touristen-Betrugsmaschen: übertrieben freundliche „Guides“, die dich zu einem Laden lotsen, Restaurants ohne Preise und der klassische Schuhputz-Trick. Es geht um Überredung, nicht um Zwang.",
+      "In den stark besuchten Vierteln Istanbuls können Reisende auf ungefragte Führungen, überteuerte Angebote oder den bekannten Schuhputztrick stoßen. Freundlichkeit ist kein Grund zur Sorge – aber ein Anlass, Preis und Absicht selbst zu prüfen, bevor du dich auf etwas einlässt.",
     lastReviewed: "2026-09",
     status: "published",
     scams: [
@@ -443,7 +443,7 @@ export const COUNTRY_GUIDES_DE: Record<string, CountryGuide> = {
 
   egypt: {
     intro:
-      "Rund um die Pyramiden, Luxor und die Nilkreuzfahrten hängt an fast jeder Interaktion ein Trinkgeld (baksheesh), und ein paar davon sind reiner Betrug: „kostenlose“ Geschenke, Kamelritte, die zum Absteigen mehr kosten als zum Aufsteigen, und „Ihr Hotel hat geschlossen“-Umleitungen.",
+      "An beliebten Sehenswürdigkeiten Ägyptens gehören Angebote für Führungen, Souvenirs und kleine Dienstleistungen zum Reisealltag. Kläre vorab, ob etwas Geld kostet und wie hoch der Preis ist, besonders bei Fahrten, Fotos und vermeintlich kostenlosen Hilfen.",
     lastReviewed: "2026-09",
     status: "published",
     scams: [
@@ -498,7 +498,7 @@ export const COUNTRY_GUIDES_DE: Record<string, CountryGuide> = {
 
   greece: {
     intro:
-      "Griechenland hat für Reisende wenig Kriminalität, aber Athen hat eine hartnäckige Bar-Masche rund um Syntagma und die Plaka, und Taxis vom Flughafen und den Häfen testen, ob du den Festpreis kennst.",
+      "In Griechenland lohnt es sich, bei Taxis, Bars und touristischen Angeboten auf Preise und Zahlungsbedingungen zu achten. Vor allem bei spontanen Einladungen und ungewöhnlich hohen Rechnungen ist es sinnvoll, unabhängig nachzufragen.",
     lastReviewed: "2026-09",
     status: "published",
     scams: [
@@ -547,7 +547,7 @@ export const COUNTRY_GUIDES_DE: Record<string, CountryGuide> = {
 
   vietnam: {
     intro:
-      "Vietnams Betrugsmaschen sind klein und häufig: manipulierte Taxameter, angebliche Schäden bei Motorrad-Verleihern und Rechnungen, die zwischen Bestellung und Bezahlung wachsen. Fahrdienst-Apps und ein Blick auf die Scheine räumen die meisten davon aus.",
+      "Bei Reisen durch Vietnam können unklare Fahrpreise, Geldwechsel und Streit über angebliche Schäden an Mietfahrzeugen zum Ärgernis werden. Vereinbare Konditionen möglichst vorher, prüfe Zahlungsbeträge und dokumentiere gemietete Fahrzeuge.",
     lastReviewed: "2026-09",
     status: "published",
     scams: [
@@ -602,7 +602,7 @@ export const COUNTRY_GUIDES_DE: Record<string, CountryGuide> = {
 
   indonesia: {
     intro:
-      "Auf Bali sind die wiederkehrenden Probleme Taschenspielertricks bei Geldwechslern, Schadensforderungen bei Rollerverleihern und Probleme an Geldautomaten. Anderswo ist das Muster ähnlich. Autorisierte Wechselstuben und App-gebuchte Fahrten lösen das meiste davon.",
+      "Auf Bali und an anderen touristischen Orten Indonesiens ist bei Geldwechsel, Fahrzeugverleih und Geldautomaten besondere Aufmerksamkeit sinnvoll. Nutze überprüfbare Wechselstuben, kontrolliere Beträge und halte den Zustand gemieteter Fahrzeuge fest.",
     lastReviewed: "2026-09",
     status: "published",
     scams: [
@@ -657,7 +657,7 @@ export const COUNTRY_GUIDES_DE: Record<string, CountryGuide> = {
 
   morocco: {
     intro:
-      "In Marrakesch und Fès drehen sich die Medina-Betrugsmaschen um Orientierung: inoffizielle „Guides“, die sich an dich hängen, „hier ist gesperrt“-Umleitungen zu Läden, und Gerbereien, die du nicht besuchen wolltest. Bestimmte Höflichkeit löst das meiste.",
+      "In den Altstädten von Marrakesch und Fès bieten manche Menschen ungefragt Hilfe bei der Orientierung an. Nicht jedes Angebot ist unseriös – aber wenn du plötzlich zu einem Laden oder einer kostenpflichtigen Führung gebracht werden sollst, darfst du freundlich und bestimmt ablehnen.",
     lastReviewed: "2026-09",
     status: "published",
     scams: [
@@ -712,7 +712,7 @@ export const COUNTRY_GUIDES_DE: Record<string, CountryGuide> = {
 
   india: {
     intro:
-      "In Delhi, Agra und Jaipur zielen die Betrugsmaschen auf Ankommende: „Ihr Hotel hat geschlossen“-Taxiumleitungen, falsche Touristenbüros nahe dem Bahnhof und die Edelstein-Export-„Geschäftsmöglichkeit“. Vorgebuchter Transport nimmt das meiste Risiko raus.",
+      "In Delhi, Agra und Jaipur können Reisende am Bahnhof, am Flughafen oder bei Sehenswürdigkeiten auf falsche Auskünfte und ungefragte Vermittlungsangebote treffen. Prüfe Buchungen direkt beim Anbieter und lass dich nicht ohne eigene Kontrolle zu einem anderen Hotel oder Geschäft bringen.",
     lastReviewed: "2026-09",
     status: "published",
     scams: [
@@ -767,7 +767,7 @@ export const COUNTRY_GUIDES_DE: Record<string, CountryGuide> = {
 
   portugal: {
     intro:
-      "Lissabon ist eine Stadt mit wenig Kriminalität, wo die größten Ärgernisse Taschendiebe in der Tram 28, falsche Drogenverkäufer und das ungefragte couvert beim Abendessen sind. Porto ist noch ruhiger.",
+      "In Lissabon und Porto lohnt es sich, auf Wertsachen und die Preise von Dienstleistungen zu achten. Besonders in vollen Straßenbahnen, bei ungefragten Angeboten und auf Restaurantrechnungen hilft ein kurzer zusätzlicher Blick.",
     lastReviewed: "2026-09",
     status: "published",
     scams: [
@@ -816,7 +816,7 @@ export const COUNTRY_GUIDES_DE: Record<string, CountryGuide> = {
 
   "united-kingdom": {
     intro:
-      "Londons Touristen-Betrugsmaschen sind vor allem Straßenspiele und Handy-Diebstahl per Moped, dazu ein altbekanntes Problem mit falschen Black Cabs. Der zu nah gehaltene Kartenleser und die „Spenden“-Sammler auf der Oxford Street runden es ab.",
+      "In London können Taschendiebstahl, Handydiebstahl und unseriöse Angebote an touristischen Orten vorkommen. Nutze bei Fahrten überprüfbare Anbieter, halte dein Smartphone in Menschenmengen gut fest und prüfe ungewohnte Zahlungsaufforderungen.",
     lastReviewed: "2026-09",
     status: "published",
     scams: [
@@ -871,7 +871,7 @@ export const COUNTRY_GUIDES_DE: Record<string, CountryGuide> = {
 
   "united-states": {
     intro:
-      "Für Reisende sind die Risiken in den USA kostümierte Figuren, die auf Touristenplätzen Geld verlangen, unlizenzierte „Fahrten“ an Flughäfen, aggressive Timeshare- und „Gratis-Kreuzfahrt“-Angebote sowie Maut- und Resort-Gebühren-Überraschungen auf der Rechnung.",
+      "An viel besuchten Orten in den USA können kostenpflichtige Fotomotive, inoffizielle Fahrdienste und vermeintliche Gratisangebote zu unangenehmen Überraschungen führen. Prüfe bei Buchungen auch zusätzliche Gebühren, bevor du bezahlst.",
     lastReviewed: "2026-09",
     status: "published",
     scams: [
@@ -926,7 +926,7 @@ export const COUNTRY_GUIDES_DE: Record<string, CountryGuide> = {
 
   "united-arab-emirates": {
     intro:
-      "Dubai und Abu Dhabi haben wenig Kriminalität, aber die Geldfallen sind real: Taxis, die das Taxameter umgehen, Fälschungen im Gold-Souk, Mietwagen-Bußgelder, die Wochen später auftauchen, und Hartverkauf-Feriencubs in Einkaufszentren.",
+      "In Dubai und Abu Dhabi solltest du bei Goldkäufen, Mietwagen, Taxis und touristischen Verkaufsangeboten die Preise und Bedingungen genau prüfen. Auch bei hochwertig wirkenden Anbietern lohnt es sich, Zusatzkosten und Zahlungswege zu hinterfragen.",
     lastReviewed: "2026-09",
     status: "published",
     scams: [
@@ -975,7 +975,7 @@ export const COUNTRY_GUIDES_DE: Record<string, CountryGuide> = {
 
   japan: {
     intro:
-      "Japan ist eines der sichersten Länder für Reisende, und Straßenbetrug ist selten. Die Ausnahme sind die Nachtleben-Anwerber in Tokios Kabukicho und Roppongi, wo überhöhte Rechnungen und gelegentlich präparierte Drinks ein echtes Risiko sind.",
+      "In Japan sind für Reisende besonders manche Angebote im Nachtleben von Tokio einen genaueren Blick wert. Bei ungefragten Einladungen in Bars oder Clubs solltest du Preise klären und dich nicht zu Entscheidungen drängen lassen.",
     lastReviewed: "2026-09",
     status: "published",
     scams: [
@@ -1018,7 +1018,7 @@ export const COUNTRY_GUIDES_DE: Record<string, CountryGuide> = {
 
   brazil: {
     intro:
-      "In Rio und São Paulo ist das Alltagsrisiko für Reisende Straßenraub und Ablenkungsdiebstahl, nicht ausgeklügelte Betrugsmaschen. Kartenklonen, falsche Polizei und „Express-Entführungen“ aus nicht gebuchten Taxis sind die Dinge, auf die man sich einstellen sollte.",
+      "In Rio de Janeiro und São Paulo sind bei der Reiseplanung auch Diebstahl und Raub zu berücksichtigen. Halte Wertsachen unauffällig, nutze überprüfbare Fahrdienste und sei bei ungewöhnlichen Geld- oder Polizeikontakten aufmerksam.",
     lastReviewed: "2026-09",
     status: "published",
     scams: [
