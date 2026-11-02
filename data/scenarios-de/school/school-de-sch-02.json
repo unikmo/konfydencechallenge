@@ -1,12 +1,12 @@
 {
   "id": "school-de-sch-02",
   "lang": "de",
-  "title": "Die „Prüfungsfragen“-Liste schließt um Mitternacht",
+  "title": "Angebliche Klausurfragen gegen fünf Euro",
   "edition": "school",
   "cardType": "scenario",
   "scored": true,
   "category": "Schularbeiten",
-  "scenario": "In eurem Klassenchat kursiert ein Link zu angeblich echten Fragen der morgigen Mathe-Klausur — der Zugang „schließt um Mitternacht“ und kostet 5 € per Handy-Guthaben.",
+  "scenario": "In eurem Klassenchat wird ein Link zu angeblichen Fragen für die Mathearbeit morgen geteilt. Der Zugang kostet fünf Euro Handyguthaben und soll um Mitternacht geschlossen werden.",
   "answers": {
     "A": "Den Link nicht öffnen und stattdessen für die Klausur lernen; solche Listen sind fast immer Betrug oder Fake.",
     "B": "Zahlen und die Liste noch schnell ansehen, bevor der Zugang schließt.",
@@ -20,8 +20,8 @@
   "safeActions": [
     "A"
   ],
-  "explanation": "Echte Klausurfragen kursieren nicht gegen Bezahlung mit Mitternachtsfrist in einem Klassenchat. Selbst wenn etwas echt aussieht, ist die Nutzung ein Betrugsrisiko UND ein Schulproblem — der Zeitdruck soll dich davon abhalten, das zu merken.",
-  "proTip": "Eine Klausur, die man kaufen muss, ist keine Abkürzung — sie ist eine Falle.",
+  "explanation": "Niemand kann allein durch eine Nachricht im Klassenchat belegen, dass die Fragen echt sind. Das Angebot kann eine Betrugsmasche sein. Außerdem wäre die Nutzung tatsächlich gestohlener Prüfungsfragen ein Problem in der Schule.",
+  "proTip": "Lass dich nicht von einer angeblichen Mitternachtsfrist zu einer Zahlung drängen.",
   "hackKey": "H",
   "hackTrigger": "Hetze",
   "tags": [
