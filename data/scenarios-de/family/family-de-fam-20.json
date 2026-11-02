@@ -1,7 +1,7 @@
 {
   "id": "family-de-fam-20",
   "lang": "de",
-  "title": "Steuerschuld, sonst Vollstreckung",
+  "title": "Finanzamt droht angeblich mit sofortiger Vollstreckung",
   "edition": "family",
   "cardType": "scenario",
   "scored": true,
@@ -21,8 +21,8 @@
     "B",
     "C"
   ],
-  "explanation": "Vollstreckungen werden nicht am selben Tag per Telefonanruf angedroht und eingezogen — es gibt immer einen schriftlichen, förmlichen Weg davor. Das Finanzamt kann jede echte Forderung sofort bestätigen.",
-  "proTip": "Echte Steuerschulden kommen immer zuerst auf Papier, nie zuerst per Anruf.",
+  "explanation": "Ein überraschender Anruf mit einer sofortigen Zahlungsforderung ist verdächtig. Lass dir keine Kontodaten oder Fristen am Telefon aufzwingen. Prüfe den Sachverhalt über das offizielle Finanzamt und vorhandene Bescheide.",
+  "proTip": "Steuerforderungen über Bescheide und die offiziellen Kontaktdaten des Finanzamts prüfen.",
   "hackKey": "A",
   "hackTrigger": "Autorität",
   "tags": [
