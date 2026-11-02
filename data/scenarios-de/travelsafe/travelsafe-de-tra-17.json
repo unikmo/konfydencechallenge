@@ -1,7 +1,7 @@
 {
   "id": "travelsafe-de-tra-17",
   "lang": "de",
-  "title": "Ein „Konsularbeamter“ hat gute Nachrichten",
+  "title": "Angeblicher Anruf des Auswärtigen Amts",
   "edition": "travelsafe",
   "cardType": "scenario",
   "scored": true,
@@ -20,8 +20,8 @@
   "safeActions": [
     "B"
   ],
-  "explanation": "Konsularmitarbeiter verlangen keine Kreditkartendaten am Telefon — echte konsularische Hilfe läuft über offizielle, verifizierbare Kanäle.",
-  "proTip": "Das Auswärtige Amt braucht deine Kartendaten nie am Telefon.",
+  "explanation": "Eine überraschende Bitte um Kartendaten zur Rückreise ist verdächtig. Kontaktiere die zuständige Auslandsvertretung oder das Auswärtige Amt über offiziell veröffentlichte Kontaktdaten.",
+  "proTip": "Konsularische Hilfsangebote unabhängig über offizielle Stellen bestätigen lassen.",
   "hackKey": "A",
   "hackTrigger": "Autorität",
   "tags": [
