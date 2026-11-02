@@ -8,7 +8,7 @@
   "category": "Mietwagen",
   "scenario": "Nach einem kleinen Parkschaden am Mietwagen schickt eine angebliche örtliche Polizeidienststelle einen Link, über den du „den Bericht bestätigen und die Kaution online freigeben“ sollst.",
   "answers": {
-    "A": "Den Link ignorieren und den Vorfall direkt über die Mietwagenfirma und die tatsächlich vor Ort aufgenommene Anzeige klären.",
+    "A": "Den Link nicht öffnen. Den Parkschaden direkt bei der Mietwagenfirma melden und gegebenenfalls bei der zuständigen Polizeidienststelle nachfragen.",
     "B": "Über den Link den Bericht bestätigen und die Kaution freigeben.",
     "C": "Den Link öffnen, aber nur den Bericht lesen, ohne etwas freizugeben."
   },
@@ -20,7 +20,7 @@
   "safeActions": [
     "A"
   ],
-  "explanation": "Ein unerwarteter Link, über den du einen Polizeibericht bestätigen und zugleich eine Kaution freigeben sollst, ist verdächtig. Prüfe den Vorgang getrennt bei der Polizei und der Mietwagenfirma.",
+  "explanation": "Eine Nachricht, die dich zur Bestätigung eines Polizeiberichts und zur Freigabe der Mietwagenkaution über denselben Link auffordert, ist verdächtig. Kläre den Schaden unabhängig mit dem Vermieter und – falls erforderlich – mit der Polizei.",
   "proTip": "Polizeiberichte und Mietwagenkautionen nur über bestätigte offizielle Wege abwickeln.",
   "hackKey": "A",
   "hackTrigger": "Autorität",
