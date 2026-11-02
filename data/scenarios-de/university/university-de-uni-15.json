@@ -1,7 +1,7 @@
 {
   "id": "university-de-uni-15",
   "lang": "de",
-  "title": "Der Objektschutz sagt, du schuldest ein Bußgeld",
+  "title": "Angeblicher Sicherheitsdienst verlangt sofort ein Bußgeld",
   "edition": "university",
   "cardType": "scenario",
   "scored": true,
@@ -20,8 +20,8 @@
   "safeActions": [
     "B"
   ],
-  "explanation": "Echte Bußgelder auf dem Campus laufen über einen offiziellen, nummerierten Bescheid und die reguläre Kassen- oder Verwaltungsstelle, nie über sofortige Barzahlung an eine Person am Eingang.",
-  "proTip": "Bar am Ort zahlen ist bei einem echten Bußgeld nie nötig.",
+  "explanation": "Eine unbekannte Person, die am Campus sofort Bargeld fordert, solltest du nicht ungeprüft bezahlen. Lass dir die Rechtsgrundlage und einen offiziellen Zahlungsweg nennen und kontaktiere gegebenenfalls die Campusverwaltung.",
+  "proTip": "Geldforderungen an öffentlichen Orten nicht allein wegen einer Uniform akzeptieren.",
   "hackKey": "A",
   "hackTrigger": "Autorität",
   "tags": [
