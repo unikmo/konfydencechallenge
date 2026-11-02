@@ -1,7 +1,7 @@
 {
   "id": "travelsafe-de-tra-27",
   "lang": "de",
-  "title": "Der Reiseleiter hat ein „neues Zahlungskonto“",
+  "title": "Reiseleiter nennt plötzlich ein anderes Zahlungskonto",
   "edition": "travelsafe",
   "cardType": "scenario",
   "scored": true,
@@ -20,8 +20,8 @@
   "safeActions": [
     "A"
   ],
-  "explanation": "Eine persönliche Ansage vor Ort ersetzt keine Bestätigung beim Veranstalter — ein Kontowechsel wird immer offiziell und nachprüfbar kommuniziert.",
-  "proTip": "Ein neues Konto bestätigst du beim Veranstalter, nicht nur vor Ort.",
+  "explanation": "Auch eine Ansage vor Ort kann missverständlich oder unberechtigt sein. Prüfe neue Kontodaten über den offiziellen Reiseveranstalter, bevor du bezahlst.",
+  "proTip": "Neue Bankverbindungen bei einer Reise über den Veranstalter bestätigen lassen.",
   "hackKey": "C",
   "hackTrigger": "Vertrautheit",
   "tags": [
