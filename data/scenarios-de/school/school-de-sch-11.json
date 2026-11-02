@@ -1,7 +1,7 @@
 {
   "id": "school-de-sch-11",
   "lang": "de",
-  "title": "Kostenloses Discord Nitro — Link läuft heute Nacht ab",
+  "title": "Discord Nitro: kostenloses Jahresabo per Link?",
   "edition": "school",
   "cardType": "scenario",
   "scored": true,
@@ -20,8 +20,8 @@
   "safeActions": [
     "A"
   ],
-  "explanation": "„Kostenloses Nitro, Login-Link, heute Nacht“ ist eine der verbreitetsten Discord-Phishing-Maschen. Discord vergibt Geschenke nie so.",
-  "proTip": "Kostenloses Nitro über einen fremden Link gibt es nicht — nur gestohlene Logins.",
+  "explanation": "Kostenlose Angebote können gefälscht sein, besonders wenn du dich über eine fremde Website anmelden sollst. Prüfe Aktionen direkt in Discord oder auf offiziellen Seiten und gib deine Zugangsdaten nicht auf unbekannten Websites ein.",
+  "proTip": "Discord-Anmeldedaten niemals auf einer unbekannten Geschenkseite eingeben.",
   "hackKey": "H",
   "hackTrigger": "Hetze",
   "tags": [
