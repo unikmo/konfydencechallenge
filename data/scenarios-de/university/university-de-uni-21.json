@@ -1,7 +1,7 @@
 {
   "id": "university-de-uni-21",
   "lang": "de",
-  "title": "Ein bekannter Konzern-Recruiter braucht sofort Unterlagen",
+  "title": "Praktikumsangebot: Recruiterin fordert sofort Dokumente",
   "edition": "university",
   "cardType": "scenario",
   "scored": true,
@@ -20,8 +20,8 @@
   "safeActions": [
     "A"
   ],
-  "explanation": "Ein bekannter Firmenname macht eine Anfrage nicht automatisch echt — echte Praktikumsverträge verlangen keine IBAN vor Vertragsunterschrift. Die offizielle Karriereseite bestätigt echte Angebote.",
-  "proTip": "Ein großer Name ersetzt keine echte Vertragsunterschrift.",
+  "explanation": "Ein bekannter Firmenname im Profil beweist noch nicht, dass die Anfrage echt ist. Prüfe das Angebot über die offizielle Karriereseite oder einen bekannten Unternehmenskontakt. Übermittle sensible Dokumente erst über bestätigte Wege.",
+  "proTip": "Unverlangte Ausweiskopien und Bankdaten bei Jobangeboten sind ein Warnzeichen.",
   "hackKey": "A",
   "hackTrigger": "Autorität",
   "tags": [
