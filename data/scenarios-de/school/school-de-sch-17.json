@@ -1,7 +1,7 @@
 {
   "id": "school-de-sch-17",
   "lang": "de",
-  "title": "„Verifizierungs-Team“ bietet ein blaues Häkchen an",
+  "title": "Instagram-Verifizierung angeblich per Nachricht",
   "edition": "school",
   "cardType": "scenario",
   "scored": true,
@@ -20,8 +20,8 @@
   "safeActions": [
     "A"
   ],
-  "explanation": "Plattformen verifizieren Accounts nie über einen externen Link mit Login-Eingabe. Das Verlangen ist reine Autoritäts-Camouflage, um deine Zugangsdaten zu stehlen.",
-  "proTip": "Verifizierung passiert in der App — nie auf einer fremden Seite.",
+  "explanation": "Eine Nachricht mit dem Versprechen eines blauen Hakens kann ein Versuch sein, dein Passwort zu stehlen. Überprüfe Angebote und Verifizierungsverfahren direkt in Instagram oder auf der offiziellen Website.",
+  "proTip": "Deine Instagram-Zugangsdaten gehören nicht auf eine fremde Prüfseite.",
   "hackKey": "A",
   "hackTrigger": "Autorität",
   "tags": [
