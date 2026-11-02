@@ -79,6 +79,7 @@ export function PremiumHeader({
         <Link href="/challenge">Challenges</Link>
         <Link href="/travelsafe">TravelSafe</Link>
         <Link href="/lockscreens">Lockscreens</Link>
+        <Link href="/comasy">For business</Link>
         <Link href="/pricing">Pricing</Link>
         <Link href="/pilot">Schools &amp; Teams</Link>
         <Link href="/free-scam-safety-pack">Resources</Link>
