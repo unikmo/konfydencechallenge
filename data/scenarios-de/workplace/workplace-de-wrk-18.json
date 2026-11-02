@@ -1,7 +1,7 @@
 {
   "id": "workplace-de-wrk-18",
   "lang": "de",
-  "title": "„Microsoft-Admin“ braucht eine Zustimmungsfreigabe",
+  "title": "Microsoft-Meldung: unbekannte App verlangt Zugriffsrechte",
   "edition": "workplace",
   "cardType": "scenario",
   "scored": true,
@@ -20,8 +20,8 @@
   "safeActions": [
     "C"
   ],
-  "explanation": "Echte Sicherheitsupdates verlangen keine OAuth-Zustimmung für eine Drittanbieter-App — das ist eine bekannte Methode, dauerhaften Zugriff auf Firmenkonten zu bekommen.",
-  "proTip": "Eine OAuth-Zustimmung für eine unbekannte App ist nie ein „Sicherheitsupdate“.",
+  "explanation": "Eine Aufforderung, einer unbekannten App weitreichende Zugriffsrechte einzuräumen, kann einen Kontomissbrauch ermöglichen. Bestätige die Anfrage über den internen IT-Support und prüfe die angeforderten Berechtigungen.",
+  "proTip": "Unbekannten Apps keine weitreichenden Zugriffsrechte ohne IT-Prüfung geben.",
   "hackKey": "A",
   "hackTrigger": "Autorität",
   "tags": [
