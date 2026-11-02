@@ -1,7 +1,7 @@
 {
   "id": "university-de-uni-19",
   "lang": "de",
-  "title": "Die IT „migriert“ dein Postfach",
+  "title": "Hochschul-IT: angebliche Postfachumstellung",
   "edition": "university",
   "cardType": "scenario",
   "scored": true,
@@ -20,8 +20,8 @@
   "safeActions": [
     "A"
   ],
-  "explanation": "Eine echte Systemmigration läuft im Hintergrund — sie verlangt nie, dass alle Nutzer ihre Zugangsdaten über ein externes Formular neu eingeben.",
-  "proTip": "Migrationen passieren ohne dich — Zugangsdaten gibst du dafür nie erneut ein.",
+  "explanation": "Eine technische Umstellung kann echt sein. Die Aufforderung, Zugangsdaten über ein unbekanntes Formular einzugeben, ist jedoch ein Warnzeichen. Frage beim Hochschulrechenzentrum nach.",
+  "proTip": "Hochschulpasswörter ausschließlich auf bekannten offiziellen Anmeldeseiten eingeben.",
   "hackKey": "A",
   "hackTrigger": "Autorität",
   "tags": [
