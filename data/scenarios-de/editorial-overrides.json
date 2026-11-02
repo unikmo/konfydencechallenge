@@ -103,7 +103,7 @@
     "scenario": "Kurz vor dem monatlichen Buchungsschluss kommt eine E-Mail, angeblich von einem bekannten Lieferanten: Für eine offene Rechnung über 12.400 € gelte ab sofort eine neue Bankverbindung. Die Zahlung solle noch heute angewiesen werden.",
     "answers": {
       "A": "Die neue IBAN über einen bereits bekannten Kontakt des Lieferanten unabhängig bestätigen lassen und die üblichen Freigabeschritte einhalten.",
-      "B": "Die Zahlung sofort auf das neue Konto anweisen, um den Buchungsschluss nicht zu verpassen.",
+      "B": "Die Zahlung sofort auf die neue Bankverbindung anweisen, damit sie noch vor Buchungsschluss ausgeführt wird.",
       "C": "Nur einen Teilbetrag auf das neue Konto anweisen."
     },
     "explanation": "Gefälschte Änderungsmitteilungen zu Bankverbindungen sind eine bekannte Form des Rechnungsbetrugs. Bestätige neue Kontodaten über einen bereits bekannten, unabhängigen Kontaktweg und halte die internen Freigaberegeln ein.",
@@ -115,7 +115,7 @@
     "answers": {
       "A": "Den Link nicht öffnen und die eigenen Gehaltsdaten bei Bedarf über das bekannte interne Personalportal prüfen.",
       "B": "Die Bankverbindung sofort über den Link bestätigen, um die Frist nicht zu verpassen.",
-      "C": "Bei der im Link genannten Nummer anrufen, um nachzufragen."
+      "C": "Die Telefonnummer aus der E-Mail anrufen und dort nachfragen."
     },
     "explanation": "Ein Link in einer unerwarteten Nachricht kann zu einer gefälschten Anmeldeseite führen. Öffne das bekannte Personalportal selbst oder frage über interne, bereits bekannte Kontaktwege nach. Gib keine Bankdaten über den Link aus der Nachricht ein.",
     "proTip": "Gehalts- und Bankdaten nur über die offiziell vorgesehenen internen Wege prüfen oder ändern."
@@ -638,14 +638,14 @@
     "proTip": "Firmenkreditkarten nur über freigegebene Buchungswege einsetzen."
   },
   "workplace-de-wrk-11": {
-    "title": "MFA-Gerät: angeblich nur noch eine Stunde zur Registrierung",
-    "scenario": "Eine Mail im Namen der IT-Abteilung warnt, dass alle Mitarbeitenden ihr MFA-Gerät binnen einer Stunde über einen externen Link neu registrieren müssten, sonst würden sie „vom System ausgesperrt“.",
+    "title": "Zwei-Faktor-Anmeldung: angeblich nur noch eine Stunde Zeit",
+    "scenario": "Eine angebliche E-Mail der IT-Abteilung fordert alle Mitarbeitenden auf, ihre Methode zur Zwei-Faktor-Anmeldung binnen einer Stunde über einen externen Link neu einzurichten. Andernfalls werde der Zugang gesperrt.",
     "answers": {
-      "B": "Das MFA-Gerät nur über die offizielle interne IT-Seite neu registrieren und die Frist beim IT-Service-Desk telefonisch überprüfen lassen.",
+      "B": "Die Änderung nur über das bekannte interne IT-Portal vornehmen und die Aufforderung beim IT-Service-Desk unabhängig prüfen.",
       "A": "Das Gerät sofort über den externen Link registrieren, um nicht ausgesperrt zu werden.",
       "C": "Nur die alte MFA-Methode über den Link bestätigen."
     },
-    "explanation": "Eine unerwartete Aufforderung zur erneuten Anmeldung der Zwei-Faktor-Authentifizierung kann ein Phishing-Versuch sein. Prüfe den Vorgang über das bekannte IT-Portal oder direkt beim internen IT-Support.",
+    "explanation": "Eine unerwartete Aufforderung zur Neueinrichtung der Zwei-Faktor-Anmeldung kann ein Betrugsversuch sein. Prüfe sie über das bekannte IT-Portal oder direkt beim internen Support.",
     "proTip": "MFA-Änderungen nur über die offiziell freigegebenen IT-Verfahren durchführen."
   },
   "workplace-de-wrk-12": {
@@ -795,7 +795,7 @@
     "title": "Geschäftsführung am Telefon – aber ist die Stimme echt?",
     "scenario": "Ein Anruf klingt täuschend echt wie die Stimme des Geschäftsführers und weist an, sofort eine Überweisung für eine „vertrauliche Übernahme“ auszulösen — die Stimme klingt zwar richtig, aber hastiger als sonst.",
     "answers": {
-      "C": "Auflegen und die Anweisung über einen zweiten, unabhängigen Kanal (persönlich, bekannte Nummer, internes Chatsystem) beim Geschäftsführer selbst bestätigen, bevor irgendetwas überwiesen wird.",
+      "C": "Die Zahlungsanweisung vor der Überweisung über einen unabhängigen Weg bestätigen lassen, etwa persönlich oder unter einer bereits bekannten Telefonnummer, und die internen Freigaberegeln einhalten.",
       "A": "Die Überweisung sofort auslösen, weil die Stimme eindeutig nach dem Geschäftsführer klingt.",
       "B": "Nach Details zur Übernahme fragen, um die Geschichte zu prüfen."
     },
@@ -1067,21 +1067,21 @@
     "proTip": "Personaldaten nur nach Prüfung der Berechtigung und über sichere Übertragungswege herausgeben."
   },
   "workplace-de-wrk-18": {
-    "title": "Microsoft-Meldung: unbekannte App verlangt Zugriffsrechte",
-    "scenario": "Eine Mail, angeblich von Microsoft, bittet dich, einer App eine OAuth-„Zustimmungsfreigabe“ mit weitreichendem Zugriff auf dein Firmenkonto zu erteilen, um „ein Sicherheitsupdate abzuschließen“.",
+    "title": "Microsoft-Konto: Unbekannte App fordert Zugriffsrechte",
+    "scenario": "Eine angebliche Microsoft-E-Mail fordert dich auf, einer unbekannten App weitreichende Zugriffsrechte auf dein Firmenkonto zu erteilen. Das sei für ein Sicherheitsupdate erforderlich.",
     "answers": {
-      "C": "Die Zustimmung verweigern und die IT-Abteilung über den internen Kanal fragen, ob eine solche App wirklich benötigt und freigegeben ist.",
+      "C": "Keine Zugriffsrechte erteilen und über den bekannten internen IT-Kanal prüfen lassen, ob die App tatsächlich benötigt und freigegeben ist.",
       "A": "Die Zustimmung sofort erteilen, um das Sicherheitsupdate abzuschließen.",
       "B": "Die Zustimmung mit eingeschränkten Rechten erteilen."
     },
-    "explanation": "Eine Aufforderung, einer unbekannten App weitreichende Zugriffsrechte einzuräumen, kann einen Kontomissbrauch ermöglichen. Bestätige die Anfrage über den internen IT-Support und prüfe die angeforderten Berechtigungen.",
+    "explanation": "Mit einer solchen Freigabe könnte eine unbekannte App auf Daten deines Firmenkontos zugreifen. Prüfe die Berechtigungen und die Anfrage über die interne IT-Abteilung, bevor du zustimmst.",
     "proTip": "Unbekannten Apps keine weitreichenden Zugriffsrechte ohne IT-Prüfung geben."
   },
   "workplace-de-wrk-19": {
     "title": "Angebliche Aufsichtsbehörde fordert sofort Unterlagen",
     "scenario": "Eine Mail, angeblich von einer Aufsichtsbehörde, verlangt die sofortige Übermittlung interner Unterlagen „noch heute“ über eine externe Upload-Seite, sonst drohten „rechtliche Konsequenzen“.",
     "answers": {
-      "B": "Die Anfrage über den internen Compliance- oder Rechtsverantwortlichen bestätigen lassen und Unterlagen nur über offizielle, bekannte Behördenkanäle übermitteln.",
+      "B": "Die Anfrage von der zuständigen internen Rechts- oder Compliance-Stelle überprüfen lassen und Unterlagen nur über freigegebene Behördenkanäle übermitteln.",
       "A": "Die Unterlagen sofort über die externe Upload-Seite übermitteln.",
       "C": "Nur einen Teil der Unterlagen übermitteln."
     },
@@ -1345,7 +1345,7 @@
     "title": "HR-Kontakt schreibt plötzlich von neuer Adresse",
     "scenario": "Die HR-Partnerin, mit der du seit Jahren zusammenarbeitest, schreibt aus einer neuen, unbekannten E-Mail-Adresse und bittet dringend um eine Liste mit Gehalts- und Kontodaten von Mitarbeitenden.",
     "answers": {
-      "B": "Sie über die bekannte, alte E-Mail-Adresse oder telefonisch fragen, warum sie von einer neuen Adresse schreibt, bevor sensible Daten geschickt werden.",
+      "B": "Die Kollegin über ihre bereits bekannte Telefonnummer oder persönlich kontaktieren und die Berechtigung zur Datenanforderung prüfen, bevor du sensible Angaben weitergibst.",
       "A": "Die Daten sofort schicken, weil man die Person seit Jahren kennt.",
       "C": "Nur einen Teil der Daten schicken."
     },
