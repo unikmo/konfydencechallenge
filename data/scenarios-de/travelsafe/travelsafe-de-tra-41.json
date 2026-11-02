@@ -8,7 +8,7 @@
   "category": "Laden & Apps",
   "scenario": "An einer öffentlichen Ladestation am Flughafen verlangt ein Aufkleber, vor dem Laden eine App über einen QR-Code zu installieren, um „die Ladeleistung zu optimieren“.",
   "answers": {
-    "B": "Die App nicht installieren; ein normales USB- oder Steckdosen-Ladegerät braucht nie eine zusätzliche App über einen aufgeklebten QR-Code.",
+    "B": "Die App nicht über den unbekannten QR-Code installieren. Wenn eine Registrierung nötig erscheint, beim Betreiber nach dem offiziellen Weg fragen.",
     "A": "Die App installieren, um besser laden zu können.",
     "C": "Die App installieren, aber die Berechtigungen danach einschränken."
   },
@@ -20,7 +20,7 @@
   "safeActions": [
     "B"
   ],
-  "explanation": "Öffentliche Ladestationen, die eine App-Installation über einen Aufkleber-QR-Code verlangen, sind eine bekannte Schadsoftware-Masche („Juice Jacking“-Variante).",
+  "explanation": "Ein aufgeklebter QR-Code kann zu einer manipulierten Website oder einer unsicheren App führen. Eine gewöhnliche Steckdose benötigt keine App. Bei einer speziellen Ladestation solltest du den Betreiber und dessen offiziellen Registrierungsweg prüfen.",
   "proTip": "Ein Ladegerät braucht keine App, um Strom zu liefern.",
   "hackKey": "K",
   "hackTrigger": "Notbremse",
@@ -30,5 +30,6 @@
     "charging-apps",
     "malware"
   ],
-  "active": true
+  "active": true,
+  "tip": "Apps für Ladestationen nur über den bestätigten Anbieter beziehen."
 }
