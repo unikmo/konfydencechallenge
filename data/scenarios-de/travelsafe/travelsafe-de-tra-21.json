@@ -8,7 +8,7 @@
   "category": "Öffentliches WLAN",
   "scenario": "Das WLAN-Login am Flughafen verlangt statt der üblichen Zustimmung zu den Nutzungsbedingungen eine Anmeldung mit deinem vollen E-Mail-Passwort, um „personalisierte Angebote“ zu erhalten.",
   "answers": {
-    "A": "Die Anmeldung mit dem E-Mail-Passwort verweigern; ein legitimes Gäste-WLAN braucht nie dein echtes E-Mail-Passwort.",
+    "A": "Das Passwort deines E-Mail-Kontos nicht auf der WLAN-Seite eingeben. Frage beim Flughafen nach dem offiziellen Zugang.",
     "B": "Sich mit dem E-Mail-Passwort anmelden, um WLAN zu bekommen.",
     "C": "Ein leicht abgewandeltes Passwort verwenden."
   },
@@ -20,7 +20,7 @@
   "safeActions": [
     "A"
   ],
-  "explanation": "Ein öffentliches WLAN kann eine Anmeldung verlangen, aber dein Passwort für einen bestehenden E-Mail-Account solltest du nicht auf einer fremden WLAN-Seite eingeben. Kläre den offiziellen Zugang beim Flughafen.",
+  "explanation": "Ein öffentliches WLAN kann eine Anmeldung verlangen, aber nicht dein Passwort für ein bestehendes E-Mail-Konto. Gib es auf einer unbekannten WLAN-Seite nicht ein und kläre den Zugang beim Flughafen.",
   "proTip": "Für öffentliches WLAN niemals das Passwort deines E-Mail-Kontos eingeben.",
   "hackKey": "A",
   "hackTrigger": "Autorität",
