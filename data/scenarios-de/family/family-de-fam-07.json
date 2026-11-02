@@ -1,7 +1,7 @@
 {
   "id": "family-de-fam-07",
   "lang": "de",
-  "title": "Dein PC hat noch 4 Minuten",
+  "title": "Viruswarnung im Browser: angeblich nur vier Minuten",
   "edition": "family",
   "cardType": "scenario",
   "scored": true,
@@ -20,8 +20,8 @@
   "safeActions": [
     "C"
   ],
-  "explanation": "Microsoft ruft niemanden an oder lässt anrufen wegen eines Virus, und eine Webseite kann deinen Computer nicht wirklich sperren. Ein Neustart beendet die Anzeige.",
-  "proTip": "Ein Countdown im Browser ist Theater, kein technisches Problem.",
+  "explanation": "Eine Warnung im Browser kann von einer unseriösen Website stammen. Schließe den Tab, ohne die angezeigte Telefonnummer anzurufen. Wenn sich das Fenster nicht schließen lässt oder tatsächlich technische Probleme auftreten, hole Hilfe über einen bekannten IT-Support-Kontakt.",
+  "proTip": "Rufe keine Supportnummer aus einem unerwarteten Browser-Pop-up an.",
   "hackKey": "H",
   "hackTrigger": "Hetze",
   "tags": [
