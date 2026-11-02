@@ -62,7 +62,7 @@ export default async function SchulPilotPage({ searchParams }: { searchParams: P
 
         <form id="anfrage" className="kc-form" action="/api/comasy/pilot" method="post">
           <p className="k-kicker">Pilotprojekt für Schulen anfragen</p>
-          <h2 className="k-display-sm" style={{ fontSize: "28px", margin: "0 0 10px" }}>Sagt uns, was ihr herausfinden wollt.</h2>
+          <h2 className="k-display-sm" style={{ fontSize: "28px", margin: "0 0 10px" }}>Beschreibt kurz, was ihr erreichen möchtet.</h2>
           <p className="kc-form-intro">
             Das ist eine unverbindliche Anfrage, kein Kauf. Bitte füllt sie als Schulpersonal aus.
             <strong> Tragt keine Namen oder persönlichen Angaben von Schülerinnen und Schülern ein.</strong>
@@ -109,7 +109,7 @@ export default async function SchulPilotPage({ searchParams }: { searchParams: P
         <div className="kg-shell kc-split">
           <div>
             <p className="k-kicker">Schülerdaten</p>
-            <h2 className="k-display-sm">Sieben Punkte, die wir klären, bevor Schülerinnen und Schüler teilnehmen.</h2>
+            <h2 className="k-display-sm">Sieben Fragen, die wir vor dem Start mit euch klären.</h2>
             <p className="k-copy">
               Daten von Kindern verdienen mehr Sorgfalt als Daten von Erwachsenen. Diese Punkte sind die Grundlage für den
               Pilotvertrag. Sie sind keine Zertifizierung und ersetzen nicht eure eigene rechtliche Prüfung.
@@ -126,7 +126,7 @@ export default async function SchulPilotPage({ searchParams }: { searchParams: P
       <section className="kg-shell k-callout">
         <div>
           <p className="k-kicker">Keine Schule?</p>
-          <h2 className="k-display-sm">Für Unternehmen und Teams gibt es ein eigenes Pilotprojekt.</h2>
+          <h2 className="k-display-sm">Für Unternehmen gibt es ein separates Pilotangebot.</h2>
         </div>
         <div className="k-actions">
           <Link className="k-button-quiet" href="/de/comasy/pilotprojekt">CoMaSy-Pilotprojekt</Link>
