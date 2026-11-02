@@ -61,12 +61,12 @@ export default function Page() {
         title: "Sicherheit auch zwischen den Schulungen präsent halten.",
         copy: "Regelmäßige Hinweise sollen an sicheres Verhalten erinnern – auch wenn die letzte Schulung schon länger zurückliegt. Wechselnde Sperrbildschirm-Hinweise können dafür sorgen, dass zentrale Sicherheitsregeln auch zwischen den Schulungen präsent bleiben.",
         points: [
-          "Fortlaufende Cyber-Hygiene-Verstärkung — NIS2 (Artikel 21) erwartet kontinuierliche Sicherheitsbewusstsein und eine Aufsicht durch die Leitungsorgane. Ein rotierender Hinweis ist sichtbare Aktivität zwischen den formalen Schulungen.",
-          "Beitrag zum Human Risk Management — verschiebt Sicherheitsbewusstsein von einem Wissenstest zu einem Gewohnheits-Cue im Moment der Entscheidung, genau der Punkt, den NIST- und ISO/IEC-27001-Kontrollen betonen.",
-          "Ein leichtes Prüfprotokoll — der Arbeitsplatz-Admin erfasst die Screen-Sequenz und die Änderungsdaten, damit ihr für jeden Prüfzeitraum zeigen könnt, was den Mitarbeitenden gezeigt wurde.",
+          "Fortlaufende Cyber-Hygiene-Verstärkung — NIS2 (Artikel 21) erwartet kontinuierliche Sensibilisierung für IT-Sicherheit und eine Aufsicht durch die Leitungsorgane. Ein rotierender Hinweis ist sichtbare Aktivität zwischen den formalen Schulungen.",
+          "Beitrag zum Human Risk Management — verschiebt Sicherheitsbewusstsein von einem Wissenstest zu einem regelmäßigen Denkanstoß im Moment der Entscheidung, genau der Punkt, den NIST- und ISO/IEC-27001-Kontrollen betonen.",
+          "Ein leichtes Prüfprotokoll — die zuständige Verwaltungsperson erfasst die Screen-Sequenz und die Änderungsdaten, damit ihr für jeden Prüfzeitraum zeigen könnt, was den Mitarbeitenden gezeigt wurde.",
           "Kombiniert sich mit Messung — führt einen begrenzten CoMaSy-Piloten daneben durch, für definierte Verhaltenssignale — Innehalten, Überprüfung, Eskalation — statt Abschlussquoten.",
         ],
-        note: "Konfydence Lockscreens unterstützt die menschliche Seite eines Schulungsprogramm zur IT-Sicherheits. Es macht eine Organisation allein nicht NIS2-, ISO/IEC-27001- oder anderweitig konform — die umfassenderen rechtlichen, governance- und technischen Pflichten bleiben Aufgabe der Organisation.",
+        note: "Konfydence Lockscreens unterstützt die menschliche Seite eines Schulungsprogramms zur IT-Sicherheits. Es macht eine Organisation allein nicht NIS2-, ISO/IEC-27001- oder anderweitig konform — die umfassenderen rechtlichen, governance- und technischen Pflichten bleiben Aufgabe der Organisation.",
       }}
       faq={[
         {
