@@ -8,7 +8,7 @@
   "category": "Gaming",
   "scenario": "Eine Nachricht in einem Discord-Server verspricht kostenloses Nitro für ein Jahr, wenn du dich „noch heute Nacht“ über einen Link mit deinem Discord-Login anmeldest.",
   "answers": {
-    "A": "Den Link ignorieren; Discord verschenkt Nitro nicht über Links in Server-Nachrichten mit Fristen.",
+    "A": "Die Nachricht ignorieren und mögliche Nitro-Angebote direkt in Discord oder auf der offiziellen Website überprüfen.",
     "B": "Sich sofort über den Link anmelden, um das kostenlose Nitro zu sichern.",
     "C": "Den Link öffnen, aber ein anderes Passwort als sonst benutzen."
   },
@@ -20,7 +20,7 @@
   "safeActions": [
     "A"
   ],
-  "explanation": "Kostenlose Angebote können gefälscht sein, besonders wenn du dich über eine fremde Website anmelden sollst. Prüfe Aktionen direkt in Discord oder auf offiziellen Seiten und gib deine Zugangsdaten nicht auf unbekannten Websites ein.",
+  "explanation": "Hinter einem angeblichen Gratisabo kann eine gefälschte Anmeldeseite stecken. Prüfe Angebote direkt in Discord oder auf der offiziellen Website. Gib dein Passwort nicht auf einer unbekannten Seite ein.",
   "proTip": "Discord-Anmeldedaten niemals auf einer unbekannten Geschenkseite eingeben.",
   "hackKey": "H",
   "hackTrigger": "Hetze",
