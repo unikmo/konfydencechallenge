@@ -1,7 +1,7 @@
 {
   "id": "family-de-fam-15",
   "lang": "de",
-  "title": "Anrufer-ID zeigt deine Bank",
+  "title": "Auf dem Display steht der Name deiner Bank",
   "edition": "family",
   "cardType": "scenario",
   "scored": true,
@@ -20,8 +20,8 @@
   "safeActions": [
     "A"
   ],
-  "explanation": "Die angezeigte Anrufer-ID lässt sich technisch fälschen (Call-ID-Spoofing) und beweist nichts. Deine PIN gibst du niemals am Telefon weiter, auch nicht an „die Bank“.",
-  "proTip": "Die Anzeige auf dem Display kann lügen, deine PIN nie preisgeben.",
+  "explanation": "Die angezeigte Rufnummer oder der Name des Anrufers können gefälscht sein. Deine PIN und deine Zugangsdaten sind vertraulich. Beende den Anruf und kontaktiere deine Bank über eine selbst gewählte offizielle Nummer.",
+  "proTip": "Anruferkennung ist kein Identitätsnachweis. PIN und Passwörter niemals weitergeben.",
   "hackKey": "A",
   "hackTrigger": "Autorität",
   "tags": [
