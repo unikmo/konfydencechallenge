@@ -1,7 +1,7 @@
 {
   "id": "travelsafe-de-tra-07",
   "lang": "de",
-  "title": "Flughafen-eSIM: 70 % Rabatt, nur noch sechs Minuten",
+  "title": "eSIM am Flughafen: 70 Prozent Rabatt mit Countdown",
   "edition": "travelsafe",
   "cardType": "scenario",
   "scored": true,
@@ -20,8 +20,8 @@
   "safeActions": [
     "B"
   ],
-  "explanation": "Ein Countdown auf einem Werbebildschirm am Gate hat keinen Einfluss auf echte eSIM-Preise — echte Anbieter verkaufen über ihre eigene, bekannte App.",
-  "proTip": "Ein Rabatt-Countdown am Gate ist Werbepsychologie, kein echtes Angebot.",
+  "explanation": "Ein hoher Rabatt und ein Countdown sind kein Beweis für Betrug. Bei einem unbekannten Zahlungsanbieter und einer fremden Website ist jedoch Vorsicht geboten. Prüfe Anbieter, Preise und Zahlungswege unabhängig.",
+  "proTip": "eSIM-Angebote über einen geprüften Anbieter und dessen offizielle Website vergleichen.",
   "hackKey": "H",
   "hackTrigger": "Hetze",
   "tags": [
