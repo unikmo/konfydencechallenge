@@ -111,7 +111,7 @@ export default async function CountryPageDe(props: { params: Promise<{ country: 
               const phrase = names.length === 1 ? names[0] : names.length === 2 ? `${names[0]} und ${names[1]}` : names.join(", ");
               return `Die meisten Betrugsmaschen in ${name} setzen auf ${phrase}. `;
             })()}
-            Unabhängig von der Masche hilft ein einfacher Grundsatz: <strong>Anhalten · Abklären · Ansprechen</strong>:
+            Unabhängig von der Masche hilft ein einfacher Grundsatz: <strong>Anhalten · Abklären · Ansprechen</strong>.
             Halte inne, bevor du bezahlst oder persönliche Daten herausgibst. Prüfe, was von dir verlangt wird,
             und besprich die Situation bei Bedarf mit einer Vertrauensperson oder deiner Bank über eine bekannte, offizielle Nummer.
           </p>
