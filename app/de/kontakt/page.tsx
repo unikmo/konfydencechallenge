@@ -15,24 +15,24 @@ export default function KontaktPage() {
 
 const HEADINGS: Record<string, { title: string; intro: string }> = {
   "schools-teams": {
-    title: "Konfydence für eure Organisation",
-    intro: "Erzählt uns, wen ihr schulen wollt und was ihr braucht. Wir besprechen mit euch den passenden Einsatz für Schule, Universität oder Arbeitsplatz.",
+    title: "Konfydence für eure Schule oder euer Unternehmen",
+    intro: "Beschreibt kurz eure Zielgruppe und die wichtigsten Risiken. Wir besprechen mit euch, welche Übungen und Pilotprojekte für eure Schule, Hochschule oder euer Unternehmen geeignet sind.",
   },
   organization: {
-    title: "Konfydence für eure Organisation",
-    intro: "Erzählt uns, wen ihr schulen wollt und was ihr braucht. Wir besprechen mit euch den passenden Einsatz für Schule, Universität oder Arbeitsplatz.",
+    title: "Konfydence für eure Schule oder euer Unternehmen",
+    intro: "Beschreibt kurz eure Zielgruppe und die wichtigsten Risiken. Wir besprechen mit euch, welche Übungen und Pilotprojekte für eure Schule, Hochschule oder euer Unternehmen geeignet sind.",
   },
   "travel-check-in": {
-    title: "Interesse am Travel Check-In",
-    intro: "Erzähl uns von deiner Reisesituation und davon, was den Dienst für dich nützlich machen würde.",
+    title: "Interesse an TravelSafe",
+    intro: "Schreib uns, für welche Reise du dich vorbereiten möchtest und was du dir von TravelSafe erwartest.",
   },
   "lockscreens-home": {
     title: "Konfydence Lockscreens – Zuhause",
-    intro: "Bezahlung und Einrichtung sind noch in Vorbereitung. Hinterlass deine Daten, dann melden wir uns zum Start bei dir.",
+    intro: "Dieser Zugang ist noch in Vorbereitung. Wenn du möchtest, informieren wir dich über den Start.",
   },
   "lockscreens-teen": {
-    title: "Konfydence Lockscreens – Teen Home",
-    intro: "Bezahlung und Einrichtung sind noch in Vorbereitung. Hinterlass deine Daten, dann melden wir uns zum Start bei dir.",
+    title: "Konfydence Lockscreens für Jugendliche",
+    intro: "Dieser Zugang ist noch in Vorbereitung. Wenn du möchtest, informieren wir dich über den Start.",
   },
   "lockscreens-schools": {
     title: "Konfydence Lockscreens für Schulen",
@@ -40,11 +40,11 @@ const HEADINGS: Record<string, { title: string; intro: string }> = {
   },
   "lockscreens-workplace": {
     title: "Konfydence Lockscreens für euren Arbeitsplatz",
-    intro: "Nennt uns die Zahl eurer Mitarbeitenden und eure Geräteverwaltung, dann schicken wir euch ein Angebot pro Mitarbeitenden ($4 pro Mitarbeitenden und Jahr, mindestens $300).",
+    intro: "Nennt uns die Zahl eurer Mitarbeitenden und die Verwaltung eurer Geräte, dann schicken wir euch ein Angebot pro Mitarbeitenden ($4 pro Mitarbeitenden und Jahr, mindestens $300).",
   },
   general: {
     title: "Schreib uns",
-    intro: "Fragen zu Konfydence, zu Käufen oder zum Zugang für Organisationen? Wir freuen uns auf deine Nachricht.",
+    intro: "Du hast Fragen zur Challenge, zu einem Kauf oder zu Angeboten für Organisationen? Schreib uns.",
   },
 };
 
