@@ -163,5 +163,170 @@
     },
     "explanation": "Visa-Verfahren und Gebühren unterscheiden sich je nach Reiseland. Prüfe den tatsächlichen Stand deines Antrags über das offizielle Portal oder die zuständige Auslandsvertretung. Bezahle nicht über einen unerwarteten Link in einer dringlichen E-Mail.",
     "proTip": "Prüfe Visa-Gebühren und Zahlungswege immer direkt bei der zuständigen offiziellen Stelle."
+  },
+  "family-de-fam-04": {
+    "title": "Paket-SMS: angeblich fehlen 1,99 €",
+    "scenario": "Eine SMS im Namen von DHL sagt, dein Paket könne wegen einer offenen Zollgebühr von 1,99 € nicht zugestellt werden. Der Link führt zu einer Seite, die wie die DHL-App aussieht und nach Kartennummer und Adresse fragt.",
+    "answers": {
+      "A": "Die Sendung direkt in der offiziellen DHL-App oder auf der selbst eingegebenen Website prüfen.",
+      "B": "Den Link öffnen, aber nur die Adresse bestätigen, keine Kartendaten eingeben.",
+      "C": "Die 1,99 € zahlen — der Betrag ist zu klein, um ein Risiko zu sein."
+    },
+    "explanation": "Die Nachricht kann eine gefälschte Zahlungsaufforderung sein. Auch kleine Beträge werden genutzt, um Kreditkartendaten abzugreifen. Prüfe die Sendung über die DHL-App oder eine selbst eingegebene offizielle Website.",
+    "proTip": "Nicht über den SMS-Link bezahlen. Prüfe die Sendung direkt beim Paketdienst."
+  },
+  "family-de-fam-05": {
+    "title": "Autobahnvignette: angeblich wird sie morgen teurer",
+    "scenario": "Eine E-Mail warnt, die digitale Autobahnvignette für dein Auto sei „noch nicht aktiviert“ und der Preis verdopple sich ab morgen. Ein Link führt zu einer täuschend echten Bezahlseite außerhalb der offiziellen Seite.",
+    "answers": {
+      "A": "Sofort über den Link bezahlen, um den höheren Preis zu vermeiden.",
+      "B": "Die E-Mail löschen und beim nächsten Bedarf direkt über die offizielle Vignetten-Seite oder App kaufen.",
+      "C": "Den Link öffnen, aber die Seite erst genau ansehen, bevor du zahlst."
+    },
+    "explanation": "Die E-Mail setzt dich unter Zeitdruck und führt auf eine unbekannte Bezahlseite. Prüfe den tatsächlichen Status deiner Vignette sowie Preise und Zahlungswege beim offiziellen Anbieter.",
+    "proTip": "Vignetten und Mautgebühren über den offiziellen Anbieter prüfen und bezahlen."
+  },
+  "family-de-fam-06": {
+    "title": "Steuererstattung: angebliche Frist bis Mitternacht",
+    "scenario": "Eine SMS behauptet, deine Steuererstattung von 412 € verfalle um Mitternacht, wenn du nicht sofort über einen Link deine Bankdaten bestätigst. Der Absendername zeigt „ELSTER“.",
+    "answers": {
+      "A": "Abwarten und morgen im ELSTER-Portal nachsehen, ob wirklich etwas offen ist.",
+      "B": "Anrufen bei der Nummer aus der SMS, um nachzufragen.",
+      "C": "Die Bankdaten sofort über den Link eingeben, um die Frist nicht zu verpassen."
+    },
+    "explanation": "Eine unerwartete SMS mit einer kurzen Frist und einem Link zur Eingabe von Bankdaten ist verdächtig. Prüfe mögliche Erstattungen über dein eigenes ELSTER-Konto oder die zuständige Finanzbehörde.",
+    "proTip": "Prüfe Steuererstattungen über ELSTER oder direkt beim Finanzamt."
+  },
+  "school-de-sch-04": {
+    "title": "Schulportal: dein Passwort läuft angeblich ab",
+    "scenario": "Eine Mail im Design eures Schulportals (IServ) sagt, dein Passwort laufe heute Abend ab und du müsstest es über einen Link sofort neu setzen, sonst verlierst du den Zugang zu deinen Noten.",
+    "answers": {
+      "A": "Über den Link ein neues Passwort setzen, um den Zugang nicht zu verlieren.",
+      "B": "Die Mail ignorieren und dich wie gewohnt direkt im Schulportal einloggen, um zu prüfen, ob wirklich etwas anliegt.",
+      "C": "Den Link öffnen, aber ein Passwort eingeben, das du sonst nirgendwo benutzt."
+    },
+    "explanation": "Die Nachricht kann dich auf eine gefälschte Anmeldeseite führen. Öffne das Schulportal über die bekannte Adresse und frage bei Bedarf die Schul-IT nach. Nutze nicht den Link aus der E-Mail.",
+    "proTip": "Passwortänderungen nur über das offizielle Schulportal vornehmen."
+  },
+  "school-de-sch-05": {
+    "title": "Instagram: angeblich bleiben nur 15 Minuten",
+    "scenario": "Eine Nachricht meldet einen „Copyright-Strike“ auf deinem Instagram-Account und gibt dir 15 Minuten, über einen Link Widerspruch einzulegen, sonst werde der Account „endgültig gelöscht“.",
+    "answers": {
+      "A": "Die Nachricht ignorieren und den Account-Status direkt in der Instagram-App unter „Konto-Status“ prüfen.",
+      "B": "Sofort auf den Link klicken und Widerspruch einlegen, um die Löschung zu verhindern.",
+      "C": "Den Link öffnen, aber keine Zugangsdaten eingeben."
+    },
+    "explanation": "Eine Nachricht mit einer extrem kurzen Frist und einem externen Link ist verdächtig. Prüfe Hinweise zu deinem Instagram-Konto direkt in der App oder über die offiziell eingegebene Website.",
+    "proTip": "Den Kontostatus direkt bei Instagram prüfen, nicht über einen Link in einer Nachricht."
+  },
+  "school-de-sch-06": {
+    "title": "Seltener Gaming-Skin für nur einen Euro?",
+    "scenario": "Eine Werbeanzeige zeigt einen seltenen Valorant-Skin für 1 € statt 20 € — „Angebot endet in 90 Sekunden“ — und verlangt dazu deinen Riot-Account-Login auf einer externen Seite.",
+    "answers": {
+      "A": "Schnell einloggen, um das Angebot nicht zu verpassen.",
+      "B": "Ein Zweit-Account zum Testen der Seite benutzen.",
+      "C": "Den Skin nur im offiziellen Riot-/Valorant-Shop kaufen und die externe Seite ignorieren."
+    },
+    "explanation": "Das vermeintliche Sonderangebot leitet dich auf eine fremde Login-Seite. Dort könnten deine Zugangsdaten gestohlen werden. Prüfe Angebote und Käufe nur über den offiziellen Spiele-Client oder Shop.",
+    "proTip": "Gib deine Riot-Zugangsdaten nicht auf einer unbekannten Angebotsseite ein."
+  },
+  "university-de-uni-04": {
+    "title": "Stipendium ohne Bewerbung: nur 60 Minuten Zeit",
+    "scenario": "Eine E-Mail gratuliert dir zu einem Deutschlandstipendium, für das du dich nie beworben hast, und verlangt, die Zusage innerhalb von 60 Minuten über einen Link mit Kontodaten zu bestätigen.",
+    "answers": {
+      "A": "Beim Career Service oder Studierendensekretariat deiner Uni nachfragen, ob ein solches Stipendium und eine Bewerbung von dir überhaupt existieren, bevor du irgendetwas bestätigst.",
+      "B": "Die Kontodaten über den Link bestätigen, um das Stipendium nicht zu verlieren.",
+      "C": "Nur den Namen bestätigen, aber keine Kontodaten."
+    },
+    "explanation": "Ein überraschendes Stipendienangebot mit einer Minutenfrist und der Forderung nach Bankdaten ist verdächtig. Prüfe direkt bei der zuständigen Hochschule oder Förderstelle, ob es das Angebot gibt und ob du tatsächlich berücksichtigt wurdest.",
+    "proTip": "Bei unerwarteten Stipendienzusagen zuerst die Vergabestelle unabhängig kontaktieren."
+  },
+  "university-de-uni-05": {
+    "title": "Ausländerbehörde: angeblicher Widerruf bis Mitternacht",
+    "scenario": "Eine E-Mail im Namen der Ausländerbehörde warnt, dein Aufenthaltstitel werde „automatisch widerrufen“, wenn du nicht vor Mitternacht über einen Link deine Passdaten bestätigst.",
+    "answers": {
+      "C": "Die E-Mail ignorieren und direkt bei der zuständigen Ausländerbehörde oder dem International Office deiner Uni über die bekannte Nummer nachfragen.",
+      "A": "Die Passdaten sofort über den Link bestätigen, um den Aufenthaltstitel nicht zu verlieren.",
+      "B": "Auf die E-Mail antworten und um mehr Zeit bitten."
+    },
+    "explanation": "Eine E-Mail mit einer extrem kurzen Frist und einem Link zur Eingabe von Passdaten ist ein Warnzeichen. Prüfe den Sachverhalt direkt bei der zuständigen Ausländerbehörde. Das International Office kann dir gegebenenfalls beim richtigen Kontakt helfen.",
+    "proTip": "Behördliche Nachrichten und Fristen nur über offizielle Kontaktwege prüfen."
+  },
+  "university-de-uni-06": {
+    "title": "Stadionticket: nur zehn Minuten reserviert",
+    "scenario": "In einer Ticketbörse-Gruppe bietet jemand ein Stadion-Ticket im Studierendenblock zum halben Preis an — „reserviert nur die nächsten zehn Minuten“ — Zahlung per Überweisung an eine Privatperson.",
+    "answers": {
+      "A": "Nur über eine Plattform mit Käuferschutz zahlen oder eine persönliche Übergabe gegen Bargeld vorschlagen.",
+      "B": "Sofort überweisen, um das Ticket nicht zu verpassen.",
+      "C": "Die Hälfte anzahlen, den Rest bei Übergabe."
+    },
+    "explanation": "Zeitdruck und Überweisung an eine unbekannte Privatperson sind typische Warnzeichen für Ticketbetrug. Nutze nach Möglichkeit die offizielle Ticketbörse oder einen nachprüfbaren Übertragungsweg mit Käuferschutz.",
+    "proTip": "Prüfe die Übertragbarkeit des Tickets, bevor du bezahlst."
+  },
+  "travelsafe-de-tra-04": {
+    "title": "QR-Code im Zug: angebliche Nachzahlung",
+    "scenario": "Im ICE klebt an der Sitzlehne ein QR-Code mit dem Hinweis „Fahrschein hier bestätigen, sonst Nacherhebung von 60 €“. Der Code führt zu einer Seite, die Kartendaten verlangt.",
+    "answers": {
+      "C": "Den QR-Code nicht verwenden und den Fahrschein direkt in der DB-Navigator-App oder beim Zugpersonal prüfen.",
+      "A": "Den Code scannen und die Kartendaten eingeben, um die Nacherhebung zu vermeiden.",
+      "B": "Den Code scannen, aber nur die Ticketnummer eingeben."
+    },
+    "explanation": "Ein aufgeklebter QR-Code kann zu einer gefälschten Website führen. Kläre die Gültigkeit deines Fahrscheins direkt mit dem Zugpersonal oder über die offizielle DB-App. Gib keine Kartendaten auf einer unbekannten Seite ein.",
+    "proTip": "Fahrscheine über die offizielle App oder beim Zugpersonal prüfen."
+  },
+  "travelsafe-de-tra-05": {
+    "title": "Mietwagenschalter: Zusatzvertrag unter Zeitdruck",
+    "scenario": "Am Mietwagenschalter drängt der Mitarbeiter, schnell einen zusätzlichen „Vollkasko-Plus“-Vertrag auf einem Tablet zu unterschreiben, ohne die Details zu erklären, weil „der Shuttle draußen wartet“.",
+    "answers": {
+      "C": "Um einen Moment und eine ausgedruckte Übersicht der Zusatzkosten bitten, bevor irgendetwas unterschrieben wird — der Shuttle wartet notfalls eine Minute.",
+      "A": "Schnell unterschreiben, um den Shuttle nicht zu verpassen.",
+      "B": "Nur mündlich nach den Kosten fragen und dann unterschreiben."
+    },
+    "explanation": "Am Schalter wird eine zusätzliche Versicherung angeboten, ohne dass du die Bedingungen in Ruhe prüfen kannst. Lass dir die Kosten und den genauen Versicherungsschutz erklären und lies die Vertragsunterlagen vor der Unterschrift.",
+    "proTip": "Prüfe Zusatzkosten und Versicherungsbedingungen vor der Unterschrift."
+  },
+  "travelsafe-de-tra-06": {
+    "title": "Anschlussflug: angebliche Umbuchungsgebühr per SMS",
+    "scenario": "Eine SMS kurz vor dem Abflug meldet, dein Anschlussflug sei geändert worden, und verlangt eine sofortige Umbuchungsgebühr von 45 € über einen Link, sonst verfalle der Sitzplatz.",
+    "answers": {
+      "C": "Den Flugstatus direkt in der App der Airline oder am Check-in-Schalter prüfen, statt über den SMS-Link zu zahlen.",
+      "A": "Die Gebühr sofort über den Link zahlen, um den Sitzplatz zu behalten.",
+      "B": "Bei der Nummer aus der SMS zurückrufen."
+    },
+    "explanation": "Die Nachricht kann gefälscht sein. Prüfe Flugänderungen über die offizielle App, Website oder direkt bei der Fluggesellschaft. Verwende keinen unerwarteten Zahlungslink aus einer SMS.",
+    "proTip": "Flugänderungen über offizielle Kanäle prüfen, bevor du bezahlst."
+  },
+  "workplace-de-wrk-04": {
+    "title": "Lieferung angeblich nur nach sofortiger Zahlung",
+    "scenario": "Ein Anruf eines Lieferanten drängt, eine ausstehende Zahlung sofort per Blitzüberweisung anzuweisen, sonst werde die für heute geplante Lieferung „in einer Stunde storniert“.",
+    "answers": {
+      "A": "Die Zahlung über den regulären, mit dem Lieferanten vereinbarten Freigabeprozess abwickeln, statt wegen einer Stundenfrist eine ungeprüfte Blitzüberweisung anzuweisen.",
+      "B": "Die Blitzüberweisung sofort anweisen, um die Lieferung nicht zu verlieren.",
+      "C": "Nur einen Teilbetrag als Blitzüberweisung anweisen."
+    },
+    "explanation": "Die angekündigte Stornierung kann echten geschäftlichen Zeitdruck auslösen. Trotzdem müssen Bankverbindung, offene Forderung und Freigabe intern überprüft werden. Kläre die Situation über bekannte Kontaktdaten des Lieferanten.",
+    "proTip": "Eilige Lieferungen sind kein Grund, Zahlungsfreigaben zu überspringen."
+  },
+  "workplace-de-wrk-05": {
+    "title": "DocuSign: Vertragsfreigabe angeblich nur bis 17 Uhr",
+    "scenario": "Eine Mail meldet, ein wichtiges Vertragsdokument in DocuSign laufe um 17 Uhr ab und müsse sofort über einen Link mit den eigenen Unternehmens-Zugangsdaten signiert werden.",
+    "answers": {
+      "B": "Den Link ignorieren und sich direkt über die offizielle DocuSign-Startseite oder die interne Vertragsverwaltung einloggen, um das Dokument zu finden.",
+      "A": "Über den Link sofort mit den Zugangsdaten signieren, um die Frist nicht zu verpassen.",
+      "C": "Den Link öffnen, aber nur den Dokumentnamen prüfen, ohne sich anzumelden."
+    },
+    "explanation": "Die Nachricht könnte zu einer gefälschten Anmeldeseite führen. Prüfe, ob das Dokument in deinem offiziellen DocuSign-Konto oder in der internen Vertragsverwaltung vorhanden ist, und beachte die internen Freigabewege.",
+    "proTip": "Öffne die Vertragsverwaltung direkt und gib Zugangsdaten nicht über verdächtige Links ein."
+  },
+  "workplace-de-wrk-06": {
+    "title": "IT-Ausfall: angeblich sofort Passwort zurücksetzen",
+    "scenario": "Während eines echten IT-Ausfalls im Unternehmen kommt eine Mail, die aussieht wie vom internen IT-Service-Desk, mit der Bitte, das Passwort sofort über einen externen Link zurückzusetzen, „um den Ausfall zu beheben“.",
+    "answers": {
+      "C": "Das Passwort nur über die offizielle interne IT-Seite oder das Ticket-System zurücksetzen, nicht über einen externen Link, auch während eines echten, bestätigten Ausfalls.",
+      "A": "Das Passwort sofort über den externen Link zurücksetzen, um zu helfen.",
+      "B": "Den Link öffnen, aber ein anderes Passwort als sonst verwenden."
+    },
+    "explanation": "Betrüger können echte IT-Störungen ausnutzen und passende Nachrichten fälschen. Prüfe die Aufforderung über den bekannten IT-Service-Desk oder das offizielle interne System, bevor du dein Passwort änderst.",
+    "proTip": "Gerade bei einer echten IT-Störung sollten Passwortänderungen nur über bekannte interne Wege erfolgen."
   }
 }
