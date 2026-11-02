@@ -1,7 +1,7 @@
 {
   "id": "workplace-de-wrk-19",
   "lang": "de",
-  "title": "Eine Aufsichtsbehörde will heute Unterlagen",
+  "title": "Angebliche Aufsichtsbehörde fordert sofort Unterlagen",
   "edition": "workplace",
   "cardType": "scenario",
   "scored": true,
@@ -20,8 +20,8 @@
   "safeActions": [
     "B"
   ],
-  "explanation": "Echte Behördenanfragen laufen über offizielle, formale Kanäle mit angemessenen Fristen, nicht über eine externe Upload-Seite mit Tagesfrist und Drohung.",
-  "proTip": "Behörden drohen nicht per E-Mail mit sofortigen Konsequenzen.",
+  "explanation": "Auch behördliche Anfragen können fristgebunden sein. Eine überraschende Aufforderung zur Datenübermittlung über eine fremde Upload-Seite muss jedoch unabhängig bestätigt und intern geprüft werden.",
+  "proTip": "Behördenanfragen und Übertragungswege mit Rechtsabteilung oder Compliance abstimmen.",
   "hackKey": "A",
   "hackTrigger": "Autorität",
   "tags": [
