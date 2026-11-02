@@ -1,7 +1,7 @@
 {
   "id": "school-de-sch-33",
   "lang": "de",
-  "title": "Mamas Stimme sagt: Abholzeit hat sich geändert",
+  "title": "Anruf mit Mamas Stimme: angeblich neue Abholperson",
   "edition": "school",
   "cardType": "scenario",
   "scored": true,
@@ -20,8 +20,8 @@
   "safeActions": [
     "C"
   ],
-  "explanation": "KI-Stimmenklone werden immer überzeugender — eine geklonte Stimme ist kein Beweis. Ein Rückruf auf der bekannten Nummer und das Sekretariat der Schule klären es in Minuten, bevor du mit jemandem mitgehst.",
-  "proTip": "Bevor du mit jemand Fremdem mitgehst: die echte Person selbst zurückrufen.",
+  "explanation": "Auch eine vertraut klingende Stimme ist nicht immer ein zuverlässiger Nachweis. Bleib bei den vereinbarten Abholregeln, informiere eine Lehrkraft oder das Sekretariat und lass die Änderung über einen bekannten Kontaktweg bestätigen.",
+  "proTip": "Geh nicht mit einer unerwarteten Abholperson mit. Lass die Schule und deine Eltern die Änderung bestätigen.",
   "hackKey": "C",
   "hackTrigger": "Vertrautheit",
   "tags": [
