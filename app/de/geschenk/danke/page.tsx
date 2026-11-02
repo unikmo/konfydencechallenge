@@ -11,8 +11,8 @@ export default function GeschenkDankePage() {
   return (
     <PremiumPageDe ctaHref="/de/challenge" ctaLabel="Kostenlosen Check starten">
       <section className="kg-shell kc-hero is-narrow" style={{ paddingBottom: 48 }}>
-        <p className="k-kicker">Geschenk verschickt</p>
-        <h1>Geschafft – vielen Dank.</h1>
+        <p className="k-kicker">Geschenkkauf abgeschlossen</p>
+        <h1>Dein Geschenk ist auf dem Weg.</h1>
         <p>
           Wir haben der beschenkten Person einen Code und deine Nachricht per E-Mail geschickt. Sie kann ihn einlösen,
           wann sie möchte. Falls die Mail nach ein paar Minuten nicht da ist, bitte sie, im Spam-Ordner nachzusehen.
