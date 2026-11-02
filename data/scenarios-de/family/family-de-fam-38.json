@@ -20,7 +20,7 @@
   "safeActions": [
     "C"
   ],
-  "explanation": "Keine Bank lässt sich per Fernwartung auf deinen Rechner. Wer das Programm installiert, gibt Tastatur und Bildschirm ab; eine bestätigte Echtzeitüberweisung ist in Sekunden weg und nicht rückholbar. Die „Testüberweisung“ ist die echte Überweisung.",
+  "explanation": "Ein angeblicher Bankmitarbeiter fordert Fernzugriff und eine Überweisung – beides sind deutliche Warnzeichen. Gewähre keinen Zugriff und bestätige keine Zahlung. Beende das Gespräch und kontaktiere deine Bank über die bekannte offizielle Nummer.",
   "proTip": "Deine Bank fragt nie nach Fernzugriff — und eine „Testüberweisung“ gibt es nicht.",
   "hackKey": "K",
   "hackTrigger": "Notbremse",
@@ -31,5 +31,6 @@
     "banking",
     "diagnostic"
   ],
-  "active": true
+  "active": true,
+  "tip": "Keine Fernwartungssoftware oder Überweisung auf telefonische Aufforderung einer unbekannten Person."
 }
