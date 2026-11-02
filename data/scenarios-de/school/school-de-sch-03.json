@@ -1,12 +1,12 @@
 {
   "id": "school-de-sch-03",
   "lang": "de",
-  "title": "Zwei Tickets. Fünf Minuten.",
+  "title": "Konzerttickets: nur noch fünf Minuten Zeit",
   "edition": "school",
   "cardType": "scenario",
   "scored": true,
   "category": "Tickets",
-  "scenario": "In einer Ticketbörse-Gruppe auf Telegram bietet jemand zwei Konzertkarten zum Originalpreis an — „nur die nächsten 5 Minuten reserviert“, Zahlung per Überweisung an eine Privatperson.",
+  "scenario": "In einer Telegram-Gruppe bietet jemand zwei Konzerttickets zum Originalpreis an. Angeblich bleiben sie nur fünf Minuten für dich reserviert. Bezahlen sollst du vorab per Überweisung auf ein privates Konto.",
   "answers": {
     "A": "Sofort überweisen, um die Tickets nicht zu verpassen.",
     "B": "Die Hälfte anzahlen, um Interesse zu zeigen.",
@@ -20,8 +20,8 @@
   "safeActions": [
     "C"
   ],
-  "explanation": "Ein enges Zeitfenster bei einer Vorauszahlung an eine unbekannte Person ist die klassische Ticket-Betrugsmasche. Käuferschutz oder eine persönliche Übergabe schützen dich, ein Countdown tut das nie.",
-  "proTip": "Tickets, die in 5 Minuten weg sind, sind meist gar nicht da.",
+  "explanation": "Bei einer Überweisung an eine unbekannte Person hast du oft kaum Möglichkeiten, das Geld zurückzubekommen. Nutze möglichst offizielle Weiterverkaufsangebote mit Käuferschutz und überprüfe, ob die Tickets tatsächlich übertragen werden können.",
+  "proTip": "Zeitdruck ist kein Ersatz für Käuferschutz und eine überprüfbare Ticketübertragung.",
   "hackKey": "H",
   "hackTrigger": "Hetze",
   "tags": [
