@@ -50,11 +50,11 @@ export default function Page() {
         },
       ]}
       howTitle="Dieselbe Absicht wie eine Plakat-Kampagne. Weniger Logistik."
-      howCopy="Ihr verwaltet kein Artwork und keinen Druckplan. Konfydence schreibt und rendert die Screens; ihr richtet eure Flotte einmal darauf aus."
+      howCopy="Ihr verwaltet kein Artwork und keinen Druckplan. Konfydence erstellt und aktualisiert die Motive; ihr richtet eure Flotte einmal darauf aus."
       howSteps={[
         "Kauft eine Arbeitsplatz-Lizenz — 4 € pro Mitarbeitendem pro Jahr, 300 € Minimum.",
-        "Rollt den aktuellen Screen über Intune, Jamf oder Google Admin aus.",
-        "Ein neuer Screen ersetzt ihn alle zwei Wochen automatisch.",
+        "Verteilt das aktuelle Motiv über Intune, Jamf oder Google Admin aus.",
+        "Ein neues Motiv ersetzt das bisherige alle zwei Wochen automatisch.",
         "Der Wortlaut verfolgt aktuelle Betrugsmuster und die Anhalten-Abklären-Ansprechen-Methode über das Jahr hinweg.",
       ]}
       orgValue={{
@@ -80,14 +80,14 @@ export default function Page() {
             "Alle zwei Wochen. Das ist häufig genug, um aufzufallen, und mit genug Abstand, dass jeder Hinweis richtig gelesen wird, bevor der nächste kommt.",
         },
         {
-          question: "Können wir die Screens auswählen oder anordnen?",
+          question: "Können wir die Reihenfolge der Motive anpassen?",
           answer:
-            "Ja. Der Arbeitsplatz-Admin lässt euch die Playlist über die gesamte Bibliothek neu ordnen und Screens entfernen, die nicht zu eurem Kontext passen.",
+            "Ja. In der Verwaltung könnt ihr die Reihenfolge der Motive anpassen und ungeeignete Hinweise auslassen.",
         },
         {
           question: "Wie erreicht es Mitarbeitende im Homeoffice?",
           answer:
-            "Der Screen wird über eure Geräteverwaltungsrichtlinie auf dem Firmenlaptop oder -handy gesetzt, egal wo sich das Gerät befindet. Beschäftigte im Homeoffice erhalten denselben Hinweis nach demselben Zeitplan wie alle anderen.",
+            "Das Motiv wird über eure Geräteverwaltung auf dem Firmenlaptop oder -handy gesetzt, egal wo sich das Gerät befindet. Beschäftigte im Homeoffice erhalten denselben Hinweis nach demselben Zeitplan wie alle anderen.",
         },
       ]}
       calloutTitle="Die Botschaft sichtbar halten — überall, nicht nur im Büro."
