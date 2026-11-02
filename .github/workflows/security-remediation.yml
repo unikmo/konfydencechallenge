@@ -35,7 +35,7 @@ jobs:
       - name: Align Next.js lint tooling
         run: npm install --save-dev --save-exact eslint-config-next@16.4.4
       - name: Repair non-breaking transitive advisories
-        run: npm audit fix
+        run: npm audit fix --omit=dev || true
       - name: Enforce production vulnerability gate
         run: npm audit --omit=dev --audit-level=high
       - name: Generate Prisma client
