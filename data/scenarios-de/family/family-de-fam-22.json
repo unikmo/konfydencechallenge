@@ -1,7 +1,7 @@
 {
   "id": "family-de-fam-22",
   "lang": "de",
-  "title": "Dein Rentenkonto ist „eingefroren“",
+  "title": "Rentenversicherung: angeblich droht Zahlungsausfall",
   "edition": "family",
   "cardType": "scenario",
   "scored": true,
@@ -20,8 +20,8 @@
   "safeActions": [
     "C"
   ],
-  "explanation": "Die Rentenversicherung „friert“ Konten nicht per Anruf ein und braucht keine telefonische Bestätigung von Daten, die ihr bereits vorliegen. Ein Rückruf über die bekannte Nummer klärt es in Minuten.",
-  "proTip": "Eine Behörde, die deine eigenen Daten von dir „bestätigt“ haben will, hat sie meist schon.",
+  "explanation": "Ein überraschender Anruf mit der Forderung nach Versicherungsnummer und Bankdaten ist verdächtig. Prüfe offene Fragen über den offiziellen Kontakt der Deutschen Rentenversicherung.",
+  "proTip": "Rentenangelegenheiten über die offiziellen Beratungs- und Kontaktstellen klären.",
   "hackKey": "A",
   "hackTrigger": "Autorität",
   "tags": [
