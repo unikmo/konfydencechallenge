@@ -1,7 +1,7 @@
 {
   "id": "school-de-sch-27",
   "lang": "de",
-  "title": "Dein Online-Teammate will sich deinen Login „leihen“",
+  "title": "Mitspieler will sich kurz deinen Account leihen",
   "edition": "school",
   "cardType": "scenario",
   "scored": true,
@@ -20,8 +20,8 @@
   "safeActions": [
     "C"
   ],
-  "explanation": "Lange gemeinsame Spielzeit ist kein Beweis für echte Identität oder Absicht — Accounts werden auch nach Monaten noch übernommen. Ein Item lässt sich immer direkt schicken, ohne Login-Weitergabe.",
-  "proTip": "Monate zusammen gespielt ersetzen keinen sicheren Übergabeweg.",
+  "explanation": "Auch bei langjähriger Online-Bekanntschaft bleibt dein Passwort privat. Das Konto des Mitspielers kann außerdem übernommen worden sein. Prüfe offizielle Möglichkeiten zum Verschenken oder Übertragen von Gegenständen.",
+  "proTip": "Teile dein Spiele-Passwort nicht, auch nicht mit vertrauten Mitspielern.",
   "hackKey": "C",
   "hackTrigger": "Vertrautheit",
   "tags": [
