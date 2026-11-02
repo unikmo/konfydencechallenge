@@ -37,11 +37,11 @@ export default function Page() {
       problemCopy="Ein Kurs lehrt die Regel. Unter Druck — eine dringende Zahlung, ein gefälschter Lieferant, ein Chef, der es sofort braucht — erinnern sich Menschen nicht an eine Regel von vor Monaten. Sie brauchen den Hinweis nah am Moment, und sie brauchen ihn oft genug, damit Innehalten zum Reflex wird."
       sections={[
         {
-          title: "Tägliche Sichtbarkeit, geringer Aufwand",
+          title: "Sicherheitshinweise im Alltag sichtbar machen",
           copy: "Kein neues Modul zuzuweisen, kein Abschluss nachzuverfolgen. Der Hinweis ist einfach auf dem Sperrbildschirm, gelesen in den zwei Sekunden vor dem Entsperren.",
         },
         {
-          title: "Verfolgt aktuelle Taktiken",
+          title: "Regelmäßig wechselnde Betrugsmaschen",
           copy: "Alle zwei Wochen ein neuer Screen, geschrieben um die Druckmuster, die gerade auftauchen — QR-Code-Phishing, Rückruf-Betrug, KI-Stimmen, Lieferantenwechsel-Betrug.",
         },
         {
@@ -59,7 +59,7 @@ export default function Page() {
       ]}
       orgValue={{
         title: "Sicherheit auch zwischen den Schulungen präsent halten.",
-        copy: "Der Sinn, die Lücke zwischen den Schulungen zu füllen, ist, Sicherheitsbewusstsein zu einer fortlaufenden Kontrolle zu machen statt zu einem jährlichen Abschlussdatum. Ein Hinweis, der sich alle zwei Wochen ändert, auf jedem Gerät, ist sichtbare Aktivität das ganze Jahr über.",
+        copy: "Regelmäßige Hinweise sollen an sicheres Verhalten erinnern – auch wenn die letzte Schulung schon länger zurückliegt. Wechselnde Sperrbildschirm-Hinweise können dafür sorgen, dass zentrale Sicherheitsregeln auch zwischen den Schulungen präsent bleiben.",
         points: [
           "Fortlaufende Cyber-Hygiene-Verstärkung — NIS2 (Artikel 21) erwartet kontinuierliche Sicherheitsbewusstsein und eine Aufsicht durch die Leitungsorgane. Ein rotierender Hinweis ist sichtbare Aktivität zwischen den formalen Schulungen.",
           "Beitrag zum Human Risk Management — verschiebt Sicherheitsbewusstsein von einem Wissenstest zu einem Gewohnheits-Cue im Moment der Entscheidung, genau der Punkt, den NIST- und ISO/IEC-27001-Kontrollen betonen.",
