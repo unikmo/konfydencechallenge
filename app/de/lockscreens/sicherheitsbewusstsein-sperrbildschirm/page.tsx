@@ -2,15 +2,15 @@ import type { Metadata } from "next";
 import { LockscreenIntentPage } from "@/components/LockscreenIntentPage";
 
 export const metadata: Metadata = {
-  title: { absolute: "Security-Awareness-Sperrbildschirme | Konfydence Lockscreens" },
+  title: { absolute: "IT-Sicherheit-Sperrbildschirme | Konfydence Lockscreens" },
   description:
-    "Ein verwalteter Security-Awareness-Sperrbildschirm: ein kurzer Hinweis zur Methode „Anhalten, Abklären, Ansprechen“ auf jedem Gerät, alle zwei Wochen aktualisiert. Für Arbeitsplatz, Schulen und Familien.",
+    "Ein verwalteter IT-Sicherheit-Sperrbildschirm: ein kurzer Hinweis zur Methode „Anhalten, Abklären, Ansprechen“ auf jedem Gerät, alle zwei Wochen aktualisiert. Für Arbeitsplatz, Schulen und Familien.",
   alternates: {
     canonical: "/de/lockscreens/sicherheitsbewusstsein-sperrbildschirm",
     languages: { en: "https://konfydence.com/lockscreens/security-awareness-lock-screens", de: "https://konfydence.com/de/lockscreens/sicherheitsbewusstsein-sperrbildschirm" },
   },
   openGraph: {
-    title: "Security-Awareness-Sperrbildschirme | Konfydence",
+    title: "IT-Sicherheit-Sperrbildschirme | Konfydence",
     description: "Der Hinweis, den man wirklich sieht — alle zwei Wochen aktualisiert, statt einer Sammlung statischer Hintergrundbilder.",
     url: "https://konfydence.com/de/lockscreens/sicherheitsbewusstsein-sperrbildschirm",
     siteName: "Konfydence",
@@ -23,7 +23,7 @@ export default function Page() {
     <LockscreenIntentPage
       lang="de"
       slug="sicherheitsbewusstsein-sperrbildschirm"
-      breadcrumbName="Security-Awareness-Sperrbildschirme"
+      breadcrumbName="IT-Sicherheit-Sperrbildschirme"
       eyebrow="SECURITY-AWARENESS-SPERRBILDSCHIRME"
       title="Sicherheitshinweise dort anzeigen, wo Mitarbeitende täglich hinschauen."
       intro="Viele Hinweise zur IT-Sicherheit gehen im Arbeitsalltag schnell unter. Ein Sperrbildschirm bringt einen kurzen Hinweis — Anhalten, Abklären, Ansprechen — genau in dem Moment vor jemanden, in dem er zum Handy greift oder den Laptop aufweckt, in den Sekunden vor dem Klick, der Antwort oder der Zahlung. Konfydence schreibt die Hinweise, hält sie aktuell und liefert alle zwei Wochen einen neuen."
@@ -33,7 +33,7 @@ export default function Page() {
         src: "/lockscreens/workplace/notebook-16x10/30.png",
         alt: "Ein Konfydence-Sperrbildschirm mit dem Text „Bevor der Klick zum Vorfall wird… Anhalten · Abklären · Ansprechen.“",
       }}
-      problemTitle="Awareness verblasst zwischen den Schulungen. Druck wartet nicht auf das nächste Modul."
+      problemTitle="Sicherheitsbewusstsein verblasst zwischen den Schulungen. Druck wartet nicht auf das nächste Modul."
       problemCopy="Der riskante Moment ist nie eine Quizfrage. Es ist eine dringende Rechnung, eine SMS eines Paketdienstes, eine Nachricht eines Chefs, der komisch klingt. Ein Sperrbildschirm sitzt genau dort — auf dem Gerät, im Moment der Entscheidung — statt in einem Kurs, der vor Monaten abgeschlossen wurde."
       sections={[
         {
@@ -58,24 +58,24 @@ export default function Page() {
         "Der Wortlaut verfolgt aktuelle Betrugsmuster und die Anhalten-Abklären-Ansprechen-Methode das ganze Jahr.",
       ]}
       orgValue={{
-        title: "Kontinuierliche Awareness, kein Test-und-vergessen.",
-        copy: "Jährliches Training gibt euch ein Abschlussdatum. Boards und Regulierungsbehörden erwarten zunehmend Belege dafür, dass Awareness eine fortlaufende Aktivität ist, kein Ereignis einmal im Jahr. Ein Sperrbildschirm, der sich alle zwei Wochen ändert, ist eine kostengünstige, permanente Kontrolle — und der Admin behält ein Protokoll darüber, was wann lief.",
+        title: "Sicherheit auch zwischen den Schulungen präsent halten.",
+        copy: "Jährliches Training gibt euch ein Abschlussdatum. Boards und Regulierungsbehörden erwarten zunehmend Belege dafür, dass Sicherheitsbewusstsein eine fortlaufende Aktivität ist, kein Ereignis einmal im Jahr. Ein Sperrbildschirm, der sich alle zwei Wochen ändert, ist eine kostengünstige, permanente Kontrolle — und der Admin behält ein Protokoll darüber, was wann lief.",
         points: [
-          "Fortlaufende Cyber-Hygiene-Verstärkung — NIS2 (Artikel 21) erwartet kontinuierliche Awareness und eine Aufsicht durch die Leitungsorgane. Ein rotierender Hinweis ist sichtbare Aktivität zwischen den formalen Schulungen.",
-          "Beitrag zum Human Risk Management — verschiebt Awareness von einem Wissenstest zu einem Gewohnheits-Cue im Moment der Entscheidung, genau der Punkt, den NIST- und ISO/IEC-27001-Kontrollen betonen.",
+          "Fortlaufende Cyber-Hygiene-Verstärkung — NIS2 (Artikel 21) erwartet kontinuierliche Sicherheitsbewusstsein und eine Aufsicht durch die Leitungsorgane. Ein rotierender Hinweis ist sichtbare Aktivität zwischen den formalen Schulungen.",
+          "Beitrag zum Human Risk Management — verschiebt Sicherheitsbewusstsein von einem Wissenstest zu einem Gewohnheits-Cue im Moment der Entscheidung, genau der Punkt, den NIST- und ISO/IEC-27001-Kontrollen betonen.",
           "Ein leichtes Prüfprotokoll — der Arbeitsplatz-Admin erfasst die Screen-Sequenz und die Änderungsdaten, damit ihr für jeden Prüfzeitraum zeigen könnt, was den Mitarbeitenden gezeigt wurde.",
           "Erreicht die gesamte Belegschaft — Firmengeräte unter MDM erhalten denselben Hinweis nach demselben Zeitplan, Remote- und Frontline-Mitarbeitende eingeschlossen, ohne Abschlüsse nachzuverfolgen.",
         ],
-        note: "Konfydence Lockscreens unterstützt die menschliche Seite eines Awareness-Programms. Es macht eine Organisation allein nicht NIS2-, ISO/IEC-27001- oder anderweitig konform — die umfassenderen rechtlichen, governance- und technischen Pflichten bleiben Aufgabe der Organisation.",
+        note: "Konfydence Lockscreens unterstützt die menschliche Seite eines Schulungsprogramm zur IT-Sicherheits. Es macht eine Organisation allein nicht NIS2-, ISO/IEC-27001- oder anderweitig konform — die umfassenderen rechtlichen, governance- und technischen Pflichten bleiben Aufgabe der Organisation.",
       }}
       faq={[
         {
-          question: "Wie unterscheidet sich das von Security-Awareness-Postern?",
+          question: "Wie unterscheidet sich das von IT-Sicherheit-Postern?",
           answer:
             "Poster sind statisch und werden schnell unsichtbar. Ein Sperrbildschirm wird dutzende Male am Tag gesehen, ändert sich alle zwei Wochen und erreicht Remote- und mobile Mitarbeitende, die nie an einer Bürowand vorbeikommen.",
         },
         {
-          question: "Ersetzt das Security-Awareness-Training?",
+          question: "Ersetzt das IT-Sicherheit-Training?",
           answer:
             "Nein. Es füllt die Lücke zwischen den Schulungen — ein stetiger, aufwandsarmer Hinweis im Moment der Entscheidung. Es passt gut zu einem CoMaSy-Piloten, wenn ihr auch messen wollt, wie Menschen entscheiden.",
         },
