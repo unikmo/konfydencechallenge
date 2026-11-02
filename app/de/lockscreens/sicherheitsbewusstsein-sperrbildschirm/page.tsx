@@ -4,14 +4,14 @@ import { LockscreenIntentPage } from "@/components/LockscreenIntentPage";
 export const metadata: Metadata = {
   title: { absolute: "Security-Awareness-Sperrbildschirme | Konfydence Lockscreens" },
   description:
-    "Ein verwalteter Security-Awareness-Sperrbildschirm: ein kurzer Anhalten · Abklären · Ansprechen-Hinweis auf jedem Gerät, alle zwei Wochen aktualisiert. Für Arbeitsplatz, Schulen und Familien.",
+    "Ein verwalteter Security-Awareness-Sperrbildschirm: ein kurzer Hinweis zur Methode „Anhalten, Abklären, Ansprechen“ auf jedem Gerät, alle zwei Wochen aktualisiert. Für Arbeitsplatz, Schulen und Familien.",
   alternates: {
     canonical: "/de/lockscreens/sicherheitsbewusstsein-sperrbildschirm",
     languages: { en: "https://konfydence.com/lockscreens/security-awareness-lock-screens", de: "https://konfydence.com/de/lockscreens/sicherheitsbewusstsein-sperrbildschirm" },
   },
   openGraph: {
     title: "Security-Awareness-Sperrbildschirme | Konfydence",
-    description: "Der Hinweis, den man wirklich sieht — alle zwei Wochen aktualisiert, kein Ordner voller Hintergrundbilder.",
+    description: "Der Hinweis, den man wirklich sieht — alle zwei Wochen aktualisiert, statt einer Sammlung statischer Hintergrundbilder.",
     url: "https://konfydence.com/de/lockscreens/sicherheitsbewusstsein-sperrbildschirm",
     siteName: "Konfydence",
     type: "article",
@@ -25,8 +25,8 @@ export default function Page() {
       slug="sicherheitsbewusstsein-sperrbildschirm"
       breadcrumbName="Security-Awareness-Sperrbildschirme"
       eyebrow="SECURITY-AWARENESS-SPERRBILDSCHIRME"
-      title="Der Sicherheitshinweis, den man wirklich sieht."
-      intro="Die meiste Security-Awareness landet einmal im Jahr im Postfach und ist zur Mittagspause vergessen. Ein Sperrbildschirm bringt einen kurzen Hinweis — Anhalten, Abklären, Ansprechen — genau in dem Moment vor jemanden, in dem er zum Handy greift oder den Laptop aufweckt, in den Sekunden vor dem Klick, der Antwort oder der Zahlung. Konfydence schreibt die Hinweise, hält sie aktuell und liefert alle zwei Wochen einen neuen."
+      title="Sicherheitshinweise dort anzeigen, wo Mitarbeitende täglich hinschauen."
+      intro="Viele Hinweise zur IT-Sicherheit gehen im Arbeitsalltag schnell unter. Ein Sperrbildschirm bringt einen kurzen Hinweis — Anhalten, Abklären, Ansprechen — genau in dem Moment vor jemanden, in dem er zum Handy greift oder den Laptop aufweckt, in den Sekunden vor dem Klick, der Antwort oder der Zahlung. Konfydence schreibt die Hinweise, hält sie aktuell und liefert alle zwei Wochen einen neuen."
       primaryCtaHref="/de/lockscreens"
       primaryCtaLabel="So funktioniert es"
       heroImage={{
