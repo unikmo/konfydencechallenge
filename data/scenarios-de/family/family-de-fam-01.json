@@ -10,7 +10,7 @@
   "answers": {
     "A": "Auflegen und deine Bank über eine selbst gewählte offizielle Telefonnummer kontaktieren. Weder Geld überweisen noch eine TAN auf telefonische Aufforderung freigeben.",
     "B": "In der Banking-App zuerst die Karte sperren, dann die Bank über einen bekannten Weg kontaktieren.",
-    "C": "Eine push-TAN nur für die eine „Sicherheitsüberweisung“ freigeben und den Rest danach in Ruhe prüfen."
+    "C": "Eine pushTAN nur für diese angebliche „Sicherheitsüberweisung“ freigeben und den Vorgang anschließend prüfen."
   },
   "scores": {
     "A": 4,
