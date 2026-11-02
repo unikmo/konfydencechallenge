@@ -8,7 +8,7 @@
   "category": "Anfragen der Geschäftsführung",
   "scenario": "Du erhältst eine SMS, angeblich von der Geschäftsführung auf Dienstreise. Für ein Kundengeschenk sollen dringend Gutscheinkarten gekauft werden. Die Codes sollst du sofort fotografieren und per Nachricht schicken.",
   "answers": {
-    "B": "Den Geschäftsführer über eine bekannte, unabhängige Nummer oder den Assistenten im Büro erreichen, bevor irgendetwas gekauft wird — Reisestress ändert daran nichts.",
+    "B": "Den ungewöhnlichen Auftrag erst über einen bekannten Kontaktweg mit der Geschäftsführung oder einer zuständigen Person im Büro bestätigen.",
     "A": "Die Gutscheinkarten sofort kaufen und die Codes fotografieren und schicken.",
     "C": "Erst im Sekretariat fragen, ob die Geschäftsführung wirklich gerade reist."
   },
