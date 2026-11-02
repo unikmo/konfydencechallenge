@@ -7,7 +7,7 @@ import { PremiumPage } from "@/components/PremiumSiteChrome";
 
 export default function ContactPage() {
   return (
-    <Suspense fallback={null}>
+    <Suspense fallback={<PremiumPage ctaHref="/challenge/travelsafe/start?mode=diagnostic" ctaLabel="Start free"><section className="kg-shell kc-hero"><h1>Contact Konfydence</h1><p>Ask about the challenges, support or a pilot for your organisation.</p></section></PremiumPage>}>
       <ContactForm />
     </Suspense>
   );
