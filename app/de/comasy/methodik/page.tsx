@@ -16,7 +16,7 @@ const metrics = [
   ["Pause Adoption", "Die teilnehmende Person unterbricht die unmittelbare Handlungskette, bevor sie sich auf einen folgenreichen Schritt festlegt.", "Ob die gewählte Antwort ausdrücklich Zeit oder Raum schafft, um die Bitte vor dem Handeln zu prüfen."],
   ["Verification Rate", "Die teilnehmende Person verifiziert über einen unabhängigen, bekannten Kanal — statt sich auf den Kanal zu verlassen, über den die Bitte kam.", "Ob die gewählte Antwort eine separate vertrauenswürdige Quelle, einen Prozess oder Kontaktweg nutzt."],
   ["Impulse Rate", "Die teilnehmende Person wählt eine unmittelbare, risikoreichere Handlung ohne ausreichende unabhängige Überprüfung.", "Ob die gewählte Antwort die verlangte Handlung, Zugangsdaten, Zahlung, Freigabe oder Offenlegung zu früh festlegt."],
-  ["H.A.C.K.-Profil", "Das Muster der Antworten über die Druckmechaniken Hetze, Autorität, Vertrautheit und Notbremse hinweg.", "Welcher Druckmechanismus wiederholt schwächere Entscheidungen über das Szenario-Set hinweg erzeugt."],
+  ["H.A.C.K.-Profil", "Das Muster der Antworten über die Druckmechaniken Hetze, Autorität, Vertrautheit und Notbremse hinweg.", "Welcher Druckmechanismus wiederholt schwächere Entscheidungen über das Auswahl von Übungssituationen hinweg erzeugt."],
 ];
 
 const principles = [
@@ -27,7 +27,7 @@ const principles = [
 ];
 
 const flow = [
-  ["Ausgangsmessung", "Ein definiertes Szenario-Set vor dem gezielten Training durchführen."],
+  ["Ausgangsmessung", "Ein definiertes Auswahl von Übungssituationen vor dem gezielten Training durchführen."],
   ["Gezieltes Training", "Die relevanten Druckmuster und Geschäftsabläufe üben."],
   ["Abschlussmessung", "Ungesehene oder deutlich unterschiedliche Szenarien nutzen, damit reines Wiedererkennen nicht als Verbesserung durchgeht."],
   ["Auswertung", "Teilnehmergruppensignale vergleichen, Grenzen besprechen und über Skalierung / Anpassung / Stopp entscheiden."],
@@ -121,7 +121,7 @@ export default function MethodologyPageDe() {
         <div>
           <p className="k-kicker">Nächster Schritt</p>
           <h2 className="k-display-sm">Die Methodik in einem überschaubaren Pilotprojekt prüfen.</h2>
-          <p className="k-copy">Vereinbart Teilnehmergruppe, Risikofokus, Szenario-Set und Entscheidungskriterien, bevor ihr skaliert.</p>
+          <p className="k-copy">Vereinbart Teilnehmergruppe, Risikofokus, Auswahl von Übungssituationen und Entscheidungskriterien, bevor ihr skaliert.</p>
         </div>
         <div className="k-actions">
           <Link className="k-button" href="/de/comasy/pilotprojekt">Pilotprojekt anfragen</Link>
