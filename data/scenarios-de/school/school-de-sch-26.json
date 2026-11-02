@@ -1,7 +1,7 @@
 {
   "id": "school-de-sch-26",
   "lang": "de",
-  "title": "Ist das ein Video von dir? Oder nicht?",
+  "title": "Angebliches Video von dir verlangt Instagram-Login",
   "edition": "school",
   "cardType": "scenario",
   "scored": true,
@@ -20,8 +20,8 @@
   "safeActions": [
     "B"
   ],
-  "explanation": "„Ist das du im Video“ ist eine der ältesten Neugier-Köder-Maschen und verbreitet sich über gekaperte Konten weiter. Neugier ist hier kein guter Ratgeber — eine Rückfrage schon.",
-  "proTip": "Neugier ist der Köder, eine Rückfrage ist der Haken, den du nicht schluckst.",
+  "explanation": "Ein Link mit einem aufsehenerregenden Vorschaubild kann dich auf eine gefälschte Anmeldeseite führen. Frag die Person über einen bekannten Weg nach und gib deine Zugangsdaten nicht über diesen Link ein.",
+  "proTip": "Neugierig? Erst nachfragen, statt dein Passwort auf einer fremden Seite einzugeben.",
   "hackKey": "C",
   "hackTrigger": "Vertrautheit",
   "tags": [
