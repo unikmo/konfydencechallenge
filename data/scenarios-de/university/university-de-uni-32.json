@@ -1,7 +1,7 @@
 {
   "id": "university-de-uni-32",
   "lang": "de",
-  "title": "Dein Freund „sitzt an der Grenze fest“",
+  "title": "Freund im Ausland bittet angeblich um Notfallgeld",
   "edition": "university",
   "cardType": "scenario",
   "scored": true,
@@ -20,8 +20,8 @@
   "safeActions": [
     "A"
   ],
-  "explanation": "Ein Chat, der plötzlich nur noch Text erlaubt und um Geld bittet, ist ein klassisches Zeichen für ein übernommenes Konto. Ein Videoanruf zeigt sofort, wer wirklich am anderen Ende ist.",
-  "proTip": "Wer wirklich an der Grenze festsitzt, kann fast immer telefonieren oder sich per Video zeigen.",
+  "explanation": "Nachrichten aus einem vertrauten Profil können gefälscht sein. Versuche die Person über einen anderen bekannten Weg zu erreichen und prüfe die Situation, bevor du Geld überweist.",
+  "proTip": "Auch Hilferufe von bekannten Konten unabhängig bestätigen.",
   "hackKey": "C",
   "hackTrigger": "Vertrautheit",
   "tags": [
