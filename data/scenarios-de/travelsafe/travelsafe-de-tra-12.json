@@ -1,7 +1,7 @@
 {
   "id": "travelsafe-de-tra-12",
   "lang": "de",
-  "title": "Deine Buchung steht auf Halt — bestätige in 30 Minuten",
+  "title": "Hotelbuchung: angebliche Stornierung in 30 Minuten",
   "edition": "travelsafe",
   "cardType": "scenario",
   "scored": true,
@@ -20,8 +20,8 @@
   "safeActions": [
     "B"
   ],
-  "explanation": "Eine echte Buchungsplattform verlangt nie eine erneute Kartendateneingabe über einen externen Link mit Minutenfrist — der Buchungsstatus steht immer in der App.",
-  "proTip": "Buchungsstatus prüfst du in der App, nie über einen Link mit Countdown.",
+  "explanation": "Eine kurzfristige Aufforderung zur erneuten Eingabe von Kreditkartendaten über einen fremden Link ist verdächtig. Prüfe die Buchung in deinem offiziellen Kundenkonto oder direkt beim Hotel.",
+  "proTip": "Buchungsänderungen über dein Kundenkonto oder direkt beim Hotel prüfen.",
   "hackKey": "H",
   "hackTrigger": "Hetze",
   "tags": [
