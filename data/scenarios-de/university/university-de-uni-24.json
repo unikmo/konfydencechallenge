@@ -1,7 +1,7 @@
 {
   "id": "university-de-uni-24",
   "lang": "de",
-  "title": "„Dein Gerät ist nicht konform“ — installier dieses Profil",
+  "title": "Uni-WLAN: angeblich neues Verwaltungsprofil nötig",
   "edition": "university",
   "cardType": "scenario",
   "scored": true,
@@ -20,8 +20,8 @@
   "safeActions": [
     "B"
   ],
-  "explanation": "Ein Verwaltungsprofil gibt weitreichende Kontrolle über ein Gerät — echte Uni-IT verteilt so etwas nie über eine externe Seite ohne offizielle Ankündigung über den Helpdesk.",
-  "proTip": "Ein Verwaltungsprofil von einer fremden Seite ist keine WLAN-Voraussetzung.",
+  "explanation": "Verwaltungsprofile können weitreichende Berechtigungen erhalten. Installiere daher kein Profil von einer unbekannten Website. Prüfe die WLAN-Anleitung beim offiziellen Hochschulrechenzentrum.",
+  "proTip": "Geräteprofile nur nach Prüfung über die offizielle Hochschul-IT installieren.",
   "hackKey": "A",
   "hackTrigger": "Autorität",
   "tags": [
