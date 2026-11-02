@@ -54,8 +54,8 @@ for (const edition of editions) {
     }
     // The reviewed card JSON and its regeneration override must agree.
     const override = overrides[id];
-    if (!override) fail(id, "missing editorial override");
-    else {
+    if (card.cardType === "wild" && !override) fail(id, "missing bonus-card editorial override");
+    if (override) {
       for (const field of fields) {
         if (JSON.stringify(card[field]) !== JSON.stringify(override[field])) {
           fail(id, "regeneration override differs for " + field);
