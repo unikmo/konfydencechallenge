@@ -1,7 +1,7 @@
 {
   "id": "school-de-sch-35",
   "lang": "de",
-  "title": "„Hallo, hier ist deine beste Freundin, neue Nummer“",
+  "title": "Beste Freundin angeblich mit neuer WhatsApp-Nummer",
   "edition": "school",
   "cardType": "scenario",
   "scored": true,
@@ -20,8 +20,8 @@
   "safeActions": [
     "B"
   ],
-  "explanation": "Ein vertrauter Schreibstil lässt sich aus alten Nachrichten leicht kopieren, besonders bei einem gekaperten Konto im Klassenchat. Eine Nachricht an die alte, bekannte Nummer klärt es in Sekunden.",
-  "proTip": "Neue Nummer, alter Schreibstil — erst die alte Nummer fragen.",
+  "explanation": "Der Schreibstil einer Nachricht beweist nicht die Identität. Frag die Freundin über eine bekannte Nummer oder persönlich, bevor du Geld schickst.",
+  "proTip": "Neue Nummer und Geldforderung? Erst die Identität bestätigen.",
   "hackKey": "C",
   "hackTrigger": "Vertrautheit",
   "tags": [
