@@ -109,7 +109,7 @@ export const REGION_DE: Record<string, string> = {
 export const COUNTRY_GUIDES_DE: Record<string, CountryGuide> = {
   thailand: {
     intro:
-      "Die meisten Betrugsmaschen in Thailand sind freundlich, nicht aggressiv. Sie beginnen mit einem hilfsbereiten Einheimischen an einem Tempel, einem Tuk-Tuk-Fahrer mit einer tollen Idee oder einem Verleih, der es mit dem Papierkram locker nimmt. Das Geld ist erst später weg, still und leise.",
+      "Manche Betrugsversuche in Thailand beginnen besonders freundlich und unauffällig. Sie beginnen mit einem hilfsbereiten Einheimischen an einem Tempel, einem Tuk-Tuk-Fahrer mit einer tollen Idee oder einem Verleih, der es mit dem Papierkram locker nimmt. Oft fällt erst später auf, dass du zu viel bezahlt hast.",
     lastReviewed: "2026-09",
     status: "published",
     scams: [
@@ -117,13 +117,13 @@ export const COUNTRY_GUIDES_DE: Record<string, CountryGuide> = {
         name: "„Der Grand Palace ist geschlossen“ — Schmuckladen-Tour",
         how: "Ein gut gekleideter Fremder in Tempelnähe erzählt dir, der Tempel sei wegen einer Zeremonie bis nachmittags geschlossen, und organisiert dann eine billige Tuk-Tuk-„Tour“, die bei einem Schmuck- oder Schneiderladen hält, wo Druck zum Kauf aufgebaut wird.",
         hack: "C",
-        move: "Prüf die Öffnungszeiten selbst auf der offiziellen Seite. Staatliche Tempel schließen nicht für private Zeremonien. Geh einfach zum Tor und schau nach.",
+        move: "Prüf die Öffnungszeiten selbst auf der offiziellen Seite. Auch Sehenswürdigkeiten können zeitweise geschlossen sein. Verlass dich deshalb auf die offiziellen Öffnungszeiten. Geh einfach zum Tor und schau nach.",
       },
       {
         name: "Jetski- und Motorrad-„Schadenersatz“",
-        how: "Du mietest ein Jetski oder Roller, hinterlegst deinen Pass als Kaution, und bei der Rückgabe zeigt der Vermieter auf vorhandene Kratzer und verlangt hunderte Dollar — und behält deinen Pass, bis du zahlst.",
+        how: "Du mietest einen Jetski oder einen Roller, hinterlegst deinen Pass als Kaution, und bei der Rückgabe zeigt der Vermieter auf vorhandene Kratzer und verlangt hunderte Dollar — und behält deinen Pass, bis du zahlst.",
         hack: "K",
-        move: "Gib nie deinen Pass her — biete eine Bar-Kaution oder eine Kopie an. Film das Fahrzeug vor der Fahrt von allen Seiten, mit dem Vermieter im Bild.",
+        move: "Hinterlege möglichst nicht deinen Reisepass als Kaution. Frage nach einer anderen Sicherheit, etwa einer Barkaution, und dokumentiere den Zustand des Fahrzeugs. Film das Fahrzeug vor der Fahrt von allen Seiten, mit dem Vermieter im Bild.",
       },
       {
         name: "Manipuliertes Taxameter / „Taxameter kaputt“",
@@ -153,7 +153,7 @@ export const COUNTRY_GUIDES_DE: Record<string, CountryGuide> = {
     faqs: [
       {
         q: "Was ist der häufigste Betrug in Thailand?",
-        a: "Die „Der Tempel ist geschlossen“-Schmuckladen-Tour ist der Klassiker. Eine freundlicher, gut sprechender Einheimischer erzählt dir, eine große Sehenswürdigkeit sei geschlossen, und lotst dich per Tuk-Tuk zu Läden, die ihm Provision zahlen.",
+        a: "Die „Der Tempel ist geschlossen“-Schmuckladen-Tour ist der Klassiker. Ein freundlich wirkender Einheimischer erzählt dir, eine große Sehenswürdigkeit sei geschlossen, und lotst dich per Tuk-Tuk zu Läden, die ihm Provision zahlen.",
       },
       {
         q: "Sind Taxis in Thailand sicher?",
@@ -561,7 +561,7 @@ export const COUNTRY_GUIDES_DE: Record<string, CountryGuide> = {
         name: "Motorrad-Verleih-Schaden und Pass-Einbehalt",
         how: "Du mietest einen Roller, hinterlegst deinen Pass als Kaution, und bei Rückgabe findet der Laden „neue“ Schäden oder behauptet, das Motorrad sei von deinem Parkplatz gestohlen worden — und behält den Pass, bis du zahlst.",
         hack: "K",
-        move: "Gib nie deinen Pass her — zahl eine Barkaution. Film das Motorrad vor der Fahrt im Detail und nutz dein eigenes Schloss.",
+        move: "Hinterlege nach Möglichkeit nicht deinen Reisepass. Frage stattdessen nach einer Barkaution und lass dir die Vereinbarung schriftlich bestätigen. Film das Motorrad vor der Fahrt im Detail und nutz dein eigenes Schloss.",
       },
       {
         name: "Scheinverwechslung (20.000 vs. 500.000 Dong)",
@@ -571,7 +571,7 @@ export const COUNTRY_GUIDES_DE: Record<string, CountryGuide> = {
       },
       {
         name: "„Übe mein Englisch“-Café-Rechnung",
-        how: "Eine freundlicher Student in Hanoi oder Ho-Chi-Minh-Stadt will Englisch üben, schlägt ein Café oder eine Bar vor, und am Ende zahlst du eine überteuerte Rechnung — manchmal mit „Hostessen“-Gebühren.",
+        how: "Ein freundlicher Student in Hanoi oder Ho-Chi-Minh-Stadt will Englisch üben, schlägt ein Café oder eine Bar vor, und am Ende zahlst du eine überteuerte Rechnung — manchmal mit „Hostessen“-Gebühren.",
         hack: "C",
         move: "Unterhalte dich an einem öffentlichen Ort, nicht an einem, den die Person aussucht. Gehst du irgendwohin, wähl selbst den Ort und sieh vorher die Preise.",
       },
@@ -730,7 +730,7 @@ export const COUNTRY_GUIDES_DE: Record<string, CountryGuide> = {
       },
       {
         name: "Edelstein- / Teppich-„Exportgeschäft“",
-        how: "Eine freundlicher Kontakt in Jaipur oder Agra bietet ein Geschäft an: Edelsteine oder Teppiche kaufen, nach Hause verschicken lassen, ein „Partner“ im Ausland verkauft sie angeblich mit riesigem Gewinn weiter. Die Steine sind fast wertlos, der Partner existiert nicht.",
+        how: "Ein freundlicher Kontakt in Jaipur oder Agra bietet ein Geschäft an: Edelsteine oder Teppiche kaufen, nach Hause verschicken lassen, ein „Partner“ im Ausland verkauft sie angeblich mit riesigem Gewinn weiter. Die Steine sind fast wertlos, der Partner existiert nicht.",
         hack: "C",
         move: "Diese Gelegenheit gibt es nicht. Kauf nie Waren zum „Weiterverkauf“ auf das Versprechen eines Fremden hin, und lass nie einen Laden einen Kauf für dich verschicken.",
       },
@@ -1508,7 +1508,7 @@ export const COUNTRY_GUIDES_DE: Record<string, CountryGuide> = {
     scams: [
       {
         name: "Ativan- / K.-o.-Tropfen-Banden",
-        how: "Eine freundlicher Fremder oder „Mitreisender“, manchmal eine Gruppe, die als Familie auftritt, freundet sich mit dir an und bietet Essen, ein Getränk oder Süßigkeiten mit Beruhigungsmittel an; du wachst beraubt auf. Häufig um Manila, Ermita und in Bussen.",
+        how: "Ein freundlicher Fremder oder „Mitreisender“, manchmal eine Gruppe, die als Familie auftritt, freundet sich mit dir an und bietet Essen, ein Getränk oder Süßigkeiten mit Beruhigungsmittel an; du wachst beraubt auf. Häufig um Manila, Ermita und in Bussen.",
         hack: "C",
         move: "Nimm kein Essen, keine Getränke oder Süßigkeiten von jemandem an, den du gerade erst kennengelernt hast, egal wie warmherzig die Person wirkt. Behalt dein Getränk im Blick.",
       },
@@ -1563,7 +1563,7 @@ export const COUNTRY_GUIDES_DE: Record<string, CountryGuide> = {
       },
       {
         name: "Edelstein-Laden-Provisions-Touren",
-        how: "Eine freundlicher Einheimischer oder Fahrer bietet an, dir ein „staatliches Edelstein-Museum“ oder eine Werkstatt zu zeigen, wo „zertifizierte“ Steine günstig für den Weiterverkauf im Ausland verkauft werden. Die Steine sind minderwertig, und die Weiterverkaufsgeschichte ist erfunden.",
+        how: "Ein freundlicher Einheimischer oder Fahrer bietet an, dir ein „staatliches Edelstein-Museum“ oder eine Werkstatt zu zeigen, wo „zertifizierte“ Steine günstig für den Weiterverkauf im Ausland verkauft werden. Die Steine sind minderwertig, und die Weiterverkaufsgeschichte ist erfunden.",
         hack: "C",
         move: "Lass es sein. Es gibt keine Edelstein-Weiterverkaufsmöglichkeit, und „staatliche“ Edelsteinläden sind privat. Kauf nur bei einem lizenzierten Händler, wenn du wirklich einen Stein für dich selbst willst.",
       },
@@ -1845,7 +1845,7 @@ export const COUNTRY_GUIDES_DE: Record<string, CountryGuide> = {
       },
       {
         name: "„Ich kenne dich vom Hotel / Restaurant“",
-        how: "Eine freundlicher Mann sagt, er arbeite in deinem Hotel oder habe dich gestern Abend bedient, läuft mit dir mit und lotst dich dann zu einem Laden, einer „Gemeinschaftsprojekt“-Spende, oder verlangt einfach eine Gebühr für seine Zeit.",
+        how: "Ein freundlicher Mann sagt, er arbeite in deinem Hotel oder habe dich gestern Abend bedient, läuft mit dir mit und lotst dich dann zu einem Laden, einer „Gemeinschaftsprojekt“-Spende, oder verlangt einfach eine Gebühr für seine Zeit.",
         hack: "C",
         move: "Hotelpersonal würdest du erkennen. Zieh dich höflich zurück und folg niemandem. Bei Druck geh in einen Laden oder eine Hotellobby.",
       },
