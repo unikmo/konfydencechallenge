@@ -1,7 +1,7 @@
 {
   "id": "family-de-fam-11",
   "lang": "de",
-  "title": "Amazon meldet: 749 € Abbuchung läuft",
+  "title": "Amazon-Anruf: angeblich 749 € abgebucht",
   "edition": "family",
   "cardType": "scenario",
   "scored": true,
@@ -20,8 +20,8 @@
   "safeActions": [
     "A"
   ],
-  "explanation": "Amazon ruft nicht mit automatisierten Warnungen über angebliche Abbuchungen an. Die App zeigt jede echte Zahlung sofort und zuverlässig.",
-  "proTip": "Prüfe in der App, nicht am Telefon, das dich anruft.",
+  "explanation": "Automatische Anrufe über angebliche Abbuchungen können Betrugsversuche sein. Drücke keine Taste und teile keine Daten mit. Prüfe Bestellungen und Zahlungen direkt in deinem Amazon-Konto oder bei deinem Zahlungsanbieter.",
+  "proTip": "Bei verdächtigen Anrufen zuerst auflegen und unabhängig dein Konto überprüfen.",
   "hackKey": "H",
   "hackTrigger": "Hetze",
   "tags": [
