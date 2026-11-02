@@ -8,7 +8,7 @@
   "category": "Zwischenmiete",
   "scenario": "Für ein Auslandssemester suchst du eine Zwischenmiete. Ein Angebot passt perfekt — die Person bittet aber, die Kaution „jetzt sofort“ zu überweisen, weil „noch zwei andere Leute Interesse haben“.",
   "answers": {
-    "B": "Erst das Zimmer besichtigen oder mit der Person videotelefonieren und einen echten Untermietvertrag sehen, bevor irgendetwas überwiesen wird.",
+    "B": "Vor einer Zahlung prüfen, ob das Zimmer existiert, die Person es vermieten darf und ein nachvollziehbarer Untermietvertrag vorliegt.",
     "A": "Die Kaution sofort überweisen, um das Zimmer zu sichern.",
     "C": "Nur die Hälfte der Kaution überweisen."
   },
@@ -30,5 +30,6 @@
     "sublets",
     "rental-scam"
   ],
-  "active": true
+  "active": true,
+  "tip": "Ein Videoanruf allein beweist nicht, dass jemand zur Vermietung berechtigt ist. Prüfe auch Angebot und Vertrag."
 }
