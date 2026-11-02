@@ -6,7 +6,7 @@ import { PremiumPageDe } from "@/components/PremiumSiteChrome";
 export const metadata: Metadata = {
   title: { absolute: "CoMaSy | Training für sichere Entscheidungen von Konfydence" },
   description:
-    "CoMaSy ergänzt Schulungen zur IT-Sicherheit um realistische Entscheidungssimulationen, die Innehalten, Verifizierung und Eskalationsverhalten unter Druck messen.",
+    "CoMaSy ergänzt bestehende IT-Sicherheitsschulungen durch realistische Übungen. Ihr seht, wie Mitarbeitende unter Druck entscheiden und ob sie verdächtige Aufforderungen unabhängig prüfen.",
   alternates: {
     canonical: "/de/comasy",
     languages: { en: "https://konfydence.com/comasy", de: "https://konfydence.com/de/comasy" },
@@ -27,11 +27,11 @@ const faqs = [
   ],
   [
     "Was misst CoMaSy?",
-    "CoMaSy misst Trainingsergebnisse aus Szenario-Entscheidungen — darunter Innehalten, unabhängige Verifizierung, risikoreichere Impulshandlungen und Reaktionen auf H.A.C.K.-Druckmuster. Das sind Trainingsergebnisse, keine Garantie für reales Sicherheitsverhalten.",
+    "CoMaSy wertet aus, wie Teilnehmende in Übungssituationen entscheiden: ob sie innehalten, Angaben unabhängig prüfen oder vorschnell handeln. Das zeigt Fortschritte im Training, ist aber keine Garantie für das Verhalten bei echten Angriffen.",
   ],
   [
     "Ist CoMaSy ein Phishing-Simulator?",
-    "Phishing kann ein Szenariotyp sein, aber der Kernanwendungsfall ist breiter: Chef-Betrug, Lieferantenwechsel, Zahlungsanfragen, übernommene Benutzerkonten und andere Geschäftsentscheidungen, bei denen eine Bitte legitim wirken kann.",
+    "Nein. Neben gefälschten Nachrichten behandelt CoMaSy unter anderem manipulierte Rechnungen, vermeintliche Anweisungen der Geschäftsführung und den Missbrauch von Benutzerkonten.",
   ],
   [
     "Macht CoMaSy eine Organisation NIS2-konform?",
@@ -183,7 +183,7 @@ export default function ComasyPageDe() {
         <div className="k-section-head">
           <div>
             <p className="k-kicker">Häufige Fragen für Unternehmen</p>
-            <h2 className="k-display-sm">Was CoMaSy ist — und was nicht.</h2>
+            <h2 className="k-display-sm">Was CoMaSy leistet – und wo die Grenzen liegen.</h2>
           </div>
           <p className="k-copy">Klare Grenzen sind Teil des Produkts: CoMaSy ergänzt bestehende Awareness-Programme und gibt keine eigenständigen Compliance-Garantien.</p>
         </div>
@@ -191,7 +191,7 @@ export default function ComasyPageDe() {
           <article className="k-path" style={{minHeight: "420px"}}>
             <div className="k-path-copy" style={{top: "30px", bottom: "auto"}}>
               <small>Methodik</small>
-              <h3>Definierte Trainingsergebnisse verantwortungsvoll messen.</h3>
+              <h3>Ergebnisse nachvollziehbar auswerten.</h3>
               <p>Erfahrt, welche Ergebnisse gemessen werden, wie Beispielwerte gekennzeichnet sind und was sich daraus tatsächlich ableiten lässt.</p>
               <Link href="/de/comasy/methodik">Methodik lesen →</Link>
             </div>
@@ -201,7 +201,7 @@ export default function ComasyPageDe() {
               <small>Sicherheit & Datenschutz</small>
               <h3>Sicherheit und Datenschutz vorab klären.</h3>
               <p>Prüfe aktuelle Datenverarbeitung, Schutzmaßnahmen und Sicherheitsinformationen für Unternehmen vor einem Piloten.</p>
-              <Link href="/de/comasy/sicherheit">Sicherheit prüfen →</Link>
+              <Link href="/de/comasy/sicherheit">Sicherheit und Datenschutz ansehen →</Link>
             </div>
           </article>
         </div>
