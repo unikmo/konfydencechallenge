@@ -615,7 +615,12 @@ for c in CARDS:
     pos_count[best] += 1
 assert pos_count == {"A": 16, "B": 16, "C": 16}, f"unbalanced positions: {pos_count}"
 
+with open(os.path.join("data", "scenarios-de", "editorial-overrides.json"), encoding="utf-8") as editorial_file:
+    EDITORIAL_OVERRIDES = json.load(editorial_file)
+
 for c in CARDS:
+    # Human-reviewed wording must survive subsequent regeneration.
+    c.update(EDITORIAL_OVERRIDES.get(c["id"], {}))
     with open(os.path.join(OUT_DIR, f"{c['id']}.json"), "w", encoding="utf-8") as f:
         json.dump(c, f, ensure_ascii=False, indent=2)
         f.write("\n")
