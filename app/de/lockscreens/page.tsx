@@ -154,17 +154,17 @@ export default function LockscreensPageDe() {
       <section className="kg-shell k-section" aria-labelledby="see-the-screens">
         <div className="k-section-head">
           <div>
-            <p className="k-kicker">Die Screens ansehen</p>
+            <p className="k-kicker">Sicherheitshinweise ansehen</p>
             <h2 id="see-the-screens" className="k-display-sm">Sicherheitshinweise statt austauschbarer Werbemotive.</h2>
           </div>
           <p className="k-copy">
-            Jeder Screen benennt einen konkreten Trick eines Betrugs und die eine ruhige Reaktion darauf. Ein Beispiel aus jeder Bibliothek —
+            Jeder Hinweis zeigt eine typische Betrugsmasche und einen sicheren nächsten Schritt. Beispiele aus den verschiedenen Themenbereichen:
             die vollständigen Sets wechseln alle zwei Wochen auf eurem Gerät.
           </p>
         </div>
         <ScreenGallery tiers={screenGalleries} />
         <p className="kls-gallery-note">
-          Tippe auf einen Screen für die volle Größe. Home- und Teen-Screens sind fürs Handy gedacht; Schulen und Arbeitsplatz
+          Wähle einen Hinweis aus, um ihn größer anzusehen. Die Motive für Familien und Jugendliche passen auf Smartphones; die Versionen für Schulen und Unternehmen
           liefern Desktop-, Notebook- und Tablet-Formate für eure Geräteverwaltung. Botschaft und Betrugsmaschen bleiben das ganze Jahr aktuell.
         </p>
       </section>
@@ -176,7 +176,7 @@ export default function LockscreensPageDe() {
             <h2 className="k-display-sm">Regelmäßig neue Hinweise statt einer einmaligen Bildersammlung.</h2>
           </div>
           <p className="k-copy">
-            Du fasst nie ein ZIP mit 180 Dateien an. Du richtest einen Screen auf einem Gerät in unter einer Minute ein — und Konfydence
+            Du musst keine große Bildersammlung verwalten. Richte den ersten Hinweis auf deinem Gerät ein. Konfydence
             hält ihn für dich aktuell.
           </p>
         </div>
@@ -237,7 +237,7 @@ export default function LockscreensPageDe() {
         </div>
         <div className="kc-linkcards">
           <Link href="/de/lockscreens/sicherheitsbewusstsein-sperrbildschirm">
-            <b>Security-Awareness-Sperrbildschirme</b>
+            <b>Sicherheitshinweise auf Sperrbildschirmen</b>
             <span>Der Überblick — was es ist, für wen, was es kostet.</span>
           </Link>
           <Link href="/de/lockscreens/phishing-sensibilisierung-zwischen-schulungen">
