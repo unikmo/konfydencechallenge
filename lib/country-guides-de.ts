@@ -24,7 +24,7 @@ export const HACK_LABEL_DE: Record<HackKey, string> = {
 export const HACK_DEF_DE: Record<HackKey, string> = {
   H: "Zeitdruck. Eine Frist, ein Countdown oder ein „jetzt sofort“, das keine Zeit zum Prüfen lässt.",
   A: "Amtston. Ein Ausweis, ein Titel, eine Uniform oder eine offiziell klingende Bitte, die du nicht zu hinterfragen wagst.",
-  C: "Vertrautheit. Ein freundlicher Einheimischer, eine Routine oder eine Emotion, die die Bitte sicherer wirken lässt, als sie ist.",
+  C: "Vertrautheit. Eine freundlicher Einheimischer, eine Routine oder eine Emotion, die die Bitte sicherer wirken lässt, als sie ist.",
   K: "Der Punkt ohne Rückweg. Der Moment, in dem du gedrängt wirst zu zahlen, zu klicken, ein Dokument herzugeben oder jemandem zu folgen — bevor du prüfen kannst.",
 };
 
@@ -124,7 +124,7 @@ export const COUNTRY_GUIDES_DE: Record<string, CountryGuide> = {
     faqs: [
       {
         q: "Was ist der häufigste Betrug in Thailand?",
-        a: "Die „Der Tempel ist geschlossen“-Schmuckladen-Tour ist der Klassiker. Ein freundlicher, gut sprechender Einheimischer erzählt dir, eine große Sehenswürdigkeit sei geschlossen, und lotst dich per Tuk-Tuk zu Läden, die ihm Provision zahlen.",
+        a: "Die „Der Tempel ist geschlossen“-Schmuckladen-Tour ist der Klassiker. Eine freundlicher, gut sprechender Einheimischer erzählt dir, eine große Sehenswürdigkeit sei geschlossen, und lotst dich per Tuk-Tuk zu Läden, die ihm Provision zahlen.",
       },
       {
         q: "Sind Taxis in Thailand sicher?",
@@ -542,7 +542,7 @@ export const COUNTRY_GUIDES_DE: Record<string, CountryGuide> = {
       },
       {
         name: "„Übe mein Englisch“-Café-Rechnung",
-        how: "Ein freundlicher Student in Hanoi oder Ho-Chi-Minh-Stadt will Englisch üben, schlägt ein Café oder eine Bar vor, und am Ende zahlst du eine überteuerte Rechnung — manchmal mit „Hostessen“-Gebühren.",
+        how: "Eine freundlicher Student in Hanoi oder Ho-Chi-Minh-Stadt will Englisch üben, schlägt ein Café oder eine Bar vor, und am Ende zahlst du eine überteuerte Rechnung — manchmal mit „Hostessen“-Gebühren.",
         hack: "C",
         move: "Unterhalte dich an einem öffentlichen Ort, nicht an einem, den die Person aussucht. Gehst du irgendwohin, wähl selbst den Ort und sieh vorher die Preise.",
       },
@@ -701,7 +701,7 @@ export const COUNTRY_GUIDES_DE: Record<string, CountryGuide> = {
       },
       {
         name: "Edelstein- / Teppich-„Exportgeschäft“",
-        how: "Ein freundlicher Kontakt in Jaipur oder Agra bietet ein Geschäft an: Edelsteine oder Teppiche kaufen, nach Hause verschicken lassen, ein „Partner“ im Ausland verkauft sie angeblich mit riesigem Gewinn weiter. Die Steine sind fast wertlos, der Partner existiert nicht.",
+        how: "Eine freundlicher Kontakt in Jaipur oder Agra bietet ein Geschäft an: Edelsteine oder Teppiche kaufen, nach Hause verschicken lassen, ein „Partner“ im Ausland verkauft sie angeblich mit riesigem Gewinn weiter. Die Steine sind fast wertlos, der Partner existiert nicht.",
         hack: "C",
         move: "Diese Gelegenheit gibt es nicht. Kauf nie Waren zum „Weiterverkauf“ auf das Versprechen eines Fremden hin, und lass nie einen Laden einen Kauf für dich verschicken.",
       },
@@ -1479,7 +1479,7 @@ export const COUNTRY_GUIDES_DE: Record<string, CountryGuide> = {
     scams: [
       {
         name: "Ativan- / K.-o.-Tropfen-Banden",
-        how: "Ein freundlicher Fremder oder „Mitreisender“, manchmal eine Gruppe, die als Familie auftritt, freundet sich mit dir an und bietet Essen, ein Getränk oder Süßigkeiten mit Beruhigungsmittel an; du wachst beraubt auf. Häufig um Manila, Ermita und in Bussen.",
+        how: "Eine freundlicher Fremder oder „Mitreisender“, manchmal eine Gruppe, die als Familie auftritt, freundet sich mit dir an und bietet Essen, ein Getränk oder Süßigkeiten mit Beruhigungsmittel an; du wachst beraubt auf. Häufig um Manila, Ermita und in Bussen.",
         hack: "C",
         move: "Nimm kein Essen, keine Getränke oder Süßigkeiten von jemandem an, den du gerade erst kennengelernt hast, egal wie warmherzig die Person wirkt. Behalt dein Getränk im Blick.",
       },
@@ -1534,7 +1534,7 @@ export const COUNTRY_GUIDES_DE: Record<string, CountryGuide> = {
       },
       {
         name: "Edelstein-Laden-Provisions-Touren",
-        how: "Ein freundlicher Einheimischer oder Fahrer bietet an, dir ein „staatliches Edelstein-Museum“ oder eine Werkstatt zu zeigen, wo „zertifizierte“ Steine günstig für den Weiterverkauf im Ausland verkauft werden. Die Steine sind minderwertig, und die Weiterverkaufsgeschichte ist erfunden.",
+        how: "Eine freundlicher Einheimischer oder Fahrer bietet an, dir ein „staatliches Edelstein-Museum“ oder eine Werkstatt zu zeigen, wo „zertifizierte“ Steine günstig für den Weiterverkauf im Ausland verkauft werden. Die Steine sind minderwertig, und die Weiterverkaufsgeschichte ist erfunden.",
         hack: "C",
         move: "Lass es sein. Es gibt keine Edelstein-Weiterverkaufsmöglichkeit, und „staatliche“ Edelsteinläden sind privat. Kauf nur bei einem lizenzierten Händler, wenn du wirklich einen Stein für dich selbst willst.",
       },
@@ -1816,7 +1816,7 @@ export const COUNTRY_GUIDES_DE: Record<string, CountryGuide> = {
       },
       {
         name: "„Ich kenne dich vom Hotel / Restaurant“",
-        how: "Ein freundlicher Mann sagt, er arbeite in deinem Hotel oder habe dich gestern Abend bedient, läuft mit dir mit und lotst dich dann zu einem Laden, einer „Gemeinschaftsprojekt“-Spende, oder verlangt einfach eine Gebühr für seine Zeit.",
+        how: "Eine freundlicher Mann sagt, er arbeite in deinem Hotel oder habe dich gestern Abend bedient, läuft mit dir mit und lotst dich dann zu einem Laden, einer „Gemeinschaftsprojekt“-Spende, oder verlangt einfach eine Gebühr für seine Zeit.",
         hack: "C",
         move: "Hotelpersonal würdest du erkennen. Zieh dich höflich zurück und folg niemandem. Bei Druck geh in einen Laden oder eine Hotellobby.",
       },
