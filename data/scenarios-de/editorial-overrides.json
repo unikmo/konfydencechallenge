@@ -71,7 +71,7 @@
     "answers": {
       "C": "Kein Geld überweisen, bevor du das Zimmer besichtigt und geprüft hast, dass die vermietende Person es tatsächlich anbieten darf.",
       "A": "Nur die halbe Kaution überweisen, um vorsichtig zu bleiben.",
-      "B": "Die Kaution überweisen, weil so viele andere Interessent:innen Druck machen."
+      "B": "Die Kaution überweisen, weil sich angeblich viele andere Personen für das Zimmer interessieren."
     },
     "explanation": "Wer vor einer Besichtigung Geld verlangt und gleichzeitig Druck macht, könnte versuchen, dich zu betrügen. Eine Videobesichtigung allein beweist allerdings noch nicht, dass die Person das Zimmer tatsächlich vermieten darf. Prüfe die Identität und Berechtigung der vermietenden Person, bevor du Geld überweist.",
     "proTip": "Zahle keine Kaution, bevor du das Angebot und die vermietende Person zuverlässig überprüft hast."
@@ -564,7 +564,7 @@
     "title": "Zwischenmiete: Kaution vor der Besichtigung?",
     "scenario": "Für ein Auslandssemester suchst du eine Zwischenmiete. Ein Angebot passt perfekt — die Person bittet aber, die Kaution „jetzt sofort“ zu überweisen, weil „noch zwei andere Leute Interesse haben“.",
     "answers": {
-      "B": "Erst das Zimmer besichtigen oder mit der Person videotelefonieren und einen echten Untermietvertrag sehen, bevor irgendetwas überwiesen wird.",
+      "B": "Vor einer Zahlung prüfen, ob das Zimmer existiert, die Person es vermieten darf und ein nachvollziehbarer Untermietvertrag vorliegt.",
       "A": "Die Kaution sofort überweisen, um das Zimmer zu sichern.",
       "C": "Nur die Hälfte der Kaution überweisen."
     },
@@ -751,11 +751,11 @@
     "title": "Angeblicher Sicherheitsdienst verlangt sofort ein Bußgeld",
     "scenario": "Eine Person in Uniform am Campus-Eingang behauptet, du hättest unerlaubt im Sperrbereich geparkt, und verlangt ein Bußgeld von 80 € sofort in bar, sonst werde dein Fahrzeug abgeschleppt.",
     "answers": {
-      "B": "Nach einem offiziellen, nummerierten Bußgeldbescheid fragen und das Bußgeld nur über den regulären, bekannten Weg der Uni-Verwaltung zahlen — nicht bar am Ort.",
+      "B": "Nicht sofort bar zahlen. Stattdessen einen offiziellen Bescheid und einen nachvollziehbaren Zahlungsweg verlangen und den Vorgang bei der zuständigen Stelle prüfen.",
       "A": "Die 80 € sofort bar zahlen, um das Abschleppen zu vermeiden.",
       "C": "Um eine Quittung mit Dienstnummer bitten und dann bar zahlen."
     },
-    "explanation": "Eine unbekannte Person, die am Campus sofort Bargeld fordert, solltest du nicht ungeprüft bezahlen. Lass dir die Rechtsgrundlage und einen offiziellen Zahlungsweg nennen und kontaktiere gegebenenfalls die Campusverwaltung.",
+    "explanation": "Eine unbekannte Person, die auf dem Campus sofort Bargeld fordert, solltest du nicht ungeprüft bezahlen. Bitte um eine nachvollziehbare schriftliche Grundlage und überprüfe die Forderung bei der zuständigen Stelle. Ob eine Geldbuße oder andere Maßnahme zulässig ist, hängt vom konkreten Fall ab.",
     "proTip": "Geldforderungen an öffentlichen Orten nicht allein wegen einer Uniform akzeptieren."
   },
   "travelsafe-de-tra-13": {
@@ -968,10 +968,10 @@
     "proTip": "Eine TAN niemals zur angeblichen Kontoprüfung am Telefon freigeben."
   },
   "university-de-uni-19": {
-    "title": "Hochschul-IT: angebliche Postfachumstellung",
-    "scenario": "Eine Mail im Namen des Hochschulrechenzentrums kündigt eine Postfach-Migration an und bittet, die Zugangsdaten über ein verlinktes Formular „zur Sicherung“ erneut einzugeben.",
+    "title": "Hochschul-IT: angebliche Umstellung des E-Mail-Postfachs",
+    "scenario": "Eine E-Mail im Namen des Hochschulrechenzentrums kündigt eine Umstellung des E-Mail-Postfachs an. Du sollst deine Zugangsdaten zur „Sicherung“ über ein verlinktes Formular erneut eingeben.",
     "answers": {
-      "A": "Das Formular ignorieren und sich wie gewohnt direkt im Uni-Webmail einloggen; eine echte Migration verlangt keine externe Dateneingabe.",
+      "A": "Das Formular nicht verwenden und dich direkt über die bekannte Webmail-Seite der Hochschule anmelden. Bei Fragen das Rechenzentrum kontaktieren.",
       "B": "Die Zugangsdaten über das Formular erneut eingeben.",
       "C": "Ein neues, unbekanntes Passwort im Formular verwenden."
     },
@@ -1213,7 +1213,7 @@
     "title": "Praktikumsangebot: Recruiterin fordert sofort Dokumente",
     "scenario": "Eine Nachricht auf LinkedIn, angeblich von einer Recruiterin eines bekannten Konzerns, bietet dir ein Praktikum an, wenn du „noch heute“ eine Ausweiskopie und deine IBAN für die „Vertragsvorbereitung“ schickst.",
     "answers": {
-      "A": "Die Anfrage über die offizielle Karriereseite des Unternehmens verifizieren und keine IBAN oder Ausweiskopie vor einem echten, unterschriebenen Vertrag schicken.",
+      "A": "Das Angebot über die offizielle Karriereseite oder die Personalabteilung prüfen und sensible Unterlagen erst über einen bestätigten Bewerbungsweg übermitteln.",
       "B": "Die Unterlagen sofort schicken, um das Praktikum nicht zu verlieren.",
       "C": "Nur die Ausweiskopie schicken, aber nicht die IBAN."
     },
@@ -1475,7 +1475,7 @@
   },
   "university-de-uni-26": {
     "title": "Lernunterlagen im Chat: plötzlich Uni-Login nötig",
-    "scenario": "Im WhatsApp-Lerngruppenchat für die anstehende Klausur teilt jemand einen Link zu einem „geteilten Lernleitfaden“, der zum Öffnen deinen Uni-Portal-Login verlangt.",
+    "scenario": "Im WhatsApp-Chat deiner Lerngruppe teilt jemand kurz vor der Klausur einen Link zu angeblichen Lernunterlagen. Um sie zu öffnen, sollst du dich mit deinen Hochschul-Zugangsdaten auf einer unbekannten Seite anmelden.",
     "answers": {
       "C": "Den Link nicht öffnen und stattdessen direkt im Uni-Portal oder auf der offiziellen Kursseite nach Lernmaterial suchen.",
       "A": "Sich über den Link mit dem Uni-Login anmelden, um den Leitfaden zu sehen.",
