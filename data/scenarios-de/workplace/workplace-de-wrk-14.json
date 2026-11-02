@@ -1,7 +1,7 @@
 {
   "id": "workplace-de-wrk-14",
   "lang": "de",
-  "title": "IT will Fernzugriff",
+  "title": "Angeblicher IT-Support fordert Fernzugriff",
   "edition": "workplace",
   "cardType": "scenario",
   "scored": true,
@@ -20,8 +20,8 @@
   "safeActions": [
     "C"
   ],
-  "explanation": "Echter IT-Support meldet sich über bekannte, interne Kanäle und Ticket-Nummern — ein spontaner Anruf mit sofortiger Fernzugriffsanfrage ist eine bekannte Social-Engineering-Masche.",
-  "proTip": "Fernzugriff gewährst du nur über einen selbst eröffneten IT-Kontakt, nie auf spontanen Anruf.",
+  "explanation": "Eine spontane Bitte um Fernzugriff kann ein Betrugsversuch sein. Prüfe das Anliegen über den bekannten internen IT-Service-Desk und gewähre den Zugriff nur nach dem genehmigten Supportverfahren.",
+  "proTip": "Fernzugriff nur über die offiziell vorgesehenen IT-Supportwege erlauben.",
   "hackKey": "A",
   "hackTrigger": "Autorität",
   "tags": [
