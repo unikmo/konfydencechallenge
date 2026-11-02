@@ -823,5 +823,170 @@
     },
     "explanation": "Eine Aufforderung, Geld auf ein unbekanntes Sicherheitskonto umzuleiten, ist ein deutliches Betrugswarnzeichen. Unterbrich die Zahlung und kontaktiere die Bank über eine selbst gewählte offizielle Nummer.",
     "proTip": "Zahlungsänderungen unabhängig bei der Bank bestätigen lassen."
+  },
+  "family-de-fam-16": {
+    "title": "Angebliche Staatsanwaltschaft: Zahlung am Kiosk",
+    "scenario": "Ein Anrufer gibt sich als Mitarbeiter der Staatsanwaltschaft aus und sagt, wegen einer angeblichen Geldwäsche liege ein Haftbefehl vor. Die Sache lasse sich sofort erledigen, wenn du am nächsten Kiosk oder Zahlungsautomaten einen Betrag über einen Zahlschein-Code begleichst.",
+    "answers": {
+      "A": "Zum Kiosk gehen und wie beschrieben zahlen, um die Verhaftung abzuwenden.",
+      "B": "Auflegen und über die offizielle Nummer der Staatsanwaltschaft oder Polizei nachfragen, ob es das Verfahren wirklich gibt.",
+      "C": "Fragen, ob eine Ratenzahlung möglich ist."
+    },
+    "explanation": "Ein Anruf mit einer Haftandrohung und einer sofortigen Zahlung per Code ist hochverdächtig. Beende das Gespräch und prüfe die Behauptung über die offiziellen Kontaktdaten der zuständigen Stelle. Bezahle nicht auf telefonische Aufforderung.",
+    "proTip": "Bei angeblichen Strafverfahren niemals unter telefonischem Druck Geld oder Zahlungscodes übermitteln."
+  },
+  "family-de-fam-17": {
+    "title": "Kita-Leitung bittet angeblich um Gutscheinkarten",
+    "scenario": "Eine E-Mail im Namen der Kita-Leitung bittet dich, für eine „Abschiedsspende“ an eine ausscheidende Erzieherin Gutscheinkarten im Wert von 50 € zu kaufen und die Codes per E-Mail zurückzuschicken, da sie „gerade in einer Besprechung“ sei.",
+    "answers": {
+      "A": "Die Karten kaufen und die Codes wie gewünscht per E-Mail schicken.",
+      "B": "Die Anfrage über die bekannte Kita-Nummer oder persönlich bei der Leitung bestätigen lassen, bevor du etwas kaufst.",
+      "C": "Erst im Elternbeirat nachfragen, ob andere die Mail auch bekommen haben."
+    },
+    "explanation": "Eine Nachricht unter dem Namen einer vertrauten Person kann gefälscht sein. Bestätige ungewöhnliche Kaufaufträge direkt bei der Kita, bevor du Gutscheine kaufst oder Codes verschickst.",
+    "proTip": "Geschenkkarten-Codes sind wie Bargeld: niemals ungeprüft weitergeben."
+  },
+  "family-de-fam-18": {
+    "title": "Krankenkasse: angeblicher Bonus per SMS-Link",
+    "scenario": "Eine SMS im Namen deiner Krankenkasse verspricht einen Bonus von 60 € für „aktive Mitglieder“, wenn du dich innerhalb von 24 Stunden über einen Link mit deinen Zugangsdaten zur Kassen-App anmeldest.",
+    "answers": {
+      "A": "Sich über den Link anmelden, um den Bonus nicht zu verpassen.",
+      "B": "Den Link ignorieren und sich nur über die offizielle App oder Webseite der Krankenkasse einloggen, um nachzusehen.",
+      "C": "Den Link öffnen, aber ein anderes Passwort als sonst eingeben."
+    },
+    "explanation": "Eine Bonuszahlung kann plausibel klingen. Wenn du dich dafür jedoch über einen unerwarteten SMS-Link anmelden sollst, prüfe das Angebot zuerst direkt in der offiziellen Kassen-App oder beim Versicherer.",
+    "proTip": "Krankenkassen-Zugangsdaten nur über offizielle Anmeldewege eingeben."
+  },
+  "family-de-fam-19": {
+    "title": "Notariat meldet angeblich neue Kontoverbindung",
+    "scenario": "Kurz vor der Beurkundung meldet sich eine E-Mail „vom Notariat“: Die Bankverbindung für die Kaufpreiszahlung habe sich geändert, die neuen Daten seien angehängt. Ton und Signatur wirken identisch zu bisherigen Mails.",
+    "answers": {
+      "A": "Die neue Kontoverbindung wie angewiesen für die Überweisung nutzen.",
+      "B": "Nur einen kleinen Teilbetrag an das neue Konto schicken, um zu testen, ob es funktioniert.",
+      "C": "Das Notariat unter der bekannten, bisher genutzten Telefonnummer anrufen und die Änderung mündlich bestätigen lassen, bevor irgendetwas überwiesen wird."
+    },
+    "explanation": "Beim Immobilienkauf können hohe Summen betroffen sein. Bestätige eine unerwartete Änderung der Bankverbindung unabhängig über die zuvor bekannten Kontaktdaten des Notariats und prüfe die Zahlungsunterlagen sorgfältig.",
+    "proTip": "Neue Kontodaten vor großen Überweisungen immer über unabhängige Wege überprüfen."
+  },
+  "family-de-fam-20": {
+    "title": "Finanzamt droht angeblich mit sofortiger Vollstreckung",
+    "scenario": "Ein Anruf behauptet, du schuldest dem Finanzamt 1.850 € aus einer alten Veranlagung, und ohne sofortige Zahlung per Überweisung werde noch heute die Vollstreckung eingeleitet.",
+    "answers": {
+      "A": "Sofort überweisen, um die Vollstreckung zu vermeiden.",
+      "B": "Auflegen und im ELSTER-Portal oder direkt beim zuständigen Finanzamt nachfragen, ob wirklich eine Forderung besteht.",
+      "C": "Um einen schriftlichen Bescheid per Post bitten und dann entscheiden."
+    },
+    "explanation": "Ein überraschender Anruf mit einer sofortigen Zahlungsforderung ist verdächtig. Lass dir keine Kontodaten oder Fristen am Telefon aufzwingen. Prüfe den Sachverhalt über das offizielle Finanzamt und vorhandene Bescheide.",
+    "proTip": "Steuerforderungen über Bescheide und die offiziellen Kontaktdaten des Finanzamts prüfen."
+  },
+  "school-de-sch-16": {
+    "title": "Angeblicher Spiel-Support will dein Konto prüfen",
+    "scenario": "Nach einem verlorenen seltenen Item schreibt dir jemand mit dem Namen „[Admin] Support“, er könne es wiederherstellen, wenn du dich kurz über einen Link mit deinem Account einloggst, „damit er den Fehler sieht“.",
+    "answers": {
+      "A": "Den Link ignorieren und den Vorfall über den offiziellen Support des Spiels melden.",
+      "B": "Sich über den Link einloggen, damit der Admin den Fehler beheben kann.",
+      "C": "Dem „Admin“ Screenshots des Fehlers schicken, aber nicht einloggen."
+    },
+    "explanation": "Ein Nutzername mit „Admin“ beweist nicht, dass die Person zum Spiele-Support gehört. Nutze die offizielle Supportseite und melde verdächtige Links, statt deine Zugangsdaten weiterzugeben.",
+    "proTip": "Supportanfragen über die offiziellen Spieleportale stellen."
+  },
+  "school-de-sch-17": {
+    "title": "Instagram-Verifizierung angeblich per Nachricht",
+    "scenario": "Eine Nachricht im Namen des „Instagram Verifizierungs-Teams“ bietet dir ein blaues Häkchen an, wenn du deine Login-Daten zur „Identitätsprüfung“ auf einer verlinkten Seite bestätigst.",
+    "answers": {
+      "A": "Die Nachricht ignorieren; eine echte Verifizierung läuft ausschließlich über die Einstellungen in der App selbst.",
+      "B": "Die Login-Daten auf der verlinkten Seite bestätigen, um das Häkchen zu bekommen.",
+      "C": "Nach mehr Informationen über den Prozess fragen."
+    },
+    "explanation": "Eine Nachricht mit dem Versprechen eines blauen Hakens kann ein Versuch sein, dein Passwort zu stehlen. Überprüfe Angebote und Verifizierungsverfahren direkt in Instagram oder auf der offiziellen Website.",
+    "proTip": "Deine Instagram-Zugangsdaten gehören nicht auf eine fremde Prüfseite."
+  },
+  "school-de-sch-18": {
+    "title": "Angebliche Polizeinachricht fordert Chatverläufe",
+    "scenario": "Eine Nachricht, angeblich von der „Cyberkriminalitätsabteilung“ der Polizei, sagt, du seist in einen Vorfall verwickelt, und verlangt sofort Screenshots deines Chatverlaufs und deine Zugangsdaten „zur Prüfung“.",
+    "answers": {
+      "A": "Nichts schicken, mit einem Erwachsenen sprechen und die Sache über die offizielle Nummer der örtlichen Polizei prüfen lassen.",
+      "B": "Die Zugangsdaten und Screenshots sofort schicken, um zu kooperieren.",
+      "C": "Nur die Screenshots schicken, aber keine Zugangsdaten."
+    },
+    "explanation": "Die Polizei fordert nicht einfach per Chat Zugangsdaten an. Gib keine Passwörter oder Codes weiter. Wenn dich die Nachricht verunsichert, bitte eine Vertrauensperson um Hilfe und kläre den Sachverhalt über eine offizielle Polizeidienststelle.",
+    "proTip": "Zugangsdaten niemals in einer Chatnachricht an angebliche Behörden schicken."
+  },
+  "school-de-sch-19": {
+    "title": "Online-Turnier: Anmeldung mit deinem Passwort?",
+    "scenario": "Ein Organisator eines Online-Turniers verlangt vor dem Start deinen vollständigen Riot- oder Steam-Login, „um die Teilnahme zu bestätigen“, statt der üblichen Team-Anmeldung.",
+    "answers": {
+      "A": "Ablehnen und stattdessen die übliche Team-/Spieler-ID-Anmeldung nutzen; ein echtes Turnier braucht nie deinen Login.",
+      "B": "Den Login schicken, um sicher am Turnier teilnehmen zu können.",
+      "C": "Ein Zweit-Account für die Anmeldung nutzen."
+    },
+    "explanation": "Ein Turnierveranstalter benötigt normalerweise keine Zugangsdaten zu deinem Spielekonto. Prüfe die Teilnahmebedingungen und nutze ausschließlich den offiziellen Anmeldeweg.",
+    "proTip": "Zur Turnieranmeldung keine Spiele-Passwörter weitergeben."
+  },
+  "school-de-sch-20": {
+    "title": "Schülerstipendium: angeblicher Gewinn ohne Bewerbung",
+    "scenario": "Eine E-Mail gratuliert dir zu einem 500-€-Schülerstipendium, an das du dich nie beworben hast, und bittet um Kontodaten und eine Ausweiskopie, um die Auszahlung „zu verifizieren“.",
+    "answers": {
+      "A": "Die Daten schicken, um das Geld nicht zu verpassen.",
+      "B": "Die Stiftung unabhängig recherchieren und bei deiner Schule nachfragen, ob sie das Stipendium kennt, bevor du irgendetwas schickst.",
+      "C": "Nur die Kontodaten schicken, aber keine Ausweiskopie."
+    },
+    "explanation": "Eine überraschende Stipendienzusage mit der Bitte um Ausweis- und Kontodaten ist verdächtig. Prüfe, ob die Förderstelle und das Programm existieren. Sensible Dokumente nur über einen bestätigten Antragsweg übermitteln.",
+    "proTip": "Unbekannte Förderangebote unabhängig bei der Vergabestelle prüfen."
+  },
+  "university-de-uni-16": {
+    "title": "Prüfungsamt: Studierendenkonto angeblich gesperrt",
+    "scenario": "Eine E-Mail im Namen des Prüfungsamts sagt, dein Studierendenkonto sei „aus Sicherheitsgründen gesperrt“, und du müsstest sofort über einen Link dein Passwort neu setzen, um Klausuranmeldungen nicht zu verpassen.",
+    "answers": {
+      "B": "Die Mail ignorieren und dich direkt im gewohnten Studierendenportal einloggen, um zu prüfen, ob wirklich eine Sperrung vorliegt.",
+      "A": "Das Passwort sofort über den Link neu setzen.",
+      "C": "Den Link öffnen, aber ein anderes Passwort als sonst verwenden."
+    },
+    "explanation": "Eine unerwartete Passwortaufforderung kann auf eine gefälschte Anmeldeseite führen. Öffne das offizielle Hochschulportal selbst oder kontaktiere den IT-Support.",
+    "proTip": "Kontostatus über das bekannte Hochschulportal prüfen, nicht über einen Mail-Link."
+  },
+  "university-de-uni-17": {
+    "title": "BAföG-Rückzahlung: angeblicher Sondererlass gegen Gebühr",
+    "scenario": "Ein Anruf im Namen einer „staatlichen Rückzahlungsstelle“ nennt dir korrekt deine offene BAföG-Summe und bietet einen „Sondererlass“ an, wenn du sofort eine Bearbeitungsgebühr überweist.",
+    "answers": {
+      "B": "Auflegen und beim Bundesverwaltungsamt (der echten BAföG-Rückzahlungsstelle) über die offizielle Nummer nachfragen, ob ein solcher Erlass existiert.",
+      "A": "Die Bearbeitungsgebühr sofort überweisen, um den Sondererlass zu sichern.",
+      "C": "Nach schriftlichen Unterlagen zum Erlass fragen, bevor du zahlst."
+    },
+    "explanation": "Auch die korrekte Nennung eines offenen Betrags belegt nicht, dass die Person am Telefon berechtigt ist. Erkundige dich direkt bei der zuständigen offiziellen BAföG-Rückzahlungsstelle, ob es die Regelung gibt.",
+    "proTip": "Eine angebliche Ermäßigung mit sofortiger Bearbeitungsgebühr unabhängig überprüfen."
+  },
+  "university-de-uni-18": {
+    "title": "Bankanruf: TAN angeblich zur Kontoprüfung nötig",
+    "scenario": "Ein Anruf im Namen deiner Bank sagt, dein kostenloses Studierendenkonto werde wegen „ungewöhnlicher Aktivität“ geprüft, und bittet dich, eine push-TAN zu bestätigen, um es „freizugeben“.",
+    "answers": {
+      "A": "Auflegen und die Bank über die Nummer aus der App oder von der Kartenrückseite selbst anrufen; keine TAN am Telefon freigeben.",
+      "B": "Die push-TAN bestätigen, um das Konto freizugeben.",
+      "C": "Nach dem Namen der Mitarbeiterin fragen und zurückrufen lassen."
+    },
+    "explanation": "Eine TAN bestätigt normalerweise einen konkreten Vorgang. Gib keine TAN auf Aufforderung einer unbekannten Person frei. Beende das Gespräch und prüfe den Kontostatus über die offizielle Banking-App oder deine Bank.",
+    "proTip": "Eine TAN niemals zur angeblichen Kontoprüfung am Telefon freigeben."
+  },
+  "university-de-uni-19": {
+    "title": "Hochschul-IT: angebliche Postfachumstellung",
+    "scenario": "Eine Mail im Namen des Hochschulrechenzentrums kündigt eine Postfach-Migration an und bittet, die Zugangsdaten über ein verlinktes Formular „zur Sicherung“ erneut einzugeben.",
+    "answers": {
+      "A": "Das Formular ignorieren und sich wie gewohnt direkt im Uni-Webmail einloggen; eine echte Migration verlangt keine externe Dateneingabe.",
+      "B": "Die Zugangsdaten über das Formular erneut eingeben.",
+      "C": "Ein neues, unbekanntes Passwort im Formular verwenden."
+    },
+    "explanation": "Eine technische Umstellung kann echt sein. Die Aufforderung, Zugangsdaten über ein unbekanntes Formular einzugeben, ist jedoch ein Warnzeichen. Frage beim Hochschulrechenzentrum nach.",
+    "proTip": "Hochschulpasswörter ausschließlich auf bekannten offiziellen Anmeldeseiten eingeben."
+  },
+  "university-de-uni-20": {
+    "title": "WG-Miete: angeblich neues Konto des Vermieters",
+    "scenario": "Eine E-Mail „vom Vermieter“ deiner WG informiert alle Mitbewohner:innen, dass die Miete ab sofort auf ein neues Konto überwiesen werden soll — angeblich wegen eines Bankwechsels.",
+    "answers": {
+      "B": "Den Vermieter über die bekannte Telefonnummer oder persönlich nach dem angeblichen Bankwechsel fragen, bevor die erste Miete auf das neue Konto geht.",
+      "A": "Ab sofort auf das neue Konto überweisen, wie in der Mail beschrieben.",
+      "C": "Mit den Mitbewohnern besprechen, ob sie dieselbe Mail bekommen haben."
+    },
+    "explanation": "Eine unerwartete Änderung der Bankverbindung kann gefälscht sein. Bestätige die Daten unabhängig bei der vermietenden Person, bevor du die nächste Miete überweist.",
+    "proTip": "Geänderte Mietkonten immer über einen bereits bekannten Kontakt bestätigen lassen."
   }
 }
