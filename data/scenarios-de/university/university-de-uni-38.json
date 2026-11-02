@@ -8,7 +8,7 @@
   "category": "Vorstellungsgespräche",
   "scenario": "Vor einem angeblichen Online-Vorstellungsgespräch verlangt der „Recruiter“, statt Zoom oder Teams eine unbekannte Interview-App zu installieren, die weitreichende Geräteberechtigungen braucht.",
   "answers": {
-    "B": "Die App nicht installieren und stattdessen auf ein gängiges, bekanntes Videotool bestehen; ein echtes Interview braucht keine App mit weitreichenden Berechtigungen.",
+    "B": "Die App nicht ungeprüft installieren. Über einen unabhängig bestätigten Kontakt klären, ob das Unternehmen sie tatsächlich verwendet und welche Berechtigungen nötig sind.",
     "A": "Die App installieren, um das Vorstellungsgespräch nicht zu verpassen.",
     "C": "Die App installieren, aber die Berechtigungen danach einschränken."
   },
@@ -20,7 +20,7 @@
   "safeActions": [
     "B"
   ],
-  "explanation": "Seriöse Unternehmen führen Interviews über bekannte, geprüfte Videotools. Eine unbekannte App mit weitreichenden Rechten ist ein bekanntes Einfallstor für Schadsoftware.",
+  "explanation": "Auch seriöse Unternehmen können unterschiedliche Videoplattformen nutzen. Eine unbekannte Anwendung mit weitreichenden Geräteberechtigungen solltest du jedoch erst nach Prüfung des Anbieters und der Berechtigungen installieren.",
   "proTip": "Ein echtes Interview braucht kein Programm mit Vollzugriff auf dein Gerät.",
   "hackKey": "K",
   "hackTrigger": "Notbremse",
@@ -31,5 +31,6 @@
     "malware",
     "diagnostic"
   ],
-  "active": true
+  "active": true,
+  "tip": "Interview-Software und angeforderte Berechtigungen vor der Installation überprüfen."
 }
