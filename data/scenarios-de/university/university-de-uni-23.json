@@ -1,7 +1,7 @@
 {
   "id": "university-de-uni-23",
   "lang": "de",
-  "title": "Wissenschaftliches Fehlverhalten — antworte in 24 Stunden",
+  "title": "Prüfungsausschuss: angebliches Fehlverhalten gemeldet",
   "edition": "university",
   "cardType": "scenario",
   "scored": true,
@@ -20,8 +20,8 @@
   "safeActions": [
     "B"
   ],
-  "explanation": "Formale Disziplinarverfahren laufen über offizielle, schriftliche Wege der Uni, nicht über einen Link mit Login-Bestätigung und Tagesfrist. Ein Anruf bei der Uni klärt es sicher.",
-  "proTip": "Ein echtes Verfahren schickt dich nie zu einem Login-Link.",
+  "explanation": "Eine ernste Anschuldigung kann Angst auslösen. Gib Zugangsdaten nicht über einen unbekannten Link ein. Erkundige dich beim Prüfungsausschuss über die offiziellen Hochschulwege, ob ein Verfahren besteht.",
+  "proTip": "Bei angeblichen Prüfungsverfahren zuerst die Echtheit des Schreibens prüfen.",
   "hackKey": "A",
   "hackTrigger": "Autorität",
   "tags": [
