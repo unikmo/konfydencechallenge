@@ -1692,5 +1692,60 @@
     },
     "explanation": "Ein QR-Code auf einem frei zugänglichen Plakat kann auf eine unsichere Seite führen. Besonders eine unbekannte App-Installation und die Abfrage persönlicher Daten sind Warnzeichen. Frage in der Schule nach, ob es die Aktion tatsächlich gibt.",
     "proTip": "Kostenlose Pizza braucht keine App-Installation."
+  },
+  "university-de-uni-33": {
+    "title": "Laborpartner empfiehlt ein neues Analyseprogramm",
+    "scenario": "Dein Laborpartner, mit dem du seit dem ersten Semester zusammenarbeitest, schickt einen Link zu einem „viel schnelleren“ Analyse-Tool für eure gemeinsamen Forschungsdaten — es verlangt aber deinen Uni-Login, um „die Daten zu synchronisieren“.",
+    "answers": {
+      "B": "Vor einer Anmeldung prüfen, ob das Programm vom Lehrstuhl oder der Hochschul-IT zugelassen ist und welche Berechtigungen es verlangt.",
+      "A": "Sich sofort mit dem Uni-Login anmelden, weil man dem Partner seit Jahren vertraut.",
+      "C": "Das Tool auf einem privaten Test-Account ausprobieren."
+    },
+    "explanation": "Auch eine Empfehlung von jemandem, dem du vertraust, ersetzt keine Sicherheitsprüfung. Kläre bei Hochschule oder Lehrstuhl, ob das Programm für Forschungsdaten zugelassen ist und ob die Anmeldung über einen vertrauenswürdigen Weg erfolgt.",
+    "proTip": "Jahre der Zusammenarbeit ersetzen keine offizielle Freigabe eines Tools."
+  },
+  "university-de-uni-35": {
+    "title": "Kostenloses KI-Lerntool mit Browser-Erweiterung",
+    "scenario": "In der Klausurphase teilt fast der ganze Semester-Chat den Zugang zu einem „Premium-KI-Lerntool“, das kostenlos ist, wenn man sich mit dem eigenen Uni-Account anmeldet und die Chrome-Erweiterung installiert.",
+    "answers": {
+      "A": "Vor einer Anmeldung und Installation beim Hochschul-IT-Support prüfen, ob der Dienst zugelassen ist und welche Daten und Berechtigungen er benötigt.",
+      "B": "Sich anmelden und die Erweiterung installieren, weil fast alle im Chat es schon nutzen.",
+      "C": "Sich mit einem separaten, neuen Account anmelden, um vorsichtig zu bleiben."
+    },
+    "explanation": "Die Beliebtheit eines Dienstes sagt nichts darüber aus, wie sicher er mit Hochschulzugängen und Daten umgeht. Prüfe die Erweiterung, die angeforderten Berechtigungen und den Anmeldeweg, bevor du sie nutzt.",
+    "proTip": "Viele Mitmacher sind kein Sicherheitscheck."
+  },
+  "university-de-uni-36": {
+    "title": "Werde bezahlte Campus-Botschafterin für eine Trading-App",
+    "scenario": "Eine bekannte Kommilitonin mit großer Instagram-Reichweite bietet dir an, als bezahlte „Campus-Botschafterin“ für eine Trading-App zu arbeiten — du müsstest dafür nur zuerst selbst „aktiv investieren“, um „authentisch“ zu wirken.",
+    "answers": {
+      "C": "Das Angebot ablehnen oder die Trading-App unabhängig recherchieren, bevor du eigenes Geld investierst, egal wie bekannt und vertrauenswürdig die Person wirkt.",
+      "A": "Selbst investieren, um die Botschafterrolle zu bekommen, weil die Kommilitonin bekannt und beliebt ist.",
+      "B": "Nur einen kleinen Betrag investieren, um „authentisch“ zu wirken."
+    },
+    "explanation": "Die Bekanntheit einer Person sagt wenig über die Seriosität eines Anlageangebots aus. Wenn ein vermeintlicher Job voraussetzt, dass du zunächst eigenes Geld investierst, ist besondere Vorsicht geboten. Prüfe Anbieter und Bedingungen unabhängig.",
+    "proTip": "Bekanntheit ist kein Beweis für eine seriöse Geldanlage."
+  },
+  "university-de-uni-37": {
+    "title": "Der Scheck ist „eingegangen“ — kauf den Laptop",
+    "scenario": "Ein neuer „Arbeitgeber“ für einen Remote-Nebenjob schickt dir einen Scheck, der laut Banking-App bereits „eingegangen“ ist, und bittet dich, davon sofort einen teuren Laptop zu kaufen und ihm die Quittung zu schicken.",
+    "answers": {
+      "C": "Den Laptop nicht auf eigene Kosten bestellen. Den Arbeitgeber unabhängig überprüfen und bei der Bank nachfragen, ob der Scheck tatsächlich eingelöst wurde.",
+      "A": "Den Laptop sofort kaufen, weil der Scheck laut App schon eingegangen ist.",
+      "B": "Nur einen Teil des Betrags ausgeben und den Rest zurückhalten."
+    },
+    "explanation": "Ein Scheck kann zunächst als eingegangen erscheinen und später zurückgebucht werden. Wer im Auftrag eines unbekannten Arbeitgebers sofort teure Geräte kaufen soll, geht ein erhebliches Risiko ein. Prüfe den Arbeitgeber unabhängig, bevor du Geld ausgibst.",
+    "proTip": "„Eingegangen“ in der App ist nicht dasselbe wie endgültig gebucht."
+  },
+  "university-de-uni-38": {
+    "title": "Installier diese App fürs Interview",
+    "scenario": "Vor einem angeblichen Online-Vorstellungsgespräch verlangt der „Recruiter“, statt Zoom oder Teams eine unbekannte Interview-App zu installieren, die weitreichende Geräteberechtigungen braucht.",
+    "answers": {
+      "B": "Die App nicht ungeprüft installieren. Über einen unabhängig bestätigten Kontakt klären, ob das Unternehmen sie tatsächlich verwendet und welche Berechtigungen nötig sind.",
+      "A": "Die App installieren, um das Vorstellungsgespräch nicht zu verpassen.",
+      "C": "Die App installieren, aber die Berechtigungen danach einschränken."
+    },
+    "explanation": "Auch seriöse Unternehmen können unterschiedliche Videoplattformen nutzen. Eine unbekannte Anwendung mit weitreichenden Geräteberechtigungen solltest du jedoch erst nach Prüfung des Anbieters und der Berechtigungen installieren.",
+    "proTip": "Ein echtes Interview braucht kein Programm mit Vollzugriff auf dein Gerät."
   }
 }
