@@ -27,7 +27,7 @@ const faqs = [
   ],
   [
     "Was misst CoMaSy?",
-    "CoMaSy misst Trainingssignale aus Szenario-Entscheidungen — darunter Innehalten, unabhängige Verifizierung, risikoreichere Impulshandlungen und Reaktionen auf H.A.C.K.-Druckmuster. Das sind Lernsignale, keine Garantie für reales Sicherheitsverhalten.",
+    "CoMaSy misst Trainingsergebnisse aus Szenario-Entscheidungen — darunter Innehalten, unabhängige Verifizierung, risikoreichere Impulshandlungen und Reaktionen auf H.A.C.K.-Druckmuster. Das sind Lernsignale, keine Garantie für reales Sicherheitsverhalten.",
   ],
   [
     "Ist CoMaSy ein Phishing-Simulator?",
@@ -83,8 +83,8 @@ export default function ComasyPageDe() {
           </div>
           <div className="k-inline-proof">
             <span><b>Kein LMS-Ersatz</b></span>
-            <span><b>Definierter Pilotumfang</b></span>
-            <span><b>Beobachtbare Trainingssignale</b></span>
+            <span><b>Klar begrenztes Pilotprojekt</b></span>
+            <span><b>Beobachtbare Trainingsergebnisse</b></span>
           </div>
         </div>
         <div className="k-comasy-media">
@@ -99,10 +99,10 @@ export default function ComasyPageDe() {
       </section>
 
       <section className="k-comasy-pillars k-shell">
-        <article><span>01</span><h3>Realistische Simulationen</h3><p>Kontextreiche Szenarien rund um Entscheidungen, die Menschen wirklich treffen müssen.</p></article>
-        <article><span>02</span><h3>Verhaltenssignale</h3><p>Beobachte Innehalten, Verifizierung, Eskalation und risikoreichere Impulsentscheidungen.</p></article>
+        <article><span>01</span><h3>Realistische Simulationen</h3><p>Realistische Übungssituationen rund um Entscheidungen, die Menschen wirklich treffen müssen.</p></article>
+        <article><span>02</span><h3>Beobachtungen zum Entscheidungsverhalten</h3><p>Beobachte Innehalten, Verifizierung, Eskalation und risikoreichere Impulsentscheidungen.</p></article>
         <article><span>03</span><h3>Team & Unternehmen</h3><p>Starte mit einer begrenzten Kohorte und erweitere nur, wenn sich das Signal als nützlich erweist.</p></article>
-        <article><span>04</span><h3>Messbare Veränderung</h3><p>Vergleiche Baseline- und Post-Praxis-Entscheidungen, statt dich allein auf Abschlussquoten zu verlassen.</p></article>
+        <article><span>04</span><h3>Messbare Veränderung</h3><p>Vergleiche Baseline- und Entscheidungen nach dem Training, statt dich allein auf Abschlussquoten zu verlassen.</p></article>
       </section>
 
       <section className="k-shell k-section">
@@ -152,7 +152,7 @@ export default function ComasyPageDe() {
           <article><b>01</b><h3>Simulieren</h3><p>Ein realistischer Vorfall mit Druck, Mehrdeutigkeit und konkurrierenden Prioritäten.</p></article>
           <article><b>02</b><h3>Entscheiden</h3><p>Mitarbeitende wählen eine Handlung, statt nur die richtige Antwort zu lesen.</p></article>
           <article><b>03</b><h3>Auswerten</h3><p>Beweise, Druckmuster und der stärkere Verifizierungsweg werden offengelegt.</p></article>
-          <article><b>04</b><h3>Verbessern</h3><p>Gezielte Übung wiederholen und definierte Verhaltenssignale über die Zeit vergleichen.</p></article>
+          <article><b>04</b><h3>Verbessern</h3><p>Gezielte Übung wiederholen und definierte Beobachtungen zum Entscheidungsverhalten über die Zeit vergleichen.</p></article>
         </div>
       </section>
 
@@ -160,7 +160,7 @@ export default function ComasyPageDe() {
         <div className="k-pilot">
           <div>
             <p className="k-kicker">Mit einem Pilot starten</p>
-            <h2 className="k-display-sm">Beweise, ob das Signal nützlich ist, bevor ihr skaliert.</h2>
+            <h2 className="k-display-sm">Prüft erst, ob das Training einen messbaren Nutzen bringt.</h2>
             <p className="k-copy">
               Der erste CoMaSy-Schritt ist bewusst begrenzt. Kohorte und Risikofokus festlegen, eine Baseline erstellen, gezieltes Entscheidungstraining durchführen, eine Post-Variante vergleichen und entscheiden: skalieren, anpassen oder stoppen.
             </p>
@@ -191,7 +191,7 @@ export default function ComasyPageDe() {
           <article className="k-path" style={{minHeight: "420px"}}>
             <div className="k-path-copy" style={{top: "30px", bottom: "auto"}}>
               <small>Methodik</small>
-              <h3>Definierte Trainingssignale verantwortungsvoll messen.</h3>
+              <h3>Definierte Trainingsergebnisse verantwortungsvoll messen.</h3>
               <p>Sieh, was gemessen wird, wie Beispielwerte behandelt werden und wo die Interpretation aufhören sollte.</p>
               <Link href="/de/comasy/methodik">Methodik lesen →</Link>
             </div>
@@ -210,7 +210,7 @@ export default function ComasyPageDe() {
       <section className="k-shell k-callout">
         <div>
           <p className="k-kicker">CoMaSy-Pilotprojekt</p>
-          <h2 className="k-display-sm">Klein anfangen. Ehrlich messen. Nur skalieren, wenn es sich verdient.</h2>
+          <h2 className="k-display-sm">Klein starten. Ergebnisse prüfen. Bei Erfolg ausweiten.</h2>
         </div>
         <div className="k-actions">
           <Link className="k-button-gold" href="/de/comasy/pilotprojekt">Pilotprojekt anfragen</Link>
