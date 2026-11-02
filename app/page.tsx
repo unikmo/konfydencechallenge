@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import type { Metadata } from "next";
 import { PremiumPage } from "@/components/PremiumSiteChrome";
 import { PortfolioStrip } from "@/components/PortfolioStrip";
@@ -36,12 +37,13 @@ export default function HomePage() {
 
         <div className="k-home-hero-media k-home-hero-media-photo">
           {/* Real licensed travel photography for premium hero fidelity. */}
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            src="https://images.pexels.com/photos/4173213/pexels-photo-4173213.jpeg?auto=compress&cs=tinysrgb&w=2200"
+          <Image
+            src="https://images.pexels.com/photos/4173213/pexels-photo-4173213.jpeg?auto=compress&cs=tinysrgb&w=1600&q=75"
             alt="A mother and daughter travelling together through an airport with luggage"
-            loading="eager"
-            fetchPriority="high"
+            width={1600}
+            height={1050}
+            priority
+            sizes="(max-width: 980px) 100vw, 90vw"
           />
         </div>
 
@@ -71,12 +73,13 @@ export default function HomePage() {
           aria-label="Illustrative hotel booking scam message presented on a phone in an airport setting"
         >
           {/* Licensed airport photography provides context; the phone UI is real HTML so the pressure cues stay crisp and readable. */}
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
+          <Image
             className="k-home-scam-backdrop"
-            src="https://images.pexels.com/photos/8704693/pexels-photo-8704693.jpeg?auto=compress&cs=tinysrgb&w=1800"
+            src="https://images.pexels.com/photos/8704693/pexels-photo-8704693.jpeg?auto=compress&cs=tinysrgb&w=1200&q=70"
             alt=""
-            loading="lazy"
+            width={1200}
+            height={800}
+            sizes="(max-width: 980px) 100vw, 80vw"
           />
           <div className="k-home-phone" aria-hidden="true">
             <div className="k-home-phone-bar">
