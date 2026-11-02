@@ -3,7 +3,7 @@ import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { COUNTRY_PROFILES } from "@/lib/countries";
 import { dominantPatterns, type HackKey } from "@/lib/country-guides";
-import { COUNTRY_GUIDES_DE, COUNTRY_NAME_DE, HACK_LABEL_DE, HACK_DEF_DE } from "@/lib/country-guides-de";
+import { COUNTRY_GUIDES_DE, COUNTRY_NAME_DE, CONTINENT_DE, REGION_DE, HACK_LABEL_DE, HACK_DEF_DE } from "@/lib/country-guides-de";
 import { PremiumPageDe } from "@/components/PremiumSiteChrome";
 import CountryAlert from "../../../countries/CountryAlert";
 import styles from "../../../countries/countries.module.css";
@@ -19,15 +19,15 @@ export async function generateMetadata(props: { params: Promise<{ country: strin
   if (!profile || !guide) return {};
   const name = COUNTRY_NAME_DE[country] ?? profile.name;
   return {
-    title: { absolute: `Häufige Betrugsmaschen in ${name} (${new Date().getFullYear()}) — und wie du sie vermeidest | Konfydence` },
-    description: `Die Betrugsmaschen, auf die Reisende in ${name} tatsächlich treffen — wie jede funktioniert, welche Drucktaktik dahintersteckt, und der einfache Schritt, der sie stoppt.`,
+    title: { absolute: `Betrugsmaschen in ${name}: Warnzeichen und Tipps | Konfydence` },
+    description: `Typische Betrugsmaschen für Reisende in ${name}: So erkennst du Warnzeichen, prüfst verdächtige Angebote und schützt deine Daten.`,
     alternates: {
       canonical: `/de/countries/${country}`,
       languages: { en: `https://konfydence.com/countries/${country}`, de: `https://konfydence.com/de/countries/${country}` },
     },
     openGraph: {
-      title: `Häufige Betrugsmaschen in ${name} — und wie du sie vermeidest`,
-      description: `Wie die häufigen Betrugsmaschen in ${name} funktionieren, und der eine Schritt, der jede entschärft.`,
+      title: `Betrugsmaschen in ${name} erkennen`,
+      description: `Typische Betrugsversuche in ${name} und praktische Hinweise für sicheres Reisen.`,
       url: `https://konfydence.com/de/countries/${country}`,
       siteName: "Konfydence",
       type: "article",
@@ -58,7 +58,7 @@ export default async function CountryPageDe(props: { params: Promise<{ country: 
       "@context": "https://schema.org",
       "@type": "BreadcrumbList",
       itemListElement: [
-        { "@type": "ListItem", position: 1, name: "Länder-Betrugswarnungen", item: "https://konfydence.com/de/countries" },
+        { "@type": "ListItem", position: 1, name: "Betrugswarnungen nach Ländern", item: "https://konfydence.com/de/countries" },
         { "@type": "ListItem", position: 2, name, item: `https://konfydence.com/de/countries/${profile.slug}` },
       ],
     },
@@ -80,14 +80,14 @@ export default async function CountryPageDe(props: { params: Promise<{ country: 
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <div className={styles.shell}>
         <section className={styles.hero}>
-          <Link href="/de/countries" className={styles.back}>← Länder-Betrugswarnungen</Link>
-          <p className={styles.eyebrow}>{profile.continent} · {profile.region}</p>
+          <Link href="/de/countries" className={styles.back}>← Betrugswarnungen nach Ländern</Link>
+          <p className={styles.eyebrow}>{CONTINENT_DE[profile.continent] ?? profile.continent} · {REGION_DE[profile.region] ?? profile.region}</p>
           <h1>Häufige Betrugsmaschen in {name}</h1>
           <p className={styles.lede}>{guide.intro}</p>
         </section>
 
         <section className={styles.section}>
-          <h2>Die Betrugsmaschen, auf die du tatsächlich triffst</h2>
+          <h2>Typische Betrugsmaschen und wie du reagieren kannst</h2>
           <ol className={styles.scamList}>
             {guide.scams.map((scam) => (
               <li key={scam.name} className={`${styles.scamCard} ${styles[`hack${scam.hack}`]}`}>
@@ -96,7 +96,7 @@ export default async function CountryPageDe(props: { params: Promise<{ country: 
                 <div className={styles.scamMeta}>
                   <span className={styles.hackChip}>H.A.C.K. · {HACK_LABEL_DE[scam.hack]}</span>
                 </div>
-                <p className={styles.scamMove}><strong>Der Schritt —</strong> {scam.move}</p>
+                <p className={styles.scamMove}><strong>So reagierst du:</strong> {scam.move}</p>
               </li>
             ))}
           </ol>
@@ -111,9 +111,9 @@ export default async function CountryPageDe(props: { params: Promise<{ country: 
               const phrase = names.length === 1 ? names[0] : names.length === 2 ? `${names[0]} und ${names[1]}` : names.join(", ");
               return `Die meisten Betrugsmaschen in ${name} setzen auf ${phrase}. `;
             })()}
-            Egal welcher Trick — der Ausweg ist derselbe: <strong>Anhalten · Abklären · Ansprechen</strong>:
-            stopp, bevor du zahlst, ein Dokument hergibst oder jemandem folgst; frag, was die Bitte wirklich will;
-            sag es dann laut zu jemandem, dem du vertraust, oder deiner Bank unter der Nummer auf deiner Karte.
+            Unabhängig von der Masche hilft ein einfacher Grundsatz: <strong>Anhalten · Abklären · Ansprechen</strong>:
+            Halte inne, bevor du bezahlst oder persönliche Daten herausgibst. Prüfe, was von dir verlangt wird,
+            und besprich die Situation bei Bedarf mit einer Vertrauensperson oder deiner Bank über eine bekannte, offizielle Nummer.
           </p>
           <Link href="/de/challenge/travelsafe/start?mode=diagnostic" className={styles.primaryLink}>
             Üben — kostenloser TravelSafe-Check
@@ -122,7 +122,7 @@ export default async function CountryPageDe(props: { params: Promise<{ country: 
 
         {guide.faqs.length ? (
           <section className={styles.section}>
-            <h2>{name}: Betrugs-FAQ für Reisende</h2>
+            <h2>{name}: Häufige Fragen zum Betrugsschutz</h2>
             <div className={styles.faqList}>
               {guide.faqs.map((f) => (
                 <details key={f.q} className={styles.faqItem}>
@@ -140,7 +140,7 @@ export default async function CountryPageDe(props: { params: Promise<{ country: 
             Betrugs- und Abzockehinweise aus den offiziellen{" "}
             <a href={profile.sources[0].url} target="_blank" rel="noreferrer">kanadischen</a> und{" "}
             <a href={profile.sources[1].url} target="_blank" rel="noreferrer">neuseeländischen</a> Reisehinweisen (Originalzitate auf Englisch).
-            Nutz die staatlichen Quellen für aktuelle Reiseentscheidungen.
+            Informiere dich vor deiner Reise zusätzlich über die aktuellen Hinweise des Auswärtigen Amts.
           </p>
           <CountryAlert country={profile.slug} lang="de" />
         </section>
@@ -159,7 +159,7 @@ export default async function CountryPageDe(props: { params: Promise<{ country: 
         <section className={styles.section}>
           <h2>H.A.C.K. — die vier Drucktaktiken</h2>
           <p className={styles.sourceNote} style={{ maxWidth: 640 }}>
-            Jede Betrugsmasche auf dieser Seite ist mit der genutzten Taktik markiert. Erkenne die Taktik, nicht den Trick.
+            Jede Betrugsmasche auf dieser Seite ist mit der genutzten Taktik markiert. Erkenne das Druckmuster, damit du ähnliche Betrugsversuche auch in anderen Situationen leichter bemerkst.
           </p>
           <dl className={styles.hackDefs}>
             {(["H", "A", "C", "K"] as HackKey[]).map((k) => (
