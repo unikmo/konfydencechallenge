@@ -3,23 +3,23 @@ import type { Metadata } from "next";
 import { PremiumPageDe } from "@/components/PremiumSiteChrome";
 
 export const metadata: Metadata = {
-  title: { absolute: "Konfydence — Vertrauen unter Druck" },
+  title: { absolute: "Betrugsmaschen erkennen und sicher reagieren | Konfydence" },
   description:
-    "Konfydence Challenge hilft Familien, ruhige und sichere Entscheidungen zu üben, bevor eine dringende Nachricht, ein Anruf oder eine Bitte wirklich unter Druck setzt.",
+    "Mit der Konfydence Challenge lernst du, Betrugsmaschen im Alltag zu erkennen und bei verdächtigen Anrufen, Nachrichten und Zahlungsforderungen besonnen zu handeln.",
   alternates: { canonical: "/de", languages: { en: "https://konfydence.com", de: "https://konfydence.com/de" } },
   openGraph: {
-    title: "Konfydence — Vertrauen unter Druck",
-    description: "Übe die Entscheidung, bevor der Druck echt ist.",
+    title: "Betrugsmaschen erkennen und sicher reagieren | Konfydence",
+    description: "Betrugsmaschen erkennen. Sicher entscheiden.",
     url: "https://konfydence.com/de",
     type: "website",
   },
 };
 
 const PRINZIPIEN: [string, string, string][] = [
-  ["01", "Hetze", "Zeitdruck soll Geschwindigkeit wichtiger erscheinen lassen als Prüfung."],
-  ["02", "Autorität", "Titel und Hierarchie können eine riskante Bitte unantastbar wirken lassen."],
-  ["03", "Vertrautheit", "Bekannte Personen, Routinen und Kanäle senken die gesunde Skepsis."],
-  ["04", "Notbremse", "Druck versucht oft, dich davon abzuhalten, selbst nachzuprüfen oder jemanden zu fragen."],
+  ["01", "Hetze", "Du sollst sofort handeln, statt in Ruhe nachzudenken."],
+  ["02", "Autorität", "Eine angebliche Behörde oder Führungskraft soll Zweifel unterdrücken."],
+  ["03", "Vertrautheit", "Ein vertrauter Name oder Absender soll Sicherheit vortäuschen."],
+  ["04", "Notbremse", "Wer dich vom Nachfragen abhalten will, liefert einen wichtigen Warnhinweis."],
 ];
 
 export default function GermanHomePage() {
@@ -28,12 +28,12 @@ export default function GermanHomePage() {
       <section className="k-home-hero" aria-labelledby="de-home-hero-title">
         <div className="k-shell k-home-hero-copy">
           <h1 id="de-home-hero-title" className="k-home-hero-title">
-            <span>Ein Anruf, eine Nachricht,</span>
-            <span className="k-home-hero-alert">eine Sekunde zu wenig nachgedacht.</span>
+            <span>Ein Anruf. Eine Nachricht.</span>
+            <span className="k-home-hero-alert">Und plötzlich soll alles ganz schnell gehen.</span>
           </h1>
           <p style={{ maxWidth: 620, marginTop: 18, fontSize: 16, lineHeight: 1.6, opacity: 0.85 }}>
-            Mit der Konfydence Challenge für Familien übst du, Betrugsversuche auch unter Druck zu erkennen: der Enkeltrick am Telefon, die
-            SMS von der „Bank“, die WhatsApp-Nachricht von einer „neuen Nummer“. 48 realistische Alltagssituationen, kostenloser Check
+            Erkenne typische Betrugsversuche und übe, im entscheidenden Moment richtig zu reagieren: den Enkeltrick am Telefon, eine
+            gefälschte Bank-SMS oder eine WhatsApp-Nachricht von einer angeblich neuen Nummer. Mit 48 Alltagssituationen und einem kostenlosen Sicherheitscheck
             zum Einstieg.
           </p>
         </div>
@@ -43,7 +43,7 @@ export default function GermanHomePage() {
         <p className="k-kicker">Die H.A.C.K.-Methode</p>
         <h2 style={{ fontSize: 28, fontWeight: 900, marginBottom: 8 }}>Vier typische Tricks, die du kennen solltest.</h2>
         <p style={{ maxWidth: 640, opacity: 0.8, marginBottom: 28 }}>
-          Fast jeder Betrug nutzt eine Mischung aus vier Drucktypen. Konfydence trainiert dich, sie live zu erkennen.
+          Viele Betrugsversuche setzen auf Zeitdruck, angebliche Autorität oder vertraute Absender. Hier lernst du, diese Muster rechtzeitig zu erkennen.
         </p>
         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))", gap: 20 }}>
           {PRINZIPIEN.map(([num, label, text]) => (
@@ -55,20 +55,20 @@ export default function GermanHomePage() {
           ))}
         </div>
         <p style={{ fontSize: 12, opacity: 0.6, marginTop: 24 }}>
-          Die Antwort darauf: <strong>Anhalten · Abklären · Ansprechen</strong> — nichts sofort tun, klären was genau
-          verlangt wird, und es laut mit jemandem besprechen, dem du vertraust.
+          Die Antwort darauf: <strong>Anhalten · Abklären · Ansprechen</strong> — nicht vorschnell handeln, klären, was genau
+          verlangt wird, und bei Bedarf eine vertraute Person hinzuziehen.
         </p>
       </section>
 
       <section className="k-shell" style={{ padding: "0 0 48px" }}>
         <div style={{ background: "var(--k-ink,#111)", color: "#fff", borderRadius: 18, padding: "36px 28px" }}>
-          <p style={{ fontSize: 12, letterSpacing: ".08em", opacity: 0.7, marginBottom: 8 }}>FAMILIE-EDITION</p>
+          <p style={{ fontSize: 12, letterSpacing: ".08em", opacity: 0.7, marginBottom: 8 }}>FAMILIEN-EDITION</p>
           <h2 style={{ fontSize: 24, fontWeight: 900, marginBottom: 10 }}>
-            Kostenloser Check — dann die volle Challenge.
+            Erst kostenlos ausprobieren. Danach gezielt weiterüben.
           </h2>
           <p style={{ maxWidth: 560, opacity: 0.85, marginBottom: 20, fontSize: 15, lineHeight: 1.6 }}>
-            Der erste Check ist kostenlos und anonym. Für die volle Challenge (48 Szenarien in kurzen Runden) legst du
-            ein Konto an — deine Ergebnisse folgen dir dann auf jedes Gerät.
+            Mit dem kostenlosen Check kannst du sofort anfangen. Die vollständige Challenge enthält 48 Alltagssituationen in kurzen Runden. Dafür erstellst du
+            ein Konto, damit du deinen Fortschritt auf verschiedenen Geräten wiederfindest.
           </p>
           <div style={{ display: "flex", gap: 12, flexWrap: "wrap" }}>
             <Link href="/de/challenge/family/start?mode=diagnostic" className="k-button">
@@ -83,9 +83,9 @@ export default function GermanHomePage() {
       <section className="k-shell" style={{ padding: "0 0 56px" }}>
         <div style={{ border: "1px solid var(--k-line)", borderRadius: 18, padding: "36px 28px", textAlign: "center" }}>
           <p className="k-kicker">Jetzt Pilotanfragen möglich</p>
-          <h2 className="k-display-sm" style={{ marginBottom: 12 }}>Bringt die Gewohnheit ins Klassenzimmer oder ins Team.</h2>
+          <h2 className="k-display-sm" style={{ marginBottom: 12 }}>Sicheres Entscheiden lässt sich auch in Gruppen trainieren.</h2>
           <p style={{ maxWidth: 560, margin: "0 auto 22px", fontSize: 15, lineHeight: 1.6, opacity: 0.8 }}>
-            Startet mit einer klar abgegrenzten Gruppe und einem festen Risikofokus. Übt die Entscheidung, schaut, was sich
+            Beginnt mit einer kleinen Gruppe und konkreten Sicherheitsrisiken. Anschließend prüft ihr, was sich
             verändert hat, und entscheidet dann: ausweiten, anpassen oder beenden.
           </p>
           <div style={{ display: "flex", gap: 12, flexWrap: "wrap", justifyContent: "center" }}>
