@@ -1,7 +1,7 @@
 {
   "id": "university-de-uni-04",
   "lang": "de",
-  "title": "Nimm dein Stipendium in 60 Minuten an",
+  "title": "Stipendium ohne Bewerbung: nur 60 Minuten Zeit",
   "edition": "university",
   "cardType": "scenario",
   "scored": true,
@@ -20,8 +20,8 @@
   "safeActions": [
     "A"
   ],
-  "explanation": "Ein Stipendium, für das man sich nie beworben hat, gewinnt man auch nicht. Deine Uni kann in einem Anruf sofort bestätigen, ob es das Programm überhaupt gibt.",
-  "proTip": "Ein Gewinn ohne Bewerbung ist kein Gewinn.",
+  "explanation": "Ein überraschendes Stipendienangebot mit einer Minutenfrist und der Forderung nach Bankdaten ist verdächtig. Prüfe direkt bei der zuständigen Hochschule oder Förderstelle, ob es das Angebot gibt und ob du tatsächlich berücksichtigt wurdest.",
+  "proTip": "Bei unerwarteten Stipendienzusagen zuerst die Vergabestelle unabhängig kontaktieren.",
   "hackKey": "H",
   "hackTrigger": "Hetze",
   "tags": [
