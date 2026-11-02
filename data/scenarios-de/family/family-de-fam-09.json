@@ -1,7 +1,7 @@
 {
   "id": "family-de-fam-09",
   "lang": "de",
-  "title": "Deine Versicherung zahlt heute aus",
+  "title": "Versicherung: angebliche Auszahlung nur noch heute",
   "edition": "family",
   "cardType": "scenario",
   "scored": true,
@@ -20,8 +20,8 @@
   "safeActions": [
     "B"
   ],
-  "explanation": "Versicherungsauszahlungen haben keine Tagesfrist, die am Telefon verhandelt wird. Die eigene IBAN bestätigst du nie auf Zuruf.",
-  "proTip": "Eine Auszahlung, die „heute“ verfällt, verfällt nie wirklich.",
+  "explanation": "Eine unerwartete Zahlungsankündigung mit Zeitdruck ist verdächtig. Beende den Anruf und prüfe über deine Versicherung, ob tatsächlich eine Auszahlung vorgesehen ist. Verwende dafür die bekannten Kontaktdaten.",
+  "proTip": "Eine angebliche Tagesfrist ist kein Grund, persönliche Daten am Telefon preiszugeben.",
   "hackKey": "H",
   "hackTrigger": "Hetze",
   "tags": [
