@@ -1,7 +1,7 @@
 {
   "id": "university-de-uni-22",
   "lang": "de",
-  "title": "Die Krankenkasse sagt: Versicherungsschutz läuft ab",
+  "title": "Krankenkasse: Versicherungsschutz endet angeblich morgen",
   "edition": "university",
   "cardType": "scenario",
   "scored": true,
@@ -20,8 +20,8 @@
   "safeActions": [
     "A"
   ],
-  "explanation": "Krankenkassen kündigen einen Versicherungsablauf nicht per Link-Formular mit Kontodatenabfrage an — das Kundenportal zeigt den echten Status sofort.",
-  "proTip": "Versicherungsstatus prüfst du im Portal, nie über einen Link aus einer Mail.",
+  "explanation": "Eine unerwartete Nachricht mit kurzer Frist und Link zur Eingabe von Kontodaten kann gefälscht sein. Prüfe den Versicherungsschutz über die offizielle App oder telefonisch bei der Kasse.",
+  "proTip": "Versicherungsstatus und Beitragszahlungen direkt bei der Krankenkasse überprüfen.",
   "hackKey": "A",
   "hackTrigger": "Autorität",
   "tags": [
