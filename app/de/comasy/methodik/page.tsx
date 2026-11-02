@@ -15,22 +15,22 @@ export const metadata: Metadata = {
 const metrics = [
   ["Pause Adoption", "Die teilnehmende Person unterbricht die unmittelbare Handlungskette, bevor sie sich auf einen folgenreichen Schritt festlegt.", "Ob die gewählte Antwort ausdrücklich Zeit oder Raum schafft, um die Bitte vor dem Handeln zu prüfen."],
   ["Verification Rate", "Die teilnehmende Person verifiziert über einen unabhängigen, bekannten Kanal — statt sich auf den Kanal zu verlassen, über den die Bitte kam.", "Ob die gewählte Antwort eine separate vertrauenswürdige Quelle, einen Prozess oder Kontaktweg nutzt."],
-  ["Impulse Rate", "Die teilnehmende Person wählt eine unmittelbare, risikoreichere Handlung ohne ausreichende unabhängige Verifizierung.", "Ob die gewählte Antwort die verlangte Handlung, Zugangsdaten, Zahlung, Freigabe oder Offenlegung zu früh festlegt."],
+  ["Impulse Rate", "Die teilnehmende Person wählt eine unmittelbare, risikoreichere Handlung ohne ausreichende unabhängige Überprüfung.", "Ob die gewählte Antwort die verlangte Handlung, Zugangsdaten, Zahlung, Freigabe oder Offenlegung zu früh festlegt."],
   ["H.A.C.K.-Profil", "Das Muster der Antworten über die Druckmechaniken Hetze, Autorität, Vertrautheit und Notbremse hinweg.", "Welcher Druckmechanismus wiederholt schwächere Entscheidungen über das Szenario-Set hinweg erzeugt."],
 ];
 
 const principles = [
   ["01", "Beobachtbar", "Kennzahlen sind an konkrete Entscheidungen der Teilnehmenden geknüpft, nicht an vermutete Persönlichkeitsmerkmale."],
   ["02", "Definiert", "Jede Kennzahl hat eine schriftliche Definition, die konsistent über Szenariovarianten hinweg angewendet werden kann."],
-  ["03", "Vergleichend", "Baseline- und Post-Varianten-Ergebnisse werden innerhalb einer definierten Kohorte und eines Anwendungsfalls verglichen."],
+  ["03", "Vergleichend", "Ausgangsmessung- und Abschlussmessungn-Ergebnisse werden innerhalb einer definierten Teilnehmergruppe und eines Anwendungsfalls verglichen."],
   ["04", "Begrenzt", "Ergebnisse sind Trainingsbelege. Sie stellen keine individuelle Sicherheitskompetenz oder regulatorische Konformität fest."],
 ];
 
 const flow = [
-  ["Baseline", "Ein definiertes Szenario-Set vor dem gezielten Training durchführen."],
+  ["Ausgangsmessung", "Ein definiertes Szenario-Set vor dem gezielten Training durchführen."],
   ["Gezieltes Training", "Die relevanten Druckmuster und Geschäftsabläufe üben."],
-  ["Post-Variante", "Ungesehene oder deutlich unterschiedliche Szenarien nutzen, damit reines Wiedererkennen nicht als Verbesserung durchgeht."],
-  ["Auswertung", "Kohortensignale vergleichen, Grenzen besprechen und über Skalierung / Anpassung / Stopp entscheiden."],
+  ["Abschlussmessung", "Ungesehene oder deutlich unterschiedliche Szenarien nutzen, damit reines Wiedererkennen nicht als Verbesserung durchgeht."],
+  ["Auswertung", "Teilnehmergruppensignale vergleichen, Grenzen besprechen und über Skalierung / Anpassung / Stopp entscheiden."],
 ];
 
 export default function MethodologyPageDe() {
@@ -40,7 +40,7 @@ export default function MethodologyPageDe() {
         <p className="k-kicker">Methodik</p>
         <h1>Den Entscheidungsprozess messen, nicht nur den Kursabschluss.</h1>
         <p>
-          CoMaSy verwandelt Szenario-Entscheidungen in definierte Trainingssignale. Ziel ist, praktisches Training
+          CoMaSy verwandelt Szenario-Entscheidungen in definierte Trainingsergebnisse. Ziel ist, praktisches Training
           beobachtbar zu machen — ohne vorzugeben, dass ein Simulationsergebnis eine Garantie für reales Sicherheitsverhalten ist.
         </p>
       </section>
@@ -76,7 +76,7 @@ export default function MethodologyPageDe() {
         <div className="kg-shell kc-split">
           <div>
             <p className="k-kicker">Pilot-Messablauf</p>
-            <h2 className="k-display-sm">Baseline → Training → ungesehene Variante → Auswertung.</h2>
+            <h2 className="k-display-sm">Ausgangsmessung → Training → ungesehene Variante → Auswertung.</h2>
           </div>
           <ol className="kc-flow">
             {flow.map(([step, copy]) => (
@@ -98,8 +98,8 @@ export default function MethodologyPageDe() {
             <h3 style={{ fontFamily: "var(--k-display)", fontWeight: 400, fontSize: 22, margin: "0 0 8px" }}>Was CoMaSy unterstützen kann</h3>
             <ul className="kc-list">
               <li>Wiederholtes Entscheidungstraining</li>
-              <li>Definierte Verhaltens-Trainingssignale</li>
-              <li>Kohortenvergleich über die Zeit</li>
+              <li>Definierte Verhaltens-Trainingsergebnisse</li>
+              <li>Teilnehmergruppenvergleich über die Zeit</li>
               <li>Diagnostik zu Druckmustern</li>
               <li>Managementtaugliche Belege aus dem Piloten</li>
             </ul>
@@ -121,7 +121,7 @@ export default function MethodologyPageDe() {
         <div>
           <p className="k-kicker">Nächster Schritt</p>
           <h2 className="k-display-sm">Teste die Methodik mit einem begrenzten Piloten.</h2>
-          <p className="k-copy">Vereinbart Kohorte, Risikofokus, Szenario-Set und Entscheidungskriterien, bevor ihr skaliert.</p>
+          <p className="k-copy">Vereinbart Teilnehmergruppe, Risikofokus, Szenario-Set und Entscheidungskriterien, bevor ihr skaliert.</p>
         </div>
         <div className="k-actions">
           <Link className="k-button" href="/de/comasy/pilotprojekt">Pilotprojekt anfragen</Link>
