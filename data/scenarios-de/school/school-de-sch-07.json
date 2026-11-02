@@ -1,7 +1,7 @@
 {
   "id": "school-de-sch-07",
   "lang": "de",
-  "title": "Anmeldeschluss in einer Stunde",
+  "title": "Schülerwettbewerb: Anmeldung nur noch eine Stunde möglich",
   "edition": "school",
   "cardType": "scenario",
   "scored": true,
@@ -20,8 +20,8 @@
   "safeActions": [
     "A"
   ],
-  "explanation": "Seriöse Schülerwettbewerbe verlangen keine Guthabenkarten-Zahlung unter Zeitdruck. Deine Schule oder Lehrkraft kennt echte Wettbewerbe und kann das in Minuten bestätigen.",
-  "proTip": "Eine Guthabenkarte als „Bearbeitungsgebühr“ ist immer ein Warnsignal.",
+  "explanation": "Ein unerwartetes Angebot mit kurzer Frist und Bezahlung per Guthabenkarte ist verdächtig. Frage eine Lehrkraft oder prüfe die offizielle Website des Wettbewerbs, bevor du Geld ausgibst.",
+  "proTip": "Gebühren für Wettbewerbe nur über bestätigte offizielle Wege bezahlen.",
   "hackKey": "H",
   "hackTrigger": "Hetze",
   "tags": [
