@@ -31,13 +31,13 @@ export default async function PilotPageDe({ searchParams }: { searchParams: Prom
         <div className="kc-pilot-intro">
           <p className="k-kicker">CoMaSy-Pilotprojekt</p>
           <h1 className="k-display" style={{ fontSize: "clamp(31px,4vw,52px)" }}>
-            Teste die Entscheidungssimulation in eurer Organisation, bevor ihr skaliert.
+            Prüft den Nutzen des Entscheidungstrainings in eurem Unternehmen.
           </h1>
           <p className="k-lede">
             Ihr legt zunächst Teilnehmergruppe, Risikothemen und Erfolgskriterien fest. Die Übungen ergänzen eure bestehenden Schulungen. Ein Wechsel der Lernplattform ist dafür nicht nötig.
           </p>
           <div className="kg-promise">
-            <span>Begrenzter Umfang</span><span>Kein LMS-Ersatz</span><span>Definierte Messung</span><span>Ausweiten-/Anpassen-/Stoppen-Auswertung</span>
+            <span>Begrenzter Umfang</span><span>Kein LMS-Ersatz</span><span>Definierte Messung</span><span>Klare Entscheidung nach dem Pilotprojekt</span>
           </div>
           <ol className="kc-flow">
             <li><b>01 · Teilnehmergruppe</b><span>Teilnehmergruppe und Risikofokus vereinbaren.</span></li>
@@ -52,7 +52,7 @@ export default async function PilotPageDe({ searchParams }: { searchParams: Prom
           <p className="k-kicker">Pilotprojekt anfragen</p>
           <h2 className="k-display-sm" style={{ fontSize: "28px", margin: "0 0 10px" }}>Beschreibt kurz euer Ziel.</h2>
           <p className="kc-form-intro">
-            Das ist eine Qualifizierungsanfrage, keine Kaufverpflichtung. Wir nutzen die Angaben, um den Anwendungsfall zu verstehen und einen passenden Umfang des Pilotprojekts vorzuschlagen.
+            Mit dieser Anfrage startet ihr ein unverbindliches Gespräch, keinen Kauf. Wir nutzen die Angaben, um den Anwendungsfall zu verstehen und einen passenden Umfang des Pilotprojekts vorzuschlagen.
           </p>
           {q.error && (
             <div className="kc-form-error">
@@ -83,7 +83,7 @@ export default async function PilotPageDe({ searchParams }: { searchParams: Prom
           <input type="hidden" name="landingPage" value="/de/comasy/pilotprojekt" />
           <button className="k-button" type="submit">Pilotprojekt anfragen</button>
           <p className="kc-form-privacy">
-            Lies <Link href="/de/comasy/sicherheit">Sicherheit &amp; Datenschutz</Link> und die <Link href="/de/datenschutz">Datenschutzerklärung</Link>.
+            Informationen findet ihr unter <Link href="/de/comasy/sicherheit">Sicherheit &amp; Datenschutz</Link> und in der <Link href="/de/datenschutz">Datenschutzerklärung</Link>.
             Pilotanfragedaten und Unternehmens-Programmdaten werden getrennt von der Aktivität im Verbraucher-Challenge gehalten.
           </p>
         </form>
