@@ -1,7 +1,7 @@
 {
   "id": "university-de-uni-05",
   "lang": "de",
-  "title": "Ausländerbehörde: Antworte vor Mitternacht",
+  "title": "Ausländerbehörde: angeblicher Widerruf bis Mitternacht",
   "edition": "university",
   "cardType": "scenario",
   "scored": true,
@@ -20,8 +20,8 @@
   "safeActions": [
     "C"
   ],
-  "explanation": "Behörden entscheiden nicht per Mitternachtsfrist über einen Aufenthaltstitel per E-Mail-Link. Das International Office kennt den echten Stand deines Verfahrens.",
-  "proTip": "Ein Aufenthaltstitel verfällt nicht per E-Mail-Countdown.",
+  "explanation": "Eine E-Mail mit einer extrem kurzen Frist und einem Link zur Eingabe von Passdaten ist ein Warnzeichen. Prüfe den Sachverhalt direkt bei der zuständigen Ausländerbehörde. Das International Office kann dir gegebenenfalls beim richtigen Kontakt helfen.",
+  "proTip": "Behördliche Nachrichten und Fristen nur über offizielle Kontaktwege prüfen.",
   "hackKey": "H",
   "hackTrigger": "Hetze",
   "tags": [
