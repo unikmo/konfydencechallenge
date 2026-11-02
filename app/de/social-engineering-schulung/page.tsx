@@ -14,12 +14,12 @@ export default function Page() {
   return <ComasyIntentPage
     lang="de"
     eyebrow="SOCIAL-ENGINEERING-SCHULUNG"
-    title="Übe den Moment, in dem der Angreifer vertrauenswürdig wirkt."
-    intro="CoMaSy konzentriert sich auf den Entscheidungsdruck hinter Social Engineering: Hetze, Autorität, Vertrautheit und Bitten, die unabhängige Verifizierung abschneiden. Mitarbeitende üben, was zu tun ist, wenn Nachricht, Anrufer oder Account legitim wirken."
+    title="Betrugsversuche erkennen, auch wenn der Absender vertrauenswürdig erscheint."
+    intro="CoMaSy konzentriert sich auf den Entscheidungsdruck hinter Social Engineering: Hetze, Autorität, Vertrautheit und Aufforderungen, die eine unabhängige Überprüfung verhindern sollen. Mitarbeitende üben, was zu tun ist, wenn Nachricht, Anrufer oder Account echt erscheinen."
     problemTitle="Die schwierige Frage ist nicht „Wer ist böswillig?“, sondern „Was macht diese Handlung sicher?“"
-    problemCopy="Ein vertrauter Kollege kann einen kompromittierten Account haben. Ein Lieferant kann imitiert werden. Eine Stimme kann vertraut klingen. CoMaSy trainiert beweisbasierte Verifizierung — statt Mitarbeitenden beizubringen, jeder ungewöhnlichen Bitte grundsätzlich zu misstrauen."
+    problemCopy="Ein vertrauter Kollege kann einen übernommenes Benutzerkonto haben. Ein Lieferant kann imitiert werden. Eine Stimme kann vertraut klingen. CoMaSy trainiert die unabhängige Überprüfung von Angaben — statt Mitarbeitenden beizubringen, jeder ungewöhnlichen Bitte grundsätzlich zu misstrauen."
     sections={[
-      { title: "Kompromittierte Identität", copy: "Trenne die Vertrauenswürdigkeit einer Person von der Sicherheit eines bestimmten Accounts, einer Nachricht oder Handlung." },
+      { title: "Missbrauchte Identität", copy: "Trenne die Vertrauenswürdigkeit einer Person von der Sicherheit eines bestimmten Accounts, einer Nachricht oder Handlung." },
       { title: "Unabhängige Verifizierung", copy: "Übe, den Kanal der anfragenden Person zu verlassen und über einen bekannten Kontaktweg, Prozess oder ein System zu prüfen." },
       { title: "Angemessene Reaktion", copy: "Wähle Eindämmung oder Eskalation, ohne jede unsichere Bitte zu unnötiger Betriebsstörung zu machen." },
     ]}
