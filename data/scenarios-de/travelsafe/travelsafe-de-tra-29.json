@@ -1,7 +1,7 @@
 {
   "id": "travelsafe-de-tra-29",
   "lang": "de",
-  "title": "Dein Lieblings-Creator hat einen geheimen Rabattcode",
+  "title": "Influencer bewirbt Luxusreise mit sofortiger Überweisung",
   "edition": "travelsafe",
   "cardType": "scenario",
   "scored": true,
@@ -20,8 +20,8 @@
   "safeActions": [
     "A"
   ],
-  "explanation": "Bekanntheit und Vertrauen in einen Creator sind kein Ersatz für eine geprüfte Buchung — ein „geheimer“ Code mit Vorkasse per Überweisung ist ein Warnsignal, unabhängig davon, wer ihn bewirbt.",
-  "proTip": "Ein bekannter Name macht eine Vorkasse-Überweisung nicht sicherer.",
+  "explanation": "Auch bekannte Personen können unseriöse Angebote bewerben oder selbst Opfer von Kontoübernahmen werden. Prüfe den Reiseanbieter und nutze sichere, nachvollziehbare Zahlungswege.",
+  "proTip": "Bekanntheit eines Influencers ersetzt keine Prüfung der Buchung.",
   "hackKey": "C",
   "hackTrigger": "Vertrautheit",
   "tags": [
