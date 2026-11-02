@@ -6,8 +6,8 @@ import type { Metadata } from "next";
 // app/layout.tsx. This corrects documentElement.lang for everything under
 // /de/ right after hydration; browsers and screen readers read the live DOM.
 export const metadata: Metadata = {
-  title: { template: "%s | Konfydence", default: "Konfydence — Vertrauen unter Druck" },
-  description: "Szenario-basiertes Training, das Familien hilft, unter Druck sichere Entscheidungen zu treffen.",
+  title: { template: "%s | Konfydence", default: "Konfydence – Betrugsmaschen erkennen und sicher handeln" },
+  description: "Realistische Übungen gegen Betrugsmaschen für Familien, Schulen und Unternehmen. Lerne, verdächtige Nachrichten und Zahlungsforderungen zu überprüfen.",
   alternates: { languages: { en: "https://konfydence.com", de: "https://konfydence.com/de" } },
 };
 
