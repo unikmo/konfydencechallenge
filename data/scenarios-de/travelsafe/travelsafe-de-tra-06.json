@@ -1,7 +1,7 @@
 {
   "id": "travelsafe-de-tra-06",
   "lang": "de",
-  "title": "Dein Anschlussflug hat sich „gerade geändert“",
+  "title": "Anschlussflug: angebliche Umbuchungsgebühr per SMS",
   "edition": "travelsafe",
   "cardType": "scenario",
   "scored": true,
@@ -20,8 +20,8 @@
   "safeActions": [
     "C"
   ],
-  "explanation": "Airlines erheben Umbuchungsgebühren über ihre eigene App oder den Schalter, nie über einen SMS-Link mit Zeitdruck. Der echte Flugstatus steht immer in der App.",
-  "proTip": "Flugänderungen prüfst du in der App, nie über einen Link aus einer SMS.",
+  "explanation": "Die Nachricht kann gefälscht sein. Prüfe Flugänderungen über die offizielle App, Website oder direkt bei der Fluggesellschaft. Verwende keinen unerwarteten Zahlungslink aus einer SMS.",
+  "proTip": "Flugänderungen über offizielle Kanäle prüfen, bevor du bezahlst.",
   "hackKey": "H",
   "hackTrigger": "Hetze",
   "tags": [
