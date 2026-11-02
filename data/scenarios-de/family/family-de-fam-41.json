@@ -9,7 +9,7 @@
   "scenario": "Ein Paket, das du nicht bestellt hast, liegt vor der Tür. Eine beigelegte Karte bittet, per QR-Code „die Lieferung zu bestätigen“ oder eine „Rücksendung zu veranlassen“, da sonst automatisch eine Rechnung folge.",
   "answers": {
     "A": "Den QR-Code scannen, um die Rücksendung zu veranlassen und keine Rechnung zu riskieren.",
-    "B": "Das Paket ungeöffnet oder ohne den QR-Code zu scannen behalten oder wegwerfen; für unbestellte Ware entsteht ohnehin keine Zahlungspflicht.",
+    "B": "Nicht über den QR-Code bezahlen oder persönliche Daten eingeben. Prüfen, ob die Sendung tatsächlich für dich bestimmt ist, und dich bei Fragen an den offiziellen Händler oder Paketdienst wenden.",
     "C": "Beim Absender auf dem Paket telefonisch nachfragen."
   },
   "scores": {
@@ -20,7 +20,7 @@
   "safeActions": [
     "B"
   ],
-  "explanation": "Für unbestellte Ware besteht in Deutschland gesetzlich keine Zahlungspflicht („Brushing“). Der QR-Code führt oft zu einer Phishing-Seite oder installiert Schadsoftware — ihn zu scannen ist der eigentliche Angriff.",
+  "explanation": "Eine unerwartete Sendung mit Zahlungsdrohung und einem unbekannten QR-Code ist verdächtig. Für unbestellte Waren besteht grundsätzlich keine Zahlungspflicht. Kläre den Vorgang über einen offiziellen Kontaktweg und gib über den QR-Code keine Daten ein.",
   "proTip": "Unbestellte Ware bezahlst du nie — und ihren QR-Code scannst du erst recht nicht.",
   "hackKey": "K",
   "hackTrigger": "Notbremse",
@@ -30,5 +30,6 @@
     "qr-codes",
     "brushing"
   ],
-  "active": true
+  "active": true,
+  "tip": "Bei unbestellten Paketen keine Zahlungslinks oder QR-Codes ungeprüft verwenden."
 }
