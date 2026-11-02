@@ -30,7 +30,7 @@ export default function HackMethodPageDe() {
     <PremiumPageDe ctaHref="/de/challenge/family/start?mode=diagnostic" ctaLabel="Kostenlos testen">
       <section className="kg-shell k-section" style={{ borderTop: 0, paddingTop: 72, maxWidth: 820 }}>
         <p className="k-kicker">Die Methode</p>
-        <h1 className="k-display">Erkenne den Druck. Dann: Anhalten, Abklären, Ansprechen.</h1>
+        <h1 className="k-display">Betrugsversuche erkennen. Erst prüfen, dann handeln.</h1>
         <p className="k-lede">
           Konfydence arbeitet mit zwei einfachen Methoden. <strong>H.A.C.K.</strong> benennt, was ein Betrug mit dir macht.
           <strong> P.A.T.</strong> sagt dir, was du dagegen tust. Du übst beides, bis sich der Moment vertraut statt beängstigend anfühlt.
@@ -44,7 +44,7 @@ export default function HackMethodPageDe() {
         <div className="k-section-head">
           <div>
             <p className="k-kicker">H.A.C.K. — erkennen</p>
-            <h2 className="k-display-sm">Die vier Druckmuster hinter fast jedem Betrug.</h2>
+            <h2 className="k-display-sm">Vier Tricks, mit denen Betrüger Druck aufbauen.</h2>
           </div>
           <p className="k-copy">
             Du musst nicht jeden Betrug erkennen. Du musst den Druck erkennen. Fast immer ist es eines dieser vier Muster.
@@ -86,8 +86,8 @@ export default function HackMethodPageDe() {
 
       <section className="kg-shell k-callout">
         <div>
-          <p className="k-kicker">Wissen hilft. Üben verändert die nächste Entscheidung.</p>
-          <h2 className="k-display-sm">Übe es in einem realistischen Szenario.</h2>
+          <p className="k-kicker">Wissen ist der Anfang. Mit Übung fällt richtiges Handeln leichter.</p>
+          <h2 className="k-display-sm">Probiere die Methode in einer realistischen Situation aus.</h2>
           <p className="k-copy">
             Konfydence baut diese Mechanik in Familie-, Schule-, Universitäts-, Arbeitsplatz- und TravelSafe-Szenarien ein. Auf jede Entscheidung folgen eine Erklärung und eine Regel, die du behältst.
           </p>
