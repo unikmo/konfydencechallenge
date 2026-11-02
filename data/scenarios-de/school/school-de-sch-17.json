@@ -6,9 +6,9 @@
   "cardType": "scenario",
   "scored": true,
   "category": "Soziale Plattformen",
-  "scenario": "Eine Nachricht im Namen des „Instagram Verifizierungs-Teams“ bietet dir ein blaues Häkchen an, wenn du deine Login-Daten zur „Identitätsprüfung“ auf einer verlinkten Seite bestätigst.",
+  "scenario": "Eine Nachricht von einem angeblichen „Instagram-Verifizierungsteam“ verspricht dir ein blaues Häkchen, wenn du deine Anmeldedaten zur „Identitätsprüfung“ auf einer verlinkten Seite eingibst.",
   "answers": {
-    "A": "Die Nachricht ignorieren; eine echte Verifizierung läuft ausschließlich über die Einstellungen in der App selbst.",
+    "A": "Die Nachricht ignorieren und den Status sowie mögliche Verifizierungsangebote direkt in Instagram prüfen.",
     "B": "Die Login-Daten auf der verlinkten Seite bestätigen, um das Häkchen zu bekommen.",
     "C": "Nach mehr Informationen über den Prozess fragen."
   },
