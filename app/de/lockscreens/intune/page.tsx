@@ -46,7 +46,7 @@ export default function Page() {
         },
         {
           title: "Ein klarer Hinweis statt langer Anweisungen",
-          copy: "Jedes Motiv erklärt verständlich eine typische Betrugsmasche — Hetze, falsche Autorität, missbrauchtes Vertrauen, eine überhastete Übergabe — und dem Schritt, der sie entschärft.",
+          copy: "Jedes Motiv zeigt eine typische Betrugsmasche – etwa Zeitdruck oder vorgetäuschte Autorität – und erklärt, wie du darauf reagieren kannst.",
         },
       ]}
       howTitle="Zwei Richtlinieneinstellungen, dann läuft es von selbst."
