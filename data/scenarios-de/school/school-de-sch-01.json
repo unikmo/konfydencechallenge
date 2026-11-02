@@ -8,7 +8,7 @@
   "category": "Gaming",
   "scenario": "Eine E-Mail, die angeblich von Epic Games stammt, behauptet, dein Fortnite-Konto werde wegen eines Regelverstoßes in neun Minuten gelöscht. Nur wenn du dich sofort über einen Link mit E-Mail-Adresse und Passwort anmeldest, könne das verhindert werden.",
   "answers": {
-    "A": "Auf den Link klicken und dich sofort verifizieren, bevor der Account gelöscht wird.",
+    "A": "Auf den Link klicken und sofort deine Anmeldedaten eingeben, damit das Konto nicht gelöscht wird.",
     "B": "Den Link nicht öffnen. Stattdessen die offizielle Fortnite-App oder die selbst eingegebene Epic-Games-Website nutzen und dort den Kontostatus prüfen.",
     "C": "Nur die E-Mail-Adresse eingeben, aber nicht das Passwort."
   },
