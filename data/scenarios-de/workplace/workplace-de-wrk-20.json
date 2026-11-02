@@ -1,7 +1,7 @@
 {
   "id": "workplace-de-wrk-20",
   "lang": "de",
-  "title": "Der Geschäftsführer des Lieferanten will eine Ausnahme",
+  "title": "Lieferantenchef fordert ausnahmsweise Vorauszahlung",
   "edition": "workplace",
   "cardType": "scenario",
   "scored": true,
@@ -20,8 +20,8 @@
   "safeActions": [
     "B"
   ],
-  "explanation": "Ein persönlicher Name an der Spitze macht eine Ausnahme von etablierten Zahlungsprozessen nicht sicherer — genau das nutzen Betrüger gezielt aus, wenn sie sich als Führungsperson ausgeben.",
-  "proTip": "Eine Ausnahme von der Regel bestätigst du über den üblichen Kontakt, nicht nur per Mail von „oben“.",
+  "explanation": "Eine persönliche Nachricht aus der Geschäftsführung eines Lieferanten ersetzt keine Prüfung der Kontodaten und Konditionen. Bestätige die Anfrage über bekannte Kontakte und halte die Einkaufsfreigaben ein.",
+  "proTip": "Auch bei langjährigen Lieferanten ungewöhnliche Zahlungsänderungen unabhängig bestätigen.",
   "hackKey": "A",
   "hackTrigger": "Autorität",
   "tags": [
