@@ -658,5 +658,170 @@
     },
     "explanation": "Prüfungsunterlagen können dringend benötigt werden. Ein neuer, externer Upload-Link darf dennoch nicht ungeprüft verwendet werden. Bestätige die Anfrage unabhängig und nutze den vereinbarten sicheren Datenraum.",
     "proTip": "Vertrauliche Prüfungsunterlagen nur über vereinbarte, freigegebene Wege übermitteln."
+  },
+  "family-de-fam-13": {
+    "title": "Falsche Polizei will Bargeld und Schmuck abholen",
+    "scenario": "Ein Anrufer gibt sich als Kriminalpolizei aus. In deiner Nachbarschaft sei eingebrochen worden, auf einer Liste der Täter stehe dein Name — dein Bargeld und dein Schmuck seien zu Hause nicht mehr sicher. Ein Kollege in Zivil komme vorbei und nehme die Wertsachen „zur Sicherung“ in Verwahrung.",
+    "answers": {
+      "A": "Nichts übergeben. Auflegen und selbst die 110 wählen oder die örtliche Wache über eine offizielle Nummer anrufen und den Anruf schildern.",
+      "B": "Die Wertsachen übergeben, aber auf einer schriftlichen Quittung mit Dienstausweisnummer bestehen.",
+      "C": "Am Telefon bleiben und nach Name und Dienststelle fragen, um die Geschichte zu prüfen."
+    },
+    "explanation": "Die Polizei fordert dich nicht telefonisch auf, Bargeld oder Schmuck zur angeblichen Sicherstellung an Unbekannte zu übergeben. Beende den Anruf und kontaktiere bei Verdacht die Polizei über eine selbst gewählte offizielle Nummer.",
+    "proTip": "Übergib Wertsachen niemals an jemanden, der sie nach einem überraschenden Anruf abholen will."
+  },
+  "family-de-fam-14": {
+    "title": "Angebliche Steuererstattung vom Finanzamt",
+    "scenario": "Eine E-Mail im Design des Bundeszentralamts für Steuern kündigt eine Steuererstattung von 328,50 € an. Du müsstest nur über den Link deine Kontodaten „zur Auszahlung bestätigen“. Absendername und Logo wirken echt.",
+    "answers": {
+      "A": "Die Kontodaten über den Link eingeben, weil Absenderadresse und Logo stimmen.",
+      "B": "Den Link ignorieren und im ELSTER-Portal oder telefonisch bei deinem Finanzamt nachfragen, ob wirklich etwas offen ist.",
+      "C": "Die E-Mail an einen Bekannten weiterleiten und fragen, ob sie echt aussieht."
+    },
+    "explanation": "Ein vertrautes Logo und ein realistischer Betrag machen eine E-Mail nicht automatisch echt. Prüfe eine angekündigte Erstattung direkt über ELSTER oder beim zuständigen Finanzamt. Gib keine Bankdaten über einen unerwarteten Link ein.",
+    "proTip": "Steuerbescheide und Erstattungen über offizielle Wege prüfen."
+  },
+  "family-de-fam-15": {
+    "title": "Auf dem Display steht der Name deiner Bank",
+    "scenario": "Dein Handy zeigt beim eingehenden Anruf den echten Namen deiner Sparkasse an. Der Anrufer sagt, es gebe verdächtige Abbuchungen, und bittet dich, dich mit deiner Banking-PIN in einer „Sicherheitsleitung“ zu identifizieren.",
+    "answers": {
+      "A": "Auflegen und die Bank selbst über die Nummer aus der App anrufen — eine angezeigte Nummer ist kein Beweis.",
+      "B": "Die PIN nennen, weil die Anzeige eindeutig die Bank zeigt.",
+      "C": "Nach dem Namen des Mitarbeiters fragen und ihn dann zurückrufen lassen."
+    },
+    "explanation": "Die angezeigte Rufnummer oder der Name des Anrufers können gefälscht sein. Deine PIN und deine Zugangsdaten sind vertraulich. Beende den Anruf und kontaktiere deine Bank über eine selbst gewählte offizielle Nummer.",
+    "proTip": "Anruferkennung ist kein Identitätsnachweis. PIN und Passwörter niemals weitergeben."
+  },
+  "school-de-sch-13": {
+    "title": "Angeblicher Discord-Moderator verlangt Anmeldung",
+    "scenario": "Jemand mit dem Titel „Moderator“ schreibt dir auf Discord, dein Account sei wegen eines Berichts „vorübergehend eingeschränkt“ — du müsstest dich über einen Link „verifizieren“, sonst folge ein permanenter Bann.",
+    "answers": {
+      "A": "Sich sofort über den Link verifizieren, um den Bann zu vermeiden.",
+      "B": "Dem „Mod“ per DM Fragen stellen, um die Geschichte zu prüfen.",
+      "C": "Den Link nicht öffnen und den Vorfall über die offiziellen Discord-Support-Kanäle prüfen."
+    },
+    "explanation": "Der Titel in einem Discord-Profil beweist nicht, dass die Person berechtigt ist. Öffne keine fremden Links zur vermeintlichen Kontoprüfung und kontrolliere Hinweise direkt in Discord.",
+    "proTip": "Bei angeblichen Moderatoren zuerst die Identität und den offiziellen Kanal prüfen."
+  },
+  "school-de-sch-14": {
+    "title": "Lehrer teilt angeblich eine Datei mit deinen Noten",
+    "scenario": "Eine E-Mail, die aussieht, als käme sie vom Schulaccount deines Lehrers, meldet eine „private Datei zu deinen Noten“ und bittet um dein Schulportal-Passwort, um sie zu öffnen.",
+    "answers": {
+      "A": "Das Passwort eingeben, weil die Mail von der Adresse des Lehrers kommt.",
+      "B": "Die Mail an eine Mitschülerin weiterleiten und fragen, ob sie dieselbe bekommen hat.",
+      "C": "Den Lehrer persönlich oder über die Schule direkt fragen, ob er diese Mail wirklich geschickt hat, bevor du irgendetwas eingibst."
+    },
+    "explanation": "Eine Datei mit Noten sollte nicht verlangen, dass du dein Schulportal-Passwort an eine fremde Website weitergibst. Frage die Lehrkraft direkt oder nutze das bekannte Schulportal.",
+    "proTip": "Passwörter nicht teilen – auch nicht für angebliche Dateien von Lehrkräften."
+  },
+  "school-de-sch-15": {
+    "title": "Schul-IT fordert deinen Bestätigungscode",
+    "scenario": "Ein Anruf im Namen der Schul-IT sagt, es gebe ein Sicherheitsproblem mit dem Schulnetzwerk, und bittet dich, den gerade angezeigten Bestätigungscode auf deinem Handy vorzulesen, um „dein Konto zu schützen“.",
+    "answers": {
+      "A": "Den Code vorlesen, damit das Konto geschützt wird.",
+      "B": "Auflegen und den Code für niemanden vorlesen; die Schul-IT über den bekannten Weg kontaktieren, um nachzufragen.",
+      "C": "Nur die ersten drei Ziffern des Codes vorlesen."
+    },
+    "explanation": "Ein Einmalcode ist häufig dazu gedacht, einen Anmeldeversuch oder eine Änderung zu bestätigen. Teile ihn nicht am Telefon. Frage die Schul-IT über einen bekannten Kontaktweg nach.",
+    "proTip": "Bestätigungscodes niemals an Anrufende weitergeben."
+  },
+  "university-de-uni-13": {
+    "title": "Angebliche Ausländerbehörde fordert Zahlung per Guthabenkarte",
+    "scenario": "Ein Anrufer gibt sich als Sachbearbeiter der Ausländerbehörde aus und sagt, es gebe ein Problem mit deinem Aufenthaltstitel — du müsstest, während er in der Leitung bleibt, eine „Bearbeitungsgebühr“ per Guthabenkarte zahlen, sonst drohe die Ausreise.",
+    "answers": {
+      "B": "Auflegen und die Ausländerbehörde über die offizielle, unabhängig gefundene Nummer selbst kontaktieren, um nachzufragen.",
+      "A": "In der Leitung bleiben und die Gebühr per Guthabenkarte zahlen, um die Ausreise zu vermeiden.",
+      "C": "Nach dem Namen und der Dienststelle des Sachbearbeiters fragen, um die Geschichte zu prüfen."
+    },
+    "explanation": "Die Forderung nach Guthabenkarten und die Drohung mit sofortigen Nachteilen sind starke Warnzeichen. Beende das Gespräch und kläre die Angelegenheit direkt mit der zuständigen Behörde.",
+    "proTip": "Behördliche Forderungen über offizielle Kontaktdaten prüfen – nie per Guthabencode bezahlen."
+  },
+  "university-de-uni-14": {
+    "title": "Professor bittet angeblich dringend um Gutscheinkarten",
+    "scenario": "Eine E-Mail, die aussieht, als käme sie vom Uni-Account eines Professors, bittet dich dringend, für ihn Gutscheinkarten für eine Konferenz zu kaufen, und verspricht sofortige Rückerstattung — er sei „gerade auf einer Tagung nicht erreichbar“.",
+    "answers": {
+      "C": "Den Professor persönlich in der Sprechstunde oder über eine dir bekannte Telefonnummer fragen, ob die Bitte wirklich von ihm kommt, bevor du etwas kaufst.",
+      "A": "Die Karten kaufen und die Codes wie gewünscht schicken.",
+      "B": "Im Sekretariat des Lehrstuhls fragen, ob andere Studierende dieselbe Mail bekommen haben."
+    },
+    "explanation": "Eine E-Mail im Namen einer bekannten Lehrkraft kann gefälscht sein oder von einem übernommenen Konto stammen. Bestätige ungewöhnliche Kaufaufträge über einen unabhängigen Kontaktweg, bevor du Geld ausgibst.",
+    "proTip": "Auch bei bekannten Absendern ungewöhnliche Zahlungsaufträge unabhängig bestätigen."
+  },
+  "university-de-uni-15": {
+    "title": "Angeblicher Sicherheitsdienst verlangt sofort ein Bußgeld",
+    "scenario": "Eine Person in Uniform am Campus-Eingang behauptet, du hättest unerlaubt im Sperrbereich geparkt, und verlangt ein Bußgeld von 80 € sofort in bar, sonst werde dein Fahrzeug abgeschleppt.",
+    "answers": {
+      "B": "Nach einem offiziellen, nummerierten Bußgeldbescheid fragen und das Bußgeld nur über den regulären, bekannten Weg der Uni-Verwaltung zahlen — nicht bar am Ort.",
+      "A": "Die 80 € sofort bar zahlen, um das Abschleppen zu vermeiden.",
+      "C": "Um eine Quittung mit Dienstnummer bitten und dann bar zahlen."
+    },
+    "explanation": "Eine unbekannte Person, die am Campus sofort Bargeld fordert, solltest du nicht ungeprüft bezahlen. Lass dir die Rechtsgrundlage und einen offiziellen Zahlungsweg nennen und kontaktiere gegebenenfalls die Campusverwaltung.",
+    "proTip": "Geldforderungen an öffentlichen Orten nicht allein wegen einer Uniform akzeptieren."
+  },
+  "travelsafe-de-tra-13": {
+    "title": "Fluggesellschaft kündigt unerwartete Erstattung an",
+    "scenario": "Eine Mail im Namen deiner Fluggesellschaft meldet eine Ausgleichszahlung von 486 € für eine alte Verspätung und bittet, Kontodaten und eine Ausweiskopie über ein Formular „zur Auszahlung“ einzureichen.",
+    "answers": {
+      "A": "Die Erstattung direkt im eigenen Kundenkonto bei der Airline prüfen, statt über ein externes Formular Ausweis- und Kontodaten einzureichen.",
+      "B": "Die Daten über das Formular einreichen, um die Erstattung zu bekommen.",
+      "C": "Nur die Kontodaten einreichen, aber keine Ausweiskopie."
+    },
+    "explanation": "Eine unerwartete Erstattung mit der Aufforderung, Ausweiskopien oder Bankdaten über ein fremdes Formular hochzuladen, ist verdächtig. Prüfe den Anspruch direkt bei der Fluggesellschaft und nutze die dafür vorgesehenen Verfahren.",
+    "proTip": "Erstattungsansprüche und erforderliche Unterlagen direkt beim Anbieter prüfen."
+  },
+  "travelsafe-de-tra-14": {
+    "title": "Grenzübergang: angebliche Geldbuße sofort per Karte",
+    "scenario": "Eine Person in Uniform am Grenzübergang behauptet, in deinem Gepäck sei etwas Verbotenes gefunden worden, und verlangt eine Geldbuße sofort per Karte an einem mobilen Kartenlesegerät, um „das Verfahren zu vermeiden“.",
+    "answers": {
+      "C": "Um einen schriftlichen, offiziellen Bußgeldbescheid mit Dienstnummer bitten und die zuständige Behörde über eine unabhängig gefundene Nummer bestätigen lassen, bevor gezahlt wird.",
+      "A": "Sofort per Karte am mobilen Gerät zahlen, um das Verfahren zu vermeiden.",
+      "B": "Nach dem Namen und der Dienststelle fragen und dann zahlen."
+    },
+    "explanation": "Bei einer Kontrolle kann es tatsächlich behördliche Zahlungsaufforderungen geben. Unklare Forderungen ohne nachvollziehbare Unterlagen solltest du jedoch nicht ungeprüft bezahlen. Bitte um eine offizielle Dokumentation und kläre den Vorgang bei der zuständigen Stelle.",
+    "proTip": "Bei behördlichen Gebühren und Bußgeldern nach einem offiziellen Beleg fragen."
+  },
+  "travelsafe-de-tra-15": {
+    "title": "Hotelzimmer: angeblicher Anruf von der Rezeption",
+    "scenario": "Ein Anruf im Hotelzimmer, angeblich von der Rezeption, meldet ein Problem mit der Kreditkarte und bittet, die Kartennummer am Telefon erneut durchzugeben, um die Buchung „zu bestätigen“.",
+    "answers": {
+      "B": "Auflegen und persönlich zur Rezeption gehen, um das angebliche Problem zu klären, statt Kartendaten am Telefon durchzugeben.",
+      "A": "Die Kartennummer am Telefon erneut durchgeben.",
+      "C": "Nur die letzten vier Ziffern der Karte durchgeben."
+    },
+    "explanation": "Auch Anrufe auf dem Zimmertelefon können von Unbefugten stammen. Gib Kartendaten nicht vorschnell weiter. Frage persönlich an der Rezeption nach oder rufe die bekannte offizielle Hotelnummer an.",
+    "proTip": "Kartendaten nur über einen überprüften, sicheren Zahlungsweg angeben."
+  },
+  "workplace-de-wrk-13": {
+    "title": "Geschäftsführung am Telefon – aber ist die Stimme echt?",
+    "scenario": "Ein Anruf klingt täuschend echt wie die Stimme des Geschäftsführers und weist an, sofort eine Überweisung für eine „vertrauliche Übernahme“ auszulösen — die Stimme klingt zwar richtig, aber hastiger als sonst.",
+    "answers": {
+      "C": "Auflegen und die Anweisung über einen zweiten, unabhängigen Kanal (persönlich, bekannte Nummer, internes Chatsystem) beim Geschäftsführer selbst bestätigen, bevor irgendetwas überwiesen wird.",
+      "A": "Die Überweisung sofort auslösen, weil die Stimme eindeutig nach dem Geschäftsführer klingt.",
+      "B": "Nach Details zur Übernahme fragen, um die Geschichte zu prüfen."
+    },
+    "explanation": "Mit KI lassen sich Stimmen täuschend ähnlich nachahmen. Eine vertraute Stimme allein reicht bei einer ungewöhnlichen Zahlungsanweisung nicht aus. Bestätige die Anweisung über einen unabhängigen Kontaktweg und halte die Freigaberegeln ein.",
+    "proTip": "Auch bei vertrauten Stimmen ungewöhnliche Zahlungsaufträge unabhängig prüfen."
+  },
+  "workplace-de-wrk-14": {
+    "title": "Angeblicher IT-Support fordert Fernzugriff",
+    "scenario": "Ein Anrufer, der sich als IT-Support ausgibt, bittet um Fernzugriff auf deinen Arbeitsrechner, um „ein dringendes Sicherheitsproblem“ zu beheben, das angeblich dein Konto betrifft.",
+    "answers": {
+      "C": "Auflegen und den IT-Service-Desk über die bekannte interne Nummer oder das Ticket-System selbst kontaktieren, statt spontanen Fernzugriff zu gewähren.",
+      "A": "Den Fernzugriff sofort gewähren, um das Sicherheitsproblem zu beheben.",
+      "B": "Nach der Ticketnummer fragen und dann Zugriff gewähren."
+    },
+    "explanation": "Eine spontane Bitte um Fernzugriff kann ein Betrugsversuch sein. Prüfe das Anliegen über den bekannten internen IT-Service-Desk und gewähre den Zugriff nur nach dem genehmigten Supportverfahren.",
+    "proTip": "Fernzugriff nur über die offiziell vorgesehenen IT-Supportwege erlauben."
+  },
+  "workplace-de-wrk-15": {
+    "title": "Firmenbank fordert angeblich Umleitung einer Überweisung",
+    "scenario": "Ein Anrufer gibt sich als Betrugsabteilung der Firmenbank aus und bittet die Buchhaltung, eine laufende Überweisung „zur Sicherheit“ auf ein anderes, vom Anrufer genanntes Konto umzuleiten.",
+    "answers": {
+      "B": "Auflegen und die Bank über die offizielle, unabhängig bekannte Firmenkundennummer selbst kontaktieren, bevor irgendeine Umleitung vorgenommen wird.",
+      "A": "Die Überweisung wie gewünscht auf das genannte Konto umleiten.",
+      "C": "Nach dem Namen und der Abteilung des Anrufers fragen und dann umleiten."
+    },
+    "explanation": "Eine Aufforderung, Geld auf ein unbekanntes Sicherheitskonto umzuleiten, ist ein deutliches Betrugswarnzeichen. Unterbrich die Zahlung und kontaktiere die Bank über eine selbst gewählte offizielle Nummer.",
+    "proTip": "Zahlungsänderungen unabhängig bei der Bank bestätigen lassen."
   }
 }
