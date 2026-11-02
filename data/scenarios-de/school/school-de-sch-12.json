@@ -1,7 +1,7 @@
 {
   "id": "school-de-sch-12",
   "lang": "de",
-  "title": "Die Testphase deiner Lern-App endet um Mitternacht",
+  "title": "Lern-App: angeblich verschwinden heute deine Fortschritte",
   "edition": "school",
   "cardType": "scenario",
   "scored": true,
@@ -20,8 +20,8 @@
   "safeActions": [
     "A"
   ],
-  "explanation": "Lernfortschritte gehen nicht verloren, weil eine Testphase endet, und Abo-Zahlungen laufen über die App oder den App-Store, nie über einen externen Link in einer Push-Nachricht.",
-  "proTip": "Ein Abo verwaltet man in der App — nie über einen fremden Zahlungslink.",
+  "explanation": "Eine unerwartete Zahlungsaufforderung mit kurzer Frist und externem Link ist verdächtig. Prüfe den tatsächlichen Abo-Status direkt in der App oder über die offizielle Aboverwaltung deines Geräts.",
+  "proTip": "Abonnements über die offizielle App oder den jeweiligen App-Store verwalten.",
   "hackKey": "H",
   "hackTrigger": "Hetze",
   "tags": [
