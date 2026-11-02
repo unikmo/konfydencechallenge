@@ -1,7 +1,7 @@
 {
   "id": "family-de-fam-28",
   "lang": "de",
-  "title": "Der Enkel mit dem kaputten Akku",
+  "title": "Enkeltrick: „Rate mal, wer hier ist“",
   "edition": "family",
   "cardType": "scenario",
   "scored": true,
@@ -20,8 +20,8 @@
   "safeActions": [
     "A"
   ],
-  "explanation": "Der Trick lebt davon, dass DU den Namen zuerst nennst — dann übernimmt der Anrufer ihn. Kontrollfragen lassen sich oft erraten oder umgehen; ein Rückruf auf der eigenen, gespeicherten Nummer nicht.",
-  "proTip": "Nenn nie zuerst den Namen — lass den Anrufer sagen, wer er ist.",
+  "explanation": "Wenn du selbst den Namen nennst, kann die unbekannte Person diese Information übernehmen. Lege auf und rufe deinen Enkel über eine gespeicherte Nummer an, bevor du Hilfe organisierst oder Geld schickst.",
+  "proTip": "Den Namen nicht vorsagen. Angehörige über bekannte Nummern zurückrufen.",
   "hackKey": "C",
   "hackTrigger": "Vertrautheit",
   "tags": [
