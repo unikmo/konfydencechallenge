@@ -1,7 +1,7 @@
 {
   "id": "family-de-fam-17",
   "lang": "de",
-  "title": "Die Kita will Gutscheinkarten für die Spendenaktion",
+  "title": "Kita-Leitung bittet angeblich um Gutscheinkarten",
   "edition": "family",
   "cardType": "scenario",
   "scored": true,
@@ -20,8 +20,8 @@
   "safeActions": [
     "B"
   ],
-  "explanation": "Die Kombination „dringend, aber gerade nicht erreichbar“ soll verhindern, dass du nachfragst. Ein Anruf bei der Kita klärt es in einer Minute.",
-  "proTip": "Wer „gerade in einer Besprechung“ ist, kann trotzdem später ans Telefon.",
+  "explanation": "Eine Nachricht unter dem Namen einer vertrauten Person kann gefälscht sein. Bestätige ungewöhnliche Kaufaufträge direkt bei der Kita, bevor du Gutscheine kaufst oder Codes verschickst.",
+  "proTip": "Geschenkkarten-Codes sind wie Bargeld: niemals ungeprüft weitergeben.",
   "hackKey": "A",
   "hackTrigger": "Autorität",
   "tags": [
