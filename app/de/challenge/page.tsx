@@ -4,7 +4,7 @@ import { PremiumPageDe } from "@/components/PremiumSiteChrome";
 
 export const metadata: Metadata = {
   title: { absolute: "Challenge | Konfydence" },
-  description: "Die Konfydence Challenge auf Deutsch — alle fünf Editionen, je 48 reale Betrugsszenarien.",
+  description: "Die Konfydence Challenge auf Deutsch — alle fünf Editionen, je 48 realistische Betrugssituationen.",
   alternates: { canonical: "/de/challenge", languages: { en: "https://konfydence.com/challenge", de: "https://konfydence.com/de/challenge" } },
 };
 
@@ -12,28 +12,28 @@ export const metadata: Metadata = {
 const VERFUEGBAR = [
   {
     key: "family",
-    label: "Familie-Edition",
-    text: "Enkeltrick, „Hallo Mama“-Betrug, falsche Polizei, Finanzamt-Phishing, Kleinanzeigen-Fallen und mehr — 48 Szenarien, kulturell für Deutschland geschrieben, nicht übersetzt.",
+    label: "Familien-Edition",
+    text: "Enkeltrick, „Hallo Mama“-Betrug, falsche Polizei, Finanzamt-Phishing, Kleinanzeigen-Fallen und mehr — 48 Szenarien, auf typische Situationen in Deutschland zugeschnitten.",
   },
   {
     key: "school",
-    label: "Schule-Edition",
-    text: "Discord- und Gaming-Betrug, WhatsApp-Klassenchat-Fallen, IServ-Phishing, Deepfakes und mehr — 48 Szenarien für Schüler:innen, kulturell für Deutschland geschrieben.",
+    label: "Schul-Edition",
+    text: "Discord- und Gaming-Betrug, WhatsApp-Klassenchat-Fallen, IServ-Phishing, Deepfakes und mehr — 48 Szenarien für Schüler:innen, auf den deutschen Alltag zugeschnitten.",
   },
   {
     key: "university",
-    label: "Universität-Edition",
-    text: "WG-Zimmer-Betrug, BAföG-Phishing, Ausländerbehörde-Impostoren, Hiwi-Jobs, Prüfungsamt-Fallen und mehr — 48 Szenarien für Studierende, kulturell für Deutschland geschrieben.",
+    label: "Hochschul-Edition",
+    text: "WG-Zimmer-Betrug, BAföG-Phishing, Betrüger, die sich als Mitarbeitende der Ausländerbehörde ausgeben, Hiwi-Jobs, Prüfungsamt-Fallen und mehr — 48 Szenarien für Studierende, auf den deutschen Alltag zugeschnitten.",
   },
   {
     key: "travelsafe",
     label: "TravelSafe-Edition",
-    text: "Ferienwohnungs-Betrug, ADAC-Impostoren, falsche Grenzpolizei, Zoll-Phishing, Geldautomaten-Fallen und mehr — 48 Szenarien für Reisende, kulturell für Deutschland geschrieben.",
+    text: "Ferienwohnungs-Betrug, Betrüger, die sich als ADAC-Mitarbeitende ausgeben, falsche Grenzpolizei, Zoll-Phishing, Geldautomaten-Fallen und mehr — 48 Szenarien für Reisende, auf den deutschen Alltag zugeschnitten.",
   },
   {
     key: "workplace",
-    label: "Arbeitsplatz-Edition",
-    text: "Chef-Betrug mit geänderter Bankverbindung, Deepfake-Anrufe der Geschäftsführung, IT-Support-Impostoren, DSGVO-Phishing und mehr — 48 Szenarien für den Berufsalltag, kulturell für Deutschland geschrieben.",
+    label: "Berufs-Edition",
+    text: "Chef-Betrug mit geänderter Bankverbindung, Deepfake-Anrufe der Geschäftsführung, falsche IT-Support-Anrufe, DSGVO-Phishing und mehr — 48 Szenarien für den Berufsalltag, auf den deutschen Alltag zugeschnitten.",
   },
 ];
 
