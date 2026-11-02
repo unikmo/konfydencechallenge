@@ -2,6 +2,7 @@ import Link from "next/link";
 import { tokens } from "@/lib/theme/tokens";
 
 export const metadata = {
+  alternates: { canonical: "/terms-of-service" },
   title: { absolute: "Terms of Service - Konfydence" },
   description: "Konfydence Terms of Service",
 };
