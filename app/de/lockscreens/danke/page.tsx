@@ -4,7 +4,7 @@ import { PremiumPageDe } from "@/components/PremiumSiteChrome";
 
 export const metadata: Metadata = {
   title: { absolute: "Danke | Konfydence Lockscreens" },
-  description: "Dein Konfydence-Lockscreens-Abo ist aktiv – schütze jetzt dein erstes Gerät.",
+  description: "Dein Zugang zu Konfydence Lockscreens ist aktiv. Richte jetzt den ersten Sperrbildschirm-Hinweis ein.",
   robots: { index: false, follow: false },
   alternates: {
     canonical: "/de/lockscreens/danke",
@@ -17,7 +17,7 @@ export default function LockscreensDankePage() {
     <PremiumPageDe ctaHref="/de/challenge" ctaLabel="Kostenlos ausprobieren">
       <section className="kg-narrow k-section" style={{ borderTop: 0, textAlign: "center", maxWidth: 640 }}>
         <p className="k-kicker">Abo aktiv</p>
-        <h1 className="k-display-sm">Schütze dein erstes Gerät.</h1>
+        <h1 className="k-display-sm">Richte den ersten Sicherheitshinweis ein.</h1>
         <p className="k-copy" style={{ margin: "18px auto 0" }}>
           Wähle das Gerät, das du am häufigsten nutzt, und richte den ersten Screen in unter einer Minute ein. Danach
           kommen die weiteren Geräte dran. Alle zwei Wochen schicken wir dir per E-Mail den nächsten Screen, denn die
