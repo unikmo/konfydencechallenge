@@ -1263,5 +1263,115 @@
     },
     "explanation": "Auch in einer vertrauten WG-Gruppe kann das Konto einer Person übernommen werden. Bestätige ungewöhnliche Zahlungsänderungen persönlich oder über einen bekannten Kontaktweg.",
     "proTip": "Neue Zahlungsadresse in der WG erst persönlich bestätigen lassen."
+  },
+  "travelsafe-de-tra-21": {
+    "title": "Flughafen-WLAN fragt nach deinem E-Mail-Passwort",
+    "scenario": "Das WLAN-Login am Flughafen verlangt statt der üblichen Zustimmung zu den Nutzungsbedingungen eine Anmeldung mit deinem vollen E-Mail-Passwort, um „personalisierte Angebote“ zu erhalten.",
+    "answers": {
+      "A": "Die Anmeldung mit dem E-Mail-Passwort verweigern; ein legitimes Gäste-WLAN braucht nie dein echtes E-Mail-Passwort.",
+      "B": "Sich mit dem E-Mail-Passwort anmelden, um WLAN zu bekommen.",
+      "C": "Ein leicht abgewandeltes Passwort verwenden."
+    },
+    "explanation": "Ein öffentliches WLAN kann eine Anmeldung verlangen, aber dein Passwort für einen bestehenden E-Mail-Account solltest du nicht auf einer fremden WLAN-Seite eingeben. Kläre den offiziellen Zugang beim Flughafen.",
+    "proTip": "Für öffentliches WLAN niemals das Passwort deines E-Mail-Kontos eingeben."
+  },
+  "travelsafe-de-tra-22": {
+    "title": "Angeblich offizielles Taxi am Flughafenausgang",
+    "scenario": "Direkt am Ausgang spricht dich jemand mit einem offiziell wirkenden Flughafenausweis an und bietet ein „offizielles“ Taxi zum Festpreis an, deutlich günstiger als der reguläre Taxistand.",
+    "answers": {
+      "C": "Nur an den offiziellen Taxistand oder eine geprüfte Taxi-App gehen; ein Ausweis am Ausgang beweist keine offizielle Taxi-Autorisierung.",
+      "A": "Mitgehen, weil der Ausweis offiziell wirkt und der Preis günstiger ist.",
+      "B": "Nach dem Preis fragen und dann trotzdem mitgehen."
+    },
+    "explanation": "Ein Flughafenausweis allein sagt nichts darüber aus, ob jemand zur Personenbeförderung berechtigt ist. Nutze den offiziellen Taxistand oder einen überprüften Fahrdienst.",
+    "proTip": "Taxifahrten am Flughafen über offizielle Halteplätze oder geprüfte Apps buchen."
+  },
+  "travelsafe-de-tra-23": {
+    "title": "Zoll: Paket angeblich nur gegen Guthabenkarte frei",
+    "scenario": "Eine Mail im Namen des Zolls sagt, ein an dich adressiertes Paket werde einbehalten, bis eine „Einfuhrabgabe“ von 15 € per Guthabenkarte über einen Link beglichen wird.",
+    "answers": {
+      "B": "Den Link ignorieren und den tatsächlichen Sendungsstatus direkt beim Zoll oder Versanddienst über die offizielle Nummer prüfen.",
+      "A": "Die Einfuhrabgabe sofort per Guthabenkarte über den Link zahlen.",
+      "C": "Nur die Hälfte der Gebühr über den Link zahlen."
+    },
+    "explanation": "Eine Aufforderung, Einfuhrabgaben mit Guthabenkarten zu bezahlen, ist verdächtig. Prüfe die Sendung bei Zoll oder Paketdienst über die offiziell veröffentlichten Kontaktwege.",
+    "proTip": "Zoll- und Einfuhrgebühren nur über bestätigte offizielle Zahlungswege bezahlen."
+  },
+  "travelsafe-de-tra-24": {
+    "title": "Angebliche Touristenpolizei verlangt sofort Kartenzahlung",
+    "scenario": "In einer belebten Altstadt hält dich jemand mit „Touristenpolizei“-Schild an und behauptet, du hättest gegen eine lokale Vorschrift verstoßen — das Bußgeld sei „nur mit Karte an diesem tragbaren Gerät“ zu zahlen.",
+    "answers": {
+      "C": "Um einen offiziellen, schriftlichen Bescheid bitten und den Vorfall bei der nächsten echten Polizeiwache oder über die Botschaft prüfen lassen, statt am tragbaren Gerät zu zahlen.",
+      "A": "Sofort mit Karte am tragbaren Gerät zahlen, um die Sache zu erledigen.",
+      "B": "Nach dem Dienstausweis fragen und dann zahlen."
+    },
+    "explanation": "Eine Kontrolle durch echte Behörden ist möglich. Lass dir bei einer unerwarteten Geldforderung jedoch die offizielle Grundlage, Zuständigkeit und einen Zahlungsbeleg nennen.",
+    "proTip": "Bei Geldforderungen an Urlaubsorten den offiziellen Zahlungsweg überprüfen."
+  },
+  "travelsafe-de-tra-25": {
+    "title": "Reisebüro bittet plötzlich erneut um deine Passkopie",
+    "scenario": "Ein Reisebüro, über das du schon öfter gebucht hast, bittet per Mail erneut um eine Passkopie „zur Aktualisierung der Unterlagen“, obwohl die Reise längst bestätigt und bezahlt ist.",
+    "answers": {
+      "B": "Beim Reisebüro persönlich oder telefonisch über die bekannte Nummer nachfragen, warum eine erneute Passkopie nötig sein soll, bevor du sie schickst.",
+      "A": "Die Passkopie sofort schicken, weil du dem Reisebüro schon oft vertraut hast.",
+      "C": "Nur eine teilweise geschwärzte Passkopie schicken."
+    },
+    "explanation": "Auch eine Anfrage von einem bekannten Reisebüro kann gefälscht sein. Prüfe über einen bereits bekannten Kontakt, ob die zusätzliche Kopie erforderlich ist und wie sie sicher übermittelt werden soll.",
+    "proTip": "Ausweiskopien nur bei nachvollziehbarem Bedarf und über sichere Wege weitergeben."
+  },
+  "workplace-de-wrk-21": {
+    "title": "Vorstand fordert vertrauliche Gesellschafterdaten",
+    "scenario": "Eine Mail, angeblich von einem Vorstandsmitglied, bittet dringend und vertraulich um die aktuelle Gesellschafterliste und Beteiligungsdetails, „für ein Gespräch mit einem Investor heute Nachmittag“.",
+    "answers": {
+      "C": "Die Anfrage direkt beim Vorstandsmitglied über eine bekannte, unabhängige Nummer bestätigen, bevor vertrauliche Gesellschafterdaten verschickt werden.",
+      "A": "Die Liste sofort schicken, weil die Anfrage von einem Vorstandsmitglied kommt.",
+      "B": "Nach dem Namen des Investors fragen und dann schicken."
+    },
+    "explanation": "Auch eine E-Mail aus einem vertrauten Führungskräftekonto kann manipuliert sein. Bestätige ungewöhnliche Datenanforderungen unabhängig und beachte die Freigabe- und Vertraulichkeitsregeln.",
+    "proTip": "Vertrauliche Unternehmensdaten nicht allein auf Basis einer dringenden E-Mail versenden."
+  },
+  "workplace-de-wrk-22": {
+    "title": "Bank ruft an: angeblich ist eine Testüberweisung nötig",
+    "scenario": "Ein Anrufer, angeblich von der Betrugsprävention der Bank, bittet die Buchhaltung, eine kleine „Testzahlung“ an ein neues Konto zu senden, um „die Sicherheit des Kontos zu überprüfen“.",
+    "answers": {
+      "B": "Auflegen und die Bank über die offizielle Firmenkundennummer selbst kontaktieren; keine Testzahlung an ein vom Anrufer genanntes Konto senden.",
+      "A": "Die Testzahlung senden, um bei der Sicherheitsprüfung zu helfen.",
+      "C": "Nur einen sehr kleinen Betrag als Testzahlung senden."
+    },
+    "explanation": "Eine Überweisung bleibt eine echte Zahlung, auch wenn der Anrufer sie „Test“ nennt. Beende das Gespräch und kläre das Anliegen über deine bekannte Bankverbindung oder Firmenbankkontakte.",
+    "proTip": "Überweisungen auf neue Konten nicht zur angeblichen Sicherheitsprüfung durchführen."
+  },
+  "workplace-de-wrk-23": {
+    "title": "HR-Kontakt schreibt plötzlich von neuer Adresse",
+    "scenario": "Die HR-Partnerin, mit der du seit Jahren zusammenarbeitest, schreibt aus einer neuen, unbekannten E-Mail-Adresse und bittet dringend um eine Liste mit Gehalts- und Kontodaten von Mitarbeitenden.",
+    "answers": {
+      "B": "Sie über die bekannte, alte E-Mail-Adresse oder telefonisch fragen, warum sie von einer neuen Adresse schreibt, bevor sensible Daten geschickt werden.",
+      "A": "Die Daten sofort schicken, weil man die Person seit Jahren kennt.",
+      "C": "Nur einen Teil der Daten schicken."
+    },
+    "explanation": "Eine neue Absenderadresse ist bei einer sensiblen Datenanforderung ein Warnzeichen. Bestätige die Anfrage über die bekannten Kontaktdaten und prüfe die interne Berechtigung.",
+    "proTip": "Gehalts- und Kontodaten nur über genehmigte HR-Prozesse teilen."
+  },
+  "workplace-de-wrk-24": {
+    "title": "DSGVO-Auskunft: sofort alle Personendaten verschicken?",
+    "scenario": "Eine E-Mail, angeblich eine Auskunftsanfrage nach Art. 15 DSGVO, verlangt sofort alle gespeicherten Daten zu einer bestimmten Person, ohne den üblichen internen Datenschutzprozess zu durchlaufen.",
+    "answers": {
+      "C": "Die Anfrage über den internen Datenschutzbeauftragten bearbeiten lassen — auch eine DSGVO-Anfrage läuft über den etablierten Prozess, nicht per direkter Sofortauskunft.",
+      "A": "Alle Daten sofort direkt an die anfragende Person schicken.",
+      "B": "Nur einen Teil der Daten sofort schicken."
+    },
+    "explanation": "Auskunftsanfragen nach Art. 15 DSGVO müssen ernst genommen werden. Identität, Umfang und rechtliche Fristen sind jedoch sorgfältig zu prüfen. Leite die Anfrage an die zuständige Datenschutzstelle weiter, statt Daten sofort herauszugeben.",
+    "proTip": "Datenschutzanfragen über das festgelegte interne Verfahren bearbeiten."
+  },
+  "workplace-de-wrk-25": {
+    "title": "Echter E-Mail-Verlauf, aber plötzlich eine neue IBAN",
+    "scenario": "In einem langen, echten E-Mail-Verlauf mit einem bekannten Lieferanten taucht plötzlich eine neue Nachricht auf: Die Bankverbindung habe sich geändert, bitte die nächste Zahlung auf das neue Konto überweisen.",
+    "answers": {
+      "C": "Die neue Kontoverbindung über eine unabhängig bekannte Telefonnummer beim Lieferanten bestätigen lassen, auch wenn der E-Mail-Verlauf echt und lange bekannt ist.",
+      "A": "Auf das neue Konto überweisen, weil der gesamte E-Mail-Verlauf echt aussieht.",
+      "B": "Nur einen Teilbetrag auf das neue Konto überweisen."
+    },
+    "explanation": "Ein langer, bekannter E-Mail-Verlauf kann auch nach einer Kontoübernahme weitergeführt werden. Bestätige neue Bankdaten unabhängig über bekannte Kontaktdaten und halte die Freigaben ein.",
+    "proTip": "Neue Kontoverbindungen trotz vertrautem E-Mail-Verlauf separat überprüfen."
   }
 }
