@@ -136,7 +136,7 @@
     "scenario": "Am Flughafen Frankfurt erhältst du eine SMS: Dein aufgegebener Koffer sei falsch zugeordnet worden. Angeblich wird er in zwölf Minuten endgültig aussortiert, wenn du deine Buchungsdaten und Kreditkartendaten nicht sofort über einen Link bestätigst.",
     "answers": {
       "A": "Den Link nicht öffnen und direkt bei der Fluggesellschaft über die offizielle App, Website oder am Serviceschalter nachfragen.",
-      "B": "Sofort über den Link die Daten bestätigen, um das Gepäck zu retten.",
+      "B": "Die verlangten Daten sofort über den Link eingeben, damit der Koffer nicht aussortiert wird.",
       "C": "Nur die Buchungsnummer eingeben, aber keine Kartendaten."
     },
     "explanation": "Die SMS könnte gefälscht sein. Prüfe bei der Fluggesellschaft über die offizielle App, Website oder am Serviceschalter, ob es tatsächlich ein Problem mit deinem Gepäck gibt. Gib deine Kartendaten nicht über den Link aus der Nachricht ein.",
@@ -148,7 +148,7 @@
     "answers": {
       "A": "Nur über den vorgesehenen Zahlungsweg der Buchungsplattform bezahlen und die Bedingungen für Käuferschutz prüfen.",
       "B": "Sofort per Überweisung an die Vermieterin zahlen, um die Wohnung zu sichern.",
-      "C": "Nur eine kleine Anzahlung per Überweisung leisten."
+      "C": "Nur eine kleine Anzahlung direkt auf das Privatkonto überweisen."
     },
     "explanation": "Eine Zahlungsaufforderung außerhalb der Buchungsplattform ist ein deutliches Warnzeichen. Prüfe die Buchung über dein Plattformkonto und nutze nur die dort vorgesehenen Zahlungswege. Achte zusätzlich auf die jeweiligen Bedingungen für Käuferschutz und Rückerstattungen.",
     "proTip": "Verlasse für die Bezahlung nicht einfach den offiziellen Buchungs- und Zahlungsweg der Plattform."
@@ -606,7 +606,7 @@
   },
   "travelsafe-de-tra-11": {
     "title": "Panne im Ausland: angeblicher ADAC-Anruf mit Zahlungsdruck",
-    "scenario": "Nach einer Panne im Ausland ruft angeblich der ADAC an: Die Abschleppkosten müssten sofort per Kartendaten am Telefon beglichen werden, sonst werde das Fahrzeug „von der örtlichen Polizei beschlagnahmt“.",
+    "scenario": "Nach einer Panne im Ausland ruft jemand an und gibt sich als ADAC-Mitarbeiter aus. Du sollst sofort deine Kartendaten durchgeben, um Abschleppkosten zu bezahlen. Andernfalls werde die örtliche Polizei das Fahrzeug angeblich beschlagnahmen.",
     "answers": {
       "C": "Auflegen und den ADAC über die offizielle Nummer auf deiner Mitgliedskarte oder in der ADAC-App selbst kontaktieren.",
       "A": "Die Kartendaten sofort am Telefon durchgeben, um die Beschlagnahmung zu vermeiden.",
@@ -990,14 +990,14 @@
     "proTip": "Geänderte Mietkonten immer über einen bereits bekannten Kontakt bestätigen lassen."
   },
   "travelsafe-de-tra-16": {
-    "title": "Sicherheitskontrolle: angeblich Handy zur Identitätsprüfung entsperren",
-    "scenario": "Nach der Sicherheitskontrolle meldet sich jemand mit Ausweis und sagt, dein Tablet sei liegen geblieben — du müsstest aber zur „Identitätsprüfung“ kurz dein Handy entsperren und ihm zeigen.",
+    "title": "Am Flughafen: Handy angeblich zur Identitätsprüfung entsperren",
+    "scenario": "Nach der Sicherheitskontrolle spricht dich jemand an, zeigt einen Ausweis und behauptet, dein verlorenes Tablet sei gefunden worden. Zur „Identitätsprüfung“ sollst du dein Handy entsperren und der Person geben.",
     "answers": {
-      "A": "Das Handy nicht entsperren und stattdessen direkt zum offiziellen Fundbüro des Sicherheitsbereichs gehen, um das Tablet dort abzuholen.",
+      "A": "Das Handy nicht aushändigen oder entsperren. Stattdessen beim offiziellen Fundbüro oder bei überprüfbarem Flughafenpersonal nachfragen, wie du das Tablet zurückbekommst.",
       "B": "Das Handy entsperren und zeigen, um das Tablet zurückzubekommen.",
       "C": "Nur den Sperrbildschirm zeigen, ohne zu entsperren."
     },
-    "explanation": "Ein Ausweis oder eine Uniform allein beweist nicht, dass die Bitte berechtigt ist. Erkundige dich bei der offiziellen Fundstelle oder beim Flughafenpersonal, welche Angaben für die Rückgabe benötigt werden.",
+    "explanation": "Ein vorgezeigter Ausweis allein beweist nicht, dass diese Aufforderung berechtigt ist. Wende dich an das offizielle Fundbüro oder überprüfbares Flughafenpersonal und kläre dort, welche Angaben tatsächlich benötigt werden.",
     "proTip": "Bei unerwarteten Aufforderungen zur Geräteentsperrung erst die Berechtigung prüfen."
   },
   "travelsafe-de-tra-17": {
@@ -1015,11 +1015,11 @@
     "title": "Nach dem Mietwagenunfall: angeblicher Polizeilink",
     "scenario": "Nach einem kleinen Parkschaden am Mietwagen schickt eine angebliche örtliche Polizeidienststelle einen Link, über den du „den Bericht bestätigen und die Kaution online freigeben“ sollst.",
     "answers": {
-      "A": "Den Link ignorieren und den Vorfall direkt über die Mietwagenfirma und die tatsächlich vor Ort aufgenommene Anzeige klären.",
+      "A": "Den Link nicht öffnen. Den Parkschaden direkt bei der Mietwagenfirma melden und gegebenenfalls bei der zuständigen Polizeidienststelle nachfragen.",
       "B": "Über den Link den Bericht bestätigen und die Kaution freigeben.",
       "C": "Den Link öffnen, aber nur den Bericht lesen, ohne etwas freizugeben."
     },
-    "explanation": "Ein unerwarteter Link, über den du einen Polizeibericht bestätigen und zugleich eine Kaution freigeben sollst, ist verdächtig. Prüfe den Vorgang getrennt bei der Polizei und der Mietwagenfirma.",
+    "explanation": "Eine Nachricht, die dich zur Bestätigung eines Polizeiberichts und zur Freigabe der Mietwagenkaution über denselben Link auffordert, ist verdächtig. Kläre den Schaden unabhängig mit dem Vermieter und – falls erforderlich – mit der Polizei.",
     "proTip": "Polizeiberichte und Mietwagenkautionen nur über bestätigte offizielle Wege abwickeln."
   },
   "travelsafe-de-tra-19": {
@@ -1268,11 +1268,11 @@
     "title": "Flughafen-WLAN fragt nach deinem E-Mail-Passwort",
     "scenario": "Das WLAN-Login am Flughafen verlangt statt der üblichen Zustimmung zu den Nutzungsbedingungen eine Anmeldung mit deinem vollen E-Mail-Passwort, um „personalisierte Angebote“ zu erhalten.",
     "answers": {
-      "A": "Die Anmeldung mit dem E-Mail-Passwort verweigern; ein legitimes Gäste-WLAN braucht nie dein echtes E-Mail-Passwort.",
+      "A": "Das Passwort deines E-Mail-Kontos nicht auf der WLAN-Seite eingeben. Frage beim Flughafen nach dem offiziellen Zugang.",
       "B": "Sich mit dem E-Mail-Passwort anmelden, um WLAN zu bekommen.",
       "C": "Ein leicht abgewandeltes Passwort verwenden."
     },
-    "explanation": "Ein öffentliches WLAN kann eine Anmeldung verlangen, aber dein Passwort für einen bestehenden E-Mail-Account solltest du nicht auf einer fremden WLAN-Seite eingeben. Kläre den offiziellen Zugang beim Flughafen.",
+    "explanation": "Ein öffentliches WLAN kann eine Anmeldung verlangen, aber nicht dein Passwort für ein bestehendes E-Mail-Konto. Gib es auf einer unbekannten WLAN-Seite nicht ein und kläre den Zugang beim Flughafen.",
     "proTip": "Für öffentliches WLAN niemals das Passwort deines E-Mail-Kontos eingeben."
   },
   "travelsafe-de-tra-22": {
