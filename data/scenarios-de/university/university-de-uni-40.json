@@ -8,7 +8,7 @@
   "category": "Aufgaben-Betrug",
   "scenario": "Bei einem angeblichen Nebenjob „einfache Online-Aufgaben erledigen“ zeigt eine App ein Guthaben von 480 €, das aber erst durch eine „Freischaltungsgebühr“ von 60 € ausgezahlt werden kann.",
   "answers": {
-    "A": "Nicht zahlen und die App löschen; ein angezeigtes Guthaben, das erst durch eigene Zahlung „freigeschaltet“ werden muss, ist kein echtes Geld.",
+    "A": "Die Gebühr nicht überweisen und das Jobangebot sowie den Anbieter unabhängig überprüfen. Angezeigte App-Guthaben sind kein Nachweis für echtes Geld.",
     "B": "Die 60 € zahlen, um die 480 € zu bekommen.",
     "C": "Nur die Hälfte der Gebühr zahlen, um zu testen, ob es funktioniert."
   },
@@ -20,7 +20,7 @@
   "safeActions": [
     "A"
   ],
-  "explanation": "Ein „Guthaben“, das man erst durch eigene Vorabzahlung freischalten muss, existiert nur in der App-Anzeige — echtes Geld wird nie so ausgezahlt.",
+  "explanation": "Bei betrügerischen Aufgaben-Apps wird häufig ein scheinbares Guthaben angezeigt, das erst nach einer eigenen Zahlung ausgezahlt werden soll. Lass dich von der hohen Summe nicht unter Druck setzen und prüfe das Angebot unabhängig.",
   "proTip": "Ein Guthaben, das eine Gebühr braucht, um „frei“ zu werden, ist nie echt.",
   "hackKey": "K",
   "hackTrigger": "Notbremse",
@@ -30,5 +30,6 @@
     "task-scams",
     "advance-fee"
   ],
-  "active": true
+  "active": true,
+  "tip": "Bei einer vermeintlichen Auszahlung gegen Vorauszahlung besonders vorsichtig sein."
 }
