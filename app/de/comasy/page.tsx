@@ -23,7 +23,7 @@ export const metadata: Metadata = {
 const faqs = [
   [
     "Ersetzt CoMaSy unser LMS oder unsere Phishing-Plattform?",
-    "Nein. CoMaSy ist als ergänzende Entscheidungssimulations-Ebene konzipiert. Ein Pilot kann neben eurem bestehenden Awareness-Programm laufen, ohne eine Plattformablösung zu erfordern.",
+    "Nein. CoMaSy ergänzt bestehende Sicherheitsschulungen durch realistische Entscheidungsübungen. Für ein Pilotprojekt ist kein Wechsel eures Schulungsanbieters nötig.",
   ],
   [
     "Was misst CoMaSy?",
@@ -112,7 +112,7 @@ export default function ComasyPageDe() {
             <h2 className="k-display-sm">Verstehen, wie Mitarbeitende entscheiden.</h2>
           </div>
           <p className="k-copy">
-            Die Oberfläche ist um Beweise herum gestaltet, nicht um Verdacht. Eine vertraute Person kann echt sein, während eine bestimmte Nachricht, ein Kanal oder eine Handlung kompromittiert ist. CoMaSy trainiert Verifizierung, ohne pauschales Misstrauen zu lehren.
+            Die Übungen setzen auf überprüfbare Informationen statt auf bloßen Verdacht. Auch wenn eine Person bekannt ist, kann eine einzelne Nachricht gefälscht sein. CoMaSy trainiert deshalb, Aufforderungen unabhängig zu überprüfen.
           </p>
         </div>
 
@@ -126,10 +126,10 @@ export default function ComasyPageDe() {
             <div className="k-event"><span>09:19 · Unabhängiger Anruf abgeraten</span><em>Notbremse</em></div>
           </article>
           <article className="k-dashboard-main">
-            <small>Beispielhaftes Reporting-Modell · keine echten Kundendaten</small>
+            <small>Beispiel einer Auswertung · keine echten Kundendaten</small>
             <div className="k-metrics">
               <div className="k-metric"><strong>72%</strong><span>Beispiel: Innehalten-Quote</span></div>
-              <div className="k-metric"><strong>67%</strong><span>Beispiel: unabhängige Verifizierung</span></div>
+              <div className="k-metric"><strong>67%</strong><span>Beispiel: unabhängig überprüfte Anfragen</span></div>
               <div className="k-metric"><strong>18%</strong><span>Beispiel: risikoreicher Impuls</span></div>
               <div className="k-metric"><strong>4</strong><span>Druckmuster-Dimensionen</span></div>
             </div>
@@ -162,7 +162,7 @@ export default function ComasyPageDe() {
             <p className="k-kicker">Mit einem Pilot starten</p>
             <h2 className="k-display-sm">Prüft erst, ob das Training einen messbaren Nutzen bringt.</h2>
             <p className="k-copy">
-              Der erste CoMaSy-Schritt ist bewusst begrenzt. Kohorte und Risikofokus festlegen, eine Baseline erstellen, gezieltes Entscheidungstraining durchführen, eine Post-Variante vergleichen und entscheiden: skalieren, anpassen oder stoppen.
+              Ein CoMaSy-Pilotprojekt beginnt mit einer kleinen Gruppe und klaren Risikothemen. Wir messen die Entscheidungen vor und nach dem Training und besprechen anschließend, ob ihr das Angebot ausweiten, anpassen oder beenden möchtet.
             </p>
             <div className="k-actions">
               <Link className="k-button-gold" href="/de/comasy/pilotprojekt">Pilotprojekt anfragen</Link>
@@ -170,8 +170,8 @@ export default function ComasyPageDe() {
             </div>
           </div>
           <div className="k-pilot-list">
-            <span>01 · Kohorte und Risikofokus vereinbaren</span>
-            <span>02 · Baseline erstellen</span>
+            <span>01 · Teilnehmergruppe und Risikothemen festlegen</span>
+            <span>02 · Ausgangsmessung durchführen</span>
             <span>03 · Gezieltes Entscheidungstraining durchführen</span>
             <span>04 · Post-Variante auswerten</span>
             <span>05 · Skalieren / anpassen / stoppen</span>
@@ -185,7 +185,7 @@ export default function ComasyPageDe() {
             <p className="k-kicker">Häufige Fragen für Unternehmen</p>
             <h2 className="k-display-sm">Was CoMaSy leistet – und wo die Grenzen liegen.</h2>
           </div>
-          <p className="k-copy">Klare Grenzen sind Teil des Produkts: CoMaSy ergänzt bestehende Awareness-Programme und gibt keine eigenständigen Compliance-Garantien.</p>
+          <p className="k-copy">CoMaSy ergänzt vorhandene Sicherheitsschulungen. Die Ergebnisse allein belegen nicht, dass eure Organisation alle gesetzlichen Anforderungen erfüllt.</p>
         </div>
         <div className="k-two-paths">
           <article className="k-path" style={{minHeight: "420px"}}>
