@@ -1,7 +1,7 @@
 {
   "id": "family-de-fam-12",
   "lang": "de",
-  "title": "Deine Auto-Garantie läuft heute ab",
+  "title": "Autogarantie: angeblich nur heute noch verlängerbar",
   "edition": "family",
   "cardType": "scenario",
   "scored": true,
@@ -20,8 +20,8 @@
   "safeActions": [
     "C"
   ],
-  "explanation": "Herstellergarantien laufen nicht plötzlich „heute“ ab und werden nicht per Karte am Telefon verkauft. Der Händler oder Hersteller kennt den echten Garantiestatus sofort.",
-  "proTip": "Der Hersteller kennt deine Garantie besser als ein Kaltanrufer.",
+  "explanation": "Ein unerwarteter Anruf mit einem einmaligen Angebot und einer sofortigen Kartenforderung ist verdächtig. Prüfe den tatsächlichen Garantieumfang und die Laufzeit direkt beim Hersteller oder Autohaus.",
+  "proTip": "Garantiefristen und Angebote über die offiziellen Kontaktdaten des Herstellers prüfen.",
   "hackKey": "H",
   "hackTrigger": "Hetze",
   "tags": [
