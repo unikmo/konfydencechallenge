@@ -15,11 +15,11 @@ export default function KontaktPage() {
 
 const HEADINGS: Record<string, { title: string; intro: string }> = {
   "schools-teams": {
-    title: "Konfydence in eure Organisation bringen",
+    title: "Konfydence für eure Organisation",
     intro: "Erzählt uns, wen ihr schulen wollt und was ihr braucht. Wir besprechen mit euch den passenden Einsatz für Schule, Universität oder Arbeitsplatz.",
   },
   organization: {
-    title: "Konfydence in eure Organisation bringen",
+    title: "Konfydence für eure Organisation",
     intro: "Erzählt uns, wen ihr schulen wollt und was ihr braucht. Wir besprechen mit euch den passenden Einsatz für Schule, Universität oder Arbeitsplatz.",
   },
   "travel-check-in": {
@@ -28,19 +28,19 @@ const HEADINGS: Record<string, { title: string; intro: string }> = {
   },
   "lockscreens-home": {
     title: "Konfydence Lockscreens – Zuhause",
-    intro: "Kasse und Geräte-Einrichtung sind noch in Vorbereitung. Hinterlass deine Daten, dann melden wir uns zum Start bei dir.",
+    intro: "Bezahlung und Einrichtung sind noch in Vorbereitung. Hinterlass deine Daten, dann melden wir uns zum Start bei dir.",
   },
   "lockscreens-teen": {
     title: "Konfydence Lockscreens – Teen Home",
-    intro: "Kasse und Geräte-Einrichtung sind noch in Vorbereitung. Hinterlass deine Daten, dann melden wir uns zum Start bei dir.",
+    intro: "Bezahlung und Einrichtung sind noch in Vorbereitung. Hinterlass deine Daten, dann melden wir uns zum Start bei dir.",
   },
   "lockscreens-schools": {
     title: "Konfydence Lockscreens für Schulen",
-    intro: "Schreibt uns, wie viele verwaltete Rechner ihr abdecken möchtet und welches MDM ihr nutzt, dann schicken wir euch ein Angebot.",
+    intro: "Schreibt uns, wie viele verwaltete Rechner ihr abdecken möchtet und wie ihr eure Geräte verwaltet, dann schicken wir euch ein Angebot.",
   },
   "lockscreens-workplace": {
     title: "Konfydence Lockscreens für euren Arbeitsplatz",
-    intro: "Nennt uns eure Mitarbeiterzahl und euer MDM, dann schicken wir euch ein Angebot pro Platz ($4 pro Mitarbeitenden und Jahr, mindestens $300).",
+    intro: "Nennt uns die Zahl eurer Mitarbeitenden und eure Geräteverwaltung, dann schicken wir euch ein Angebot pro Mitarbeitenden ($4 pro Mitarbeitenden und Jahr, mindestens $300).",
   },
   general: {
     title: "Schreib uns",
