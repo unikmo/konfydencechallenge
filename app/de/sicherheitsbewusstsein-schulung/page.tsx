@@ -3,7 +3,7 @@ import { ComasyIntentPage } from "@/components/ComasyIntentPage";
 
 export const metadata: Metadata = {
   title: { absolute: "Schulung zur IT-Sicherheit, die Entscheidungen misst | CoMaSy" },
-  description: "CoMaSy ergänzt Schulung zur IT-Sicherheiten um realistische Entscheidungssimulationen, die Innehalten, Überprüfung und Eskalationsverhalten unter Druck messen.",
+  description: "CoMaSy ergänzt Sicherheitsschulungen um realistische Entscheidungssimulationen, die Innehalten, Überprüfung und Eskalationsverhalten unter Druck messen.",
   alternates: {
     canonical: "/de/sicherheitsbewusstsein-schulung",
     languages: { en: "https://konfydence.com/security-awareness-training", de: "https://konfydence.com/de/sicherheitsbewusstsein-schulung" },
@@ -15,7 +15,7 @@ export default function Page() {
     lang="de"
     eyebrow="SICHERHEITSSCHULUNG"
     title="Sicherheitsregeln kennen reicht nicht. Man muss sie auch unter Druck anwenden können."
-    intro="CoMaSy ergänzt bestehende Schulung zur IT-Sicherheiten um kurze Entscheidungssimulationen, zu Zeitdruck, vorgetäuschter Autorität, vertrauten Absendern und erschwerter Überprüfung. Gedacht für Organisationen, die bereits schulen, aber besser verstehen möchten, wie Mitarbeitende in schwierigen Situationen entscheiden."
+    intro="CoMaSy ergänzt bestehende Sicherheitsschulungen um kurze Entscheidungssimulationen, zu Zeitdruck, vorgetäuschter Autorität, vertrauten Absendern und erschwerter Überprüfung. Gedacht für Organisationen, die bereits schulen, aber besser verstehen möchten, wie Mitarbeitende in schwierigen Situationen entscheiden."
     problemTitle="Eine abgeschlossene Schulung zeigt noch nicht, ob Mitarbeitende im Ernstfall richtig handeln."
     problemCopy="Im Arbeitsalltag geht es selten um eine Quizfrage. Es ist eine dringende Zahlungsanweisung, ein vertrauter Account, der sich seltsam verhält, ein Lieferantenwechsel oder eine Führungskraft, die um eine Ausnahme bittet. CoMaSy übt den Entscheidungsprozess genau in diesen Momenten."
     sections={[
