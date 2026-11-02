@@ -1,12 +1,12 @@
 {
   "id": "family-de-fam-02",
   "lang": "de",
-  "title": "In 30 Minuten ist der Strom weg",
+  "title": "Stromsperre in 30 Minuten?",
   "edition": "family",
   "cardType": "scenario",
   "scored": true,
   "category": "Energieversorger",
-  "scenario": "Ein Anruf sagt, dein Stromkonto sei überfällig und werde in 30 Minuten abgeklemmt. Der Betrag klingt realistisch. Man bietet an, die Sperre „aufzuhalten“, wenn du sofort per Überweisung oder Guthabenkarte zahlst.",
+  "scenario": "Am Telefon behauptet jemand, du hättest deine Stromrechnung nicht bezahlt. In 30 Minuten werde der Strom abgestellt. Der genannte Betrag klingt plausibel. Die Sperre lasse sich angeblich nur durch eine sofortige Überweisung oder Zahlung mit einer Guthabenkarte verhindern.",
   "answers": {
     "A": "Nach Kundennummer und offenem Betrag fragen und beides mit deiner letzten Rechnung abgleichen, bevor du irgendetwas tust.",
     "B": "Zahlen, wenn der Betrag zu deinem üblichen Monatsabschlag passt, und notfalls später widersprechen.",
@@ -21,8 +21,8 @@
     "A",
     "C"
   ],
-  "explanation": "Zeitdruck plus ein glaubwürdiger Betrag erzeugt falsche Sicherheit. Ein echter Grundversorger sperrt nicht binnen 30 Minuten und verlangt keine Guthabenkarten. Prüfe die Forderung unabhängig, bevor du zahlst.",
-  "proTip": "Ein vertrauter Rechnungsbetrag ist kein Beweis für einen echten Anrufer.",
+  "explanation": "Eine Stromsperre wird nicht einfach telefonisch mit 30 Minuten Vorlauf angekündigt. Die Zahlungsforderung unter Zeitdruck ist ein Warnzeichen. Prüfe unabhängig beim Versorger, ob tatsächlich ein Betrag offen ist.",
+  "proTip": "Prüfe offene Stromrechnungen über dein Kundenkonto oder die Kontaktdaten auf deiner Rechnung.",
   "hackKey": "H",
   "hackTrigger": "Hetze",
   "tags": [
