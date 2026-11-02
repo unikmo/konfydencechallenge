@@ -20,7 +20,7 @@
   "safeActions": [
     "B"
   ],
-  "explanation": "Eine echte Verbindung braucht keine gemeinsame Geldanlage, um zu wachsen — das ist ein bekanntes Muster romantisch getarnter Investment-Betrugsmaschen.",
+  "explanation": "Manche Betrugsversuche beginnen mit einer scheinbar persönlichen oder romantischen Beziehung. Wenn dich eine neue Bekanntschaft zu einer Geldanlage drängt, solltest du den Anbieter und die Risiken unabhängig prüfen.",
   "proTip": "Wer dich zuerst verliebt und dann investieren lässt, will dein Geld, nicht dein Herz.",
   "hackKey": "C",
   "hackTrigger": "Vertrautheit",
@@ -30,5 +30,6 @@
     "romance-abroad",
     "romance-scam"
   ],
-  "active": true
+  "active": true,
+  "tip": "Neue Bekanntschaft und plötzlich ein Anlagetipp? Erst unabhängig prüfen."
 }
