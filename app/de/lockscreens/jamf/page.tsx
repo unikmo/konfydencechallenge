@@ -38,11 +38,11 @@ export default function Page() {
       sections={[
         {
           title: "Bildformate für Mac und iPad",
-          copy: "Notebook 16:10 für MacBooks, Tablet-Querformat und -Hochformat für iPad. Jeder Screen ist für das Gerät zugeschnitten, damit der Text hinter Uhr und Bedienelementen lesbar bleibt.",
+          copy: "Notebook 16:10 für MacBooks, Tablet-Querformat und -Hochformat für iPad. Jedes Bild ist auf das jeweilige Gerät abgestimmt, damit der Text hinter Uhr und Bedienelementen lesbar bleibt.",
         },
         {
           title: "Regelmäßig aktualisiert",
-          copy: "Richtet die Hintergrundbild-Richtlinie auf die Konfydence-Resolver-URL. Das dahinterliegende Bild ändert sich alle zwei Wochen; verwaltete Geräte übernehmen es beim nächsten Check-in.",
+          copy: "Richtet die Hintergrundbild-Richtlinie auf die Konfydence-Resolver-URL. Das dahinterliegende Bild ändert sich alle zwei Wochen; verwaltete Geräte übernehmen es bei der nächsten Synchronisierung.",
         },
         {
           title: "Auch für Schulen gebaut",
@@ -50,7 +50,7 @@ export default function Page() {
         },
       ]}
       howTitle="Ein Profil, dann hält Konfydence es frisch."
-      howCopy="Ihr verwaltet die Jamf-Richtlinie; Konfydence verwaltet den Content-Kalender und die Renderings. Die URL ändert sich nie, sodass das Profil nie wieder angefasst werden muss."
+      howCopy="Ihr verwaltet die Jamf-Richtlinie; Konfydence verwaltet den Redaktionsplanung und die Bildformate. Die URL ändert sich nie, sodass das Profil nie wieder angefasst werden muss."
       howSteps={[
         "Kauft eine Arbeitsplatz- oder Schulen-Lizenz.",
         "Fügt in Jamf Pro oder Jamf School ein Wallpaper-Payload (oder eine Sperrbildschirm-Bild-Richtlinie) hinzu, das auf die Konfydence-Resolver-URL zeigt.",
