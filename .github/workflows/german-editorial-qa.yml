@@ -1,0 +1,20 @@
+name: German Scenario Editorial QA
+on:
+  push:
+    branches: [main]
+    paths:
+      - "data/scenarios-de/**"
+      - "scripts/verify-german-editorial.cjs"
+      - ".github/workflows/german-editorial-qa.yml"
+  pull_request:
+    paths:
+      - "data/scenarios-de/**"
+      - "scripts/verify-german-editorial.cjs"
+      - ".github/workflows/german-editorial-qa.yml"
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check German scenario bank, scoring and editorial overrides
+        run: node scripts/verify-german-editorial.cjs
