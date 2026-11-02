@@ -38,7 +38,7 @@ const flow = [
 export default async function SchulPilotPage({ searchParams }: { searchParams: Promise<Record<string, string | undefined>> }) {
   const q = await searchParams;
   return (
-    <PremiumPageDe ctaHref="#anfrage" ctaLabel="Schul-Pilotprojekt anfragen">
+    <PremiumPageDe ctaHref="#anfrage" ctaLabel="Pilot anfragen">
       <section className="kg-shell kc-pilot">
         <div className="kc-pilot-intro">
           <p className="k-kicker">Schul-Pilotprojekt · 12 bis 18 Jahre</p>

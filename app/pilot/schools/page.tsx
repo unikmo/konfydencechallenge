@@ -35,7 +35,7 @@ const flow = [
 export default async function SchoolPilotPage({ searchParams }: { searchParams: Promise<Record<string, string | undefined>> }) {
   const q = await searchParams;
   return (
-    <PremiumPage ctaHref="#request" ctaLabel="Request a school pilot">
+    <PremiumPage ctaHref="#request" ctaLabel="Request a pilot">
       <section className="kg-shell kc-pilot">
         <div className="kc-pilot-intro">
           <p className="k-kicker">School pilots · ages 12–18</p>
