@@ -62,8 +62,8 @@ function EinloesenContent() {
     return (
       <section className="kg-shell kc-hero is-narrow" style={{ paddingBottom: 48 }}>
         <p className="k-kicker">Geschenk eingelöst</p>
-        <h1>Du bist dabei.</h1>
-        <p>Du hast jetzt Zugriff auf {what}. Der Zugang gilt für diesen Browser – leg los, wann du möchtest.</p>
+        <h1>Dein Geschenk ist freigeschaltet.</h1>
+        <p>Du hast jetzt Zugriff auf {what}. Du kannst direkt mit deiner ersten Übung beginnen.</p>
         <p style={{ marginTop: 24 }}>
           <Link className="k-button" href="/de/challenge">Challenge starten</Link>
         </p>
@@ -74,8 +74,8 @@ function EinloesenContent() {
   return (
     <section className="kg-shell kc-hero is-narrow" style={{ paddingBottom: 48 }}>
       <p className="k-kicker">Geschenk einlösen</p>
-      <h1>Hol dir deine Challenge.</h1>
-      <p>Gib den Code aus deiner E-Mail ein. Mit deiner E-Mail-Adresse kannst du später dort weitermachen, wo du aufgehört hast.</p>
+      <h1>Deine geschenkte Challenge wartet auf dich.</h1>
+      <p>Gib den Geschenkcode aus deiner E-Mail ein. Hinterlege deine E-Mail-Adresse, damit du deinen Fortschritt später wiederfindest.</p>
 
       <form onSubmit={handleSubmit} style={{ display: "grid", gap: 20, maxWidth: 460, marginTop: 24 }}>
         <label style={{ display: "grid", gap: 6 }}>
