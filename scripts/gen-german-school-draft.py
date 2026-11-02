@@ -697,6 +697,7 @@ WILD = [
     },
 ]
 for c in WILD:
+    c.update(EDITORIAL_OVERRIDES.get(c["id"], {}))
     with open(os.path.join(OUT_DIR, f"{c['id']}.json"), "w", encoding="utf-8") as f:
         json.dump(c, f, ensure_ascii=False, indent=2)
         f.write("\n")
