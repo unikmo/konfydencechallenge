@@ -8,7 +8,7 @@
   "category": "Bankbetrug",
   "scenario": "Du bekommst eine SMS, die angeblich von deiner Sparkasse stammt: Eine Überweisung über 2.340 € sei nicht autorisiert. Kurz darauf ruft jemand an, kennt deinen Namen und fordert dich auf, dein Geld sofort per pushTAN auf ein „Sicherheitskonto“ zu überweisen.",
   "answers": {
-    "A": "Auflegen und die Bank über die Nummer aus der App oder von der Rückseite deiner Karte anrufen; auf Zuruf am Telefon kein Geld bewegen und keine TAN freigeben.",
+    "A": "Auflegen und deine Bank über eine selbst gewählte offizielle Telefonnummer kontaktieren. Weder Geld überweisen noch eine TAN auf telefonische Aufforderung freigeben.",
     "B": "In der Banking-App zuerst die Karte sperren, dann die Bank über einen bekannten Weg kontaktieren.",
     "C": "Eine push-TAN nur für die eine „Sicherheitsüberweisung“ freigeben und den Rest danach in Ruhe prüfen."
   },
