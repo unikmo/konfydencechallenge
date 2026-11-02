@@ -1,7 +1,7 @@
 {
   "id": "university-de-uni-29",
   "lang": "de",
-  "title": "Aus dem Date wird ein Trading-Mentor",
+  "title": "Dating-Bekanntschaft wirbt plötzlich für Trading",
   "edition": "university",
   "cardType": "scenario",
   "scored": true,
@@ -20,8 +20,8 @@
   "safeActions": [
     "A"
   ],
-  "explanation": "Romantisches Interesse und eine plötzliche Trading-Empfehlung zusammen sind ein bekanntes Muster („Pig Butchering“) — echte Zuneigung braucht keine gemeinsame Geldanlage.",
-  "proTip": "Wer dich zuerst verliebt und dann investieren lässt, will dein Geld, nicht dein Herz.",
+  "explanation": "Betrüger können romantisches Interesse vortäuschen, um zu riskanten Anlagen zu verleiten. Prüfe die Plattform unabhängig und lass dich nicht unter persönlichen Druck setzen.",
+  "proTip": "Eine neue Beziehung ist kein Grund für unüberprüfte Geldanlagen.",
   "hackKey": "C",
   "hackTrigger": "Vertrautheit",
   "tags": [
