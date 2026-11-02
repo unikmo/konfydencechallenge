@@ -1,7 +1,7 @@
 {
   "id": "family-de-fam-33",
   "lang": "de",
-  "title": "Die neue Pflegekraft braucht Kontozugang",
+  "title": "Pflegekraft bittet um vollständigen Online-Banking-Zugang",
   "edition": "family",
   "cardType": "scenario",
   "scored": true,
@@ -21,8 +21,8 @@
     "A",
     "B"
   ],
-  "explanation": "Zuverlässigkeit bisher ist kein Grund, vollen Kontozugang zu teilen — auch gute Absicht kann später ausgenutzt oder das Konto kompromittiert werden. Eine begrenzte, kontrollierbare Lösung schützt beide Seiten.",
-  "proTip": "Vertrauen in eine Person heißt nicht, ihr die Bank-PIN zu geben.",
+  "explanation": "Eine zuverlässige Pflegekraft benötigt für Einkäufe keinen vollständigen Bankzugang. Nutze, sofern erforderlich, eine kontrollierbare Zahlungslösung mit begrenzten Rechten und klarem Überblick.",
+  "proTip": "Hauptzugang und Bank-PIN nicht weitergeben. Begrenzte Lösungen bevorzugen.",
   "hackKey": "C",
   "hackTrigger": "Vertrautheit",
   "tags": [
