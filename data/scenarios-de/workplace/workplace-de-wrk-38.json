@@ -31,5 +31,6 @@
     "oauth-phishing",
     "diagnostic"
   ],
-  "active": true
+  "active": true,
+  "tip": "Auch nach einer echten Microsoft-Anmeldung die Zugriffsrechte einer App sorgfältig prüfen."
 }
