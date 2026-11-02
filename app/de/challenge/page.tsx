@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import { PremiumPageDe } from "@/components/PremiumSiteChrome";
 
 export const metadata: Metadata = {
-  title: { absolute: "Challenge | Konfydence" },
+  title: { absolute: "Betrugsmaschen erkennen: 5 Challenges | Konfydence" },
   description: "Die Konfydence Challenge auf Deutsch — alle fünf Editionen, je 48 realistische Betrugssituationen.",
   alternates: { canonical: "/de/challenge", languages: { en: "https://konfydence.com/challenge", de: "https://konfydence.com/de/challenge" } },
 };
@@ -18,22 +18,22 @@ const VERFUEGBAR = [
   {
     key: "school",
     label: "Schul-Edition",
-    text: "Discord- und Gaming-Betrug, WhatsApp-Klassenchat-Fallen, IServ-Phishing, Deepfakes und mehr — 48 Szenarien für Schüler:innen, auf den deutschen Alltag zugeschnitten.",
+    text: "Gefälschte Nachrichten im Klassenchat, Betrug beim Gaming, falsche Anmeldeseiten und manipulierte Videos: 48 Übungen für Schülerinnen und Schüler.",
   },
   {
     key: "university",
     label: "Hochschul-Edition",
-    text: "WG-Zimmer-Betrug, BAföG-Phishing, Betrüger, die sich als Mitarbeitende der Ausländerbehörde ausgeben, Hiwi-Jobs, Prüfungsamt-Fallen und mehr — 48 Szenarien für Studierende, auf den deutschen Alltag zugeschnitten.",
+    text: "Betrug bei WG-Zimmern, gefälschte BAföG-Nachrichten, falsche Behördenkontakte und zweifelhafte Nebenjobs: 48 Übungen für Studierende.",
   },
   {
     key: "travelsafe",
     label: "TravelSafe-Edition",
-    text: "Ferienwohnungs-Betrug, Betrüger, die sich als ADAC-Mitarbeitende ausgeben, falsche Grenzpolizei, Zoll-Phishing, Geldautomaten-Fallen und mehr — 48 Szenarien für Reisende, auf den deutschen Alltag zugeschnitten.",
+    text: "Gefälschte Buchungsbestätigungen, angebliche Pannendienste, falsche Zollnachrichten und Betrug am Geldautomaten: 48 Übungen für unterwegs.",
   },
   {
     key: "workplace",
     label: "Berufs-Edition",
-    text: "Chef-Betrug mit geänderter Bankverbindung, Deepfake-Anrufe der Geschäftsführung, falsche IT-Support-Anrufe, DSGVO-Phishing und mehr — 48 Szenarien für den Berufsalltag, auf den deutschen Alltag zugeschnitten.",
+    text: "Gefälschte Anweisungen der Geschäftsführung, manipulierte Rechnungen, falscher IT-Support und verdächtige Datenanfragen: 48 Übungen für den Berufsalltag.",
   },
 ];
 
@@ -63,7 +63,7 @@ export default function GermanChallengePage(props: { searchParams: Promise<{ bal
               background: "var(--k-paper, #faf8f5)",
             }}
           >
-            <p style={{ fontSize: 12, letterSpacing: ".06em", opacity: 0.6, marginBottom: 6 }}>VERFÜGBAR AUF DEUTSCH</p>
+            <p style={{ fontSize: 12, letterSpacing: ".06em", opacity: 0.6, marginBottom: 6 }}>AUF DEUTSCH VERFÜGBAR</p>
             <h2 style={{ fontSize: 22, fontWeight: 900, marginBottom: 8 }}>{e.label}</h2>
             <p style={{ opacity: 0.8, marginBottom: 18, lineHeight: 1.6 }}>{e.text}</p>
             <div style={{ display: "flex", gap: 12, flexWrap: "wrap" }}>
