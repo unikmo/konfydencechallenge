@@ -27,6 +27,7 @@ const principles = [
 export default function HomePage() {
   return (
     <PremiumPage ctaHref="/challenge/travelsafe/start?mode=diagnostic" ctaLabel="Try TravelSafe free">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: "{\"@context\":\"https://schema.org\",\"@type\":\"WebSite\",\"name\":\"Konfydence\",\"url\":\"https://konfydence.com\",\"inLanguage\":\"en\",\"description\":\"Scenario-based practice for safer decisions under pressure.\"}" }} />
       <section className="k-home-hero" aria-labelledby="home-hero-title">
         <div className="k-shell k-home-hero-copy">
           <h1 id="home-hero-title" className="k-home-hero-title">
