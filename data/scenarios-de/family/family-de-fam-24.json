@@ -6,11 +6,11 @@
   "cardType": "scenario",
   "scored": true,
   "category": "Mobilfunk",
-  "scenario": "Ein Anrufer gibt sich als Support deines Mobilfunkanbieters aus und sagt, deine Nummer solle in wenigen Minuten „aus Sicherheitsgründen“ zu einem anderen Anbieter portiert werden — außer du bestätigst sofort den PIN-Code, den du gerade per SMS bekommst, um das zu verhindern.",
+  "scenario": "Ein Anrufer gibt sich als Mitarbeiter deines Mobilfunkanbieters aus. Angeblich soll deine Nummer in wenigen Minuten ohne deine Zustimmung zu einem anderen Anbieter übertragen werden. Um das zu verhindern, sollst du einen gerade per SMS erhaltenen Bestätigungscode vorlesen.",
   "answers": {
-    "A": "Auflegen, die eigene SIM-Karte nicht anfassen und den Anbieter über die offizielle Hotline oder App kontaktieren.",
+    "A": "Auflegen, den Bestätigungscode für dich behalten und den Mobilfunkanbieter über dessen offizielle App oder bekannte Servicenummer kontaktieren.",
     "B": "Den Code notieren, aber erst später weitergeben.",
-    "C": "Den PIN-Code sofort am Telefon vorlesen, um die Portierung zu stoppen."
+    "C": "Den Bestätigungscode sofort vorlesen, um die angebliche Rufnummernübertragung zu verhindern."
   },
   "scores": {
     "A": 4,
