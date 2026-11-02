@@ -8,7 +8,7 @@
   "category": "MFA",
   "scenario": "Nach einer angeblichen Wartung bittet eine Mail, eine MFA-Anfrage auf deinem Handy zu bestätigen, um „dein E-Mail-Postfach wiederherzustellen“ — die Anfrage kommt aber, ohne dass du selbst etwas angefragt hast.",
   "answers": {
-    "B": "Die MFA-Anfrage ablehnen, wenn du selbst nichts angefragt hast, und dein Passwort ändern; eine unerwartete MFA-Anfrage bestätigt meist einen fremden Login-Versuch.",
+    "B": "Die unerwartete Bestätigungsanfrage ablehnen und über das offizielle Hochschulportal oder die IT prüfen, was passiert ist.",
     "A": "Die Anfrage bestätigen, um das Postfach wiederherzustellen.",
     "C": "Die Anfrage einmal ignorieren, aber bei der zweiten Anfrage bestätigen."
   },
@@ -20,7 +20,7 @@
   "safeActions": [
     "B"
   ],
-  "explanation": "Eine MFA-Anfrage, die du selbst nicht ausgelöst hast, bestätigt fast immer einen Login-Versuch der Täter, nicht eine „Wiederherstellung“ auf deiner Seite.",
+  "explanation": "Eine Bestätigungsanfrage, die du nicht selbst ausgelöst hast, kann auf einen fremden Anmeldeversuch hinweisen. Bestätige sie nicht und informiere bei wiederholten Anfragen die Hochschul-IT.",
   "proTip": "Eine MFA-Anfrage, die du nicht selbst ausgelöst hast, ist ein Nein.",
   "hackKey": "K",
   "hackTrigger": "Notbremse",
@@ -30,5 +30,6 @@
     "mfa",
     "mfa-fatigue"
   ],
-  "active": true
+  "active": true,
+  "tip": "Unerwartete Anmeldebestätigungen ablehnen und bei Bedarf die IT informieren."
 }
