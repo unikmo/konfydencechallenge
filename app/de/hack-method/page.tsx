@@ -13,14 +13,14 @@ export const metadata: Metadata = {
 };
 
 const patterns = [
-  ["H", "Hetze", "Presst dir Zeit ab, bevor du unabhängig prüfen kannst — Fristen, „jetzt sofort“, ein Countdown, der tickt."],
-  ["A", "Autorität", "Nutzt Status, Titel, Uniformen oder Amtsdeutsch, damit eine Bitte unhinterfragbar wirkt."],
-  ["C", "Vertrautheit", "Nutzt Bekanntes, Routine oder Emotion, damit sich die Bitte sicherer anfühlt, als die Beweislage hergibt."],
+  ["H", "Hetze", "Setzt dich unter Zeitdruck, damit du nicht in Ruhe nachprüfst — Fristen, „jetzt sofort“, ein Countdown, der tickt."],
+  ["A", "Autorität", "Nutzt Status, Titel, Uniformen oder Amtsdeutsch, damit du eine Aufforderung nicht hinterfragst."],
+  ["C", "Vertrautheit", "Nutzt Bekanntes, Routine oder Emotion, damit sich die Bitte sicherer anfühlt, als sie tatsächlich ist."],
   ["K", "Notbremse", "Drängt zur entscheidenden Handlung — Klick, Zahlung, Weitergabe, Freigabe, Antwort — und schneidet dir dabei die Zeit zum Prüfen ab."],
 ];
 
 const pat = [
-  ["Anhalten", "Stopp vor dem Klick, der Zahlung, dem Code oder der Antwort. Eile ist das Werkzeug des Betrugs — ein paar Sekunden nehmen es ihm.", "Nimm der Eile ihre Macht."],
+  ["Anhalten", "Stopp vor dem Klick, der Zahlung, dem Code oder der Antwort. Betrüger setzen gezielt auf Eile — ein paar Sekunden nehmen es ihm.", "Nimm der Eile ihre Macht."],
   ["Abklären", "Frag dich, was hier eigentlich von dir verlangt wird: Geld, ein Code, ein Login, eine Freigabe. Wenn das die Antwort ist, ist es Druck — kein Beweis.", "Was will es wirklich?"],
   ["Ansprechen", "Sag die Bitte laut zu jemandem, dem du vertraust — Partner, Kollegin — oder ruf deine Bank unter der Nummer auf deiner Karte an. Nie die Nummer aus der Nachricht.", "Hol eine zweite Person dazu."],
 ];
@@ -32,7 +32,7 @@ export default function HackMethodPageDe() {
         <p className="k-kicker">Die Methode</p>
         <h1 className="k-display">Erkenne den Druck. Dann: Anhalten, Abklären, Ansprechen.</h1>
         <p className="k-lede">
-          Konfydence läuft auf zwei kleinen Werkzeugen. <strong>H.A.C.K.</strong> benennt, was ein Betrug mit dir macht.
+          Konfydence arbeitet mit zwei einfachen Methoden. <strong>H.A.C.K.</strong> benennt, was ein Betrug mit dir macht.
           <strong> P.A.T.</strong> sagt dir, was du dagegen tust. Du übst beides, bis sich der Moment vertraut statt beängstigend anfühlt.
         </p>
         <div className="k-actions">
