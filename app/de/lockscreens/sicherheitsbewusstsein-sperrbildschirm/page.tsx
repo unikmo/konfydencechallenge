@@ -34,7 +34,7 @@ export default function Page() {
         alt: "Ein Konfydence-Sperrbildschirm mit dem Text „Bevor der Klick zum Vorfall wird… Anhalten · Abklären · Ansprechen.“",
       }}
       problemTitle="Sicherheitsbewusstsein verblasst zwischen den Schulungen. Druck wartet nicht auf das nächste Modul."
-      problemCopy="Der riskante Moment ist nie eine Quizfrage. Es ist eine dringende Rechnung, eine SMS eines Paketdienstes, eine Nachricht eines Chefs, der komisch klingt. Ein Sperrbildschirm sitzt genau dort — auf dem Gerät, im Moment der Entscheidung — statt in einem Kurs, der vor Monaten abgeschlossen wurde."
+      problemCopy="Der riskante Moment ist nie eine Quizfrage. Es ist eine dringende Rechnung, eine SMS eines Paketdienstes, eine Nachricht eines Chefs, der komisch klingt. Ein Sperrbildschirm erscheint genau dort — auf dem Gerät, im Moment der Entscheidung — statt in einem Kurs, der vor Monaten abgeschlossen wurde."
       sections={[
         {
           title: "Ein Hinweis, keine Plakatwand",
