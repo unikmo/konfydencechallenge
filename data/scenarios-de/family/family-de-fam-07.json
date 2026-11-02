@@ -1,7 +1,7 @@
 {
   "id": "family-de-fam-07",
   "lang": "de",
-  "title": "Viruswarnung im Browser: angeblich nur vier Minuten",
+  "title": "Browserwarnung: Computer angeblich in vier Minuten gesperrt",
   "edition": "family",
   "cardType": "scenario",
   "scored": true,
@@ -10,7 +10,7 @@
   "answers": {
     "A": "Die Nummer anrufen, um den Computer noch rechtzeitig retten zu lassen.",
     "B": "Auf der Seite nach einer anderen Kontaktmöglichkeit suchen, die seriöser wirkt.",
-    "C": "Den Computer einfach ausschalten und neu starten; ein Countdown auf einer Webseite kann nichts sperren."
+    "C": "Das Browserfenster schließen, ohne die Nummer anzurufen. Wenn das nicht funktioniert, den Browser beenden und Hilfe über einen bekannten IT-Kontakt holen."
   },
   "scores": {
     "A": 0,
@@ -20,7 +20,7 @@
   "safeActions": [
     "C"
   ],
-  "explanation": "Eine Warnung im Browser kann von einer unseriösen Website stammen. Schließe den Tab, ohne die angezeigte Telefonnummer anzurufen. Wenn sich das Fenster nicht schließen lässt oder tatsächlich technische Probleme auftreten, hole Hilfe über einen bekannten IT-Support-Kontakt.",
+  "explanation": "Eine Warnung im Browser kann von einer betrügerischen Website stammen. Rufe die angezeigte Telefonnummer nicht an und erlaube keinen Fernzugriff. Schließe das Fenster oder beende den Browser. Bei anhaltenden Problemen hilft ein vertrauenswürdiger IT-Service.",
   "proTip": "Rufe keine Supportnummer aus einem unerwarteten Browser-Pop-up an.",
   "hackKey": "H",
   "hackTrigger": "Hetze",
