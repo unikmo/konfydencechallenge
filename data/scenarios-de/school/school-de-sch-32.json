@@ -1,7 +1,7 @@
 {
   "id": "school-de-sch-32",
   "lang": "de",
-  "title": "Kann ich dein Konto für einen Tag benutzen?",
+  "title": "Mitschülerin will nur einen Tag dein Passwort",
   "edition": "school",
   "cardType": "scenario",
   "scored": true,
@@ -20,8 +20,8 @@
   "safeActions": [
     "B"
   ],
-  "explanation": "Ein geteiltes Passwort bleibt nicht „nur für einen Tag“ unter Kontrolle — viele Dienste haben eigene, sichere Freigabefunktionen, die genau dafür gemacht sind.",
-  "proTip": "„Nur für einen Tag“ ist keine Kontrolle über dein Passwort.",
+  "explanation": "Auch eine kurze Weitergabe kann dein Konto gefährden. Verwende offizielle Freigabefunktionen, soweit vorhanden, statt dein Passwort zu teilen.",
+  "proTip": "Passwörter bleiben privat, auch bei Freundinnen und Freunden.",
   "hackKey": "C",
   "hackTrigger": "Vertrautheit",
   "tags": [
