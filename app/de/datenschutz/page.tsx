@@ -13,7 +13,7 @@ export default function DatenschutzPage() {
     <div style={s.container}>
       <div style={s.content}>
         <h1 style={s.title}>Datenschutzerklärung</h1>
-        <p style={s.update}>Stand: 2. November 2026 (spiegelt die englische Datenschutzerklärung)</p>
+        <p style={s.update}>Stand: 2. November 2026 (deutsche Fassung der englischen Datenschutzerklärung)</p>
 
         <div style={s.section}>
           <h2 style={s.heading}>1. Einleitung</h2>
@@ -29,21 +29,21 @@ export default function DatenschutzPage() {
           <p style={s.paragraph}>Wir können folgende Informationen über dich erheben:</p>
           <ul style={s.list}>
             <li><strong>Direkt von dir bereitgestellte Angaben:</strong> Name, E-Mail-Adresse, Organisationsname und weitere Angaben aus Kontakt- oder Pilotanfrageformularen.</li>
-            <li><strong>Anfragen kostenloser Ressourcen:</strong> E-Mail-Adresse, die gewählten Scam-Safety-Materialien, die Herkunftsseite und ob du separat gelegentliche Marketing-Mitteilungen angefordert hast.</li>
-            <li><strong>CoMaSy-Pilotanfragen:</strong> Rolle, Organisationsgröße, Hauptziel, aktuelle Awareness-Plattform, Notizen, Einwilligung und Kampagnen-/Herkunftszuordnung, soweit angegeben.</li>
-            <li><strong>Challenge- und Programmantworten:</strong> Antworten auf Challenge- oder Simulationsszenarien und daraus abgeleitete Trainingssignale, soweit der jeweilige Dienst dies erfordert.</li>
+            <li><strong>Anfragen kostenloser Ressourcen:</strong> E-Mail-Adresse, die gewählten Materialien zum Schutz vor Betrug, die Herkunftsseite und ob du separat gelegentliche Marketing-Mitteilungen angefordert hast.</li>
+            <li><strong>CoMaSy-Pilotanfragen:</strong> Rolle, Organisationsgröße, Hauptziel, aktuelle Plattform für Sicherheitsschulungen, Notizen, Einwilligung und Kampagnen-/Herkunftszuordnung, soweit angegeben.</li>
+            <li><strong>Challenge- und Programmantworten:</strong> Antworten auf Challenge- oder Simulationsszenarien und daraus abgeleitete Ergebnisse der Übungen, soweit der jeweilige Dienst dies erfordert.</li>
             <li><strong>Kaufinformationen:</strong> E-Mail-Adresse, Rechnungsdaten und Bestellinformationen, die von Stripe für Verbraucherkäufe verarbeitet werden.</li>
             <li><strong>Geräte- und Nutzungsinformationen:</strong> Technische Informationen wie IP-Adresse, Browsertyp und besuchte Seiten, soweit vom Dienst erhoben.</li>
-            <li><strong>Cookies und Analyse:</strong> Analyse-Cookies unterliegen den Einwilligungsoptionen unserer Cookie-Richtlinie.</li>
+            <li><strong>Cookies und Analyse:</strong> Analyse-Cookies unterliegen den Einwilligungsoptionen unserer Cookie-Erklärung.</li>
           </ul>
         </div>
 
         <div style={s.section}>
           <h2 style={s.heading}>3. Wofür wir deine Daten verwenden</h2>
           <ul style={s.list}>
-            <li>Bereitstellung und Verbesserung der Konfydence-Challenge- und CoMaSy-Dienste.</li>
-            <li>Zusendung angeforderter kostenloser Scam-Safety-Materialien.</li>
-            <li>Zusendung von Scam-Safety-Tipps oder Marketing-Mitteilungen nur bei separater Einwilligung.</li>
+            <li>Bereitstellung und Verbesserung der Dienste Konfydence Challenge und CoMaSy.</li>
+            <li>Zusendung angeforderter kostenloser Materialien zum Schutz vor Betrug.</li>
+            <li>Zusendung von Tipps zum Schutz vor Betrug oder Marketing-Mitteilungen nur bei separater Einwilligung.</li>
             <li>Beantwortung von Kontakt- und CoMaSy-Pilotanfragen.</li>
             <li>Einrichtung und Verwaltung vereinbarter Pilotprojekte oder Kundenprogramme.</li>
             <li>Abwicklung von Verbraucherkäufen, Rechnungen und Abonnements über Stripe.</li>
@@ -135,7 +135,7 @@ export default function DatenschutzPage() {
           <h2 style={s.heading}>9. Cookies</h2>
           <p style={s.paragraph}>
             Alles zu Cookies und zur Einwilligung für die Analyse steht in unserer
-            <Link href="/de/cookie-richtlinie" style={s.link}> Cookie-Richtlinie</Link>.
+            <Link href="/de/cookie-richtlinie" style={s.link}> Cookie-Erklärung</Link>.
           </p>
         </div>
 
