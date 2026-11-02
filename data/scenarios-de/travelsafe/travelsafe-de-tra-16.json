@@ -1,14 +1,14 @@
 {
   "id": "travelsafe-de-tra-16",
   "lang": "de",
-  "title": "Sicherheitskontrolle: angeblich Handy zur Identitätsprüfung entsperren",
+  "title": "Am Flughafen: Handy angeblich zur Identitätsprüfung entsperren",
   "edition": "travelsafe",
   "cardType": "scenario",
   "scored": true,
   "category": "Flughafensicherheit",
-  "scenario": "Nach der Sicherheitskontrolle meldet sich jemand mit Ausweis und sagt, dein Tablet sei liegen geblieben — du müsstest aber zur „Identitätsprüfung“ kurz dein Handy entsperren und ihm zeigen.",
+  "scenario": "Nach der Sicherheitskontrolle spricht dich jemand an, zeigt einen Ausweis und behauptet, dein verlorenes Tablet sei gefunden worden. Zur „Identitätsprüfung“ sollst du dein Handy entsperren und der Person geben.",
   "answers": {
-    "A": "Das Handy nicht entsperren und stattdessen direkt zum offiziellen Fundbüro des Sicherheitsbereichs gehen, um das Tablet dort abzuholen.",
+    "A": "Das Handy nicht aushändigen oder entsperren. Stattdessen beim offiziellen Fundbüro oder bei überprüfbarem Flughafenpersonal nachfragen, wie du das Tablet zurückbekommst.",
     "B": "Das Handy entsperren und zeigen, um das Tablet zurückzubekommen.",
     "C": "Nur den Sperrbildschirm zeigen, ohne zu entsperren."
   },
@@ -20,7 +20,7 @@
   "safeActions": [
     "A"
   ],
-  "explanation": "Ein Ausweis oder eine Uniform allein beweist nicht, dass die Bitte berechtigt ist. Erkundige dich bei der offiziellen Fundstelle oder beim Flughafenpersonal, welche Angaben für die Rückgabe benötigt werden.",
+  "explanation": "Ein vorgezeigter Ausweis allein beweist nicht, dass diese Aufforderung berechtigt ist. Wende dich an das offizielle Fundbüro oder überprüfbares Flughafenpersonal und kläre dort, welche Angaben tatsächlich benötigt werden.",
   "proTip": "Bei unerwarteten Aufforderungen zur Geräteentsperrung erst die Berechtigung prüfen.",
   "hackKey": "A",
   "hackTrigger": "Autorität",
