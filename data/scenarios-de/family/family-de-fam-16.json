@@ -1,7 +1,7 @@
 {
   "id": "family-de-fam-16",
   "lang": "de",
-  "title": "Haftbefehl, zahlbar am Kiosk",
+  "title": "Angebliche Staatsanwaltschaft: Zahlung am Kiosk",
   "edition": "family",
   "cardType": "scenario",
   "scored": true,
@@ -20,8 +20,8 @@
   "safeActions": [
     "B"
   ],
-  "explanation": "Deutsche Behörden ziehen keine Geldbußen oder Kautionen über Zahlungsautomaten oder Codes ein. Diese Zahlwege sind für Betrüger attraktiv, weil sie sofort und kaum rückverfolgbar sind.",
-  "proTip": "Kein Amt kassiert am Kiosk.",
+  "explanation": "Ein Anruf mit einer Haftandrohung und einer sofortigen Zahlung per Code ist hochverdächtig. Beende das Gespräch und prüfe die Behauptung über die offiziellen Kontaktdaten der zuständigen Stelle. Bezahle nicht auf telefonische Aufforderung.",
+  "proTip": "Bei angeblichen Strafverfahren niemals unter telefonischem Druck Geld oder Zahlungscodes übermitteln.",
   "hackKey": "A",
   "hackTrigger": "Autorität",
   "tags": [
