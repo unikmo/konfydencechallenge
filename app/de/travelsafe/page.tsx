@@ -5,16 +5,16 @@ import { PremiumPageDe } from "@/components/PremiumSiteChrome";
 import { PortfolioStrip } from "@/components/PortfolioStrip";
 
 export const metadata: Metadata = {
-  title: { absolute: "TravelSafe | Betrugsprävention zum Üben von Konfydence" },
+  title: { absolute: "TravelSafe: Betrugsmaschen auf Reisen erkennen | Konfydence" },
   description:
-    "Übe sichere Entscheidungen für unterwegs in kurzen, realistischen Szenarien rund um Zahlungen, Identität, Nachrichten, Buchungen und unbekannte Systeme.",
+    "Lerne mit kurzen Übungen, wie du auf verdächtige Zahlungsaufforderungen, falsche Buchungsnachrichten und andere Betrugsversuche auf Reisen reagierst.",
   alternates: {
     canonical: "/de/travelsafe",
     languages: { en: "https://konfydence.com/travelsafe", de: "https://konfydence.com/de/travelsafe" },
   },
   openGraph: {
-    title: "TravelSafe | Übe sichere Entscheidungen, bevor du verreist",
-    description: "Kurze Simulationen. Echte Entscheidungen. Sofortiges Feedback.",
+    title: "TravelSafe: Sicher reisen und Betrugsversuche erkennen",
+    description: "Kurze Übungen. Realistische Situationen. Verständliche Rückmeldungen.",
     url: "https://konfydence.com/de/travelsafe",
     siteName: "Konfydence",
     type: "website",
@@ -28,11 +28,11 @@ const familyUses = [
   },
   {
     label: "Für ältere Angehörige",
-    copy: "Auch auf Reisen können gefälschte Nachrichten und dringende Zahlungsaufforderungen auftauchen. Kurzes Üben macht das Innehalten selbstverständlich.",
+    copy: "Gefälschte Buchungsnachrichten und dringende Zahlungsforderungen können jedem begegnen. Wer typische Maschen kennt, erkennt Warnzeichen leichter.",
   },
   {
     label: "Als gemeinsame Gewohnheit",
-    copy: "Alle machen denselben kostenlosen Check, und die ganze Familie greift zu Anhalten, Abklären, Ansprechen.",
+    copy: "Übt gemeinsam mit dem kostenlosen Sicherheitscheck und besprecht, wie ihr im Ernstfall nachprüfen könnt.",
   },
 ];
 
@@ -60,7 +60,7 @@ export default function TravelSafePageDe() {
       <section id="familien" className="k-shell k-section k-home-care">
         <div className="k-home-care-copy">
           <p className="k-kicker">Für Familien</p>
-          <h2 className="k-display-sm">Eine nützliche Art von Fürsorge reist mit.</h2>
+          <h2 className="k-display-sm">Gut vorbereitet in den Urlaub starten.</h2>
           <p className="k-copy">
             TravelSafe ist Entscheidungstraining, kein Gadget. Es gibt den Menschen, die dir wichtig sind, eine Gewohnheit mit, die genau dann greift, wenn eine Buchung, Zahlung oder Nachricht sie unter Druck setzen will.
           </p>
@@ -81,17 +81,17 @@ export default function TravelSafePageDe() {
           <div className="k-section-head">
             <div>
               <p className="k-kicker">So funktioniert TravelSafe</p>
-              <h2 className="k-display-sm">Wählen. Erleben. Lernen. Besser werden.</h2>
+              <h2 className="k-display-sm">Situation auswählen. Entscheiden. Daraus lernen.</h2>
             </div>
             <p className="k-copy">
               Du musst keine Checkliste auswendig lernen. Du entscheidest, siehst, was die Situation getestet hat, und lernst die sicherere Regel dahinter.
             </p>
           </div>
           <div className="k-flow">
-            <article><span>01</span><h3>Wählen</h3><p>Such dir ein kurzes Szenario, das zu deiner Welt passt.</p></article>
+            <article><span>01</span><h3>Wählen</h3><p>Wähle eine Übungssituation, die dich im Alltag betreffen könnte.</p></article>
             <article><span>02</span><h3>Erleben</h3><p>Triff eine Entscheidung in einer realistischen Situation.</p></article>
-            <article><span>03</span><h3>Lernen</h3><p>Sieh, was passiert ist, warum, und welches Druckmuster am Werk war.</p></article>
-            <article><span>04</span><h3>Besser werden</h3><p>Wiederhole es, bis Anhalten, Abklären, Ansprechen dein automatischer nächster Schritt ist.</p></article>
+            <article><span>03</span><h3>Lernen</h3><p>Erfahre, welche Warnzeichen wichtig waren und wie du sicherer handeln kannst.</p></article>
+            <article><span>04</span><h3>Besser werden</h3><p>Übe weitere Situationen, bis dir das Innehalten und Nachprüfen leichter fällt.</p></article>
           </div>
         </div>
       </section>
@@ -106,7 +106,7 @@ export default function TravelSafePageDe() {
       <section className="k-shell k-callout">
         <div>
           <p className="k-kicker">Bereit?</p>
-          <h2 className="k-display-sm">Drei Minuten jetzt. Ein besserer Instinkt später.</h2>
+          <h2 className="k-display-sm">Drei Minuten üben. Beim nächsten Betrugsversuch besser vorbereitet sein.</h2>
         </div>
         <div className="k-actions">
           <Link className="k-button-gold" href="/de/challenge/travelsafe/start?mode=diagnostic">Kostenlosen Check starten</Link>
