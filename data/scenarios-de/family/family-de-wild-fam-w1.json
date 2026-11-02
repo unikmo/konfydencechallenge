@@ -1,17 +1,17 @@
 {
   "id": "family-de-wild-fam-w1",
   "lang": "de",
-  "title": "Familien-Blitzrunde: Rote Flaggen",
+  "title": "Familien-Blitzrunde: Warnzeichen erkennen",
   "edition": "family",
   "cardType": "wild",
   "scored": false,
   "category": "Online-Spiel",
-  "scenario": "Familien-Onlinerunde: Jede Person hat 20 Sekunden, um ein Warnsignal aus der letzten Familien-Karte zu nennen, ohne eine andere Person zu wiederholen.",
+  "scenario": "Spielrunde: Jede Person hat 20 Sekunden Zeit, ein Warnzeichen aus der vorherigen Karte zu nennen. Bereits genannte Antworten dürfen nicht wiederholt werden.",
   "answers": {
-    "A": "Die Runde ohne Wiederholung durchspielen.",
+    "A": "Die Runde spielen und jeweils ein neues Warnzeichen nennen.",
     "B": "Passen.",
-    "C": "Eine schwache Antwort höflich infrage stellen.",
-    "D": "Der Gastgeber verrät die Musterantwort."
+    "C": "Eine unklare Antwort freundlich hinterfragen und genauer erklären lassen.",
+    "D": "Die Spielleitung nennt sofort die Lösung."
   },
   "scores": {
     "A": 4,
@@ -23,8 +23,8 @@
     "A",
     "C"
   ],
-  "explanation": "Familien-Blitzrunde: Ziel ist es, die letzte Szenariokarte in aktives Erinnern zu verwandeln statt nur zu lesen. Eine genaue, konkrete sichere Handlung zählt mehr als ein vager Ratschlag.",
-  "proTip": "Nur direkt nach einer Szenariokarte einsetzen, nie als eigenständiges Minispiel.",
+  "explanation": "Bei dieser Übung geht es darum, Warnzeichen aus der letzten Situation selbst zu erkennen und in eigenen Worten zu erklären. Konkrete Hinweise sind hilfreicher als allgemeine Vermutungen.",
+  "proTip": "Direkt nach einem passenden Szenario spielen, nicht als eigenständige Frage.",
   "hackKey": null,
   "hackTrigger": null,
   "tags": [
