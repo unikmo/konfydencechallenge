@@ -1,7 +1,7 @@
 {
   "id": "university-de-uni-07",
   "lang": "de",
-  "title": "Deine Laptop-Lieferung braucht 2,40 €",
+  "title": "Laptop-Paket: angeblich fehlen 2,40 € Zollgebühr",
   "edition": "university",
   "cardType": "scenario",
   "scored": true,
@@ -20,8 +20,8 @@
   "safeActions": [
     "B"
   ],
-  "explanation": "Zollgebühren werden nicht per SMS-Link mit Kartennummer eingezogen — der winzige Betrag soll das Risiko klein wirken lassen. Der echte Status steht in der Versand-App.",
-  "proTip": "Ein Paket, das eine Kartennummer will, ist kein Paket.",
+  "explanation": "Eine überraschende Zahlungsaufforderung per SMS kann gefälscht sein. Prüfe deine Sendung über die offizielle App oder Website des Paketdienstes. Gib keine Kartendaten über den mitgeschickten Link ein.",
+  "proTip": "Nachzahlungen für Pakete unabhängig beim Versanddienst überprüfen.",
   "hackKey": "H",
   "hackTrigger": "Hetze",
   "tags": [
