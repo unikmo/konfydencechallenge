@@ -1,7 +1,7 @@
 {
   "id": "family-de-fam-06",
   "lang": "de",
-  "title": "Die Steuererstattung läuft heute Nacht ab",
+  "title": "Steuererstattung: angebliche Frist bis Mitternacht",
   "edition": "family",
   "cardType": "scenario",
   "scored": true,
@@ -20,8 +20,8 @@
   "safeActions": [
     "A"
   ],
-  "explanation": "Steuererstattungen verfallen nicht über Nacht, und ELSTER verschickt keine Zahlungslinks per SMS. Sowohl der Link als auch eine Nummer aus derselben SMS führen zu den Tätern.",
-  "proTip": "Eine Frist, die nur bis Mitternacht gilt, ist gemacht, damit du nicht nachdenkst.",
+  "explanation": "Eine unerwartete SMS mit einer kurzen Frist und einem Link zur Eingabe von Bankdaten ist verdächtig. Prüfe mögliche Erstattungen über dein eigenes ELSTER-Konto oder die zuständige Finanzbehörde.",
+  "proTip": "Prüfe Steuererstattungen über ELSTER oder direkt beim Finanzamt.",
   "hackKey": "H",
   "hackTrigger": "Hetze",
   "tags": [
