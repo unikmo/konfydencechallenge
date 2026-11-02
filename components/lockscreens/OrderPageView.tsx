@@ -19,12 +19,12 @@ const T = {
     cta: "Kostenlos starten",
     ctaHref: "/de/challenge",
     kicker: { school: "Lockscreens für Schulen", workplace: "Lockscreens für Unternehmen" },
-    h1: "Sofort-Angebot und Bestellung erhalten.",
+    h1: "Angebot für eure Geräte anfordern.",
     body: {
       school:
-        "2 € pro verwaltetem Computer und Jahr, Mindestjahreslizenz 150 €. Nur Computer und verwaltete Tablets – keine Handys. Füllt das Formular aus, und wir erstellen sofort eine nummerierte Bestellung. Vor der Freischaltung klärt jemand aus dem Konfydence-Team die Zahlungsbedingungen mit euch.",
+        "2 € pro verwaltetem Computer und Jahr, Mindestjahreslizenz 150 €. Das Angebot gilt für verwaltete Computer und Tablets, nicht für Smartphones. Nach dem Ausfüllen des Formulars erhaltet ihr eine Bestellung mit Referenznummer. Die Zahlungsbedingungen werden vor der Freischaltung mit euch abgestimmt.",
       workplace:
-        "4 € pro Mitarbeitendem und Jahr, Mindestjahreslizenz 300 €. Füllt das Formular aus, und wir erstellen sofort eine nummerierte Bestellung. Vor der Freischaltung klärt jemand aus dem Konfydence-Team die Zahlungsbedingungen mit euch.",
+        "4 € pro Mitarbeitendem und Jahr, Mindestjahreslizenz 300 €. Nach dem Ausfüllen des Formulars erhaltet ihr eine Bestellung mit Referenznummer. Die Zahlungsbedingungen werden vor der Freischaltung mit euch abgestimmt.",
     },
   },
 } as const;
