@@ -20,7 +20,7 @@
   "safeActions": [
     "A"
   ],
-  "explanation": "Eine neue, unbestätigte Nummer plus eine vertrauliche Zahlungsbitte ist eine klassische Chef-/Kollegen-Betrugsmasche — das Firmenverzeichnis kennt die echte, bekannte Nummer.",
+  "explanation": "Eine neue, unbekannte Handynummer und eine ungewöhnliche Zahlungsbitte sind Warnzeichen. Frage den Kollegen über einen bereits bekannten Kontaktweg, ob die Nachricht tatsächlich von ihm stammt.",
   "proTip": "Eine neue Nummer bestätigst du über die alte, bekannte — nie umgekehrt.",
   "hackKey": "C",
   "hackTrigger": "Vertrautheit",
@@ -30,5 +30,6 @@
     "coworkers",
     "impostor"
   ],
-  "active": true
+  "active": true,
+  "tip": "Neue Nummern über einen bekannten Kontaktweg bestätigen, bevor du handelst."
 }
