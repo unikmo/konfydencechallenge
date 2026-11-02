@@ -39,7 +39,7 @@ export default function Page() {
       sections={[
         {
           title: "Für Eltern und ältere Angehörige",
-          copy: "Hinweise zu typischen Betrugsversuchen gegen ältere Menschen — Bank-Anrufe mit falscher Identität, „Familienmitglied in Not“-Nachrichten, Rückerstattungs- und Tech-Support-Betrug.",
+          copy: "Hinweise zu typischen Betrugsversuchen gegen ältere Menschen — Bank-Anrufe mit falscher Identität, „Familienmitglied in Not“-Nachrichten, Rückerstattungs- und Betrug durch angebliche technische Unterstützung.",
         },
         {
           title: "Für das Handy eines Teenagers",
@@ -58,7 +58,7 @@ export default function Page() {
         {
           question: "Braucht das eine App oder ein Abo bei einem Dienst?",
           answer:
-            "Keine App. Es ist ein Sperrbildschirmbild, das du wie jedes Hintergrundbild einrichtest. Es ist ein Jahresplan — 19,99 € im ersten Jahr, danach 14,99 € pro Jahr —, der die zweiwöchentlichen Updates und das komplette Hinweis-Set liefert.",
+            "Keine App. Es ist ein Sperrbildschirmbild, das du wie jedes Hintergrundbild einrichtest. Es ist ein Jahresplan — 19,99 € im ersten Jahr, danach 14,99 € pro Jahr —, der die zweiwöchentlichen Updates und das vollständige Sammlung von Sicherheitshinweisen liefert.",
         },
         {
           question: "Kann ich die Hinweise aus der Ferne auf dem Handy meiner Eltern einrichten?",
@@ -68,7 +68,7 @@ export default function Page() {
         {
           question: "Ist die Teenager-Version wirklich anders?",
           answer:
-            "Ja — ein eigenes 27-Screen-Set für die Betrugsmaschen, die auf jüngere Menschen zielen: gefälschte Ingame-Währung, „Bloßstellungs“-Apps, Grooming und Isolationstaktiken, Deepfake- und Stimmklon-Nachrichten.",
+            "Ja — ein eigenes Set mit 27 Sperrbildschirm-Hinweisen für die Betrugsmaschen, die auf jüngere Menschen zielen: gefälschte Ingame-Währung, „Bloßstellungs“-Apps, Grooming und Isolationstaktiken, Deepfake- und Stimmklon-Nachrichten.",
         },
         {
           question: "Verfolgt es Standort oder Aktivität?",
