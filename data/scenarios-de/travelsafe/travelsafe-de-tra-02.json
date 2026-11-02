@@ -8,7 +8,7 @@
   "category": "Unterkunft",
   "scenario": "Auf einem Ferienwohnungsportal findest du ein günstiges Apartment auf Mallorca. Die angebliche Vermieterin behauptet, du bekommst es nur, wenn du innerhalb weniger Minuten außerhalb der Plattform auf ihr Privatkonto überweist.",
   "answers": {
-    "A": "Nur über die Zahlungsfunktion der Buchungsplattform selbst bezahlen und keine Vorkasse per Überweisung an eine Privatperson leisten.",
+    "A": "Nur über den vorgesehenen Zahlungsweg der Buchungsplattform bezahlen und die Bedingungen für Käuferschutz prüfen.",
     "B": "Sofort per Überweisung an die Vermieterin zahlen, um die Wohnung zu sichern.",
     "C": "Nur eine kleine Anzahlung per Überweisung leisten."
   },
