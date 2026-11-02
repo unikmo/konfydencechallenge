@@ -1,7 +1,7 @@
 {
   "id": "university-de-uni-27",
   "lang": "de",
-  "title": "Dein neuer Wohnheim-Kumpel hat „eine sichere Sache“",
+  "title": "Wohnheim-Bekannter empfiehlt angeblich sichere Kryptoanlage",
   "edition": "university",
   "cardType": "scenario",
   "scored": true,
@@ -20,8 +20,8 @@
   "safeActions": [
     "A"
   ],
-  "explanation": "„Garantiert“ gibt es bei echten Geldanlagen nicht — das ist das klassische Signal einer Investment-Betrugsmasche. Eine kurze Recherche und die BaFin-Warnliste zeigen es meist sofort.",
-  "proTip": "„Garantiert“ ist bei Geldanlagen immer ein Warnwort.",
+  "explanation": "Hohe oder garantierte Gewinne sind bei Geldanlagen ein Warnzeichen. Prüfe den Anbieter unabhängig, beachte Verlustrisiken und lass dich nicht wegen einer persönlichen Empfehlung zu einer schnellen Überweisung drängen.",
+  "proTip": "Auch Anlageempfehlungen von Bekannten kritisch und unabhängig prüfen.",
   "hackKey": "C",
   "hackTrigger": "Vertrautheit",
   "tags": [
