@@ -1,14 +1,14 @@
 {
   "id": "workplace-de-wrk-18",
   "lang": "de",
-  "title": "Microsoft-Meldung: unbekannte App verlangt Zugriffsrechte",
+  "title": "Microsoft-Konto: Unbekannte App fordert Zugriffsrechte",
   "edition": "workplace",
   "cardType": "scenario",
   "scored": true,
   "category": "Cloud-Dienste",
-  "scenario": "Eine Mail, angeblich von Microsoft, bittet dich, einer App eine OAuth-„Zustimmungsfreigabe“ mit weitreichendem Zugriff auf dein Firmenkonto zu erteilen, um „ein Sicherheitsupdate abzuschließen“.",
+  "scenario": "Eine angebliche Microsoft-E-Mail fordert dich auf, einer unbekannten App weitreichende Zugriffsrechte auf dein Firmenkonto zu erteilen. Das sei für ein Sicherheitsupdate erforderlich.",
   "answers": {
-    "C": "Die Zustimmung verweigern und die IT-Abteilung über den internen Kanal fragen, ob eine solche App wirklich benötigt und freigegeben ist.",
+    "C": "Keine Zugriffsrechte erteilen und über den bekannten internen IT-Kanal prüfen lassen, ob die App tatsächlich benötigt und freigegeben ist.",
     "A": "Die Zustimmung sofort erteilen, um das Sicherheitsupdate abzuschließen.",
     "B": "Die Zustimmung mit eingeschränkten Rechten erteilen."
   },
@@ -20,7 +20,7 @@
   "safeActions": [
     "C"
   ],
-  "explanation": "Eine Aufforderung, einer unbekannten App weitreichende Zugriffsrechte einzuräumen, kann einen Kontomissbrauch ermöglichen. Bestätige die Anfrage über den internen IT-Support und prüfe die angeforderten Berechtigungen.",
+  "explanation": "Mit einer solchen Freigabe könnte eine unbekannte App auf Daten deines Firmenkontos zugreifen. Prüfe die Berechtigungen und die Anfrage über die interne IT-Abteilung, bevor du zustimmst.",
   "proTip": "Unbekannten Apps keine weitreichenden Zugriffsrechte ohne IT-Prüfung geben.",
   "hackKey": "A",
   "hackTrigger": "Autorität",
@@ -30,5 +30,6 @@
     "cloud-services",
     "oauth-phishing"
   ],
-  "active": true
+  "active": true,
+  "tip": "Zugriffsrechte für unbekannte Anwendungen erst nach Freigabe durch die IT erteilen."
 }
