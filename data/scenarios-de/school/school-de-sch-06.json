@@ -1,7 +1,7 @@
 {
   "id": "school-de-sch-06",
   "lang": "de",
-  "title": "Der Skin-Drop endet in 90 Sekunden",
+  "title": "Seltener Gaming-Skin für nur einen Euro?",
   "edition": "school",
   "cardType": "scenario",
   "scored": true,
@@ -20,8 +20,8 @@
   "safeActions": [
     "C"
   ],
-  "explanation": "Ein 90-Sekunden-Countdown soll verhindern, dass du merkst: Riot verkauft Skins nie über eine externe Login-Seite. Wer sich dort einloggt, gibt sein Passwort direkt an Angreifer weiter.",
-  "proTip": "Skins kauft man im Spiel, nie auf einer fremden Login-Seite.",
+  "explanation": "Das vermeintliche Sonderangebot leitet dich auf eine fremde Login-Seite. Dort könnten deine Zugangsdaten gestohlen werden. Prüfe Angebote und Käufe nur über den offiziellen Spiele-Client oder Shop.",
+  "proTip": "Gib deine Riot-Zugangsdaten nicht auf einer unbekannten Angebotsseite ein.",
   "hackKey": "H",
   "hackTrigger": "Hetze",
   "tags": [
