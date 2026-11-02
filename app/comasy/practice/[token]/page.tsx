@@ -2,6 +2,52 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { prisma } from "@/lib/prisma";
 
+// The page speaks the language of the scenarios it shows (German scenarios are
+// seeded with lang "de"). A ?lang=de link covers screens that show no scenario.
+const COPY = {
+  en: {
+    noPractice: "No practice is assigned right now.",
+    noPracticeCopy: "Your administrator has not assigned an active campaign to your cohort.",
+    strong: "Strong interruption.",
+    partly: "Partly safe, but exposed.",
+    risk: "Risk stayed in control.",
+    fallbackExplanation: "The safer pattern is to slow the request down and verify through an independent channel.",
+    lastMove: "YOUR LAST MOVE",
+    done: "Done.",
+    completed: (n: number) => `${n} decision${n === 1 ? "" : "s"} completed. Your results are now included in your organisation's behavioural dashboard.`,
+    pressure: { H: "Hurry", A: "Authority", C: "Comfort", K: "Critical Action" },
+    complete: (p: number) => `${p}% complete`,
+    eyebrow: "REALISTIC DECISION PRACTICE",
+    fallbackTitle: "What would you do next?",
+    legend: "Choose the strongest next move",
+    submit: "Lock in my move",
+    rule: "Pressure is a reason to verify—not a reason to skip verification.",
+    back: "Return to CoMaSy",
+    backHref: "/comasy",
+  },
+  de: {
+    noPractice: "Aktuell ist keine Übung zugewiesen.",
+    noPracticeCopy: "Deine Administratorin oder dein Administrator hat deiner Gruppe noch keine aktive Kampagne zugewiesen.",
+    strong: "Stark unterbrochen.",
+    partly: "Teilweise sicher, aber angreifbar.",
+    risk: "Der Druck hat gewirkt.",
+    fallbackExplanation: "Sicherer ist es, die Anfrage auszubremsen und über einen unabhängigen Weg nachzufragen.",
+    lastMove: "DEIN LETZTER ZUG",
+    done: "Geschafft.",
+    completed: (n: number) => `${n} ${n === 1 ? "Entscheidung" : "Entscheidungen"} abgeschlossen. Deine Ergebnisse fließen jetzt in die Auswertung deiner Organisation ein.`,
+    pressure: { H: "Hetze", A: "Autorität", C: "Vertrautheit", K: "Notbremse" },
+    complete: (p: number) => `${p} % geschafft`,
+    eyebrow: "ENTSCHEIDUNGEN REALISTISCH ÜBEN",
+    fallbackTitle: "Was würdest du als Nächstes tun?",
+    legend: "Wähle den stärksten nächsten Schritt",
+    submit: "Meine Wahl festlegen",
+    rule: "Druck ist ein Grund, nachzuprüfen – kein Grund, es sich zu sparen.",
+    back: "Zurück zu CoMaSy",
+    backHref: "/de/comasy",
+  },
+} as const;
+type Lang = keyof typeof COPY;
+
 const answerList = (scenario: { answersA: string; answersB: string; answersC: string }) => [
   ["A", scenario.answersA],
   ["B", scenario.answersB],
@@ -13,10 +59,11 @@ export default async function PracticePage({
   searchParams,
 }: {
   params: Promise<{ token: string }>;
-  searchParams: Promise<{ campaign?: string; feedback?: string }>;
+  searchParams: Promise<{ campaign?: string; feedback?: string; lang?: string }>;
 }) {
   const { token } = await params;
-  const { campaign: requestedCampaign, feedback } = await searchParams;
+  const { campaign: requestedCampaign, feedback, lang: requestedLang } = await searchParams;
+  const paramLang: Lang = requestedLang === "de" ? "de" : "en";
 
   const participant = await prisma.comasyParticipant.findUnique({
     where: { accessToken: token },
@@ -51,8 +98,9 @@ export default async function PracticePage({
   if (!campaign) {
     return (
       <State
-        title="No practice is assigned right now."
-        copy="Your administrator has not assigned an active campaign to your cohort."
+        lang={paramLang}
+        title={COPY[paramLang].noPractice}
+        copy={COPY[paramLang].noPracticeCopy}
       />
     );
   }
@@ -61,6 +109,12 @@ export default async function PracticePage({
     .split(",")
     .map((value) => value.trim())
     .filter(Boolean);
+
+  const firstScenario = scenarioIds[0]
+    ? await prisma.scenario.findUnique({ where: { id: scenarioIds[0] }, select: { lang: true } })
+    : null;
+  const lang: Lang = paramLang === "de" || firstScenario?.lang === "de" ? "de" : "en";
+  const c = COPY[lang];
 
   const responses = await prisma.comasyResponse.findMany({
     where: { participantId: participant.id, campaignId: campaign.id },
@@ -78,30 +132,20 @@ export default async function PracticePage({
 
   if (!currentId) {
     if (latest) {
-      const verdict =
-        latest.score >= 3
-          ? "Strong interruption."
-          : latest.score === 2
-            ? "Partly safe, but exposed."
-            : "Risk stayed in control.";
-      const explanation =
-        latest.scenario.explanation ||
-        latest.scenario.proTip ||
-        "The safer pattern is to slow the request down and verify through an independent channel.";
+      const verdict = latest.score >= 3 ? c.strong : latest.score === 2 ? c.partly : c.risk;
+      const explanation = latest.scenario.explanation || latest.scenario.proTip || c.fallbackExplanation;
       return (
         <State
-          eyebrow="YOUR LAST MOVE"
+          lang={lang}
+          eyebrow={c.lastMove}
           title={verdict}
-          copy={`${explanation} ${responses.length} decision${responses.length === 1 ? "" : "s"} completed. Your results are now included in your organisation's behavioural dashboard.`}
+          copy={`${explanation} ${c.completed(responses.length)}`}
         />
       );
     }
 
     return (
-      <State
-        title="Done."
-        copy={`${responses.length} decisions completed. Your results are now included in your organisation's behavioural dashboard.`}
-      />
+      <State lang={lang} title={c.done} copy={c.completed(responses.length)} />
     );
   }
 
@@ -113,14 +157,7 @@ export default async function PracticePage({
   if (!scenario) notFound();
 
   const progress = Math.round((responses.length / scenarioIds.length) * 100);
-  const pressureLabel =
-    scenario.hackKey === "H"
-      ? "Hurry"
-      : scenario.hackKey === "A"
-        ? "Authority"
-        : scenario.hackKey === "C"
-          ? "Comfort"
-          : "Critical Action";
+  const pressureLabel = c.pressure[scenario.hackKey as "H" | "A" | "C" | "K"] ?? c.pressure.K;
 
   return (
     <main className="page">
@@ -132,7 +169,7 @@ export default async function PracticePage({
         <small>{campaign.name}</small>
       </header>
 
-      <div className="progress" aria-label={`${progress}% complete`}>
+      <div className="progress" aria-label={c.complete(progress)}>
         <i style={{ width: `${progress}%` }} />
       </div>
 
@@ -148,24 +185,14 @@ export default async function PracticePage({
         <article>
           {latest ? (
             <div className={`feedback score-${latest.score}`}>
-              <p>YOUR LAST MOVE</p>
-              <h2>
-                {latest.score >= 3
-                  ? "Strong interruption."
-                  : latest.score === 2
-                    ? "Partly safe, but exposed."
-                    : "Risk stayed in control."}
-              </h2>
-              <span>
-                {latest.scenario.explanation ||
-                  latest.scenario.proTip ||
-                  "The safer pattern is to slow the request down and verify through an independent channel."}
-              </span>
+              <p>{c.lastMove}</p>
+              <h2>{latest.score >= 3 ? c.strong : latest.score === 2 ? c.partly : c.risk}</h2>
+              <span>{latest.scenario.explanation || latest.scenario.proTip || c.fallbackExplanation}</span>
             </div>
           ) : null}
 
-          <p className="eyebrow">REALISTIC DECISION PRACTICE</p>
-          <h1>{scenario.title || "What would you do next?"}</h1>
+          <p className="eyebrow">{c.eyebrow}</p>
+          <h1>{scenario.title || c.fallbackTitle}</h1>
           <p className="prompt">{scenario.prompt}</p>
 
           <form action="/api/comasy/practice/respond" method="post">
@@ -174,7 +201,7 @@ export default async function PracticePage({
             <input type="hidden" name="scenarioId" value={scenario.id} />
 
             <fieldset>
-              <legend>Choose the strongest next move</legend>
+              <legend>{c.legend}</legend>
               {answerList(scenario).map(([key, text]) => (
                 <label key={key}>
                   <input type="radio" name="selectedAnswerKey" value={key} required />
@@ -185,10 +212,10 @@ export default async function PracticePage({
             </fieldset>
 
             <button type="submit">
-              Lock in my move <span>→</span>
+              {c.submit} <span>→</span>
             </button>
           </form>
-          <p className="rule">Pressure is a reason to verify—not a reason to skip verification.</p>
+          <p className="rule">{c.rule}</p>
         </article>
       </section>
 
@@ -203,10 +230,12 @@ function State({
   title,
   copy,
   eyebrow = "COMASY",
+  lang = "en",
 }: {
   title: string;
   copy: string;
   eyebrow?: string;
+  lang?: Lang;
 }) {
   return (
     <main className="state">
@@ -214,7 +243,7 @@ function State({
         <p className="stateEyebrow">{eyebrow}</p>
         <h1>{title}</h1>
         <p>{copy}</p>
-        <Link href="/comasy">Return to CoMaSy</Link>
+        <Link href={COPY[lang].backHref}>{COPY[lang].back}</Link>
       </div>
       <style>{`
         :global(*){box-sizing:border-box}:global(body){margin:0;background:#12191f}.state{min-height:100vh;display:grid;place-items:center;background:radial-gradient(circle at 75% 10%,#18486c,transparent 34%),#12191f;color:white;padding:20px;font-family:Inter,system-ui,sans-serif}.state>div{width:min(620px,100%);background:#f8f6f0;color:#12191f;padding:clamp(28px,6vw,52px);border-radius:24px;box-shadow:0 30px 80px #0006}.stateEyebrow{font-size:10px;font-weight:950;letter-spacing:.14em;color:#58707d;margin:0 0 14px}.state h1{font:500 clamp(38px,7vw,58px)/1 "Iowan Old Style",Baskerville,Georgia,serif;letter-spacing:-.035em;margin:0 0 18px}.state p:not(.stateEyebrow){color:#61737c;line-height:1.7}.state a{display:inline-block;margin-top:12px;color:#12191f;font-weight:900}

@@ -1,5 +1,7 @@
 import Link from "next/link";
 import type { UiLang } from "@/lib/challenge/uiStrings";
+import { AgeScreen } from "@/components/challenge/AgeScreen";
+import type { AgeBand } from "@/lib/challenge/ageGate";
 import { EMAIL_GATE_STRINGS, EDITION_DECK_NAME_DE } from "@/lib/challenge/resultStrings";
 
 const EDITION_LABEL: Record<string, string> = {
@@ -20,15 +22,33 @@ export function ResultEmailGate({
   edition,
   claim,
   lang = "en",
+  band = null,
+  ageError = false,
 }: {
   sessionId: string;
   edition: string;
   claim?: string;
   lang?: UiLang;
+  band?: AgeBand | null;
+  ageError?: boolean;
 }) {
   const t = EMAIL_GATE_STRINGS[lang];
   const label = (lang === "de" ? EDITION_DECK_NAME_DE : EDITION_LABEL)[edition] ?? edition;
   const message = claim ? t.claimMessages[claim] : null;
+  const resultsPath = `/challenge/session/${sessionId}/results`;
+
+  if (band === null) {
+    return (
+      <main className="kg-state">
+        <section className="kg-state-card">
+          <Link className="kf-back" href="/challenge">{t.backToChallenges}</Link>
+          <p className="k-kicker" style={{ marginTop: 22 }}>{t.readyHeading(label)}</p>
+          <AgeScreen lang={lang} next="/challenge" returnTo={resultsPath} invalid={ageError} />
+          <style>{`.kf-back{color:var(--k-muted);font-size:13px;font-weight:600;text-decoration:none}.kf-back:hover{color:var(--k-gold)}`}</style>
+        </section>
+      </main>
+    );
+  }
 
   return (
     <main className="kg-state">

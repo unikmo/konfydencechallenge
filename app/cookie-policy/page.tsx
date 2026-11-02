@@ -5,6 +5,7 @@ export const metadata = {
   // absolute: stops root layout's title template from double-appending " | Konfydence".
   title: { absolute: "Cookie Policy - Konfydence" },
   description: "Konfydence Cookie Policy - Information about cookies we use",
+  alternates: { canonical: "/cookie-policy", languages: { en: "https://konfydence.com/cookie-policy", de: "https://konfydence.com/de/cookie-richtlinie" } },
 };
 
 export default function CookiePolicyPage() {
@@ -105,6 +106,7 @@ export default function CookiePolicyPage() {
             <li style={paragraphStyle}>Security (CSRF protection)</li>
             <li style={paragraphStyle}>Cookie consent preferences</li>
             <li style={paragraphStyle}>kf_uid (unique visitor identifier linking a purchase to your access)</li>
+            <li style={paragraphStyle}>kf_age_band (a coarse age group, kept for 24 hours, so the age question on the free-round sign-up cannot be answered again on the back button; your date of birth is not stored)</li>
           </ul>
 
           <h3 style={{ fontSize: 16, fontWeight: 800, marginTop: 16, marginBottom: 8 }}>
@@ -147,6 +149,14 @@ export default function CookiePolicyPage() {
                 </td>
                 <td style={tdStyle}>User identifier linking a purchase to your access</td>
                 <td style={tdStyle}>1 year</td>
+                <td style={tdStyle}>Essential</td>
+              </tr>
+              <tr>
+                <td style={tdStyle}>
+                  <strong>kf_age_band</strong>
+                </td>
+                <td style={tdStyle}>Coarse age group from the age question on the free-round sign-up</td>
+                <td style={tdStyle}>24 hours</td>
                 <td style={tdStyle}>Essential</td>
               </tr>
               <tr>

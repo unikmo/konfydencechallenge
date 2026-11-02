@@ -3,6 +3,8 @@ import { NextRequest, NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
 import { getCustomerOrganizationId } from "@/lib/comasyAuth";
 
+import { STUDENT_ALIAS_DOMAIN } from "@/lib/comasyStudents";
+
 const text = (form: FormData, key: string) => String(form.get(key) ?? "").trim();
 const optional = (form: FormData, key: string) => text(form, key) || null;
 
@@ -40,6 +42,50 @@ export async function POST(request: NextRequest) {
       update: { cohortId, firstName: text(form, "firstName"), lastName: text(form, "lastName"), department: optional(form, "department"), role: optional(form, "role"), status: "INVITED" },
       create: { organizationId, cohortId, firstName: text(form, "firstName"), lastName: text(form, "lastName"), email, department: optional(form, "department"), role: optional(form, "role"), accessToken: randomBytes(24).toString("base64url") },
     });
+    return redirect(request, "people");
+  }
+
+  // Class set-up for students under 18: the teacher creates numbered aliases for a
+  // class. No names and no email addresses are entered or stored; the school keeps
+  // the key that links each alias to a student. Each alias gets its own access link.
+  if (action === "create_student_aliases") {
+    const cohortId = optional(form, "cohortId");
+    const count = Math.max(1, Math.min(60, Math.floor(Number(text(form, "count")) || 0)));
+    const prefix = (text(form, "prefix") || "Student").replace(/[^p{L}p{N} _-]/gu, "").slice(0, 24).trim() || "Student";
+    if (!cohortId) return redirect(request, "people");
+    const cohort = await prisma.comasyCohort.findFirst({ where: { id: cohortId, organizationId }, select: { id: true } });
+    if (!cohort) return redirect(request, "people");
+    const existing = await prisma.comasyParticipant.count({ where: { organizationId, cohortId, email: { endsWith: STUDENT_ALIAS_DOMAIN } } });
+    if (existing + count > 300) return redirect(request, "people");
+    for (let i = 1; i <= count; i += 1) {
+      const token = randomBytes(24).toString("base64url");
+      await prisma.comasyParticipant.create({
+        data: {
+          organizationId,
+          cohortId,
+          firstName: `${prefix} ${String(existing + i).padStart(2, "0")}`,
+          lastName: "",
+          email: `${randomBytes(9).toString("hex")}${STUDENT_ALIAS_DOMAIN}`,
+          accessToken: token,
+        },
+      });
+    }
+    return redirect(request, "people");
+  }
+
+  if (action === "participant_status") {
+    const participantId = text(form, "participantId");
+    const status = text(form, "status");
+    if (["DISABLED", "INVITED"].includes(status)) {
+      await prisma.comasyParticipant.updateMany({ where: { id: participantId, organizationId }, data: { status } });
+    }
+    return redirect(request, "people");
+  }
+
+  // Erasure controlled by the school: removes the participant and, by cascade,
+  // every response they gave.
+  if (action === "delete_participant") {
+    await prisma.comasyParticipant.deleteMany({ where: { id: text(form, "participantId"), organizationId } });
     return redirect(request, "people");
   }
 

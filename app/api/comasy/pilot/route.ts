@@ -33,17 +33,22 @@ export async function POST(request: NextRequest) {
   if (!allowed) return NextResponse.redirect(new URL(`${pilotFormUrl}?error=rate`, request.url), 303);
   const form = await request.formData();
   const lang = value(form, "lang") === "de" ? "de" : "en";
-  const formUrl = lang === "de" ? "/de/comasy/pilotprojekt" : "/comasy/pilot";
+  const formUrl = lang === "de" ? (value(form, "audience") === "school" ? "/de/pilot/schulen" : "/de/comasy/pilotprojekt") : value(form, "audience") === "school" ? "/pilot/schools" : "/comasy/pilot";
   const firstName=value(form,"firstName"), lastName=value(form,"lastName"), workEmail=value(form,"workEmail").toLowerCase(), organizationName=value(form,"organization"), role=value(form,"role"), organizationSize=value(form,"organizationSize"), primaryObjective=value(form,"primaryObjective");
   if (!firstName || !lastName || !organizationName || !validEmail(workEmail) || !role || !organizationSize || !primaryObjective || value(form,"consent")!=="yes") {
     return NextResponse.redirect(new URL(`${formUrl}?error=validation`, request.url), 303);
   }
 
+  const isSchool=value(form,"audience")==="school";
+  // School requests carry the country and student age group so the data-protection
+  // gate (age of digital consent, parental notice) can be checked before any scoping call.
+  const schoolContext=isSchool?`School pilot · Country: ${value(form,"country")||"n/a"} · Student age group: ${value(form,"ageGroup")||"n/a"}`:"";
+  const notes=[schoolContext,value(form,"notes")].filter(Boolean).join(" | ")||null;
   const emailDomain=workEmail.split("@")[1] || "";
   const source=value(form,"utm_source") || "Direct";
   const medium=value(form,"utm_medium") || null;
   const campaign=value(form,"utm_campaign") || null;
-  const landingPage=value(form,"landingPage") || "/comasy/pilot";
+  const landingPage=value(form,"landingPage") || (isSchool?"/pilot/schools":"/comasy/pilot");
   const persona=role;
   let slug=slugify(organizationName);
   const existingBySlug=await prisma.comasyOrganization.findUnique({where:{slug}});
@@ -54,23 +59,25 @@ export async function POST(request: NextRequest) {
     : await prisma.comasyOrganization.create({data:{name:organizationName,slug,source,persona,stage:"PILOT_PROPOSED",currentPlatform:value(form,"currentPlatform")||null,nextAction:"Review pilot request",lastContactAt:new Date(),customerHealth:"PROSPECT"}});
 
   let contact=await prisma.comasyContact.findFirst({where:{organizationId:organization.id,email:workEmail}});
-  if(!contact) contact=await prisma.comasyContact.create({data:{organizationId:organization.id,firstName,lastName,email:workEmail,jobTitle:role,persona,buyingRole:"Pilot requester",champion:true,notes:value(form,"notes")||null}});
+  if(!contact) contact=await prisma.comasyContact.create({data:{organizationId:organization.id,firstName,lastName,email:workEmail,jobTitle:role,persona,buyingRole:"Pilot requester",champion:true,notes}});
 
   const [lead] = await prisma.$transaction([
-    prisma.comasyLead.create({data:{organizationId:organization.id,firstName,lastName,workEmail,organizationName,role,organizationSize,primaryObjective,currentPlatform:value(form,"currentPlatform")||null,notes:value(form,"notes")||null,source,medium,campaign,landingPage,status:"PILOT_REQUEST"}}),
-    prisma.comasyActivity.create({data:{organizationId:organization.id,contactId:contact.id,type:"pilot_form_complete",source,medium,campaign,page:landingPage,persona,metadata:JSON.stringify({organizationSize,primaryObjective,workEmailType:personalDomains.has(emailDomain)?"personal-domain":"work-domain"})}}),
+    prisma.comasyLead.create({data:{organizationId:organization.id,firstName,lastName,workEmail,organizationName,role,organizationSize,primaryObjective,currentPlatform:value(form,"currentPlatform")||null,notes,source,medium,campaign,landingPage,status:"PILOT_REQUEST"}}),
+    prisma.comasyActivity.create({data:{organizationId:organization.id,contactId:contact.id,type:"pilot_form_complete",source,medium,campaign,page:landingPage,persona,metadata:JSON.stringify({audience:isSchool?"school":"organisation",organizationSize,primaryObjective,workEmailType:personalDomains.has(emailDomain)?"personal-domain":"work-domain"})}}),
   ]);
 
   const activeOpportunity=await prisma.comasyOpportunity.findFirst({where:{organizationId:organization.id,stage:{notIn:["WON","LOST"]}}});
-  if(!activeOpportunity) await prisma.comasyOpportunity.create({data:{organizationId:organization.id,name:`${organizationName} CoMaSy pilot`,stage:"PILOT_PROPOSED",probability:35,nextAction:"Qualify use case and agree cohort",owner:organization.accountOwner}});
+  if(!activeOpportunity) await prisma.comasyOpportunity.create({data:{organizationId:organization.id,name:`${organizationName} ${isSchool?"school pilot":"CoMaSy pilot"}`,stage:"PILOT_PROPOSED",probability:35,nextAction:"Qualify use case and agree cohort",owner:organization.accountOwner}});
 
-  const internalHtml=`<h2>New CoMaSy pilot request${lang==="de"?" (DE)":""}</h2><p><strong>${safe(firstName)} ${safe(lastName)}</strong> · ${safe(role)}<br/>${safe(workEmail)}<br/>${safe(organizationName)} · ${safe(organizationSize)}</p><p><strong>Objective:</strong> ${safe(primaryObjective)}<br/><strong>Current platform:</strong> ${safe(value(form,"currentPlatform")||"Not provided")}<br/><strong>Notes:</strong> ${safe(value(form,"notes")||"—")}</p><p>Source: ${safe([source,medium,campaign].filter(Boolean).join(" / "))}</p>`;
+  const internalHtml=`<h2>New ${isSchool?"school":"CoMaSy"} pilot request${lang==="de"?" (DE)":""}</h2>${isSchool?"<p><strong>Minors involved: check age of digital consent and DPA before scoping. No student data should be collected at this stage.</strong></p>":""}<p><strong>${safe(firstName)} ${safe(lastName)}</strong> · ${safe(role)}<br/>${safe(workEmail)}<br/>${safe(organizationName)} · ${safe(organizationSize)}</p><p><strong>Objective:</strong> ${safe(primaryObjective)}<br/><strong>Current platform:</strong> ${safe(value(form,"currentPlatform")||"Not provided")}<br/><strong>Notes:</strong> ${safe(notes||"—")}</p><p>Source: ${safe([source,medium,campaign].filter(Boolean).join(" / "))}</p>`;
   const customerHtml = lang === "de"
-    ? `<h2>Deine CoMaSy-Pilotanfrage ist da.</h2><p>Hallo ${safe(firstName)},</p><p>Wir prüfen den Anwendungsfall, vereinbaren die Zielkohorte und den Risikofokus, legen die Pilot-Kennzahlen fest und konfigurieren das Programm — vor jeder Entscheidung über eine Skalierung.</p><p><strong>Definierte Kohorte. Definierte Kennzahlen. Definierter Entscheidungspunkt.</strong></p>`
+    ? (isSchool ? `<h2>Deine Schul-Pilotanfrage ist da.</h2><p>Hallo ${safe(firstName)},</p><p>Wir prüfen deine Anfrage und melden uns, um Klasse oder Jahrgang, den Risikofokus und das Datenmodell zu vereinbaren. <strong>In dieser Phase werden keine Schülerdaten benötigt oder erhoben</strong>, und sie werden erst verwendet, wenn ein Auftragsverarbeitungsvertrag vorliegt.</p>` : `<h2>Deine CoMaSy-Pilotanfrage ist da.</h2><p>Hallo ${safe(firstName)},</p><p>Wir prüfen den Anwendungsfall, vereinbaren die Zielkohorte und den Risikofokus, legen die Pilot-Kennzahlen fest und konfigurieren das Programm — vor jeder Entscheidung über eine Skalierung.</p><p><strong>Definierte Kohorte. Definierte Kennzahlen. Definierter Entscheidungspunkt.</strong></p>`)
+    : isSchool
+    ? `<h2>Your school pilot request is in.</h2><p>Hi ${safe(firstName)},</p><p>We will review your request and get in touch to agree the class or year group, the risk focus and the data model. <strong>No student data is needed or collected at this stage</strong>, and none is used until a data-processing agreement is in place.</p>`
     : `<h2>Your CoMaSy pilot request is in.</h2><p>Hi ${safe(firstName)},</p><p>We will review the use case, agree the target cohort and risk focus, establish the pilot measures, and configure the programme before any scale decision.</p><p><strong>Defined cohort. Defined metrics. Defined decision point.</strong></p>`;
   await Promise.all([
-    CONTACT_TO_EMAIL ? sendEmail(CONTACT_TO_EMAIL,`CoMaSy pilot request — ${organizationName}`,internalHtml,workEmail):Promise.resolve(false),
-    sendEmail(workEmail, lang === "de" ? "Deine CoMaSy-Pilotanfrage ist da" : "Your CoMaSy pilot request is in", customerHtml),
+    CONTACT_TO_EMAIL ? sendEmail(CONTACT_TO_EMAIL,`${isSchool?"School":"CoMaSy"} pilot request — ${organizationName}`,internalHtml,workEmail):Promise.resolve(false),
+    sendEmail(workEmail, lang === "de" ? (isSchool ? "Deine Schul-Pilotanfrage ist da" : "Deine CoMaSy-Pilotanfrage ist da") : isSchool ? "Your school pilot request is in" : "Your CoMaSy pilot request is in", customerHtml),
   ]);
   console.log("CoMaSy pilot request recorded", { leadId: lead.id, organizationId: organization.id, emailConfigured: Boolean(RESEND_API_KEY&&CONTACT_FROM_EMAIL) });
   return NextResponse.redirect(new URL(`/comasy/pilot/thank-you?org=${encodeURIComponent(organizationName)}${lang === "de" ? "&lang=de" : ""}`, request.url),303);

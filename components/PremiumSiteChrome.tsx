@@ -24,7 +24,7 @@ export function PremiumHeader({
         <Link href="/travelsafe">TravelSafe</Link>
         <Link href="/lockscreens">Lockscreens</Link>
         <Link href="/pricing">Pricing</Link>
-        <Link href="/comasy">For organisations</Link>
+        <Link href="/pilot">Schools &amp; Teams</Link>
         <Link href="/free-scam-safety-pack">Resources</Link>
       </nav>
       <div className="k-nav-actions">
@@ -48,7 +48,9 @@ export function PremiumFooter() {
           <Link href="/travelsafe">TravelSafe</Link>
           <Link href="/lockscreens">Lockscreens</Link>
           <Link href="/pricing">Pricing</Link>
+          <Link href="/pilot">Schools &amp; Teams pilots</Link>
           <Link href="/comasy">CoMaSy</Link>
+          <Link href="/comasy/security">CoMaSy security</Link>
           <Link href="/gift">Gift a challenge</Link>
           <Link href="/free-scam-safety-pack">Free safety resources</Link>
           <Link href="/hack-method">Method</Link>
@@ -102,7 +104,7 @@ export function PremiumHeaderDe({
         <Link href="/de/challenge">Challenge</Link>
         <Link href="/de/lockscreens">Lockscreens</Link>
         <Link href="/de/pricing">Preise</Link>
-        <Link href="/de/comasy">Für Organisationen</Link>
+        <Link href="/de/pilot">Schulen &amp; Teams</Link>
       </nav>
       <div className="k-nav-actions">
         <Link href="/" className="k-lang-switch" aria-label="View in English">EN</Link>
@@ -124,7 +126,9 @@ export function PremiumFooterDe() {
           <Link href="/de/challenge">Challenge</Link>
           <Link href="/de/lockscreens">Lockscreens</Link>
           <Link href="/de/pricing">Preise</Link>
+          <Link href="/de/pilot">Schulen &amp; Teams Pilotprojekte</Link>
           <Link href="/de/comasy">CoMaSy</Link>
+          <Link href="/de/comasy/sicherheit">CoMaSy Sicherheit</Link>
           <Link href="/de/hack-method">Methode</Link>
           <Link href="/de/countries">Länder-Betrugswarnungen</Link>
           <Link href="/de/impressum">Impressum</Link>

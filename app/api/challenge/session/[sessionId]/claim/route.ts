@@ -6,6 +6,7 @@ import { createSession, sessionCookieOptions, hashIp, SESSION_COOKIE_NAME } from
 import { getClientIp } from "@/lib/auth/request";
 import { sendChallengeResultEmail } from "@/lib/challenge/sendResultEmail";
 import { isGuestEmail } from "@/lib/challenge/startSessionUtil";
+import { readAgeBand } from "@/lib/challenge/ageGate";
 
 export const dynamic = "force-dynamic";
 
@@ -28,6 +29,13 @@ export async function POST(request: NextRequest, props: { params: Promise<{ sess
   }
   const email = normalizeEmail(String(form.get("email") ?? ""));
   const consent = String(form.get("consent") ?? "");
+
+  // Age tiering (see lib/challenge/ageGate.ts): the age screen must be done and the
+  // player must be 16 or over to give their own email address here.
+  if (readAgeBand(request.headers.get("cookie")) !== "16plus") {
+    resultsUrl.searchParams.set("claim", "age");
+    return NextResponse.redirect(resultsUrl);
+  }
 
   const kfUid = request.cookies.get("kf_uid")?.value;
   if (!kfUid) {

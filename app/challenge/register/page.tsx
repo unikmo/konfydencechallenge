@@ -1,41 +1,79 @@
 import Link from "next/link";
+import { cookies } from "next/headers";
+import { AGE_BAND_COOKIE, isAgeBand } from "@/lib/challenge/ageGate";
+import { AgeScreen } from "@/components/challenge/AgeScreen";
 
 export default async function RegisterForReplayPage(
   props: {
-    searchParams?: Promise<{ next?: string; error?: string }>;
+    searchParams?: Promise<{ next?: string; error?: string; ageError?: string }>;
   }
 ) {
   const searchParams = await props.searchParams;
-  const next = searchParams?.next?.startsWith("/") ? searchParams.next : "/challenge";
+  const next = searchParams?.next?.startsWith("/") && !searchParams.next.startsWith("//") ? searchParams.next : "/challenge";
   const error = searchParams?.error;
+  const cookieStore = await cookies();
+  const stored = cookieStore.get(AGE_BAND_COOKIE)?.value;
+  const band = isAgeBand(stored) ? stored : null;
 
   return (
     <main className="kg-state">
       <section className="kg-state-card">
         <Link className="kg-reg-back" href="/challenge">← Back to challenges</Link>
-        <p className="k-kicker" style={{ marginTop: 22 }}>One more free round</p>
-        <h1>Keep practising without losing your progress.</h1>
-        <p>
-          Enter your email to unlock one more free readiness check. Free access covers two rounds;
-          the full challenge is available whenever you are ready.
-        </p>
-        {error === "already-used" ? (
-          <p className="kg-reg-error" role="alert">
-            That email is already linked to another player. Use the email from this device or continue with the full challenge.
-          </p>
-        ) : null}
-        <form method="post" action="/api/challenge/register" className="kg-reg-form">
-          <input type="hidden" name="next" value={next} />
-          <label htmlFor="email">Email address</label>
-          <input id="email" name="email" type="email" autoComplete="email" required placeholder="you@example.com" />
-          <label className="kg-reg-consent">
-            <input type="checkbox" name="consent" value="yes" required />
-            <span>Send me my progress link and occasional Konfydence updates. Unsubscribe anytime.</span>
-          </label>
-          <button type="submit" className="k-button">Unlock my next free round</button>
-        </form>
+
+        {band === null ? (
+          <>
+            <p className="k-kicker" style={{ marginTop: 22 }}>One more free round</p>
+            <AgeScreen lang="en" next={next} returnTo={`/challenge/register?next=${encodeURIComponent(next)}`} invalid={searchParams?.ageError === "1"} />
+          </>
+        ) : band === "under13" ? (
+          <>
+            <p className="k-kicker" style={{ marginTop: 22 }}>Free practice</p>
+            <h1>We can&apos;t set this up with an email address.</h1>
+            <p>
+              You can keep using the free practice without an account. If you would like to carry on, ask a parent,
+              guardian or teacher to help.
+            </p>
+            <Link className="k-button" href="/challenge">Back to challenges</Link>
+          </>
+        ) : (
+          <>
+            <p className="k-kicker" style={{ marginTop: 22 }}>One more free round</p>
+            <h1>Keep practising without losing your progress.</h1>
+            <p>
+              {band === "13to15"
+                ? "To unlock one more free readiness check, a parent or guardian needs to enter their email address. We will send the progress link to them."
+                : "Enter your email to unlock one more free readiness check. Free access covers two rounds; the full challenge is available whenever you are ready."}
+            </p>
+            {error === "already-used" ? (
+              <p className="kg-reg-error" role="alert">
+                That email is already linked to another player. Use the email from this device or continue with the full challenge.
+              </p>
+            ) : null}
+            {error === "age" ? (
+              <p className="kg-reg-error" role="alert">Please complete the questions to continue.</p>
+            ) : null}
+            <form method="post" action="/api/challenge/register" className="kg-reg-form">
+              <input type="hidden" name="next" value={next} />
+              <label htmlFor="email">{band === "13to15" ? "Parent or guardian's email address" : "Email address"}</label>
+              <input id="email" name="email" type="email" autoComplete="email" required placeholder={band === "13to15" ? "parent@example.com" : "you@example.com"} />
+              {band === "13to15" ? (
+                <label className="kg-reg-consent">
+                  <input type="checkbox" name="parent" value="yes" required />
+                  <span>I am the parent or guardian, and I am happy for this email address to be used to send a progress link.</span>
+                </label>
+              ) : null}
+              <label className="kg-reg-consent">
+                <input type="checkbox" name="consent" value="yes" required />
+                <span>Send the progress link to this address. It is used for nothing else.</span>
+              </label>
+              <button type="submit" className="k-button">Unlock my next free round</button>
+            </form>
+          </>
+        )}
+
         <p className="kg-reg-legal">
-          By continuing, you agree to our <Link href="/privacy-policy">Privacy Policy</Link> and <Link href="/terms-of-service">Terms</Link>.
+          We ask for a month and year of birth to set this up in the right way. We do not keep it, and this is a self-declared answer, not a check of age.
+          Read our <Link href="/privacy-policy#children">children&apos;s privacy information</Link>, the <Link href="/privacy-policy">Privacy Policy</Link> and <Link href="/terms-of-service">Terms</Link>.
         </p>
       </section>
 

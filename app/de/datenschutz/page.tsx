@@ -13,7 +13,7 @@ export default function DatenschutzPage() {
     <div style={s.container}>
       <div style={s.content}>
         <h1 style={s.title}>Datenschutzerklärung</h1>
-        <p style={s.update}>Stand: 11. September 2026 (spiegelt die englische Datenschutzerklärung)</p>
+        <p style={s.update}>Stand: 2. November 2026 (spiegelt die englische Datenschutzerklärung)</p>
 
         <div style={s.section}>
           <h2 style={s.heading}>1. Einleitung</h2>
@@ -95,16 +95,52 @@ export default function DatenschutzPage() {
           </p>
         </div>
 
-        <div style={s.section}>
-          <h2 style={s.heading}>8. Cookies</h2>
+        <div id="kinder" style={s.section}>
+          <h2 style={s.heading}>8. Kinder und Schulen</h2>
           <p style={s.paragraph}>
-            Siehe unsere <Link href="/cookie-policy" style={s.link}>Cookie-Richtlinie</Link> (derzeit nur auf Englisch)
-            für Informationen zu Cookies und Analyse-Einwilligung.
+            Einige Challenges von Konfydence richten sich an Schülerinnen und Schüler zwischen 12 und 18 Jahren. Mit den
+            Daten von Kindern gehen wir besonders sorgfältig um.
+          </p>
+          <ul style={s.list}>
+            <li><strong>Altersabfrage:</strong> Bevor die Anmeldung für weitere kostenlose Runden nach einer E-Mail-Adresse
+              fragt, wollen wir Geburtsmonat und Geburtsjahr wissen. Daraus ermitteln wir einmalig eine Altersstufe und
+              speichern nur diese Stufe für 24 Stunden in einem Cookie – das Geburtsdatum speichern wir nicht. Unter 13 Jahren
+              erheben wir keine E-Mail-Adresse. Mit 13 bis 15 Jahren kann nur die E-Mail-Adresse eines Elternteils oder einer
+              erziehungsberechtigten Person eingetragen werden, die bestätigt, dass sie diese Rolle hat. Ab 16 Jahren trägst du
+              deine eigene Adresse ein. Unter 16 Jahren wird für die Anzeige des Ergebnisses keine E-Mail-Adresse verlangt: Es erscheint direkt auf dem Bildschirm. Die Altersangabe beruht auf Selbstauskunft und ist keine Altersprüfung. Nach der DSGVO
+              legt jedes EU-Land das Alter für die digitale Einwilligung zwischen 13 und 16 Jahren fest; wir wenden vorsorglich
+              die höhere Grenze von 16 Jahren an, wenn es um die eigene E-Mail-Adresse eines Kindes geht.</li>
+            <li><strong>Was wir von Kindern verlangen:</strong> Der kostenlose Bereitschaftscheck funktioniert ohne Konto.
+              Eine E-Mail-Adresse brauchen wir nur, um weitere kostenlose Runden freizuschalten und einen Link zum Fortschritt
+              zu schicken – für nichts anderes. Kindern schicken wir keine Werbung.</li>
+            <li><strong>Löschung auf Wunsch der Eltern:</strong> Eltern und Erziehungsberechtigte können sich unter
+              privacy@konfydence.com melden, wenn wir Daten ihres Kindes löschen sollen.</li>
+            <li><strong>Schulpilotprojekte:</strong> Führt eine Schule ein Pilotprojekt mit Konfydence durch, entscheidet die
+              Schule (bzw. der Schulträger) über Zweck und Mittel der Verarbeitung; wir verarbeiten die Daten in ihrem Auftrag,
+              auf Grundlage eines schriftlichen Auftragsverarbeitungsvertrags. Rechtsgrundlage und Information der Eltern liegen
+              bei der Schule. Die Schülerinnen und Schüler nehmen mit nummerierten Pseudonymen teil, die ihre Lehrkraft anlegt –
+              Namen und E-Mail-Adressen erhalten wir dadurch nicht. Wer sich hinter einem Pseudonym verbirgt, weiß nur die
+              Schule; sie kann ein Pseudonym jederzeit sperren oder die zugehörigen Daten löschen. Vor dem Start vereinbaren
+              wir außerdem, wie berichtet wird (standardmäßig für die Klasse), wer Zugriff hat und wie lange Daten gespeichert
+              werden. Ist seit der letzten Aktivität die vereinbarte Speicherdauer verstrichen, löschen wir die Antworten
+              automatisch. In den Anfrageformularen für Pilotprojekte fragen wir keine Schülerdaten ab, und wir nutzen
+              Schülerdaten nicht für Werbung oder Marketing.</li>
+          </ul>
+          <p style={s.paragraph}>
+            Mehr dazu unter <Link href="/de/comasy/sicherheit#schulen" style={s.link}>Schulen &amp; Schülerdaten</Link>.
           </p>
         </div>
 
         <div style={s.section}>
-          <h2 style={s.heading}>9. Sicherheit</h2>
+          <h2 style={s.heading}>9. Cookies</h2>
+          <p style={s.paragraph}>
+            Alles zu Cookies und zur Einwilligung für die Analyse steht in unserer
+            <Link href="/de/cookie-richtlinie" style={s.link}> Cookie-Richtlinie</Link>.
+          </p>
+        </div>
+
+        <div style={s.section}>
+          <h2 style={s.heading}>10. Sicherheit</h2>
           <p style={s.paragraph}>
             Wir setzen dem Dienst angemessene technische und organisatorische Schutzmaßnahmen ein. Für die Übertragung
             oder Speicherung von Daten über das Internet kann keine absolute Sicherheit garantiert werden.
@@ -112,7 +148,7 @@ export default function DatenschutzPage() {
         </div>
 
         <div style={s.section}>
-          <h2 style={s.heading}>10. Änderungen dieser Erklärung</h2>
+          <h2 style={s.heading}>11. Änderungen dieser Erklärung</h2>
           <p style={s.paragraph}>
             Wir können diese Datenschutzerklärung von Zeit zu Zeit aktualisieren. Wesentliche Änderungen werden auf
             dieser Seite mit aktualisiertem Datum ausgewiesen.
@@ -120,7 +156,7 @@ export default function DatenschutzPage() {
         </div>
 
         <div style={s.section}>
-          <h2 style={s.heading}>11. Kontakt</h2>
+          <h2 style={s.heading}>12. Kontakt</h2>
           <p style={s.paragraph}>
             <strong>Verantwortlicher:</strong> PlanetHike OÜ
             <br />

@@ -60,6 +60,17 @@
 .k-principles-four .k-principle:last-child{border-right:0}
 .k-home-method .k-method-grid{max-width:900px;margin-inline:auto}
 .k-home-beyond .k-two-paths{max-width:900px;margin-inline:auto}
+.k-home-hero-pilot{margin:16px 0 0!important;font-size:12px!important;color:#77716a!important}
+.k-home-hero-pilot a{color:#075ca8;font-weight:650;text-decoration:none;border-bottom:1px solid rgba(7,92,168,.28)}
+.k-home-hero-pilot a:hover{border-color:#075ca8}
+.k-home-pilot{padding:92px 0;border-top:1px solid var(--k-line);text-align:center;max-width:920px}
+.k-home-pilot .k-copy{margin:22px auto 0;max-width:600px}
+.k-home-pilot-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:42px;text-align:left}
+.k-home-pilot-grid article{background:#fffdf9;border:1px solid var(--k-line);border-radius:22px;padding:30px 26px;display:flex;flex-direction:column}
+.k-home-pilot-grid small{text-transform:uppercase;letter-spacing:.13em;font-size:9px;color:var(--k-gold);margin-bottom:16px}
+.k-home-pilot-grid strong{font-family:var(--k-display);font-size:27px;line-height:1.06;font-weight:400;letter-spacing:-.035em;color:#0d3159}
+.k-home-pilot-grid p{font-size:12px;line-height:1.65;color:var(--k-muted);margin:14px 0 0;flex:1}
+.k-home-pilot-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:24px}
 .k-home-final-cta{display:flex;flex-direction:column;align-items:center;text-align:center;padding-top:82px;padding-bottom:82px;max-width:900px}
 .k-home-final-cta .k-display-sm{max-width:720px}
 .k-home-final-cta .k-actions{margin-top:24px}
@@ -79,6 +90,7 @@
   .k-home-benefits article{border-right:0;border-bottom:1px solid var(--k-line)}
   .k-home-benefits article:last-child{border-bottom:0}
   .k-home-care-grid{grid-template-columns:1fr}
+  .k-home-pilot-grid{grid-template-columns:1fr}
   .k-principles-four{grid-template-columns:repeat(2,1fr)}
 }
 
@@ -102,6 +114,10 @@
   .k-home-benefits{margin-top:38px}
   .k-home-benefits article{padding:28px 18px}
   .k-home-care{padding:70px 0}
+  .k-home-pilot{padding:70px 0}
+  .k-home-pilot-grid article{padding:24px}
+  .k-home-pilot-grid strong{font-size:26px}
+  .k-home-pilot-actions a{width:100%}
   .k-home-care-grid article{padding:24px}
   .k-home-care-grid strong{font-size:26px}
   .k-principles-four{grid-template-columns:1fr}

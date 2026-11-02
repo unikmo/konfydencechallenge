@@ -1,6 +1,6 @@
 # GDPR & Data Privacy Compliance
 
-✅ **GDPR Compliant** | ✅ **EU Data Protection Ready**
+> Internal implementation checklist. Not a compliance statement: no certification or legal review is claimed.
 
 ---
 

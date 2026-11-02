@@ -51,6 +51,9 @@ export default function HomePage() {
             <Link className="k-button k-home-primary" href="/challenge/travelsafe/start?mode=diagnostic">Try TravelSafe free</Link>
             <Link className="k-button-quiet k-home-secondary" href="#for-someone">For someone you care about</Link>
           </div>
+          <p className="k-home-hero-pilot">
+            For schools and teams: <Link href="/pilot">request a pilot <span aria-hidden="true">→</span></Link>
+          </p>
           <a className="k-home-scroll-cue" href="#inside-it" aria-label="Continue to learn why scam messages are difficult to recognise">
             <span>See why this matters</span>
             <b aria-hidden="true">↓</b>
@@ -168,8 +171,38 @@ export default function HomePage() {
         </div>
       </section>
 
+      <section id="pilots" className="k-shell k-home-pilot" aria-labelledby="home-pilot-title">
+        <p className="k-kicker">Now accepting pilot requests</p>
+        <h2 id="home-pilot-title" className="k-display-sm">Bring the habit to a classroom or a team.</h2>
+        <p className="k-copy">
+          Start with a defined group and a defined risk focus. Practise the decision, review what changed, then decide
+          whether to scale, adapt or stop.
+        </p>
+        <div className="k-home-pilot-grid">
+          <article>
+            <small>For schools · ages 12–18</small>
+            <strong>Classroom decision practice.</strong>
+            <p>Gaming rewards, fake giveaways, group-chat pressure and account takeovers. The school stays in control of student data, and the data model is agreed before any student takes part.</p>
+            <div className="k-home-pilot-actions">
+              <Link className="k-button" href="/pilot/schools">Request a school pilot</Link>
+              <Link className="k-button-quiet" href="/school">Try the student check</Link>
+            </div>
+          </article>
+          <article>
+            <small>For companies &amp; teams</small>
+            <strong>CoMaSy security decision simulation.</strong>
+            <p>Defined cohort, baseline, targeted practice, post comparison and an evidence review. Runs alongside your existing awareness programme.</p>
+            <div className="k-home-pilot-actions">
+              <Link className="k-button" href="/comasy/pilot">Request a pilot</Link>
+              <Link className="k-button-quiet" href="/comasy">See CoMaSy</Link>
+            </div>
+          </article>
+        </div>
+      </section>
+
       <PortfolioStrip
         exclude={["travelsafe"]}
+        lead={["school", "comasy"]}
         kicker="Beyond travel"
         heading="The same decision habit, wherever pressure appears."
       />

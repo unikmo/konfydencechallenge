@@ -1,4 +1,6 @@
 import React from "react";
+import { cookies } from "next/headers";
+import { AGE_BAND_COOKIE, isAgeBand } from "@/lib/challenge/ageGate";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { ShareButtons } from "@/components/ShareButtons";
@@ -48,10 +50,10 @@ export default async function ResultsPage({
   searchParams,
 }: {
   params: Promise<{ sessionId: string }>;
-  searchParams: Promise<{ claim?: string }>;
+  searchParams: Promise<{ claim?: string; ageError?: string }>;
 }) {
   const { sessionId } = await params;
-  const { claim } = await searchParams;
+  const { claim, ageError } = await searchParams;
   const session = await prisma.challengeSession.findUnique({
     where: { id: sessionId },
     select: {
@@ -89,8 +91,12 @@ export default async function ResultsPage({
 
   // Free play is free to start, but the result is delivered by email. Stand the
   // email gate in front of the result for a player who has not registered yet.
-  if (completedAll && isGuestEmail(session.user.email)) {
-    return <ResultEmailGate sessionId={sessionId} edition={session.edition} claim={claim} lang={lang} />;
+  // Under-16s are never asked for an email address here: they see their result
+  // on screen. Until the age question is answered the gate shows that question.
+  const storedBand = (await cookies()).get(AGE_BAND_COOKIE)?.value;
+  const ageBand = isAgeBand(storedBand) ? storedBand : null;
+  if (completedAll && isGuestEmail(session.user.email) && (ageBand === null || ageBand === "16plus")) {
+    return <ResultEmailGate sessionId={sessionId} edition={session.edition} claim={claim} lang={lang} band={ageBand} ageError={ageError === "1"} />;
   }
 
   // Registered player finishing a run: send the results email (idempotent).
@@ -107,7 +113,7 @@ export default async function ResultsPage({
   const canPlayAnotherFreeRound = isDiagnostic && diagnosticSessions < 2;
   const freeRoundHref = isRegistered
     ? `/challenge/${session.edition}/start?mode=diagnostic`
-    : `/challenge/register?next=${encodeURIComponent(`/challenge/${session.edition}/start?mode=diagnostic`)}`;
+    : `${lang === "de" ? "/de/challenge/registrieren" : "/challenge/register"}?next=${encodeURIComponent(`/challenge/${session.edition}/start?mode=diagnostic`)}`;
   const pressurePattern = weakest ? hackLabel(weakest.hackKey, "public", lang, HACK_LABELS[weakest.hackKey].public) : (lang === "de" ? "Keins identifiziert" : "None identified");
 
   return (

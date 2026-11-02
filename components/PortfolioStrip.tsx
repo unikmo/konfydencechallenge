@@ -67,11 +67,11 @@ const PACKAGES: PackageItem[] = [
   },
   {
     key: "comasy",
-    eyebrow: "For organisations",
+    eyebrow: "For teams",
     name: "CoMaSy",
     copy: "Security decision simulation for teams. Measure how people pause and verify.",
     price: "Bounded pilot",
-    href: "/comasy",
+    href: "/comasy/pilot",
     cta: "Request a pilot",
   },
   {
@@ -87,14 +87,20 @@ const PACKAGES: PackageItem[] = [
 
 export function PortfolioStrip({
   exclude = [],
+  lead = [],
   heading = "Practise the decision wherever the pressure shows up.",
   kicker = "The full toolkit",
 }: {
   exclude?: PackageKey[];
+  lead?: PackageKey[];
   heading?: string;
   kicker?: string;
 }) {
-  const items = PACKAGES.filter((item) => !exclude.includes(item.key));
+  const visible = PACKAGES.filter((item) => !exclude.includes(item.key));
+  const items = [
+    ...lead.flatMap((key) => visible.filter((item) => item.key === key)),
+    ...visible.filter((item) => !lead.includes(item.key)),
+  ];
 
   return (
     <section className="kp-strip" aria-labelledby="kp-strip-title">

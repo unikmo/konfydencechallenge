@@ -80,6 +80,20 @@ export default function GermanHomePage() {
           </div>
         </div>
       </section>
+      <section className="k-shell" style={{ padding: "0 0 56px" }}>
+        <div style={{ border: "1px solid var(--k-line)", borderRadius: 18, padding: "36px 28px", textAlign: "center" }}>
+          <p className="k-kicker">Jetzt Pilotanfragen möglich</p>
+          <h2 className="k-display-sm" style={{ marginBottom: 12 }}>Bringt die Gewohnheit ins Klassenzimmer oder ins Team.</h2>
+          <p style={{ maxWidth: 560, margin: "0 auto 22px", fontSize: 15, lineHeight: 1.6, opacity: 0.8 }}>
+            Startet mit einer klar abgegrenzten Gruppe und einem festen Risikofokus. Übt die Entscheidung, schaut, was sich
+            verändert hat, und entscheidet dann: ausweiten, anpassen oder beenden.
+          </p>
+          <div style={{ display: "flex", gap: 12, flexWrap: "wrap", justifyContent: "center" }}>
+            <Link href="/de/pilot/schulen" className="k-button">Schul-Pilotprojekt anfragen</Link>
+            <Link href="/de/comasy/pilotprojekt" className="k-button-quiet">Pilotprojekt für Teams</Link>
+          </div>
+        </div>
+      </section>
     </PremiumPageDe>
   );
 }

@@ -13,6 +13,7 @@ const controls = [
   ["Application security", "The current web application configures security headers including CSP, HSTS, X-Content-Type-Options, Referrer-Policy and frame restrictions."],
   ["Pilot form protection", "Pilot requests are validated server-side and rate-limited before lead records are created."],
   ["Consent-aware analytics", "GA4 instrumentation is optional and is designed to respect explicit analytics consent before behavioural analytics events are sent."],
+  ["Hosting region", "The application's server functions run in Frankfurt (Vercel region fra1). Database and email-provider regions are confirmed in the agreed pilot environment."],
   ["Data minimisation", "Pilot scope should define which participant and cohort data are actually required before the exercise begins. Individual-level reporting is not treated as a default requirement."],
 ];
 
@@ -20,6 +21,16 @@ const dataItems = [
   ["Pilot request data", "Name, work email, organisation, role, organisation size, objective, current platform, notes, consent and attribution fields may be collected through the pilot request flow."],
   ["Participant data", "Scenario responses and derived training signals may be required for a pilot. The exact participant identifiers and reporting granularity should be agreed before the exercise."],
   ["Access & retention", "Customer-specific access, retention and deletion requirements should be documented in the pilot scope or commercial agreement before live participant data is processed."],
+];
+
+const schoolItems = [
+  ["Roles", "The school (or its authority) is the data controller. Konfydence processes student data on its behalf under a written data-processing agreement."],
+  ["Lawful basis and notice", "The school sets the lawful basis and the information given to parents and guardians. The age of digital consent is set nationally between 13 and 16 in the EU, so the rule for the school's country is agreed first."],
+  ["Teacher-managed aliases", "A teacher creates numbered aliases for a class (for example Student 01). No names and no email addresses are entered or stored. Each alias has its own personal link, and the school keeps the key that links an alias to a student. The teacher can disable an alias or delete its data at any time, and download the class link sheet."],
+  ["Reporting", "Cohort-level by default. Individual-level results are only agreed with named school staff if the school asks."],
+  ["No marketing to students", "Student data is used only to deliver the pilot. It is not used for advertising or marketing to students, and the agreement says so. We may still contact the school's staff about the service."],
+  ["Retention and deletion", "The retention period is written into the agreement (for pilots, 90 days after the last activity is our default). When it has passed, all student responses and the student aliases are deleted automatically. Staff contact details are kept as part of the business relationship and are deleted on request."],
+  ["Impact assessment", "Where the school's country or policy requires a data protection impact assessment, Konfydence provides the information about the service that it needs."],
 ];
 
 const checklist = [
@@ -104,6 +115,27 @@ export default function SecurityPage() {
               a certification or contractual control that has not been verified.
             </p>
           </div>
+        </div>
+      </section>
+
+      <section id="schools" className="kg-shell k-section">
+        <div className="kc-split">
+          <div>
+            <p className="k-kicker">Schools &amp; student data</p>
+            <h2 className="k-display-sm">Extra care for pilots with students under 18.</h2>
+            <p className="k-copy" style={{ marginTop: 14 }}>
+              These are the conditions we agree before any student takes part in a school pilot. They are not a
+              certification or legal advice, and the school should review them with its own data protection lead.
+            </p>
+            <div className="k-actions" style={{ marginTop: 20 }}>
+              <Link className="k-button" href="/pilot/schools">Request a school pilot</Link>
+            </div>
+          </div>
+          <ul className="kc-list">
+            {schoolItems.map(([title, copy]) => (
+              <li key={title}><strong style={{ color: "var(--k-ink)", display: "block", marginBottom: 4 }}>{title}</strong>{copy}</li>
+            ))}
+          </ul>
         </div>
       </section>
 

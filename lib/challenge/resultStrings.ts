@@ -410,6 +410,7 @@ export const EMAIL_GATE_STRINGS: Record<UiLang, {
     termsHref: "/terms-of-service",
     claimMessages: {
       invalid: "Enter a valid email and tick the box to continue.",
+      age: "We couldn't use that email address. Please answer the age question first.",
       used: "That email is already linked to another Konfydence account. Use a different address, or sign in first.",
       changed: "This result is already tied to a different email.",
       nosession: "We couldn't match this result to your device. Try opening the results link from the same browser you played in.",
@@ -434,6 +435,7 @@ export const EMAIL_GATE_STRINGS: Record<UiLang, {
     termsHref: "/de/agb",
     claimMessages: {
       invalid: "Gib eine gültige E-Mail-Adresse ein und setz das Häkchen, um fortzufahren.",
+      age: "Diese E-Mail-Adresse können wir nicht verwenden. Bitte beantworte zuerst die Frage nach deinem Alter.",
       used: "Diese E-Mail ist bereits mit einem anderen Konfydence-Konto verknüpft. Nutz eine andere Adresse oder melde dich zuerst an.",
       changed: "Dieses Ergebnis ist bereits mit einer anderen E-Mail-Adresse verknüpft.",
       nosession: "Wir konnten dieses Ergebnis nicht deinem Gerät zuordnen. Öffne den Ergebnislink im selben Browser, in dem du gespielt hast.",

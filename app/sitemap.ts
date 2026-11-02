@@ -8,6 +8,8 @@ const BASE = "https://konfydence.com";
 export default function sitemap(): MetadataRoute.Sitemap {
   const staticPages: MetadataRoute.Sitemap = [
     { url: `${BASE}/`, changeFrequency: "weekly", priority: 1 },
+    { url: `${BASE}/pilot`, changeFrequency: "weekly", priority: 1 },
+    { url: `${BASE}/pilot/schools`, changeFrequency: "monthly", priority: 0.9 },
     { url: `${BASE}/comasy`, changeFrequency: "weekly", priority: 1 },
     { url: `${BASE}/comasy/pilot`, changeFrequency: "monthly", priority: 0.9 },
     { url: `${BASE}/comasy/methodology`, changeFrequency: "monthly", priority: 0.8 },
@@ -46,8 +48,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE}/de/pricing`, changeFrequency: "monthly", priority: 0.6 },
     { url: `${BASE}/de/impressum`, changeFrequency: "yearly", priority: 0.4 },
     { url: `${BASE}/de/datenschutz`, changeFrequency: "yearly", priority: 0.4 },
+    { url: `${BASE}/de/cookie-richtlinie`, changeFrequency: "yearly", priority: 0.4 },
     { url: `${BASE}/de/agb`, changeFrequency: "yearly", priority: 0.4 },
     { url: `${BASE}/de/hack-method`, changeFrequency: "monthly", priority: 0.8 },
+    { url: `${BASE}/de/pilot`, changeFrequency: "weekly", priority: 1 },
+    { url: `${BASE}/de/pilot/schulen`, changeFrequency: "monthly", priority: 0.9 },
     { url: `${BASE}/de/comasy`, changeFrequency: "weekly", priority: 1 },
     { url: `${BASE}/de/comasy/pilotprojekt`, changeFrequency: "monthly", priority: 0.9 },
     { url: `${BASE}/de/comasy/methodik`, changeFrequency: "monthly", priority: 0.8 },

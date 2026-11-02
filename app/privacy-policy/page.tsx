@@ -20,7 +20,7 @@ export default function PrivacyPolicyPage() {
   return (
     <div style={containerStyle}><div style={contentStyle}>
       <h1 style={titleStyle}>Privacy Policy</h1>
-      <p style={updateStyle}>Last updated: August 26, 2026</p>
+      <p style={updateStyle}>Last updated: November 2, 2026</p>
 
       <div style={sectionStyle}><h2 style={headingStyle}>1. Introduction</h2><p style={paragraphStyle}>Konfydence is operated by PlanetHike OÜ ("we," "us," or "our"). This Privacy Policy explains how we collect, use, disclose, and safeguard information when you visit konfydence.com and use Konfydence or CoMaSy services.</p></div>
 
@@ -56,15 +56,26 @@ export default function PrivacyPolicyPage() {
 
       <div style={sectionStyle}><h2 style={headingStyle}>8. CoMaSy Enterprise Pilots</h2><p style={paragraphStyle}>A CoMaSy pilot may involve participant scenario responses and derived training signals. Before participant data is used, the customer and Konfydence should agree the required identifiers, reporting granularity, access model, retention/deletion expectations and any additional privacy or employee-representation requirements. See our <Link href="/comasy/security" style={linkStyle}>CoMaSy Security & Privacy</Link> page for the current procurement-review framework.</p></div>
 
-      <div style={sectionStyle}><h2 style={headingStyle}>9. Cookies</h2><p style={paragraphStyle}>See our <Link href="/cookie-policy" style={linkStyle}>Cookie Policy</Link> for information about cookies and analytics consent.</p></div>
+      <div id="children" style={sectionStyle}><h2 style={headingStyle}>9. Children and Schools</h2>
+        <p style={paragraphStyle}>Some Konfydence challenge editions are written for students aged 12 to 18. We want children's information to be handled with extra care, so please read this section if a child will use the service.</p>
+        <ul style={listStyle}>
+          <li><strong>Age question:</strong> Before the free-round sign-up asks for an email address, it asks for a month and year of birth. We use the answer once to choose an age group, keep only the group in a cookie for 24 hours, and do not store the date of birth. Under 13, no email address is collected. From 13 to 15, only a parent or guardian's email address can be entered, and they confirm they are the parent or guardian. From 16, you enter your own. Under 16s are not asked for an email address to see their result: it is shown on screen. This is a self-declared answer and not a check of age. Under the GDPR the age of digital consent is set nationally between 13 and 16, and we apply the higher age (16) for using a child's own email address.</li>
+          <li><strong>Deletion for parents and guardians:</strong> Parents and guardians can contact us at privacy@konfydence.com to ask us to delete a child's information.</li>
+          <li><strong>What we ask of children:</strong> The free readiness check does not require an account. An email address is requested only to unlock further free rounds and to send a progress link, and it is used for nothing else. We do not send marketing to children.</li>
+          <li><strong>School pilots:</strong> When a school runs a Konfydence pilot, the school (or its authority) decides why and how student data is used and Konfydence processes it on the school's behalf under a written data-processing agreement. The school is responsible for the lawful basis and for the information it gives to parents and guardians. Students take part through numbered aliases created by their teacher, so we do not receive student names or email addresses. The school keeps the key that links an alias to a student, and can disable an alias or delete its data at any time. Before any student takes part, the school and Konfydence also agree the level of reporting (cohort-level by default), access and retention. Student responses are deleted automatically once the agreed retention period after the last activity has passed. We do not ask for student information in pilot request forms, and we do not use student data for advertising or marketing.</li>
+          <li><strong>Reporting a concern:</strong> If you believe a child's information has been provided without the authorisation that applies, contact privacy@konfydence.com and we will review it promptly.</li>
+        </ul>
+        <p style={paragraphStyle}>See <Link href="/comasy/security#schools" style={linkStyle}>Schools &amp; student data</Link> for the conditions we agree before a school pilot.</p></div>
 
-      <div style={sectionStyle}><h2 style={headingStyle}>10. Third-Party Links</h2><p style={paragraphStyle}>Our website may contain links to third-party sites, including resource downloads hosted through Google Drive. We are not responsible for the privacy practices of external websites. Please review their policies before providing personal information.</p></div>
+      <div style={sectionStyle}><h2 style={headingStyle}>10. Cookies</h2><p style={paragraphStyle}>See our <Link href="/cookie-policy" style={linkStyle}>Cookie Policy</Link> for information about cookies and analytics consent.</p></div>
 
-      <div style={sectionStyle}><h2 style={headingStyle}>11. Security</h2><p style={paragraphStyle}>We use technical and organisational safeguards appropriate to the service. No internet transmission or storage method can be guaranteed to be completely secure. Enterprise customers should review deployment-specific safeguards and requirements before a pilot.</p></div>
+      <div style={sectionStyle}><h2 style={headingStyle}>11. Third-Party Links</h2><p style={paragraphStyle}>Our website may contain links to third-party sites, including resource downloads hosted through Google Drive. We are not responsible for the privacy practices of external websites. Please review their policies before providing personal information.</p></div>
 
-      <div style={sectionStyle}><h2 style={headingStyle}>12. Changes to This Policy</h2><p style={paragraphStyle}>We may update this Privacy Policy periodically. Material changes will be reflected on this page with an updated date.</p></div>
+      <div style={sectionStyle}><h2 style={headingStyle}>12. Security</h2><p style={paragraphStyle}>We use technical and organisational safeguards appropriate to the service. No internet transmission or storage method can be guaranteed to be completely secure. Enterprise customers should review deployment-specific safeguards and requirements before a pilot.</p></div>
 
-      <div style={sectionStyle}><h2 style={headingStyle}>13. Contact Us</h2><p style={paragraphStyle}>For privacy questions or requests:</p><p style={paragraphStyle}><strong>Operator:</strong> PlanetHike OÜ<br/><strong>Email:</strong> privacy@konfydence.com<br/><strong>Registered office:</strong> Järvevana tee 9, Tallinn, 11314, Estonia<br/><strong>Registration number:</strong> 80656111<br/>See the <Link href="/imprint" style={linkStyle}>Imprint</Link> for current legal and contact information.</p></div>
+      <div style={sectionStyle}><h2 style={headingStyle}>13. Changes to This Policy</h2><p style={paragraphStyle}>We may update this Privacy Policy periodically. Material changes will be reflected on this page with an updated date.</p></div>
+
+      <div style={sectionStyle}><h2 style={headingStyle}>14. Contact Us</h2><p style={paragraphStyle}>For privacy questions or requests:</p><p style={paragraphStyle}><strong>Operator:</strong> PlanetHike OÜ<br/><strong>Email:</strong> privacy@konfydence.com<br/><strong>Registered office:</strong> Järvevana tee 9, Tallinn, 11314, Estonia<br/><strong>Registration number:</strong> 80656111<br/>See the <Link href="/imprint" style={linkStyle}>Imprint</Link> for current legal and contact information.</p></div>
 
       <div style={{ ...paragraphStyle, marginTop: 40, borderTop: `1px solid rgba(255,255,255,0.1)`, paddingTop: 20 }}><Link href="/" style={linkStyle}>← Back to Home</Link></div>
     </div></div>
