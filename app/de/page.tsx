@@ -32,8 +32,8 @@ export default function GermanHomePage() {
             <span className="k-home-hero-alert">eine Sekunde zu wenig nachgedacht.</span>
           </h1>
           <p style={{ maxWidth: 620, marginTop: 18, fontSize: 16, lineHeight: 1.6, opacity: 0.85 }}>
-            Konfydence Challenge — Familie-Edition übt mit dir echte Drucksituationen: der Enkeltrick am Telefon, die
-            SMS von der „Bank“, die WhatsApp-Nachricht von einer „neuen Nummer“. 48 reale Szenarien, kostenloser Check
+            Mit der Konfydence Challenge für Familien übst du, Betrugsversuche auch unter Druck zu erkennen: der Enkeltrick am Telefon, die
+            SMS von der „Bank“, die WhatsApp-Nachricht von einer „neuen Nummer“. 48 realistische Alltagssituationen, kostenloser Check
             zum Einstieg.
           </p>
         </div>
@@ -41,7 +41,7 @@ export default function GermanHomePage() {
 
       <section className="k-shell" style={{ padding: "40px 0" }}>
         <p className="k-kicker">Die H.A.C.K.-Methode</p>
-        <h2 style={{ fontSize: 28, fontWeight: 900, marginBottom: 8 }}>Vier Druckmuster, ein Rahmen.</h2>
+        <h2 style={{ fontSize: 28, fontWeight: 900, marginBottom: 8 }}>Vier typische Tricks, die du kennen solltest.</h2>
         <p style={{ maxWidth: 640, opacity: 0.8, marginBottom: 28 }}>
           Fast jeder Betrug nutzt eine Mischung aus vier Drucktypen. Konfydence trainiert dich, sie live zu erkennen.
         </p>
