@@ -1,7 +1,7 @@
 {
   "id": "family-de-fam-21",
   "lang": "de",
-  "title": "Ladung: Nichterscheinen kostet",
+  "title": "Gerichtsschreiben: angebliches Bußgeld per Telefonnummer",
   "edition": "family",
   "cardType": "scenario",
   "scored": true,
@@ -20,8 +20,8 @@
   "safeActions": [
     "A"
   ],
-  "explanation": "Gerichte klären Bußgelder nicht „außergerichtlich“ gegen eine Zahlung an eine im Brief genannte Nummer. Das Amtsgericht selbst kann sofort sagen, ob überhaupt eine Ladung existiert.",
-  "proTip": "Ein Gericht schickt dich nie zu einer Zahlnummer im selben Brief.",
+  "explanation": "Ein Brief mit Gerichtssiegel kann gefälscht sein. Prüfe Aktenzeichen und Forderung über die offiziell veröffentlichte Telefonnummer des Gerichts. Zahle nicht über Kontaktdaten, die ausschließlich im verdächtigen Schreiben stehen.",
+  "proTip": "Gerichtliche Zahlungsaufforderungen unabhängig beim zuständigen Gericht prüfen.",
   "hackKey": "A",
   "hackTrigger": "Autorität",
   "tags": [
