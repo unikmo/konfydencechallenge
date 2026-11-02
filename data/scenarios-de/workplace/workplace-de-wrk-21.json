@@ -1,7 +1,7 @@
 {
   "id": "workplace-de-wrk-21",
   "lang": "de",
-  "title": "Ein Vorstandsmitglied fragt nach der Gesellschafterliste",
+  "title": "Vorstand fordert vertrauliche Gesellschafterdaten",
   "edition": "workplace",
   "cardType": "scenario",
   "scored": true,
@@ -20,8 +20,8 @@
   "safeActions": [
     "C"
   ],
-  "explanation": "Vertrauliche Gesellschafterdaten werden nicht spontan per E-Mail unter Zeit- und Vertraulichkeitsdruck herausgegeben — ein kompromittiertes Vorstands-E-Mail-Konto sieht genauso aus wie das echte.",
-  "proTip": "„Vertraulich und dringend“ zusammen ist ein Grund für eine zusätzliche Rückfrage, nicht weniger.",
+  "explanation": "Auch eine E-Mail aus einem vertrauten Führungskräftekonto kann manipuliert sein. Bestätige ungewöhnliche Datenanforderungen unabhängig und beachte die Freigabe- und Vertraulichkeitsregeln.",
+  "proTip": "Vertrauliche Unternehmensdaten nicht allein auf Basis einer dringenden E-Mail versenden.",
   "hackKey": "A",
   "hackTrigger": "Autorität",
   "tags": [
