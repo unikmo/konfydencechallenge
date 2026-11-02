@@ -9,7 +9,7 @@ import { CheckoutRedirectButton } from "@/components/commerce/CheckoutRedirectBu
 const EDITIONEN = [
   { key: "family", label: "Familie" },
   { key: "school", label: "Schule" },
-  { key: "university", label: "Universität" },
+  { key: "university", label: "Hochschule" },
   { key: "travelsafe", label: "TravelSafe" },
   { key: "workplace", label: "Arbeitsplatz" },
 ] as const;
@@ -107,7 +107,7 @@ function TeamKauf() {
       </button>
       {error ? <p role="alert" style={{ color: "#c0392b", fontSize: 12, marginTop: 6 }}>{error}</p> : null}
       <p style={{ fontSize: 11, opacity: 0.7, marginTop: 6 }}>
-        Du meldest dich zuerst an – die kaufende Person wird Team-Admin.
+        Vor dem Kauf meldest du dich an. Anschließend kannst du die Zugänge für dein Team verwalten.
       </p>
     </div>
   );
@@ -128,11 +128,11 @@ function GermanPricingContent() {
     <PremiumPageDe ctaHref="/de/challenge/family/start?mode=diagnostic" ctaLabel="Kostenlos starten">
       <section className="kg-shell kc-hero is-narrow" style={{ paddingBottom: 40 }}>
         <p className="k-kicker">Preise</p>
-        <h1>Kostenlos starten. Nur zahlen, wenn du die volle Challenge willst.</h1>
+        <h1>Kostenlos testen. Weiterüben, wenn es für dich passt.</h1>
         <p>
-          Der kostenlose Check gibt dir ein echtes Ergebnis — deinen Konfydence Readiness Score und das
-          H.A.C.K.-Druckmuster, das dir am ehesten zum Verhängnis werden könnte. Schalte eine Edition frei,
-          oder gleich das komplette Paket. Beides sind Jahrespläne.
+          Der kostenlose Sicherheitscheck zeigt dir, wie du in typischen Betrugssituationen reagierst und welches
+          H.A.C.K.-Druckmuster dir besonders schwerfällt. Du kannst eine einzelne Edition freischalten
+          oder alle fünf zusammen wählen. Die kostenpflichtigen Zugänge gelten jeweils für ein Jahr.
         </p>
       </section>
 
@@ -141,10 +141,10 @@ function GermanPricingContent() {
           kicker="Kostenloser Check"
           price="Kostenlos"
           includes={[
-            "Ein kurzer, bewerteter Check, ausgewogen über die Druckmuster",
-            "Dein Konfydence Readiness Score",
-            "Dein schwächstes Druckmuster",
-            "Feedback und eine Regel nach jeder Entscheidung",
+            "Ein kurzer Sicherheitscheck zu den vier Druckmustern",
+            "Dein Ergebnis im Konfydence-Sicherheitscheck",
+            "Dein größter Übungsbedarf",
+            "Rückmeldung und ein praktischer Hinweis nach jeder Antwort",
           ]}
         >
           <Link className="k-button" href="/de/challenge/family/start?mode=diagnostic">Kostenlos starten</Link>
@@ -155,9 +155,9 @@ function GermanPricingContent() {
           price="€6,99"
           sub="/ Jahr"
           includes={[
-            "48 reale Szenarien pro Edition, kulturell für Deutschland geschrieben",
-            "Gespielt in kurzen Runden — jedes Mal neue Szenarien",
-            "Volles Readiness-Dashboard + Druckprofil",
+            "48 realistische, auf den deutschen Alltag zugeschnittene Situationen pro Edition",
+            "Kurze Übungsrunden mit wechselnden Situationen",
+            "Ausführliche Ergebnisauswertung und persönliches Druckprofil",
             "Abschlusszertifikat",
           ]}
           featured
@@ -188,9 +188,9 @@ function GermanPricingContent() {
           sub="/ Jahr · alle fünf Editionen"
           includes={[
             "Alle 5 Challenge-Editionen, alle auf Deutsch",
-            "200+ reale Szenarien insgesamt",
+            "Mehr als 200 realistische Übungssituationen insgesamt",
             "Unbegrenzte Runden, immer neue Szenarien",
-            "Dashboards und Zertifikate für jede Edition",
+            "Ergebnisauswertungen und Zertifikate für jede Edition",
           ]}
         >
           <CheckoutRedirectButton sku="CHAL-UNLIMITED" label="Alle fünf freischalten — €24,99/Jahr" locale="de" />
@@ -203,8 +203,8 @@ function GermanPricingContent() {
           includes={[
             "Alle Editionen pro Mitglied, unbegrenzte Runden",
             "Einladung per E-Mail oder einem Link",
-            "Admin-Dashboard — Fortschritt pro Person",
-            "Preis für größere Gruppen verhandelbar",
+            "Verwaltungsübersicht mit Fortschritt der Teilnehmenden",
+            "Individuelle Konditionen für größere Gruppen auf Anfrage",
           ]}
         >
           <TeamKauf />
@@ -215,8 +215,7 @@ function GermanPricingContent() {
         <p className="k-copy" style={{ marginBottom: 12, fontSize: 12 }}>
           Die angezeigten Preise gelten in Euro — €6,99 bei uns entspricht genau $6,99. Beim Bezahlvorgang zeigt
           Stripe automatisch deine Landeswährung. Jeder Plan ist ein Jahresabo und wird sofort nach dem Bezahlvorgang
-          freigeschaltet; dein Konfydence-Konto speichert Fortschritt und Zugang geräteübergreifend. Konfydence ist ein
-          pädagogisches Betrugs-Awareness-Spiel; es garantiert keinen Schutz vor Betrug oder finanziellem Schaden.
+          freigeschaltet; dein Konfydence-Konto speichert Fortschritt und Zugang geräteübergreifend. Konfydence dient dem Training sicherer Entscheidungen. Das Angebot kann keinen vollständigen Schutz vor Betrug oder finanziellen Schäden garantieren.
         </p>
       </section>
     </PremiumPageDe>
