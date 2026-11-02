@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { LockscreenIntentPage } from "@/components/LockscreenIntentPage";
 
 export const metadata: Metadata = {
-  title: { absolute: "Die digitale Alternative zu IT-Sicherheit-Plakaten | Konfydence Lockscreens" },
+  title: { absolute: "Digitale Sicherheitshinweise statt gedruckter Plakate | Konfydence Lockscreens" },
   description:
     "IT-Sicherheit-Plakate veralten an der Wand und erreichen Beschäftigte im Homeoffice nicht. Ein regelmäßig wechselnder Sperrbildschirm bringt einen Anhalten · Abklären · Ansprechen-Hinweis auf jedes Gerät und aktualisiert ihn alle zwei Wochen.",
   alternates: {
@@ -10,7 +10,7 @@ export const metadata: Metadata = {
     languages: { en: "https://konfydence.com/lockscreens/security-awareness-posters", de: "https://konfydence.com/de/lockscreens/sicherheitsplakate" },
   },
   openGraph: {
-    title: "Die digitale Alternative zu IT-Sicherheit-Plakaten | Konfydence",
+    title: "Digitale Sicherheitshinweise statt gedruckter Plakate | Konfydence",
     description: "Erreicht jedes Gerät, Beschäftigte im Homeoffice eingeschlossen — und wechselt die Botschaft alle zwei Wochen.",
     url: "https://konfydence.com/de/lockscreens/sicherheitsplakate",
     siteName: "Konfydence",
@@ -37,7 +37,7 @@ export default function Page() {
       problemCopy="Hybrid- und Außendienstmitarbeitende sehen das Poster im Pausenraum nie. Wer es sieht, bemerkt es nach ein paar Wochen nicht mehr. Und ein gedrucktes Poster kann nicht reagieren, wenn ein neues Betrugsmuster in eurer Branche auftaucht — es sagt, was zum Zeitpunkt des Drucks galt."
       sections={[
         {
-          title: "Auf dem Gerät, nicht an der Wand",
+          title: "Auf dem Bildschirm statt an der Wand",
           copy: "Handy- und Notebook-Sperrbildschirme werden jedes Mal gesehen, wenn jemand das Gerät aufnimmt oder aufweckt — im Büro, zu Hause, unterwegs. Die Reichweite hängt nicht vom Arbeitsweg ab.",
         },
         {
@@ -45,8 +45,8 @@ export default function Page() {
           copy: "Statt einer Botschaft für ein Quartal gibt es alle zwei Wochen einen frischen Hinweis. Jeder macht einen einzigen Punkt zu einer echten Drucktaktik und dem Schritt, der sie stoppt.",
         },
         {
-          title: "Nichts zu drucken, aufzuhängen oder auszutauschen",
-          copy: "Kein Design-Zyklus, kein Druckauftrag, kein Herumlaufen zum Rahmenwechsel. Eine Lizenz, ausgerollt über eure Geräteverwaltung, von Konfydence aktuell gehalten.",
+          title: "Kein Druck, kein Austausch von Plakaten",
+          copy: "Keine Druckaufträge und kein regelmäßiger Austausch von Plakaten. Eine Lizenz, ausgerollt über eure Geräteverwaltung, von Konfydence aktuell gehalten.",
         },
       ]}
       howTitle="Dieselbe Absicht wie eine Plakat-Kampagne. Weniger Logistik."
@@ -59,7 +59,7 @@ export default function Page() {
       ]}
       orgValue={{
         title: "Sicherheit auch zwischen den Schulungen präsent halten.",
-        copy: "Eine Plakat-Kampagne ist eine Geste in Richtung kontinuierlicher Sicherheitsbewusstsein, die die Logistik immer wieder untergräbt. Ein regelmäßig wechselnder Sperrbildschirm liefert dieselbe Absicht als permanente Kontrolle — und gibt euch ein Protokoll darüber, was wann lief.",
+        copy: "Gedruckte Plakate erreichen viele Beschäftigte nur unregelmäßig. Hinweise auf verwalteten Geräten können eine praktische Ergänzung sein. Ein regelmäßig wechselnder Sperrbildschirm liefert dieselbe Absicht als permanente Kontrolle — und gibt euch ein Protokoll darüber, was wann lief.",
         points: [
           "Fortlaufende Cyber-Hygiene-Verstärkung — NIS2 (Artikel 21) erwartet kontinuierliche Sicherheitsbewusstsein und eine Aufsicht durch die Leitungsorgane. Ein rotierender Hinweis ist sichtbare Aktivität zwischen den formalen Schulungen.",
           "Beitrag zum Human Risk Management — verschiebt Sicherheitsbewusstsein von einem Wissenstest zu einem Gewohnheits-Cue im Moment der Entscheidung, genau der Punkt, den NIST- und ISO/IEC-27001-Kontrollen betonen.",
