@@ -19,6 +19,7 @@ const CSP = [
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
+  images: { remotePatterns: [{ protocol: 'https', hostname: 'images.pexels.com' }] },
   // Short vanity redirects for printed/physical goods (KonfyGuard wallet
   // card, fridge magnet) — a QR code or a URL stamped on a physical item
   // can't be edited after it ships, so it points at a short, memorable slug
