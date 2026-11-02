@@ -493,5 +493,170 @@
     },
     "explanation": "Bei rechtlichen Verfahren können tatsächlich dringende Fristen gelten. Eine unerwartete Aufforderung zum Upload interner Dateien über einen fremden Link musst du dennoch unabhängig mit der Rechtsabteilung prüfen. Nutze nur genehmigte Übertragungswege.",
     "proTip": "Vertrauliche Dateien nur über bestätigte, freigegebene Kanäle weitergeben."
+  },
+  "family-de-fam-10": {
+    "title": "Arztrechnung: 35 Prozent Rabatt bei sofortiger Zahlung",
+    "scenario": "Ein Brief einer unbekannten „Abrechnungsstelle“ bietet 35 % Rabatt auf eine offene Arztrechnung, wenn du innerhalb von 48 Stunden per Überweisung an ein privates Konto zahlst statt über die Praxis.",
+    "answers": {
+      "A": "Nur die Hälfte des Rabattbetrags überweisen, um vorsichtig zu bleiben.",
+      "B": "Sofort zahlen, um den Rabatt zu sichern.",
+      "C": "Bei der Arztpraxis direkt nachfragen, ob diese Abrechnungsstelle bekannt ist und ob überhaupt eine Rechnung offen ist."
+    },
+    "explanation": "Ein unbekannter Brief mit einem hohen Rabatt und einer neuen Bankverbindung ist verdächtig. Prüfe bei der Praxis oder der bekannten Abrechnungsstelle, ob die Rechnung tatsächlich offen ist und wohin du zahlen sollst.",
+    "proTip": "Bei neuen Zahlungsdaten die Rechnung direkt bei der Praxis oder Abrechnungsstelle überprüfen."
+  },
+  "family-de-fam-11": {
+    "title": "Amazon-Anruf: angeblich 749 € abgebucht",
+    "scenario": "Eine automatisierte Anrufstimme meldet eine Abbuchung von 749 € für ein Amazon-Prime-Abo und bittet, „1“ zu drücken, um mit einem Mitarbeiter verbunden zu werden und die Zahlung zu stoppen.",
+    "answers": {
+      "A": "Auflegen und direkt in der Amazon-App unter „Meine Bestellungen“ und den Zahlungen nachsehen, ob wirklich etwas abgebucht wurde.",
+      "B": "Zurückrufen unter der angezeigten Nummer, um sicherzugehen.",
+      "C": "„1“ drücken und dem Mitarbeiter die gewünschten Daten geben, um die Abbuchung zu stoppen."
+    },
+    "explanation": "Automatische Anrufe über angebliche Abbuchungen können Betrugsversuche sein. Drücke keine Taste und teile keine Daten mit. Prüfe Bestellungen und Zahlungen direkt in deinem Amazon-Konto oder bei deinem Zahlungsanbieter.",
+    "proTip": "Bei verdächtigen Anrufen zuerst auflegen und unabhängig dein Konto überprüfen."
+  },
+  "family-de-fam-12": {
+    "title": "Autogarantie: angeblich nur heute noch verlängerbar",
+    "scenario": "Ein Anruf sagt, die Herstellergarantie für dein Auto laufe heute ab, und du könntest sie „ein letztes Mal“ für 399 € per Karte am Telefon verlängern, sonst zahlst du künftig jede Reparatur selbst.",
+    "answers": {
+      "A": "Um schriftliche Unterlagen per Post bitten, bevor du zahlst.",
+      "B": "Die 399 € am Telefon zahlen, um die Garantie zu sichern.",
+      "C": "Auflegen und bei deinem Autohändler oder Hersteller direkt nachfragen, welche Garantie tatsächlich besteht."
+    },
+    "explanation": "Ein unerwarteter Anruf mit einem einmaligen Angebot und einer sofortigen Kartenforderung ist verdächtig. Prüfe den tatsächlichen Garantieumfang und die Laufzeit direkt beim Hersteller oder Autohaus.",
+    "proTip": "Garantiefristen und Angebote über die offiziellen Kontaktdaten des Herstellers prüfen."
+  },
+  "school-de-sch-10": {
+    "title": "Klassenfahrt: plötzlich ein neuer Spendenlink",
+    "scenario": "Eine Nachricht in der Eltern-/Schüler-WhatsApp-Gruppe sagt, der Spendenlink für die Klassenfahrtkasse schließe heute Abend und bittet um sofortige Überweisung über einen neuen, unbekannten Zahlungsdienst.",
+    "answers": {
+      "A": "Sofort über den neuen Dienst spenden, damit die Frist nicht verstreicht.",
+      "B": "Nur einen kleinen Betrag über den Link schicken.",
+      "C": "Bei der Klassenlehrkraft oder Elternvertretung nachfragen, ob dieser Link und Zahlungsweg wirklich von der Schule kommt."
+    },
+    "explanation": "Ein kurzfristig geänderter Zahlungsweg in einer Chatgruppe sollte überprüft werden. Frage direkt bei der Lehrkraft oder der zuständigen Person nach, bevor du Geld überweist.",
+    "proTip": "Neue Bankverbindung für die Klassenfahrt? Erst direkt bei der Schule bestätigen lassen."
+  },
+  "school-de-sch-11": {
+    "title": "Discord Nitro: kostenloses Jahresabo per Link?",
+    "scenario": "Eine Nachricht in einem Discord-Server verspricht kostenloses Nitro für ein Jahr, wenn du dich „noch heute Nacht“ über einen Link mit deinem Discord-Login anmeldest.",
+    "answers": {
+      "A": "Den Link ignorieren; Discord verschenkt Nitro nicht über Links in Server-Nachrichten mit Fristen.",
+      "B": "Sich sofort über den Link anmelden, um das kostenlose Nitro zu sichern.",
+      "C": "Den Link öffnen, aber ein anderes Passwort als sonst benutzen."
+    },
+    "explanation": "Kostenlose Angebote können gefälscht sein, besonders wenn du dich über eine fremde Website anmelden sollst. Prüfe Aktionen direkt in Discord oder auf offiziellen Seiten und gib deine Zugangsdaten nicht auf unbekannten Websites ein.",
+    "proTip": "Discord-Anmeldedaten niemals auf einer unbekannten Geschenkseite eingeben."
+  },
+  "school-de-sch-12": {
+    "title": "Lern-App: angeblich verschwinden heute deine Fortschritte",
+    "scenario": "Eine Push-Nachricht deiner Lern-App sagt, die kostenlose Testphase ende um Mitternacht und du müsstest sofort über einen externen Zahlungslink bezahlen, sonst gingen deine Lernfortschritte verloren.",
+    "answers": {
+      "A": "Das Abo direkt in der App oder im App-Store-Konto verwalten statt über einen externen Link zu zahlen.",
+      "B": "Sofort über den externen Link zahlen, um die Fortschritte zu retten.",
+      "C": "Screenshots der Fortschritte machen und dann entscheiden."
+    },
+    "explanation": "Eine unerwartete Zahlungsaufforderung mit kurzer Frist und externem Link ist verdächtig. Prüfe den tatsächlichen Abo-Status direkt in der App oder über die offizielle Aboverwaltung deines Geräts.",
+    "proTip": "Abonnements über die offizielle App oder den jeweiligen App-Store verwalten."
+  },
+  "university-de-uni-10": {
+    "title": "Zwischenmiete: Kaution vor der Besichtigung?",
+    "scenario": "Für ein Auslandssemester suchst du eine Zwischenmiete. Ein Angebot passt perfekt — die Person bittet aber, die Kaution „jetzt sofort“ zu überweisen, weil „noch zwei andere Leute Interesse haben“.",
+    "answers": {
+      "B": "Erst das Zimmer besichtigen oder mit der Person videotelefonieren und einen echten Untermietvertrag sehen, bevor irgendetwas überwiesen wird.",
+      "A": "Die Kaution sofort überweisen, um das Zimmer zu sichern.",
+      "C": "Nur die Hälfte der Kaution überweisen."
+    },
+    "explanation": "Hohe Nachfrage nach Wohnungen macht solche Angebote glaubwürdig. Vergewissere dich trotzdem, dass es die Wohnung gibt und die Person sie vermieten darf. Ein Videocall allein reicht als Nachweis nicht immer aus.",
+    "proTip": "Keine Kaution überweisen, bevor Angebot, Vertrag und vermietende Person geprüft sind."
+  },
+  "university-de-uni-11": {
+    "title": "Semesterticket: angebliche Ermäßigung nur noch eine Stunde",
+    "scenario": "Eine E-Mail im Design des Semesterticket-Büros sagt, die ermäßigte Deutschlandticket-Verlängerung laufe in einer Stunde ab, und verlangt eine sofortige Zahlung über einen externen Zahlungsdienst statt des üblichen Lastschriftverfahrens.",
+    "answers": {
+      "A": "Die Mail ignorieren und im eigenen Studierendenportal nachsehen, ob die Verlängerung wie gewohnt per Lastschrift läuft.",
+      "B": "Sofort über den externen Zahlungsdienst zahlen, um die Ermäßigung zu sichern.",
+      "C": "Beim Semesterticket-Büro über die in der Mail genannte Nummer nachfragen."
+    },
+    "explanation": "Die Zahlungswege für Semester- und Deutschlandtickets unterscheiden sich je nach Hochschule. Eine unerwartete Nachricht mit neuem Zahlungslink solltest du deshalb im offiziellen Hochschulportal oder beim Verkehrsunternehmen überprüfen.",
+    "proTip": "Fristen und Zahlungswege für das Semesterticket direkt bei deiner Hochschule prüfen."
+  },
+  "university-de-uni-12": {
+    "title": "Rückmeldung: angebliche Exmatrikulation heute Abend",
+    "scenario": "Eine SMS warnt, deine Rückmeldung fürs nächste Semester sei noch offen und du würdest exmatrikuliert, wenn du nicht heute Abend über einen Link den Semesterbeitrag per Karte zahlst.",
+    "answers": {
+      "C": "Direkt im Studierendenportal nachsehen, ob die Rückmeldung wirklich noch offen ist, statt über den SMS-Link zu zahlen.",
+      "A": "Über den Link sofort zahlen, um die Exmatrikulation zu vermeiden.",
+      "B": "Beim Studierendensekretariat über die Nummer aus der SMS nachfragen."
+    },
+    "explanation": "Die Rückmeldung hat tatsächliche Fristen. Eine SMS mit Zahlungslink ist jedoch kein zuverlässiger Nachweis. Prüfe Frist, offenen Betrag und Zahlungsweg direkt im offiziellen Hochschulportal.",
+    "proTip": "Semesterbeiträge nur über die offiziell bekannt gegebenen Kontodaten zahlen."
+  },
+  "travelsafe-de-tra-10": {
+    "title": "Verlorener Koffer gefunden: angeblich Kurierkosten fällig",
+    "scenario": "Eine Nachricht meldet, dein vor Wochen verlorener Koffer sei gefunden worden, und ein Kurier bringe ihn vorbei — du müsstest aber „die Kurierkosten“ sofort per Guthabenkarte vorab bezahlen.",
+    "answers": {
+      "C": "Den Fund direkt bei der Airline oder dem Flughafen-Fundbüro über die bekannte Nummer bestätigen lassen, statt per Guthabenkarte vorab zu zahlen.",
+      "A": "Die Kurierkosten sofort per Guthabenkarte zahlen, um den Koffer zurückzubekommen.",
+      "B": "Nur die Hälfte der Kurierkosten vorab zahlen."
+    },
+    "explanation": "Eine Aufforderung, Kurierkosten für gefundenes Gepäck per Guthabenkarte zu bezahlen, ist verdächtig. Prüfe die Nachricht über die zuständige Fluggesellschaft oder das Fundbüro und verwende ausschließlich bestätigte Zahlungswege.",
+    "proTip": "Bei Nachrichten über verlorenes Gepäck direkt bei der zuständigen Stelle nachfragen."
+  },
+  "travelsafe-de-tra-11": {
+    "title": "Panne im Ausland: angeblicher ADAC-Anruf mit Zahlungsdruck",
+    "scenario": "Nach einer Panne im Ausland ruft angeblich der ADAC an: Die Abschleppkosten müssten sofort per Kartendaten am Telefon beglichen werden, sonst werde das Fahrzeug „von der örtlichen Polizei beschlagnahmt“.",
+    "answers": {
+      "C": "Auflegen und den ADAC über die offizielle Nummer auf deiner Mitgliedskarte oder in der ADAC-App selbst kontaktieren.",
+      "A": "Die Kartendaten sofort am Telefon durchgeben, um die Beschlagnahmung zu vermeiden.",
+      "B": "Nach der Mitgliedsnummer fragen, um die Echtheit zu prüfen."
+    },
+    "explanation": "Die Drohung mit einer sofortigen Beschlagnahmung und die Forderung nach Kartendaten am Telefon sind Warnzeichen. Kläre mögliche Kosten direkt über die offiziellen Notruf- oder Kontaktwege des Pannendienstes.",
+    "proTip": "Unbekannten Anrufern keine Kartendaten geben. Den Pannendienst selbst kontaktieren."
+  },
+  "travelsafe-de-tra-12": {
+    "title": "Hotelbuchung: angebliche Stornierung in 30 Minuten",
+    "scenario": "Eine E-Mail sagt, deine Hotelbuchung stehe „auf Halt“ und werde in 30 Minuten storniert, wenn du nicht über einen Link deine Kreditkartendaten erneut eingibst.",
+    "answers": {
+      "B": "Die Buchung direkt beim Hotel oder über die Buchungsplattform-App prüfen, statt über den Link erneut Kartendaten einzugeben.",
+      "A": "Die Kartendaten sofort über den Link erneut eingeben.",
+      "C": "Beim Hotel über die im Link angegebene Nummer anrufen."
+    },
+    "explanation": "Eine kurzfristige Aufforderung zur erneuten Eingabe von Kreditkartendaten über einen fremden Link ist verdächtig. Prüfe die Buchung in deinem offiziellen Kundenkonto oder direkt beim Hotel.",
+    "proTip": "Buchungsänderungen über dein Kundenkonto oder direkt beim Hotel prüfen."
+  },
+  "workplace-de-wrk-10": {
+    "title": "Geschäftsführung angeblich gestrandet: sofort Flug buchen",
+    "scenario": "Eine SMS, angeblich von der reisenden Geschäftsführung, meldet einen verpassten Anschlussflug und bittet, sofort über einen Link einen teuren Ersatzflug mit der Firmenkreditkarte zu buchen.",
+    "answers": {
+      "B": "Die Geschäftsführung über eine bekannte, unabhängige Nummer erreichen oder das Reisebüro des Unternehmens direkt kontaktieren, statt über den Link zu buchen.",
+      "A": "Über den Link sofort den Ersatzflug mit der Firmenkarte buchen.",
+      "C": "Nur die Flugdaten über den Link prüfen, ohne zu buchen."
+    },
+    "explanation": "Auch echte Reisestörungen können dringend sein. Eine ungewöhnliche Buchungsaufforderung per SMS muss trotzdem über einen bekannten Kontaktweg bestätigt und nach dem internen Reise- und Zahlungsprozess bearbeitet werden.",
+    "proTip": "Firmenkreditkarten nur über freigegebene Buchungswege einsetzen."
+  },
+  "workplace-de-wrk-11": {
+    "title": "MFA-Gerät: angeblich nur noch eine Stunde zur Registrierung",
+    "scenario": "Eine Mail im Namen der IT-Abteilung warnt, dass alle Mitarbeitenden ihr MFA-Gerät binnen einer Stunde über einen externen Link neu registrieren müssten, sonst würden sie „vom System ausgesperrt“.",
+    "answers": {
+      "B": "Das MFA-Gerät nur über die offizielle interne IT-Seite neu registrieren und die Frist beim IT-Service-Desk telefonisch überprüfen lassen.",
+      "A": "Das Gerät sofort über den externen Link registrieren, um nicht ausgesperrt zu werden.",
+      "C": "Nur die alte MFA-Methode über den Link bestätigen."
+    },
+    "explanation": "Eine unerwartete Aufforderung zur erneuten Anmeldung der Zwei-Faktor-Authentifizierung kann ein Phishing-Versuch sein. Prüfe den Vorgang über das bekannte IT-Portal oder direkt beim internen IT-Support.",
+    "proTip": "MFA-Änderungen nur über die offiziell freigegebenen IT-Verfahren durchführen."
+  },
+  "workplace-de-wrk-12": {
+    "title": "Wirtschaftsprüfung: vertrauliche Datei vor zwölf Uhr senden",
+    "scenario": "Eine Mail, angeblich von den externen Wirtschaftsprüfern, verlangt eine vertrauliche Finanzdatei „vor ihrer Abreise um 12 Uhr“ über einen externen Link, statt über den vereinbarten sicheren Datenraum.",
+    "answers": {
+      "A": "Die Anfrage über den internen Ansprechpartner für die Prüfung bestätigen und Dateien ausschließlich über den vereinbarten sicheren Datenraum teilen.",
+      "B": "Die Datei sofort über den externen Link schicken, um die Frist einzuhalten.",
+      "C": "Nur einen Teil der Datei über den Link schicken."
+    },
+    "explanation": "Prüfungsunterlagen können dringend benötigt werden. Ein neuer, externer Upload-Link darf dennoch nicht ungeprüft verwendet werden. Bestätige die Anfrage unabhängig und nutze den vereinbarten sicheren Datenraum.",
+    "proTip": "Vertrauliche Prüfungsunterlagen nur über vereinbarte, freigegebene Wege übermitteln."
   }
 }
