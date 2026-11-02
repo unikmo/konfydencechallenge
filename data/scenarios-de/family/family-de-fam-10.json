@@ -1,7 +1,7 @@
 {
   "id": "family-de-fam-10",
   "lang": "de",
-  "title": "Zahl heute, spar 35 % auf die Arztrechnung",
+  "title": "Arztrechnung: 35 Prozent Rabatt bei sofortiger Zahlung",
   "edition": "family",
   "cardType": "scenario",
   "scored": true,
@@ -20,8 +20,8 @@
   "safeActions": [
     "C"
   ],
-  "explanation": "Echte Praxen und Abrechnungsstellen bieten keine Rabatte fürs schnelle Zahlen an ein privates Konto. Die Praxis selbst kann die Rechnung in einem Anruf bestätigen oder entkräften.",
-  "proTip": "Ein Rabatt fürs schnelle Zahlen ist ein Grund, langsamer zu werden.",
+  "explanation": "Ein unbekannter Brief mit einem hohen Rabatt und einer neuen Bankverbindung ist verdächtig. Prüfe bei der Praxis oder der bekannten Abrechnungsstelle, ob die Rechnung tatsächlich offen ist und wohin du zahlen sollst.",
+  "proTip": "Bei neuen Zahlungsdaten die Rechnung direkt bei der Praxis oder Abrechnungsstelle überprüfen.",
   "hackKey": "H",
   "hackTrigger": "Hetze",
   "tags": [
