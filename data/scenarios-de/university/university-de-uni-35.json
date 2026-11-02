@@ -1,14 +1,14 @@
 {
   "id": "university-de-uni-35",
   "lang": "de",
-  "title": "Das Premium-KI-Lerntool, das alle nutzen",
+  "title": "Kostenloses KI-Lerntool mit Browser-Erweiterung",
   "edition": "university",
   "cardType": "scenario",
   "scored": true,
   "category": "Lerntools",
   "scenario": "In der Klausurphase teilt fast der ganze Semester-Chat den Zugang zu einem „Premium-KI-Lerntool“, das kostenlos ist, wenn man sich mit dem eigenen Uni-Account anmeldet und die Chrome-Erweiterung installiert.",
   "answers": {
-    "A": "Sich nicht mit dem Uni-Account anmelden und die Erweiterung nicht installieren, egal wie viele andere es schon getan haben; ein echtes Tool braucht keinen fremden Zugriff auf den Uni-Account.",
+    "A": "Vor einer Anmeldung und Installation beim Hochschul-IT-Support prüfen, ob der Dienst zugelassen ist und welche Daten und Berechtigungen er benötigt.",
     "B": "Sich anmelden und die Erweiterung installieren, weil fast alle im Chat es schon nutzen.",
     "C": "Sich mit einem separaten, neuen Account anmelden, um vorsichtig zu bleiben."
   },
@@ -20,7 +20,7 @@
   "safeActions": [
     "A"
   ],
-  "explanation": "Dass viele andere mitmachen, macht ein Tool, das vollen Kontozugriff und eine Browser-Erweiterung verlangt, nicht sicherer — Gruppendruck ersetzt keine Prüfung der Berechtigungen.",
+  "explanation": "Die Beliebtheit eines Dienstes sagt nichts darüber aus, wie sicher er mit Hochschulzugängen und Daten umgeht. Prüfe die Erweiterung, die angeforderten Berechtigungen und den Anmeldeweg, bevor du sie nutzt.",
   "proTip": "Viele Mitmacher sind kein Sicherheitscheck.",
   "hackKey": "C",
   "hackTrigger": "Vertrautheit",
@@ -30,5 +30,6 @@
     "class-chats",
     "app-phishing"
   ],
-  "active": true
+  "active": true,
+  "tip": "Bei Erweiterungen und Hochschulzugängen erst Berechtigungen und Anbieter prüfen."
 }
