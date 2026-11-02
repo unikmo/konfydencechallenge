@@ -20,7 +20,7 @@
   "safeActions": [
     "B"
   ],
-  "explanation": "Eine neue Adresse mit der Begründung „gerade gesperrt“ ist ein bekanntes Muster für ein übernommenes Kundenkonto — ein Anruf beim bekannten Ansprechpartner klärt es sicher.",
+  "explanation": "Ein Wechsel auf eine private E-Mail-Adresse kann einen legitimen Grund haben, erhöht bei vertraulichen Bestell- und Zahlungsdaten aber das Risiko. Bestätige die Bitte über den bisher bekannten Ansprechpartner und halte die internen Freigabeprozesse ein.",
   "proTip": "Eine „gesperrte“ Adresse bestätigst du telefonisch, bevor du auf die neue reagierst.",
   "hackKey": "C",
   "hackTrigger": "Vertrautheit",
@@ -30,5 +30,6 @@
     "client-relationships",
     "account-takeover"
   ],
-  "active": true
+  "active": true,
+  "tip": "Vertrauliche Bestelldaten nicht ohne Prüfung an neue private Adressen senden."
 }
