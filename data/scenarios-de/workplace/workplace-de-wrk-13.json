@@ -1,7 +1,7 @@
 {
   "id": "workplace-de-wrk-13",
   "lang": "de",
-  "title": "Der Chef ist am Telefon. Irgendwie.",
+  "title": "Geschäftsführung am Telefon – aber ist die Stimme echt?",
   "edition": "workplace",
   "cardType": "scenario",
   "scored": true,
@@ -20,8 +20,8 @@
   "safeActions": [
     "C"
   ],
-  "explanation": "KI-Stimmenklone werden immer überzeugender — eine vertraute Stimme allein ist kein Beweis mehr. Ein zweiter, unabhängiger Kanal ist die einzige verlässliche Bestätigung bei ungewöhnlichen Zahlungen.",
-  "proTip": "Eine vertraute Stimme reicht bei einer ungewöhnlichen Zahlung nicht mehr als Beweis.",
+  "explanation": "Mit KI lassen sich Stimmen täuschend ähnlich nachahmen. Eine vertraute Stimme allein reicht bei einer ungewöhnlichen Zahlungsanweisung nicht aus. Bestätige die Anweisung über einen unabhängigen Kontaktweg und halte die Freigaberegeln ein.",
+  "proTip": "Auch bei vertrauten Stimmen ungewöhnliche Zahlungsaufträge unabhängig prüfen.",
   "hackKey": "A",
   "hackTrigger": "Autorität",
   "tags": [
