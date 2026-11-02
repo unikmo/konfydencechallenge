@@ -1,12 +1,12 @@
 {
   "id": "travelsafe-de-tra-02",
   "lang": "de",
-  "title": "Die letzte Ferienwohnung auf Mallorca — angeblich",
+  "title": "Ferienwohnung auf Mallorca: nur gegen sofortige Überweisung",
   "edition": "travelsafe",
   "cardType": "scenario",
   "scored": true,
   "category": "Unterkunft",
-  "scenario": "Auf einem Ferienwohnungsportal meldet sich eine Vermieterin für eine günstige Wohnung nahe dem Ballermann: „Letzte verfügbare Woche, aber nur wenn du in den nächsten Minuten per Vorkasse-Überweisung buchst.“",
+  "scenario": "Auf einem Ferienwohnungsportal findest du ein günstiges Apartment auf Mallorca. Die angebliche Vermieterin behauptet, du bekommst es nur, wenn du innerhalb weniger Minuten außerhalb der Plattform auf ihr Privatkonto überweist.",
   "answers": {
     "A": "Nur über die Zahlungsfunktion der Buchungsplattform selbst bezahlen und keine Vorkasse per Überweisung an eine Privatperson leisten.",
     "B": "Sofort per Überweisung an die Vermieterin zahlen, um die Wohnung zu sichern.",
@@ -20,8 +20,8 @@
   "safeActions": [
     "A"
   ],
-  "explanation": "Vorkasse per Überweisung außerhalb der Plattform ist die häufigste Ferienwohnungs-Betrugsmasche — die Plattform-eigene Zahlung schützt dich, eine private Überweisung nicht.",
-  "proTip": "Bezahl nie außerhalb der Plattform, auf der du gebucht hast.",
+  "explanation": "Eine Zahlungsaufforderung außerhalb der Buchungsplattform ist ein deutliches Warnzeichen. Prüfe die Buchung über dein Plattformkonto und nutze nur die dort vorgesehenen Zahlungswege. Achte zusätzlich auf die jeweiligen Bedingungen für Käuferschutz und Rückerstattungen.",
+  "proTip": "Verlasse für die Bezahlung nicht einfach den offiziellen Buchungs- und Zahlungsweg der Plattform.",
   "hackKey": "H",
   "hackTrigger": "Hetze",
   "tags": [
