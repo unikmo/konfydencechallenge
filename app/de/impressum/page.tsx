@@ -4,7 +4,7 @@ import { legalStyles as s } from "@/lib/theme/legalPageStyles";
 
 export const metadata: Metadata = {
   title: { absolute: "Impressum | Konfydence" },
-  description: "Konfydence Impressum — Angaben gemäß § 5 TMG / Anbieterkennzeichnung.",
+  description: "Impressum und Angaben zum Anbieter von Konfydence.",
   alternates: { languages: { en: "https://konfydence.com/imprint", de: "https://konfydence.com/de/impressum" } },
 };
 
@@ -46,9 +46,9 @@ export default function ImpressumPage() {
         <div style={s.section}>
           <h2 style={s.heading}>2. Angaben zum Dienst</h2>
           <p style={s.paragraph}>
-            Konfydence Challenge ist ein pädagogisches Spiel zum Aufbau von Betrugs-Bewusstsein und
+            Konfydence Challenge ist ein pädagogisches Spiel zum Aufbau von Bewusstsein für Betrugsmaschen und
             Entscheidungssicherheit. Der Dienst bietet interaktives, szenariobasiertes Training mit einer
-            Readiness-Score-Bewertung und optionalem kostenpflichtigem Zugang; Zahlungen werden über Stripe abgewickelt.
+            Bewertung des Entscheidungsverhaltens und optionalem kostenpflichtigem Zugang; Zahlungen werden über Stripe abgewickelt.
           </p>
         </div>
 
@@ -79,7 +79,7 @@ export default function ImpressumPage() {
             bleiben deren geistiges Eigentum. Eine unbefugte Nutzung oder Vervielfältigung ist untersagt.
           </p>
           <p style={s.paragraph}>
-            Jede Nutzung der Original-Inhalte von Konfydence über die persönliche, nicht kommerzielle Ansicht und die
+            Jede Nutzung der Originalinhalte von Konfydence über die persönliche, nicht kommerzielle Ansicht und die
             Teilnahme an den Challenges hinaus — insbesondere Vervielfältigung, Verbreitung, Bearbeitung, öffentliche
             Wiedergabe oder kommerzielle Verwertung — bedarf der vorherigen ausdrücklichen schriftlichen Zustimmung von
             PlanetHike OÜ. Anfragen bitte an{" "}
