@@ -2164,7 +2164,7 @@
     "proTip": "Zum Beispiel direkt in einer offiziellen App nachsehen, eine bekannte Telefonnummer wählen oder persönlich bei der zuständigen Stelle nachfragen."
   },
   "workplace-de-wild-wrk-w1": {
-    "title": "Arbeits-Blitzrunde: Warnzeichen erkennen",
+    "title": "Arbeitsplatz-Blitzrunde: Warnzeichen erkennen",
     "scenario": "Spielrunde: Jede Person hat 20 Sekunden Zeit, ein Warnzeichen aus der vorherigen Karte zu nennen. Bereits genannte Antworten dürfen nicht wiederholt werden.",
     "answers": {
       "A": "Die Runde spielen und jeweils ein neues Warnzeichen nennen.",
@@ -2176,7 +2176,7 @@
     "proTip": "Direkt nach einem passenden Szenario spielen, nicht als eigenständige Frage."
   },
   "workplace-de-wild-wrk-w2": {
-    "title": "Arbeits-Blitzrunde: Sicher nachprüfen",
+    "title": "Arbeitsplatz-Blitzrunde: Sicher nachprüfen",
     "scenario": "Spielrunde: Überlege dir für die vorherige Karte einen sicheren, unabhängigen Weg, die verdächtige Nachricht oder Aufforderung zu überprüfen.",
     "answers": {
       "A": "Eine konkrete, unabhängige Möglichkeit zur Überprüfung nennen.",
