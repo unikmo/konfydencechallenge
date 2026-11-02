@@ -1,7 +1,7 @@
 {
   "id": "family-de-fam-18",
   "lang": "de",
-  "title": "Deine Krankenkasse braucht deinen Login",
+  "title": "Krankenkasse: angeblicher Bonus per SMS-Link",
   "edition": "family",
   "cardType": "scenario",
   "scored": true,
@@ -20,8 +20,8 @@
   "safeActions": [
     "B"
   ],
-  "explanation": "Ein Bonusprogramm braucht keinen Login über einen SMS-Link — die echte App zeigt dir jeden Bonus direkt an. Ein „anderes Passwort“ schützt nicht, wenn die Seite gefälscht ist.",
-  "proTip": "Bonus hin oder her — Logins gehen nur über die eigene App.",
+  "explanation": "Eine Bonuszahlung kann plausibel klingen. Wenn du dich dafür jedoch über einen unerwarteten SMS-Link anmelden sollst, prüfe das Angebot zuerst direkt in der offiziellen Kassen-App oder beim Versicherer.",
+  "proTip": "Krankenkassen-Zugangsdaten nur über offizielle Anmeldewege eingeben.",
   "hackKey": "A",
   "hackTrigger": "Autorität",
   "tags": [
