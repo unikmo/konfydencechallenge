@@ -6,9 +6,9 @@
   "cardType": "scenario",
   "scored": true,
   "category": "Gerichte",
-  "scenario": "Ein Brief mit Gerichtssiegel-Optik droht ein Bußgeld von 500 €, weil du angeblich eine Zeugenladung ignoriert hast. Eine beigelegte Nummer soll die Sache „außergerichtlich“ gegen sofortige Zahlung klären.",
+  "scenario": "Du erhältst einen Brief mit einem angeblichen Gerichtssiegel. Darin steht, du müsstest 500 € zahlen, weil du eine Zeugenladung ignoriert hättest. Über die angegebene Telefonnummer könne die Sache gegen sofortige Zahlung erledigt werden.",
   "answers": {
-    "A": "Beim zuständigen Amtsgericht über die im Telefonbuch oder online verifizierte Nummer nachfragen, ob eine solche Ladung existiert.",
+    "A": "Beim zuständigen Amtsgericht über eine selbst recherchierte offizielle Telefonnummer nachfragen, ob es die Ladung und die Forderung tatsächlich gibt.",
     "B": "Einen Anwalt aus der eigenen Familie um Rat fragen, bevor du reagierst.",
     "C": "Die Nummer aus dem Brief anrufen und die 500 € zahlen, um ein Gerichtsverfahren zu vermeiden."
   },
