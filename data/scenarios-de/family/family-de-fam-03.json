@@ -1,12 +1,12 @@
 {
   "id": "family-de-fam-03",
   "lang": "de",
-  "title": "Der Kita-Ausflug: Zahlung heute Abend",
+  "title": "Kita-Ausflug: plötzlich ein neues Konto",
   "edition": "family",
   "cardType": "scenario",
   "scored": true,
   "category": "Schulzahlungen",
-  "scenario": "Eine Nachricht der Kita-Leitung im Eltern-Chat sagt, die Zahlung für den morgigen Ausflug müsse heute Abend bis 20 Uhr per Sofortüberweisung an ein neues Konto gehen, sonst falle der Platz weg. Der Name der Erzieherin stimmt, das Konto ist neu.",
+  "scenario": "Im Elternchat erscheint eine Nachricht, angeblich von der Kita-Leitung: Für den Ausflug morgen müsse das Geld bis 20 Uhr auf ein neues Konto überwiesen werden, sonst verliere dein Kind seinen Platz. Der Name der Erzieherin stimmt, die Bankverbindung ist jedoch neu.",
   "answers": {
     "A": "Sofort überweisen, damit der Platz für dein Kind nicht verloren geht.",
     "B": "In der Elternschaft nachfragen, ob noch jemand die Nachricht bekommen hat.",
@@ -20,8 +20,8 @@
   "safeActions": [
     "C"
   ],
-  "explanation": "Ein gehacktes Chat-Konto sieht aus wie die echte Person, nur die Kontoverbindung ist neu. Eine kurze Rückfrage über einen zweiten Kanal deckt das sofort auf.",
-  "proTip": "Neue Kontoverbindung, altes Vertrauen — erst anrufen, dann zahlen.",
+  "explanation": "Auch das Konto einer bekannten Person kann übernommen werden. Wenn sich eine Bankverbindung kurzfristig ändert, solltest du die Information über die bekannte Telefonnummer der Kita oder persönlich bestätigen lassen.",
+  "proTip": "Bekannter Name, neue Bankverbindung? Erst auf einem zweiten Weg nachfragen.",
   "hackKey": "H",
   "hackTrigger": "Hetze",
   "tags": [
