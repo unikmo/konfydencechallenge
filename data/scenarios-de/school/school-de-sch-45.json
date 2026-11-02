@@ -20,7 +20,7 @@
   "safeActions": [
     "B"
   ],
-  "explanation": "Eine private Nachricht mit einer „Rechnung“ und einem neuen Konto ist ein einfacher Weg, Zahlungen abzufangen. Eine kurze Rückfrage in der eigentlichen Gruppe klärt es sofort.",
+  "explanation": "Eine private Nachricht mit einer unerwarteten Zahlungsforderung kann von einem übernommenen Konto stammen. Prüfe Betrag und Empfänger direkt mit der Gruppe, bevor du überweist.",
   "proTip": "Eine Rechnung per DM ist keine echte Rechnung.",
   "hackKey": "K",
   "hackTrigger": "Notbremse",
@@ -30,5 +30,6 @@
     "payments",
     "invoice-scam"
   ],
-  "active": true
+  "active": true,
+  "tip": "Zahlungsdaten aus privaten Nachrichten in der Gruppe unabhängig bestätigen lassen."
 }
