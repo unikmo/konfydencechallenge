@@ -1,7 +1,7 @@
 {
   "id": "family-de-fam-26",
   "lang": "de",
-  "title": "Sicher bezahlen bei Kleinanzeigen",
+  "title": "Kleinanzeigen: angeblich Zahlung mit TAN bestätigen",
   "edition": "family",
   "cardType": "scenario",
   "scored": true,
@@ -20,8 +20,8 @@
   "safeActions": [
     "A"
   ],
-  "explanation": "Auch alte, gut bewertete Konten werden übernommen oder gekauft. Die echte „Sichere Bezahlung“ läuft komplett in der App — sie fragt nie über einen externen Link nach TANs. Wer als Verkäufer eine TAN eingibt, gibt eine Abbuchung frei, keine Gutschrift.",
-  "proTip": "Als Verkäufer gibst du nie eine TAN ein — TANs geben Geld weg, nicht her.",
+  "explanation": "Auch lang genutzte Konten können übernommen werden. Prüfe die Zahlungsabwicklung direkt in der Kleinanzeigen-App. Eine TAN auf einer fremden Website kann eine Zahlung oder Freigabe auslösen.",
+  "proTip": "Zahlungen nur in der offiziellen Plattform prüfen, niemals über unbekannte Links TANs freigeben.",
   "hackKey": "C",
   "hackTrigger": "Vertrautheit",
   "tags": [
