@@ -13,7 +13,7 @@ export default function AgbPage() {
     <div style={s.container}>
       <div style={s.content}>
         <h1 style={s.title}>Allgemeine Geschäftsbedingungen</h1>
-        <p style={s.update}>Stand: 14. September 2026 (spiegelt die englischen Terms of Service)</p>
+        <p style={s.update}>Stand: 14. September 2026 (deutsche Fassung der englischen Nutzungsbedingungen)</p>
 
         <div style={s.section}>
           <h2 style={s.heading}>1. Geltungsbereich</h2>
@@ -37,12 +37,12 @@ export default function AgbPage() {
         <div style={s.section}>
           <h2 style={s.heading}>3. Challenges &amp; Bewertung</h2>
           <p style={s.paragraph}>
-            <strong>Bildungszweck:</strong> Konfydence Challenges dienen dem Aufbau von Bewusstsein für Betrugs- und
+            <strong>Zweck des Trainings:</strong> Konfydence Challenges dienen dem Aufbau von Bewusstsein für Betrugs- und
             Sicherheitsentscheidungen. Sie garantieren keinen Schutz vor Betrug, Cybervorfällen oder finanziellen
             Verlusten.
           </p>
           <p style={s.paragraph}>
-            <strong>Bewertungen:</strong> Readiness-Scores und andere Trainingssignale basieren auf den Antworten der
+            <strong>Bewertungen:</strong> Ergebnisse des Sicherheitschecks und weitere Trainingsauswertungen basieren auf den Antworten der
             Teilnehmenden und dienen dem pädagogischen Feedback im Rahmen der jeweiligen Methodik.
           </p>
         </div>
@@ -50,7 +50,7 @@ export default function AgbPage() {
         <div style={s.section}>
           <h2 style={s.heading}>4. Käufe, Abonnements &amp; Widerrufsrecht</h2>
           <p style={s.paragraph}>
-            Verbraucherkäufe werden über Stripe abgewickelt. Die Challenge-Editionen, Konfydence Lockscreens (Home/Teen)
+            Verbraucherkäufe werden über Stripe abgewickelt. Die verschiedenen Challenge-Versionen, Konfydence Lockscreens (Home/Teen)
             und der Team-Zugang sind jährliche Abonnements mit automatischer Verlängerung, kündbar jederzeit zum Ende
             der laufenden Laufzeit über dein Konto oder per E-Mail an support@konfydence.com; ein Geschenkkauf ist eine
             einmalige Zahlung, die der beschenkten Person ein Jahr Zugang gewährt.
