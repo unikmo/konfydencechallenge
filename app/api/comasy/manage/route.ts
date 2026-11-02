@@ -4,13 +4,23 @@ import { prisma } from "@/lib/prisma";
 import { getCustomerOrganizationId } from "@/lib/comasyAuth";
 
 import { STUDENT_ALIAS_DOMAIN } from "@/lib/comasyStudents";
+import {
+  CUSTOM_EDITION,
+  MAX_CUSTOM_SCENARIOS_PER_ORG,
+  parseScenarioForm,
+  profileKeys,
+  scenarioColumns,
+} from "@/lib/comasyCustomScenarios";
 
 const text = (form: FormData, key: string) => String(form.get(key) ?? "").trim();
 const optional = (form: FormData, key: string) => text(form, key) || null;
 
-function redirect(request: NextRequest, view: string) {
-  return NextResponse.redirect(new URL(`/comasy/dashboard?view=${encodeURIComponent(view)}`, request.url), 303);
+function redirect(request: NextRequest, view: string, notice?: string) {
+  const extra = notice ? `&notice=${encodeURIComponent(notice)}` : "";
+  return NextResponse.redirect(new URL(`/comasy/dashboard?view=${encodeURIComponent(view)}${extra}`, request.url), 303);
 }
+
+const snapshotOf = (value: unknown) => JSON.stringify(value);
 
 export async function POST(request: NextRequest) {
   const organizationId = await getCustomerOrganizationId();
@@ -89,6 +99,77 @@ export async function POST(request: NextRequest) {
     return redirect(request, "people");
   }
 
+  // ---- Customer-authored scenarios (see lib/comasyCustomScenarios.ts) ----
+  if (action === "create_scenario") {
+    const parsed = parseScenarioForm(form);
+    if (!parsed.ok) return redirect(request, "practice", `scenario-invalid:${parsed.error}`);
+    const existing = await prisma.scenario.count({ where: { organizationId } });
+    if (existing >= MAX_CUSTOM_SCENARIOS_PER_ORG) return redirect(request, "practice", "scenario-limit");
+    const columns = scenarioColumns(parsed.value);
+    const keys = profileKeys(parsed.value.kinds);
+    const created = await prisma.scenario.create({
+      data: {
+        ...columns,
+        externalId: `custom-${organizationId}-${randomBytes(6).toString("hex")}`,
+        edition: CUSTOM_EDITION,
+        organizationId,
+        comasyProfile: {
+          create: { segment: "B2B", roles: parsed.value.roleFocus, difficulty: "MEDIUM", ...keys, version: 1, active: true },
+        },
+        comasyVersions: { create: { version: 1, snapshot: snapshotOf(columns), createdBy: "customer" } },
+      },
+      select: { id: true },
+    });
+    console.log("CoMaSy custom scenario created", { organizationId, scenarioId: created.id });
+    return redirect(request, "practice", "scenario-saved");
+  }
+
+  if (action === "update_scenario") {
+    const scenarioId = text(form, "scenarioId");
+    const scenario = await prisma.scenario.findFirst({ where: { id: scenarioId, organizationId }, select: { id: true } });
+    if (!scenario) return redirect(request, "practice");
+    // Past answers were scored against the old wording and scores, so a scenario
+    // people have already answered is never rewritten in place.
+    if ((await prisma.comasyResponse.count({ where: { scenarioId, organizationId } })) > 0) {
+      return redirect(request, "practice", "scenario-locked");
+    }
+    const parsed = parseScenarioForm(form);
+    if (!parsed.ok) return redirect(request, "practice", `scenario-invalid:${parsed.error}`);
+    const columns = scenarioColumns(parsed.value);
+    const keys = profileKeys(parsed.value.kinds);
+    const lastVersion = await prisma.comasyScenarioVersion.findFirst({ where: { scenarioId }, orderBy: { version: "desc" }, select: { version: true } });
+    const nextVersion = (lastVersion?.version ?? 0) + 1;
+    await prisma.$transaction([
+      prisma.scenario.update({ where: { id: scenarioId }, data: { ...columns, active: undefined } }),
+      prisma.comasyScenarioProfile.upsert({
+        where: { scenarioId },
+        update: { roles: parsed.value.roleFocus, ...keys, version: nextVersion },
+        create: { scenarioId, segment: "B2B", roles: parsed.value.roleFocus, difficulty: "MEDIUM", ...keys, version: nextVersion, active: true },
+      }),
+      prisma.comasyScenarioVersion.create({ data: { scenarioId, version: nextVersion, snapshot: snapshotOf(columns), createdBy: "customer" } }),
+    ]);
+    return redirect(request, "practice", "scenario-saved");
+  }
+
+  if (action === "archive_scenario" || action === "restore_scenario") {
+    const scenarioId = text(form, "scenarioId");
+    const scenario = await prisma.scenario.findFirst({ where: { id: scenarioId, organizationId }, select: { id: true } });
+    if (!scenario) return redirect(request, "practice");
+    const archive = action === "archive_scenario";
+    if (archive) {
+      // A campaign that is scheduled or live would break mid-run without it.
+      const inUse = await prisma.comasyCampaign.count({
+        where: { organizationId, status: { in: ["SCHEDULED", "ACTIVE"] }, scenarioIds: { contains: scenarioId } },
+      });
+      if (inUse > 0) return redirect(request, "practice", "scenario-in-use");
+    }
+    await prisma.$transaction([
+      prisma.scenario.update({ where: { id: scenarioId }, data: { active: !archive } }),
+      prisma.comasyScenarioProfile.updateMany({ where: { scenarioId }, data: { active: !archive } }),
+    ]);
+    return redirect(request, "practice");
+  }
+
   if (action === "create_campaign") {
     const name = text(form, "name");
     const cohortId = optional(form, "cohortId");
@@ -98,7 +179,10 @@ export async function POST(request: NextRequest) {
       const cohort = await prisma.comasyCohort.findFirst({ where: { id: cohortId, organizationId }, select: { id: true } });
       if (!cohort) return redirect(request, "practice");
     }
-    const validScenarios = await prisma.scenario.findMany({ where: { id: { in: scenarioIds }, active: true, scored: true }, select: { id: true } });
+    const validScenarios = await prisma.scenario.findMany({
+      where: { id: { in: scenarioIds }, active: true, scored: true, OR: [{ organizationId: null }, { organizationId }] },
+      select: { id: true },
+    });
     if (validScenarios.length !== scenarioIds.length) return redirect(request, "practice");
     await prisma.comasyCampaign.create({
       data: {
