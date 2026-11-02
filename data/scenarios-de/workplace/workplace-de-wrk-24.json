@@ -1,7 +1,7 @@
 {
   "id": "workplace-de-wrk-24",
   "lang": "de",
-  "title": "DSGVO-Auskunftsanfrage: schick alles zu dieser Person",
+  "title": "DSGVO-Auskunft: sofort alle Personendaten verschicken?",
   "edition": "workplace",
   "cardType": "scenario",
   "scored": true,
@@ -20,8 +20,8 @@
   "safeActions": [
     "C"
   ],
-  "explanation": "DSGVO-Auskunftsanfragen haben eine gesetzliche Frist von einem Monat, keine Sofortpflicht — und sie laufen über den Datenschutzbeauftragten, der auch die Identität der anfragenden Person prüft.",
-  "proTip": "Auch eine echte DSGVO-Anfrage läuft über den Datenschutzbeauftragten, nicht sofort direkt.",
+  "explanation": "Auskunftsanfragen nach Art. 15 DSGVO müssen ernst genommen werden. Identität, Umfang und rechtliche Fristen sind jedoch sorgfältig zu prüfen. Leite die Anfrage an die zuständige Datenschutzstelle weiter, statt Daten sofort herauszugeben.",
+  "proTip": "Datenschutzanfragen über das festgelegte interne Verfahren bearbeiten.",
   "hackKey": "A",
   "hackTrigger": "Autorität",
   "tags": [
