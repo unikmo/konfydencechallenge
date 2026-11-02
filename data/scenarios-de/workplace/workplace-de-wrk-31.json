@@ -8,7 +8,7 @@
   "category": "Kalender",
   "scenario": "Eine Kalendereinladung, die aussieht, als käme sie von der Assistentin eines wichtigen Kontakts, enthält einen Button „Anmelden, um am Meeting teilzunehmen“, der nach dem vollen Unternehmens-Login fragt.",
   "answers": {
-    "A": "Den Kalendereintrag direkt im eigenen Kalendersystem öffnen, statt sich über einen Button in der Einladung mit dem vollen Login anzumelden.",
+    "A": "Die Einladung über das bekannte Kalendersystem öffnen und bei einer erneuten Anmeldeaufforderung die Zieladresse prüfen. Im Zweifel die Absenderin unabhängig kontaktieren.",
     "B": "Sich über den Button in der Einladung mit dem vollen Login anmelden.",
     "C": "Den Button öffnen, aber ein anderes Passwort verwenden."
   },
@@ -20,7 +20,7 @@
   "safeActions": [
     "A"
   ],
-  "explanation": "Echte Meeting-Einladungen öffnen sich direkt im eigenen Kalender- oder Videokonferenzsystem, ohne eine erneute volle Login-Eingabe über einen Button in der Mail zu verlangen.",
+  "explanation": "Bei Videokonferenzen kann eine erneute Anmeldung erforderlich sein. Ein Button in einer unerwarteten Einladung ist aber kein Beweis dafür, dass die verlinkte Seite echt ist. Öffne das Meeting über den bekannten Kalender und prüfe den Anmeldeweg.",
   "proTip": "Ein Meeting öffnest du im eigenen Kalender, nicht über einen Login-Button in der Einladung.",
   "hackKey": "C",
   "hackTrigger": "Vertrautheit",
@@ -30,5 +30,6 @@
     "calendars",
     "credential-phishing"
   ],
-  "active": true
+  "active": true,
+  "tip": "Bei Meeting-Links vor der Anmeldung prüfen, wohin sie führen."
 }
