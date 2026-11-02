@@ -1890,5 +1890,49 @@
     },
     "explanation": "Apps außerhalb offizieller Stores sind nicht automatisch schädlich, werden aber nicht durch deren übliche Prüfverfahren kontrolliert. Eine unbekannte Agentur, die vorab eine Installation verlangt, solltest du gründlich überprüfen.",
     "proTip": "Eine App von außerhalb des Stores ist ein Risiko, kein Job-Angebot."
+  },
+  "university-de-uni-40": {
+    "title": "Zahl 60 €, um 480 € freizuschalten",
+    "scenario": "Bei einem angeblichen Nebenjob „einfache Online-Aufgaben erledigen“ zeigt eine App ein Guthaben von 480 €, das aber erst durch eine „Freischaltungsgebühr“ von 60 € ausgezahlt werden kann.",
+    "answers": {
+      "A": "Die Gebühr nicht überweisen und das Jobangebot sowie den Anbieter unabhängig überprüfen. Angezeigte App-Guthaben sind kein Nachweis für echtes Geld.",
+      "B": "Die 60 € zahlen, um die 480 € zu bekommen.",
+      "C": "Nur die Hälfte der Gebühr zahlen, um zu testen, ob es funktioniert."
+    },
+    "explanation": "Bei betrügerischen Aufgaben-Apps wird häufig ein scheinbares Guthaben angezeigt, das erst nach einer eigenen Zahlung ausgezahlt werden soll. Lass dich von der hohen Summe nicht unter Druck setzen und prüfe das Angebot unabhängig.",
+    "proTip": "Ein Guthaben, das eine Gebühr braucht, um „frei“ zu werden, ist nie echt."
+  },
+  "university-de-uni-41": {
+    "title": "Lade den Reisepass hoch „zur Studierendenverifizierung“",
+    "scenario": "Eine E-Mail einer angeblichen internationalen Studierendenplattform verlangt, für die „Verifizierung deines Studierendenstatus“ eine Kopie deines Reisepasses und eine Selfie-Verifizierung auf einer externen Seite hochzuladen.",
+    "answers": {
+      "C": "Den Anbieter und den offiziellen Verifizierungsweg unabhängig prüfen und keine Ausweisbilder an eine unbekannte Plattform senden.",
+      "A": "Reisepass und Selfie sofort hochladen, um verifiziert zu werden.",
+      "B": "Nur den Reisepass hochladen, aber kein Selfie."
+    },
+    "explanation": "Bei seriösen Studierendenangeboten kann eine Identitätsprüfung nötig sein. Eine unbekannte Plattform, die Reisepass und Selfie verlangt, solltest du jedoch vor dem Hochladen überprüfen. Achte auf Anbieter, Datenschutz und sicheren Übertragungsweg.",
+    "proTip": "Reisepass und Selfie zusammen sind der Rohstoff für Identitätsdiebstahl."
+  },
+  "university-de-uni-43": {
+    "title": "Bestätige, um „dein Postfach wiederherzustellen“",
+    "scenario": "Nach einer angeblichen Wartung bittet eine Mail, eine MFA-Anfrage auf deinem Handy zu bestätigen, um „dein E-Mail-Postfach wiederherzustellen“ — die Anfrage kommt aber, ohne dass du selbst etwas angefragt hast.",
+    "answers": {
+      "B": "Die unerwartete Bestätigungsanfrage ablehnen und über das offizielle Hochschulportal oder die IT prüfen, was passiert ist.",
+      "A": "Die Anfrage bestätigen, um das Postfach wiederherzustellen.",
+      "C": "Die Anfrage einmal ignorieren, aber bei der zweiten Anfrage bestätigen."
+    },
+    "explanation": "Eine Bestätigungsanfrage, die du nicht selbst ausgelöst hast, kann auf einen fremden Anmeldeversuch hinweisen. Bestätige sie nicht und informiere bei wiederholten Anfragen die Hochschul-IT.",
+    "proTip": "Eine MFA-Anfrage, die du nicht selbst ausgelöst hast, ist ein Nein."
+  },
+  "university-de-uni-47": {
+    "title": "Dein Stipendium hat dich überzahlt — zahl den Rest zurück",
+    "scenario": "Nach einer Stipendienauszahlung zeigt dein Konto plötzlich 600 € mehr als erwartet. Eine Mail meldet einen „Systemfehler“ und bittet, die Differenz sofort per Überweisung zurückzuschicken, bevor „das System es automatisch meldet“.",
+    "answers": {
+      "C": "Nicht zurücküberweisen, sondern zuerst beim Studierendenwerk direkt über die bekannte Nummer nachfragen, ob wirklich ein Fehler vorliegt.",
+      "A": "Die Differenz sofort zurücküberweisen, um Ärger zu vermeiden.",
+      "B": "Nur einen Teil der Differenz zurücküberweisen."
+    },
+    "explanation": "Eine unerwartete Überzahlung kann ein echter Fehler oder ein Betrugsversuch sein. Überweise die Differenz nicht allein aufgrund einer E-Mail zurück. Kläre den Vorgang mit der zuständigen Förderstelle über ihre offiziellen Kontaktdaten.",
+    "proTip": "Ein Systemfehler wird vom System korrigiert, nicht von einer hastigen Rücküberweisung."
   }
 }
