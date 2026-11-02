@@ -46,11 +46,11 @@ export default function Page() {
         },
         {
           title: "Ein klarer Hinweis statt langer Anweisungen",
-          copy: "Jeder Screen macht einen klaren Punkt zu einer echten Drucktaktik — Hetze, falsche Autorität, missbrauchtes Vertrauen, eine überhastete Übergabe — und dem Schritt, der sie entschärft.",
+          copy: "Jedes Motiv erklärt verständlich eine typische Betrugsmasche — Hetze, falsche Autorität, missbrauchtes Vertrauen, eine überhastete Übergabe — und dem Schritt, der sie entschärft.",
         },
       ]}
       howTitle="Zwei Richtlinieneinstellungen, dann läuft es von selbst."
-      howCopy="Konfydence kümmert sich um den Content-Kalender und die Renderings. Euer Intune-Konfigurationsprofil zeigt auf die Resolver-URL und muss nie wieder angefasst werden."
+      howCopy="Konfydence kümmert sich um den Redaktionsplanung und die passenden Bildformate. Euer Intune-Konfigurationsprofil zeigt auf die Resolver-URL und muss nie wieder angefasst werden."
       howSteps={[
         "Kauft eine Arbeitsplatz-Lizenz — 4 € pro Mitarbeitendem pro Jahr, 300 € Minimum.",
         "Erstellt in Intune ein Device-Restrictions- oder Settings-Catalog-Profil mit den Personalization-Sperrbildschirm- und Desktop-Bild-URLs, die Konfydence euch gibt.",
@@ -75,7 +75,7 @@ export default function Page() {
             "Die Personalization-CSP — DesktopImageUrl und LockScreenImageUrl — verfügbar über ein Settings-Catalog- oder Device-Restrictions-Profil auf Windows 10/11 Enterprise und Education. Konfydence stellt die genaue URL zum Einfügen bereit.",
         },
         {
-          question: "Muss ich neu ausrollen, wenn sich der Screen ändert?",
+          question: "Muss ich bei jedem neuen Motiv die Einstellungen ändern?",
           answer:
             "Nein. Die URL ist stabil; nur das ausgelieferte Bild ändert sich. Geräte holen das aktuelle Bild bei ihrem normalen Intune-Sync, sodass die zweiwöchentliche Aktualisierung automatisch läuft.",
         },
@@ -87,7 +87,7 @@ export default function Page() {
         {
           question: "Können wir das komplette Set vor dem Kauf sehen?",
           answer:
-            "Ja — fordert ein Angebot an, und wir teilen die aktuelle Bibliothek und den kommenden Content-Kalender, damit ihr Ton und Abdeckung gegen eure Richtlinie prüfen könnt.",
+            "Ja — fordert ein Angebot an, und wir teilen die aktuelle Bibliothek und den Plan für weitere Motive, damit ihr Ton und Abdeckung gegen eure Richtlinie prüfen könnt.",
         },
       ]}
       calloutTitle="Richtlinie einmal einrichten. Die Botschaft bleibt aktuell."
