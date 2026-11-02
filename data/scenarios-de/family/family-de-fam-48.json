@@ -20,7 +20,7 @@
   "safeActions": [
     "B"
   ],
-  "explanation": "Aufgeklebte QR-Codes an Parkautomaten sind eine bekannte Betrugsmasche („Quishing“) — sie führen zu gefälschten Zahlungsseiten. Der Automat selbst oder die offizielle App der Stadt sind immer der sichere Weg.",
+  "explanation": "Aufgeklebte QR-Codes können durch Betrüger ausgetauscht werden und zu gefälschten Zahlungsseiten führen. Verwende die am Automaten ausgewiesene offizielle Zahlungsmethode oder die bekannte Park-App des Betreibers.",
   "proTip": "Ein Aufkleber mit QR-Code auf einem Automaten ist nie die offizielle Zahlmethode.",
   "hackKey": "K",
   "hackTrigger": "Notbremse",
@@ -30,5 +30,6 @@
     "qr-codes",
     "parking"
   ],
-  "active": true
+  "active": true,
+  "tip": "QR-Codes am Parkautomaten vor der Zahlung mit den offiziellen Angaben des Betreibers abgleichen."
 }
