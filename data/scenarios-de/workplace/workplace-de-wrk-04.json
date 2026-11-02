@@ -1,7 +1,7 @@
 {
   "id": "workplace-de-wrk-04",
   "lang": "de",
-  "title": "Der Lieferant sagt: Die Sendung geht in einer Stunde raus",
+  "title": "Lieferung angeblich nur nach sofortiger Zahlung",
   "edition": "workplace",
   "cardType": "scenario",
   "scored": true,
@@ -20,8 +20,8 @@
   "safeActions": [
     "A"
   ],
-  "explanation": "Ein regulärer Geschäftspartner droht nicht mit einer Stundenfrist bei einer bereits vereinbarten Zahlung — der interne Freigabeprozess existiert genau für solche Momente.",
-  "proTip": "Interne Freigabeprozesse gelten auch bei angeblicher Eile.",
+  "explanation": "Die angekündigte Stornierung kann echten geschäftlichen Zeitdruck auslösen. Trotzdem müssen Bankverbindung, offene Forderung und Freigabe intern überprüft werden. Kläre die Situation über bekannte Kontaktdaten des Lieferanten.",
+  "proTip": "Eilige Lieferungen sind kein Grund, Zahlungsfreigaben zu überspringen.",
   "hackKey": "H",
   "hackTrigger": "Hetze",
   "tags": [
