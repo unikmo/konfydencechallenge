@@ -8,7 +8,7 @@
   "category": "Schulverwaltung",
   "scenario": "Eine Mail im Design von IServ/Schulcloud kündigt eine „Systemmigration“ an und bittet alle Schüler, ihre Zugangsdaten über ein verlinktes Formular „zur Sicherung der Daten“ erneut einzugeben.",
   "answers": {
-    "A": "Das Formular ignorieren und sich wie gewohnt direkt im Schulportal einloggen; eine echte Migration verlangt keine externe Dateneingabe.",
+    "A": "Das verlinkte Formular nicht verwenden. Stattdessen das bekannte Schulportal öffnen und dort oder bei der Schul-IT nachfragen, ob eine Umstellung geplant ist.",
     "B": "Die Zugangsdaten über das Formular erneut eingeben, um die Daten zu sichern.",
     "C": "Ein neues, unbekanntes Passwort im Formular verwenden."
   },
