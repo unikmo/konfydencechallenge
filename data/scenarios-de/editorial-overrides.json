@@ -1934,5 +1934,60 @@
     },
     "explanation": "Eine unerwartete Überzahlung kann ein echter Fehler oder ein Betrugsversuch sein. Überweise die Differenz nicht allein aufgrund einer E-Mail zurück. Kläre den Vorgang mit der zuständigen Förderstelle über ihre offiziellen Kontaktdaten.",
     "proTip": "Ein Systemfehler wird vom System korrigiert, nicht von einer hastigen Rücküberweisung."
+  },
+  "family-de-fam-39": {
+    "title": "Support will „das Problem sehen“",
+    "scenario": "Nach einem Anruf beim Kundenservice deines Internetanbieters wegen einer langsamen Verbindung bittet der „Techniker“, per Fernwartungssoftware auf deinen Rechner zuzugreifen, um „das Problem live zu sehen“ — inklusive eines kurzen Blicks ins Online-Banking, „um zu prüfen, ob die Verbindung dort auch stabil ist“.",
+    "answers": {
+      "A": "Die Software installieren, aber das Online-Banking-Fenster vorher schließen.",
+      "B": "Die Software installieren und dem Techniker beim Banking-Test zusehen lassen.",
+      "C": "Den Fernzugriff und den Einblick ins Online-Banking ablehnen. Den Vorgang beenden und bei Bedarf erneut über die offizielle Hotline des Anbieters Kontakt aufnehmen."
+    },
+    "explanation": "Auch echter Kundensupport kann Fernwartung anbieten. Die Aufforderung, dabei dein Online-Banking zu öffnen, ist jedoch ein deutliches Warnzeichen. Erlaube keinen Einblick in vertrauliche Kontodaten.",
+    "proTip": "Ein Internet-Techniker braucht dein Online-Banking nie zu sehen."
+  },
+  "family-de-fam-41": {
+    "title": "Ein mysteriöses Paket mit QR-Karte",
+    "scenario": "Ein Paket, das du nicht bestellt hast, liegt vor der Tür. Eine beigelegte Karte bittet, per QR-Code „die Lieferung zu bestätigen“ oder eine „Rücksendung zu veranlassen“, da sonst automatisch eine Rechnung folge.",
+    "answers": {
+      "A": "Den QR-Code scannen, um die Rücksendung zu veranlassen und keine Rechnung zu riskieren.",
+      "B": "Nicht über den QR-Code bezahlen oder persönliche Daten eingeben. Prüfen, ob die Sendung tatsächlich für dich bestimmt ist, und dich bei Fragen an den offiziellen Händler oder Paketdienst wenden.",
+      "C": "Beim Absender auf dem Paket telefonisch nachfragen."
+    },
+    "explanation": "Eine unerwartete Sendung mit Zahlungsdrohung und einem unbekannten QR-Code ist verdächtig. Für unbestellte Waren besteht grundsätzlich keine Zahlungspflicht. Kläre den Vorgang über einen offiziellen Kontaktweg und gib über den QR-Code keine Daten ein.",
+    "proTip": "Unbestellte Ware bezahlst du nie — und ihren QR-Code scannst du erst recht nicht."
+  },
+  "family-de-fam-42": {
+    "title": "Der Fernseher will einen Kopplungscode",
+    "scenario": "Während du einen Streamingdienst auf dem Fernseher einrichtest, erhältst du einen Anruf von einem angeblichen Mitarbeiter des Anbieters. Du sollst den gerade angezeigten sechsstelligen Kopplungscode vorlesen, um ein angebliches Sicherheitsproblem zu lösen.",
+    "answers": {
+      "A": "Auflegen, den Code für niemanden vorlesen, und das Konto direkt über die offizielle App oder Webseite prüfen.",
+      "B": "Den Fernseher ausschalten und es später erneut versuchen.",
+      "C": "Den Code vorlesen, damit das Konto wieder funktioniert."
+    },
+    "explanation": "Ein Kopplungscode verbindet Geräte mit einem Konto. Teile ihn nicht mit unbekannten Anrufenden. Prüfe das Konto und die Geräteverknüpfung ausschließlich über die offizielle Anwendung des Streamingdienstes.",
+    "proTip": "Ein Code auf deinem Bildschirm ist für dein Gerät bestimmt, für niemandes Ohr."
+  },
+  "family-de-fam-47": {
+    "title": "Der Käufer hat „zu viel“ überwiesen",
+    "scenario": "Du verkaufst ein Sofa online. Der Käufer schickt einen Screenshot einer Überweisung über 200 € mehr als vereinbart und bittet, die Differenz per Sofortüberweisung zurückzuschicken, bevor er das Sofa abholen kommt.",
+    "answers": {
+      "A": "Den tatsächlichen Zahlungseingang im eigenen Konto überprüfen und bei Unsicherheit mit der Bank klären, bevor du irgendetwas erstattest. Nicht allein einem Screenshot vertrauen.",
+      "B": "Die Hälfte der Differenz zurücküberweisen, um entgegenzukommen.",
+      "C": "Die Differenz zurücküberweisen, sobald der Screenshot da ist, damit die Abholung klappt."
+    },
+    "explanation": "Ein Überweisungsbeleg als Screenshot lässt sich fälschen. Selbst ein angezeigter Geldeingang kann je nach Zahlungsart noch korrigiert werden. Kläre die Zahlung über deine Bank, bevor du eine Rückerstattung vornimmst.",
+    "proTip": "Ein Screenshot ist kein Geldeingang — schau in dein eigenes Konto, nicht auf sein Bild."
+  },
+  "family-de-fam-48": {
+    "title": "Ein mysteriöser QR-Code am Parkautomaten",
+    "scenario": "Am Parkautomaten klebt ein Aufkleber mit QR-Code und der Aufschrift „Jetzt bequem per App bezahlen“ — leicht schräg über dem echten Aufkleber des Betreibers angebracht. Der Code führt zu einer Seite, die nach Kartendaten fragt.",
+    "answers": {
+      "A": "Über den QR-Code zahlen, weil es bequemer ist als am Automaten selbst.",
+      "B": "Den QR-Code ignorieren und direkt am Automaten oder über die offizielle Parkapp der Stadt bezahlen.",
+      "C": "Den QR-Code scannen, aber nur schauen, ohne Daten einzugeben."
+    },
+    "explanation": "Aufgeklebte QR-Codes können durch Betrüger ausgetauscht werden und zu gefälschten Zahlungsseiten führen. Verwende die am Automaten ausgewiesene offizielle Zahlungsmethode oder die bekannte Park-App des Betreibers.",
+    "proTip": "Ein Aufkleber mit QR-Code auf einem Automaten ist nie die offizielle Zahlmethode."
   }
 }
