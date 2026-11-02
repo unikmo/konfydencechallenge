@@ -2066,5 +2066,125 @@
     },
     "explanation": "Unternehmen können Zugangskarten sowohl vor Ort als auch digital verwalten. Ein unerwarteter externer Link zur Änderung von Kartendaten sollte dennoch über einen bekannten internen Kontakt bestätigt werden.",
     "proTip": "Zugangskarten verwaltest du persönlich vor Ort, nie über ein externes Formular."
+  },
+  "family-de-wild-fam-w1": {
+    "title": "Familien-Blitzrunde: Warnzeichen erkennen",
+    "scenario": "Spielrunde: Jede Person hat 20 Sekunden Zeit, ein Warnzeichen aus der vorherigen Karte zu nennen. Bereits genannte Antworten dürfen nicht wiederholt werden.",
+    "answers": {
+      "A": "Die Runde spielen und jeweils ein neues Warnzeichen nennen.",
+      "B": "Passen.",
+      "C": "Eine unklare Antwort freundlich hinterfragen und genauer erklären lassen.",
+      "D": "Die Spielleitung nennt sofort die Lösung."
+    },
+    "explanation": "Bei dieser Übung geht es darum, Warnzeichen aus der letzten Situation selbst zu erkennen und in eigenen Worten zu erklären. Konkrete Hinweise sind hilfreicher als allgemeine Vermutungen.",
+    "proTip": "Direkt nach einem passenden Szenario spielen, nicht als eigenständige Frage."
+  },
+  "family-de-wild-fam-w2": {
+    "title": "Familien-Blitzrunde: Sicher nachprüfen",
+    "scenario": "Spielrunde: Überlege dir für die vorherige Karte einen sicheren, unabhängigen Weg, die verdächtige Nachricht oder Aufforderung zu überprüfen.",
+    "answers": {
+      "A": "Eine konkrete, unabhängige Möglichkeit zur Überprüfung nennen.",
+      "B": "Nur sagen: „Sei vorsichtig.“",
+      "C": "Die verdächtige Nachricht als einzige Informationsquelle nutzen.",
+      "D": "Die Spielleitung bitten, die Frage zu überspringen."
+    },
+    "explanation": "Eine gute Antwort benennt einen konkreten Weg zur Überprüfung, der nicht auf den Angaben der verdächtigen Nachricht beruht.",
+    "proTip": "Zum Beispiel direkt in einer offiziellen App nachsehen, eine bekannte Telefonnummer wählen oder persönlich bei der zuständigen Stelle nachfragen."
+  },
+  "school-de-wild-sch-w1": {
+    "title": "Schul-Blitzrunde: Warnzeichen erkennen",
+    "scenario": "Spielrunde: Jede Person hat 20 Sekunden Zeit, ein Warnzeichen aus der vorherigen Karte zu nennen. Bereits genannte Antworten dürfen nicht wiederholt werden.",
+    "answers": {
+      "A": "Die Runde spielen und jeweils ein neues Warnzeichen nennen.",
+      "B": "Passen.",
+      "C": "Eine unklare Antwort freundlich hinterfragen und genauer erklären lassen.",
+      "D": "Die Spielleitung nennt sofort die Lösung."
+    },
+    "explanation": "Bei dieser Übung geht es darum, Warnzeichen aus der letzten Situation selbst zu erkennen und in eigenen Worten zu erklären. Konkrete Hinweise sind hilfreicher als allgemeine Vermutungen.",
+    "proTip": "Direkt nach einem passenden Szenario spielen, nicht als eigenständige Frage."
+  },
+  "school-de-wild-sch-w2": {
+    "title": "Schul-Blitzrunde: Sicher nachprüfen",
+    "scenario": "Spielrunde: Überlege dir für die vorherige Karte einen sicheren, unabhängigen Weg, die verdächtige Nachricht oder Aufforderung zu überprüfen.",
+    "answers": {
+      "A": "Eine konkrete, unabhängige Möglichkeit zur Überprüfung nennen.",
+      "B": "Nur sagen: „Sei vorsichtig.“",
+      "C": "Die verdächtige Nachricht als einzige Informationsquelle nutzen.",
+      "D": "Die Spielleitung bitten, die Frage zu überspringen."
+    },
+    "explanation": "Eine gute Antwort benennt einen konkreten Weg zur Überprüfung, der nicht auf den Angaben der verdächtigen Nachricht beruht.",
+    "proTip": "Zum Beispiel direkt in einer offiziellen App nachsehen, eine bekannte Telefonnummer wählen oder persönlich bei der zuständigen Stelle nachfragen."
+  },
+  "university-de-wild-uni-w1": {
+    "title": "Hochschul-Blitzrunde: Warnzeichen erkennen",
+    "scenario": "Spielrunde: Jede Person hat 20 Sekunden Zeit, ein Warnzeichen aus der vorherigen Karte zu nennen. Bereits genannte Antworten dürfen nicht wiederholt werden.",
+    "answers": {
+      "A": "Die Runde spielen und jeweils ein neues Warnzeichen nennen.",
+      "B": "Passen.",
+      "C": "Eine unklare Antwort freundlich hinterfragen und genauer erklären lassen.",
+      "D": "Die Spielleitung nennt sofort die Lösung."
+    },
+    "explanation": "Bei dieser Übung geht es darum, Warnzeichen aus der letzten Situation selbst zu erkennen und in eigenen Worten zu erklären. Konkrete Hinweise sind hilfreicher als allgemeine Vermutungen.",
+    "proTip": "Direkt nach einem passenden Szenario spielen, nicht als eigenständige Frage."
+  },
+  "university-de-wild-uni-w2": {
+    "title": "Hochschul-Blitzrunde: Sicher nachprüfen",
+    "scenario": "Spielrunde: Überlege dir für die vorherige Karte einen sicheren, unabhängigen Weg, die verdächtige Nachricht oder Aufforderung zu überprüfen.",
+    "answers": {
+      "A": "Eine konkrete, unabhängige Möglichkeit zur Überprüfung nennen.",
+      "B": "Nur sagen: „Sei vorsichtig.“",
+      "C": "Die verdächtige Nachricht als einzige Informationsquelle nutzen.",
+      "D": "Die Spielleitung bitten, die Frage zu überspringen."
+    },
+    "explanation": "Eine gute Antwort benennt einen konkreten Weg zur Überprüfung, der nicht auf den Angaben der verdächtigen Nachricht beruht.",
+    "proTip": "Zum Beispiel direkt in einer offiziellen App nachsehen, eine bekannte Telefonnummer wählen oder persönlich bei der zuständigen Stelle nachfragen."
+  },
+  "travelsafe-de-wild-tra-w1": {
+    "title": "Reise-Blitzrunde: Warnzeichen erkennen",
+    "scenario": "Spielrunde: Jede Person hat 20 Sekunden Zeit, ein Warnzeichen aus der vorherigen Karte zu nennen. Bereits genannte Antworten dürfen nicht wiederholt werden.",
+    "answers": {
+      "A": "Die Runde spielen und jeweils ein neues Warnzeichen nennen.",
+      "B": "Passen.",
+      "C": "Eine unklare Antwort freundlich hinterfragen und genauer erklären lassen.",
+      "D": "Die Spielleitung nennt sofort die Lösung."
+    },
+    "explanation": "Bei dieser Übung geht es darum, Warnzeichen aus der letzten Situation selbst zu erkennen und in eigenen Worten zu erklären. Konkrete Hinweise sind hilfreicher als allgemeine Vermutungen.",
+    "proTip": "Direkt nach einem passenden Szenario spielen, nicht als eigenständige Frage."
+  },
+  "travelsafe-de-wild-tra-w2": {
+    "title": "Reise-Blitzrunde: Sicher nachprüfen",
+    "scenario": "Spielrunde: Überlege dir für die vorherige Karte einen sicheren, unabhängigen Weg, die verdächtige Nachricht oder Aufforderung zu überprüfen.",
+    "answers": {
+      "A": "Eine konkrete, unabhängige Möglichkeit zur Überprüfung nennen.",
+      "B": "Nur sagen: „Sei vorsichtig.“",
+      "C": "Die verdächtige Nachricht als einzige Informationsquelle nutzen.",
+      "D": "Die Spielleitung bitten, die Frage zu überspringen."
+    },
+    "explanation": "Eine gute Antwort benennt einen konkreten Weg zur Überprüfung, der nicht auf den Angaben der verdächtigen Nachricht beruht.",
+    "proTip": "Zum Beispiel direkt in einer offiziellen App nachsehen, eine bekannte Telefonnummer wählen oder persönlich bei der zuständigen Stelle nachfragen."
+  },
+  "workplace-de-wild-wrk-w1": {
+    "title": "Arbeits-Blitzrunde: Warnzeichen erkennen",
+    "scenario": "Spielrunde: Jede Person hat 20 Sekunden Zeit, ein Warnzeichen aus der vorherigen Karte zu nennen. Bereits genannte Antworten dürfen nicht wiederholt werden.",
+    "answers": {
+      "A": "Die Runde spielen und jeweils ein neues Warnzeichen nennen.",
+      "B": "Passen.",
+      "C": "Eine unklare Antwort freundlich hinterfragen und genauer erklären lassen.",
+      "D": "Die Spielleitung nennt sofort die Lösung."
+    },
+    "explanation": "Bei dieser Übung geht es darum, Warnzeichen aus der letzten Situation selbst zu erkennen und in eigenen Worten zu erklären. Konkrete Hinweise sind hilfreicher als allgemeine Vermutungen.",
+    "proTip": "Direkt nach einem passenden Szenario spielen, nicht als eigenständige Frage."
+  },
+  "workplace-de-wild-wrk-w2": {
+    "title": "Arbeits-Blitzrunde: Sicher nachprüfen",
+    "scenario": "Spielrunde: Überlege dir für die vorherige Karte einen sicheren, unabhängigen Weg, die verdächtige Nachricht oder Aufforderung zu überprüfen.",
+    "answers": {
+      "A": "Eine konkrete, unabhängige Möglichkeit zur Überprüfung nennen.",
+      "B": "Nur sagen: „Sei vorsichtig.“",
+      "C": "Die verdächtige Nachricht als einzige Informationsquelle nutzen.",
+      "D": "Die Spielleitung bitten, die Frage zu überspringen."
+    },
+    "explanation": "Eine gute Antwort benennt einen konkreten Weg zur Überprüfung, der nicht auf den Angaben der verdächtigen Nachricht beruht.",
+    "proTip": "Zum Beispiel direkt in einer offiziellen App nachsehen, eine bekannte Telefonnummer wählen oder persönlich bei der zuständigen Stelle nachfragen."
   }
 }
