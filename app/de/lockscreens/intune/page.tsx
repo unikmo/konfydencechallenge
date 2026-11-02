@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { LockscreenIntentPage } from "@/components/LockscreenIntentPage";
 
 export const metadata: Metadata = {
-  title: { absolute: "IT-Sicherheit-Hintergrundbild für Microsoft Intune | Konfydence Lockscreens" },
+  title: { absolute: "Sicherheitshinweise für Microsoft Intune für Microsoft Intune | Konfydence Lockscreens" },
   description:
     "Verteilt einen regelmäßig wechselnden IT-Sicherheit-Sperrbildschirm und ein Desktop-Hintergrundbild über Microsoft Intune aus. Eine Richtlinie, eine URL, alle zwei Wochen ein neuer Hinweis zur Methode „Anhalten, Abklären, Ansprechen“ — kein erneutes Ausrollen.",
   alternates: {
@@ -10,7 +10,7 @@ export const metadata: Metadata = {
     languages: { en: "https://konfydence.com/lockscreens/intune", de: "https://konfydence.com/de/lockscreens/intune" },
   },
   openGraph: {
-    title: "IT-Sicherheit-Hintergrundbild für Microsoft Intune | Konfydence",
+    title: "Sicherheitshinweise für Microsoft Intune für Microsoft Intune | Konfydence",
     description: "Richtet eine Intune-Hintergrundbild-Richtlinie einmal auf eine URL aus, und sie bleibt das ganze Jahr aktuell.",
     url: "https://konfydence.com/de/lockscreens/intune",
     siteName: "Konfydence",
@@ -37,15 +37,15 @@ export default function Page() {
       problemCopy="Windows-Geräte unter Intune übernehmen ein Personalization-CSP-Hintergrundbild und ein Sperrbildschirmbild. Einmal eingerichtet und vergessen, und Mitarbeitende hören innerhalb von Wochen auf, es zu sehen. Der Wert liegt darin, dass sich die Botschaft ändert — und dass sie etwas Konkretes darüber sagt, wie Betrug Druck aufbaut, nicht nur eine Richtlinienzeile."
       sections={[
         {
-          title: "Eine URL, immer aktuell",
-          copy: "Der aktuelle Screen wird über eine einzige Konfydence-URL aufgelöst. DesktopImageUrl und LockScreenImageUrl einmal setzen; jede zweiwöchentliche Änderung wird beim nächsten Geräte-Sync übernommen.",
+          title: "Ein zentraler Link für aktuelle Hinweise",
+          copy: "Der aktuelle Hinweis wird über einen zentralen Konfydence-Link bereitgestellt. DesktopImageUrl und LockScreenImageUrl einmal setzen; jede zweiwöchentliche Änderung wird beim nächsten Geräte-Sync übernommen.",
         },
         {
           title: "Windows, passend zugeschnitten",
-          copy: "Das Windows-Rendering ist für 16:9-Desktop- und Sperrbildschirme gebaut. Notebook- und Tablet-Formate stehen für gemischte Flotten zur Verfügung, die genauso verwaltet werden.",
+          copy: "Das Windows-Bildformat ist für 16:9-Desktop- und Sperrbildschirme gebaut. Notebook- und Tablet-Formate stehen für gemischte Flotten zur Verfügung, die genauso verwaltet werden.",
         },
         {
-          title: "Eine Botschaft, kein Mandat",
+          title: "Ein klarer Hinweis statt langer Anweisungen",
           copy: "Jeder Screen macht einen klaren Punkt zu einer echten Drucktaktik — Hetze, falsche Autorität, missbrauchtes Vertrauen, eine überhastete Übergabe — und dem Schritt, der sie entschärft.",
         },
       ]}
@@ -59,7 +59,7 @@ export default function Page() {
       ]}
       orgValue={{
         title: "Sicherheit auch zwischen den Schulungen präsent halten.",
-        copy: "Der Grund, das über Intune laufen zu lassen, ist nicht das Hintergrundbild — es ist, dass Sicherheitsbewusstsein zu einer fortlaufenden Kontrolle wird statt zu einem Abschlussdatum. Ein Hinweis, der sich alle zwei Wochen ändert, auf jedem verwalteten Gerät, ist sichtbare Aktivität zwischen den formalen Schulungen.",
+        copy: "Der Grund, das über Intune laufen zu lassen, ist nicht das Hintergrundbild — es ist, dass Sicherheitshinweise zu einem festen Bestandteil des Arbeitsalltags wird statt zu einem Abschlussdatum. Ein Hinweis, der sich alle zwei Wochen ändert, auf jedem verwalteten Gerät, ist sichtbare Aktivität zwischen den formalen Schulungen.",
         points: [
           "Fortlaufende Cyber-Hygiene-Verstärkung — NIS2 (Artikel 21) erwartet kontinuierliche Sicherheitsbewusstsein und eine Aufsicht durch die Leitungsorgane. Ein rotierender Hinweis ist sichtbare Aktivität zwischen den formalen Schulungen.",
           "Beitrag zum Human Risk Management — verschiebt Sicherheitsbewusstsein von einem Wissenstest zu einem Gewohnheits-Cue im Moment der Entscheidung, genau der Punkt, den NIST- und ISO/IEC-27001-Kontrollen betonen.",
