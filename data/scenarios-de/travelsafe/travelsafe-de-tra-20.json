@@ -1,7 +1,7 @@
 {
   "id": "travelsafe-de-tra-20",
   "lang": "de",
-  "title": "Der blau-verifizierte Airline-Support-Account",
+  "title": "Airline-Support mit blauem Häkchen?",
   "edition": "travelsafe",
   "cardType": "scenario",
   "scored": true,
@@ -20,8 +20,8 @@
   "safeActions": [
     "B"
   ],
-  "explanation": "Ein blaues Häkchen bestätigt nur ein bezahltes Abo, keine echte Identität — Fake-Support-Accounts nutzen genau diesen Anschein von Autorität aus.",
-  "proTip": "Ein Häkchen ist kein Echtheitsbeweis für einen Airline-Account.",
+  "explanation": "Ein verifiziert wirkendes Profil beweist nicht automatisch, dass es sich um den offiziellen Kundendienst handelt. Prüfe die Identität über die Website der Fluggesellschaft und übermittle persönliche Daten nur über bestätigte Kontaktwege.",
+  "proTip": "Auch Profile mit blauem Häkchen auf Echtheit prüfen.",
   "hackKey": "A",
   "hackTrigger": "Autorität",
   "tags": [
