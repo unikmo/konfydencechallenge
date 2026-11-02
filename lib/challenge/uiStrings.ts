@@ -9,11 +9,11 @@
 export type UiLang = "en" | "de";
 
 export const EDITION_LABELS_DE: Record<string, string> = {
-  family: "Familie-Edition",
-  school: "Schule-Edition",
-  university: "Universität-Edition",
+  family: "Familien-Edition",
+  school: "Schul-Edition",
+  university: "Hochschul-Edition",
   travelsafe: "TravelSafe-Edition",
-  workplace: "Arbeitsplatz-Edition",
+  workplace: "Berufs-Edition",
 };
 
 export function editionLabelFor(edition: string, lang: UiLang, fallback: string): string {
