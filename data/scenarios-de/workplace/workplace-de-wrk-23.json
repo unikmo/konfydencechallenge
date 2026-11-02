@@ -1,7 +1,7 @@
 {
   "id": "workplace-de-wrk-23",
   "lang": "de",
-  "title": "Eine vertraute HR-Partnerin braucht Mitarbeiterdaten",
+  "title": "HR-Kontakt schreibt plötzlich von neuer Adresse",
   "edition": "workplace",
   "cardType": "scenario",
   "scored": true,
@@ -20,8 +20,8 @@
   "safeActions": [
     "B"
   ],
-  "explanation": "Eine neue, unbekannte Absenderadresse bei einer sonst vertrauten Person ist ein starkes Warnsignal — jahrelange Zusammenarbeit ersetzt keine Bestätigung über den bekannten Kanal.",
-  "proTip": "Eine neue Absenderadresse prüfst du über den alten, bekannten Kanal.",
+  "explanation": "Eine neue Absenderadresse ist bei einer sensiblen Datenanforderung ein Warnzeichen. Bestätige die Anfrage über die bekannten Kontaktdaten und prüfe die interne Berechtigung.",
+  "proTip": "Gehalts- und Kontodaten nur über genehmigte HR-Prozesse teilen.",
   "hackKey": "A",
   "hackTrigger": "Autorität",
   "tags": [
