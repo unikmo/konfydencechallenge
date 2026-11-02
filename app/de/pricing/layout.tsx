@@ -5,7 +5,7 @@ import type { ReactNode } from "react";
 // params) — this server layout owns its metadata, same pattern as app/pricing.
 export const metadata: Metadata = {
   title: { absolute: "Preise | Konfydence" },
-  description: "Konfydence-Preise — kostenloser Check, Familie- oder Schule-Edition, oder das komplette Paket.",
+  description: "Konfydence Challenge: kostenloser Sicherheitscheck, einzelne Editionen und das Komplettpaket mit allen fünf Übungsbereichen.",
   alternates: { canonical: "/de/pricing", languages: { en: "https://konfydence.com/pricing", de: "https://konfydence.com/de/pricing" } },
 };
 
