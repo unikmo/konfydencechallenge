@@ -8,7 +8,7 @@
   "category": "Bordkarten",
   "scenario": "Eine SMS im Namen der Airline schickt einen Link, um die Bordkarte „bequem zur Handy-Wallet hinzuzufügen“ — der Link führt aber zu einer Seite außerhalb der offiziellen Airline-App.",
   "answers": {
-    "A": "Die Bordkarte ausschließlich über die offizielle Airline-App oder die offizielle Check-in-Bestätigung zur Wallet hinzufügen, nicht über einen externen Link.",
+    "A": "Die Bordkarte über das offizielle Airline-Konto oder den bestätigten Check-in-Link abrufen. Einen unerwarteten SMS-Link zunächst auf Echtheit prüfen.",
     "B": "Über den Link die Bordkarte zur Wallet hinzufügen.",
     "C": "Den Link öffnen, um nur die Flugdaten zu prüfen."
   },
@@ -20,7 +20,7 @@
   "safeActions": [
     "A"
   ],
-  "explanation": "Eine echte digitale Bordkarte kommt immer aus der offiziellen Airline-App oder dem offiziellen Check-in, nie über einen separaten SMS-Link.",
+  "explanation": "Fluggesellschaften können Links zu Bordkarten versenden. Ein überraschender Link aus einer unbekannten SMS kann aber auch auf eine gefälschte Seite führen. Öffne deine Buchung im offiziellen Airline-Konto, um den Vorgang zu prüfen.",
   "proTip": "Eine Bordkarte holst du dir aus der Airline-App, nie aus einem SMS-Link.",
   "hackKey": "K",
   "hackTrigger": "Notbremse",
@@ -30,5 +30,6 @@
     "boarding-passes",
     "phishing"
   ],
-  "active": true
+  "active": true,
+  "tip": "Bordkarten über den bestätigten Check-in oder das offizielle Airline-Konto abrufen."
 }
