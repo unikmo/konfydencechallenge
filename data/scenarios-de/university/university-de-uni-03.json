@@ -8,7 +8,7 @@
   "category": "Nebenjobs",
   "scenario": "In einer WhatsApp-Gruppe der Fachschaft wird ein Nebenjob angeboten: 25 € pro Stunde für Produkttests von zu Hause. Du sollst noch heute anfangen können, musst aber vorher sofort deinen Ausweis und deine Kontodaten hochladen.",
   "answers": {
-    "C": "Die Anzeige unabhängig recherchieren (Firmenname plus „Betrug“ suchen) und dich nicht unter Zeitdruck sofort mit Ausweis- und Kontodaten registrieren.",
+    "C": "Das Unternehmen und das Stellenangebot unabhängig prüfen. Ausweis- und Kontodaten nicht vorschnell hochladen.",
     "A": "Dich sofort registrieren, um den Job noch heute zu bekommen.",
     "B": "Nur den Ausweis hochladen, aber die Kontodaten weglassen."
   },
