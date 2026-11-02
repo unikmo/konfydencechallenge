@@ -1,7 +1,7 @@
 {
   "id": "university-de-uni-16",
   "lang": "de",
-  "title": "Das Prüfungsamt sagt, dein Konto sei gesperrt",
+  "title": "Prüfungsamt: Studierendenkonto angeblich gesperrt",
   "edition": "university",
   "cardType": "scenario",
   "scored": true,
@@ -20,8 +20,8 @@
   "safeActions": [
     "B"
   ],
-  "explanation": "Ein direkter Login im gewohnten Portal zeigt sofort, ob eine Sperrung überhaupt existiert — das Prüfungsamt verschickt keine Passwort-Reset-Links per E-Mail.",
-  "proTip": "Ein Login im gewohnten Portal ist immer sicherer als ein Link aus einer Mail.",
+  "explanation": "Eine unerwartete Passwortaufforderung kann auf eine gefälschte Anmeldeseite führen. Öffne das offizielle Hochschulportal selbst oder kontaktiere den IT-Support.",
+  "proTip": "Kontostatus über das bekannte Hochschulportal prüfen, nicht über einen Mail-Link.",
   "hackKey": "A",
   "hackTrigger": "Autorität",
   "tags": [
