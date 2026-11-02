@@ -1,7 +1,7 @@
 {
   "id": "workplace-de-wrk-25",
   "lang": "de",
-  "title": "Der E-Mail-Verlauf ist echt; das Bankkonto ist neu",
+  "title": "Echter E-Mail-Verlauf, aber plötzlich eine neue IBAN",
   "edition": "workplace",
   "cardType": "scenario",
   "scored": true,
@@ -20,8 +20,8 @@
   "safeActions": [
     "C"
   ],
-  "explanation": "Ein echter, langer E-Mail-Verlauf beweist nicht, dass das E-Mail-Konto gerade nicht kompromittiert ist — Angreifer klinken sich oft mitten in echte Threads ein, gerade weil das Vertrauen schafft.",
-  "proTip": "Ein echter E-Mail-Verlauf ist kein Beweis für eine echte neue Kontoverbindung.",
+  "explanation": "Ein langer, bekannter E-Mail-Verlauf kann auch nach einer Kontoübernahme weitergeführt werden. Bestätige neue Bankdaten unabhängig über bekannte Kontaktdaten und halte die Freigaben ein.",
+  "proTip": "Neue Kontoverbindungen trotz vertrautem E-Mail-Verlauf separat überprüfen.",
   "hackKey": "C",
   "hackTrigger": "Vertrautheit",
   "tags": [
