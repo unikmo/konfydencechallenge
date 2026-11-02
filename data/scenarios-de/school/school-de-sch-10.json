@@ -6,7 +6,7 @@
   "cardType": "scenario",
   "scored": true,
   "category": "Schul-AGs",
-  "scenario": "Eine Nachricht in der Eltern-/Schüler-WhatsApp-Gruppe sagt, der Spendenlink für die Klassenfahrtkasse schließe heute Abend und bittet um sofortige Überweisung über einen neuen, unbekannten Zahlungsdienst.",
+  "scenario": "In eurem Klassenchat behauptet jemand, der Zahlungslink für die Klassenfahrt gelte nur noch bis heute Abend. Das Geld soll plötzlich über einen unbekannten Zahlungsdienst überwiesen werden.",
   "answers": {
     "A": "Sofort über den neuen Dienst spenden, damit die Frist nicht verstreicht.",
     "B": "Nur einen kleinen Betrag über den Link schicken.",
