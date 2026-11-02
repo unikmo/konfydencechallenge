@@ -28,8 +28,8 @@ export default function Page() {
     faq={[
       { question: "Was unterscheidet das von einer Phishing-Simulation?", answer: "Phishing ist ein möglicher Szenariotyp. Sicherheits-Entscheidungssimulation deckt breitere Geschäftsentscheidungen ab, bei denen die Bitte über vertraute Accounts, Stimme, Prozessausnahmen oder Lieferantenbeziehungen ankommen kann." },
       { question: "Ist CoMaSy ein soziales Deduktionsspiel?", answer: "Nein. Der Fokus liegt auf Beweisen, unabhängiger Überprüfung und angemessenem Handeln — nicht auf dem Erraten, wer „gut“ oder „böse“ ist." },
-      { question: "Bedeutet Simulation Mehrspieler?", answer: "Nicht zwingend. Ein bezahlter Pilot kann das Entscheidungs- und Messmodell validieren, ohne zunächst umfassende Mehrspieler- oder Enterprise-Integrationen zu benötigen." },
-      { question: "Was ist der nächste kommerzielle Schritt?", answer: "Fordere ein begrenztes Pilotprojekt an — mit definierter Teilnehmergruppe, Risikofokus, Messplan und Skalierungs-/Stopp-Entscheidungspunkt." },
+      { question: "Bedeutet Simulation Mehrspieler?", answer: "Nicht zwingend. Ein bezahlter Pilot kann das Entscheidungs- und Messmodell validieren, ohne zunächst umfassende Mehrspieler- oder Anbindungen an bestehende Unternehmenssysteme zu benötigen." },
+      { question: "Was ist der nächste kommerzielle Schritt?", answer: "Fordere ein begrenztes Pilotprojekt an — mit definierter Teilnehmergruppe, Risikofokus, Messplan und Ausweitungs-/Stopp-Entscheidungspunkt." },
     ]}
   />;
 }
