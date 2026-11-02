@@ -15,18 +15,18 @@ export default function Page() {
     lang="de"
     eyebrow="NIS2-SICHERHEITSBEWUSSTSEIN-ANWENDUNGSFALL"
     title="Zeigt, ob eure Sicherheitsschulungen etwas bewirken."
-    intro="CoMaSy kann die menschliche Seite eines Cybersicherheits-Awareness-Programms mit wiederholtem Entscheidungstraining, festgelegten Kriterien für Entscheidungen und über die Zeit überprüfbaren Aufzeichnungen unterstützen. Es macht eine Organisation allein nicht NIS2-konform."
+    intro="CoMaSy kann die menschliche Seite eines Programms zur Sensibilisierung für Cybersicherheit mit wiederholtem Entscheidungstraining, festgelegten Kriterien für Entscheidungen und über die Zeit überprüfbaren Aufzeichnungen unterstützen. Es macht eine Organisation allein nicht NIS2-konform."
     problemTitle="Ein Schulungsnachweis zeigt, wer teilgenommen hat. Entscheidend ist, ob sich das Verhalten verbessert hat."
-    problemCopy="Wo Organisationen wiederholte Awareness-Aktivität und einen klareren Weg zur Wirksamkeitsprüfung brauchen, kann ein begrenzter CoMaSy-Pilot klar definierte Messgrößen hinzufügen — ohne vorzugeben, dass eine einzelne Plattform die umfassenderen rechtlichen, organisatorischen und technischen Pflichten aus NIS2 erfüllt."
+    problemCopy="Wo Organisationen regelmäßige Sicherheitsschulungen und einen klareren Weg zur Wirksamkeitsprüfung brauchen, kann ein begrenzter CoMaSy-Pilot klar definierte Messgrößen hinzufügen — ohne vorzugeben, dass eine einzelne Plattform die umfassenderen rechtlichen, organisatorischen und technischen Pflichten aus NIS2 erfüllt."
     sections={[
       { title: "Regelmäßige Sicherheitsschulungen", copy: "Kurze, szenariobasierte Übungen über das Jahr verteilt, statt sich auf eine einzelne jährliche Schulungsveranstaltung zu verlassen." },
-      { title: "Definierte Indikatoren", copy: "Nutze dokumentierte Kennzahlen wie Innehalten, unabhängige Verifizierung, Impulshandlungen und Reaktion auf Druckmuster." },
+      { title: "Definierte Indikatoren", copy: "Nutze dokumentierte Kennzahlen wie Innehalten, unabhängige Überprüfung, Impulshandlungen und Reaktion auf Druckmuster." },
       { title: "Überprüfbare Belege", copy: "Halte Pilotteilnahme und Verhaltensergebnisse klar genug für die Auswertung durch die Geschäftsleitung — bei gleichzeitiger Transparenz über die Grenzen dessen, was die Daten belegen können." },
     ]}
-    proofTitle="Nutze CoMaSy als unterstützenden Beleg, nicht als Compliance-Abkürzung."
-    proofCopy="Methodik und Pilotbericht sollten genau festhalten, was gemessen wurde, wie sich die Kohorte verändert hat und was außerhalb des Übungsumfangs bleibt. Die rechtliche Konformität bleibt Aufgabe der Organisation."
+    proofTitle="CoMaSy unterstützt die Auswertung – ersetzt aber keine NIS2-Prüfung."
+    proofCopy="Methodik und Pilotbericht sollten genau festhalten, was gemessen wurde, wie sich die Entscheidungen der Teilnehmergruppe verändert haben und was außerhalb des Übungsumfangs bleibt. Die rechtliche Konformität bleibt Aufgabe der Organisation."
     faq={[
-      { question: "Zertifiziert CoMaSy NIS2-Konformität?", answer: "Nein. CoMaSy unterstützt Elemente von Cybersicherheits-Awareness und Wirksamkeitsbelegen. Es ist keine Zertifizierung und kein Ersatz für rechtliche, rechtliche Prüfung, organisatorische Maßnahmen oder technische Schutzvorkehrungen." },
+      { question: "Zertifiziert CoMaSy NIS2-Konformität?", answer: "Nein. CoMaSy kann Sicherheitsschulungen und ihre Auswertung unterstützen. Es ist weder eine NIS2-Zertifizierung noch ein Ersatz für rechtliche, organisatorische oder technische Maßnahmen." },
       { question: "Ist das Training auch für Führungskräfte geeignet?", answer: "Ein Pilot kann um Management- oder abteilungsspezifische Entscheidungsszenarien herum ausgerichtet werden, sofern das Teil des vereinbarten Umfangs ist." },
       { question: "Welche Belege liefert der Pilot?", answer: "Vorgesehen sind Teilnahmeprotokolle, nachvollziehbare Trainingsergebnisse, ein Vergleich vor und nach dem Training und eine Auswertung für die Führungsebene darüber, was die Belege stützen." },
       { question: "Funktioniert es mit unserem bisherigen Schulungsanbieter?", answer: "Ja. Der vorgesehene kommerzielle Ansatz ist ergänzend: Entscheidungstraining und Messung hinzufügen, statt die bestehende Lösung zuerst zu ersetzen." },
