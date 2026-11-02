@@ -1,7 +1,7 @@
 {
   "id": "university-de-uni-12",
   "lang": "de",
-  "title": "Rückmeldefrist — heute Abend letzte Chance",
+  "title": "Rückmeldung: angebliche Exmatrikulation heute Abend",
   "edition": "university",
   "cardType": "scenario",
   "scored": true,
@@ -20,8 +20,8 @@
   "safeActions": [
     "C"
   ],
-  "explanation": "Die Rückmeldung läuft ausschließlich über das offizielle Studierendenportal, niemals über einen SMS-Link mit Kartenzahlung. Der echte Status steht direkt im Portal.",
-  "proTip": "Rückmeldung prüfst du im Portal — nie über einen Link aus einer SMS.",
+  "explanation": "Die Rückmeldung hat tatsächliche Fristen. Eine SMS mit Zahlungslink ist jedoch kein zuverlässiger Nachweis. Prüfe Frist, offenen Betrag und Zahlungsweg direkt im offiziellen Hochschulportal.",
+  "proTip": "Semesterbeiträge nur über die offiziell bekannt gegebenen Kontodaten zahlen.",
   "hackKey": "H",
   "hackTrigger": "Hetze",
   "tags": [
