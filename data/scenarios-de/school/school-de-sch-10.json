@@ -1,7 +1,7 @@
 {
   "id": "school-de-sch-10",
   "lang": "de",
-  "title": "Der Spendenlink für die Klassenfahrt „schließt heute Abend“",
+  "title": "Klassenfahrt: plötzlich ein neuer Spendenlink",
   "edition": "school",
   "cardType": "scenario",
   "scored": true,
@@ -20,8 +20,8 @@
   "safeActions": [
     "C"
   ],
-  "explanation": "Echte Klassenfahrtkassen nutzen bekannte, angekündigte Zahlungswege, keine plötzlich neuen Links mit Abendfrist. Eine kurze Rückfrage bei der Lehrkraft klärt es sofort.",
-  "proTip": "Ein neuer Zahlungsweg mit Frist ist verdächtiger als der alte, bekannte.",
+  "explanation": "Ein kurzfristig geänderter Zahlungsweg in einer Chatgruppe sollte überprüft werden. Frage direkt bei der Lehrkraft oder der zuständigen Person nach, bevor du Geld überweist.",
+  "proTip": "Neue Bankverbindung für die Klassenfahrt? Erst direkt bei der Schule bestätigen lassen.",
   "hackKey": "H",
   "hackTrigger": "Hetze",
   "tags": [
