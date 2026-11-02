@@ -6,11 +6,11 @@
   "cardType": "scenario",
   "scored": true,
   "category": "Überweisungen",
-  "scenario": "Ein Anruf eines Lieferanten drängt, eine ausstehende Zahlung sofort per Blitzüberweisung anzuweisen, sonst werde die für heute geplante Lieferung „in einer Stunde storniert“.",
+  "scenario": "Ein Lieferant ruft an und fordert, eine ausstehende Zahlung sofort per Echtzeitüberweisung zu leisten. Andernfalls werde die für heute geplante Lieferung angeblich innerhalb einer Stunde storniert.",
   "answers": {
-    "A": "Die Zahlung über den regulären, mit dem Lieferanten vereinbarten Freigabeprozess abwickeln, statt wegen einer Stundenfrist eine ungeprüfte Blitzüberweisung anzuweisen.",
-    "B": "Die Blitzüberweisung sofort anweisen, um die Lieferung nicht zu verlieren.",
-    "C": "Nur einen Teilbetrag als Blitzüberweisung anweisen."
+    "A": "Die Forderung und Bankverbindung über bekannte Lieferantenkontakte prüfen und die Zahlung im regulären Freigabeprozess abwickeln.",
+    "B": "Die Echtzeitüberweisung sofort ausführen, damit die Lieferung nicht ausfällt.",
+    "C": "Nur einen Teilbetrag per Echtzeitüberweisung senden."
   },
   "scores": {
     "A": 4,
