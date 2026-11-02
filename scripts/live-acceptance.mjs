@@ -128,21 +128,21 @@ async function analyticsAndJourneys() {
   }
 
   const productPage = await context.newPage();
-  const productResponse = await productPage.goto(`${BASE_URL}/products`, { waitUntil: 'networkidle' }).catch(() => null);
-  if (!productResponse?.ok()) add('Commerce', 'high', 'products-page', `Products page unavailable (HTTP ${productResponse?.status() || 'none'})`);
+  const productResponse = await productPage.goto(`${BASE_URL}/pricing`, { waitUntil: 'networkidle' }).catch(() => null);
+  if (!productResponse?.ok()) add('Commerce', 'high', 'products-page', `Pricing page unavailable (HTTP ${productResponse?.status() || 'none'})`);
   const checkout = await context.request.post(`${BASE_URL}/api/checkout/create`, {
-    data: { sku: 'KG-WALLET', quantity: 1 },
+    data: { sku: 'CHAL-SINGLE-FAMILY', locale: 'en' },
     headers: { 'Content-Type': 'application/json' },
   }).catch(() => null);
   if (!checkout || !checkout.ok()) {
-    add('Commerce', 'high', 'checkout-create', `Shopify checkout handoff failed (HTTP ${checkout?.status() || 'none'})`);
+    add('Commerce', 'high', 'checkout-create', `Stripe checkout handoff failed (HTTP ${checkout?.status() || 'none'})`);
   } else {
     const body = await checkout.json().catch(() => ({}));
     measurements.checkoutUrlHost = body.checkoutUrl ? new URL(body.checkoutUrl).host : '';
     if (!body.checkoutUrl || !/^https:\/\//.test(body.checkoutUrl)) add('Commerce', 'high', 'checkout-url', 'Checkout API did not return a valid HTTPS checkout URL');
   }
   measurements.paymentOrderAcceptance = 'manual-required-no-charge-performed';
-  add('Commerce', 'medium', 'payment-order-manual', 'Automated QA stops before charging a real payment method. Payment → order → confirmation must be exercised with a designated Shopify test order before major commerce launches.');
+  add('Commerce', 'medium', 'payment-order-manual', 'Automated QA stops before charging a real payment method. Payment → order → confirmation must be exercised with a designated Stripe test order before major commerce launches.');
 
   await browser.close();
 }
@@ -155,7 +155,7 @@ function integrations() {
   }
   const data = JSON.parse(fs.readFileSync(file, 'utf8'));
   measurements.integrations = data.integrations || {};
-  for (const name of ['database', 'crm', 'email', 'analytics', 'commerceShopify']) {
+  for (const name of ['database', 'crm', 'email', 'analytics', 'commerceStripe']) {
     const state = data.integrations?.[name]?.state || 'missing';
     if (state !== 'ok') add('Integrations', 'high', `integration-${name}`, `${name} integration state is ${state}`);
   }
@@ -178,7 +178,7 @@ const report = {
   findings,
   journeys: {
     leadGeneration: 'landing → CoMaSy CTA → pilot form validation → CRM write probe → email provider test delivery → analytics instrumentation',
-    commerce: 'products → cart/checkout handoff → Shopify checkout URL; real payment/order confirmation intentionally requires designated test order',
+    commerce: 'pricing → Stripe Checkout handoff → valid checkout URL; real payment/order confirmation requires a designated test order',
   },
 };
 fs.writeFileSync(path.join(OUT_DIR, 'live-acceptance-report.json'), JSON.stringify(report, null, 2));
