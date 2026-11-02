@@ -8,7 +8,7 @@
   "category": "WLAN",
   "scenario": "Im Hotel-WLAN während der Klassenfahrt musst du dich angeblich über deinen Instagram- oder Google-Login „anmelden“, statt nur ein einfaches Passwort einzugeben.",
   "answers": {
-    "A": "Die Lehrkraft fragen, ob das wirklich das offizielle Hotel-WLAN ist, und keinen Social-Login für ein öffentliches Netzwerk nutzen.",
+    "A": "Bei der Lehrkraft oder beim Hotel nach dem offiziellen WLAN-Zugang fragen und die Anmeldeseite prüfen, bevor du Zugangsdaten eingibst.",
     "B": "Sich mit dem Social-Login anmelden, um Internet zu haben.",
     "C": "Ein Zweit-Account für die WLAN-Anmeldung nutzen."
   },
@@ -20,7 +20,7 @@
   "safeActions": [
     "A"
   ],
-  "explanation": "Ein legitimes Gäste-WLAN braucht nie deinen echten Social-Media-Login — das ist ein Weg, Zugangsdaten abzugreifen, getarnt als harmlose Anmeldeseite.",
+  "explanation": "Manche Gäste-WLANs bieten tatsächlich eine Anmeldung über bestehende Konten an. Eine unbekannte Seite kann aber auch Zugangsdaten abgreifen. Frage nach dem offiziellen Netz und prüfe, zu welcher Website die Anmeldung führt.",
   "proTip": "Ein WLAN-Login ist nie ein guter Grund für deinen echten Social-Login.",
   "hackKey": "K",
   "hackTrigger": "Notbremse",
@@ -30,5 +30,6 @@
     "wifi",
     "credential-phishing"
   ],
-  "active": true
+  "active": true,
+  "tip": "Beim Hotel-WLAN erst Netz und Anmeldeseite überprüfen."
 }
