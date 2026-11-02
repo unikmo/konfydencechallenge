@@ -8,7 +8,7 @@
   "category": "Mietwagen",
   "scenario": "Am Mietwagenschalter drängt der Mitarbeiter, schnell einen zusätzlichen „Vollkasko-Plus“-Vertrag auf einem Tablet zu unterschreiben, ohne die Details zu erklären, weil „der Shuttle draußen wartet“.",
   "answers": {
-    "C": "Um einen Moment und eine ausgedruckte Übersicht der Zusatzkosten bitten, bevor irgendetwas unterschrieben wird — der Shuttle wartet notfalls eine Minute.",
+    "C": "Vor der Unterschrift um eine verständliche Übersicht der Zusatzkosten und Versicherungsbedingungen bitten und dir Zeit zum Lesen nehmen.",
     "A": "Schnell unterschreiben, um den Shuttle nicht zu verpassen.",
     "B": "Nur mündlich nach den Kosten fragen und dann unterschreiben."
   },
