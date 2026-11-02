@@ -1,7 +1,7 @@
 {
   "id": "travelsafe-de-tra-13",
   "lang": "de",
-  "title": "Deine 486-€-Erstattung ist bereit",
+  "title": "Fluggesellschaft kündigt unerwartete Erstattung an",
   "edition": "travelsafe",
   "cardType": "scenario",
   "scored": true,
@@ -20,8 +20,8 @@
   "safeActions": [
     "A"
   ],
-  "explanation": "Airlines zahlen Ausgleichsleistungen über das bestehende Kundenkonto aus — sie verlangen dafür nie eine zusätzliche Ausweiskopie über ein externes Formular.",
-  "proTip": "Eine Erstattung, die eine Ausweiskopie will, ist keine echte Erstattung.",
+  "explanation": "Eine unerwartete Erstattung mit der Aufforderung, Ausweiskopien oder Bankdaten über ein fremdes Formular hochzuladen, ist verdächtig. Prüfe den Anspruch direkt bei der Fluggesellschaft und nutze die dafür vorgesehenen Verfahren.",
+  "proTip": "Erstattungsansprüche und erforderliche Unterlagen direkt beim Anbieter prüfen.",
   "hackKey": "A",
   "hackTrigger": "Autorität",
   "tags": [
