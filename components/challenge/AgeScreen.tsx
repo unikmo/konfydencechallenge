@@ -16,8 +16,8 @@ const COPY = {
     submit: "Continue",
   },
   de: {
-    heading: "Kurz vorab eine Frage.",
-    body: "Wir fragen nach deinem Geburtsmonat und -jahr, um alles passend für dich einzurichten. Dein Geburtsdatum speichern wir nicht.",
+    heading: "Zuerst eine kurze Frage.",
+    body: "Wir fragen nach deinem Geburtsmonat und -jahr, damit wir dir die passende Version zeigen können. Dein Geburtsdatum speichern wir nicht.",
     month: "Geburtsmonat",
     monthPlaceholder: "Monat",
     year: "Geburtsjahr",
