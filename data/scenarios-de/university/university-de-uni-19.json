@@ -1,14 +1,14 @@
 {
   "id": "university-de-uni-19",
   "lang": "de",
-  "title": "Hochschul-IT: angebliche Postfachumstellung",
+  "title": "Hochschul-IT: angebliche Umstellung des E-Mail-Postfachs",
   "edition": "university",
   "cardType": "scenario",
   "scored": true,
   "category": "Uni-IT",
-  "scenario": "Eine Mail im Namen des Hochschulrechenzentrums kündigt eine Postfach-Migration an und bittet, die Zugangsdaten über ein verlinktes Formular „zur Sicherung“ erneut einzugeben.",
+  "scenario": "Eine E-Mail im Namen des Hochschulrechenzentrums kündigt eine Umstellung des E-Mail-Postfachs an. Du sollst deine Zugangsdaten zur „Sicherung“ über ein verlinktes Formular erneut eingeben.",
   "answers": {
-    "A": "Das Formular ignorieren und sich wie gewohnt direkt im Uni-Webmail einloggen; eine echte Migration verlangt keine externe Dateneingabe.",
+    "A": "Das Formular nicht verwenden und dich direkt über die bekannte Webmail-Seite der Hochschule anmelden. Bei Fragen das Rechenzentrum kontaktieren.",
     "B": "Die Zugangsdaten über das Formular erneut eingeben.",
     "C": "Ein neues, unbekanntes Passwort im Formular verwenden."
   },
