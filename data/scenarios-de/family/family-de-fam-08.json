@@ -1,7 +1,7 @@
 {
   "id": "family-de-fam-08",
   "lang": "de",
-  "title": "Heute Abend ausverkauft, sofortige Rückerstattung",
+  "title": "Konzerttickets: Zahlung ohne Käuferschutz?",
   "edition": "family",
   "cardType": "scenario",
   "scored": true,
@@ -20,8 +20,8 @@
   "safeActions": [
     "B"
   ],
-  "explanation": "„Familie und Freunde“ hat keinen Käuferschutz — genau deshalb bestehen Betrüger darauf. Ein Verkäufer, der das ablehnt, ist ein Warnsignal, kein Grund zur Eile.",
-  "proTip": "Kein Käuferschutz, kein Geld — egal wie knapp die Zeit ist.",
+  "explanation": "Eine Zahlung über PayPal „Freunde und Familie“ ist nicht für Käufe bei Unbekannten gedacht und bietet keinen regulären Käuferschutz. Nutze eine sichere Ticketplattform und prüfe, ob die Tickets übertragen werden können.",
+  "proTip": "Bei unbekannten Verkäufern auf sichere Zahlungs- und Übertragungswege achten.",
   "hackKey": "H",
   "hackTrigger": "Hetze",
   "tags": [
