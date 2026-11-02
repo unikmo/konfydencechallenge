@@ -1,12 +1,12 @@
 {
   "id": "university-de-uni-03",
   "lang": "de",
-  "title": "Leichter Nebenjob — heute Abend geht's schon los",
+  "title": "Nebenjob mit sofortiger Ausweiskontrolle",
   "edition": "university",
   "cardType": "scenario",
   "scored": true,
   "category": "Nebenjobs",
-  "scenario": "Eine Jobanzeige in der Fachschafts-WhatsApp-Gruppe verspricht 25 €/Stunde für „Produkttests von zuhause“, Start noch heute Abend — du müsstest dich dafür nur sofort mit Ausweis und Kontodaten registrieren.",
+  "scenario": "In einer WhatsApp-Gruppe der Fachschaft wird ein Nebenjob angeboten: 25 € pro Stunde für Produkttests von zu Hause. Du sollst noch heute anfangen können, musst aber vorher sofort deinen Ausweis und deine Kontodaten hochladen.",
   "answers": {
     "C": "Die Anzeige unabhängig recherchieren (Firmenname plus „Betrug“ suchen) und dich nicht unter Zeitdruck sofort mit Ausweis- und Kontodaten registrieren.",
     "A": "Dich sofort registrieren, um den Job noch heute zu bekommen.",
@@ -20,8 +20,8 @@
   "safeActions": [
     "C"
   ],
-  "explanation": "Ein Nebenjob, der sofortige Ausweis- und Kontodaten unter Zeitdruck verlangt, ist eine Standard-Masche für Identitätsdiebstahl oder Geldwäsche über dein Konto. Eine kurze Recherche zeigt es meist sofort.",
-  "proTip": "25 €/Stunde für „Produkttests“ ist ein Warnsignal, kein Angebot.",
+  "explanation": "Ein unbekannter Anbieter, hohe Verdienstversprechen und die sofortige Forderung nach sensiblen Daten sind Warnzeichen. Prüfe Unternehmen und Jobangebot über unabhängige Quellen. Lade keine Ausweis- oder Bankdaten hoch, bevor du den Anbieter verifiziert hast.",
+  "proTip": "Gute Bezahlung allein ist kein Betrugsbeweis. Entscheidend ist, ob das Angebot überprüfbar ist.",
   "hackKey": "H",
   "hackTrigger": "Hetze",
   "tags": [
