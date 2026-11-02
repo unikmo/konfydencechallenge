@@ -8,7 +8,7 @@
   "category": "Bodenverkehr",
   "scenario": "Der Gastgeber deiner Ferienwohnung empfiehlt herzlich seinen „Cousin“ als privaten Fahrer für Flughafentransfers, deutlich günstiger als ein reguläres Taxi oder eine App.",
   "answers": {
-    "C": "Für den Flughafentransfer eine offizielle Taxi-App oder den regulären Taxistand nutzen, auch wenn die Empfehlung persönlich und freundlich gemeint ist.",
+    "C": "Prüfen, ob der empfohlene Fahrdienst zugelassen und versichert ist, und Preis sowie Fahrtbedingungen vorab klären. Andernfalls einen regulären Taxidienst nutzen.",
     "A": "Den Cousin nehmen, weil die Empfehlung vom Gastgeber persönlich kommt.",
     "B": "Nach dem Preis fragen und dann trotzdem mitfahren."
   },
@@ -20,7 +20,7 @@
   "safeActions": [
     "C"
   ],
-  "explanation": "Eine persönliche Empfehlung ist kein Sicherheits- oder Preisschutz — ein unregulierter privater Fahrer hat keine Versicherung oder Aufsicht wie ein offizielles Taxi.",
+  "explanation": "Eine persönliche Empfehlung kann hilfreich sein, ersetzt aber keine Prüfung des Fahrdienstes. Informiere dich über Zulassung, Versicherung, Preis und Buchungsbedingungen, bevor du mitfährst.",
   "proTip": "Eine herzliche Empfehlung ersetzt keine Taxi-Lizenz.",
   "hackKey": "C",
   "hackTrigger": "Vertrautheit",
@@ -30,5 +30,6 @@
     "ground-transport",
     "unlicensed-transport"
   ],
-  "active": true
+  "active": true,
+  "tip": "Auch persönlich empfohlene Fahrdienste auf Zulassung und Konditionen prüfen."
 }
