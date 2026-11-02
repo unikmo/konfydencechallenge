@@ -8,7 +8,7 @@
   "category": "Marktplatz",
   "scenario": "Du verkaufst ein Sofa online. Der Käufer schickt einen Screenshot einer Überweisung über 200 € mehr als vereinbart und bittet, die Differenz per Sofortüberweisung zurückzuschicken, bevor er das Sofa abholen kommt.",
   "answers": {
-    "A": "Erst im eigenen Konto prüfen, ob das Geld tatsächlich eingegangen ist, bevor irgendetwas zurücküberwiesen wird — ein Screenshot ist kein Zahlungseingang.",
+    "A": "Den tatsächlichen Zahlungseingang im eigenen Konto überprüfen und bei Unsicherheit mit der Bank klären, bevor du irgendetwas erstattest. Nicht allein einem Screenshot vertrauen.",
     "B": "Die Hälfte der Differenz zurücküberweisen, um entgegenzukommen.",
     "C": "Die Differenz zurücküberweisen, sobald der Screenshot da ist, damit die Abholung klappt."
   },
@@ -20,7 +20,7 @@
   "safeActions": [
     "A"
   ],
-  "explanation": "Ein Screenshot lässt sich beliebig fälschen, oder die ursprüngliche Zahlung wird später storniert, sobald du die „Rückerstattung“ bereits geschickt hast. Nur der eigene Kontostand ist ein Beweis für einen echten Zahlungseingang.",
+  "explanation": "Ein Überweisungsbeleg als Screenshot lässt sich fälschen. Selbst ein angezeigter Geldeingang kann je nach Zahlungsart noch korrigiert werden. Kläre die Zahlung über deine Bank, bevor du eine Rückerstattung vornimmst.",
   "proTip": "Ein Screenshot ist kein Geldeingang — schau in dein eigenes Konto, nicht auf sein Bild.",
   "hackKey": "K",
   "hackTrigger": "Notbremse",
@@ -30,5 +30,6 @@
     "marketplace",
     "overpayment"
   ],
-  "active": true
+  "active": true,
+  "tip": "Bei angeblichen Überzahlungen keine vorschnelle Rücküberweisung vornehmen."
 }
