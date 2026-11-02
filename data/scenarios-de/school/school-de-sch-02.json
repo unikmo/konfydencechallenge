@@ -8,7 +8,7 @@
   "category": "Schularbeiten",
   "scenario": "In eurem Klassenchat wird ein Link zu angeblichen Fragen für die Mathearbeit morgen geteilt. Der Zugang kostet fünf Euro Handyguthaben und soll um Mitternacht geschlossen werden.",
   "answers": {
-    "A": "Den Link nicht öffnen und kein Geld bezahlen. Stattdessen ganz normal auf die Mathearbeit vorbereiten.",
+    "A": "Den Link nicht öffnen und nichts bezahlen. Bereite dich stattdessen wie gewohnt auf die Mathearbeit vor.",
     "B": "Zahlen und die Liste noch schnell ansehen, bevor der Zugang schließt.",
     "C": "Erst eine Freundin fragen, ob die Liste echt aussieht."
   },
