@@ -25,7 +25,8 @@
     "audit:scenarios": "node scripts/audit-scenario-quality.cjs",
     "audit:claims": "node scripts/validate-product-claims.cjs",
     "audit:production": "npm audit --omit=dev --audit-level=high",
-    "report:decks": "node scripts/deck-report.cjs"
+    "report:decks": "node scripts/deck-report.cjs",
+    "qa:de-editorial": "node scripts/verify-german-editorial.cjs"
   },
   "prisma": {
     "seed": "ts-node --transpile-only prisma/seed.ts"
