@@ -8,7 +8,7 @@
   "category": "Zusammenarbeit",
   "scenario": "Ein Kollege, mit dem du regelmäßig zusammenarbeitest, schickt über Teams einen Link zu einer „wichtigen Datei“ — der Link verlangt aber, dich erneut mit deinem vollen Unternehmens-Login anzumelden.",
   "answers": {
-    "B": "Den Kollegen kurz fragen, ob er die Datei wirklich geschickt hat, bevor du dich über den Link erneut anmeldest — normale geteilte Dateien verlangen das nicht.",
+    "B": "Den Link nicht direkt zur Anmeldung verwenden. Stattdessen die Datei über die bekannte Microsoft-365-Umgebung öffnen und bei Bedarf den Kollegen oder die IT unabhängig kontaktieren.",
     "A": "Sich sofort über den Link erneut anmelden, um die Datei zu öffnen.",
     "C": "Den Link öffnen, aber ein anderes Passwort verwenden."
   },
@@ -20,7 +20,7 @@
   "safeActions": [
     "B"
   ],
-  "explanation": "Auch ein vertrauter Chat kann einen manipulierten Link enthalten. Prüfe die Freigabe über die offiziellen Microsoft-365-Anwendungen und bestätige unerwartete Anmeldeaufforderungen bei Bedarf über die IT.",
+  "explanation": "Auch eine echte Teams-Nachricht kann auf eine gefälschte Anmeldeseite verweisen. Eine erneute Anmeldung ist nicht automatisch verdächtig; entscheidend ist, ob sie über die bekannte, offizielle Microsoft-365-Umgebung erfolgt.",
   "proTip": "Anmeldelinks in Chats kritisch prüfen – besonders bei unerwarteten Logins.",
   "hackKey": "C",
   "hackTrigger": "Vertrautheit",
@@ -31,5 +31,6 @@
     "account-takeover",
     "diagnostic"
   ],
-  "active": true
+  "active": true,
+  "tip": "Bei unerwarteten Anmeldeseiten erst die Adresse und den offiziellen Zugangsweg prüfen."
 }
