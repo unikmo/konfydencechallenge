@@ -1,7 +1,7 @@
 {
   "id": "workplace-de-wrk-22",
   "lang": "de",
-  "title": "„Betrugsprävention“ will eine Testzahlung",
+  "title": "Bank ruft an: angeblich ist eine Testüberweisung nötig",
   "edition": "workplace",
   "cardType": "scenario",
   "scored": true,
@@ -20,8 +20,8 @@
   "safeActions": [
     "B"
   ],
-  "explanation": "Eine „Testzahlung“ existiert bei echten Banküberweisungen nicht — jede bestätigte Überweisung ist eine echte, unwiderrufliche Zahlung.",
-  "proTip": "Eine „Testzahlung“ ist immer eine echte Zahlung.",
+  "explanation": "Eine Überweisung bleibt eine echte Zahlung, auch wenn der Anrufer sie „Test“ nennt. Beende das Gespräch und kläre das Anliegen über deine bekannte Bankverbindung oder Firmenbankkontakte.",
+  "proTip": "Überweisungen auf neue Konten nicht zur angeblichen Sicherheitsprüfung durchführen.",
   "hackKey": "A",
   "hackTrigger": "Autorität",
   "tags": [
