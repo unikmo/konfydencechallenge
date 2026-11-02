@@ -1373,5 +1373,159 @@
     },
     "explanation": "Ein langer, bekannter E-Mail-Verlauf kann auch nach einer Kontoübernahme weitergeführt werden. Bestätige neue Bankdaten unabhängig über bekannte Kontaktdaten und halte die Freigaben ein.",
     "proTip": "Neue Kontoverbindungen trotz vertrautem E-Mail-Verlauf separat überprüfen."
+  },
+  "family-de-fam-26": {
+    "title": "Kleinanzeigen: angeblich Zahlung mit TAN bestätigen",
+    "scenario": "Du verkaufst einen Kinderwagen auf Kleinanzeigen. Ein Käufer mit jahrelangem Profil und guten Bewertungen will sofort kaufen und schickt dir einen Link zu „Kleinanzeigen — Sichere Bezahlung“, wo du zur „Bestätigung des Verkäufers“ deine Bankdaten und eine TAN eingeben sollst.",
+    "answers": {
+      "A": "Die Bezahlung ausschließlich über die offizielle Funktion in der Kleinanzeigen-App abwickeln und den externen Link ignorieren.",
+      "B": "Nur die Kontonummer eingeben, aber keine TAN.",
+      "C": "Über den Link gehen und die Daten eingeben, weil das Profil alt und gut bewertet ist."
+    },
+    "explanation": "Auch lang genutzte Konten können übernommen werden. Prüfe die Zahlungsabwicklung direkt in der Kleinanzeigen-App. Eine TAN auf einer fremden Website kann eine Zahlung oder Freigabe auslösen.",
+    "proTip": "Zahlungen nur in der offiziellen Plattform prüfen, niemals über unbekannte Links TANs freigeben."
+  },
+  "family-de-fam-27": {
+    "title": "„Sag Papa nichts“: angebliche Nachricht deines Kindes",
+    "scenario": "Eine SMS von einer unbekannten Nummer schreibt: „Mama, ich hab richtig Stress, brauch dringend Geld, aber bitte sag's Papa nicht, er flippt aus.“ Der Ton trifft genau die Art, wie dein Kind manchmal schreibt.",
+    "answers": {
+      "A": "Genau wie gewünscht reagieren und niemandem sonst davon erzählen.",
+      "B": "Über die gespeicherte Nummer deines Kindes anrufen oder es persönlich fragen, bevor du etwas unternimmst — die Bitte um Geheimhaltung ändert daran nichts.",
+      "C": "Erst mal fragen, wie viel Geld es genau sein soll."
+    },
+    "explanation": "Der vertraute Ton und die Bitte um Geheimhaltung können gezielt eingesetzt werden, um dich unter Druck zu setzen. Rufe dein Kind über die bekannte Nummer an oder frage eine weitere Vertrauensperson.",
+    "proTip": "Bei dringenden Geldforderungen von unbekannten Nummern zuerst nachfragen."
+  },
+  "family-de-fam-28": {
+    "title": "Enkeltrick: „Rate mal, wer hier ist“",
+    "scenario": "Ein Anruf beginnt mit „Rate mal, wer dran ist“ — eine jüngere männliche Stimme, ähnlich wie dein Enkel, aber undeutlich, „weil das Handy kaum noch Akku hat“. Er erzählt von einem Unfall mit einem Mietwagen im Ausland und braucht dringend Geld für die Reparatur.",
+    "answers": {
+      "A": "Auflegen und den Enkel über die gespeicherte Nummer zurückrufen, um zu prüfen, ob er wirklich im Ausland ist.",
+      "B": "Nach Details zum Unfall fragen, die nur der echte Enkel wissen kann.",
+      "C": "Mitspielen und den Namen selbst nennen, um das Gespräch nicht unhöflich abzubrechen."
+    },
+    "explanation": "Wenn du selbst den Namen nennst, kann die unbekannte Person diese Information übernehmen. Lege auf und rufe deinen Enkel über eine gespeicherte Nummer an, bevor du Hilfe organisierst oder Geld schickst.",
+    "proTip": "Den Namen nicht vorsagen. Angehörige über bekannte Nummern zurückrufen."
+  },
+  "family-de-fam-29": {
+    "title": "Angeblich neuer Kontakt: „Papa braucht 250 €“",
+    "scenario": "Eine SMS von unbekannter Nummer: „Hey, bin's, altes Handy kaputt. Kannst du mir 250 € per PayPal an diese Mail-Adresse schicken? Bin gerade unterwegs, erklär's dir später.“ Die Wortwahl klingt wie dein Vater.",
+    "answers": {
+      "A": "Das Geld per PayPal schicken, weil die Formulierung genau passt.",
+      "B": "Nach etwas fragen, das nur dein Vater wissen kann, und danach entscheiden.",
+      "C": "Über die alte, gespeicherte Nummer anrufen oder eine Sprachnachricht verlangen, bevor du irgendetwas schickst."
+    },
+    "explanation": "Der Schreibstil einer Nachricht ist kein zuverlässiger Identitätsnachweis. Bestätige den angeblichen Nummernwechsel über den bisherigen Kontakt oder eine andere bekannte Person.",
+    "proTip": "Bei einer neuen Nummer und einer Geldforderung erst zurückrufen."
+  },
+  "family-de-fam-30": {
+    "title": "Online-Bekanntschaft empfiehlt eine Kryptoanlage",
+    "scenario": "Seit Monaten schreibst du täglich mit jemandem, den du online kennengelernt hast. Er erzählt jetzt begeistert von einer Krypto-Plattform, auf der er „richtig gutes Geld“ macht, und schickt dir einen Einladungslink mit Screenshots seiner angeblichen Gewinne.",
+    "answers": {
+      "A": "Einen kleinen Betrag investieren, um zu sehen, ob es wirklich funktioniert.",
+      "B": "Nach den Kontodaten fragen, damit du das Geld direkt an ihn statt an die Plattform schickst.",
+      "C": "Die Plattform unabhängig recherchieren (Name plus „Betrug“ suchen, bei der BaFin prüfen) und mit niemandem, den du nur online kennst, über eine Geldanlage entscheiden."
+    },
+    "explanation": "Betrüger können über Wochen Vertrauen aufbauen, bevor sie zu einer Anlage drängen. Prüfe Anbieter, Risiken und mögliche Warnungen unabhängig, zum Beispiel bei der BaFin. Fehlende Warnungen sind allerdings kein Beweis für Seriosität.",
+    "proTip": "Bei Geldanlage-Tipps von Online-Bekanntschaften besonders vorsichtig sein."
+  },
+  "school-de-sch-26": {
+    "title": "Angebliches Video von dir verlangt Instagram-Login",
+    "scenario": "Ein Klassenkamerad schickt einen Link mit dem Text „Krass, ist das echt du in dem Video??“ und einem täuschend echten Vorschaubild. Der Link verlangt einen Instagram-Login, um das Video „anzusehen“.",
+    "answers": {
+      "A": "Sich einloggen, um zu sehen, ob es wirklich um dich geht.",
+      "B": "Den Klassenkameraden über einen anderen Kanal fragen, ob er die Nachricht wirklich geschickt hat, und den Link nicht öffnen.",
+      "C": "Den Link in einem Inkognito-Fenster ohne Login öffnen."
+    },
+    "explanation": "Ein Link mit einem aufsehenerregenden Vorschaubild kann dich auf eine gefälschte Anmeldeseite führen. Frag die Person über einen bekannten Weg nach und gib deine Zugangsdaten nicht über diesen Link ein.",
+    "proTip": "Neugierig? Erst nachfragen, statt dein Passwort auf einer fremden Seite einzugeben."
+  },
+  "school-de-sch-27": {
+    "title": "Mitspieler will sich kurz deinen Account leihen",
+    "scenario": "Ein Teammate, mit dem du seit Monaten regelmäßig spielst, bittet, sich kurz in deinen Account einzuloggen, um „ein seltenes Item für dich abzuholen“, das nur er bekommen kann.",
+    "answers": {
+      "A": "Den Login teilen, weil ihr schon lange zusammen spielt und er vertrauenswürdig wirkt.",
+      "B": "Das Passwort für diese eine Aktion kurz ändern und danach wieder zurücksetzen.",
+      "C": "Ablehnen und ihn bitten, das Item direkt an dich zu schicken, statt sich einzuloggen."
+    },
+    "explanation": "Auch bei langjähriger Online-Bekanntschaft bleibt dein Passwort privat. Das Konto des Mitspielers kann außerdem übernommen worden sein. Prüfe offizielle Möglichkeiten zum Verschenken oder Übertragen von Gegenständen.",
+    "proTip": "Teile dein Spiele-Passwort nicht, auch nicht mit vertrauten Mitspielern."
+  },
+  "school-de-sch-29": {
+    "title": "Schulwettbewerb: Abstimmung über Google-Login",
+    "scenario": "In eurer Klassen-WhatsApp-Gruppe bittet jemand, für einen Schulwettbewerb über einen Link „mit eurem Google-Account“ abzustimmen, damit die Klasse gewinnt.",
+    "answers": {
+      "A": "Über den Link mit dem eigenen Google-Account abstimmen, um der Klasse zu helfen.",
+      "B": "Die offizielle Wettbewerbsseite unabhängig suchen und dort abstimmen, ohne dich über den Link einzuloggen.",
+      "C": "Fragen, wer den Link ursprünglich geteilt hat."
+    },
+    "explanation": "Eine Abstimmung über einen unbekannten Link kann eine gefälschte Anmeldeseite enthalten. Prüfe den Wettbewerb über die Schule und melde dich nur auf der offiziellen Website an, falls das überhaupt nötig ist.",
+    "proTip": "Keine Google-Zugangsdaten auf unbekannten Abstimmungsseiten eingeben."
+  },
+  "school-de-sch-30": {
+    "title": "Bekannter Creator bietet angeblich einen Teamplatz",
+    "scenario": "Ein bekannter Creator, dem du seit Jahren folgst, schreibt dir persönlich und bietet an, dich „ins Team“ zu holen — du müsstest dafür nur kurz seinen Zugangsdaten-Check auf einer verlinkten Seite bestätigen.",
+    "answers": {
+      "A": "Die verlinkte Seite ignorieren; echte Kooperationen laufen über offizielle Kanäle, nie über eine Login-Bestätigung.",
+      "B": "Die Zugangsdaten bestätigen, weil es eine große Chance ist, vom Lieblings-Creator entdeckt zu werden.",
+      "C": "Antworten und nach mehr Details zum Team fragen, bevor du etwas bestätigst."
+    },
+    "explanation": "Auch Profile bekannter Personen können gefälscht oder übernommen werden. Prüfe das Angebot über offizielle Kontaktwege. Zugangsdaten gehören nicht auf eine fremde Bewerbungsseite.",
+    "proTip": "Auch attraktive Angebote nicht mit der Weitergabe deines Passworts bezahlen."
+  },
+  "university-de-uni-26": {
+    "title": "Lernunterlagen im Chat: plötzlich Uni-Login nötig",
+    "scenario": "Im WhatsApp-Lerngruppenchat für die anstehende Klausur teilt jemand einen Link zu einem „geteilten Lernleitfaden“, der zum Öffnen deinen Uni-Portal-Login verlangt.",
+    "answers": {
+      "C": "Den Link nicht öffnen und stattdessen direkt im Uni-Portal oder auf der offiziellen Kursseite nach Lernmaterial suchen.",
+      "A": "Sich über den Link mit dem Uni-Login anmelden, um den Leitfaden zu sehen.",
+      "B": "Fragen, wer den Link ursprünglich geteilt hat, und dann einloggen."
+    },
+    "explanation": "Ein geteilter Link kann auf eine täuschend echte Hochschul-Anmeldeseite führen. Öffne Lernunterlagen möglichst über das offizielle Lernportal und prüfe verdächtige Links, bevor du dich anmeldest.",
+    "proTip": "Uni-Zugangsdaten nur auf den bekannten Hochschulseiten eingeben."
+  },
+  "university-de-uni-27": {
+    "title": "Wohnheim-Bekannter empfiehlt angeblich sichere Kryptoanlage",
+    "scenario": "Ein neuer Bekannter aus dem Wohnheim, mit dem du dich gut verstehst, erzählt begeistert von einer Krypto-Plattform, auf der er „garantiert“ Geld verdient, und bietet an, dich mit seinem Einladungslink einzuweisen.",
+    "answers": {
+      "A": "Die Plattform unabhängig recherchieren (Name plus „Betrug“, BaFin-Warnliste prüfen) und mit niemandem, den du erst seit kurzem kennst, über eine Geldanlage entscheiden.",
+      "B": "Über den Einladungslink einsteigen, weil er im Wohnheim vertrauenswürdig wirkt.",
+      "C": "Einen kleinen Betrag investieren, um es auszuprobieren."
+    },
+    "explanation": "Hohe oder garantierte Gewinne sind bei Geldanlagen ein Warnzeichen. Prüfe den Anbieter unabhängig, beachte Verlustrisiken und lass dich nicht wegen einer persönlichen Empfehlung zu einer schnellen Überweisung drängen.",
+    "proTip": "Auch Anlageempfehlungen von Bekannten kritisch und unabhängig prüfen."
+  },
+  "university-de-uni-28": {
+    "title": "Bekannte will 800 € über dein Konto laufen lassen",
+    "scenario": "Eine Bekannte aus dem Seminar bittet dich, eine Zahlung von 800 € auf dein Konto empfangen zu dürfen, weil ihr eigenes „gerade Probleme macht“ — sie hole das Geld dann bar bei dir ab.",
+    "answers": {
+      "B": "Ablehnen; über ein fremdes Konto Geld weiterzuleiten kann als Geldwäsche gelten, egal wie gut man sich kennt.",
+      "A": "Zustimmen, um kurzfristig zu helfen.",
+      "C": "Nur zustimmen, wenn sie den Grund genauer erklärt."
+    },
+    "explanation": "Das Durchleiten fremder Gelder kann dich in Geldwäsche oder Betrug verwickeln und rechtliche Folgen haben. Lehne die Bitte ab und nutze dein Konto nicht für Zahlungen Dritter.",
+    "proTip": "Lass dein Konto nicht als Zwischenstation für fremde Zahlungen nutzen."
+  },
+  "university-de-uni-29": {
+    "title": "Dating-Bekanntschaft wirbt plötzlich für Trading",
+    "scenario": "Nach ein paar netten Dates auf einer Dating-App beginnt die Person, dir enthusiastisch von einer Trading-Plattform zu erzählen, auf der sie „gutes Geld“ macht, und bietet an, dich persönlich anzuleiten.",
+    "answers": {
+      "A": "Die Plattform unabhängig recherchieren und mit niemandem, den du erst über eine Dating-App kennst, über eine Geldanlage entscheiden.",
+      "B": "Ihr vertrauen und mit dem Investieren beginnen, weil die Dates gut gelaufen sind.",
+      "C": "Nach den Kontodaten der Plattform fragen, um selbst direkt einzuzahlen."
+    },
+    "explanation": "Betrüger können romantisches Interesse vortäuschen, um zu riskanten Anlagen zu verleiten. Prüfe die Plattform unabhängig und lass dich nicht unter persönlichen Druck setzen.",
+    "proTip": "Eine neue Beziehung ist kein Grund für unüberprüfte Geldanlagen."
+  },
+  "university-de-uni-30": {
+    "title": "Fachschaft: angeblich neue Bankverbindung",
+    "scenario": "Der Kassenwart deines Fachschafts-/Vereinsvorstands schreibt in der Gruppe, die Vereinskasse habe ein „neues, sichereres Konto“, und bittet alle, ausstehende Beiträge dorthin zu überweisen.",
+    "answers": {
+      "B": "Bei einer Vorstandssitzung oder persönlich nachfragen, ob das neue Konto wirklich vom Verein stammt, bevor Beiträge dorthin gehen.",
+      "A": "Den Beitrag sofort an das neue Konto überweisen.",
+      "C": "In der Gruppe fragen, warum das Konto gewechselt wurde."
+    },
+    "explanation": "Auch Vereins- und Fachschaftskonten können übernommen werden. Frage beim zuständigen Vorstand über einen bekannten Kontaktweg nach und prüfe, ob die Änderung offiziell beschlossen wurde.",
+    "proTip": "Neue Vereinskonto-Daten unabhängig bei der zuständigen Stelle bestätigen."
   }
 }
