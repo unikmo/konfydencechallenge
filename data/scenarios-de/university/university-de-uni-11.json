@@ -1,7 +1,7 @@
 {
   "id": "university-de-uni-11",
   "lang": "de",
-  "title": "Die Ticket-Ermäßigung läuft in einer Stunde ab",
+  "title": "Semesterticket: angebliche Ermäßigung nur noch eine Stunde",
   "edition": "university",
   "cardType": "scenario",
   "scored": true,
@@ -20,8 +20,8 @@
   "safeActions": [
     "A"
   ],
-  "explanation": "Das Semesterticket wird gewohnheitsgemäß per Lastschrift abgebucht — ein plötzlicher externer Zahlungsweg mit Stundenfrist ist untypisch und ein Warnsignal.",
-  "proTip": "Ein neuer Zahlungsweg mit Countdown ist verdächtiger als der gewohnte.",
+  "explanation": "Die Zahlungswege für Semester- und Deutschlandtickets unterscheiden sich je nach Hochschule. Eine unerwartete Nachricht mit neuem Zahlungslink solltest du deshalb im offiziellen Hochschulportal oder beim Verkehrsunternehmen überprüfen.",
+  "proTip": "Fristen und Zahlungswege für das Semesterticket direkt bei deiner Hochschule prüfen.",
   "hackKey": "H",
   "hackTrigger": "Hetze",
   "tags": [
