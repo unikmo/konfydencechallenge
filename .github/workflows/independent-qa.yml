@@ -19,7 +19,7 @@ concurrency:
 jobs:
   break-finished-build:
     name: Break what builders believe is finished
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     timeout-minutes: 45
     env:
       BASE_URL: https://konfydence.com
