@@ -1,7 +1,7 @@
 {
   "id": "travelsafe-de-tra-18",
   "lang": "de",
-  "title": "Der „Polizeibericht“-Link nach dem Unfall",
+  "title": "Nach dem Mietwagenunfall: angeblicher Polizeilink",
   "edition": "travelsafe",
   "cardType": "scenario",
   "scored": true,
@@ -20,8 +20,8 @@
   "safeActions": [
     "A"
   ],
-  "explanation": "Ein Polizeibericht wird nicht per Link mit Kautionsfreigabe verschickt — das ist eine Phishing-Masche, die sich den Stress nach einem Unfall zunutze macht.",
-  "proTip": "Eine Kaution gibst du nie über einen Link aus einer unaufgeforderten Mail frei.",
+  "explanation": "Ein unerwarteter Link, über den du einen Polizeibericht bestätigen und zugleich eine Kaution freigeben sollst, ist verdächtig. Prüfe den Vorgang getrennt bei der Polizei und der Mietwagenfirma.",
+  "proTip": "Polizeiberichte und Mietwagenkautionen nur über bestätigte offizielle Wege abwickeln.",
   "hackKey": "A",
   "hackTrigger": "Autorität",
   "tags": [
