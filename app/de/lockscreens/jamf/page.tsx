@@ -4,7 +4,7 @@ import { LockscreenIntentPage } from "@/components/LockscreenIntentPage";
 export const metadata: Metadata = {
   title: { absolute: "Security-Awareness-Sperrbildschirm für Jamf-verwaltete Macs & iPads | Konfydence Lockscreens" },
   description:
-    "Ein rotierender Security-Awareness-Sperrbildschirm für Apple-Flotten unter Jamf Pro oder Jamf School. Ein Konfigurationsprofil, alle zwei Wochen ein frischer Anhalten · Abklären · Ansprechen-Hinweis.",
+    "Ein rotierender Security-Awareness-Sperrbildschirm für Apple-Flotten unter Jamf Pro oder Jamf School. Ein Konfigurationsprofil, alle zwei Wochen ein neuer Hinweis zur Methode „Anhalten, Abklären, Ansprechen“.",
   alternates: {
     canonical: "/de/lockscreens/jamf",
     languages: { en: "https://konfydence.com/lockscreens/jamf", de: "https://konfydence.com/de/lockscreens/jamf" },
@@ -25,8 +25,8 @@ export default function Page() {
       slug="jamf"
       breadcrumbName="Jamf"
       eyebrow="JAMF PRO / JAMF SCHOOL"
-      title="Ein Security-Awareness-Sperrbildschirm für eure Apple-Flotte."
-      intro="Jamf kann eine Sperrbildschirm-Nachricht und ein Hintergrundbild auf Macs, iPads und iPhones setzen. Was es nicht kann, ist zu verhindern, dass diese Nachricht veraltet. Konfydence liefert den Inhalt — einen klaren Hinweis dazu, wie Betrug Druck aufbaut — und rotiert ihn alle zwei Wochen, damit euer Jamf-Profil auch lange nach dem Ausrollen noch wirkt."
+      title="Regelmäßig neue Sicherheitshinweise auf euren Apple-Geräten."
+      intro="Jamf kann eine Sperrbildschirm-Nachricht und ein Hintergrundbild auf Macs, iPads und iPhones setzen. Ohne regelmäßige Aktualisierung verliert der Hinweis jedoch schnell an Wirkung. Konfydence liefert den Inhalt — einen klaren Hinweis dazu, wie Betrug Druck aufbaut — und aktualisiert ihn alle zwei Wochen, damit euer Jamf-Profil auch lange nach dem Ausrollen noch wirkt."
       primaryCtaHref="/de/lockscreens#pricing"
       primaryCtaLabel="Sofort-Angebot erhalten"
       heroImage={{
