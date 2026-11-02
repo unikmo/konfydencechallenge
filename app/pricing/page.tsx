@@ -230,7 +230,7 @@ function PricingContent() {
 
 export default function PricingPage() {
   return (
-    <Suspense fallback={null}>
+    <Suspense fallback={<PremiumPage ctaHref="/challenge/travelsafe/start?mode=diagnostic" ctaLabel="Start free"><section className="kg-shell kc-hero"><h1>Try it free. Unlock the challenge when you are ready.</h1><p>Explore the free safety check and compare the available challenge editions.</p></section></PremiumPage>}>
       <PricingContent />
     </Suspense>
   );
