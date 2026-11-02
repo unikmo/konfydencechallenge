@@ -14,7 +14,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: "Konfydence Lockscreens | Anhalten. Abklären. Ansprechen.",
-    description: "Der ruhige Hinweis, den du wirklich siehst — alle zwei Wochen neu.",
+    description: "Kurze Sicherheitshinweise auf dem Sperrbildschirm – alle zwei Wochen aktualisiert.",
     url: "https://konfydence.com/de/lockscreens",
     siteName: "Konfydence",
     type: "website",
@@ -25,7 +25,7 @@ const howItWorks = [
   ["Auf konfydence.com kaufen", "Nach dem Kauf zeigen wir dir, wie du dein erstes Gerät einrichtest."],
   ["Gerät wählen", "iPhone, Android, Windows, Mac oder iPad. Wir zeigen automatisch das passende Format — einfach und ohne umständliche Dateisuche."],
   ["Ersten Hinweis einrichten", "Lade den ersten Hinweis herunter und folge ein paar kurzen, gerätespezifischen Schritten. Weitere Geräte kannst du ergänzen."],
-  ["Alle zwei Wochen ein neuer Hinweis", "„Dein nächster Konfydence-Screen ist da.“ Ein Klick, ein Download. Wortlaut und Betrugsmuster bleiben aktuell."],
+  ["Alle zwei Wochen ein neuer Hinweis", "Neue Sicherheitshinweise erhältst du per E-Mail. Du kannst sie direkt herunterladen und als Hintergrundbild verwenden."],
 ];
 
 type Tier = {
@@ -45,7 +45,7 @@ const tiers: Tier[] = [
     price: "19,99 €",
     unit: "erstes Jahr",
     renew: "danach 14,99 € / Jahr",
-    copy: "Ein Telefon. Alle zwei Wochen ein neuer Hinweis und dauerhafter Zugriff auf das komplette Set. Per E-Mail geliefert — jeden Screen als Hintergrundbild speichern.",
+    copy: "Sicherheitshinweise fürs Handy, die alle zwei Wochen aktualisiert werden. Du erhältst die neuen Motive per E-Mail und kannst sie als Hintergrundbild speichern.",
     cta: "Home holen — 19,99 €",
     sku: "LOCKSCREENS-HOME",
   },
@@ -54,7 +54,7 @@ const tiers: Tier[] = [
     price: "19,99 €",
     unit: "erstes Jahr",
     renew: "danach 14,99 € / Jahr",
-    copy: "Derselbe Dienst mit Hinweisen für das Handy eines Teenagers — Gaming-, Social- und Gruppendruck-Betrug.",
+    copy: "Sicherheitshinweise für Jugendliche zu Gaming, sozialen Netzwerken und Betrugsversuchen im Freundeskreis.",
     cta: "Teen Home holen — 19,99 €",
     sku: "LOCKSCREENS-TEEN",
   },
@@ -63,7 +63,7 @@ const tiers: Tier[] = [
     price: "2 €",
     unit: "pro verwaltetem Computer / Jahr",
     renew: "Für geteilte und MDM-verwaltete Geräte ausgelegt",
-    copy: "Eine Lizenz pro verwaltetem Computer. Ausgerollt auf Labor-, Bibliotheks- und Klassenzimmer-Rechner über eure Geräteverwaltung.",
+    copy: "Sicherheitshinweise auf verwalteten Schulcomputern – beispielsweise in Klassenräumen, Bibliotheken und Computerräumen.",
     cta: "Sofort-Angebot erhalten",
     href: "/de/lockscreens/school/order",
   },
@@ -72,7 +72,7 @@ const tiers: Tier[] = [
     price: "4 €",
     unit: "pro Mitarbeitendem / Jahr",
     renew: "300 € Mindestjahreslizenz",
-    copy: "Lizenzierung pro Mitarbeitendem für Firmengeräte. Lässt sich mit einem CoMaSy-Pilotprojekt kombinieren, wenn ihr auch Verhalten messen wollt.",
+    copy: "Sicherheitshinweise für Firmengeräte. Kombinierbar mit einem CoMaSy-Pilotprojekt, wenn ihr auch das Entscheidungsverhalten trainieren und auswerten möchtet.",
     cta: "Sofort-Angebot erhalten",
     href: "/de/lockscreens/workplace/order",
   },
@@ -129,7 +129,7 @@ export default function LockscreensPageDe() {
       <section className="kls-hero kg-shell">
         <div className="kls-hero-copy">
           <p className="k-kicker">Konfydence Lockscreens</p>
-          <h1 className="k-display">Der Hinweis, den du wirklich siehst.</h1>
+          <h1 className="k-display">Sicherheitshinweise, die im Alltag präsent bleiben.</h1>
           <p className="k-lede">
             Betrugsdruck funktioniert, weil er dich mittendrin im Scrollen erwischt. Ein Sperrbildschirm zeigt dir <strong>Anhalten. Abklären. Ansprechen.</strong> bevor
             du antwortest, klickst oder zahlst — alle zwei Wochen ein frischer Hinweis, wenn sich die Betrugsmaschen ändern.
@@ -155,7 +155,7 @@ export default function LockscreensPageDe() {
         <div className="k-section-head">
           <div>
             <p className="k-kicker">Die Screens ansehen</p>
-            <h2 id="see-the-screens" className="k-display-sm">Echte Hinweise, keine Stock-Poster.</h2>
+            <h2 id="see-the-screens" className="k-display-sm">Sicherheitshinweise statt austauschbarer Werbemotive.</h2>
           </div>
           <p className="k-copy">
             Jeder Screen benennt einen konkreten Trick eines Betrugs und die eine ruhige Reaktion darauf. Ein Beispiel aus jeder Bibliothek —
@@ -173,7 +173,7 @@ export default function LockscreensPageDe() {
         <div className="k-section-head">
           <div>
             <p className="k-kicker">So funktioniert es</p>
-            <h2 className="k-display-sm">Ein Dienst, kein Ordner voller Hintergrundbilder.</h2>
+            <h2 className="k-display-sm">Regelmäßig neue Hinweise statt einer einmaligen Bildersammlung.</h2>
           </div>
           <p className="k-copy">
             Du fasst nie ein ZIP mit 180 Dateien an. Du richtest einen Screen auf einem Gerät in unter einer Minute ein — und Konfydence
@@ -195,7 +195,7 @@ export default function LockscreensPageDe() {
         <div className="k-section-head">
           <div>
             <p className="k-kicker">Preise</p>
-            <h2 className="k-display-sm">Jährlich, weil die Hinweise das ganze Jahr aktualisiert werden.</h2>
+            <h2 className="k-display-sm">Ein Jahreszugang mit regelmäßigen Aktualisierungen.</h2>
           </div>
           <p className="k-copy">
             Jahr eins umfasst Einrichtung und das komplette Hinweis-Set. Die Verlängerung sorgt weiter für die zweiwöchentlichen
@@ -228,7 +228,7 @@ export default function LockscreensPageDe() {
         <div className="k-section-head">
           <div>
             <p className="k-kicker">Mehr erfahren</p>
-            <h2 className="k-display-sm">So passt es zu eurer Situation.</h2>
+            <h2 className="k-display-sm">Der passende Einsatz für Familie, Schule oder Unternehmen.</h2>
           </div>
           <p className="k-copy">
             Der Sperrbildschirm ist eine Idee, auf verschiedene Arten angewendet — eine Geräteflotte unter Geräteverwaltung, die geteilten
