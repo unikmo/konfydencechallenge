@@ -20,7 +20,7 @@
   "safeActions": [
     "B"
   ],
-  "explanation": "Eine bereits bezahlte Buchung braucht keine erneute Kartendateneingabe über einen externen Link — der echte Support der Plattform löst Zahlungsprobleme direkt in der App.",
+  "explanation": "Auch bei echten Buchungen können Zahlungsprobleme auftreten. Ein neuer, unerwarteter Link zur Eingabe von Kartendaten sollte aber unabhängig überprüft werden. Kontaktiere den Support direkt über die bekannte Buchungsplattform.",
   "proTip": "Bereits bezahlt heißt bereits bezahlt — keine erneute Karteneingabe nötig.",
   "hackKey": "K",
   "hackTrigger": "Notbremse",
@@ -30,5 +30,6 @@
     "vacation-rentals",
     "phishing"
   ],
-  "active": true
+  "active": true,
+  "tip": "Bei erneuten Zahlungsaufforderungen direkt über das Buchungskonto nachfragen."
 }
