@@ -1,7 +1,7 @@
 {
   "id": "school-de-sch-05",
   "lang": "de",
-  "title": "Urheberrechts-Meldung: 15 Minuten zum Widerspruch",
+  "title": "Instagram: angeblich bleiben nur 15 Minuten",
   "edition": "school",
   "cardType": "scenario",
   "scored": true,
@@ -20,8 +20,8 @@
   "safeActions": [
     "A"
   ],
-  "explanation": "Instagram löscht Accounts nicht mit einer 15-Minuten-Frist per DM oder E-Mail-Link. Der echte Konto-Status steht immer direkt in der App.",
-  "proTip": "15 Minuten für einen „endgültigen“ Schritt gibt es bei echten Plattformen nicht.",
+  "explanation": "Eine Nachricht mit einer extrem kurzen Frist und einem externen Link ist verdächtig. Prüfe Hinweise zu deinem Instagram-Konto direkt in der App oder über die offiziell eingegebene Website.",
+  "proTip": "Den Kontostatus direkt bei Instagram prüfen, nicht über einen Link in einer Nachricht.",
   "hackKey": "H",
   "hackTrigger": "Hetze",
   "tags": [
