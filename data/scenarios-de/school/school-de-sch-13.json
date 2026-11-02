@@ -6,10 +6,10 @@
   "cardType": "scenario",
   "scored": true,
   "category": "Gaming",
-  "scenario": "Jemand mit dem Titel „Moderator“ schreibt dir auf Discord, dein Account sei wegen eines Berichts „vorübergehend eingeschränkt“ — du müsstest dich über einen Link „verifizieren“, sonst folge ein permanenter Bann.",
+  "scenario": "Jemand mit dem Profilnamen „Moderator“ schreibt dir auf Discord, dein Konto sei wegen einer Meldung vorübergehend eingeschränkt. Du müsstest dich über einen Link anmelden und deine Identität bestätigen, sonst werde dein Konto dauerhaft gesperrt.",
   "answers": {
-    "A": "Sich sofort über den Link verifizieren, um den Bann zu vermeiden.",
-    "B": "Dem „Mod“ per DM Fragen stellen, um die Geschichte zu prüfen.",
+    "A": "Dich sofort über den Link anmelden und deine Identität bestätigen, damit dein Konto nicht gesperrt wird.",
+    "B": "Der Person eine private Nachricht schicken und nach weiteren Angaben fragen.",
     "C": "Den Link nicht öffnen und den Vorfall über die offiziellen Discord-Support-Kanäle prüfen."
   },
   "scores": {
