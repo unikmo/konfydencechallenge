@@ -6,15 +6,15 @@ import { PortfolioStrip } from "@/components/PortfolioStrip";
 const PDF_PATH = "/resources/emergency-scam-protocol?lang=de";
 
 export const metadata: Metadata = {
-  title: { absolute: "Kostenloses Notfall-Protokoll bei Betrug | Konfydence" },
+  title: { absolute: "Kostenloses Merkblatt für den Betrugsfall bei Betrug | Konfydence" },
   description:
-    "Lade das kostenlose Konfydence-Notfall-Protokoll herunter: ein druckbares Merkblatt mit Anhalten · Abklären · Ansprechen für den Haushalt. Ohne E-Mail-Adresse.",
+    "Lade das kostenlose Konfydence-Merkblatt für den Betrugsfall herunter: ein druckbares Merkblatt mit Anhalten · Abklären · Ansprechen für den Haushalt. Ohne E-Mail-Adresse.",
   alternates: {
     canonical: "/de/gratis-sicherheitspaket",
     languages: { en: "https://konfydence.com/free-scam-safety-pack", de: "https://konfydence.com/de/gratis-sicherheitspaket" },
   },
   openGraph: {
-    title: "Kostenloses Konfydence-Notfall-Protokoll bei Betrug",
+    title: "Kostenloses Konfydence-Merkblatt für den Betrugsfall bei Betrug",
     description: "Ein druckbares Merkblatt mit Anhalten · Abklären · Ansprechen für den Haushalt. Kostenlos, ohne Anmeldung.",
     url: "https://konfydence.com/de/gratis-sicherheitspaket",
     siteName: "Konfydence",
@@ -24,8 +24,8 @@ export const metadata: Metadata = {
 
 const steps = [
   ["Anhalten", "Noch nicht antworten, klicken, zahlen oder Daten preisgeben."],
-  ["Abklären", "Was will es wirklich – Geld, einen Code, ein Login, eine Freigabe? Dann ist es Druck, kein Beweis."],
-  ["Ansprechen", "Sprich die Forderung laut vor einer vertrauten Person aus oder ruf deine Bank unter der Nummer von deiner Karte an."],
+  ["Abklären", "Was wird von dir verlangt – Geld, ein Zugangscode, eine Anmeldung oder eine Freigabe? Prüfe die Forderung unabhängig."],
+  ["Ansprechen", "Besprich die Forderung mit einer Person, der du vertraust oder ruf deine Bank unter der Nummer von deiner Karte an."],
 ] as const;
 
 export default function GratisSicherheitspaketPage() {
@@ -35,9 +35,9 @@ export default function GratisSicherheitspaketPage() {
         <div className="k-free-dl-copy">
           <p className="k-breadcrumb">Kostenlose Ressource · Betrugsschutz im Haushalt</p>
           <p className="k-kicker">Für den Ernstfall</p>
-          <h1 className="k-display">Eine Seite. Am Kühlschrank. Bevor du sie brauchst.</h1>
+          <h1 className="k-display">Betrugsversuche erkennen: ein Merkblatt für den Ernstfall.</h1>
           <p className="k-lede">
-            Das Notfall-Protokoll ist ein kostenloses, druckbares Merkblatt mit <strong>Anhalten · Abklären · Ansprechen</strong> für
+            Das Merkblatt für den Betrugsfall ist ein kostenloses, druckbares Merkblatt mit <strong>Anhalten · Abklären · Ansprechen</strong> für
             den Moment, in dem eine Nachricht, ein Anruf oder eine Zahlungsaufforderung dringend wirkt. Ohne E-Mail-Adresse, ohne Anmeldung – das PDF lädt mit einem Klick.
           </p>
           <div className="k-free-dl-actions">
@@ -54,9 +54,9 @@ export default function GratisSicherheitspaketPage() {
           </ol>
         </div>
         <div className="k-free-dl-preview">
-          <a href={PDF_PATH} download aria-label="Notfall-Protokoll als PDF herunterladen">
+          <a href={PDF_PATH} download aria-label="Merkblatt für den Betrugsfall als PDF herunterladen">
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/resources/konfydence-notfall-protokoll.svg" alt="Das Konfydence-Notfall-Protokoll: ein einseitiges Merkblatt mit Anhalten, Abklären, Ansprechen." />
+            <img src="/resources/konfydence-notfall-protokoll.svg" alt="Das Konfydence-Merkblatt für den Betrugsfall: ein einseitiges Merkblatt mit Anhalten, Abklären, Ansprechen." />
           </a>
         </div>
       </section>
