@@ -1,7 +1,7 @@
 {
   "id": "family-de-fam-30",
   "lang": "de",
-  "title": "Die Beziehung wird zum Investment-Club",
+  "title": "Online-Bekanntschaft empfiehlt eine Kryptoanlage",
   "edition": "family",
   "cardType": "scenario",
   "scored": true,
@@ -20,8 +20,8 @@
   "safeActions": [
     "C"
   ],
-  "explanation": "Screenshots von „Gewinnen“ lassen sich beliebig fälschen, und echte Investment-Plattformen werben nicht über Liebesbriefe. Eine Suche nach Namen plus „Betrug“ oder eine Prüfung bei der BaFin zeigt die Masche meist sofort.",
-  "proTip": "Wer dich zuerst verliebt und dann investieren lässt, will dein Geld, nicht dein Herz.",
+  "explanation": "Betrüger können über Wochen Vertrauen aufbauen, bevor sie zu einer Anlage drängen. Prüfe Anbieter, Risiken und mögliche Warnungen unabhängig, zum Beispiel bei der BaFin. Fehlende Warnungen sind allerdings kein Beweis für Seriosität.",
+  "proTip": "Bei Geldanlage-Tipps von Online-Bekanntschaften besonders vorsichtig sein.",
   "hackKey": "C",
   "hackTrigger": "Vertrautheit",
   "tags": [
