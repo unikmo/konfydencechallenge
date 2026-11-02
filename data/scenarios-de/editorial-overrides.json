@@ -1989,5 +1989,60 @@
     },
     "explanation": "Aufgeklebte QR-Codes können durch Betrüger ausgetauscht werden und zu gefälschten Zahlungsseiten führen. Verwende die am Automaten ausgewiesene offizielle Zahlungsmethode oder die bekannte Park-App des Betreibers.",
     "proTip": "Ein Aufkleber mit QR-Code auf einem Automaten ist nie die offizielle Zahlmethode."
+  },
+  "travelsafe-de-tra-40": {
+    "title": "Das Terminal bietet einen „garantierten Wechselkurs“",
+    "scenario": "An einem Zahlungsterminal im Ausland erscheint die Frage, ob in Euro oder Landeswährung abgerechnet werden soll, mit dem Hinweis „Euro-Abrechnung garantiert den besten Kurs für Sie“.",
+    "answers": {
+      "B": "Die angebotenen Wechselkurse und Gebühren prüfen. Häufig ist die Zahlung in Landeswährung günstiger, vor allem wenn deine Karte faire Fremdwährungskonditionen hat.",
+      "A": "Die Euro-Abrechnung wählen, weil sie „garantiert“ den besten Kurs verspricht.",
+      "C": "Das Terminal fragen, welcher Kurs gilt, und dann Euro wählen."
+    },
+    "explanation": "Bei der dynamischen Währungsumrechnung legt der Terminalanbieter den Euro-Wechselkurs fest. Dieser ist häufig ungünstiger als die Abrechnung in Landeswährung. Vergleiche bei Bedarf die Konditionen deiner Karte.",
+    "proTip": "Zahl im Ausland immer in der Landeswährung, nie in der „garantierten“ Euro-Option."
+  },
+  "travelsafe-de-tra-41": {
+    "title": "Das Ladegerät braucht eine App — per QR-Code",
+    "scenario": "An einer öffentlichen Ladestation am Flughafen verlangt ein Aufkleber, vor dem Laden eine App über einen QR-Code zu installieren, um „die Ladeleistung zu optimieren“.",
+    "answers": {
+      "B": "Die App nicht über den unbekannten QR-Code installieren. Wenn eine Registrierung nötig erscheint, beim Betreiber nach dem offiziellen Weg fragen.",
+      "A": "Die App installieren, um besser laden zu können.",
+      "C": "Die App installieren, aber die Berechtigungen danach einschränken."
+    },
+    "explanation": "Ein aufgeklebter QR-Code kann zu einer manipulierten Website oder einer unsicheren App führen. Eine gewöhnliche Steckdose benötigt keine App. Bei einer speziellen Ladestation solltest du den Betreiber und dessen offiziellen Registrierungsweg prüfen.",
+    "proTip": "Ein Ladegerät braucht keine App, um Strom zu liefern."
+  },
+  "travelsafe-de-tra-43": {
+    "title": "Füg diese Bordkarte deiner Wallet hinzu",
+    "scenario": "Eine SMS im Namen der Airline schickt einen Link, um die Bordkarte „bequem zur Handy-Wallet hinzuzufügen“ — der Link führt aber zu einer Seite außerhalb der offiziellen Airline-App.",
+    "answers": {
+      "A": "Die Bordkarte über das offizielle Airline-Konto oder den bestätigten Check-in-Link abrufen. Einen unerwarteten SMS-Link zunächst auf Echtheit prüfen.",
+      "B": "Über den Link die Bordkarte zur Wallet hinzufügen.",
+      "C": "Den Link öffnen, um nur die Flugdaten zu prüfen."
+    },
+    "explanation": "Fluggesellschaften können Links zu Bordkarten versenden. Ein überraschender Link aus einer unbekannten SMS kann aber auch auf eine gefälschte Seite führen. Öffne deine Buchung im offiziellen Airline-Konto, um den Vorgang zu prüfen.",
+    "proTip": "Eine Bordkarte holst du dir aus der Airline-App, nie aus einem SMS-Link."
+  },
+  "travelsafe-de-tra-45": {
+    "title": "Der Händler bittet, Apple Pay „zu verifizieren“",
+    "scenario": "An einem Marktstand im Ausland bittet der Verkäufer, statt einfach zu bezahlen, dein Handy zu entsperren und eine „Testzahlung“ über Apple Pay/Google Pay zu bestätigen, „um zu prüfen, ob es funktioniert“.",
+    "answers": {
+      "A": "Keine unbekannte Testzahlung auf Aufforderung bestätigen. Den regulären Zahlbetrag und den Empfänger prüfen und bei Unsicherheit eine andere Zahlungsart wählen.",
+      "B": "Das Handy entsperren und die Testzahlung bestätigen.",
+      "C": "Nur einen kleinen Betrag als Testzahlung bestätigen."
+    },
+    "explanation": "Auch bei mobilen Zahlungen können Prüf- oder Autorisierungsvorgänge vorkommen. Eine spontane Aufforderung am Marktstand, eine zusätzliche Zahlung zu bestätigen, solltest du jedoch nicht ungeprüft akzeptieren. Prüfe Betrag und Empfänger.",
+    "proTip": "Eine „Testzahlung“ ist immer eine echte Zahlung."
+  },
+  "travelsafe-de-tra-47": {
+    "title": "Die Unterkunft meldet sich — gib die Karte erneut ein",
+    "scenario": "Nach dem Check-in schreibt die Ferienwohnung-App, es gebe ein Problem mit der Zahlung, und bittet, die Kartendaten über einen neuen Link erneut einzugeben, „um den Aufenthalt zu bestätigen“.",
+    "answers": {
+      "B": "Die Kartendaten nicht über einen externen Link erneut eingeben, sondern den Support der Buchungsplattform direkt über die App kontaktieren.",
+      "A": "Die Kartendaten sofort über den neuen Link erneut eingeben.",
+      "C": "Nur die letzten vier Ziffern der Karte erneut eingeben."
+    },
+    "explanation": "Auch bei echten Buchungen können Zahlungsprobleme auftreten. Ein neuer, unerwarteter Link zur Eingabe von Kartendaten sollte aber unabhängig überprüft werden. Kontaktiere den Support direkt über die bekannte Buchungsplattform.",
+    "proTip": "Bereits bezahlt heißt bereits bezahlt — keine erneute Karteneingabe nötig."
   }
 }
