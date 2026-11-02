@@ -1,7 +1,7 @@
 {
   "id": "university-de-uni-18",
   "lang": "de",
-  "title": "Dein Studierendenkonto wird „geprüft“",
+  "title": "Bankanruf: TAN angeblich zur Kontoprüfung nötig",
   "edition": "university",
   "cardType": "scenario",
   "scored": true,
@@ -20,8 +20,8 @@
   "safeActions": [
     "A"
   ],
-  "explanation": "Keine Bank braucht eine TAN-Freigabe am Telefon, um ein Konto zu „prüfen“ — jede TAN bestätigt eine konkrete Aktion, meist eine Überweisung an die Täter.",
-  "proTip": "Eine TAN gibst du nie am Telefon frei — auch nicht zur „Prüfung“.",
+  "explanation": "Eine TAN bestätigt normalerweise einen konkreten Vorgang. Gib keine TAN auf Aufforderung einer unbekannten Person frei. Beende das Gespräch und prüfe den Kontostatus über die offizielle Banking-App oder deine Bank.",
+  "proTip": "Eine TAN niemals zur angeblichen Kontoprüfung am Telefon freigeben.",
   "hackKey": "A",
   "hackTrigger": "Autorität",
   "tags": [
