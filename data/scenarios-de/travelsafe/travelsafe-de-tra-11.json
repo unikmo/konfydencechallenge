@@ -6,7 +6,7 @@
   "cardType": "scenario",
   "scored": true,
   "category": "Pannenhilfe",
-  "scenario": "Nach einer Panne im Ausland ruft angeblich der ADAC an: Die Abschleppkosten müssten sofort per Kartendaten am Telefon beglichen werden, sonst werde das Fahrzeug „von der örtlichen Polizei beschlagnahmt“.",
+  "scenario": "Nach einer Panne im Ausland ruft jemand an und gibt sich als ADAC-Mitarbeiter aus. Du sollst sofort deine Kartendaten durchgeben, um Abschleppkosten zu bezahlen. Andernfalls werde die örtliche Polizei das Fahrzeug angeblich beschlagnahmen.",
   "answers": {
     "C": "Auflegen und den ADAC über die offizielle Nummer auf deiner Mitgliedskarte oder in der ADAC-App selbst kontaktieren.",
     "A": "Die Kartendaten sofort am Telefon durchgeben, um die Beschlagnahmung zu vermeiden.",
