@@ -1,7 +1,7 @@
 {
   "id": "university-de-uni-08",
   "lang": "de",
-  "title": "Der Nothilfefonds läuft heute Abend ab",
+  "title": "Nothilfefonds: überraschende E-Mail mit kurzer Frist",
   "edition": "university",
   "cardType": "scenario",
   "scored": true,
@@ -20,8 +20,8 @@
   "safeActions": [
     "A"
   ],
-  "explanation": "Echte Nothilfefonds laufen über die offizielle Studierendenwerk-Website, nicht über einen externen Abendfrist-Link. Ein Anruf klärt es in Minuten.",
-  "proTip": "Ein Fonds mit Abendfrist über einen fremden Link ist kein echter Fonds.",
+  "explanation": "Ein Hilfsfonds kann echte Fristen haben. Eine unerwartete E-Mail, die sensible Daten über einen fremden Link verlangt, solltest du trotzdem unabhängig prüfen. Nutze die offiziellen Kontaktdaten deines Studierendenwerks.",
+  "proTip": "Bewerbungsfristen und Antragswege für finanzielle Hilfen direkt bei der zuständigen Stelle prüfen.",
   "hackKey": "H",
   "hackTrigger": "Hetze",
   "tags": [
