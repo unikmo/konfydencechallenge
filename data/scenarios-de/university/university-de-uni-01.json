@@ -8,7 +8,7 @@
   "category": "Wohnen",
   "scenario": "Auf WG-Gesucht meldet sich jemand wegen eines günstigen Zimmers in Uninähe. Eine Besichtigung soll angeblich nicht möglich sein. Stattdessen verlangt die Person bis mittags 600 € Kaution, sonst werde das Zimmer anderweitig vergeben.",
   "answers": {
-    "C": "Kein Geld überweisen, ohne das Zimmer und die vermietende Person persönlich oder per Videocall gesehen zu haben.",
+    "C": "Kein Geld überweisen, bevor du das Zimmer besichtigt und geprüft hast, dass die vermietende Person es tatsächlich anbieten darf.",
     "A": "Nur die halbe Kaution überweisen, um vorsichtig zu bleiben.",
     "B": "Die Kaution überweisen, weil so viele andere Interessent:innen Druck machen."
   },
