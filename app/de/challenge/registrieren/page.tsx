@@ -4,7 +4,7 @@ import { AGE_BAND_COOKIE, isAgeBand } from "@/lib/challenge/ageGate";
 import { AgeScreen } from "@/components/challenge/AgeScreen";
 
 export const metadata = {
-  title: { absolute: "Noch eine kostenlose Runde | Konfydence" },
+  title: { absolute: "Eine weitere kostenlose Runde | Konfydence" },
   alternates: { languages: { en: "https://konfydence.com/challenge/register", de: "https://konfydence.com/de/challenge/registrieren" } },
 };
 
@@ -27,7 +27,7 @@ export default async function RegistrierenPage(
 
         {band === null ? (
           <>
-            <p className="k-kicker" style={{ marginTop: 22 }}>Noch eine kostenlose Runde</p>
+            <p className="k-kicker" style={{ marginTop: 22 }}>Eine weitere kostenlose Runde</p>
             <AgeScreen lang="de" next={next} returnTo={`/de/challenge/registrieren?next=${encodeURIComponent(next)}`} invalid={searchParams?.ageError === "1"} />
           </>
         ) : band === "under13" ? (
@@ -42,16 +42,16 @@ export default async function RegistrierenPage(
           </>
         ) : (
           <>
-            <p className="k-kicker" style={{ marginTop: 22 }}>Noch eine kostenlose Runde</p>
+            <p className="k-kicker" style={{ marginTop: 22 }}>Eine weitere kostenlose Runde</p>
             <h1>Übe weiter, ohne deinen Fortschritt zu verlieren.</h1>
             <p>
               {band === "13to15"
-                ? "Damit du noch einen kostenlosen Bereitschaftscheck freischalten kannst, muss ein Elternteil oder eine erziehungsberechtigte Person die eigene E-Mail-Adresse eintragen. Den Link zu deinem Fortschritt schicken wir dorthin."
-                : "Trag deine E-Mail-Adresse ein, um noch einen kostenlosen Bereitschaftscheck freizuschalten. Kostenlos sind zwei Runden; die volle Challenge kannst du jederzeit starten."}
+                ? "Damit du noch einen kostenlosen Sicherheitscheck freischalten kannst, muss ein Elternteil oder eine erziehungsberechtigte Person die eigene E-Mail-Adresse eintragen. Den Link zu deinem Fortschritt schicken wir dorthin."
+                : "Trag deine E-Mail-Adresse ein, um noch einen kostenlosen Sicherheitscheck freizuschalten. Kostenlos sind zwei Runden; die volle Challenge kannst du jederzeit starten."}
             </p>
             {error === "already-used" ? (
               <p className="kg-reg-error" role="alert">
-                Diese E-Mail-Adresse gehört schon zu einem anderen Spieler. Nutze die Adresse von diesem Gerät oder starte die volle Challenge.
+                Diese E-Mail-Adresse wird bereits für einen anderen Zugang verwendet. Verwende die E-Mail-Adresse, die du bisher auf diesem Gerät genutzt hast oder starte die volle Challenge.
               </p>
             ) : null}
             {error === "age" ? (
