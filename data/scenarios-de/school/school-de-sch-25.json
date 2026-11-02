@@ -6,11 +6,11 @@
   "cardType": "scenario",
   "scored": true,
   "category": "Freunde",
-  "scenario": "Dein bester Freund schreibt dir auf Snapchat: „Kannst du mir kurz deinen Insta-Login geben, meiner ist gesperrt und ich muss was für die Schule posten, dauert nur 2 Minuten.“",
+  "scenario": "Dein bester Freund schreibt dir auf Snapchat: „Kannst du mir kurz deine Instagram-Zugangsdaten geben? Mein Konto ist gesperrt, und ich muss noch etwas für die Schule posten. Dauert nur zwei Minuten.“",
   "answers": {
     "A": "Den Login schicken, weil es dein bester Freund ist und es schnell gehen soll.",
     "B": "Ihn anrufen, um zu verstehen, warum sein Account gesperrt ist, bevor du irgendetwas gibst.",
-    "C": "Anbieten, das gewünschte Ding selbst für ihn zu posten, statt den eigenen Login weiterzugeben."
+    "C": "Anbieten, den Beitrag selbst zu veröffentlichen oder ihm bei der Wiederherstellung seines Kontos zu helfen, statt dein Passwort weiterzugeben."
   },
   "scores": {
     "A": 0,
