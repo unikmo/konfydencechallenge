@@ -10,7 +10,7 @@
   "answers": {
     "A": "Die App installieren, um mit dem Bezahlt-Posten anzufangen.",
     "B": "Die App auf einem alten Zweitgerät installieren, um vorsichtig zu bleiben.",
-    "C": "Die App nicht außerhalb des offiziellen Stores installieren; eine seriöse Agentur arbeitet über die normalen Plattform-Funktionen."
+    "C": "Die Agentur unabhängig überprüfen und die App nicht ungeprüft installieren. Erst Herkunft, Berechtigungen und Bezahlbedingungen klären."
   },
   "scores": {
     "A": 0,
@@ -20,7 +20,7 @@
   "safeActions": [
     "C"
   ],
-  "explanation": "Eine App außerhalb des offiziellen Stores zu installieren, hebelt die Sicherheitsprüfung des Stores komplett aus. Seriöse Kooperationen brauchen das nie — sie laufen über die Plattform selbst.",
+  "explanation": "Apps außerhalb offizieller Stores sind nicht automatisch schädlich, werden aber nicht durch deren übliche Prüfverfahren kontrolliert. Eine unbekannte Agentur, die vorab eine Installation verlangt, solltest du gründlich überprüfen.",
   "proTip": "Eine App von außerhalb des Stores ist ein Risiko, kein Job-Angebot.",
   "hackKey": "K",
   "hackTrigger": "Notbremse",
@@ -30,5 +30,6 @@
     "influencers",
     "malware"
   ],
-  "active": true
+  "active": true,
+  "tip": "Bei Jobangeboten mit unbekannter App erst Anbieter und Berechtigungen prüfen."
 }
