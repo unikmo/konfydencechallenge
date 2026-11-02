@@ -59,23 +59,23 @@ export default function Page() {
       ]}
       orgValue={{
         title: "Sicherheitsbewusstsein im Alltag stärken.",
-        copy: "Jährliches Training gibt euch ein Abschlussdatum. Geschäftsleitungen und Aufsichtsstellen erwarten zunehmend Belege dafür, dass Sicherheitsbewusstsein eine fortlaufende Aktivität ist, kein Ereignis einmal im Jahr. Ein Sperrbildschirm, der sich alle zwei Wochen ändert, ist eine kostengünstige, permanente Kontrolle — und der Admin behält ein Protokoll darüber, was wann lief.",
+        copy: "Jährliches Training gibt euch ein Abschlussdatum. Geschäftsleitungen und Aufsichtsstellen erwarten zunehmend Belege dafür, dass Sicherheitsbewusstsein eine fortlaufende Aktivität ist, kein Ereignis einmal im Jahr. Ein Sperrbildschirm, der sich alle zwei Wochen ändert, ist eine regelmäßige Erinnerung — und ihr könnt dokumentieren, welche Hinweise ihr eingesetzt habt.",
         points: [
-          "Fortlaufende Cyber-Hygiene-Verstärkung — NIS2 (Artikel 21) erwartet kontinuierliche Sensibilisierung für IT-Sicherheit und eine Aufsicht durch die Leitungsorgane. Ein rotierender Hinweis ist sichtbare Aktivität zwischen den formalen Schulungen.",
-          "Beitrag zum Human Risk Management — verschiebt Sicherheitsbewusstsein von einem Wissenstest zu einem regelmäßigen Denkanstoß im Moment der Entscheidung, genau der Punkt, den NIST- und ISO/IEC-27001-Kontrollen betonen.",
-          "Ein leichtes Prüfprotokoll — die zuständige Verwaltungsperson erfasst die Screen-Sequenz und die Änderungsdaten, damit ihr für jeden Prüfzeitraum zeigen könnt, was den Mitarbeitenden gezeigt wurde.",
-          "Erreicht die gesamte Belegschaft — Firmengeräte unter MDM erhalten denselben Hinweis nach demselben Zeitplan, Remote- und Frontline-Mitarbeitende eingeschlossen, ohne Abschlüsse nachzuverfolgen.",
+          "Regelmäßige Sicherheitskommunikation — wechselnde Hinweise können das Bewusstsein für Betrugsversuche zwischen den Schulungen stärken. Welche Maßnahmen zur Erfüllung von NIS2 erforderlich sind, muss jede Organisation gesondert beurteilen.",
+          "Erinnerung im Arbeitsalltag — die Hinweise greifen konkrete Betrugsmaschen auf und erinnern an das unabhängige Überprüfen verdächtiger Aufforderungen.",
+          "Nachvollziehbare Aktualisierungen — die zuständige Person kann festhalten, welche Motive in welchem Zeitraum eingesetzt wurden.",
+          "Für verteilte Teams geeignet — Hinweise lassen sich über die Geräteverwaltung auch an Arbeitsplätzen außerhalb des Büros bereitstellen.",
         ],
-        note: "Konfydence Lockscreens unterstützt die menschliche Seite eines Schulungsprogramms zur IT-Sicherheits. Es macht eine Organisation allein nicht NIS2-, ISO/IEC-27001- oder anderweitig konform — die umfassenderen rechtlichen, governance- und technischen Pflichten bleiben Aufgabe der Organisation.",
+        note: "Die Sperrbildschirm-Hinweise ergänzen bestehende Sicherheitsschulungen. Sie ersetzen weder technische Schutzmaßnahmen noch die organisatorischen Pflichten eines Unternehmens.",
       }}
       faq={[
         {
-          question: "Wie unterscheidet sich das von IT-Sicherheit-Postern?",
+          question: "Was ist der Unterschied zu gedruckten Sicherheitsplakaten?",
           answer:
             "Poster sind statisch und werden schnell unsichtbar. Ein Sperrbildschirm wird dutzende Male am Tag gesehen, ändert sich alle zwei Wochen und erreicht Remote- und mobile Mitarbeitende, die nie an einer Bürowand vorbeikommen.",
         },
         {
-          question: "Ersetzt das IT-Sicherheit-Training?",
+          question: "Ersetzen die Hinweise eine Sicherheitsschulung?",
           answer:
             "Nein. Es füllt die Lücke zwischen den Schulungen — ein stetiger, aufwandsarmer Hinweis im Moment der Entscheidung. Es passt gut zu einem CoMaSy-Piloten, wenn ihr auch messen wollt, wie Menschen entscheiden.",
         },
