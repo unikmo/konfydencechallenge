@@ -1,14 +1,14 @@
 {
   "id": "workplace-de-wrk-11",
   "lang": "de",
-  "title": "MFA-Gerät: angeblich nur noch eine Stunde zur Registrierung",
+  "title": "Zwei-Faktor-Anmeldung: angeblich nur noch eine Stunde Zeit",
   "edition": "workplace",
   "cardType": "scenario",
   "scored": true,
   "category": "Identität",
-  "scenario": "Eine Mail im Namen der IT-Abteilung warnt, dass alle Mitarbeitenden ihr MFA-Gerät binnen einer Stunde über einen externen Link neu registrieren müssten, sonst würden sie „vom System ausgesperrt“.",
+  "scenario": "Eine angebliche E-Mail der IT-Abteilung fordert alle Mitarbeitenden auf, ihre Methode zur Zwei-Faktor-Anmeldung binnen einer Stunde über einen externen Link neu einzurichten. Andernfalls werde der Zugang gesperrt.",
   "answers": {
-    "B": "Das MFA-Gerät nur über die offizielle interne IT-Seite neu registrieren und die Frist beim IT-Service-Desk telefonisch überprüfen lassen.",
+    "B": "Die Änderung nur über das bekannte interne IT-Portal vornehmen und die Aufforderung beim IT-Service-Desk unabhängig prüfen.",
     "A": "Das Gerät sofort über den externen Link registrieren, um nicht ausgesperrt zu werden.",
     "C": "Nur die alte MFA-Methode über den Link bestätigen."
   },
@@ -20,7 +20,7 @@
   "safeActions": [
     "B"
   ],
-  "explanation": "Eine unerwartete Aufforderung zur erneuten Anmeldung der Zwei-Faktor-Authentifizierung kann ein Phishing-Versuch sein. Prüfe den Vorgang über das bekannte IT-Portal oder direkt beim internen IT-Support.",
+  "explanation": "Eine unerwartete Aufforderung zur Neueinrichtung der Zwei-Faktor-Anmeldung kann ein Betrugsversuch sein. Prüfe sie über das bekannte IT-Portal oder direkt beim internen Support.",
   "proTip": "MFA-Änderungen nur über die offiziell freigegebenen IT-Verfahren durchführen.",
   "hackKey": "H",
   "hackTrigger": "Hetze",
@@ -30,5 +30,6 @@
     "identity",
     "mass-phishing"
   ],
-  "active": true
+  "active": true,
+  "tip": "Änderungen an der Zwei-Faktor-Anmeldung nur über offizielle interne Wege durchführen."
 }
