@@ -1,12 +1,12 @@
 {
   "id": "travelsafe-de-tra-01",
   "lang": "de",
-  "title": "Dein Koffer hat noch 12 Minuten",
+  "title": "Flughafen: angebliche Gepäckfrist von zwölf Minuten",
   "edition": "travelsafe",
   "cardType": "scenario",
   "scored": true,
   "category": "Flughafen & Gepäck",
-  "scenario": "Am Frankfurter Flughafen meldet eine SMS, dein aufgegebenes Gepäck sei „falsch zugeordnet“ und werde in 12 Minuten „endgültig aussortiert“, wenn du nicht über einen Link deine Buchungs- und Kartendaten bestätigst.",
+  "scenario": "Am Flughafen Frankfurt erhältst du eine SMS: Dein aufgegebener Koffer sei falsch zugeordnet worden. Angeblich wird er in zwölf Minuten endgültig aussortiert, wenn du deine Buchungsdaten und Kreditkartendaten nicht sofort über einen Link bestätigst.",
   "answers": {
     "A": "Die SMS ignorieren und direkt am Gepäckschalter oder über die offizielle App der Airline nachfragen, ob wirklich ein Problem vorliegt.",
     "B": "Sofort über den Link die Daten bestätigen, um das Gepäck zu retten.",
@@ -20,8 +20,8 @@
   "safeActions": [
     "A"
   ],
-  "explanation": "Gepäckprobleme werden am Schalter oder in der Airline-App gelöst, nie über eine SMS mit Kartendatenabfrage und Minutenfrist.",
-  "proTip": "Ein Countdown per SMS löst nie ein echtes Gepäckproblem.",
+  "explanation": "Die SMS könnte gefälscht sein. Prüfe bei der Fluggesellschaft über die offizielle App, Website oder am Serviceschalter, ob es tatsächlich ein Problem mit deinem Gepäck gibt. Gib deine Kartendaten nicht über den Link aus der Nachricht ein.",
+  "proTip": "Bei Gepäckproblemen fragst du direkt bei der Fluggesellschaft nach, nicht über einen unbekannten SMS-Link.",
   "hackKey": "H",
   "hackTrigger": "Hetze",
   "tags": [
