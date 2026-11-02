@@ -1,7 +1,7 @@
 {
   "id": "university-de-uni-13",
   "lang": "de",
-  "title": "Der „Sachbearbeiter“ bleibt in der Leitung",
+  "title": "Angebliche Ausländerbehörde fordert Zahlung per Guthabenkarte",
   "edition": "university",
   "cardType": "scenario",
   "scored": true,
@@ -20,8 +20,8 @@
   "safeActions": [
     "B"
   ],
-  "explanation": "Behörden verlangen keine Gebühren per Guthabenkarte am Telefon, und sie halten dich nicht absichtlich in der Leitung. Ein Rückruf über die offizielle Nummer erreicht die echte Behörde.",
-  "proTip": "Keine Behörde kassiert per Guthabenkarte am Telefon.",
+  "explanation": "Die Forderung nach Guthabenkarten und die Drohung mit sofortigen Nachteilen sind starke Warnzeichen. Beende das Gespräch und kläre die Angelegenheit direkt mit der zuständigen Behörde.",
+  "proTip": "Behördliche Forderungen über offizielle Kontaktdaten prüfen – nie per Guthabencode bezahlen.",
   "hackKey": "A",
   "hackTrigger": "Autorität",
   "tags": [
