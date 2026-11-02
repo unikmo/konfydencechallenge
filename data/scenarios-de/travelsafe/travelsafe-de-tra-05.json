@@ -1,7 +1,7 @@
 {
   "id": "travelsafe-de-tra-05",
   "lang": "de",
-  "title": "Unterschreib hier — der Shuttle wartet",
+  "title": "Mietwagenschalter: Zusatzvertrag unter Zeitdruck",
   "edition": "travelsafe",
   "cardType": "scenario",
   "scored": true,
@@ -20,8 +20,8 @@
   "safeActions": [
     "C"
   ],
-  "explanation": "Zeitdruck am Schalter ist eine bekannte Verkaufstaktik für teure Zusatzverträge — ein seriöser Anbieter gibt dir die Zeit, das zu lesen, was du unterschreibst.",
-  "proTip": "Ein wartender Shuttle ist kein Grund, ungelesen zu unterschreiben.",
+  "explanation": "Am Schalter wird eine zusätzliche Versicherung angeboten, ohne dass du die Bedingungen in Ruhe prüfen kannst. Lass dir die Kosten und den genauen Versicherungsschutz erklären und lies die Vertragsunterlagen vor der Unterschrift.",
+  "proTip": "Prüfe Zusatzkosten und Versicherungsbedingungen vor der Unterschrift.",
   "hackKey": "H",
   "hackTrigger": "Hetze",
   "tags": [
