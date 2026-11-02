@@ -4,14 +4,14 @@ import { LockscreenIntentPage } from "@/components/LockscreenIntentPage";
 export const metadata: Metadata = {
   title: { absolute: "Die digitale Alternative zu Security-Awareness-Plakaten | Konfydence Lockscreens" },
   description:
-    "Security-Awareness-Plakate veralten an der Wand und erreichen Remote-Mitarbeitende nicht. Ein rotierender Sperrbildschirm bringt einen Anhalten · Abklären · Ansprechen-Hinweis auf jedes Gerät und aktualisiert ihn alle zwei Wochen.",
+    "Security-Awareness-Plakate veralten an der Wand und erreichen Beschäftigte im Homeoffice nicht. Ein regelmäßig wechselnder Sperrbildschirm bringt einen Anhalten · Abklären · Ansprechen-Hinweis auf jedes Gerät und aktualisiert ihn alle zwei Wochen.",
   alternates: {
     canonical: "/de/lockscreens/sicherheitsplakate",
     languages: { en: "https://konfydence.com/lockscreens/security-awareness-posters", de: "https://konfydence.com/de/lockscreens/sicherheitsplakate" },
   },
   openGraph: {
     title: "Die digitale Alternative zu Security-Awareness-Plakaten | Konfydence",
-    description: "Erreicht jedes Gerät, Remote-Mitarbeitende eingeschlossen — und wechselt die Botschaft alle zwei Wochen.",
+    description: "Erreicht jedes Gerät, Beschäftigte im Homeoffice eingeschlossen — und wechselt die Botschaft alle zwei Wochen.",
     url: "https://konfydence.com/de/lockscreens/sicherheitsplakate",
     siteName: "Konfydence",
     type: "article",
@@ -25,8 +25,8 @@ export default function Page() {
       slug="sicherheitsplakate"
       breadcrumbName="Security-Awareness-Plakate"
       eyebrow="SECURITY-AWARENESS-PLAKATE"
-      title="Ein Plakat, an dem niemand vorbeilaufen muss."
-      intro="Security-Awareness-Plakate haben eine Aufgabe: die Botschaft zwischen den Schulungen sichtbar halten. Sie tun sich schwer damit. Sie hängen an einer Wand, erreichen niemanden im Homeoffice, und sobald ein Plakat einen Monat hängt, nimmt es niemand mehr wahr. Ein rotierender Sperrbildschirm erledigt dieselbe Aufgabe auf der Fläche, auf die ohnehin schon jeder dutzende Male am Tag schaut — und die Botschaft wechselt alle zwei Wochen."
+      title="Sicherheitshinweise, die auch im Homeoffice ankommen."
+      intro="Security-Awareness-Plakate haben eine Aufgabe: die Botschaft zwischen den Schulungen sichtbar halten. Das gelingt ihnen allerdings nur begrenzt. Sie hängen an einer Wand, erreichen niemanden im Homeoffice, und sobald ein Plakat einen Monat hängt, nimmt es niemand mehr wahr. Ein regelmäßig wechselnder Sperrbildschirm erledigt dieselbe Aufgabe auf der Fläche, auf die ohnehin schon jeder dutzende Male am Tag schaut — und die Botschaft wechselt alle zwei Wochen."
       primaryCtaHref="/de/lockscreens#pricing"
       primaryCtaLabel="Sofort-Angebot erhalten"
       heroImage={{
@@ -59,7 +59,7 @@ export default function Page() {
       ]}
       orgValue={{
         title: "Kontinuierliche Awareness, kein Test-und-vergessen.",
-        copy: "Eine Plakat-Kampagne ist eine Geste in Richtung kontinuierlicher Awareness, die die Logistik immer wieder untergräbt. Ein rotierender Sperrbildschirm liefert dieselbe Absicht als permanente Kontrolle — und gibt euch ein Protokoll darüber, was wann lief.",
+        copy: "Eine Plakat-Kampagne ist eine Geste in Richtung kontinuierlicher Awareness, die die Logistik immer wieder untergräbt. Ein regelmäßig wechselnder Sperrbildschirm liefert dieselbe Absicht als permanente Kontrolle — und gibt euch ein Protokoll darüber, was wann lief.",
         points: [
           "Fortlaufende Cyber-Hygiene-Verstärkung — NIS2 (Artikel 21) erwartet kontinuierliche Awareness und eine Aufsicht durch die Leitungsorgane. Ein rotierender Hinweis ist sichtbare Aktivität zwischen den formalen Schulungen.",
           "Beitrag zum Human Risk Management — verschiebt Awareness von einem Wissenstest zu einem Gewohnheits-Cue im Moment der Entscheidung, genau der Punkt, den NIST- und ISO/IEC-27001-Kontrollen betonen.",
@@ -87,7 +87,7 @@ export default function Page() {
         {
           question: "Wie erreicht es Mitarbeitende im Homeoffice?",
           answer:
-            "Der Screen wird über eure Geräteverwaltungsrichtlinie auf dem Firmenlaptop oder -handy gesetzt, egal wo sich das Gerät befindet. Remote-Mitarbeitende erhalten denselben Hinweis nach demselben Zeitplan wie alle anderen.",
+            "Der Screen wird über eure Geräteverwaltungsrichtlinie auf dem Firmenlaptop oder -handy gesetzt, egal wo sich das Gerät befindet. Beschäftigte im Homeoffice erhalten denselben Hinweis nach demselben Zeitplan wie alle anderen.",
         },
       ]}
       calloutTitle="Die Botschaft sichtbar halten — überall, nicht nur im Büro."
