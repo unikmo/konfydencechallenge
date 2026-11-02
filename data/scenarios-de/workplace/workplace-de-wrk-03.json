@@ -1,12 +1,12 @@
 {
   "id": "workplace-de-wrk-03",
   "lang": "de",
-  "title": "Der Geschäftsführer braucht zwischen zwei Flügen Gutscheinkarten",
+  "title": "Angebliche Nachricht der Geschäftsführung: Gutscheine kaufen",
   "edition": "workplace",
   "cardType": "scenario",
   "scored": true,
   "category": "Anfragen der Geschäftsführung",
-  "scenario": "Eine SMS, angeblich vom Geschäftsführer, der gerade auf Dienstreise ist, bittet dringend um den Kauf von Gutscheinkarten für „ein Kundengeschenk“ zwischen zwei Flügen — die Codes sollen sofort per Foto geschickt werden.",
+  "scenario": "Du erhältst eine SMS, angeblich von der Geschäftsführung auf Dienstreise. Für ein Kundengeschenk sollen dringend Gutscheinkarten gekauft werden. Die Codes sollst du sofort fotografieren und per Nachricht schicken.",
   "answers": {
     "B": "Den Geschäftsführer über eine bekannte, unabhängige Nummer oder den Assistenten im Büro erreichen, bevor irgendetwas gekauft wird — Reisestress ändert daran nichts.",
     "A": "Die Gutscheinkarten sofort kaufen und die Codes fotografieren und schicken.",
@@ -21,8 +21,8 @@
     "B",
     "C"
   ],
-  "explanation": "„Zwischen zwei Flügen, kann nicht lange reden“ ist die Standardformel, um eine Rückfrage zu verhindern — Gutscheincodes sind wie Bargeld und nicht rückholbar.",
-  "proTip": "Reisestress der Chefin ist kein Grund, eine Rückfrage zu überspringen.",
+  "explanation": "Gutscheincodes können nach der Weitergabe schnell eingelöst werden. Die angebliche Reise und die Eile sollen verhindern, dass du die Bitte prüfst. Bestätige ungewöhnliche Aufträge über einen unabhängigen, bekannten Kontaktweg.",
+  "proTip": "Auch dringende Wünsche der Geschäftsführung müssen den normalen Freigabeprozess einhalten.",
   "hackKey": "H",
   "hackTrigger": "Hetze",
   "tags": [
