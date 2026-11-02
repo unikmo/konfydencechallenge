@@ -1,7 +1,7 @@
 {
   "id": "university-de-uni-10",
   "lang": "de",
-  "title": "Zwischenmiete-Zimmer — Kaution jetzt sichern",
+  "title": "Zwischenmiete: Kaution vor der Besichtigung?",
   "edition": "university",
   "cardType": "scenario",
   "scored": true,
@@ -20,8 +20,8 @@
   "safeActions": [
     "B"
   ],
-  "explanation": "„Noch zwei andere Interessenten“ ist der Standard-Zeitdrucksatz bei Zwischenmiete-Betrug. Ein echter Vertrag und eine Besichtigung — auch per Video — kommen immer vor der Zahlung.",
-  "proTip": "Kein Vertrag gesehen, keine Kaution überwiesen.",
+  "explanation": "Hohe Nachfrage nach Wohnungen macht solche Angebote glaubwürdig. Vergewissere dich trotzdem, dass es die Wohnung gibt und die Person sie vermieten darf. Ein Videocall allein reicht als Nachweis nicht immer aus.",
+  "proTip": "Keine Kaution überweisen, bevor Angebot, Vertrag und vermietende Person geprüft sind.",
   "hackKey": "H",
   "hackTrigger": "Hetze",
   "tags": [
