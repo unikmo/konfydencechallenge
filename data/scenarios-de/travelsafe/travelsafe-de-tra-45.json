@@ -8,7 +8,7 @@
   "category": "Mobile Zahlungen",
   "scenario": "An einem Marktstand im Ausland bittet der Verkäufer, statt einfach zu bezahlen, dein Handy zu entsperren und eine „Testzahlung“ über Apple Pay/Google Pay zu bestätigen, „um zu prüfen, ob es funktioniert“.",
   "answers": {
-    "A": "Das Handy nicht entsperren oder eine „Testzahlung“ bestätigen; eine echte Zahlung ist immer die einzige Zahlung, eine „Testzahlung“ gibt es nicht.",
+    "A": "Keine unbekannte Testzahlung auf Aufforderung bestätigen. Den regulären Zahlbetrag und den Empfänger prüfen und bei Unsicherheit eine andere Zahlungsart wählen.",
     "B": "Das Handy entsperren und die Testzahlung bestätigen.",
     "C": "Nur einen kleinen Betrag als Testzahlung bestätigen."
   },
@@ -20,7 +20,7 @@
   "safeActions": [
     "A"
   ],
-  "explanation": "Eine „Testzahlung“ vor der eigentlichen Zahlung existiert bei mobilen Bezahldiensten nicht — jede bestätigte Zahlung ist eine echte, abgebuchte Zahlung.",
+  "explanation": "Auch bei mobilen Zahlungen können Prüf- oder Autorisierungsvorgänge vorkommen. Eine spontane Aufforderung am Marktstand, eine zusätzliche Zahlung zu bestätigen, solltest du jedoch nicht ungeprüft akzeptieren. Prüfe Betrag und Empfänger.",
   "proTip": "Eine „Testzahlung“ ist immer eine echte Zahlung.",
   "hackKey": "K",
   "hackTrigger": "Notbremse",
@@ -30,5 +30,6 @@
     "mobile-payments",
     "payment-scam"
   ],
-  "active": true
+  "active": true,
+  "tip": "Bei mobilen Zahlungen immer Betrag und Empfänger vor der Bestätigung kontrollieren."
 }
