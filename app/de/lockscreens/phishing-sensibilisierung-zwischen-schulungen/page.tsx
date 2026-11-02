@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { LockscreenIntentPage } from "@/components/LockscreenIntentPage";
 
 export const metadata: Metadata = {
-  title: { absolute: "Phishing-Bewusstsein zwischen den Schulungen aufrechterhalten | Konfydence Lockscreens" },
+  title: { absolute: "Auch zwischen den Schulungen für Phishing sensibilisieren | Konfydence Lockscreens" },
   description:
     "Jährliches Phishing-Training verblasst innerhalb weniger Wochen. Ein rotierender Sperrbildschirm hält jeden Tag einen Anhalten · Abklären · Ansprechen-Hinweis vor Mitarbeitenden, alle zwei Wochen aktualisiert.",
   alternates: {
@@ -10,8 +10,8 @@ export const metadata: Metadata = {
     languages: { en: "https://konfydence.com/lockscreens/phishing-awareness-between-trainings", de: "https://konfydence.com/de/lockscreens/phishing-sensibilisierung-zwischen-schulungen" },
   },
   openGraph: {
-    title: "Phishing-Bewusstsein zwischen den Schulungen aufrechterhalten | Konfydence",
-    description: "Der stetige Hinweis, der die Monate zwischen den Trainingsmodulen füllt.",
+    title: "Auch zwischen den Schulungen für Phishing sensibilisieren | Konfydence",
+    description: "Regelmäßige Sicherheitshinweise für die Zeit zwischen den Schulungen.",
     url: "https://konfydence.com/de/lockscreens/phishing-sensibilisierung-zwischen-schulungen",
     siteName: "Konfydence",
     type: "article",
@@ -25,8 +25,8 @@ export default function Page() {
       slug="phishing-sensibilisierung-zwischen-schulungen"
       breadcrumbName="Phishing-Sensibilisierung zwischen Schulungen"
       eyebrow="ZWISCHEN DEN SCHULUNGEN"
-      title="Phishing-Bewusstsein, das nicht bis März verfliegt."
-      intro="Ihr führt das jährliche Modul durch. Die Abschlussquote liegt bei 95%. Sechs Wochen später ist die Erinnerung weg, und der nächste simulierte Phishing-Versuch erwischt immer noch Leute. Die Lücke ist nicht das Training — es sind die elf Monate danach, in denen nichts die Gewohnheit verstärkt. Ein rotierender Sperrbildschirm sitzt genau in dieser Lücke: ein kurzer Hinweis auf jedem Gerät, jeden Tag, alle zwei Wochen aktualisiert."
+      title="Phishing erkennen – nicht nur direkt nach der Schulung."
+      intro="Ihr führt regelmäßig Schulungen durch. Im Arbeitsalltag geraten die Inhalte jedoch leicht in Vergessenheit. Die Herausforderung liegt darin, Sicherheitsregeln auch zwischen den Schulungen präsent zu halten. Regelmäßig wechselnde Hinweise auf dem Sperrbildschirm setzen hier an: ein kurzer Hinweis auf jedem Gerät, jeden Tag, alle zwei Wochen aktualisiert."
       primaryCtaHref="/de/lockscreens#pricing"
       primaryCtaLabel="Sofort-Angebot erhalten"
       heroImage={{
