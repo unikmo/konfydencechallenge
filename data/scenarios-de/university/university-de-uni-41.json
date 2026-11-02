@@ -8,7 +8,7 @@
   "category": "Identität",
   "scenario": "Eine E-Mail einer angeblichen internationalen Studierendenplattform verlangt, für die „Verifizierung deines Studierendenstatus“ eine Kopie deines Reisepasses und eine Selfie-Verifizierung auf einer externen Seite hochzuladen.",
   "answers": {
-    "C": "Nichts hochladen und stattdessen die offizielle Verifizierung über deine eigene Uni oder eine bekannte, geprüfte Plattform nutzen.",
+    "C": "Den Anbieter und den offiziellen Verifizierungsweg unabhängig prüfen und keine Ausweisbilder an eine unbekannte Plattform senden.",
     "A": "Reisepass und Selfie sofort hochladen, um verifiziert zu werden.",
     "B": "Nur den Reisepass hochladen, aber kein Selfie."
   },
@@ -20,7 +20,7 @@
   "safeActions": [
     "C"
   ],
-  "explanation": "Eine echte Studierendenverifizierung läuft über die eigene Uni oder etablierte, geprüfte Anbieter — nicht über eine unbekannte externe Seite, die Reisepass und Selfie gleichzeitig verlangt.",
+  "explanation": "Bei seriösen Studierendenangeboten kann eine Identitätsprüfung nötig sein. Eine unbekannte Plattform, die Reisepass und Selfie verlangt, solltest du jedoch vor dem Hochladen überprüfen. Achte auf Anbieter, Datenschutz und sicheren Übertragungsweg.",
   "proTip": "Reisepass und Selfie zusammen sind der Rohstoff für Identitätsdiebstahl.",
   "hackKey": "K",
   "hackTrigger": "Notbremse",
@@ -30,5 +30,6 @@
     "identity",
     "identity-theft"
   ],
-  "active": true
+  "active": true,
+  "tip": "Ausweisfotos nur über geprüfte Plattformen und bei nachvollziehbarem Bedarf hochladen."
 }
