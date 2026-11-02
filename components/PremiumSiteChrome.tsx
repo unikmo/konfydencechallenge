@@ -83,6 +83,18 @@ export function PremiumHeader({
         <Link href="/pilot">Schools &amp; Teams</Link>
         <Link href="/free-scam-safety-pack">Resources</Link>
       </nav>
+      <details className="k-mobile-menu">
+        <summary aria-label="Open navigation">Menu</summary>
+        <nav aria-label="Mobile navigation">
+          <Link href="/challenge">Challenges</Link>
+          <Link href="/travelsafe">TravelSafe</Link>
+          <Link href="/lockscreens">Lockscreens</Link>
+          <Link href="/comasy">CoMaSy for business</Link>
+          <Link href="/comasy/pilot">Request a pilot</Link>
+          <Link href="/pricing">Pricing</Link>
+          <Link href="/contact">Contact</Link>
+        </nav>
+      </details>
       <div className="k-nav-actions">
         <Link href={deHref} className="k-lang-switch" aria-label="Auf Deutsch ansehen">DE</Link>
         <Link href={ctaHref} className="k-button">{ctaLabel}</Link>
@@ -156,10 +168,23 @@ export function PremiumHeaderDe({
       </Link>
       <nav className="k-nav-links" aria-label="Hauptnavigation">
         <Link href="/de/challenge">Challenges</Link>
+        <Link href="/de/comasy">Für Unternehmen</Link>
         <Link href="/de/lockscreens">Lockscreens</Link>
         <Link href="/de/pricing">Preise</Link>
         <Link href="/de/pilot">Für Schulen &amp; Unternehmen</Link>
       </nav>
+      <details className="k-mobile-menu">
+        <summary aria-label="Navigation öffnen">Menü</summary>
+        <nav aria-label="Mobile Navigation">
+          <Link href="/de/comasy">CoMaSy für Unternehmen</Link>
+          <Link href="/de/comasy/methodik">Methodik</Link>
+          <Link href="/de/comasy/pilotprojekt">Pilotprojekt anfragen</Link>
+          <Link href="/de/challenge">Challenges</Link>
+          <Link href="/de/lockscreens">Lockscreens</Link>
+          <Link href="/de/pricing">Preise</Link>
+          <Link href="/de/kontakt">Kontakt</Link>
+        </nav>
+      </details>
       <div className="k-nav-actions">
         <Link href={enHref} className="k-lang-switch" aria-label="View in English">EN</Link>
         <Link href={ctaHref} className="k-button">{ctaLabel}</Link>
