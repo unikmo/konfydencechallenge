@@ -1,7 +1,7 @@
 {
   "id": "school-de-sch-13",
   "lang": "de",
-  "title": "Ein „Discord-Mod“ braucht deine Verifizierung",
+  "title": "Angeblicher Discord-Moderator verlangt Anmeldung",
   "edition": "school",
   "cardType": "scenario",
   "scored": true,
@@ -20,8 +20,8 @@
   "safeActions": [
     "C"
   ],
-  "explanation": "Echte Discord-Moderatoren schreiben Nutzer nicht per DM an, um sie über einen Link zu „verifizieren“. Der Titel „Moderator“ ist leicht vorzutäuschen und soll allein durch Autorität wirken.",
-  "proTip": "Ein Titel in einem Profil ist kein Beweis für echte Autorität.",
+  "explanation": "Der Titel in einem Discord-Profil beweist nicht, dass die Person berechtigt ist. Öffne keine fremden Links zur vermeintlichen Kontoprüfung und kontrolliere Hinweise direkt in Discord.",
+  "proTip": "Bei angeblichen Moderatoren zuerst die Identität und den offiziellen Kanal prüfen.",
   "hackKey": "A",
   "hackTrigger": "Autorität",
   "tags": [
