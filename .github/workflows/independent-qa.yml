@@ -70,6 +70,11 @@ jobs:
         continue-on-error: true
         run: node scripts/independent-qa.mjs
 
+      - name: Enterprise visual and responsive acceptance
+        id: enterprise
+        continue-on-error: true
+        run: node scripts/enterprise-visual-qa.mjs
+
       - name: Run full public-site crawl
         id: fullsite
         continue-on-error: true
@@ -108,7 +113,7 @@ jobs:
           done
 
       - name: Open reproduced QA defect issue
-        if: steps.qa.outcome != 'success' || steps.fullsite.outcome != 'success' || steps.commerce.outcome != 'success'
+        if: steps.qa.outcome != 'success' || steps.fullsite.outcome != 'success' || steps.commerce.outcome != 'success' || steps.enterprise.outcome != 'success'
         run: |
           set -euo pipefail
           critical=0; high=0; medium=0
@@ -148,7 +153,7 @@ jobs:
           fi
 
       - name: Retest and close fixed QA issues
-        if: steps.qa.outcome == 'success' && steps.fullsite.outcome == 'success' && steps.commerce.outcome == 'success'
+        if: steps.qa.outcome == 'success' && steps.fullsite.outcome == 'success' && steps.commerce.outcome == 'success' && steps.enterprise.outcome == 'success'
         run: |
           set -euo pipefail
           gh issue list --repo "${{ github.repository }}" --state open --label 'qa:defect' --label 'qa:fixed' --json number --jq '.[].number' | while read -r issue; do
