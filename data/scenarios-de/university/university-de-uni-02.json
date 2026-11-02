@@ -8,7 +8,7 @@
   "category": "BAföG",
   "scenario": "Du bekommst eine SMS, angeblich vom Studierendenwerk. Eine BAföG-Nachzahlung über 340 € verfalle um Mitternacht, wenn du deine IBAN nicht sofort über den Link in der Nachricht bestätigst.",
   "answers": {
-    "C": "Abwarten und morgen direkt im BAföG-Online-Portal oder beim Studierendenwerk nachfragen, ob wirklich etwas offen ist.",
+    "C": "Den Link nicht öffnen und über das offizielle BAföG-Portal oder die zuständige Stelle unabhängig nachfragen.",
     "A": "Die IBAN sofort über den Link bestätigen, um die Nachzahlung nicht zu verlieren.",
     "B": "Bei der im Link angegebenen Nummer zurückrufen."
   },
