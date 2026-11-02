@@ -1,7 +1,7 @@
 {
   "id": "university-de-uni-28",
   "lang": "de",
-  "title": "Kannst du das kurz für mich empfangen?",
+  "title": "Bekannte will 800 € über dein Konto laufen lassen",
   "edition": "university",
   "cardType": "scenario",
   "scored": true,
@@ -20,8 +20,8 @@
   "safeActions": [
     "B"
   ],
-  "explanation": "Wer Geld über ein fremdes Konto „durchleitet“, macht sich strafbar mitverantwortlich — auch wenn die eigene Absicht gut ist und die Person bekannt wirkt.",
-  "proTip": "Dein Konto ist kein Durchlaufposten für fremdes Geld.",
+  "explanation": "Das Durchleiten fremder Gelder kann dich in Geldwäsche oder Betrug verwickeln und rechtliche Folgen haben. Lehne die Bitte ab und nutze dein Konto nicht für Zahlungen Dritter.",
+  "proTip": "Lass dein Konto nicht als Zwischenstation für fremde Zahlungen nutzen.",
   "hackKey": "C",
   "hackTrigger": "Vertrautheit",
   "tags": [
