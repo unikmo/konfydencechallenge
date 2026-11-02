@@ -9,7 +9,7 @@ const GIFT_OPTIONS = [
   { key: "all", label: "Alle fünf Challenges", sku: "CHAL-UNLIMITED", price: "€24,99" },
   { key: "family", label: "Familie", sku: "CHAL-SINGLE-FAMILY", price: "€6,99" },
   { key: "school", label: "Schule", sku: "CHAL-SINGLE-SCHOOL", price: "€6,99" },
-  { key: "university", label: "Universität", sku: "CHAL-SINGLE-UNIVERSITY", price: "€6,99" },
+  { key: "university", label: "Hochschule", sku: "CHAL-SINGLE-UNIVERSITY", price: "€6,99" },
   { key: "workplace", label: "Arbeitsplatz", sku: "CHAL-SINGLE-WORKPLACE", price: "€6,99" },
   { key: "travelsafe", label: "TravelSafe", sku: "CHAL-SINGLE-TRAVELSAFE", price: "€6,99" },
 ] as const;
@@ -62,10 +62,10 @@ export default function GeschenkPage() {
     <PremiumPageDe ctaHref="/de/challenge" ctaLabel="Kostenlosen Check starten">
       <section className="kg-shell kc-hero is-narrow" style={{ paddingBottom: 32 }}>
         <p className="k-kicker">Challenge verschenken</p>
-        <h1>Schenk jemandem einen schärferen Blick für Betrug.</h1>
+        <h1>Verschenke mehr Sicherheit im digitalen Alltag.</h1>
         <p>
-          Such eine Challenge aus, schreib ein paar Zeilen dazu, und wir schicken der beschenkten Person einen Code per
-          E-Mail. Sie löst ihn ein, wann sie möchte – zum Start braucht sie kein Konto.
+          Wähle eine Challenge aus und füge auf Wunsch eine persönliche Nachricht hinzu. Die beschenkte Person erhält ihren Zugangscode per
+          E-Mail. Den Code kann sie später einlösen. Für den ersten Schritt ist kein Konto nötig.
         </p>
       </section>
 
@@ -121,14 +121,14 @@ export default function GeschenkPage() {
               value={message}
               onChange={(e) => setMessage(e.target.value)}
               rows={3}
-              placeholder="Ich musste an dich denken – das dauert zehn Minuten und bleibt hängen."
+              placeholder="Für dich – damit du verdächtige Nachrichten und Anrufe künftig noch leichter erkennst."
               style={{ ...inputStyle, resize: "vertical" }}
             />
           </label>
 
           <div>
             <button type="submit" className="k-button" disabled={loading} style={{ minWidth: 220 }}>
-              {loading ? "Kasse wird geöffnet …" : `${option.label} verschenken – ${option.price}`}
+              {loading ? "Bezahlseite wird geöffnet …" : `${option.label} verschenken – ${option.price}`}
             </button>
             {error ? (
               <p role="alert" style={{ color: "#b4552f", fontSize: 13, marginTop: 10 }}>
