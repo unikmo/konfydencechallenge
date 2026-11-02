@@ -1,7 +1,7 @@
 {
   "id": "travelsafe-de-tra-25",
   "lang": "de",
-  "title": "Das Reisebüro braucht deinen Pass — noch einmal",
+  "title": "Reisebüro bittet plötzlich erneut um deine Passkopie",
   "edition": "travelsafe",
   "cardType": "scenario",
   "scored": true,
@@ -21,8 +21,8 @@
     "B",
     "C"
   ],
-  "explanation": "Frühere Zusammenarbeit ist kein Grund für eine unbegründete erneute Datenanfrage — ein E-Mail-Konto kann kompromittiert sein, auch bei einem bekannten Anbieter.",
-  "proTip": "Vertrauen aus der Vergangenheit rechtfertigt keine unbegründete neue Datenanfrage.",
+  "explanation": "Auch eine Anfrage von einem bekannten Reisebüro kann gefälscht sein. Prüfe über einen bereits bekannten Kontakt, ob die zusätzliche Kopie erforderlich ist und wie sie sicher übermittelt werden soll.",
+  "proTip": "Ausweiskopien nur bei nachvollziehbarem Bedarf und über sichere Wege weitergeben.",
   "hackKey": "C",
   "hackTrigger": "Vertrautheit",
   "tags": [
