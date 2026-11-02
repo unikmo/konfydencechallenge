@@ -1,7 +1,7 @@
 {
   "id": "travelsafe-de-tra-23",
   "lang": "de",
-  "title": "Dein vergessenes Paket „wird vom Zoll einbehalten“",
+  "title": "Zoll: Paket angeblich nur gegen Guthabenkarte frei",
   "edition": "travelsafe",
   "cardType": "scenario",
   "scored": true,
@@ -20,8 +20,8 @@
   "safeActions": [
     "B"
   ],
-  "explanation": "Der Zoll erhebt Einfuhrabgaben nie per Guthabenkarte über einen E-Mail-Link — das ist eine bekannte Paket-Phishing-Masche.",
-  "proTip": "Der Zoll kassiert nie per Guthabenkarte.",
+  "explanation": "Eine Aufforderung, Einfuhrabgaben mit Guthabenkarten zu bezahlen, ist verdächtig. Prüfe die Sendung bei Zoll oder Paketdienst über die offiziell veröffentlichten Kontaktwege.",
+  "proTip": "Zoll- und Einfuhrgebühren nur über bestätigte offizielle Zahlungswege bezahlen.",
   "hackKey": "A",
   "hackTrigger": "Autorität",
   "tags": [
