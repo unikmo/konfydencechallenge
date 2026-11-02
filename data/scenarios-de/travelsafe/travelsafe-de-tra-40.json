@@ -8,7 +8,7 @@
   "category": "Zahlungen",
   "scenario": "An einem Zahlungsterminal im Ausland erscheint die Frage, ob in Euro oder Landeswährung abgerechnet werden soll, mit dem Hinweis „Euro-Abrechnung garantiert den besten Kurs für Sie“.",
   "answers": {
-    "B": "Immer in der Landeswährung zahlen lassen; die „garantierte“ Euro-Abrechnung des Terminals hat fast immer einen deutlich schlechteren Wechselkurs eingepreist.",
+    "B": "Die angebotenen Wechselkurse und Gebühren prüfen. Häufig ist die Zahlung in Landeswährung günstiger, vor allem wenn deine Karte faire Fremdwährungskonditionen hat.",
     "A": "Die Euro-Abrechnung wählen, weil sie „garantiert“ den besten Kurs verspricht.",
     "C": "Das Terminal fragen, welcher Kurs gilt, und dann Euro wählen."
   },
@@ -20,7 +20,7 @@
   "safeActions": [
     "B"
   ],
-  "explanation": "Diese „dynamische Währungsumrechnung“ am Terminal ist eine legale, aber schlechte Wahl — der eingepreiste Kurs ist fast immer teurer als der reguläre Kurs deiner eigenen Bank oder Karte.",
+  "explanation": "Bei der dynamischen Währungsumrechnung legt der Terminalanbieter den Euro-Wechselkurs fest. Dieser ist häufig ungünstiger als die Abrechnung in Landeswährung. Vergleiche bei Bedarf die Konditionen deiner Karte.",
   "proTip": "Zahl im Ausland immer in der Landeswährung, nie in der „garantierten“ Euro-Option.",
   "hackKey": "K",
   "hackTrigger": "Notbremse",
@@ -30,5 +30,6 @@
     "payments",
     "dynamic-currency-conversion"
   ],
-  "active": true
+  "active": true,
+  "tip": "Im Ausland den angebotenen Umrechnungskurs prüfen; Landeswährung ist häufig günstiger."
 }
