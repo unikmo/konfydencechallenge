@@ -8,7 +8,7 @@
   "category": "Recruiting",
   "scenario": "Eine Nachricht auf LinkedIn, angeblich von einer Recruiterin eines bekannten Konzerns, bietet dir ein Praktikum an, wenn du „noch heute“ eine Ausweiskopie und deine IBAN für die „Vertragsvorbereitung“ schickst.",
   "answers": {
-    "A": "Die Anfrage über die offizielle Karriereseite des Unternehmens verifizieren und keine IBAN oder Ausweiskopie vor einem echten, unterschriebenen Vertrag schicken.",
+    "A": "Das Angebot über die offizielle Karriereseite oder die Personalabteilung prüfen und sensible Unterlagen erst über einen bestätigten Bewerbungsweg übermitteln.",
     "B": "Die Unterlagen sofort schicken, um das Praktikum nicht zu verlieren.",
     "C": "Nur die Ausweiskopie schicken, aber nicht die IBAN."
   },
