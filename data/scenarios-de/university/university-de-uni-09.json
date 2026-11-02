@@ -1,7 +1,7 @@
 {
   "id": "university-de-uni-09",
   "lang": "de",
-  "title": "Der Professor braucht heute sofort eine Hiwi",
+  "title": "Hiwi-Angebot: sofort Kontodaten schicken?",
   "edition": "university",
   "cardType": "scenario",
   "scored": true,
@@ -20,8 +20,8 @@
   "safeActions": [
     "C"
   ],
-  "explanation": "Hiwi-Stellen laufen über offizielle Uni-Prozesse, nicht über eine spontane E-Mail mit Sofort-Kontodaten-Anfrage. Eine kurze Rückfrage über einen bekannten Kanal klärt es.",
-  "proTip": "Eine echte Hiwi-Stelle läuft nie über eine Mail mit Zeitdruck und Kontodatenwunsch.",
+  "explanation": "Auch eine Nachricht mit dem Namen eines Professors kann gefälscht sein. Prüfe die Stelle und die Identität des Absenders über einen bekannten Hochschulkontakt. Sensible Daten sollten nur im vorgesehenen Einstellungsverfahren übermittelt werden.",
+  "proTip": "Unverhoffte Stellenangebote über die offizielle Hochschuladresse bestätigen lassen.",
   "hackKey": "H",
   "hackTrigger": "Hetze",
   "tags": [
