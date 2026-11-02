@@ -1,0 +1,63 @@
+name: Secure Production Dependencies (Staged)
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/security-remediation.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  stage-secure-dependencies:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      DATABASE_URL: postgresql://postgres:postgres@127.0.0.1:5432/konfydence?schema=public
+      DIRECT_URL: postgresql://postgres:postgres@127.0.0.1:5432/konfydence?schema=public
+      NEXT_PUBLIC_APP_URL: https://konfydence.com
+      AUTH_SECRET: ci-only-not-a-production-secret
+      ADMIN_USER: ci-admin
+      ADMIN_PASSWORD: ci-password-not-used-at-runtime
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - name: Install current dependencies
+        run: npm ci
+      - name: Upgrade vulnerable direct production packages
+        run: npm install --save-exact next@16.4.4 zod@4.6.7
+      - name: Align Next.js lint tooling
+        run: npm install --save-dev --save-exact eslint-config-next@16.4.4
+      - name: Repair non-breaking transitive advisories
+        run: npm audit fix
+      - name: Enforce production vulnerability gate
+        run: npm audit --omit=dev --audit-level=high
+      - name: Generate Prisma client
+        run: npx prisma generate
+      - name: Validate product claims and scenarios
+        run: npm run audit:scenarios && npm run audit:claims && npm run qa:de-editorial
+      - name: Unit tests
+        run: npm test -- --runInBand
+      - name: ESLint and TypeScript
+        run: npm run lint -- --max-warnings=0 && npx tsc --noEmit
+      - name: Production build
+        run: npm run build
+      - name: Stage audited changes on isolated branch
+        run: |
+          set -euo pipefail
+          if git diff --quiet -- package.json package-lock.json; then
+            echo "No dependency changes required"
+            exit 0
+          fi
+          git config user.name "Konfydence QA"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git checkout -b chore/security-remediation-2026-11-03
+          git add package.json package-lock.json
+          git commit -m "Fix critical and high production dependency advisories"
+          git push --force-with-lease origin HEAD:refs/heads/chore/security-remediation-2026-11-03
