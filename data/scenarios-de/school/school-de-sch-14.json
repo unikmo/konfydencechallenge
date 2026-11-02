@@ -1,7 +1,7 @@
 {
   "id": "school-de-sch-14",
   "lang": "de",
-  "title": "Dein Lehrer hat „eine private Datei geteilt“",
+  "title": "Lehrer teilt angeblich eine Datei mit deinen Noten",
   "edition": "school",
   "cardType": "scenario",
   "scored": true,
@@ -20,8 +20,8 @@
   "safeActions": [
     "C"
   ],
-  "explanation": "Lehrkräfte brauchen dein Schulportal-Passwort nie, um dir eine Datei zu zeigen — und ein Schulaccount kann gehackt oder gefälscht sein. Eine kurze persönliche Rückfrage klärt es sofort.",
-  "proTip": "Kein Lehrer braucht dein Passwort, um dir etwas zu zeigen.",
+  "explanation": "Eine Datei mit Noten sollte nicht verlangen, dass du dein Schulportal-Passwort an eine fremde Website weitergibst. Frage die Lehrkraft direkt oder nutze das bekannte Schulportal.",
+  "proTip": "Passwörter nicht teilen – auch nicht für angebliche Dateien von Lehrkräften.",
   "hackKey": "A",
   "hackTrigger": "Autorität",
   "tags": [
