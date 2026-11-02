@@ -5,7 +5,7 @@
     "answers": {
       "A": "Auflegen und deine Bank über eine selbst gewählte offizielle Telefonnummer kontaktieren. Weder Geld überweisen noch eine TAN auf telefonische Aufforderung freigeben.",
       "B": "In der Banking-App zuerst die Karte sperren, dann die Bank über einen bekannten Weg kontaktieren.",
-      "C": "Eine push-TAN nur für die eine „Sicherheitsüberweisung“ freigeben und den Rest danach in Ruhe prüfen."
+      "C": "Eine pushTAN nur für diese angebliche „Sicherheitsüberweisung“ freigeben und den Vorgang anschließend prüfen."
     },
     "explanation": "Die SMS und der Anruf können gefälscht sein. Banken fordern dich nicht auf, dein Guthaben auf ein angebliches Sicherheitskonto zu überweisen. Beende das Gespräch und kontaktiere deine Bank über einen selbst gewählten, offiziellen Kontaktweg.",
     "proTip": "Überweise niemals Geld auf ein angebliches Sicherheitskonto, das dir jemand am Telefon nennt."
@@ -14,11 +14,11 @@
     "title": "Stromsperre in 30 Minuten?",
     "scenario": "Am Telefon behauptet jemand, du hättest deine Stromrechnung nicht bezahlt. In 30 Minuten werde der Strom abgestellt. Der genannte Betrag klingt plausibel. Die Sperre lasse sich angeblich nur durch eine sofortige Überweisung oder Zahlung mit einer Guthabenkarte verhindern.",
     "answers": {
-      "A": "Nach Kundennummer und offenem Betrag fragen und beides mit deiner letzten Rechnung abgleichen, bevor du irgendetwas tust.",
+      "A": "Nach Kundennummer und offenem Betrag fragen und die Angaben später mit deiner Rechnung vergleichen.",
       "B": "Zahlen, wenn der Betrag zu deinem üblichen Monatsabschlag passt, und notfalls später widersprechen.",
       "C": "Auflegen und die Forderung im offiziellen Kundenkonto oder über die Telefonnummer auf deiner Stromrechnung überprüfen."
     },
-    "explanation": "Eine Stromsperre wird nicht einfach telefonisch mit 30 Minuten Vorlauf angekündigt. Die Zahlungsforderung unter Zeitdruck ist ein Warnzeichen. Prüfe unabhängig beim Versorger, ob tatsächlich ein Betrag offen ist.",
+    "explanation": "Eine angebliche Stromsperre innerhalb von 30 Minuten und die Forderung nach sofortiger Zahlung sind deutliche Warnzeichen. Beende das Gespräch und prüfe direkt beim Energieversorger, ob tatsächlich ein Betrag offen ist.",
     "proTip": "Prüfe offene Stromrechnungen über dein Kundenkonto oder die Kontaktdaten auf deiner Rechnung."
   },
   "family-de-fam-03": {
@@ -330,14 +330,14 @@
     "proTip": "Gerade bei einer echten IT-Störung sollten Passwortänderungen nur über bekannte interne Wege erfolgen."
   },
   "family-de-fam-07": {
-    "title": "Viruswarnung im Browser: angeblich nur vier Minuten",
+    "title": "Browserwarnung: Computer angeblich in vier Minuten gesperrt",
     "scenario": "Ein lautes Pop-up auf dem Bildschirm deiner Mutter meldet einen Virus und zählt rückwärts: „Ihr PC wird in 4 Minuten gesperrt.“ Eine Telefonnummer für „Microsoft-Support“ wird angezeigt.",
     "answers": {
       "A": "Die Nummer anrufen, um den Computer noch rechtzeitig retten zu lassen.",
       "B": "Auf der Seite nach einer anderen Kontaktmöglichkeit suchen, die seriöser wirkt.",
-      "C": "Den Computer einfach ausschalten und neu starten; ein Countdown auf einer Webseite kann nichts sperren."
+      "C": "Das Browserfenster schließen, ohne die Nummer anzurufen. Wenn das nicht funktioniert, den Browser beenden und Hilfe über einen bekannten IT-Kontakt holen."
     },
-    "explanation": "Eine Warnung im Browser kann von einer unseriösen Website stammen. Schließe den Tab, ohne die angezeigte Telefonnummer anzurufen. Wenn sich das Fenster nicht schließen lässt oder tatsächlich technische Probleme auftreten, hole Hilfe über einen bekannten IT-Support-Kontakt.",
+    "explanation": "Eine Warnung im Browser kann von einer betrügerischen Website stammen. Rufe die angezeigte Telefonnummer nicht an und erlaube keinen Fernzugriff. Schließe das Fenster oder beende den Browser. Bei anhaltenden Problemen hilft ein vertrauenswürdiger IT-Service.",
     "proTip": "Rufe keine Supportnummer aus einem unerwarteten Browser-Pop-up an."
   },
   "family-de-fam-08": {
@@ -507,7 +507,7 @@
   },
   "family-de-fam-11": {
     "title": "Amazon-Anruf: angeblich 749 € abgebucht",
-    "scenario": "Eine automatisierte Anrufstimme meldet eine Abbuchung von 749 € für ein Amazon-Prime-Abo und bittet, „1“ zu drücken, um mit einem Mitarbeiter verbunden zu werden und die Zahlung zu stoppen.",
+    "scenario": "Eine automatische Telefonansage behauptet, über dein Amazon-Konto seien 749 € abgebucht worden. Du sollst die Taste 1 drücken, um mit dem Kundenservice verbunden zu werden und die Zahlung zu stoppen.",
     "answers": {
       "A": "Auflegen und direkt in der Amazon-App unter „Meine Bestellungen“ und den Zahlungen nachsehen, ob wirklich etwas abgebucht wurde.",
       "B": "Zurückrufen unter der angezeigten Nummer, um sicherzugehen.",
@@ -1101,9 +1101,9 @@
   },
   "family-de-fam-21": {
     "title": "Gerichtsschreiben: angebliches Bußgeld per Telefonnummer",
-    "scenario": "Ein Brief mit Gerichtssiegel-Optik droht ein Bußgeld von 500 €, weil du angeblich eine Zeugenladung ignoriert hast. Eine beigelegte Nummer soll die Sache „außergerichtlich“ gegen sofortige Zahlung klären.",
+    "scenario": "Du erhältst einen Brief mit einem angeblichen Gerichtssiegel. Darin steht, du müsstest 500 € zahlen, weil du eine Zeugenladung ignoriert hättest. Über die angegebene Telefonnummer könne die Sache gegen sofortige Zahlung erledigt werden.",
     "answers": {
-      "A": "Beim zuständigen Amtsgericht über die im Telefonbuch oder online verifizierte Nummer nachfragen, ob eine solche Ladung existiert.",
+      "A": "Beim zuständigen Amtsgericht über eine selbst recherchierte offizielle Telefonnummer nachfragen, ob es die Ladung und die Forderung tatsächlich gibt.",
       "B": "Einen Anwalt aus der eigenen Familie um Rat fragen, bevor du reagierst.",
       "C": "Die Nummer aus dem Brief anrufen und die 500 € zahlen, um ein Gerichtsverfahren zu vermeiden."
     },
@@ -1134,11 +1134,11 @@
   },
   "family-de-fam-24": {
     "title": "Mobilfunk-Support will deinen SMS-Code",
-    "scenario": "Ein Anrufer gibt sich als Support deines Mobilfunkanbieters aus und sagt, deine Nummer solle in wenigen Minuten „aus Sicherheitsgründen“ zu einem anderen Anbieter portiert werden — außer du bestätigst sofort den PIN-Code, den du gerade per SMS bekommst, um das zu verhindern.",
+    "scenario": "Ein Anrufer gibt sich als Mitarbeiter deines Mobilfunkanbieters aus. Angeblich soll deine Nummer in wenigen Minuten ohne deine Zustimmung zu einem anderen Anbieter übertragen werden. Um das zu verhindern, sollst du einen gerade per SMS erhaltenen Bestätigungscode vorlesen.",
     "answers": {
-      "A": "Auflegen, die eigene SIM-Karte nicht anfassen und den Anbieter über die offizielle Hotline oder App kontaktieren.",
+      "A": "Auflegen, den Bestätigungscode für dich behalten und den Mobilfunkanbieter über dessen offizielle App oder bekannte Servicenummer kontaktieren.",
       "B": "Den Code notieren, aber erst später weitergeben.",
-      "C": "Den PIN-Code sofort am Telefon vorlesen, um die Portierung zu stoppen."
+      "C": "Den Bestätigungscode sofort vorlesen, um die angebliche Rufnummernübertragung zu verhindern."
     },
     "explanation": "Ein Bestätigungscode kann beispielsweise eine Anmeldung oder Vertragsänderung auslösen. Teile ihn nicht mit einer Person, die dich unerwartet anruft. Erkundige dich direkt beim Mobilfunkanbieter.",
     "proTip": "Einmalcodes niemals an Anrufende weitergeben."
@@ -1424,7 +1424,7 @@
     "answers": {
       "A": "Einen kleinen Betrag investieren, um zu sehen, ob es wirklich funktioniert.",
       "B": "Nach den Kontodaten fragen, damit du das Geld direkt an ihn statt an die Plattform schickst.",
-      "C": "Die Plattform unabhängig recherchieren (Name plus „Betrug“ suchen, bei der BaFin prüfen) und mit niemandem, den du nur online kennst, über eine Geldanlage entscheiden."
+      "C": "Die Plattform unabhängig überprüfen, etwa anhand des Anbieters und möglicher Warnungen der BaFin. Keinen Anlageentscheid allein auf Empfehlung einer Online-Bekanntschaft treffen."
     },
     "explanation": "Betrüger können über Wochen Vertrauen aufbauen, bevor sie zu einer Anlage drängen. Prüfe Anbieter, Risiken und mögliche Warnungen unabhängig, zum Beispiel bei der BaFin. Fehlende Warnungen sind allerdings kein Beweis für Seriosität.",
     "proTip": "Bei Geldanlage-Tipps von Online-Bekanntschaften besonders vorsichtig sein."
@@ -1637,5 +1637,38 @@
     },
     "explanation": "Ein privates E-Mail-Konto kann für vertrauliche Unterlagen ungeeignet sein. Bestätige die Anfrage unabhängig und nutze die vereinbarten sicheren Übertragungswege.",
     "proTip": "Vertrauliche Vertragsunterlagen nur über freigegebene Kanäle versenden."
+  },
+  "family-de-fam-36": {
+    "title": "Bist du das in diesem Video?",
+    "scenario": "Eine Nachricht von einem Bekannten schickt einen Link mit dem Text „Bist du das in diesem Video?? 😳“ und einem Vorschaubild, das täuschend echt aussieht. Der Link führt zu einer Seite, die nach deinem Social-Media-Login fragt, um das Video „anzusehen“.",
+    "answers": {
+      "A": "Sich einloggen, um zu sehen, worum es geht.",
+      "B": "Den Link in einem anderen Browser ohne Login öffnen, um nur zu schauen.",
+      "C": "Den Bekannten über einen anderen Kanal fragen, ob er die Nachricht wirklich geschickt hat, und den Link nicht öffnen."
+    },
+    "explanation": "Solche Nachrichten nutzen deine Neugier aus und können über übernommene Konten verbreitet werden. Frage die Person auf einem anderen, bekannten Weg, ob sie dir den Link wirklich geschickt hat. Gib auf der verlinkten Seite keine Zugangsdaten ein.",
+    "proTip": "Neugier ist der Köder — eine Rückfrage ist der Haken, den du nicht schluckst."
+  },
+  "family-de-fam-37": {
+    "title": "Der Bote steht gleich vor der Tür",
+    "scenario": "Am Telefon weint eine Stimme, es klinge wie deine Tochter: Sie habe einen schweren Unfall verursacht, jemand liege im Krankenhaus. Dann übernimmt ein „Staatsanwalt“: Nur eine Kaution von 15.000 € in bar verhindere die Untersuchungshaft. Ein Gerichtsbote sei schon unterwegs zu deiner Adresse und hole das Geld in 20 Minuten ab.",
+    "answers": {
+      "A": "Das Geld zusammensuchen und dem Boten übergeben — die Tochter geht vor, den Rest klärt man später.",
+      "B": "Das Gespräch beenden, deine Tochter über ihre gespeicherte Nummer erreichen und bei einem Betrugsverdacht selbst die Polizei verständigen. Kein Bargeld an einen angekündigten Boten übergeben.",
+      "C": "Einen Teilbetrag übergeben und den Rest zusagen, sobald du die Tochter erreicht hast."
+    },
+    "explanation": "Betrüger nutzen Schock und Zeitdruck, um Angehörige zur Übergabe hoher Geldbeträge zu bewegen. Beende das Gespräch, erreiche deine Tochter unabhängig und informiere bei Verdacht die Polizei. Übergib kein Geld an unbekannte Personen.",
+    "proTip": "Bevor Bargeld die Hand verlässt: die echte Person selbst anrufen."
+  },
+  "family-de-fam-38": {
+    "title": "Bitte installieren Sie kurz AnyDesk",
+    "scenario": "Nach einer angeblichen Abbuchung meldet sich die „Betrugsabteilung deiner Bank“. Um die Zahlung zu stoppen, sollst du ein Fernwartungsprogramm (AnyDesk oder TeamViewer) installieren, damit ein Mitarbeiter „das gesperrte Konto entsperrt“. Anschließend sollst du eine „Testüberweisung“ per Echtzeitüberweisung bestätigen.",
+    "answers": {
+      "A": "Installieren und die Testüberweisung bestätigen — der Mitarbeiter braucht das, um die Sperre aufzuheben.",
+      "B": "Das Programm installieren, aber die Testüberweisung erst nach einem Rückruf bei der Bank bestätigen.",
+      "C": "Sofort auflegen, nichts installieren, keine Überweisung bestätigen — und die Bank über die Nummer auf der Karte anrufen."
+    },
+    "explanation": "Ein angeblicher Bankmitarbeiter fordert Fernzugriff und eine Überweisung – beides sind deutliche Warnzeichen. Gewähre keinen Zugriff und bestätige keine Zahlung. Beende das Gespräch und kontaktiere deine Bank über die bekannte offizielle Nummer.",
+    "proTip": "Deine Bank fragt nie nach Fernzugriff — und eine „Testüberweisung“ gibt es nicht."
   }
 }
