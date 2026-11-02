@@ -1,7 +1,7 @@
 {
   "id": "travelsafe-de-tra-26",
   "lang": "de",
-  "title": "Deine Schwester weint am Telefon",
+  "title": "Anruf mit der Stimme deiner Schwester: dringende Geldforderung",
   "edition": "travelsafe",
   "cardType": "scenario",
   "scored": true,
@@ -20,8 +20,8 @@
   "safeActions": [
     "C"
   ],
-  "explanation": "KI-Stimmenklone werden immer überzeugender — „kann gerade nicht lange reden“ soll verhindern, dass du sie direkt erreichst. Ein Rückruf oder Videoanruf klärt es in Minuten.",
-  "proTip": "„Kann nicht lange reden“ ist der Moment, gerade einen Rückruf zu versuchen.",
+  "explanation": "Auch vertraut klingende Stimmen können nachgeahmt werden. Beende das Gespräch und kontaktiere deine Schwester über eine bekannte Nummer oder einen anderen unabhängigen Weg.",
+  "proTip": "Bei ungewöhnlichen Geldforderungen die Person unabhängig zurückrufen.",
   "hackKey": "C",
   "hackTrigger": "Vertrautheit",
   "tags": [
