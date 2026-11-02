@@ -8,7 +8,7 @@
   "category": "Personalbeziehungen",
   "scenario": "Die HR-Partnerin, mit der du seit Jahren zusammenarbeitest, schreibt aus einer neuen, unbekannten E-Mail-Adresse und bittet dringend um eine Liste mit Gehalts- und Kontodaten von Mitarbeitenden.",
   "answers": {
-    "B": "Sie über die bekannte, alte E-Mail-Adresse oder telefonisch fragen, warum sie von einer neuen Adresse schreibt, bevor sensible Daten geschickt werden.",
+    "B": "Die Kollegin über ihre bereits bekannte Telefonnummer oder persönlich kontaktieren und die Berechtigung zur Datenanforderung prüfen, bevor du sensible Angaben weitergibst.",
     "A": "Die Daten sofort schicken, weil man die Person seit Jahren kennt.",
     "C": "Nur einen Teil der Daten schicken."
   },
