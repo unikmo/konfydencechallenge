@@ -59,14 +59,14 @@ export default function Page() {
       ]}
       orgValue={{
         title: "Sicherheit auch zwischen den Schulungen präsent halten.",
-        copy: "Der Grund, das über Intune laufen zu lassen, ist nicht das Hintergrundbild — es ist, dass Sicherheitshinweise zu einem festen Bestandteil des Arbeitsalltags wird statt zu einem Abschlussdatum. Ein Hinweis, der sich alle zwei Wochen ändert, auf jedem verwalteten Gerät, ist sichtbare Aktivität zwischen den formalen Schulungen.",
+        copy: "Der Grund, das über Intune laufen zu lassen, ist nicht das Hintergrundbild — es ist, dass Sicherheitshinweise zu einem festen Bestandteil des Arbeitsalltags werden statt zu einem Abschlussdatum. Ein Hinweis, der sich alle zwei Wochen ändert, auf jedem verwalteten Gerät, ist sichtbare Aktivität zwischen den formalen Schulungen.",
         points: [
-          "Fortlaufende Cyber-Hygiene-Verstärkung — NIS2 (Artikel 21) erwartet kontinuierliche Sensibilisierung für IT-Sicherheit und eine Aufsicht durch die Leitungsorgane. Ein rotierender Hinweis ist sichtbare Aktivität zwischen den formalen Schulungen.",
-          "Beitrag zum Human Risk Management — verschiebt Sicherheitsbewusstsein von einem Wissenstest zu einem regelmäßigen Denkanstoß im Moment der Entscheidung, genau der Punkt, den NIST- und ISO/IEC-27001-Kontrollen betonen.",
-          "Ein leichtes Prüfprotokoll — die zuständige Verwaltungsperson erfasst die Screen-Sequenz und die Änderungsdaten, damit ihr für jeden Prüfzeitraum zeigen könnt, was den Mitarbeitenden gezeigt wurde.",
-          "Erreicht die gesamte Belegschaft — jedes Gerät in eurer Intune-Gruppe erhält denselben Hinweis nach demselben Zeitplan, Remote- und Frontline-Mitarbeitende eingeschlossen, ohne Abschlüsse nachzuverfolgen.",
+          "Regelmäßige Sicherheitskommunikation — wechselnde Hinweise können das Bewusstsein für Betrugsversuche zwischen den Schulungen stärken. Welche Maßnahmen zur Erfüllung von NIS2 erforderlich sind, muss jede Organisation gesondert beurteilen.",
+          "Erinnerung im Arbeitsalltag — die Hinweise greifen konkrete Betrugsmaschen auf und erinnern an das unabhängige Überprüfen verdächtiger Aufforderungen.",
+          "Nachvollziehbare Aktualisierungen — die zuständige Person kann festhalten, welche Motive in welchem Zeitraum eingesetzt wurden.",
+          "Über Intune verwaltbar — ausgewählte Geräte können zentral mit aktuellen Sicherheitshinweisen ausgestattet werden.",
         ],
-        note: "Konfydence Lockscreens unterstützt die menschliche Seite eines Schulungsprogramms zur IT-Sicherheits. Es macht eine Organisation allein nicht NIS2-, ISO/IEC-27001- oder anderweitig konform — die umfassenderen rechtlichen, governance- und technischen Pflichten bleiben Aufgabe der Organisation.",
+        note: "Die Sperrbildschirm-Hinweise ergänzen bestehende Sicherheitsschulungen. Sie ersetzen weder technische Schutzmaßnahmen noch die organisatorischen Pflichten eines Unternehmens.",
       }}
       faq={[
         {
