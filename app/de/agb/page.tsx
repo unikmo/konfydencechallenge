@@ -5,7 +5,7 @@ import { legalStyles as s } from "@/lib/theme/legalPageStyles";
 export const metadata: Metadata = {
   title: { absolute: "AGB | Konfydence" },
   description: "Konfydence Allgemeine Geschäftsbedingungen für Verbraucher.",
-  alternates: { languages: { en: "https://konfydence.com/terms-of-service", de: "https://konfydence.com/de/agb" } },
+  alternates: { canonical: "/de/agb", languages: { en: "https://konfydence.com/terms-of-service", de: "https://konfydence.com/de/agb" } },
 };
 
 export default function AgbPage() {
