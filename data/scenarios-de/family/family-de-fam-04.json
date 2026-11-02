@@ -1,14 +1,14 @@
 {
   "id": "family-de-fam-04",
   "lang": "de",
-  "title": "Dein Paket braucht 1,99 €",
+  "title": "Paket-SMS: angeblich fehlen 1,99 €",
   "edition": "family",
   "cardType": "scenario",
   "scored": true,
   "category": "Paketzustellung",
   "scenario": "Eine SMS im Namen von DHL sagt, dein Paket könne wegen einer offenen Zollgebühr von 1,99 € nicht zugestellt werden. Der Link führt zu einer Seite, die wie die DHL-App aussieht und nach Kartennummer und Adresse fragt.",
   "answers": {
-    "A": "Die SMS ignorieren und die Sendung direkt in der echten DHL-App oder auf dhl.de mit der Sendungsnummer verfolgen.",
+    "A": "Die Sendung direkt in der offiziellen DHL-App oder auf der selbst eingegebenen Website prüfen.",
     "B": "Den Link öffnen, aber nur die Adresse bestätigen, keine Kartendaten eingeben.",
     "C": "Die 1,99 € zahlen — der Betrag ist zu klein, um ein Risiko zu sein."
   },
@@ -20,8 +20,8 @@
   "safeActions": [
     "A"
   ],
-  "explanation": "Zollgebühren werden nicht per SMS-Link mit Kartennummer eingezogen. Der winzige Betrag soll dich glauben lassen, das Risiko sei vernachlässigbar — genau deshalb klicken so viele.",
-  "proTip": "Ein Paket, das eine Kartennummer will, ist kein Paket.",
+  "explanation": "Die Nachricht kann eine gefälschte Zahlungsaufforderung sein. Auch kleine Beträge werden genutzt, um Kreditkartendaten abzugreifen. Prüfe die Sendung über die DHL-App oder eine selbst eingegebene offizielle Website.",
+  "proTip": "Nicht über den SMS-Link bezahlen. Prüfe die Sendung direkt beim Paketdienst.",
   "hackKey": "H",
   "hackTrigger": "Hetze",
   "tags": [
