@@ -1,7 +1,7 @@
 {
   "id": "university-de-uni-25",
   "lang": "de",
-  "title": "Dein Mitbewohner hat eine neue Zahlungs-Handle",
+  "title": "Mitbewohner: Nebenkosten plötzlich an neue Adresse",
   "edition": "university",
   "cardType": "scenario",
   "scored": true,
@@ -20,8 +20,8 @@
   "safeActions": [
     "A"
   ],
-  "explanation": "Ein gehacktes Konto in der eigenen WG-Gruppe wirkt besonders glaubwürdig. Eine kurze persönliche Rückfrage klärt es in Sekunden, bevor Geld an die falsche Adresse geht.",
-  "proTip": "Eine neue Zahlungsadresse bestätigst du persönlich, nicht nur im Chat.",
+  "explanation": "Auch in einer vertrauten WG-Gruppe kann das Konto einer Person übernommen werden. Bestätige ungewöhnliche Zahlungsänderungen persönlich oder über einen bekannten Kontaktweg.",
+  "proTip": "Neue Zahlungsadresse in der WG erst persönlich bestätigen lassen.",
   "hackKey": "C",
   "hackTrigger": "Vertrautheit",
   "tags": [
