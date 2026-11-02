@@ -4,7 +4,7 @@ import { LockscreenIntentPage } from "@/components/LockscreenIntentPage";
 export const metadata: Metadata = {
   title: { absolute: "Digitale Sicherheitshinweise statt gedruckter Plakate | Konfydence Lockscreens" },
   description:
-    "IT-Sicherheit-Plakate veralten an der Wand und erreichen Beschäftigte im Homeoffice nicht. Ein regelmäßig wechselnder Sperrbildschirm bringt einen Anhalten · Abklären · Ansprechen-Hinweis auf jedes Gerät und aktualisiert ihn alle zwei Wochen.",
+    "Sicherheitsplakate veralten an der Wand und erreichen Beschäftigte im Homeoffice nicht. Ein regelmäßig wechselnder Sperrbildschirm bringt einen Anhalten · Abklären · Ansprechen-Hinweis auf jedes Gerät und aktualisiert ihn alle zwei Wochen.",
   alternates: {
     canonical: "/de/lockscreens/sicherheitsplakate",
     languages: { en: "https://konfydence.com/lockscreens/security-awareness-posters", de: "https://konfydence.com/de/lockscreens/sicherheitsplakate" },
@@ -23,10 +23,10 @@ export default function Page() {
     <LockscreenIntentPage
       lang="de"
       slug="sicherheitsplakate"
-      breadcrumbName="IT-Sicherheit-Plakate"
+      breadcrumbName="Sicherheitsplakate"
       eyebrow="SECURITY-AWARENESS-PLAKATE"
       title="Sicherheitshinweise, die auch im Homeoffice ankommen."
-      intro="IT-Sicherheit-Plakate haben eine Aufgabe: die Botschaft zwischen den Schulungen sichtbar halten. Das gelingt ihnen allerdings nur begrenzt. Sie hängen an einer Wand, erreichen niemanden im Homeoffice, und sobald ein Plakat einen Monat hängt, nimmt es niemand mehr wahr. Ein regelmäßig wechselnder Sperrbildschirm erledigt dieselbe Aufgabe auf der Fläche, auf die ohnehin schon jeder dutzende Male am Tag schaut — und die Botschaft wechselt alle zwei Wochen."
+      intro="Sicherheitsplakate haben eine Aufgabe: die Botschaft zwischen den Schulungen sichtbar halten. Das gelingt ihnen allerdings nur begrenzt. Sie hängen an einer Wand, erreichen niemanden im Homeoffice, und sobald ein Plakat einen Monat hängt, nimmt es niemand mehr wahr. Ein regelmäßig wechselnder Sperrbildschirm erledigt dieselbe Aufgabe auf der Fläche, auf die ohnehin schon jeder dutzende Male am Tag schaut — und die Botschaft wechselt alle zwei Wochen."
       primaryCtaHref="/de/lockscreens#pricing"
       primaryCtaLabel="Sofort-Angebot erhalten"
       heroImage={{
@@ -61,12 +61,12 @@ export default function Page() {
         title: "Sicherheit auch zwischen den Schulungen präsent halten.",
         copy: "Gedruckte Plakate erreichen viele Beschäftigte nur unregelmäßig. Hinweise auf verwalteten Geräten können eine praktische Ergänzung sein. Ein regelmäßig wechselnder Sperrbildschirm liefert dieselbe Absicht als permanente Kontrolle — und gibt euch ein Protokoll darüber, was wann lief.",
         points: [
-          "Fortlaufende Cyber-Hygiene-Verstärkung — NIS2 (Artikel 21) erwartet kontinuierliche Sicherheitsbewusstsein und eine Aufsicht durch die Leitungsorgane. Ein rotierender Hinweis ist sichtbare Aktivität zwischen den formalen Schulungen.",
-          "Beitrag zum Human Risk Management — verschiebt Sicherheitsbewusstsein von einem Wissenstest zu einem Gewohnheits-Cue im Moment der Entscheidung, genau der Punkt, den NIST- und ISO/IEC-27001-Kontrollen betonen.",
-          "Ein leichtes Prüfprotokoll — der Arbeitsplatz-Admin erfasst die Screen-Sequenz und die Änderungsdaten, damit ihr für jeden Prüfzeitraum zeigen könnt, was den Mitarbeitenden gezeigt wurde.",
+          "Fortlaufende Cyber-Hygiene-Verstärkung — NIS2 (Artikel 21) erwartet kontinuierliche Sensibilisierung für IT-Sicherheit und eine Aufsicht durch die Leitungsorgane. Ein rotierender Hinweis ist sichtbare Aktivität zwischen den formalen Schulungen.",
+          "Beitrag zum Human Risk Management — verschiebt Sicherheitsbewusstsein von einem Wissenstest zu einem regelmäßigen Denkanstoß im Moment der Entscheidung, genau der Punkt, den NIST- und ISO/IEC-27001-Kontrollen betonen.",
+          "Ein leichtes Prüfprotokoll — die zuständige Verwaltungsperson erfasst die Screen-Sequenz und die Änderungsdaten, damit ihr für jeden Prüfzeitraum zeigen könnt, was den Mitarbeitenden gezeigt wurde.",
           "Erreicht die gesamte Belegschaft — Firmengeräte unter MDM erhalten denselben Hinweis nach demselben Zeitplan, Remote- und Frontline-Mitarbeitende eingeschlossen, ohne Abschlüsse nachzuverfolgen.",
         ],
-        note: "Konfydence Lockscreens unterstützt die menschliche Seite eines Schulungsprogramm zur IT-Sicherheits. Es macht eine Organisation allein nicht NIS2-, ISO/IEC-27001- oder anderweitig konform — die umfassenderen rechtlichen, governance- und technischen Pflichten bleiben Aufgabe der Organisation.",
+        note: "Konfydence Lockscreens unterstützt die menschliche Seite eines Schulungsprogramms zur IT-Sicherheits. Es macht eine Organisation allein nicht NIS2-, ISO/IEC-27001- oder anderweitig konform — die umfassenderen rechtlichen, governance- und technischen Pflichten bleiben Aufgabe der Organisation.",
       }}
       faq={[
         {
