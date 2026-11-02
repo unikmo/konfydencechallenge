@@ -1,7 +1,7 @@
 {
   "id": "workplace-de-wrk-07",
   "lang": "de",
-  "title": "Der Quartalsend-Rabatt läuft heute Nacht ab",
+  "title": "Quartalsrabatt: Bestellung ohne Freigabe?",
   "edition": "workplace",
   "cardType": "scenario",
   "scored": true,
@@ -20,8 +20,8 @@
   "safeActions": [
     "C"
   ],
-  "explanation": "Ein Rabatt, der genau den internen Kontrollprozess umgehen soll, ist verdächtiger als der entgangene Rabatt selbst — echte Lieferanten respektieren normale Freigabewege.",
-  "proTip": "Ein Rabatt, der Kontrollen umgehen will, kostet am Ende mehr.",
+  "explanation": "Ein attraktiver Rabatt kann einen echten Geschäftsvorteil bieten. Wenn dafür jedoch verbindliche Beschaffungs- und Freigabeprozesse umgangen werden sollen, besteht ein Risiko. Kläre die Konditionen und halte die internen Regeln ein.",
+  "proTip": "Auch Sonderangebote müssen den vorgesehenen Beschaffungsprozess durchlaufen.",
   "hackKey": "H",
   "hackTrigger": "Hetze",
   "tags": [
