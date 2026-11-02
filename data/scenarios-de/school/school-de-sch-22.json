@@ -1,7 +1,7 @@
 {
   "id": "school-de-sch-22",
   "lang": "de",
-  "title": "Der Trainer braucht ein neues Anmeldeformular",
+  "title": "Verein: plötzlich neue Bankdaten im Anmeldeformular",
   "edition": "school",
   "cardType": "scenario",
   "scored": true,
@@ -20,8 +20,8 @@
   "safeActions": [
     "B"
   ],
-  "explanation": "Vereinsbeiträge laufen über bekannte, angekündigte Wege — ein plötzlicher neuer Link mit Bankdatenabfrage und Drohung ist ein klares Warnsignal. Der Trainer kann es in einem Gespräch sofort bestätigen.",
-  "proTip": "Eine Drohung mit Vereinsausschluss soll dich vom Nachfragen abhalten.",
+  "explanation": "Eine unerwartete Nachricht mit neuer Zahlungsseite und Drohung mit dem Ausschluss ist verdächtig. Frage den Trainer oder die Vereinsverwaltung über einen bekannten Kontaktweg nach.",
+  "proTip": "Bankverbindungen für Vereinsbeiträge bei Änderungen direkt bestätigen lassen.",
   "hackKey": "A",
   "hackTrigger": "Autorität",
   "tags": [
