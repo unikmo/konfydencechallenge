@@ -12,9 +12,9 @@ export const metadata: Metadata = {
   },
 };
 
-const roles = ["CISO / Sicherheitsleitung", "Security Awareness", "Compliance", "Risikomanagement", "Personalwesen", "L&D", "IT", "Management", "Sonstiges"];
+const roles = ["CISO / Sicherheitsleitung", "Sicherheitsschulungen", "Compliance", "Risikomanagement", "Personalwesen", "Personalentwicklung", "IT", "Management", "Sonstiges"];
 const sizes = ["<250", "250–999", "1.000–4.999", "5.000–9.999", "10.000+"];
-const objectives = ["Security Awareness verbessern", "Verhalten messen", "NIS2", "Management-Training", "Phishing / Social Engineering", "Compliance-Nachweis", "CoMaSy evaluieren", "Sonstiges"];
+const objectives = ["Sicherheitsschulungen verbessern", "Verhalten messen", "NIS2", "Management-Training", "Phishing / Social Engineering", "Nachweis gesetzlicher Anforderungen", "CoMaSy evaluieren", "Sonstiges"];
 
 const proof = [
   ["Was wir feststellen", "Ausgangsmessung", "Wie die gewählte Teilnehmergruppe vor dem gezielten Training reagiert."],
@@ -34,7 +34,7 @@ export default async function PilotPageDe({ searchParams }: { searchParams: Prom
             Teste die Entscheidungssimulation in eurer Organisation, bevor ihr skaliert.
           </h1>
           <p className="k-lede">
-            Startet mit einer definierten Teilnehmergruppe, einem definierten Risikofokus und einem definierten Entscheidungspunkt. Der Pilot läuft neben eurem bestehenden Awareness-Programm — statt eine Plattformablösung zu erzwingen.
+            Ihr legt zunächst Teilnehmergruppe, Risikothemen und Erfolgskriterien fest. Die Übungen ergänzen eure bestehenden Schulungen. Ein Wechsel der Lernplattform ist dafür nicht nötig.
           </p>
           <div className="kg-promise">
             <span>Begrenzter Umfang</span><span>Kein LMS-Ersatz</span><span>Definierte Messung</span><span>Ausweiten-/Anpassen-/Stoppen-Auswertung</span>
@@ -70,7 +70,7 @@ export default async function PilotPageDe({ searchParams }: { searchParams: Prom
             <label>Organisationsgröße<select name="organizationSize" required><option value="">Auswählen…</option>{sizes.map((x) => <option key={x}>{x}</option>)}</select></label>
           </div>
           <label>Hauptziel<select name="primaryObjective" required><option value="">Auswählen…</option>{objectives.map((x) => <option key={x}>{x}</option>)}</select></label>
-          <label>Aktuelle Awareness-Plattform <small>optional</small><input name="currentPlatform" /></label>
+          <label>Bisherige Plattform für Sicherheitsschulungen <small>optional</small><input name="currentPlatform" /></label>
           <label>Was sollten wir noch wissen? <small>optional</small><textarea name="notes" rows={4} placeholder="Relevante Arbeitsabläufe, Teilnehmergruppe, Beschaffungs- oder Datenschutzanforderungen…" /></label>
           <label className="kc-form-consent">
             <input type="checkbox" name="consent" value="yes" required />
@@ -136,7 +136,7 @@ export default async function PilotPageDe({ searchParams }: { searchParams: Prom
           <p className="k-kicker">Bevor Teilnehmerdaten genutzt werden</p>
           <h2 className="k-display-sm">Datennutzung und Auswertung vorab klären.</h2>
           <p className="k-copy">
-            Der Umfang des Pilotprojekts sollte Teilnehmer-Identifikatoren, Reporting-Granularität, Zugriff, Aufbewahrungs-/Löschfristen, Subunternehmer und etwaige Anforderungen von Betriebsrat oder Arbeitnehmervertretung dokumentieren.
+            Vor dem Start vereinbaren wir, welche Teilnehmerdaten benötigt werden, wer die Auswertungen sehen darf, wie lange Daten gespeichert werden und ob die Arbeitnehmervertretung eingebunden werden muss.
           </p>
         </div>
         <div className="k-actions">
