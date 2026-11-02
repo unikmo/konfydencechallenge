@@ -1,7 +1,7 @@
 {
   "id": "school-de-sch-23",
   "lang": "de",
-  "title": "Die Schulleitung will Gutscheinkarten",
+  "title": "Schulleitung bittet angeblich um Gutscheinkarten",
   "edition": "school",
   "cardType": "scenario",
   "scored": true,
@@ -20,8 +20,8 @@
   "safeActions": [
     "B"
   ],
-  "explanation": "„Dringend, aber gerade nicht erreichbar“ ist die Standardformel, um Rückfragen zu verhindern. Das Sekretariat kann die Anfrage in einer Minute persönlich bestätigen oder entkräften.",
-  "proTip": "Wer „gerade in einer Konferenz“ ist, kann trotzdem später bestätigen.",
+  "explanation": "Eine Nachricht mit dem Namen der Schulleitung kann gefälscht sein. Bestätige ungewöhnliche Kaufaufträge persönlich im Sekretariat, bevor du Gutscheine kaufst oder Codes verschickst.",
+  "proTip": "Gutscheincodes nicht allein aufgrund einer E-Mail weitergeben.",
   "hackKey": "A",
   "hackTrigger": "Autorität",
   "tags": [
