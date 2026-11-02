@@ -142,7 +142,7 @@ export default function ComasyPageDe() {
         <div className="k-section-head">
           <div>
             <p className="k-kicker">Mehr als reine Wissensvermittlung</p>
-            <h2 className="k-display-sm">Ein Vorfall. Vier entscheidende Momente.</h2>
+            <h2 className="k-display-sm">Ein Fallbeispiel. Vier Schritte bis zur sicheren Entscheidung.</h2>
           </div>
           <p className="k-copy">
             Wissen zählt, aber die entscheidende Frage ist, was passiert, wenn eine legitim wirkende Bitte unter Druck eintrifft.
