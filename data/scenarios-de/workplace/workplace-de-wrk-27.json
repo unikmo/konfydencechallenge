@@ -1,7 +1,7 @@
 {
   "id": "workplace-de-wrk-27",
   "lang": "de",
-  "title": "Der vertraute Berater braucht OAuth-Zugriff",
+  "title": "Externer Berater verlangt weitreichenden E-Mail-Zugriff",
   "edition": "workplace",
   "cardType": "scenario",
   "scored": true,
@@ -20,8 +20,8 @@
   "safeActions": [
     "A"
   ],
-  "explanation": "Langjähriges Vertrauen rechtfertigt keinen weitreichenderen Zugriff als nötig — ein Beraterkonto kann kompromittiert werden, und die IT-Abteilung kann einen sauber begrenzten Zugang einrichten.",
-  "proTip": "Vertrauen in eine Person ersetzt kein minimal-notwendiges Zugriffsrecht.",
+  "explanation": "Eine lange Zusammenarbeit rechtfertigt keine unkontrollierten Zugriffsrechte. Prüfe die Anfrage mit der IT und vergib nur die tatsächlich benötigten Berechtigungen.",
+  "proTip": "Externe Zugriffe nur nach Prüfung und mit minimal notwendigen Rechten freigeben.",
   "hackKey": "C",
   "hackTrigger": "Vertrautheit",
   "tags": [
