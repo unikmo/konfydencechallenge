@@ -1,7 +1,7 @@
 {
   "id": "workplace-de-wrk-09",
   "lang": "de",
-  "title": "Sichere diese Dateien in 30 Minuten",
+  "title": "Rechtsabteilung: Dateien angeblich in 30 Minuten hochladen",
   "edition": "workplace",
   "cardType": "scenario",
   "scored": true,
@@ -20,8 +20,8 @@
   "safeActions": [
     "C"
   ],
-  "explanation": "Eine echte Beweissicherung (Litigation Hold) läuft über interne, bekannte Systeme — ein externer Upload-Link mit Minutenfrist ist eine bekannte Datenexfiltrations-Masche.",
-  "proTip": "Beweissicherung läuft nie über einen externen Upload-Link mit Countdown.",
+  "explanation": "Bei rechtlichen Verfahren können tatsächlich dringende Fristen gelten. Eine unerwartete Aufforderung zum Upload interner Dateien über einen fremden Link musst du dennoch unabhängig mit der Rechtsabteilung prüfen. Nutze nur genehmigte Übertragungswege.",
+  "proTip": "Vertrauliche Dateien nur über bestätigte, freigegebene Kanäle weitergeben.",
   "hackKey": "H",
   "hackTrigger": "Hetze",
   "tags": [
