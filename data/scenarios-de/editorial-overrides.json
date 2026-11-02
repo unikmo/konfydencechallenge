@@ -70,5 +70,23 @@
     "scenario": "Du erhältst eine SMS, angeblich von der Geschäftsführung auf Dienstreise. Für ein Kundengeschenk sollen dringend Gutscheinkarten gekauft werden. Die Codes sollst du sofort fotografieren und per Nachricht schicken.",
     "explanation": "Gutscheincodes können nach der Weitergabe schnell eingelöst werden. Die angebliche Reise und die Eile sollen verhindern, dass du die Bitte prüfst. Bestätige ungewöhnliche Aufträge über einen unabhängigen, bekannten Kontaktweg.",
     "proTip": "Auch dringende Wünsche der Geschäftsführung müssen den normalen Freigabeprozess einhalten."
+  },
+  "travelsafe-de-tra-01": {
+    "title": "Flughafen: angebliche Gepäckfrist von zwölf Minuten",
+    "scenario": "Am Flughafen Frankfurt erhältst du eine SMS: Dein aufgegebener Koffer sei falsch zugeordnet worden. Angeblich wird er in zwölf Minuten endgültig aussortiert, wenn du deine Buchungsdaten und Kreditkartendaten nicht sofort über einen Link bestätigst.",
+    "explanation": "Die SMS könnte gefälscht sein. Prüfe bei der Fluggesellschaft über die offizielle App, Website oder am Serviceschalter, ob es tatsächlich ein Problem mit deinem Gepäck gibt. Gib deine Kartendaten nicht über den Link aus der Nachricht ein.",
+    "proTip": "Bei Gepäckproblemen fragst du direkt bei der Fluggesellschaft nach, nicht über einen unbekannten SMS-Link."
+  },
+  "travelsafe-de-tra-02": {
+    "title": "Ferienwohnung auf Mallorca: nur gegen sofortige Überweisung",
+    "scenario": "Auf einem Ferienwohnungsportal findest du ein günstiges Apartment auf Mallorca. Die angebliche Vermieterin behauptet, du bekommst es nur, wenn du innerhalb weniger Minuten außerhalb der Plattform auf ihr Privatkonto überweist.",
+    "explanation": "Eine Zahlungsaufforderung außerhalb der Buchungsplattform ist ein deutliches Warnzeichen. Prüfe die Buchung über dein Plattformkonto und nutze nur die dort vorgesehenen Zahlungswege. Achte zusätzlich auf die jeweiligen Bedingungen für Käuferschutz und Rückerstattungen.",
+    "proTip": "Verlasse für die Bezahlung nicht einfach den offiziellen Buchungs- und Zahlungsweg der Plattform."
+  },
+  "travelsafe-de-tra-03": {
+    "title": "Visum: angeblich fehlt kurz vor Abflug noch eine Zahlung",
+    "scenario": "Kurz vor einer Fernreise erhältst du eine E-Mail: Dein Visum sei fast fertig, es fehle aber noch eine sofortige Zahlung über einen Link. Ohne diese Zahlung könne die Reise nicht stattfinden.",
+    "explanation": "Visa-Verfahren und Gebühren unterscheiden sich je nach Reiseland. Prüfe den tatsächlichen Stand deines Antrags über das offizielle Portal oder die zuständige Auslandsvertretung. Bezahle nicht über einen unerwarteten Link in einer dringlichen E-Mail.",
+    "proTip": "Prüfe Visa-Gebühren und Zahlungswege immer direkt bei der zuständigen offiziellen Stelle."
   }
 }
