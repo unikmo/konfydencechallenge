@@ -33,7 +33,7 @@ export default function Page() {
         src: "/lockscreens/workplace/desktop/12.png",
         alt: "Ein Konfydence-Desktop-Sperrbildschirm mit dem Text „Passwort123 ist in Rente. Dein Klebezettel nicht. Passwörter gehören in den Tresor.“",
       }}
-      problemTitle="Awareness zerfällt entlang einer Kurve. Euer Programm ist ein einzelner Punkt darauf."
+      problemTitle="Sicherheitsbewusstsein zerfällt entlang einer Kurve. Euer Programm ist ein einzelner Punkt darauf."
       problemCopy="Ein Kurs lehrt die Regel. Unter Druck — eine dringende Zahlung, ein gefälschter Lieferant, ein Chef, der es sofort braucht — erinnern sich Menschen nicht an eine Regel von vor Monaten. Sie brauchen den Hinweis nah am Moment, und sie brauchen ihn oft genug, damit Innehalten zum Reflex wird."
       sections={[
         {
@@ -46,7 +46,7 @@ export default function Page() {
         },
         {
           title: "Bei Bedarf messen",
-          copy: "Kombiniert den Sperrbildschirm mit einem CoMaSy-Piloten, um zu sehen, ob die verstärkte Kohorte definierte Entscheidungssignale — Innehalten, Verifizierung, Eskalation — bei unterschiedlichen Szenarien verändert.",
+          copy: "Kombiniert den Sperrbildschirm mit einem CoMaSy-Piloten, um zu sehen, ob die verstärkte Teilnehmergruppe definierte Entscheidungssignale — Innehalten, Überprüfung, Eskalation — bei unterschiedlichen Szenarien verändert.",
         },
       ]}
       howTitle="Verstärkung, die von selbst läuft."
@@ -58,15 +58,15 @@ export default function Page() {
         "Alle zwei Wochen passt sich der Hinweis an, was tatsächlich in den Postfächern ankommt.",
       ]}
       orgValue={{
-        title: "Kontinuierliche Awareness, kein Test-und-vergessen.",
-        copy: "Der Sinn, die Lücke zwischen den Schulungen zu füllen, ist, Awareness zu einer fortlaufenden Kontrolle zu machen statt zu einem jährlichen Abschlussdatum. Ein Hinweis, der sich alle zwei Wochen ändert, auf jedem Gerät, ist sichtbare Aktivität das ganze Jahr über.",
+        title: "Sicherheit auch zwischen den Schulungen präsent halten.",
+        copy: "Der Sinn, die Lücke zwischen den Schulungen zu füllen, ist, Sicherheitsbewusstsein zu einer fortlaufenden Kontrolle zu machen statt zu einem jährlichen Abschlussdatum. Ein Hinweis, der sich alle zwei Wochen ändert, auf jedem Gerät, ist sichtbare Aktivität das ganze Jahr über.",
         points: [
-          "Fortlaufende Cyber-Hygiene-Verstärkung — NIS2 (Artikel 21) erwartet kontinuierliche Awareness und eine Aufsicht durch die Leitungsorgane. Ein rotierender Hinweis ist sichtbare Aktivität zwischen den formalen Schulungen.",
-          "Beitrag zum Human Risk Management — verschiebt Awareness von einem Wissenstest zu einem Gewohnheits-Cue im Moment der Entscheidung, genau der Punkt, den NIST- und ISO/IEC-27001-Kontrollen betonen.",
+          "Fortlaufende Cyber-Hygiene-Verstärkung — NIS2 (Artikel 21) erwartet kontinuierliche Sicherheitsbewusstsein und eine Aufsicht durch die Leitungsorgane. Ein rotierender Hinweis ist sichtbare Aktivität zwischen den formalen Schulungen.",
+          "Beitrag zum Human Risk Management — verschiebt Sicherheitsbewusstsein von einem Wissenstest zu einem Gewohnheits-Cue im Moment der Entscheidung, genau der Punkt, den NIST- und ISO/IEC-27001-Kontrollen betonen.",
           "Ein leichtes Prüfprotokoll — der Arbeitsplatz-Admin erfasst die Screen-Sequenz und die Änderungsdaten, damit ihr für jeden Prüfzeitraum zeigen könnt, was den Mitarbeitenden gezeigt wurde.",
-          "Kombiniert sich mit Messung — führt einen begrenzten CoMaSy-Piloten daneben durch, für definierte Verhaltenssignale — Innehalten, Verifizierung, Eskalation — statt Abschlussquoten.",
+          "Kombiniert sich mit Messung — führt einen begrenzten CoMaSy-Piloten daneben durch, für definierte Verhaltenssignale — Innehalten, Überprüfung, Eskalation — statt Abschlussquoten.",
         ],
-        note: "Konfydence Lockscreens unterstützt die menschliche Seite eines Awareness-Programms. Es macht eine Organisation allein nicht NIS2-, ISO/IEC-27001- oder anderweitig konform — die umfassenderen rechtlichen, governance- und technischen Pflichten bleiben Aufgabe der Organisation.",
+        note: "Konfydence Lockscreens unterstützt die menschliche Seite eines Schulungsprogramm zur IT-Sicherheits. Es macht eine Organisation allein nicht NIS2-, ISO/IEC-27001- oder anderweitig konform — die umfassenderen rechtlichen, governance- und technischen Pflichten bleiben Aufgabe der Organisation.",
       }}
       faq={[
         {
@@ -75,7 +75,7 @@ export default function Page() {
             "Nein. Simulationen testen Menschen; dieser Dienst verstärkt sie zwischen den Tests. Beides funktioniert gut zusammen — der Sperrbildschirm hält die Gewohnheit warm, sodass sich Simulationsergebnisse über die Zeit verbessern.",
         },
         {
-          question: "Wie ist das besser als eine monatliche Awareness-E-Mail?",
+          question: "Wie ist das besser als eine monatliche Sicherheitsbewusstsein-E-Mail?",
           answer:
             "Eine E-Mail wird einmal geöffnet, wenn überhaupt. Ein Sperrbildschirm wird dutzende Male am Tag gesehen und kann nicht in einem ungelesenen Ordner liegen bleiben. Er erreicht auch Handys, wo inzwischen viel Phishing landet.",
         },
