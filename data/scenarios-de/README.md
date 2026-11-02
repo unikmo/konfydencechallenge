@@ -24,7 +24,7 @@ cards (12/12/12/12 H·A·C·K, 2 diagnostic per trigger) + 2 wild cards:
   Geschäftsführung, IT-Support-Impostoren, DSGVO-Auskunftsanfragen,
   Lohnbuchhaltung, Wirtschaftsprüfer, OAuth-/Cloud-Admin-Phishing.
 
-**Editorial source of truth:** The checked-in JSON files in `data/scenarios-de/` are the reviewed, production-seeded German cards. `prisma/seed.ts` reads these JSON files directly. Do **not** re-run the historical draft generators over this directory without first reconciling their output against the reviewed JSON: the draft scripts may contain older wording and can overwrite editorial changes. When changing a card, preserve `id`, `lang`, `edition`, `cardType`, `scored`, `hackKey`, `scores`, `safeActions`, and the answer-position balance. Validate the full German bank before release.
+**Editorial source of truth:** `prisma/seed.ts` imports the checked-in JSON cards in this directory. The historical draft generators also load `data/scenarios-de/editorial-overrides.json` and apply its wording over the draft cards before writing JSON. Every editorial update must therefore change both the card JSON and its corresponding entry in `editorial-overrides.json`, so a later generator run cannot undo reviewed wording. Do not change `id`, `lang`, `edition`, `cardType`, `scored`, `hackKey`, `scores`, or `safeActions` during a language edit. Validate card counts and the answer-position balance before release.
 
 **Voice decisions every deck follows** (approved by Tichi, 2026-09-10/11,
 reinforced 2026-09-11 as a standing rule for every future edition —
