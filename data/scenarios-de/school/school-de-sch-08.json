@@ -1,7 +1,7 @@
 {
   "id": "school-de-sch-08",
   "lang": "de",
-  "title": "Versandgebühr vor der Mittagspause",
+  "title": "Sneaker-Paket: 2,50 € angeblich noch vor zwölf Uhr zahlen",
   "edition": "school",
   "cardType": "scenario",
   "scored": true,
@@ -20,8 +20,8 @@
   "safeActions": [
     "C"
   ],
-  "explanation": "Eine winzige Nachgebühr mit knapper Frist ist eine klassische Smishing-Masche — der kleine Betrag soll dich zum schnellen Klick verleiten. Der echte Status steht immer in der Versand-App.",
-  "proTip": "Ein kleiner Betrag mit großer Eile ist trotzdem eine Falle.",
+  "explanation": "Eine SMS mit einer überraschenden Nachzahlung und einem Link zur Eingabe von Kartendaten könnte gefälscht sein. Prüfe den Bestell- und Versandstatus über den Shop oder Paketdienst.",
+  "proTip": "Auch kleine Beträge sind kein Grund, Kartendaten über einen SMS-Link einzugeben.",
   "hackKey": "H",
   "hackTrigger": "Hetze",
   "tags": [
