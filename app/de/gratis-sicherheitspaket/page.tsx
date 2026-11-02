@@ -6,7 +6,7 @@ import { PortfolioStrip } from "@/components/PortfolioStrip";
 const PDF_PATH = "/resources/emergency-scam-protocol?lang=de";
 
 export const metadata: Metadata = {
-  title: { absolute: "Kostenloses Merkblatt für den Betrugsfall bei Betrug | Konfydence" },
+  title: { absolute: "Kostenloses Merkblatt zum Schutz vor Betrug | Konfydence" },
   description:
     "Lade das kostenlose Konfydence-Merkblatt für den Betrugsfall herunter: ein druckbares Merkblatt mit Anhalten · Abklären · Ansprechen für den Haushalt. Ohne E-Mail-Adresse.",
   alternates: {
@@ -14,7 +14,7 @@ export const metadata: Metadata = {
     languages: { en: "https://konfydence.com/free-scam-safety-pack", de: "https://konfydence.com/de/gratis-sicherheitspaket" },
   },
   openGraph: {
-    title: "Kostenloses Konfydence-Merkblatt für den Betrugsfall bei Betrug",
+    title: "Kostenloses Merkblatt: Betrugsversuche richtig erkennen",
     description: "Ein druckbares Merkblatt mit Anhalten · Abklären · Ansprechen für den Haushalt. Kostenlos, ohne Anmeldung.",
     url: "https://konfydence.com/de/gratis-sicherheitspaket",
     siteName: "Konfydence",
@@ -33,9 +33,9 @@ export default function GratisSicherheitspaketPage() {
     <PremiumPageDe ctaHref={PDF_PATH} ctaLabel="Kostenloses PDF laden">
       <section className="k-shell k-free-dl">
         <div className="k-free-dl-copy">
-          <p className="k-breadcrumb">Kostenlose Ressource · Betrugsschutz im Haushalt</p>
+          <p className="k-breadcrumb">Kostenlos · Betrugsschutz für den Alltag</p>
           <p className="k-kicker">Für den Ernstfall</p>
-          <h1 className="k-display">Betrugsversuche erkennen: ein Merkblatt für den Ernstfall.</h1>
+          <h1 className="k-display">Betrugsversuche erkennen – mit einem kostenlosen Merkblatt.</h1>
           <p className="k-lede">
             Das Merkblatt für den Betrugsfall ist ein kostenloses, druckbares Merkblatt mit <strong>Anhalten · Abklären · Ansprechen</strong> für
             den Moment, in dem eine Nachricht, ein Anruf oder eine Zahlungsaufforderung dringend wirkt. Ohne E-Mail-Adresse, ohne Anmeldung – das PDF lädt mit einem Klick.
@@ -68,8 +68,8 @@ export default function GratisSicherheitspaketPage() {
             <img src="/lockscreens/home/phone/21.png" alt="" />
           </div>
           <div>
-            <p className="k-kicker">Die Erinnerung, die bleibt</p>
-            <h2 id="immer-da" className="k-display-sm">Ein Ausdruck hilft einmal. Ein Sperrbildschirm hilft jedes Mal, wenn du zum Handy greifst.</h2>
+            <p className="k-kicker">Sicherheitstipps im Alltag</p>
+            <h2 id="immer-da" className="k-display-sm">Das Merkblatt kannst du ausdrucken und gut sichtbar aufhängen. Ergänzend erinnern Sperrbildschirm-Hinweise an typische Betrugsmaschen.</h2>
             <p className="k-copy">
               Das Protokoll ist das Blatt für den Ernstfall. <strong>Konfydence Lockscreens</strong> zeigt dieselbe ruhige
               Aufforderung dort, wo du sie wirklich siehst – auf dem Sperrbildschirm von Handy oder Rechner – und tauscht
