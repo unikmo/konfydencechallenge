@@ -1,7 +1,7 @@
 {
   "id": "school-de-sch-19",
   "lang": "de",
-  "title": "Der Turnierveranstalter braucht deinen Login",
+  "title": "Online-Turnier: Anmeldung mit deinem Passwort?",
   "edition": "school",
   "cardType": "scenario",
   "scored": true,
@@ -20,8 +20,8 @@
   "safeActions": [
     "A"
   ],
-  "explanation": "Turniere bestätigen Teilnahme über Spieler-IDs oder Team-Codes, niemals über volle Kontozugangsdaten. Wer danach fragt, will den Account übernehmen, nicht die Teilnahme prüfen.",
-  "proTip": "Ein Turnier braucht deine Spieler-ID, nie dein Passwort.",
+  "explanation": "Ein Turnierveranstalter benötigt normalerweise keine Zugangsdaten zu deinem Spielekonto. Prüfe die Teilnahmebedingungen und nutze ausschließlich den offiziellen Anmeldeweg.",
+  "proTip": "Zur Turnieranmeldung keine Spiele-Passwörter weitergeben.",
   "hackKey": "A",
   "hackTrigger": "Autorität",
   "tags": [
