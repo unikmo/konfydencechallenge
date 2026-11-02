@@ -1846,5 +1846,49 @@
     },
     "explanation": "Eine echte Login-Seite garantiert nicht, dass die App danach vertrauenswürdig ist — genau dieser Zwei-Schritt-Trick nutzt das Vertrauen in die echte Microsoft-Seite aus.",
     "proTip": "Eine echte Login-Seite macht die App danach nicht automatisch echt."
+  },
+  "school-de-sch-41": {
+    "title": "Der „Cheat“ braucht Geräte-Admin-Rechte",
+    "scenario": "Ein herunterladbares „Cheat-Tool“ für dein Lieblingsspiel verlangt bei der Installation Geräte-Administrator-Rechte, „um die Erkennung zu umgehen“.",
+    "answers": {
+      "A": "Die Rechte erteilen, damit der Cheat richtig funktioniert.",
+      "B": "Die Rechte erteilen, aber sie danach in den Einstellungen wieder entziehen.",
+      "C": "Die Installation abbrechen und prüfen, ob das Programm sicher ist. Einer unbekannten Anwendung keine weitreichenden Geräte-Administratorrechte geben."
+    },
+    "explanation": "Geräte-Administratorrechte erlauben einer App tiefgreifende Änderungen am Gerät. Besonders bei unbekannten Cheat-Programmen ist das ein erhebliches Sicherheitsrisiko. Installiere das Programm nicht ungeprüft.",
+    "proTip": "Kein Cheat braucht die Kontrolle über dein ganzes Gerät."
+  },
+  "school-de-sch-42": {
+    "title": "Das Klassenfahrt-WLAN will deinen Social-Login",
+    "scenario": "Im Hotel-WLAN während der Klassenfahrt musst du dich angeblich über deinen Instagram- oder Google-Login „anmelden“, statt nur ein einfaches Passwort einzugeben.",
+    "answers": {
+      "A": "Bei der Lehrkraft oder beim Hotel nach dem offiziellen WLAN-Zugang fragen und die Anmeldeseite prüfen, bevor du Zugangsdaten eingibst.",
+      "B": "Sich mit dem Social-Login anmelden, um Internet zu haben.",
+      "C": "Ein Zweit-Account für die WLAN-Anmeldung nutzen."
+    },
+    "explanation": "Manche Gäste-WLANs bieten tatsächlich eine Anmeldung über bestehende Konten an. Eine unbekannte Seite kann aber auch Zugangsdaten abgreifen. Frage nach dem offiziellen Netz und prüfe, zu welcher Website die Anmeldung führt.",
+    "proTip": "Ein WLAN-Login ist nie ein guter Grund für deinen echten Social-Login."
+  },
+  "school-de-sch-45": {
+    "title": "Die Rechnung steckt in der DM",
+    "scenario": "Nach einem Gruppenkauf für ein Geschenk bekommst du eine private Nachricht mit einer „Rechnung“ und der Bitte, deinen Anteil sofort per Sofortüberweisung an ein neues Konto zu schicken.",
+    "answers": {
+      "A": "Sofort per Sofortüberweisung an das genannte Konto zahlen.",
+      "B": "In der Gruppe nachfragen, ob das genannte Konto und der Betrag wirklich stimmen, bevor du zahlst.",
+      "C": "Nur die Hälfte des genannten Betrags zahlen."
+    },
+    "explanation": "Eine private Nachricht mit einer unerwarteten Zahlungsforderung kann von einem übernommenen Konto stammen. Prüfe Betrag und Empfänger direkt mit der Gruppe, bevor du überweist.",
+    "proTip": "Eine Rechnung per DM ist keine echte Rechnung."
+  },
+  "school-de-sch-48": {
+    "title": "Werde bezahlt fürs Posten — installiere nur unsere Creator-App",
+    "scenario": "Eine angebliche Marketing-Agentur bietet dir Bezahlung fürs Teilen von Beiträgen an — du musst dafür nur ihre „Creator-App“ außerhalb des offiziellen App-Stores installieren.",
+    "answers": {
+      "A": "Die App installieren, um mit dem Bezahlt-Posten anzufangen.",
+      "B": "Die App auf einem alten Zweitgerät installieren, um vorsichtig zu bleiben.",
+      "C": "Die Agentur unabhängig überprüfen und die App nicht ungeprüft installieren. Erst Herkunft, Berechtigungen und Bezahlbedingungen klären."
+    },
+    "explanation": "Apps außerhalb offizieller Stores sind nicht automatisch schädlich, werden aber nicht durch deren übliche Prüfverfahren kontrolliert. Eine unbekannte Agentur, die vorab eine Installation verlangt, solltest du gründlich überprüfen.",
+    "proTip": "Eine App von außerhalb des Stores ist ein Risiko, kein Job-Angebot."
   }
 }
