@@ -1,7 +1,7 @@
 {
   "id": "family-de-fam-14",
   "lang": "de",
-  "title": "E-Mail vom Finanzamt",
+  "title": "Angebliche Steuererstattung vom Finanzamt",
   "edition": "family",
   "cardType": "scenario",
   "scored": true,
@@ -20,8 +20,8 @@
   "safeActions": [
     "B"
   ],
-  "explanation": "Finanzämter kündigen Erstattungen per Post oder über ELSTER an, nie per E-Mail-Link mit Dateneingabe. Die kleine, plausible Summe soll dich zum schnellen Klick bewegen. Deine Bankverbindung liegt dem Finanzamt längst vor.",
-  "proTip": "Das Finanzamt schreibt dir — es verlinkt dich nicht auf ein Formular.",
+  "explanation": "Ein vertrautes Logo und ein realistischer Betrag machen eine E-Mail nicht automatisch echt. Prüfe eine angekündigte Erstattung direkt über ELSTER oder beim zuständigen Finanzamt. Gib keine Bankdaten über einen unerwarteten Link ein.",
+  "proTip": "Steuerbescheide und Erstattungen über offizielle Wege prüfen.",
   "hackKey": "A",
   "hackTrigger": "Autorität",
   "tags": [
