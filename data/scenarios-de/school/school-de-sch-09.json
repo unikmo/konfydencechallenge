@@ -1,7 +1,7 @@
 {
   "id": "school-de-sch-09",
   "lang": "de",
-  "title": "„Schick den Code, bevor mein Vater es sieht“",
+  "title": "WhatsApp: ein Freund will deinen SMS-Code",
   "edition": "school",
   "cardType": "scenario",
   "scored": true,
@@ -20,8 +20,8 @@
   "safeActions": [
     "C"
   ],
-  "explanation": "Ein Code, der gerade bei dir ankommt, gehört zu deinem eigenen Konto — kein echter Grund macht daraus ein Konto deines Freundes. Panik und Zeitdruck sollen dich davon abhalten, das zu hinterfragen.",
-  "proTip": "Ein SMS-Code ist immer für dich — auch wenn ein Freund in Eile ist.",
+  "explanation": "Ein Einmalcode kann Zugang zu einem Konto ermöglichen. Gib ihn niemals an andere weiter, auch nicht an Freunde. Wenn dir eine Nachricht seltsam vorkommt, rufe die Person über einen bekannten Kontaktweg an.",
+  "proTip": "Einmalcodes bleiben privat. Schicke sie niemandem weiter.",
   "hackKey": "H",
   "hackTrigger": "Hetze",
   "tags": [
