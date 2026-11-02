@@ -1,7 +1,7 @@
 {
   "id": "workplace-de-wrk-05",
   "lang": "de",
-  "title": "DocuSign läuft um 17 Uhr ab",
+  "title": "DocuSign: Vertragsfreigabe angeblich nur bis 17 Uhr",
   "edition": "workplace",
   "cardType": "scenario",
   "scored": true,
@@ -20,8 +20,8 @@
   "safeActions": [
     "B"
   ],
-  "explanation": "Echte E-Signatur-Anfragen zeigen sich auch im eigenen DocuSign-Konto direkt — ein externer Link mit Ablauf-Uhrzeit ist eine bekannte Phishing-Masche für Unternehmens-Logins.",
-  "proTip": "Ein Dokument, das signiert werden soll, findest du auch im eigenen Konto direkt.",
+  "explanation": "Die Nachricht könnte zu einer gefälschten Anmeldeseite führen. Prüfe, ob das Dokument in deinem offiziellen DocuSign-Konto oder in der internen Vertragsverwaltung vorhanden ist, und beachte die internen Freigabewege.",
+  "proTip": "Öffne die Vertragsverwaltung direkt und gib Zugangsdaten nicht über verdächtige Links ein.",
   "hackKey": "H",
   "hackTrigger": "Hetze",
   "tags": [
