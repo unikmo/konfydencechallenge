@@ -1,12 +1,12 @@
 {
   "id": "university-de-uni-01",
   "lang": "de",
-  "title": "Kaution bis zum Mittagessen, sonst ist das Zimmer weg",
+  "title": "WG-Zimmer: Kaution noch vor der Besichtigung",
   "edition": "university",
   "cardType": "scenario",
   "scored": true,
   "category": "Wohnen",
-  "scenario": "Auf WG-Gesucht meldet sich eine Vermieterin für ein günstiges WG-Zimmer, das perfekt zur Uni passt. Sie will das Zimmer aber nicht persönlich zeigen — nur die Kaution von 600 € per Überweisung bis zum Mittag, „sonst geht das Zimmer an die nächste Interessentin“.",
+  "scenario": "Auf WG-Gesucht meldet sich jemand wegen eines günstigen Zimmers in Uninähe. Eine Besichtigung soll angeblich nicht möglich sein. Stattdessen verlangt die Person bis mittags 600 € Kaution, sonst werde das Zimmer anderweitig vergeben.",
   "answers": {
     "C": "Kein Geld überweisen, ohne das Zimmer und die vermietende Person persönlich oder per Videocall gesehen zu haben.",
     "A": "Nur die halbe Kaution überweisen, um vorsichtig zu bleiben.",
@@ -20,8 +20,8 @@
   "safeActions": [
     "C"
   ],
-  "explanation": "Ein Zimmer, das man nie sehen darf, aber sofort per Überweisung sichern soll, ist die klassische WG-Betrugsmasche. Echte Vermieter:innen zeigen Zimmer — persönlich oder per Video — bevor Geld fließt.",
-  "proTip": "Kein Zimmer, keine Besichtigung, kein Geld.",
+  "explanation": "Wer vor einer Besichtigung Geld verlangt und gleichzeitig Druck macht, könnte versuchen, dich zu betrügen. Eine Videobesichtigung allein beweist allerdings noch nicht, dass die Person das Zimmer tatsächlich vermieten darf. Prüfe die Identität und Berechtigung der vermietenden Person, bevor du Geld überweist.",
+  "proTip": "Zahle keine Kaution, bevor du das Angebot und die vermietende Person zuverlässig überprüft hast.",
   "hackKey": "H",
   "hackTrigger": "Hetze",
   "tags": [
