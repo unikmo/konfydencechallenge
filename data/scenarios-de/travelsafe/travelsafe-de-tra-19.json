@@ -1,7 +1,7 @@
 {
   "id": "travelsafe-de-tra-19",
   "lang": "de",
-  "title": "Die Bank hat die „Verifizierung nicht bestanden“",
+  "title": "Versicherungsfall: angeblich Online-Banking bestätigen",
   "edition": "travelsafe",
   "cardType": "scenario",
   "scored": true,
@@ -20,8 +20,8 @@
   "safeActions": [
     "C"
   ],
-  "explanation": "Eine Versicherung leitet dich nie zu einem externen Login für dein Online-Banking — das gehört nur in die eigene Banking-App.",
-  "proTip": "Online-Banking loggst du immer nur über die eigene App ein.",
+  "explanation": "Eine Aufforderung, dich für einen Versicherungsschaden über einen fremden Link beim Online-Banking anzumelden, ist ein Warnzeichen. Prüfe das Anliegen über deine Versicherung und öffne Banking nur über die offizielle App oder Website.",
+  "proTip": "Bankzugänge niemals über Links aus fremden Nachrichten öffnen.",
   "hackKey": "A",
   "hackTrigger": "Autorität",
   "tags": [
