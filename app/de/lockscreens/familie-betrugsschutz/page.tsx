@@ -4,7 +4,7 @@ import { LockscreenIntentPage } from "@/components/LockscreenIntentPage";
 export const metadata: Metadata = {
   title: { absolute: "Ein Betrugswarn-Sperrbildschirm für die Familie | Konfydence Lockscreens" },
   description:
-    "Ein ruhiger Betrugswarn-Hinweis auf dem Handy eines Elternteils oder Teenagers. Ein Anhalten · Abklären · Ansprechen-Hinweis auf dem Sperrbildschirm, alle zwei Wochen aktualisiert — keine App, kein Nörgeln.",
+    "Ein ruhiger Betrugswarn-Hinweis auf dem Handy eines Elternteils oder Teenagers. Ein Anhalten · Abklären · Ansprechen-Hinweis auf dem Sperrbildschirm, alle zwei Wochen aktualisiert — ohne zusätzliche App.",
   alternates: {
     canonical: "/de/lockscreens/familie-betrugsschutz",
     languages: { en: "https://konfydence.com/lockscreens/family-scam-protection", de: "https://konfydence.com/de/lockscreens/familie-betrugsschutz" },
@@ -25,8 +25,8 @@ export default function Page() {
       slug="familie-betrugsschutz"
       breadcrumbName="Betrugsschutz für die Familie"
       eyebrow="HOME & TEEN"
-      title="Der Betrugshinweis, der schon auf ihrem Handy ist."
-      intro="Du kannst nicht dabei sein, wenn die gefälschte Paketdienst-SMS ankommt, die Nachricht vom gehackten Freundes-Account, der Anruf, der behauptet, das Bankkonto sei kompromittiert. Aber ein Sperrbildschirm kann es. Konfydence bringt einen ruhigen Hinweis — Anhalten, Abklären, Ansprechen — auf das Handy eines Elternteils oder Teenagers und tauscht ihn still alle zwei Wochen gegen einen neuen."
+      title="Betrugsmaschen erkennen – mit regelmäßigen Hinweisen auf dem Handy."
+      intro="Du kannst nicht dabei sein, wenn die gefälschte Paketdienst-SMS ankommt, die Nachricht vom übernommenen Benutzerkonto eines Freundes, der Anruf, der behauptet, das Bankkonto sei gefährdet. Ein Hinweis auf dem Sperrbildschirm kann trotzdem helfen. Konfydence bringt einen ruhigen Hinweis — Anhalten, Abklären, Ansprechen — auf das Handy eines Elternteils oder Teenagers und aktualisiert ihn alle zwei Wochen."
       primaryCtaHref="/de/lockscreens#pricing"
       primaryCtaLabel="Home oder Teen holen — 19,99 €"
       heroImage={{
@@ -35,7 +35,7 @@ export default function Page() {
         frame: "phone",
       }}
       problemTitle="Die Menschen, um die du dir Sorgen machst, installieren keine weitere App und lesen keinen weitergeleiteten Artikel."
-      problemCopy="Warnungen von einem besorgten erwachsenen Kind werden überhört. Sicherheits-Apps werden ignoriert oder deinstalliert. Ein Sperrbildschirm verlangt von niemandem etwas — er ist einfach da, in der halben Sekunde vor dem Entsperren, und sagt das eine, was zählt: anhalten und prüfen, bevor du handelst."
+      problemCopy="Gut gemeinte Warnungen von Angehörigen gehen im Alltag leicht unter. Sicherheits-Apps werden ignoriert oder deinstalliert. Ein Sperrbildschirm verlangt von niemandem etwas — er ist einfach da, in der halben Sekunde vor dem Entsperren, und sagt das eine, was zählt: anhalten und prüfen, bevor du handelst."
       sections={[
         {
           title: "Für ein Elternteil, das immer wieder ins Visier gerät",
