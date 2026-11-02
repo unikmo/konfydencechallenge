@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { LockscreenIntentPage } from "@/components/LockscreenIntentPage";
 
 export const metadata: Metadata = {
-  title: { absolute: "Ein Betrugswarn-Sperrbildschirm für die Familie | Konfydence Lockscreens" },
+  title: { absolute: "Ein Betrugsschutz für Familien auf dem Sperrbildschirm für die Familie | Konfydence Lockscreens" },
   description:
     "Ein ruhiger Betrugswarn-Hinweis auf dem Handy eines Elternteils oder Teenagers. Ein Anhalten · Abklären · Ansprechen-Hinweis auf dem Sperrbildschirm, alle zwei Wochen aktualisiert — ohne zusätzliche App.",
   alternates: {
@@ -10,8 +10,8 @@ export const metadata: Metadata = {
     languages: { en: "https://konfydence.com/lockscreens/family-scam-protection", de: "https://konfydence.com/de/lockscreens/familie-betrugsschutz" },
   },
   openGraph: {
-    title: "Ein Betrugswarn-Sperrbildschirm für die Familie | Konfydence",
-    description: "Der Hinweis, der schon da ist, wenn die Betrugs-SMS ankommt — ohne dass du sie selbst schicken musst.",
+    title: "Ein Betrugsschutz für Familien auf dem Sperrbildschirm für die Familie | Konfydence",
+    description: "Regelmäßige Hinweise, die deine Familie auf typische Betrugsmaschen aufmerksam machen.",
     url: "https://konfydence.com/de/lockscreens/familie-betrugsschutz",
     siteName: "Konfydence",
     type: "article",
@@ -38,12 +38,12 @@ export default function Page() {
       problemCopy="Gut gemeinte Warnungen von Angehörigen gehen im Alltag leicht unter. Sicherheits-Apps werden ignoriert oder deinstalliert. Ein Sperrbildschirm verlangt von niemandem etwas — er ist einfach da, in der halben Sekunde vor dem Entsperren, und sagt das eine, was zählt: anhalten und prüfen, bevor du handelst."
       sections={[
         {
-          title: "Für ein Elternteil, das immer wieder ins Visier gerät",
-          copy: "Hinweise für die Betrugsmaschen, die ältere Erwachsene am härtesten treffen — Bank-Anrufe mit falscher Identität, „Familienmitglied in Not“-Nachrichten, Rückerstattungs- und Tech-Support-Betrug.",
+          title: "Für Eltern und ältere Angehörige",
+          copy: "Hinweise zu typischen Betrugsversuchen gegen ältere Menschen — Bank-Anrufe mit falscher Identität, „Familienmitglied in Not“-Nachrichten, Rückerstattungs- und Tech-Support-Betrug.",
         },
         {
           title: "Für das Handy eines Teenagers",
-          copy: "Ein eigenes Set für Gaming-, Social- und Gruppendruck-Betrug — Account-„Boosts“, gefälschte Gewinnspiele, Sextortion, Deepfake- und Stimmklon-Tricks — in einer Sprache, bei der ein Teenager nicht die Augen verdreht.",
+          copy: "Eigene Hinweise zu Betrug beim Gaming, in sozialen Netzwerken und im Freundeskreis — Account-„Boosts“, gefälschte Gewinnspiele, Sextortion, Deepfake- und Stimmklon-Tricks — verständlich und ohne belehrenden Ton.",
         },
       ]}
       howTitle="Einmal einrichten. Es hält sich selbst aktuell."
@@ -61,7 +61,7 @@ export default function Page() {
             "Keine App. Es ist ein Sperrbildschirmbild, das du wie jedes Hintergrundbild einrichtest. Es ist ein Jahresplan — 19,99 € im ersten Jahr, danach 14,99 € pro Jahr —, der die zweiwöchentlichen Updates und das komplette Hinweis-Set liefert.",
         },
         {
-          question: "Kann ich es remote auf dem Handy meiner Eltern einrichten?",
+          question: "Kann ich die Hinweise aus der Ferne auf dem Handy meiner Eltern einrichten?",
           answer:
             "Du brauchst das Handy einmal, um das erste Hintergrundbild zu setzen, oder um am Telefon durchzugehen. Danach ist die Aktualisierung ein einzelner Tipp, den sie selbst machen können, oder den du bei einem Besuch erledigst.",
         },
