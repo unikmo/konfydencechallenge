@@ -1,7 +1,7 @@
 {
   "id": "school-de-sch-21",
   "lang": "de",
-  "title": "„Apple/Google Support“ hat eine Abbuchung gefunden",
+  "title": "App-Store: angebliche Abbuchung stornieren",
   "edition": "school",
   "cardType": "scenario",
   "scored": true,
@@ -20,8 +20,8 @@
   "safeActions": [
     "C"
   ],
-  "explanation": "App-Store-Support kontaktiert dich nicht per Link-Anmeldung wegen einer Abbuchung — der komplette Kaufverlauf steht immer direkt in den Store-Einstellungen deines Geräts.",
-  "proTip": "Kaufverlauf prüfst du in den Einstellungen, nie über einen Link aus einer Nachricht.",
+  "explanation": "Eine Nachricht über eine unbekannte Abbuchung kann dich auf eine gefälschte Anmeldeseite locken. Prüfe deine Käufe direkt im offiziellen Store-Konto und wende dich bei Bedarf an den Anbieter.",
+  "proTip": "Käufe direkt im Store kontrollieren, nicht über Links aus Nachrichten.",
   "hackKey": "A",
   "hackTrigger": "Autorität",
   "tags": [
