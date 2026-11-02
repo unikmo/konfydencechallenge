@@ -14,10 +14,10 @@ export default function Page() {
   return <ComasyIntentPage
     lang="de"
     eyebrow="SECURITY-AWARENESS-SCHULUNG"
-    title="Vom Kennen der Regel zum Anwenden unter Druck."
-    intro="CoMaSy ergänzt bestehende Security-Awareness-Schulungen um kurze Entscheidungssimulationen, aufgebaut um Hetze, Autorität, Vertrautheit und blockierte Verifizierung. Gedacht für Organisationen, die bereits schulen, aber klarere Belege dafür wollen, wie Mitarbeitende tatsächlich entscheiden."
-    problemTitle="Ein Abschluss zeigt, wer fertig wurde. Er zeigt nicht, wie entschieden wird."
-    problemCopy="Der schwierige Moment ist selten eine Quizfrage. Es ist eine dringende Zahlungsanweisung, ein vertrauter Account, der sich seltsam verhält, ein Lieferantenwechsel oder eine Führungskraft, die um eine Ausnahme bittet. CoMaSy übt den Entscheidungsprozess genau in diesen Momenten."
+    title="Sicherheitsregeln kennen reicht nicht. Man muss sie auch unter Druck anwenden können."
+    intro="CoMaSy ergänzt bestehende Security-Awareness-Schulungen um kurze Entscheidungssimulationen, zu Zeitdruck, vorgetäuschter Autorität, vertrauten Absendern und erschwerter Überprüfung. Gedacht für Organisationen, die bereits schulen, aber besser verstehen möchten, wie Mitarbeitende in schwierigen Situationen entscheiden."
+    problemTitle="Eine abgeschlossene Schulung zeigt noch nicht, ob Mitarbeitende im Ernstfall richtig handeln."
+    problemCopy="Im Arbeitsalltag geht es selten um eine Quizfrage. Es ist eine dringende Zahlungsanweisung, ein vertrauter Account, der sich seltsam verhält, ein Lieferantenwechsel oder eine Führungskraft, die um eine Ausnahme bittet. CoMaSy übt den Entscheidungsprozess genau in diesen Momenten."
     sections={[
       { title: "Realistische Entscheidungen üben", copy: "Praxisnahe Szenarien, in denen die Bitte legitim wirken kann und der sicherste nächste Schritt von Verifizierung abhängt, nicht von bloßem Misstrauen." },
       { title: "Definierte Signale messen", copy: "Erfasse Innehalten, unabhängige Verifizierung, Impulshandlungen und Reaktionen auf H.A.C.K.-Druckmuster aus den Entscheidungen der Teilnehmenden." },
