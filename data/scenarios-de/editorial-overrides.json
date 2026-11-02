@@ -278,7 +278,7 @@
     "title": "Mietwagenschalter: Zusatzvertrag unter Zeitdruck",
     "scenario": "Am Mietwagenschalter drängt der Mitarbeiter, schnell einen zusätzlichen „Vollkasko-Plus“-Vertrag auf einem Tablet zu unterschreiben, ohne die Details zu erklären, weil „der Shuttle draußen wartet“.",
     "answers": {
-      "C": "Um einen Moment und eine ausgedruckte Übersicht der Zusatzkosten bitten, bevor irgendetwas unterschrieben wird — der Shuttle wartet notfalls eine Minute.",
+      "C": "Vor der Unterschrift um eine verständliche Übersicht der Zusatzkosten und Versicherungsbedingungen bitten und dir Zeit zum Lesen nehmen.",
       "A": "Schnell unterschreiben, um den Shuttle nicht zu verpassen.",
       "B": "Nur mündlich nach den Kosten fragen und dann unterschreiben."
     },
@@ -298,11 +298,11 @@
   },
   "workplace-de-wrk-04": {
     "title": "Lieferung angeblich nur nach sofortiger Zahlung",
-    "scenario": "Ein Anruf eines Lieferanten drängt, eine ausstehende Zahlung sofort per Blitzüberweisung anzuweisen, sonst werde die für heute geplante Lieferung „in einer Stunde storniert“.",
+    "scenario": "Ein Lieferant ruft an und fordert, eine ausstehende Zahlung sofort per Echtzeitüberweisung zu leisten. Andernfalls werde die für heute geplante Lieferung angeblich innerhalb einer Stunde storniert.",
     "answers": {
-      "A": "Die Zahlung über den regulären, mit dem Lieferanten vereinbarten Freigabeprozess abwickeln, statt wegen einer Stundenfrist eine ungeprüfte Blitzüberweisung anzuweisen.",
-      "B": "Die Blitzüberweisung sofort anweisen, um die Lieferung nicht zu verlieren.",
-      "C": "Nur einen Teilbetrag als Blitzüberweisung anweisen."
+      "A": "Die Forderung und Bankverbindung über bekannte Lieferantenkontakte prüfen und die Zahlung im regulären Freigabeprozess abwickeln.",
+      "B": "Die Echtzeitüberweisung sofort ausführen, damit die Lieferung nicht ausfällt.",
+      "C": "Nur einen Teilbetrag per Echtzeitüberweisung senden."
     },
     "explanation": "Die angekündigte Stornierung kann echten geschäftlichen Zeitdruck auslösen. Trotzdem müssen Bankverbindung, offene Forderung und Freigabe intern überprüft werden. Kläre die Situation über bekannte Kontaktdaten des Lieferanten.",
     "proTip": "Eilige Lieferungen sind kein Grund, Zahlungsfreigaben zu überspringen."
@@ -443,11 +443,11 @@
     "title": "Landausflug: letzter Platz über privaten Zahlungslink",
     "scenario": "Kurz vor dem Ablegen bewirbt ein Stand am Hafen einen „letzten Platz“ für einen Landausflug — Buchung nur über einen privaten Zahlungslink, „bevor das Schiff ablegt“.",
     "answers": {
-      "B": "Landausflüge nur über die offizielle Buchungsstelle des Reiseveranstalters oder an Bord buchen, nicht über einen privaten Link am Hafen.",
+      "B": "Den Anbieter, die Leistungen und die Zahlungsbedingungen überprüfen. Nur über einen nachvollziehbaren, sicheren Zahlungsweg buchen.",
       "A": "Über den privaten Link sofort buchen und zahlen.",
       "C": "Nur eine Anzahlung über den Link leisten."
     },
-    "explanation": "Ein Hafenstand kann seriös sein. Ein privater Zahlungslink unter großem Zeitdruck ist jedoch ein Warnzeichen. Prüfe den Anbieter und seine Bedingungen, bevor du buchst oder bezahlst.",
+    "explanation": "Auch unabhängige Ausflugsanbieter am Hafen können seriös sein. Eine Buchung unter starkem Zeitdruck über einen privaten Zahlungslink solltest du jedoch erst nach Prüfung des Anbieters und seiner Bedingungen vornehmen.",
     "proTip": "Buche Landausflüge nur bei überprüfbaren Anbietern über sichere Zahlungswege."
   },
   "travelsafe-de-tra-09": {
