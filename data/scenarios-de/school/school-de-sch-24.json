@@ -1,7 +1,7 @@
 {
   "id": "school-de-sch-24",
   "lang": "de",
-  "title": "Die Schulverwaltung braucht deine Zugangsdaten „zur Migration“",
+  "title": "Schulcloud: angebliche Umstellung verlangt Passwort",
   "edition": "school",
   "cardType": "scenario",
   "scored": true,
@@ -20,8 +20,8 @@
   "safeActions": [
     "A"
   ],
-  "explanation": "Eine echte Systemmigration läuft im Hintergrund — sie verlangt nie, dass alle Nutzer ihre Zugangsdaten über ein externes Formular neu eingeben. Das ist ein klassischer Massen-Phishing-Versuch.",
-  "proTip": "Migrationen passieren ohne dich — Zugangsdaten gibst du dafür nie erneut ein.",
+  "explanation": "Eine technische Umstellung kann eine Anmeldung erfordern. Einen unerwarteten Link solltest du trotzdem nicht verwenden. Prüfe die Aufforderung im offiziellen Schulportal oder bei der Schul-IT.",
+  "proTip": "Passwörter nur über die bekannte offizielle Schulplattform eingeben.",
   "hackKey": "A",
   "hackTrigger": "Autorität",
   "tags": [
