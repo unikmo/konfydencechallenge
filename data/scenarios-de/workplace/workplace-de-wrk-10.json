@@ -1,7 +1,7 @@
 {
   "id": "workplace-de-wrk-10",
   "lang": "de",
-  "title": "Die Führungskraft sitzt fest — sofort umbuchen",
+  "title": "Geschäftsführung angeblich gestrandet: sofort Flug buchen",
   "edition": "workplace",
   "cardType": "scenario",
   "scored": true,
@@ -20,8 +20,8 @@
   "safeActions": [
     "B"
   ],
-  "explanation": "Eine echte gestrandete Führungskraft ruft das Reisebüro oder die Assistenz an — sie schickt keinen Buchungslink mit sofortiger Kartenzahlungsaufforderung per SMS.",
-  "proTip": "Firmenkarten-Buchungen laufen über das Reisebüro, nie über einen SMS-Link.",
+  "explanation": "Auch echte Reisestörungen können dringend sein. Eine ungewöhnliche Buchungsaufforderung per SMS muss trotzdem über einen bekannten Kontaktweg bestätigt und nach dem internen Reise- und Zahlungsprozess bearbeitet werden.",
+  "proTip": "Firmenkreditkarten nur über freigegebene Buchungswege einsetzen.",
   "hackKey": "H",
   "hackTrigger": "Hetze",
   "tags": [
