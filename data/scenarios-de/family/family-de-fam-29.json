@@ -1,7 +1,7 @@
 {
   "id": "family-de-fam-29",
   "lang": "de",
-  "title": "Papa hat eine neue Nummer, bitte PayPal",
+  "title": "Angeblich neuer Kontakt: „Papa braucht 250 €“",
   "edition": "family",
   "cardType": "scenario",
   "scored": true,
@@ -20,8 +20,8 @@
   "safeActions": [
     "C"
   ],
-  "explanation": "Wortwahl und Tonfall lassen sich aus alten Nachrichten oder gehackten Konten leicht kopieren. Ein kurzer Anruf auf der alten Nummer zeigt sofort, ob die Person überhaupt eine neue Nummer hat.",
-  "proTip": "Neues Handy, alte Bitte um Geld — erst die alte Nummer anrufen.",
+  "explanation": "Der Schreibstil einer Nachricht ist kein zuverlässiger Identitätsnachweis. Bestätige den angeblichen Nummernwechsel über den bisherigen Kontakt oder eine andere bekannte Person.",
+  "proTip": "Bei einer neuen Nummer und einer Geldforderung erst zurückrufen.",
   "hackKey": "C",
   "hackTrigger": "Vertrautheit",
   "tags": [
