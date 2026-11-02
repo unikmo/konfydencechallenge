@@ -5,7 +5,7 @@ import { legalStyles as s } from "@/lib/theme/legalPageStyles";
 export const metadata: Metadata = {
   title: { absolute: "Datenschutz | Konfydence" },
   description: "Konfydence Datenschutzerklärung — wie wir deine Daten schützen.",
-  alternates: { languages: { en: "https://konfydence.com/privacy-policy", de: "https://konfydence.com/de/datenschutz" } },
+  alternates: { canonical: "/de/datenschutz", languages: { en: "https://konfydence.com/privacy-policy", de: "https://konfydence.com/de/datenschutz" } },
 };
 
 export default function DatenschutzPage() {
