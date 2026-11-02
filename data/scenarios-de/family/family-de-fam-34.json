@@ -1,7 +1,7 @@
 {
   "id": "family-de-fam-34",
   "lang": "de",
-  "title": "Deine Cousine sitzt im Ausland fest",
+  "title": "Cousine im Ausland bittet angeblich dringend um Geld",
   "edition": "family",
   "cardType": "scenario",
   "scored": true,
@@ -20,8 +20,8 @@
   "safeActions": [
     "C"
   ],
-  "explanation": "Reisenotfälle über einen Chat, der plötzlich nur noch Text erlaubt, sind ein klassisches Zeichen für ein übernommenes Konto. Ein Videoanruf zeigt sofort, ob wirklich deine Cousine am anderen Ende ist.",
-  "proTip": "Wer wirklich im Ausland festsitzt, kann fast immer telefonieren oder sich per Video zeigen.",
+  "explanation": "Ein übernommenes Messenger-Konto kann einen echten Reise-Notfall vortäuschen. Versuche die Person über einen anderen bekannten Weg zu erreichen. Falls sie nicht erreichbar ist, kläre die Situation mit Angehörigen.",
+  "proTip": "Notfallnachrichten über einen zweiten Kontaktweg bestätigen.",
   "hackKey": "C",
   "hackTrigger": "Vertrautheit",
   "tags": [
