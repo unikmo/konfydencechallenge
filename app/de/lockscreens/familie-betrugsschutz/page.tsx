@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { LockscreenIntentPage } from "@/components/LockscreenIntentPage";
 
 export const metadata: Metadata = {
-  title: { absolute: "Ein Betrugsschutz für Familien auf dem Sperrbildschirm für die Familie | Konfydence Lockscreens" },
+  title: { absolute: "Betrugsschutz für Familien auf dem Sperrbildschirm | Konfydence Lockscreens" },
   description:
     "Ein ruhiger Betrugswarn-Hinweis auf dem Handy eines Elternteils oder Teenagers. Ein Anhalten · Abklären · Ansprechen-Hinweis auf dem Sperrbildschirm, alle zwei Wochen aktualisiert — ohne zusätzliche App.",
   alternates: {
@@ -10,7 +10,7 @@ export const metadata: Metadata = {
     languages: { en: "https://konfydence.com/lockscreens/family-scam-protection", de: "https://konfydence.com/de/lockscreens/familie-betrugsschutz" },
   },
   openGraph: {
-    title: "Ein Betrugsschutz für Familien auf dem Sperrbildschirm für die Familie | Konfydence",
+    title: "Betrugsschutz für Familien auf dem Sperrbildschirm | Konfydence",
     description: "Regelmäßige Hinweise, die deine Familie auf typische Betrugsmaschen aufmerksam machen.",
     url: "https://konfydence.com/de/lockscreens/familie-betrugsschutz",
     siteName: "Konfydence",
@@ -26,7 +26,7 @@ export default function Page() {
       breadcrumbName="Betrugsschutz für die Familie"
       eyebrow="HOME & TEEN"
       title="Betrugsmaschen erkennen – mit regelmäßigen Hinweisen auf dem Handy."
-      intro="Du kannst nicht dabei sein, wenn die gefälschte Paketdienst-SMS ankommt, die Nachricht vom übernommenen Benutzerkonto eines Freundes, der Anruf, der behauptet, das Bankkonto sei gefährdet. Ein Hinweis auf dem Sperrbildschirm kann trotzdem helfen. Konfydence bringt einen ruhigen Hinweis — Anhalten, Abklären, Ansprechen — auf das Handy eines Elternteils oder Teenagers und aktualisiert ihn alle zwei Wochen."
+      intro="Du kannst nicht bei jedem verdächtigen Anruf und jeder gefälschten Nachricht helfen. Ein kurzer Hinweis auf dem Sperrbildschirm erinnert deine Familie daran, erst nachzudenken und dann zu handeln. Konfydence stellt dafür regelmäßig neue Motive bereit – für Erwachsene und Jugendliche."
       primaryCtaHref="/de/lockscreens#pricing"
       primaryCtaLabel="Home oder Teen holen — 19,99 €"
       heroImage={{
@@ -34,8 +34,8 @@ export default function Page() {
         alt: "Ein Konfydence-Handy-Sperrbildschirm mit dem Text „Steuerrückzahlung wartet? Öffne das offizielle Steuerportal selbst.“",
         frame: "phone",
       }}
-      problemTitle="Die Menschen, um die du dir Sorgen machst, installieren keine weitere App und lesen keinen weitergeleiteten Artikel."
-      problemCopy="Gut gemeinte Warnungen von Angehörigen gehen im Alltag leicht unter. Sicherheits-Apps werden ignoriert oder deinstalliert. Ein Sperrbildschirm verlangt von niemandem etwas — er ist einfach da, in der halben Sekunde vor dem Entsperren, und sagt das eine, was zählt: anhalten und prüfen, bevor du handelst."
+      problemTitle="Nicht jede Warnung bleibt im Gedächtnis – ein sichtbarer Hinweis kann helfen."
+      problemCopy="Warnungen werden schnell vergessen. Ein kurzer Hinweis auf dem Handy kann täglich an sichere Gewohnheiten erinnern – etwa unbekannte Nummern zu überprüfen und niemals aus Zeitdruck Geld zu überweisen."
       sections={[
         {
           title: "Für Eltern und ältere Angehörige",
@@ -46,13 +46,13 @@ export default function Page() {
           copy: "Eigene Hinweise zu Betrug beim Gaming, in sozialen Netzwerken und im Freundeskreis — Account-„Boosts“, gefälschte Gewinnspiele, Sextortion, Deepfake- und Stimmklon-Tricks — verständlich und ohne belehrenden Ton.",
         },
       ]}
-      howTitle="Einmal einrichten. Es hält sich selbst aktuell."
-      howCopy="Du richtest den ersten Screen in etwa einer Minute ein. Danach ist alle zwei Wochen ein neuer bereit — ein Tipp zum Aktualisieren, oder du lässt es liegen, und der Hinweis erneuert sich einfach."
+      howTitle="Einmal einrichten. Neue Hinweise einfach übernehmen."
+      howCopy="Richte den ersten Hinweis als Hintergrundbild ein. Alle zwei Wochen steht ein neues Motiv bereit, das du herunterladen und selbst als Hintergrundbild festlegen kannst."
       howSteps={[
         "Wähle Home oder Teen Home und schließe den Kauf auf konfydence.com ab.",
-        "Öffne den Link auf dem Handy, das du schützt, und speichere den aktuellen Screen als Hintergrundbild — kurze, geführte Schritte für iPhone und Android.",
-        "Alle zwei Wochen: „Dein nächster Konfydence-Screen ist bereit.“ Ein Tipp zum Aktualisieren.",
-        "Der Wortlaut verfolgt das ganze Jahr über die Betrugsmaschen, die gerade kursieren.",
+        "Öffne den Link auf dem gewünschten Handy und speichere das Bild. Eine kurze Anleitung zeigt dir die Einrichtung auf iPhone und Android.",
+        "Alle zwei Wochen erhältst du einen neuen Hinweis zum Herunterladen.",
+        "Die Motive behandeln unterschiedliche Betrugsmaschen aus dem Alltag.",
       ]}
       faq={[
         {
@@ -63,7 +63,7 @@ export default function Page() {
         {
           question: "Kann ich die Hinweise aus der Ferne auf dem Handy meiner Eltern einrichten?",
           answer:
-            "Du brauchst das Handy einmal, um das erste Hintergrundbild zu setzen, oder um am Telefon durchzugehen. Danach ist die Aktualisierung ein einzelner Tipp, den sie selbst machen können, oder den du bei einem Besuch erledigst.",
+            "Für die erste Einrichtung brauchst du das Handy oder musst die Person telefonisch anleiten. Danach ist die Aktualisierung ein einzelner Tipp, den sie selbst machen können, oder den du bei einem Besuch erledigst.",
         },
         {
           question: "Ist die Teenager-Version wirklich anders?",
@@ -76,7 +76,7 @@ export default function Page() {
             "Nein. Es ist ein statisches Bild. Es überwacht das Handy nicht, sendet keine Benachrichtigungen und meldet nichts an dich oder Konfydence zurück.",
         },
       ]}
-      calloutTitle="Bring den Hinweis dorthin, wo sie ihn sehen — ohne dass du derjenige bist, der nörgelt."
+      calloutTitle="Betrugsschutz beginnt mit einem einfachen Hinweis auf dem Handy."
     />
   );
 }
