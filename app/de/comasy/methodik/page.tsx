@@ -5,7 +5,7 @@ import { PremiumPageDe } from "@/components/PremiumSiteChrome";
 export const metadata: Metadata = {
   title: { absolute: "CoMaSy-Methodik | Entscheidungsverhalten messen" },
   description:
-    "Wie CoMaSy Pause Adoption, Verification Rate, Impulse Rate und H.A.C.K.-Druckmuster-Signale definiert und interpretiert.",
+    "So erfasst und interpretiert CoMaSy Innehalten, unabhängige Überprüfung und risikoreiche Entscheidungen in realistischen Übungen.",
   alternates: {
     canonical: "/de/comasy/methodik",
     languages: { en: "https://konfydence.com/comasy/methodology", de: "https://konfydence.com/de/comasy/methodik" },
@@ -22,12 +22,12 @@ const metrics = [
 const principles = [
   ["01", "Beobachtbar", "Kennzahlen sind an konkrete Entscheidungen der Teilnehmenden geknüpft, nicht an vermutete Persönlichkeitsmerkmale."],
   ["02", "Definiert", "Jede Kennzahl hat eine schriftliche Definition, die konsistent über Szenariovarianten hinweg angewendet werden kann."],
-  ["03", "Vergleichend", "Ausgangsmessung- und Abschlussmessungn-Ergebnisse werden innerhalb einer definierten Teilnehmergruppe und eines Anwendungsfalls verglichen."],
+  ["03", "Vergleichend", "Ergebnisse der Ausgangs- und Abschlussmessung werden innerhalb einer definierten Teilnehmergruppe und eines Anwendungsfalls verglichen."],
   ["04", "Begrenzt", "Ergebnisse sind Trainingsbelege. Sie stellen keine individuelle Sicherheitskompetenz oder regulatorische Konformität fest."],
 ];
 
 const flow = [
-  ["Ausgangsmessung", "Ein definiertes Auswahl von Übungssituationen vor dem gezielten Training durchführen."],
+  ["Ausgangsmessung", "Vor dem Training bearbeiten die Teilnehmenden eine festgelegte Auswahl von Übungssituationen."],
   ["Gezieltes Training", "Die relevanten Druckmuster und Geschäftsabläufe üben."],
   ["Abschlussmessung", "Ungesehene oder deutlich unterschiedliche Szenarien nutzen, damit reines Wiedererkennen nicht als Verbesserung durchgeht."],
   ["Auswertung", "Teilnehmergruppensignale vergleichen, Grenzen besprechen und über Skalierung / Anpassung / Stopp entscheiden."],
@@ -121,7 +121,7 @@ export default function MethodologyPageDe() {
         <div>
           <p className="k-kicker">Nächster Schritt</p>
           <h2 className="k-display-sm">Die Methodik in einem überschaubaren Pilotprojekt prüfen.</h2>
-          <p className="k-copy">Vereinbart Teilnehmergruppe, Risikofokus, Auswahl von Übungssituationen und Entscheidungskriterien, bevor ihr skaliert.</p>
+          <p className="k-copy">Legt Teilnehmergruppe, Risikothemen, Übungssituationen und Entscheidungskriterien fest, bevor ihr das Training ausweitet.</p>
         </div>
         <div className="k-actions">
           <Link className="k-button" href="/de/comasy/pilotprojekt">Pilotprojekt anfragen</Link>
