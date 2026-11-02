@@ -8,7 +8,7 @@
   "category": "Flughafen & Gepäck",
   "scenario": "Am Flughafen Frankfurt erhältst du eine SMS: Dein aufgegebener Koffer sei falsch zugeordnet worden. Angeblich wird er in zwölf Minuten endgültig aussortiert, wenn du deine Buchungsdaten und Kreditkartendaten nicht sofort über einen Link bestätigst.",
   "answers": {
-    "A": "Die SMS ignorieren und direkt am Gepäckschalter oder über die offizielle App der Airline nachfragen, ob wirklich ein Problem vorliegt.",
+    "A": "Den Link nicht öffnen und direkt bei der Fluggesellschaft über die offizielle App, Website oder am Serviceschalter nachfragen.",
     "B": "Sofort über den Link die Daten bestätigen, um das Gepäck zu retten.",
     "C": "Nur die Buchungsnummer eingeben, aber keine Kartendaten."
   },
