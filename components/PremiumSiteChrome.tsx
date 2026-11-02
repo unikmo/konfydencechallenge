@@ -44,17 +44,17 @@ const EN_TO_DE: Record<string, string> = {
   "/gift/thank-you": "/de/geschenk/danke",
   "/free-scam-safety-pack": "/de/gratis-sicherheitspaket",
   "/travelsafe": "/de/travelsafe",
-  "/family": "/de/family",
-  "/school": "/de/school",
-  "/university": "/de/university",
-  "/workplace": "/de/workplace",
+  "/family": "/de/challenge",
+  "/school": "/de/challenge",
+  "/university": "/de/challenge",
+  "/workplace": "/de/challenge",
   "/security-awareness-training": "/de/sicherheitsbewusstsein-schulung",
   "/cybersecurity-awareness-training-for-employees": "/de/cybersicherheit-schulung-mitarbeiter",
   "/social-engineering-training": "/de/social-engineering-schulung",
   "/security-decision-simulation": "/de/entscheidungssimulation-sicherheit",
 };
 const DE_TO_EN: Record<string, string> = Object.fromEntries(
-  Object.entries(EN_TO_DE).filter(([en]) => en !== "/comasy/pilot/thank-you").map(([en, de]) => [de, en])
+  Object.entries(EN_TO_DE).filter(([en]) => !["/comasy/pilot/thank-you", "/family", "/school", "/university", "/workplace"].includes(en)).map(([en, de]) => [de, en])
 );
 const trim = (path: string) => (path.length > 1 ? path.replace(/[/]+$/, "") : path);
 
