@@ -1,7 +1,7 @@
 {
   "id": "workplace-de-wrk-26",
   "lang": "de",
-  "title": "Dein Kollege schickt eine Teams-Datei",
+  "title": "Teams-Datei von Kollegen fordert erneut Firmen-Login",
   "edition": "workplace",
   "cardType": "scenario",
   "scored": true,
@@ -20,8 +20,8 @@
   "safeActions": [
     "B"
   ],
-  "explanation": "Eine normale Teams-geteilte Datei öffnet sich direkt, ohne erneute volle Anmeldung zu verlangen — das ist ein bekanntes Zeichen für ein kompromittiertes Kollegenkonto.",
-  "proTip": "Eine echte geteilte Datei verlangt keine erneute volle Anmeldung.",
+  "explanation": "Auch ein vertrauter Chat kann einen manipulierten Link enthalten. Prüfe die Freigabe über die offiziellen Microsoft-365-Anwendungen und bestätige unerwartete Anmeldeaufforderungen bei Bedarf über die IT.",
+  "proTip": "Anmeldelinks in Chats kritisch prüfen – besonders bei unerwarteten Logins.",
   "hackKey": "C",
   "hackTrigger": "Vertrautheit",
   "tags": [
