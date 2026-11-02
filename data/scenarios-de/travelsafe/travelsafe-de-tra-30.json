@@ -1,7 +1,7 @@
 {
   "id": "travelsafe-de-tra-30",
   "lang": "de",
-  "title": "Der Gastgeber braucht „noch eine Kaution“",
+  "title": "Ferienwohnung: Gastgeber fordert zusätzliche Kaution",
   "edition": "travelsafe",
   "cardType": "scenario",
   "scored": true,
@@ -20,8 +20,8 @@
   "safeActions": [
     "A"
   ],
-  "explanation": "Zahlungsaufforderungen außerhalb der Buchungsplattform sind die häufigste Betrugsmasche bei Ferienwohnungen — die Plattform-eigene Zahlung ist immer der sichere Weg.",
-  "proTip": "Jede Zahlung außerhalb der Plattform ist ein Warnsignal.",
+  "explanation": "Eine überraschende Kaution außerhalb des vereinbarten Buchungswegs ist ein Warnzeichen. Prüfe den Vertrag und wende dich direkt an die Buchungsplattform, bevor du Geld überweist.",
+  "proTip": "Zusätzliche Zahlungen nur nach Prüfung der Buchungsbedingungen leisten.",
   "hackKey": "C",
   "hackTrigger": "Vertrautheit",
   "tags": [
