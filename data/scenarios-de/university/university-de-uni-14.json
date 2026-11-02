@@ -1,7 +1,7 @@
 {
   "id": "university-de-uni-14",
   "lang": "de",
-  "title": "Der „kleine Gefallen“ deines Professors",
+  "title": "Professor bittet angeblich dringend um Gutscheinkarten",
   "edition": "university",
   "cardType": "scenario",
   "scored": true,
@@ -20,8 +20,8 @@
   "safeActions": [
     "C"
   ],
-  "explanation": "„Dringend, aber gerade nicht erreichbar“ soll Rückfragen verhindern. Ein E-Mail-Konto einer Lehrkraft kann kompromittiert sein — eine persönliche Rückfrage klärt es sofort.",
-  "proTip": "Wer „gerade auf einer Tagung“ ist, kann trotzdem später bestätigen.",
+  "explanation": "Eine E-Mail im Namen einer bekannten Lehrkraft kann gefälscht sein oder von einem übernommenen Konto stammen. Bestätige ungewöhnliche Kaufaufträge über einen unabhängigen Kontaktweg, bevor du Geld ausgibst.",
+  "proTip": "Auch bei bekannten Absendern ungewöhnliche Zahlungsaufträge unabhängig bestätigen.",
   "hackKey": "A",
   "hackTrigger": "Autorität",
   "tags": [
