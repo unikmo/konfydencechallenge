@@ -3,9 +3,9 @@ import type { Metadata } from "next";
 import { PremiumPageDe } from "@/components/PremiumSiteChrome";
 
 export const metadata: Metadata = {
-  title: { absolute: "Schul-Pilotprojekt anfragen | Konfydence" },
+  title: { absolute: "Pilotprojekt für Schulen anfragen | Konfydence" },
   description:
-    "Ein Pilotprojekt mit einer Klasse oder Jahrgangsstufe von 12 bis 18 Jahren. Die Schule behält die Hoheit über die Schülerdaten, und das Datenmodell wird geklärt, bevor die Schülerinnen und Schüler teilnehmen.",
+    "Ein Pilotprojekt mit einer Klasse oder Jahrgangsstufe von 12 bis 18 Jahren. Die Schule entscheidet über den Umgang mit den Daten der Schülerinnen und Schüler, und das Datenmodell wird geklärt, bevor die Schülerinnen und Schüler teilnehmen.",
   alternates: {
     canonical: "/de/pilot/schulen",
     languages: { en: "https://konfydence.com/pilot/schools", de: "https://konfydence.com/de/pilot/schulen" },
@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 };
 
 const roles = ["Schulleitung / stellv. Schulleitung", "Lehrkraft", "Schulsozialarbeit / Schutzkonzept", "IT / Digitalbeauftragte", "Datenschutzbeauftragte", "Schulträger / Schulbehörde", "Sonstiges"];
-const sizes = ["Unter 250 Schüler", "250–999 Schüler", "Über 1.000 Schüler"];
+const sizes = ["Weniger als 250 Schülerinnen und Schüler", "250 bis 999 Schülerinnen und Schüler", "Mehr als 1.000 Schülerinnen und Schüler"];
 const ageGroups = ["12–13 Jahre", "14–15 Jahre", "16–18 Jahre", "Gemischt"];
 const objectives = ["Unterricht zur Online-Sicherheit ergänzen", "Schutzkonzept der Schule", "Entscheidungsverhalten messen", "Konfydence kennenlernen", "Sonstiges"];
 
@@ -41,7 +41,7 @@ export default async function SchulPilotPage({ searchParams }: { searchParams: P
     <PremiumPageDe ctaHref="#anfrage" ctaLabel="Pilot anfragen">
       <section className="kg-shell kc-pilot">
         <div className="kc-pilot-intro">
-          <p className="k-kicker">Schul-Pilotprojekt · 12 bis 18 Jahre</p>
+          <p className="k-kicker">Pilotprojekt für Schulen · 12 bis 18 Jahre</p>
           <h1 className="k-display" style={{ fontSize: "clamp(31px,4vw,52px)" }}>
             Probiert das Entscheidungstraining mit einer Klasse aus, bevor ihr es ausrollt.
           </h1>
@@ -61,7 +61,7 @@ export default async function SchulPilotPage({ searchParams }: { searchParams: P
         </div>
 
         <form id="anfrage" className="kc-form" action="/api/comasy/pilot" method="post">
-          <p className="k-kicker">Schul-Pilotprojekt anfragen</p>
+          <p className="k-kicker">Pilotprojekt für Schulen anfragen</p>
           <h2 className="k-display-sm" style={{ fontSize: "28px", margin: "0 0 10px" }}>Sagt uns, was ihr herausfinden wollt.</h2>
           <p className="kc-form-intro">
             Das ist eine unverbindliche Anfrage, kein Kauf. Bitte füllt sie als Schulpersonal aus.
@@ -98,7 +98,7 @@ export default async function SchulPilotPage({ searchParams }: { searchParams: P
           <input type="hidden" name="utm_medium" value={q.utm_medium || ""} />
           <input type="hidden" name="utm_campaign" value={q.utm_campaign || ""} />
           <input type="hidden" name="landingPage" value="/de/pilot/schulen" />
-          <button className="k-button" type="submit">Schul-Pilotprojekt anfragen</button>
+          <button className="k-button" type="submit">Pilotprojekt für Schulen anfragen</button>
           <p className="kc-form-privacy">
             Lest dazu <Link href="/de/comasy/sicherheit#schulen">Schulen &amp; Schülerdaten</Link> und die <Link href="/de/datenschutz#kinder">Datenschutzerklärung</Link>.
           </p>
