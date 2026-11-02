@@ -328,5 +328,170 @@
     },
     "explanation": "Betrüger können echte IT-Störungen ausnutzen und passende Nachrichten fälschen. Prüfe die Aufforderung über den bekannten IT-Service-Desk oder das offizielle interne System, bevor du dein Passwort änderst.",
     "proTip": "Gerade bei einer echten IT-Störung sollten Passwortänderungen nur über bekannte interne Wege erfolgen."
+  },
+  "family-de-fam-07": {
+    "title": "Viruswarnung im Browser: angeblich nur vier Minuten",
+    "scenario": "Ein lautes Pop-up auf dem Bildschirm deiner Mutter meldet einen Virus und zählt rückwärts: „Ihr PC wird in 4 Minuten gesperrt.“ Eine Telefonnummer für „Microsoft-Support“ wird angezeigt.",
+    "answers": {
+      "A": "Die Nummer anrufen, um den Computer noch rechtzeitig retten zu lassen.",
+      "B": "Auf der Seite nach einer anderen Kontaktmöglichkeit suchen, die seriöser wirkt.",
+      "C": "Den Computer einfach ausschalten und neu starten; ein Countdown auf einer Webseite kann nichts sperren."
+    },
+    "explanation": "Eine Warnung im Browser kann von einer unseriösen Website stammen. Schließe den Tab, ohne die angezeigte Telefonnummer anzurufen. Wenn sich das Fenster nicht schließen lässt oder tatsächlich technische Probleme auftreten, hole Hilfe über einen bekannten IT-Support-Kontakt.",
+    "proTip": "Rufe keine Supportnummer aus einem unerwarteten Browser-Pop-up an."
+  },
+  "family-de-fam-08": {
+    "title": "Konzerttickets: Zahlung ohne Käuferschutz?",
+    "scenario": "In einer Facebook-Gruppe bietet jemand zwei Tickets für das heutige Konzert zum Originalpreis an, weil er „kurzfristig verhindert“ sei. Er verlangt Zahlung per PayPal „Familie und Freunde“, da das schneller gehe.",
+    "answers": {
+      "A": "Sofort per „Familie und Freunde“ zahlen, um die Tickets vor jemand anderem zu sichern.",
+      "B": "Zahlung nur über den regulären PayPal-Warenkauf mit Käuferschutz anbieten — oder ganz ablehnen, wenn der Verkäufer das nicht akzeptiert.",
+      "C": "Die Hälfte anzahlen und den Rest bei Übergabe zahlen."
+    },
+    "explanation": "Eine Zahlung über PayPal „Freunde und Familie“ ist nicht für Käufe bei Unbekannten gedacht und bietet keinen regulären Käuferschutz. Nutze eine sichere Ticketplattform und prüfe, ob die Tickets übertragen werden können.",
+    "proTip": "Bei unbekannten Verkäufern auf sichere Zahlungs- und Übertragungswege achten."
+  },
+  "family-de-fam-09": {
+    "title": "Versicherung: angebliche Auszahlung nur noch heute",
+    "scenario": "Ein Anruf im Namen deiner Kfz-Versicherung sagt, die Auszahlung für einen alten Schaden „schließt heute“, und du müsstest deine IBAN sofort bestätigen, damit das Geld nicht verfällt.",
+    "answers": {
+      "A": "Die IBAN am Telefon bestätigen, damit die Auszahlung nicht verfällt.",
+      "B": "Auflegen und im Kundenportal der Versicherung oder über die bekannte Servicenummer nachfragen, ob wirklich eine Zahlung offen ist.",
+      "C": "Nach dem Namen des Mitarbeiters fragen und dann entscheiden."
+    },
+    "explanation": "Eine unerwartete Zahlungsankündigung mit Zeitdruck ist verdächtig. Beende den Anruf und prüfe über deine Versicherung, ob tatsächlich eine Auszahlung vorgesehen ist. Verwende dafür die bekannten Kontaktdaten.",
+    "proTip": "Eine angebliche Tagesfrist ist kein Grund, persönliche Daten am Telefon preiszugeben."
+  },
+  "school-de-sch-07": {
+    "title": "Schülerwettbewerb: Anmeldung nur noch eine Stunde möglich",
+    "scenario": "Eine E-Mail zu einem bundesweiten Schülerwettbewerb sagt, die Anmeldung schließe in einer Stunde und verlangt eine „Bearbeitungsgebühr“ von 15 € per Guthabenkarte, um den Platz zu sichern.",
+    "answers": {
+      "A": "Bei deiner Schule oder Lehrkraft nachfragen, ob der Wettbewerb und die Gebühr echt sind, bevor du zahlst.",
+      "B": "Die Gebühr sofort per Guthabenkarte zahlen, um die Anmeldung nicht zu verpassen.",
+      "C": "Nur die Hälfte der Gebühr zahlen, um vorsichtig zu bleiben."
+    },
+    "explanation": "Ein unerwartetes Angebot mit kurzer Frist und Bezahlung per Guthabenkarte ist verdächtig. Frage eine Lehrkraft oder prüfe die offizielle Website des Wettbewerbs, bevor du Geld ausgibst.",
+    "proTip": "Gebühren für Wettbewerbe nur über bestätigte offizielle Wege bezahlen."
+  },
+  "school-de-sch-08": {
+    "title": "Sneaker-Paket: 2,50 € angeblich noch vor zwölf Uhr zahlen",
+    "scenario": "Nach einer Sneaker-Bestellung kommt eine SMS: Eine Versandgebühr von 2,50 € müsse vor 12 Uhr per Kartendaten über einen Link nachgezahlt werden, sonst gehe das Paket zurück.",
+    "answers": {
+      "A": "Die Kartendaten sofort über den Link eingeben, um das Paket nicht zu verlieren.",
+      "B": "Die Gebühr überweisen statt Kartendaten einzugeben.",
+      "C": "Den Bestellstatus direkt beim Shop oder Versanddienst über die offizielle App oder Website prüfen."
+    },
+    "explanation": "Eine SMS mit einer überraschenden Nachzahlung und einem Link zur Eingabe von Kartendaten könnte gefälscht sein. Prüfe den Bestell- und Versandstatus über den Shop oder Paketdienst.",
+    "proTip": "Auch kleine Beträge sind kein Grund, Kartendaten über einen SMS-Link einzugeben."
+  },
+  "school-de-sch-09": {
+    "title": "WhatsApp: ein Freund will deinen SMS-Code",
+    "scenario": "Ein Freund schreibt dir auf WhatsApp panisch, er brauche sofort deinen gerade erhaltenen SMS-Code für ein Konto, „bevor mein Vater das Handy sieht“ — es dauere nur eine Minute.",
+    "answers": {
+      "A": "Den Code sofort schicken, um ihm schnell zu helfen.",
+      "B": "Nur die Hälfte des Codes schicken.",
+      "C": "Den Code für niemanden weiterschicken und ihn stattdessen anrufen, um zu verstehen, was wirklich los ist."
+    },
+    "explanation": "Ein Einmalcode kann Zugang zu einem Konto ermöglichen. Gib ihn niemals an andere weiter, auch nicht an Freunde. Wenn dir eine Nachricht seltsam vorkommt, rufe die Person über einen bekannten Kontaktweg an.",
+    "proTip": "Einmalcodes bleiben privat. Schicke sie niemandem weiter."
+  },
+  "university-de-uni-07": {
+    "title": "Laptop-Paket: angeblich fehlen 2,40 € Zollgebühr",
+    "scenario": "Eine SMS im Namen von DHL sagt, dein neu bestellter Laptop könne wegen einer offenen Zollgebühr von 2,40 € nicht zugestellt werden. Der Link verlangt Kartendaten und Adresse.",
+    "answers": {
+      "B": "Die SMS ignorieren und die Sendung direkt in der DHL-App oder auf dhl.de mit der Sendungsnummer verfolgen.",
+      "A": "Über den Link zahlen, um die Zustellung nicht zu verzögern.",
+      "C": "Den Link öffnen, aber nur die Adresse bestätigen, keine Kartendaten."
+    },
+    "explanation": "Eine überraschende Zahlungsaufforderung per SMS kann gefälscht sein. Prüfe deine Sendung über die offizielle App oder Website des Paketdienstes. Gib keine Kartendaten über den mitgeschickten Link ein.",
+    "proTip": "Nachzahlungen für Pakete unabhängig beim Versanddienst überprüfen."
+  },
+  "university-de-uni-08": {
+    "title": "Nothilfefonds: überraschende E-Mail mit kurzer Frist",
+    "scenario": "Eine Mail im Namen des Studierendenwerks kündigt einen einmaligen Nothilfefonds für in Not geratene Studierende an — die Bewerbung mit vollständigen Kontodaten müsse heute Abend über einen externen Link eingereicht werden.",
+    "answers": {
+      "A": "Direkt beim Studierendenwerk über die offizielle Website oder Telefonnummer nachfragen, ob dieser Fonds und der Link wirklich echt sind.",
+      "B": "Die Kontodaten sofort über den Link einreichen, um die Frist nicht zu verpassen.",
+      "C": "Nur einen Teil der Daten einreichen, um vorsichtig zu bleiben."
+    },
+    "explanation": "Ein Hilfsfonds kann echte Fristen haben. Eine unerwartete E-Mail, die sensible Daten über einen fremden Link verlangt, solltest du trotzdem unabhängig prüfen. Nutze die offiziellen Kontaktdaten deines Studierendenwerks.",
+    "proTip": "Bewerbungsfristen und Antragswege für finanzielle Hilfen direkt bei der zuständigen Stelle prüfen."
+  },
+  "university-de-uni-09": {
+    "title": "Hiwi-Angebot: sofort Kontodaten schicken?",
+    "scenario": "Eine E-Mail, angeblich von einem Professor, den du nur aus einer großen Vorlesung kennst, bietet dir spontan eine gut bezahlte Hiwi-Stelle an — du müsstest aber noch heute deine Kontodaten für die „sofortige erste Zahlung“ schicken.",
+    "answers": {
+      "C": "Den Professor über die offizielle Uni-E-Mail-Adresse oder in der Sprechstunde persönlich fragen, ob das Angebot wirklich von ihm kommt, bevor du Kontodaten schickst.",
+      "A": "Die Kontodaten sofort schicken, um die Stelle nicht zu verpassen.",
+      "B": "Nur den Namen und die Matrikelnummer schicken."
+    },
+    "explanation": "Auch eine Nachricht mit dem Namen eines Professors kann gefälscht sein. Prüfe die Stelle und die Identität des Absenders über einen bekannten Hochschulkontakt. Sensible Daten sollten nur im vorgesehenen Einstellungsverfahren übermittelt werden.",
+    "proTip": "Unverhoffte Stellenangebote über die offizielle Hochschuladresse bestätigen lassen."
+  },
+  "travelsafe-de-tra-07": {
+    "title": "eSIM am Flughafen: 70 Prozent Rabatt mit Countdown",
+    "scenario": "Ein Bildschirm am Gate zeigt Werbung für eine eSIM mit 70 % Rabatt, „nur noch sechs Minuten gültig“ — der QR-Code führt zu einer Seite außerhalb bekannter eSIM-Anbieter, die volle Kartendaten verlangt.",
+    "answers": {
+      "B": "Den Rabatt ignorieren und eine eSIM nur über einen bekannten, etablierten Anbieter direkt in dessen eigener App kaufen.",
+      "A": "Den QR-Code scannen und die Kartendaten eingeben, um den Rabatt zu sichern.",
+      "C": "Den Code scannen, aber ein virtuelles Karten-Duplikat verwenden."
+    },
+    "explanation": "Ein hoher Rabatt und ein Countdown sind kein Beweis für Betrug. Bei einem unbekannten Zahlungsanbieter und einer fremden Website ist jedoch Vorsicht geboten. Prüfe Anbieter, Preise und Zahlungswege unabhängig.",
+    "proTip": "eSIM-Angebote über einen geprüften Anbieter und dessen offizielle Website vergleichen."
+  },
+  "travelsafe-de-tra-08": {
+    "title": "Landausflug: letzter Platz über privaten Zahlungslink",
+    "scenario": "Kurz vor dem Ablegen bewirbt ein Stand am Hafen einen „letzten Platz“ für einen Landausflug — Buchung nur über einen privaten Zahlungslink, „bevor das Schiff ablegt“.",
+    "answers": {
+      "B": "Landausflüge nur über die offizielle Buchungsstelle des Reiseveranstalters oder an Bord buchen, nicht über einen privaten Link am Hafen.",
+      "A": "Über den privaten Link sofort buchen und zahlen.",
+      "C": "Nur eine Anzahlung über den Link leisten."
+    },
+    "explanation": "Ein Hafenstand kann seriös sein. Ein privater Zahlungslink unter großem Zeitdruck ist jedoch ein Warnzeichen. Prüfe den Anbieter und seine Bedingungen, bevor du buchst oder bezahlst.",
+    "proTip": "Buche Landausflüge nur bei überprüfbaren Anbietern über sichere Zahlungswege."
+  },
+  "travelsafe-de-tra-09": {
+    "title": "Lounge-Zugang: angeblich sofortige Verlängerung nötig",
+    "scenario": "Eine Mail sagt, dein gebuchter Lounge-Zugang verfalle, sobald das Boarding beginnt, und verlangt eine sofortige „Verlängerungsgebühr“ über einen Link, um ihn zu behalten.",
+    "answers": {
+      "A": "Den Lounge-Zugang direkt an der Lounge-Rezeption oder über die Airline-App prüfen, statt über den Link zu zahlen.",
+      "B": "Die Verlängerungsgebühr sofort über den Link zahlen.",
+      "C": "Nur die Buchungsnummer über den Link bestätigen."
+    },
+    "explanation": "Eine unerwartete E-Mail mit einem Zahlungslink solltest du nicht ungeprüft verwenden. Kläre direkt an der Rezeption oder beim Anbieter, ob dein Zugang noch gültig ist und ob zusätzliche Gebühren anfallen.",
+    "proTip": "Zugang und Gebühren direkt bei der Lounge oder dem offiziellen Anbieter prüfen."
+  },
+  "workplace-de-wrk-07": {
+    "title": "Quartalsrabatt: Bestellung ohne Freigabe?",
+    "scenario": "Ein neuer Lieferant bietet einen außergewöhnlich hohen Rabatt, der „nur bis Mitternacht wegen Quartalsabschluss“ gelte, wenn die Bestellung sofort ohne den üblichen Freigabeprozess ausgelöst wird.",
+    "answers": {
+      "C": "Die Bestellung durch den regulären Beschaffungs-Freigabeprozess laufen lassen, unabhängig von der angeblichen Mitternachtsfrist.",
+      "A": "Die Bestellung sofort ohne Freigabeprozess auslösen, um den Rabatt zu sichern.",
+      "B": "Nur eine Teilbestellung ohne Freigabeprozess auslösen."
+    },
+    "explanation": "Ein attraktiver Rabatt kann einen echten Geschäftsvorteil bieten. Wenn dafür jedoch verbindliche Beschaffungs- und Freigabeprozesse umgangen werden sollen, besteht ein Risiko. Kläre die Konditionen und halte die internen Regeln ein.",
+    "proTip": "Auch Sonderangebote müssen den vorgesehenen Beschaffungsprozess durchlaufen."
+  },
+  "workplace-de-wrk-08": {
+    "title": "Kundenerstattung: angebliche Eskalation auf Social Media",
+    "scenario": "Eine Mail, angeblich vom Vorgesetzten, drängt, einem unbekannten Kunden sofort eine hohe Erstattung ohne die übliche Prüfung auszuzahlen, „bevor er in den sozialen Medien eskaliert“.",
+    "answers": {
+      "A": "Die Erstattung durch die reguläre Prüfung laufen lassen und die Anweisung beim Vorgesetzten persönlich oder telefonisch bestätigen, bevor ausgezahlt wird.",
+      "B": "Die Erstattung sofort ohne Prüfung auszahlen, um eine öffentliche Eskalation zu vermeiden.",
+      "C": "Nur die Hälfte der Erstattung sofort auszahlen."
+    },
+    "explanation": "Die mögliche öffentliche Beschwerde erzeugt Zeitdruck. Bestätige ungewöhnliche Anweisungen unabhängig und halte die vereinbarten Prüf- und Freigabeschritte ein, bevor Geld ausgezahlt wird.",
+    "proTip": "Reputationsdruck ersetzt keine Prüfung der Forderung."
+  },
+  "workplace-de-wrk-09": {
+    "title": "Rechtsabteilung: Dateien angeblich in 30 Minuten hochladen",
+    "scenario": "Eine Mail im Namen der Rechtsabteilung verlangt, binnen 30 Minuten bestimmte interne Dateien über einen externen Upload-Link „zur Beweissicherung“ hochzuladen, wegen eines angeblich laufenden Verfahrens.",
+    "answers": {
+      "C": "Die Anfrage direkt bei der internen Rechtsabteilung über eine bekannte Nummer bestätigen lassen, bevor Dateien über einen externen Link hochgeladen werden.",
+      "A": "Die Dateien sofort über den externen Link hochladen, um die Frist einzuhalten.",
+      "B": "Nur einen Teil der Dateien hochladen."
+    },
+    "explanation": "Bei rechtlichen Verfahren können tatsächlich dringende Fristen gelten. Eine unerwartete Aufforderung zum Upload interner Dateien über einen fremden Link musst du dennoch unabhängig mit der Rechtsabteilung prüfen. Nutze nur genehmigte Übertragungswege.",
+    "proTip": "Vertrauliche Dateien nur über bestätigte, freigegebene Kanäle weitergeben."
   }
 }
