@@ -1,7 +1,7 @@
 {
   "id": "family-de-fam-25",
   "lang": "de",
-  "title": "Hallo Mama, neue Nummer",
+  "title": "„Hallo Mama“: angeblich neues Handy und dringende Rechnung",
   "edition": "family",
   "cardType": "scenario",
   "scored": true,
@@ -20,8 +20,8 @@
   "safeActions": [
     "C"
   ],
-  "explanation": "Betrüger übernehmen Tonfall und Familienrolle mühelos — der vertraute Stil ist kein Nachweis. Eine Kontrollfrage lässt sich oft erraten oder ergoogeln; ein kurzer Anruf auf der bekannten Nummer klärt in Sekunden, wer da wirklich schreibt.",
-  "proTip": "Neue Nummer, alte Stimme im Kopf — erst hören, dann handeln.",
+  "explanation": "Ein vertrauter Schreibstil beweist nicht, dass wirklich dein Kind schreibt. Rufe über die bisher bekannte Nummer an oder nutze einen anderen unabhängigen Kontaktweg, bevor du Geld überweist.",
+  "proTip": "Neue Nummer und Geldforderung? Erst die Identität unabhängig bestätigen.",
   "hackKey": "C",
   "hackTrigger": "Vertrautheit",
   "tags": [
