@@ -1,7 +1,7 @@
 {
   "id": "workplace-de-wrk-12",
   "lang": "de",
-  "title": "Die Wirtschaftsprüfer brauchen diese Datei vor Mittag",
+  "title": "Wirtschaftsprüfung: vertrauliche Datei vor zwölf Uhr senden",
   "edition": "workplace",
   "cardType": "scenario",
   "scored": true,
@@ -20,8 +20,8 @@
   "safeActions": [
     "A"
   ],
-  "explanation": "Wirtschaftsprüfungen laufen über einen vorher vereinbarten, sicheren Datenraum — ein plötzlicher externer Link mit Mittagsfrist weicht vom vereinbarten Prozess ab und ist ein Warnsignal.",
-  "proTip": "Prüfungsunterlagen gehen nur über den vereinbarten Datenraum, nie über einen neuen Link.",
+  "explanation": "Prüfungsunterlagen können dringend benötigt werden. Ein neuer, externer Upload-Link darf dennoch nicht ungeprüft verwendet werden. Bestätige die Anfrage unabhängig und nutze den vereinbarten sicheren Datenraum.",
+  "proTip": "Vertrauliche Prüfungsunterlagen nur über vereinbarte, freigegebene Wege übermitteln.",
   "hackKey": "H",
   "hackTrigger": "Hetze",
   "tags": [
