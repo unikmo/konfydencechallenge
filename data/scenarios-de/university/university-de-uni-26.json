@@ -6,7 +6,7 @@
   "cardType": "scenario",
   "scored": true,
   "category": "Lernchats",
-  "scenario": "Im WhatsApp-Lerngruppenchat für die anstehende Klausur teilt jemand einen Link zu einem „geteilten Lernleitfaden“, der zum Öffnen deinen Uni-Portal-Login verlangt.",
+  "scenario": "Im WhatsApp-Chat deiner Lerngruppe teilt jemand kurz vor der Klausur einen Link zu angeblichen Lernunterlagen. Um sie zu öffnen, sollst du dich mit deinen Hochschul-Zugangsdaten auf einer unbekannten Seite anmelden.",
   "answers": {
     "C": "Den Link nicht öffnen und stattdessen direkt im Uni-Portal oder auf der offiziellen Kursseite nach Lernmaterial suchen.",
     "A": "Sich über den Link mit dem Uni-Login anmelden, um den Leitfaden zu sehen.",
