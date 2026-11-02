@@ -1,7 +1,7 @@
 {
   "id": "travelsafe-de-tra-09",
   "lang": "de",
-  "title": "Dein Lounge-Zugang „läuft beim Boarding ab“",
+  "title": "Lounge-Zugang: angeblich sofortige Verlängerung nötig",
   "edition": "travelsafe",
   "cardType": "scenario",
   "scored": true,
@@ -20,8 +20,8 @@
   "safeActions": [
     "A"
   ],
-  "explanation": "Ein Lounge-Zugang „verfällt“ nicht durch das Boarding anderer Flüge — die Lounge-Rezeption oder die Airline-App zeigen den echten Status.",
-  "proTip": "Lounge-Zugang prüfst du vor Ort, nie über einen Link aus einer Mail.",
+  "explanation": "Eine unerwartete E-Mail mit einem Zahlungslink solltest du nicht ungeprüft verwenden. Kläre direkt an der Rezeption oder beim Anbieter, ob dein Zugang noch gültig ist und ob zusätzliche Gebühren anfallen.",
+  "proTip": "Zugang und Gebühren direkt bei der Lounge oder dem offiziellen Anbieter prüfen.",
   "hackKey": "H",
   "hackTrigger": "Hetze",
   "tags": [
