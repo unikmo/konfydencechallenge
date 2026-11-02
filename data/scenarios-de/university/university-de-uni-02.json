@@ -1,12 +1,12 @@
 {
   "id": "university-de-uni-02",
   "lang": "de",
-  "title": "Deine BAföG-Nachzahlung läuft heute Mitternacht ab",
+  "title": "BAföG-Nachzahlung angeblich nur noch heute",
   "edition": "university",
   "cardType": "scenario",
   "scored": true,
   "category": "BAföG",
-  "scenario": "Eine SMS im Namen des Studierendenwerks sagt, eine BAföG-Nachzahlung von 340 € verfalle um Mitternacht, wenn du nicht sofort über einen Link deine IBAN bestätigst.",
+  "scenario": "Du bekommst eine SMS, angeblich vom Studierendenwerk. Eine BAföG-Nachzahlung über 340 € verfalle um Mitternacht, wenn du deine IBAN nicht sofort über den Link in der Nachricht bestätigst.",
   "answers": {
     "C": "Abwarten und morgen direkt im BAföG-Online-Portal oder beim Studierendenwerk nachfragen, ob wirklich etwas offen ist.",
     "A": "Die IBAN sofort über den Link bestätigen, um die Nachzahlung nicht zu verlieren.",
@@ -20,8 +20,8 @@
   "safeActions": [
     "C"
   ],
-  "explanation": "BAföG-Nachzahlungen verfallen nicht über Nacht, und das Studierendenwerk verschickt keine SMS-Links mit Kontodatenabfrage. Sowohl der Link als auch eine Nummer daraus führen zu den Tätern.",
-  "proTip": "Eine Frist bis Mitternacht ist gemacht, damit du nicht nachdenkst.",
+  "explanation": "Die knappe Frist soll dich zu einer unüberlegten Eingabe bewegen. Prüfe deinen BAföG-Bescheid und frage über das offizielle Portal oder bekannte Kontaktdaten bei der zuständigen Stelle nach. Verwende weder den Link noch eine Telefonnummer aus der verdächtigen Nachricht.",
+  "proTip": "Eine angebliche Frist bis Mitternacht solltest du unabhängig überprüfen.",
   "hackKey": "H",
   "hackTrigger": "Hetze",
   "tags": [
