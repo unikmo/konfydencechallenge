@@ -8,7 +8,7 @@
   "category": "Aufsichtsbehörden",
   "scenario": "Eine Mail, angeblich von einer Aufsichtsbehörde, verlangt die sofortige Übermittlung interner Unterlagen „noch heute“ über eine externe Upload-Seite, sonst drohten „rechtliche Konsequenzen“.",
   "answers": {
-    "B": "Die Anfrage über den internen Compliance- oder Rechtsverantwortlichen bestätigen lassen und Unterlagen nur über offizielle, bekannte Behördenkanäle übermitteln.",
+    "B": "Die Anfrage von der zuständigen internen Rechts- oder Compliance-Stelle überprüfen lassen und Unterlagen nur über freigegebene Behördenkanäle übermitteln.",
     "A": "Die Unterlagen sofort über die externe Upload-Seite übermitteln.",
     "C": "Nur einen Teil der Unterlagen übermitteln."
   },
