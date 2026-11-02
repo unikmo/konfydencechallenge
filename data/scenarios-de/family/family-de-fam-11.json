@@ -6,7 +6,7 @@
   "cardType": "scenario",
   "scored": true,
   "category": "Online-Shopping",
-  "scenario": "Eine automatisierte Anrufstimme meldet eine Abbuchung von 749 € für ein Amazon-Prime-Abo und bittet, „1“ zu drücken, um mit einem Mitarbeiter verbunden zu werden und die Zahlung zu stoppen.",
+  "scenario": "Eine automatische Telefonansage behauptet, über dein Amazon-Konto seien 749 € abgebucht worden. Du sollst die Taste 1 drücken, um mit dem Kundenservice verbunden zu werden und die Zahlung zu stoppen.",
   "answers": {
     "A": "Auflegen und direkt in der Amazon-App unter „Meine Bestellungen“ und den Zahlungen nachsehen, ob wirklich etwas abgebucht wurde.",
     "B": "Zurückrufen unter der angezeigten Nummer, um sicherzugehen.",
