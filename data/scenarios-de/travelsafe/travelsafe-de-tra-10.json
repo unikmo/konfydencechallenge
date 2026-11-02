@@ -1,7 +1,7 @@
 {
   "id": "travelsafe-de-tra-10",
   "lang": "de",
-  "title": "Dein Koffer wurde gefunden — zahl den Kurier",
+  "title": "Verlorener Koffer gefunden: angeblich Kurierkosten fällig",
   "edition": "travelsafe",
   "cardType": "scenario",
   "scored": true,
@@ -20,8 +20,8 @@
   "safeActions": [
     "C"
   ],
-  "explanation": "Airlines und Fundbüros verlangen keine Vorabzahlung per Guthabenkarte für die Zustellung gefundenen Gepäcks — das ist eine bekannte Betrugsmasche.",
-  "proTip": "Ein gefundener Koffer braucht keine Guthabenkarte, um zurückzukommen.",
+  "explanation": "Eine Aufforderung, Kurierkosten für gefundenes Gepäck per Guthabenkarte zu bezahlen, ist verdächtig. Prüfe die Nachricht über die zuständige Fluggesellschaft oder das Fundbüro und verwende ausschließlich bestätigte Zahlungswege.",
+  "proTip": "Bei Nachrichten über verlorenes Gepäck direkt bei der zuständigen Stelle nachfragen.",
   "hackKey": "H",
   "hackTrigger": "Hetze",
   "tags": [
