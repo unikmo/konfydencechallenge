@@ -16,13 +16,13 @@ const controls = [
   ["Anwendungssicherheit", "Die aktuelle Webanwendung konfiguriert Sicherheits-Header, darunter CSP, HSTS, X-Content-Type-Options, Referrer-Policy und Frame-Beschränkungen."],
   ["Schutz des Pilot-Formulars", "Pilotanfragen werden serverseitig validiert und ratenbegrenzt, bevor Lead-Datensätze angelegt werden."],
   ["Consent-bewusste Analyse", "Die GA4-Instrumentierung ist optional und soll erst nach ausdrücklicher Analyse-Einwilligung Verhaltens-Events senden."],
-  ["Datenminimierung", "Der Pilotumfang sollte vorab festlegen, welche Teilnehmer- und Kohortendaten tatsächlich benötigt werden. Ein Reporting auf Einzelpersonenebene wird nicht standardmäßig vorausgesetzt."],
+  ["Datenminimierung", "Der Umfang des Pilotprojekts sollte vorab festlegen, welche Teilnehmer- und Teilnehmergruppendaten tatsächlich benötigt werden. Ein Reporting auf Einzelpersonenebene wird nicht standardmäßig vorausgesetzt."],
 ];
 
 const dataItems = [
   ["Pilotanfragedaten", "Name, dienstliche E-Mail-Adresse, Organisation, Rolle, Organisationsgröße, Ziel, aktuelle Plattform, Notizen, Einwilligung und Zuordnungsfelder können über den Pilotanfrage-Ablauf erfasst werden."],
-  ["Teilnehmerdaten", "Für einen Piloten können Szenario-Antworten und daraus abgeleitete Trainingssignale erforderlich sein. Die genauen Teilnehmer-Identifikatoren und die Reporting-Granularität werden vor der Übung vereinbart."],
-  ["Zugriff & Aufbewahrung", "Kundenspezifische Zugriffs-, Aufbewahrungs- und Löschanforderungen sollten im Pilotumfang oder in der kommerziellen Vereinbarung dokumentiert werden, bevor echte Teilnehmerdaten verarbeitet werden."],
+  ["Teilnehmerdaten", "Für einen Piloten können Szenario-Antworten und daraus abgeleitete Trainingsergebnisse erforderlich sein. Die genauen Teilnehmer-Identifikatoren und die Reporting-Granularität werden vor der Übung vereinbart."],
+  ["Zugriff & Aufbewahrung", "Kundenspezifische Zugriffs-, Aufbewahrungs- und Löschanforderungen sollten im Umfang des Pilotprojekts oder in der kommerziellen Vereinbarung dokumentiert werden, bevor echte Teilnehmerdaten verarbeitet werden."],
 ];
 
 const schoolItems = [
@@ -38,7 +38,7 @@ const schoolItems = [
 const checklist = [
   "Wer ist der Verantwortliche für die Kundendaten, und wer verarbeitet Daten in dessen Auftrag?",
   "Welche Teilnehmer-Identifikatoren sind notwendig?",
-  "Kann der Pilot auf Kohortenebene ausgewertet werden?",
+  "Kann der Pilot auf Teilnehmergruppenebene ausgewertet werden?",
   "Wer kann auf Rohantworten und abgeleitete Signale zugreifen?",
   "Welche Aufbewahrungs-/Löschfrist gilt?",
   "Sind Freigaben von Betriebsrat oder Arbeitnehmervertretung erforderlich?",
@@ -88,7 +88,7 @@ export default function SecurityPageDe() {
             <p className="k-copy">
               CoMaSy ist um beobachtbare Szenario-Entscheidungen herum aufgebaut. Der Pilot sollte genau festlegen,
               welche Felder erforderlich sind, wer auf Ergebnisse zugreifen darf und ob das Reporting individuell,
-              auf Kohortenebene oder beides erfolgt.
+              auf Teilnehmergruppenebene oder beides erfolgt.
             </p>
           </div>
           <ul className="kc-list">
@@ -172,7 +172,7 @@ export default function SecurityPageDe() {
       <section className="kg-shell k-callout">
         <div>
           <p className="k-kicker">Pilotprojekt anfragen</p>
-          <h2 className="k-display-sm">Bring eure Sicherheits- und Datenschutzfragen in den Pilotumfang ein.</h2>
+          <h2 className="k-display-sm">Bring eure Sicherheits- und Datenschutzfragen in den Umfang des Pilotprojekts ein.</h2>
           <p className="k-copy">Eine qualifizierte Pilotanfrage sollte Datenmodell und Prüfanforderungen vor der Skalierung ausdrücklich klären.</p>
         </div>
         <div className="k-actions">
