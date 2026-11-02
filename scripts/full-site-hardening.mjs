@@ -92,7 +92,8 @@ async function auditRoute(url) {
   for (const match of html.matchAll(/<(?:img|source|video)[^>]+(?:src|srcset)=["']([^"']+)["']/gi)) {
     for (const part of match[1].split(',').map((value) => value.trim().split(/\s+/)[0]).filter(Boolean)) {
       try {
-        const asset = new URL(part, url);
+        const decoded = part.replace(/&amp;/gi, '&').replace(/&#38;/g, '&').replace(/&#x26;/gi, '&');
+        const asset = new URL(decoded, url);
         if (asset.protocol === 'http:' || asset.protocol === 'https:') assets.add(asset.href);
       } catch {}
     }
