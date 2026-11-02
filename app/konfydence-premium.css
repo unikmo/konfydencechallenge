@@ -98,3 +98,7 @@ button,input,textarea,select{font:inherit}
   .k-footer nav{column-gap:16px;row-gap:13px}
   .k-footer nav a{font-size:12px;line-height:1.35}
 }
+
+/* Explain illustrative enterprise data without implying a measured customer outcome. */
+.k-dashboard-explainer{margin:22px 0 0;padding:16px 18px;border-top:1px solid var(--k-line);background:var(--k-paper);border-radius:10px;color:var(--k-muted);font-size:13px;line-height:1.65}
+@media(max-width:640px){.k-dashboard-explainer{font-size:12px;padding:14px}}
