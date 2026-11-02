@@ -1,7 +1,7 @@
 {
   "id": "school-de-sch-34",
   "lang": "de",
-  "title": "Die geteilten Notizen brauchen „erweiterten Zugriff“",
+  "title": "Geteilte Notizen: angeblich zusätzliche Freigabe nötig",
   "edition": "school",
   "cardType": "scenario",
   "scored": true,
@@ -21,8 +21,8 @@
     "B",
     "C"
   ],
-  "explanation": "Ein normales geteiltes Google-Doc braucht keinen „zusätzlichen Zugriffslink“ — das ist ein typischer Trick, um dich auf eine Phishing-Seite zu locken. Der ursprüngliche, direkt geteilte Link reicht.",
-  "proTip": "Ein echtes geteiltes Dokument braucht keinen zweiten „Zugriffs“-Link.",
+  "explanation": "Ein fremder Freigabelink kann auf eine gefälschte Anmeldeseite führen. Öffne das Dokument über die bekannte Google-Anwendung und frage die Person aus der Lerngruppe bei Bedarf direkt.",
+  "proTip": "Dokumente über die offizielle Anwendung öffnen, keine unbekannten Zusatzlinks verwenden.",
   "hackKey": "C",
   "hackTrigger": "Vertrautheit",
   "tags": [
