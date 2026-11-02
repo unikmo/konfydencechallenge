@@ -20,7 +20,7 @@
   "safeActions": [
     "A"
   ],
-  "explanation": "Dass viele andere schon mitgemacht haben, macht eine unsichere App nicht sicherer — es erhöht nur den Druck, nicht die Sicherheit. Eine echte anonyme Umfrage braucht keinen Social-Media-Login.",
+  "explanation": "Dass viele andere teilnehmen, bedeutet nicht, dass eine App vertrauenswürdig ist. Prüfe, warum sie Zugriff auf dein Instagram-Konto möchte, welche Daten sie erhält und wer sie betreibt. Beteilige dich nicht an verletzenden Umfragen über Mitschüler.",
   "proTip": "Viele Mitmacher sind kein Sicherheitscheck.",
   "hackKey": "C",
   "hackTrigger": "Vertrautheit",
@@ -30,5 +30,6 @@
     "group-chats",
     "app-phishing"
   ],
-  "active": true
+  "active": true,
+  "tip": "Gruppendruck ersetzt keine Prüfung der App und ihrer Zugriffsrechte."
 }
