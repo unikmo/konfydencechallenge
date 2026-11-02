@@ -1067,7 +1067,7 @@ export const COUNTRY_GUIDES_DE: Record<string, CountryGuide> = {
 
   colombia: {
     intro:
-      "Cartagena, Medellín und Bogotá sind für Reisende deutlich sicherer als vor einem Jahrzehnt, aber zwei Dinge solltest du einplanen: nicht gebuchte Taxis (Raub und „paseo millonario“) sowie K.-o.-Tropfen oder Kontaktvergiftung, einschließlich Scopolamin.",
+      "In Cartagena, Medellín und Bogotá solltest du bei Fahrdiensten und neuen Bekanntschaften aufmerksam bleiben. Sei vorsichtig bei Getränken von Unbekannten, prüfe gebuchte Fahrten und lass dich nicht zu ungeplanten Zahlungen drängen.",
     lastReviewed: "2026-09",
     status: "published",
     scams: [
@@ -1116,7 +1116,7 @@ export const COUNTRY_GUIDES_DE: Record<string, CountryGuide> = {
 
   peru: {
     intro:
-      "Lima und Cusco leben vom Tourismus, und die Betrugsmaschen folgen: falsche Taxis vom Flughafen, „Bremscheck“-Würgeraub im Verkehr, überteuerte Inka-Trail-Anbieter und die üblichen Karten- und Wechselgeldtricks.",
+      "In Lima und Cusco sind für Reisende insbesondere die Wahl sicherer Fahrdienste, transparente Preise für Ausflüge und Aufmerksamkeit bei Geldgeschäften wichtig. Prüfe Anbieter unabhängig und bewahre deine Wertsachen besonders im dichten Verkehr gut auf.",
     lastReviewed: "2026-09",
     status: "published",
     scams: [
@@ -1165,7 +1165,7 @@ export const COUNTRY_GUIDES_DE: Record<string, CountryGuide> = {
 
   "south-africa": {
     intro:
-      "Kapstadt und Johannesburg erfordern echtes Situationsbewusstsein. Für Reisende sind die wiederkehrenden Betrugsmaschen Geldautomaten-Kartentausch, falsche „Polizei“ und der „dein Reifen ist platt“-Ablenkungsraub — dazu Scheibeneinschlag-Raub an Ampeln.",
+      "In Kapstadt und Johannesburg sind bei der Reiseplanung neben Betrugsversuchen auch Diebstahl und Raub wichtig. Sei bei Geldautomaten und unerwarteten Polizeikontakten aufmerksam und halte bei Fahrten Wertgegenstände außer Sichtweite.",
     lastReviewed: "2026-09",
     status: "published",
     scams: [
@@ -1214,7 +1214,7 @@ export const COUNTRY_GUIDES_DE: Record<string, CountryGuide> = {
 
   czechia: {
     intro:
-      "Prags Altstadt hat eine Häufung von Touristen-Betrugsmaschen: Wechselstuben mit miesen Kursen, Taxifahrer, die den Tarif vergessen, Restaurants, die die Rechnung aufblähen, und die Strip-Club-„Drink“-Falle nahe dem Wenzelsplatz.",
+      "In Prag solltest du bei Wechselstuben, Taxis und touristischen Lokalen auf Preise und Gebühren achten. Vergleiche Konditionen vorab und lass dich bei spontanen Angeboten nicht unter Zeitdruck setzen.",
     lastReviewed: "2026-09",
     status: "published",
     scams: [
@@ -1263,7 +1263,7 @@ export const COUNTRY_GUIDES_DE: Record<string, CountryGuide> = {
 
   netherlands: {
     intro:
-      "Amsterdams Betrugsmaschen sind harmlos: gefälschte Drogen auf der Straße, Fahrrad-Verleih-Schadensforderungen und Taschendiebe in den Menschenmengen im Zentrum und in Trams. Gewaltverbrechen gegen Touristen sind selten.",
+      "In Amsterdam können Taschendiebe, unseriöse Straßenangebote und Streit über die Bedingungen beim Fahrradverleih vorkommen. Halte Wertsachen im Gedränge sicher und dokumentiere gemietete Fahrräder vor der Fahrt.",
     lastReviewed: "2026-09",
     status: "published",
     scams: [
@@ -1312,7 +1312,7 @@ export const COUNTRY_GUIDES_DE: Record<string, CountryGuide> = {
 
   argentina: {
     intro:
-      "In Buenos Aires sind die Klassiker die Senf- (oder Ketchup-) Ablenkung, Falschgeld im Wechselgeld oder von inoffiziellen Geldwechslern, und Taxis, die Umwege fahren oder deinen Schein austauschen.",
+      "In Buenos Aires kommen unter anderem Ablenkungsdiebstahl, problematische Geldwechselangebote und überteuerte Taxifahrten vor. Prüfe Wechselgeld selbst und wähle für Fahrten nachvollziehbare Buchungswege.",
     lastReviewed: "2026-09",
     status: "published",
     scams: [
@@ -1361,7 +1361,7 @@ export const COUNTRY_GUIDES_DE: Record<string, CountryGuide> = {
 
   croatia: {
     intro:
-      "Kroatien ist ein sicheres Reiseziel mit wenig Kriminalität. Die Reibungspunkte sind Taxi-Überteuerung in Split und Dubrovnik, Restaurants nahe den Altstädten, die die Rechnung aufblähen, und Bootstour-Anwerber, die Tagesausflüge überverkaufen.",
+      "In Split und Dubrovnik lohnt sich bei Taxis, Bootsausflügen und Restaurants ein genauer Blick auf Preise und Leistungen. Vereinbare Kosten im Voraus und prüfe, was im Angebot tatsächlich enthalten ist.",
     lastReviewed: "2026-09",
     status: "published",
     scams: [
@@ -1410,7 +1410,7 @@ export const COUNTRY_GUIDES_DE: Record<string, CountryGuide> = {
 
   "south-korea": {
     intro:
-      "Südkorea ist sehr sicher und für Touristen weitgehend betrugsfrei. Die seltenen Probleme sind „Juicy“-Bar-Fallen in Itaewon und Hongdae, Taxiverweigerungen oder Umwege spätnachts, und gefälschte Ware in Myeongdong.",
+      "Bei Reisen nach Südkorea solltest du vor allem bei ungefragten Einladungen ins Nachtleben, Taxifahrten und vermeintlichen Markenartikeln auf die Bedingungen achten. Prüfe Preise und Anbieter, bevor du bezahlst.",
     lastReviewed: "2026-09",
     status: "published",
     scams: [
@@ -1453,7 +1453,7 @@ export const COUNTRY_GUIDES_DE: Record<string, CountryGuide> = {
 
   cambodia: {
     intro:
-      "In Siem Reap und Phnom Penh sind die wiederkehrenden Probleme Preisstreit bei Tuk-Tuks und Taxis, Motorrad-Verleih-Schadensforderungen, Ablehnung zerrissener Scheine und organisiertes, aggressives Betteln rund um Touristen.",
+      "In Siem Reap und Phnom Penh können unklare Fahrtpreise, Wechselgeldprobleme und Streit bei Fahrzeugvermietungen auftreten. Vereinbare den Preis im Voraus und kontrolliere deine Belege und Geldscheine.",
     lastReviewed: "2026-09",
     status: "published",
     scams: [
@@ -1502,7 +1502,7 @@ export const COUNTRY_GUIDES_DE: Record<string, CountryGuide> = {
 
   philippines: {
     intro:
-      "In Manila und Cebu sind die Risiken, auf die man sich einstellen sollte, die „Ativan-Bande“ (K.-o.-Tropfen), Taxameter-Verweigerung, die „untergeschobene Patrone“-Flughafen-Abzocke (weitgehend ausgemerzt, aber gut zu kennen) und Geldwechsler-Unterschlagung.",
+      "In Manila und Cebu sollten Reisende bei ungefragten Einladungen, Getränken, Taxifahrten und Geldwechsel vorsichtig sein. Prüfe Fahrpreise und lass persönliche Getränke und Wertsachen möglichst nicht unbeaufsichtigt.",
     lastReviewed: "2026-09",
     status: "published",
     scams: [
@@ -1551,7 +1551,7 @@ export const COUNTRY_GUIDES_DE: Record<string, CountryGuide> = {
 
   "sri-lanka": {
     intro:
-      "In Colombo, Kandy und im Süden sind die wiederkehrenden Betrugsmaschen Tuk-Tuk-Taxameter-Verweigerung und Umwege, Edelstein-Provisions-Touren, „der Tempel ist geschlossen“-Umleitungen und überhöhte „Guide“-Gebühren an Sehenswürdigkeiten.",
+      "In Colombo, Kandy und beliebten Urlaubsregionen Sri Lankas können ungefragte Führungen, Vermittlungsangebote und unklare Tuk-Tuk-Preise zu Problemen führen. Lass dir Konditionen erklären und prüfe, ob ein Anbieter tatsächlich offiziell ist.",
     lastReviewed: "2026-09",
     status: "published",
     scams: [
@@ -1600,7 +1600,7 @@ export const COUNTRY_GUIDES_DE: Record<string, CountryGuide> = {
 
   malaysia: {
     intro:
-      "Kuala Lumpur und Penang sind für Reisende meist unkompliziert. Die Hauptprobleme sind Taxameter-Verweigerung, Geldautomaten-Skimming, Taschenraub per Motorrad und „Karte abgelehnt“-Doppelbelastungen.",
+      "In Kuala Lumpur und Penang lohnt es sich, auf Geldautomaten, Taxipreise und ungewöhnliche Kartenzahlungen zu achten. Nutze überprüfbare Fahrdienste und kontrolliere Beträge, bevor du eine Zahlung bestätigst.",
     lastReviewed: "2026-09",
     status: "published",
     scams: [
@@ -1649,7 +1649,7 @@ export const COUNTRY_GUIDES_DE: Record<string, CountryGuide> = {
 
   germany: {
     intro:
-      "Deutschland hat wenig Kriminalität und ist weitgehend betrugsfrei. Die realistischen Risiken für Reisende sind Taschendiebe an großen Bahnhöfen und Weihnachtsmärkten, Verwirrung bei Fahrscheinkontrollen im ÖPNV, und die gelegentliche Überteuerung auf dem Oktoberfest.",
+      "Auch in Deutschland können Reisende auf Taschendiebe und unseriöse Zahlungsaufforderungen treffen – etwa an Bahnhöfen, auf Märkten oder bei Veranstaltungen. Achte auf Wertsachen und prüfe zweifelhafte Forderungen über offizielle Stellen.",
     lastReviewed: "2026-09",
     status: "published",
     scams: [
@@ -1692,7 +1692,7 @@ export const COUNTRY_GUIDES_DE: Record<string, CountryGuide> = {
 
   poland: {
     intro:
-      "Krakau und Warschau sind sicher und günstig. Die Hauptprobleme sind Taxi-Überteuerung von Bahnhöfen und dem Flughafen, Wechselstuben-„Kantor“-Spannen nahe der Touristenmeile, und aufgeblähte Restaurantrechnungen in der Altstadt.",
+      "In Krakau und Warschau ist es sinnvoll, bei Taxis, Wechselstuben und touristischen Restaurants Preise und Gebühren zu vergleichen. Besonders bei spontanen Angeboten solltest du den Gesamtbetrag vorab klären.",
     lastReviewed: "2026-09",
     status: "published",
     scams: [
@@ -1735,7 +1735,7 @@ export const COUNTRY_GUIDES_DE: Record<string, CountryGuide> = {
 
   "costa-rica": {
     intro:
-      "Costa Rica ist gastfreundlich, hat aber ein echtes Problem mit Eigentumskriminalität gegen Touristen: zerstochene Reifen am Flughafen, Scheibeneinschlag bei geparkten Mietwagen, und „hilfsbereiter Fremder“-Ablenkungsdiebstahl. Gewaltverbrechen gegen Reisende sind selten.",
+      "In Costa Rica solltest du insbesondere an Mietwagen, Gepäck und Wertgegenstände denken. Betrugs- und Diebstahlsversuche können mit einer vermeintlichen Reifenpanne oder ungefragter Hilfe beginnen. Wähle sichere Orte zum Anhalten und behalte Wertsachen im Blick.",
     lastReviewed: "2026-09",
     status: "published",
     scams: [
@@ -1784,7 +1784,7 @@ export const COUNTRY_GUIDES_DE: Record<string, CountryGuide> = {
 
   "dominican-republic": {
     intro:
-      "Die meisten Reisenden bleiben in Resorts, wo die Probleme Timeshare-Druck, überteuerte Ausflüge und Währungstricks sind. Außerhalb der Resorts sind unlizenzierte Taxis und „Motoconcho“-Überteuerung die Hauptsachen, auf die man achten sollte.",
+      "In der Dominikanischen Republik können Reisende auf aufdringliche Verkaufsangebote, überteuerte Ausflüge und unklare Taxi- oder Wechselkurse stoßen. Vergleiche Preise und buche möglichst über überprüfbare Anbieter.",
     lastReviewed: "2026-09",
     status: "published",
     scams: [
@@ -1833,7 +1833,7 @@ export const COUNTRY_GUIDES_DE: Record<string, CountryGuide> = {
 
   kenya: {
     intro:
-      "Nairobi und die Küste erfordern Wachsamkeit. Für Reisende sind die wiederkehrenden Betrugsmaschen falsche Safari-Anbieter, die Anzahlungen kassieren, Taxi-Überteuerung, Geldautomaten-Kartentausch, und „ich kenne dich vom Hotel“-Ansprachen.",
+      "In Nairobi und an der Küste Kenias lohnt es sich, Safari-Anbieter, Fahrdienste und Zahlungsbedingungen vorab zu prüfen. Sei besonders vorsichtig bei hohen Anzahlungen und unerwarteten Hilfsangeboten von Unbekannten.",
     lastReviewed: "2026-09",
     status: "published",
     scams: [
@@ -1882,7 +1882,7 @@ export const COUNTRY_GUIDES_DE: Record<string, CountryGuide> = {
 
   austria: {
     intro:
-      "Österreich ist sehr sicher. In Wien und Salzburg sind die einzigen echten Probleme Taschendiebe in Touristenmengen und im ÖPNV, aggressive „Mozart-Konzert“-Ticketanwerber, und gelegentliche Taxi-Überteuerung ab dem Flughafen.",
+      "In Wien, Salzburg und anderen stark besuchten Orten Österreichs können Taschendiebstahl und überteuerte touristische Angebote vorkommen. Prüfe bei Konzertkarten, Taxis und spontanen Angeboten Preis und Anbieter.",
     lastReviewed: "2026-09",
     status: "published",
     scams: [
