@@ -14,10 +14,10 @@ export default function Page() {
   return <ComasyIntentPage
     lang="de"
     eyebrow="CYBERSICHERHEIT FÜR MITARBEITENDE"
-    title="Trainiere die nächste Entscheidung, nicht nur die nächste Quizantwort."
-    intro="CoMaSy stellt Mitarbeitende vor realistische Entscheidungen zu Zahlungsanweisungen, Chef-Betrug, Lieferantenwechseln, kompromittierten Accounts und anderem Social-Engineering-Druck. Ziel ist eine wiederholbare Gewohnheit: Innehalten, unabhängig prüfen, bei Bedarf eskalieren."
+    title="Cybersicherheit trainieren – für die Entscheidungen im Arbeitsalltag."
+    intro="CoMaSy stellt Mitarbeitende vor realistische Entscheidungen zu Zahlungsanweisungen, Chef-Betrug, Lieferantenwechseln, übernommenen Benutzerkonten und anderen Betrugsversuchen unter Zeitdruck. Ziel ist eine verlässliche Routine: Innehalten, unabhängig prüfen, bei Bedarf die zuständige Stelle einschalten."
     problemTitle="Mitarbeitende brauchen Übung genau dort, wo Vertrauen, Druck und Betriebsablauf aufeinandertreffen."
-    problemCopy="Echte Vorfälle kommen nicht mit dem Etikett „Phishing“. Eine Nachricht kann von einem echten Account stammen. Ein Anrufer kann interne Details kennen. Eine Ausnahme im Prozess kann plausibel wirken. Entscheidungstraining übt den Verifizierungsschritt, bevor der Druck echt wird."
+    problemCopy="Einen Betrugsversuch erkennt man nicht immer auf den ersten Blick. Eine Nachricht kann von einem echten Account stammen. Ein Anrufer kann interne Details kennen. Eine Ausnahme im Prozess kann plausibel wirken. Entscheidungstraining übt den Schritt zur unabhängigen Überprüfung, bevor der Druck echt wird."
     sections={[
       { title: "Kurze Übungen", copy: "Fokussierte Entscheidungsmissionen statt eines weiteren langen Kurses im Arbeitsalltag." },
       { title: "Rollenrelevante Szenarien", copy: "Priorisiere Szenarien, die zu den tatsächlichen Arbeitsabläufen der Kohorte passen — Zahlungen, Lohnbuchhaltung, Lieferantenwechsel oder privilegierte Handlungen." },
