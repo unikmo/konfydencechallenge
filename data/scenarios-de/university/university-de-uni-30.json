@@ -1,7 +1,7 @@
 {
   "id": "university-de-uni-30",
   "lang": "de",
-  "title": "Der Kassenwart hat ein neues Konto",
+  "title": "Fachschaft: angeblich neue Bankverbindung",
   "edition": "university",
   "cardType": "scenario",
   "scored": true,
@@ -20,8 +20,8 @@
   "safeActions": [
     "B"
   ],
-  "explanation": "Ein Kontowechsel für eine Vereinskasse wird auf einer Sitzung beschlossen, nicht per einzelner Chat-Ansage — ein gehacktes Konto im Vorstand ist ein bekanntes Muster.",
-  "proTip": "Ein neues Vereinskonto wird auf einer Sitzung bestätigt, nicht im Chat.",
+  "explanation": "Auch Vereins- und Fachschaftskonten können übernommen werden. Frage beim zuständigen Vorstand über einen bekannten Kontaktweg nach und prüfe, ob die Änderung offiziell beschlossen wurde.",
+  "proTip": "Neue Vereinskonto-Daten unabhängig bei der zuständigen Stelle bestätigen.",
   "hackKey": "C",
   "hackTrigger": "Vertrautheit",
   "tags": [
