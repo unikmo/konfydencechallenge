@@ -24,11 +24,11 @@ export const metadata: Metadata = {
 const familyUses = [
   {
     label: "Vor der ersten Reise allein",
-    copy: "Eine ruhige Gewohnheit für den Moment, in dem Buchung, Zahlung oder Nachricht entschieden werden müssen und niemand danebensteht.",
+    copy: "Damit du auch allein ruhig bleibst, wenn du eine Buchung bestätigen oder eine Zahlungsaufforderung prüfen musst.",
   },
   {
     label: "Für ältere Angehörige",
-    copy: "Falsche Verwandte und dringende Zahlungsaufforderungen reisen mit. Kurzes Üben macht das Innehalten selbstverständlich.",
+    copy: "Auch auf Reisen können gefälschte Nachrichten und dringende Zahlungsaufforderungen auftauchen. Kurzes Üben macht das Innehalten selbstverständlich.",
   },
   {
     label: "Als gemeinsame Gewohnheit",
@@ -43,9 +43,9 @@ export default function TravelSafePageDe() {
         <div className="k-travel-copy">
           <p className="k-breadcrumb">Für Privatpersonen · TravelSafe</p>
           <p className="k-kicker">TravelSafe von Konfydence</p>
-          <h1 className="k-display">Übe sichere Entscheidungen, bevor die Reise sie ernst macht.</h1>
+          <h1 className="k-display">Lerne, Betrugsversuche auf Reisen rechtzeitig zu erkennen.</h1>
           <p className="k-lede">
-            Kurze, realistische Szenarien helfen dir, dir anzugewöhnen, innezuhalten, nachzuprüfen und gut zu entscheiden, wenn fremde Systeme und Zeitdruck zusammentreffen.
+            Kurze, realistische Szenarien helfen dir, dir anzugewöhnen, innezuhalten, nachzuprüfen und gut zu entscheiden, wenn ungewohnte Abläufe und Zeitdruck zusammenkommen.
           </p>
           <div className="k-actions">
             <Link className="k-button" href="/de/challenge/travelsafe/start?mode=diagnostic">Kostenlosen TravelSafe-Check starten</Link>
