@@ -44,6 +44,8 @@ export type CreatePersonalTenantInput = {
   contactName: string | null;
   /** true on a subscription renewal order, false/undefined on the first purchase. */
   isRenewal?: boolean;
+  /** Language of the checkout the buyer came through (digest + onboarding emails follow it). */
+  lang?: "en" | "de";
 };
 
 export type CreatePersonalTenantResult = { tenantId: string; token: string; screenUrl: string } | null;
@@ -51,6 +53,7 @@ export type CreatePersonalTenantResult = { tenantId: string; token: string; scre
 /** Idempotent: a retried webhook for the same shopifyOrderId is a no-op. */
 export async function createPersonalLockscreenTenant(input: CreatePersonalTenantInput): Promise<CreatePersonalTenantResult> {
   const { track, shopifyOrderId, contactEmail, contactName, isRenewal } = input;
+  const lang = input.lang === "de" ? "de" : "en";
 
   const existingOrder = await prisma.lockscreenOrder.findUnique({ where: { shopifyOrderId } });
   if (existingOrder) {
@@ -76,13 +79,14 @@ export async function createPersonalLockscreenTenant(input: CreatePersonalTenant
   if (tenant && isRenewal) {
     tenant = await prisma.lockscreenTenant.update({
       where: { id: tenant.id },
-      data: { tokenStatus: "active", termEnd },
+      data: { tokenStatus: "active", termEnd, ...(input.lang ? { lang } : {}) },
     });
   } else {
     tenant = await prisma.lockscreenTenant.create({
       data: {
         kind: track,
-        orgName: contactName || "Personal",
+        lang,
+        orgName: contactName || (lang === "de" ? "Privat" : "Personal"),
         token: generateTenantToken(),
         tokenStatus: "active",
         adminToken: generateAdminToken(),
@@ -112,6 +116,7 @@ export async function createPersonalLockscreenTenant(input: CreatePersonalTenant
       baseRatePerHead: isRenewal ? RENEWAL_PRICE : FIRST_YEAR_PRICE,
       ratePerHead: isRenewal ? RENEWAL_PRICE : FIRST_YEAR_PRICE,
       annualTotal: isRenewal ? RENEWAL_PRICE : FIRST_YEAR_PRICE,
+      currency: lang === "de" ? "EUR" : "USD",
       status: "confirmed",
     },
   });
@@ -120,7 +125,28 @@ export async function createPersonalLockscreenTenant(input: CreatePersonalTenant
   const screenUrl = `${appUrl}/lockscreens/screen/${tenant.token}`;
   const trackLabel = TRACK_LABEL[track];
 
-  if (!isRenewal) {
+  if (!isRenewal && lang === "de") {
+    const trackLabelDe = track === "home" ? "Home" : "Teen Home";
+    await sendTransactionalEmail({
+      to: contactEmail,
+      subject: `Konfydence ${trackLabelDe} Lockscreens – du bist startklar`,
+      tags: ["lockscreens", `${track}-personal`, "de"],
+      html: `
+        <div style="font-family:Georgia,'Times New Roman',serif;color:#111417;max-width:520px;">
+          <p style="font-size:18px;">Deine ${escapeHtml(trackLabelDe)}-Sperrbildschirm-Erinnerungen sind aktiv.</p>
+          <p>Alle zwei Wochen schicken wir dir den nächsten Screen. Speichere jetzt den ersten als Sperrbildschirm deines Handys:</p>
+          <p style="margin:24px 0;">
+            <a href="${screenUrl}" style="background:#111417;color:#fffdf9;padding:12px 22px;text-decoration:none;border-radius:4px;display:inline-block;">Ersten Screen holen</a>
+          </p>
+          <p style="font-size:13px;color:#66645f;">
+            <strong>iPhone:</strong> Link öffnen, das Bild gedrückt halten, „Bild sichern“ wählen, dann Einstellungen &rarr; Hintergrundbild &rarr; Neues Hintergrundbild hinzufügen.<br/>
+            <strong>Android:</strong> Link öffnen, das Bild gedrückt halten, „Herunterladen“ wählen, dann Einstellungen &rarr; Hintergrundbild &rarr; das gespeicherte Bild auswählen.
+          </p>
+          <p style="font-size:12px;color:#66645f;">Speichere diesen Link als Lesezeichen – er zeigt immer deinen aktuellen Screen: ${screenUrl}</p>
+        </div>
+      `,
+    });
+  } else if (!isRenewal) {
     await sendTransactionalEmail({
       to: contactEmail,
       subject: `Konfydence ${trackLabel} Lockscreens — you're set up`,

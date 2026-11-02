@@ -1,30 +1,107 @@
 import Link from "next/link";
 import { redirect } from "next/navigation";
+import { cookies } from "next/headers";
 import { prisma } from "@/lib/prisma";
 import { getCustomerOrganizationId } from "@/lib/comasyAuth";
 import { getOrganizationMetrics, getOrganizationTrend, periodStart } from "@/lib/comasyMetrics";
+import { DASH, LANG_COOKIE, resolveDashLang, type DashLang } from "@/lib/comasyDashboardStrings";
+import { LangRemember } from "../LangRemember";
 
-const periods = [
-  ["30", "30 days"],
-  ["90", "90 days"],
-  ["365", "12 months"],
-  ["all", "All time"],
-] as const;
+const periods = ["30", "90", "365", "all"] as const;
 
-const fmt = (value: number) => `${Math.round(value * 10) / 10}%`;
-const delta = (value: number | null) =>
-  value == null ? "Not enough data" : `${value > 0 ? "+" : ""}${value} pts`;
+const INS = {
+  en: {
+    periodLabels: { "30": "30 days", "90": "90 days", "365": "12 months", all: "All time" } as Record<string, string>,
+    title: "Behaviour over time.",
+    back: "Back to dashboard",
+    reports: "Reports",
+    periodAria: "Reporting period",
+    periodEyebrow: "REPORTING PERIOD",
+    periodCopy: "Metrics, trends and exports use the same selected date window.",
+    inWorkspace: (n: number) => `${n} participants in workspace`,
+    pauseNote: "responses that interrupt or safely challenge the risky chain",
+    verifyNote: "responses using independent verification",
+    impulseNote: "immediate higher-risk action",
+    decisions: "Recorded decisions",
+    decisionsNote: (n: number) => `${n} active or scheduled campaigns`,
+    pauseShort: (a: string, b: string) => `Pause: ${a} → ${b}`,
+    trendEyebrow: "TREND OVER TIME",
+    trendTitle: "Campaign-by-campaign behaviour",
+    trendCount: (n: number) => `${n} campaigns with recorded responses`,
+    decisionsN: (n: number) => `${n} decisions`,
+    decisionsTitle: (n: number) => `${n} recorded decisions`,
+    emptyTrend: "No campaign responses exist in this reporting period yet.",
+    hackEyebrow: "H.A.C.K. PROFILE",
+    hackTitle: "Pressure resilience",
+    evidenceEyebrow: "EVIDENCE",
+    exportTitle: "Export this period",
+    reportItems: {
+      executive: ["Executive", "Participation, movement, pressure profile and priority focus."],
+      awareness: ["Security Awareness", "Campaign activity, behavioural indicators and cohort comparison."],
+      compliance: ["Compliance / NIS2", "Programme activity and effectiveness evidence with the required compliance disclaimer."],
+    },
+    cohortEyebrow: "COHORT COMPARISON",
+    cohortTitle: "Where behaviour differs",
+    cohortNote: "No unsupported vulnerability claims—only recorded decisions.",
+    emptyCohort: "No cohort-level responses exist in this reporting period yet.",
+    emptyCohortsSimple: "",
+  },
+  de: {
+    periodLabels: { "30": "30 Tage", "90": "90 Tage", "365": "12 Monate", all: "Gesamter Zeitraum" } as Record<string, string>,
+    title: "Verhalten im Zeitverlauf.",
+    back: "Zurück zum Überblick",
+    reports: "Berichte",
+    periodAria: "Berichtszeitraum",
+    periodEyebrow: "BERICHTSZEITRAUM",
+    periodCopy: "Kennzahlen, Verläufe und Exporte beziehen sich auf denselben gewählten Zeitraum.",
+    inWorkspace: (n: number) => `${n} Teilnehmende im Arbeitsbereich`,
+    pauseNote: "Antworten, die die riskante Handlungskette unterbrechen oder sicher hinterfragen",
+    verifyNote: "Antworten mit unabhängiger Überprüfung",
+    impulseNote: "sofortiges Handeln trotz höheren Risikos",
+    decisions: "Erfasste Entscheidungen",
+    decisionsNote: (n: number) => (n === 1 ? "1 aktive oder geplante Kampagne" : `${n} aktive oder geplante Kampagnen`),
+    pauseShort: (a: string, b: string) => `Pause: ${a} → ${b}`,
+    trendEyebrow: "VERLAUF",
+    trendTitle: "Verhalten Kampagne für Kampagne",
+    trendCount: (n: number) => (n === 1 ? "1 Kampagne mit erfassten Antworten" : `${n} Kampagnen mit erfassten Antworten`),
+    decisionsN: (n: number) => `${n} Entscheidungen`,
+    decisionsTitle: (n: number) => `${n} erfasste Entscheidungen`,
+    emptyTrend: "In diesem Zeitraum liegen noch keine Kampagnenantworten vor.",
+    hackEyebrow: "H.A.C.K.-PROFIL",
+    hackTitle: "Widerstandsfähigkeit gegen Druck",
+    evidenceEyebrow: "NACHWEISE",
+    exportTitle: "Diesen Zeitraum exportieren",
+    reportItems: {
+      executive: ["Management", "Beteiligung, Entwicklung, Druckprofil und Schwerpunkte."],
+      awareness: ["Sicherheitsbewusstsein", "Kampagnenaktivität, Verhaltensindikatoren und Kohortenvergleich."],
+      compliance: ["Compliance / NIS2", "Programmaktivität und Wirksamkeitsnachweise mit dem erforderlichen Compliance-Hinweis."],
+    },
+    cohortEyebrow: "KOHORTENVERGLEICH",
+    cohortTitle: "Wo sich das Verhalten unterscheidet",
+    cohortNote: "Keine Behauptungen ohne Grundlage – nur erfasste Entscheidungen.",
+    emptyCohort: "In diesem Zeitraum liegen noch keine Antworten auf Kohortenebene vor.",
+    emptyCohortsSimple: "",
+  },
+} as const;
 
 export default async function CustomerInsightsPage({
   searchParams,
 }: {
-  searchParams: Promise<{ period?: string }>;
+  searchParams: Promise<{ period?: string; lang?: string }>;
 }) {
-  const organizationId = await getCustomerOrganizationId();
-  if (!organizationId) redirect("/comasy/dashboard/login");
+  const { period: rawPeriod, lang: rawLang } = await searchParams;
+  const lang: DashLang = resolveDashLang(rawLang, (await cookies()).get(LANG_COOKIE)?.value);
+  const t = INS[lang];
+  const d = DASH[lang];
+  const q = lang === "de" ? "&lang=de" : "";
+  const qFirst = lang === "de" ? "?lang=de" : "";
+  const fmt = d.pct;
+  const delta = (value: number | null) => (value == null ? d.notEnough : d.pts(value));
 
-  const { period: rawPeriod } = await searchParams;
-  const period = periods.some(([key]) => key === rawPeriod) ? rawPeriod! : "90";
+  const organizationId = await getCustomerOrganizationId();
+  if (!organizationId) redirect(`/comasy/dashboard/login${qFirst}`);
+
+  const period = periods.some((key) => key === rawPeriod) ? rawPeriod! : "90";
   const since = periodStart(period);
 
   const [organization, metrics, trend] = await Promise.all([
@@ -40,45 +117,46 @@ export default async function CustomerInsightsPage({
 
   return (
     <main className="insightsPage">
+      <LangRemember lang={lang} />
       <header className="header">
         <div>
-          <p className="eyebrow">COMASY / MEASURE</p>
-          <h1>Behaviour over time.</h1>
+          <p className="eyebrow">COMASY / {d.views.measure.toUpperCase()}</p>
+          <h1>{t.title}</h1>
           <span>{organization.brandingName || organization.name}</span>
         </div>
         <div className="headerActions">
-          <Link href="/comasy/dashboard?view=measure">Back to dashboard</Link>
-          <Link href="/comasy/dashboard?view=reports">Reports</Link>
+          <Link href={`/comasy/dashboard?view=measure${q}`}>{t.back}</Link>
+          <Link href={`/comasy/dashboard?view=reports${q}`}>{t.reports}</Link>
         </div>
       </header>
 
-      <section className="periodBar" aria-label="Reporting period">
+      <section className="periodBar" aria-label={t.periodAria}>
         <div>
-          <p>REPORTING PERIOD</p>
-          <span>Metrics, trends and exports use the same selected date window.</span>
+          <p>{t.periodEyebrow}</p>
+          <span>{t.periodCopy}</span>
         </div>
         <nav>
-          {periods.map(([key, label]) => (
-            <Link key={key} className={period === key ? "active" : ""} href={`/comasy/dashboard/insights?period=${key}`}>
-              {label}
+          {periods.map((key) => (
+            <Link key={key} className={period === key ? "active" : ""} href={`/comasy/dashboard/insights?period=${key}${q}`}>
+              {t.periodLabels[key]}
             </Link>
           ))}
         </nav>
       </section>
 
       <section className="metricGrid">
-        <Metric label="Participation" value={fmt(metrics.participationRate)} note={`${metrics.participantCount} participants in workspace`} />
-        <Metric label="Pause Adoption" value={fmt(metrics.pauseAdoption)} note="responses that interrupt or safely challenge the risky chain" />
-        <Metric label="Verification Rate" value={fmt(metrics.verificationRate)} note="responses using independent verification" />
-        <Metric label="Impulse Rate" value={fmt(metrics.impulseRate)} note="immediate higher-risk action" danger={metrics.impulseRate > 25} />
-        <Metric label="Pre/post change" value={delta(metrics.prePostChange)} note={`Pause: ${fmt(metrics.baselinePause)} → ${fmt(metrics.followupPause)}`} />
-        <Metric label="Recorded decisions" value={String(metrics.responseCount)} note={`${metrics.activeCampaigns} active or scheduled campaigns`} />
+        <Metric label={d.metrics.participation} value={fmt(metrics.participationRate)} note={t.inWorkspace(metrics.participantCount)} />
+        <Metric label={d.metrics.pause} value={fmt(metrics.pauseAdoption)} note={t.pauseNote} />
+        <Metric label={d.metrics.verify} value={fmt(metrics.verificationRate)} note={t.verifyNote} />
+        <Metric label={d.metrics.impulse} value={fmt(metrics.impulseRate)} note={t.impulseNote} danger={metrics.impulseRate > 25} />
+        <Metric label={d.metrics.prePost} value={delta(metrics.prePostChange)} note={t.pauseShort(fmt(metrics.baselinePause), fmt(metrics.followupPause))} />
+        <Metric label={t.decisions} value={String(metrics.responseCount)} note={t.decisionsNote(metrics.activeCampaigns)} />
       </section>
 
       <section className="panel">
         <div className="panelHead">
-          <div><p className="eyebrow">TREND OVER TIME</p><h2>Campaign-by-campaign behaviour</h2></div>
-          <span>{trend.length} campaigns with recorded responses</span>
+          <div><p className="eyebrow">{t.trendEyebrow}</p><h2>{t.trendTitle}</h2></div>
+          <span>{t.trendCount(trend.length)}</span>
         </div>
         {trend.length ? (
           <div className="trendList">
@@ -86,32 +164,31 @@ export default async function CustomerInsightsPage({
               <article key={row.id} className="trendRow">
                 <div className="trendMeta">
                   <strong>{row.name}</strong>
-                  <span>{row.designation} · {row.date.toISOString().slice(0, 10)} · {row.responses} decisions</span>
+                  <span>{d.designations[row.designation] ?? row.designation} · {row.date.toISOString().slice(0, 10)} · {t.decisionsN(row.responses)}</span>
                 </div>
                 <div className="bars">
-                  <Bar label="Pause" value={row.pauseAdoption} />
-                  <Bar label="Verify" value={row.verificationRate} />
-                  <Bar label="Impulse" value={row.impulseRate} inverse />
+                  <Bar label={d.th.pause} value={row.pauseAdoption} fmt={fmt} />
+                  <Bar label={d.th.verify} value={row.verificationRate} fmt={fmt} />
+                  <Bar label={d.th.impulse} value={row.impulseRate} fmt={fmt} inverse />
                 </div>
-                <div className="responseVolume" title={`${row.responses} recorded decisions`}>
+                <div className="responseVolume" title={t.decisionsTitle(row.responses)}>
                   <i style={{ width: `${Math.max(5, (row.responses / maxResponses) * 100)}%` }} />
                 </div>
               </article>
             ))}
           </div>
         ) : (
-          <div className="empty">No campaign responses exist in this reporting period yet.</div>
+          <div className="empty">{t.emptyTrend}</div>
         )}
       </section>
 
       <section className="split">
         <section className="panel">
-          <div className="panelHead"><div><p className="eyebrow">H.A.C.K. PROFILE</p><h2>Pressure resilience</h2></div></div>
+          <div className="panelHead"><div><p className="eyebrow">{t.hackEyebrow}</p><h2>{t.hackTitle}</h2></div></div>
           <div className="hack">
-            {([[
-              "H", "Hurry"], ["A", "Authority"], ["C", "Comfort"], ["K", "Critical Action"]] as const).map(([key, label]) => (
+            {(["H", "A", "C", "K"] as const).map((key) => (
               <div key={key}>
-                <span><b>{key}</b>{label}</span>
+                <span><b>{key}</b>{d.hack[key]}</span>
                 <i><em style={{ width: `${metrics.hackProfile[key]}%` }} /></i>
                 <strong>{fmt(metrics.hackProfile[key])}</strong>
               </div>
@@ -120,25 +197,25 @@ export default async function CustomerInsightsPage({
         </section>
 
         <section className="panel">
-          <div className="panelHead"><div><p className="eyebrow">EVIDENCE</p><h2>Export this period</h2></div></div>
+          <div className="panelHead"><div><p className="eyebrow">{t.evidenceEyebrow}</p><h2>{t.exportTitle}</h2></div></div>
           <div className="reportTypes">
-            <Report type="executive" title="Executive" copy="Participation, movement, pressure profile and priority focus." period={period} />
-            <Report type="awareness" title="Security Awareness" copy="Campaign activity, behavioural indicators and cohort comparison." period={period} />
-            <Report type="compliance" title="Compliance / NIS2" copy="Programme activity and effectiveness evidence with the required compliance disclaimer." period={period} />
+            {(["executive", "awareness", "compliance"] as const).map((type) => (
+              <Report key={type} type={type} title={t.reportItems[type][0]} copy={t.reportItems[type][1]} period={period} q={q} />
+            ))}
           </div>
         </section>
       </section>
 
       <section className="panel">
-        <div className="panelHead"><div><p className="eyebrow">COHORT COMPARISON</p><h2>Where behaviour differs</h2></div><span>No unsupported vulnerability claims—only recorded decisions.</span></div>
+        <div className="panelHead"><div><p className="eyebrow">{t.cohortEyebrow}</p><h2>{t.cohortTitle}</h2></div><span>{t.cohortNote}</span></div>
         {metrics.cohorts.length ? (
           <div className="tableWrap">
             <table>
-              <thead><tr><th>Cohort</th><th>Responses</th><th>Pause</th><th>Verify</th><th>Impulse</th></tr></thead>
+              <thead><tr><th>{d.measure.cohortCol}</th><th>{d.th.responses}</th><th>{d.th.pause}</th><th>{d.th.verify}</th><th>{d.th.impulse}</th></tr></thead>
               <tbody>{metrics.cohorts.map((cohort) => <tr key={cohort.id}><td><b>{cohort.name}</b></td><td>{cohort.responses}</td><td>{fmt(cohort.pauseAdoption)}</td><td>{fmt(cohort.verificationRate)}</td><td>{fmt(cohort.impulseRate)}</td></tr>)}</tbody>
             </table>
           </div>
-        ) : <div className="empty">No cohort-level responses exist in this reporting period yet.</div>}
+        ) : <div className="empty">{t.emptyCohort}</div>}
       </section>
 
       <style>{styles}</style>
@@ -150,12 +227,12 @@ function Metric({ label, value, note, danger = false }: { label: string; value: 
   return <article className={`metric ${danger ? "danger" : ""}`}><span>{label}</span><strong>{value}</strong><small>{note}</small></article>;
 }
 
-function Bar({ label, value, inverse = false }: { label: string; value: number; inverse?: boolean }) {
+function Bar({ label, value, fmt, inverse = false }: { label: string; value: number; fmt: (n: number) => string; inverse?: boolean }) {
   return <div className={`bar ${inverse ? "inverse" : ""}`}><span>{label}</span><i><em style={{ width: `${value}%` }} /></i><strong>{fmt(value)}</strong></div>;
 }
 
-function Report({ type, title, copy, period }: { type: string; title: string; copy: string; period: string }) {
-  return <article><div><b>{title}</b><span>{copy}</span></div><nav><Link href={`/api/comasy/reports/pdf?type=${type}&period=${period}`}>PDF</Link><Link href={`/api/comasy/reports/csv?type=${type}&period=${period}`}>CSV</Link></nav></article>;
+function Report({ type, title, copy, period, q }: { type: string; title: string; copy: string; period: string; q: string }) {
+  return <article><div><b>{title}</b><span>{copy}</span></div><nav><Link href={`/api/comasy/reports/pdf?type=${type}&period=${period}${q}`}>PDF</Link><Link href={`/api/comasy/reports/csv?type=${type}&period=${period}${q}`}>CSV</Link></nav></article>;
 }
 
 const styles = `

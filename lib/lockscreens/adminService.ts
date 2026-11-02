@@ -1,6 +1,6 @@
 import { prisma } from "@/lib/prisma";
 import { sendTransactionalEmail, escapeHtml } from "@/lib/email";
-import { computeQuote, formatUsd, type Tier, type ScreenCount, type Cadence } from "@/lib/lockscreens/pricing";
+import { computeQuote, formatMoney, type Tier, type ScreenCount, type Cadence, type LsLang } from "@/lib/lockscreens/pricing";
 import { generatePoNumber } from "@/lib/lockscreens/po";
 
 export type PlanUpdateResult =
@@ -52,6 +52,7 @@ export async function requoteLockscreenPlan(
   }
 
   const { screenCount, cadence } = input;
+  const lang: LsLang = tenant.lang === "de" ? "de" : "en";
   const quote = computeQuote(tier, tenant.licensedCount, screenCount, cadence);
   const poNumber = generatePoNumber(tier);
 
@@ -70,6 +71,7 @@ export async function requoteLockscreenPlan(
       surchargePerHead: quote.surchargePerUnit,
       ratePerHead: quote.ratePerUnit,
       annualTotal: quote.annualTotal,
+      currency: lang === "de" ? "EUR" : "USD",
       minimumApplied: quote.minimumApplied,
       status: "quote_issued",
       notes: quote.needsSalesReview
@@ -79,7 +81,25 @@ export async function requoteLockscreenPlan(
   });
 
   const appUrl = process.env.NEXT_PUBLIC_APP_URL || "https://konfydence.com";
-  const poUrl = `${appUrl}/lockscreens/${tier}/po/${order.id}`;
+  const poUrl = `${appUrl}${lang === "de" ? "/de" : ""}/lockscreens/${tier}/po/${order.id}`;
+
+  if (lang === "de") {
+    await sendTransactionalEmail({
+      to: tenant.contactEmail,
+      subject: `Konfydence Lockscreens – Aktualisierte Bestellung ${poNumber}`,
+      tags: ["lockscreens", `${tier}-po`, "requote"],
+      html: `
+      <div style="font-family:Georgia,'Times New Roman',serif;color:#111417;max-width:520px;">
+        <p style="font-size:18px;">Aktualisierte Bestellung ${escapeHtml(poNumber)} für ${escapeHtml(tenant.orgName)}.</p>
+        <p style="margin:20px 0;font-size:22px;">${formatMoney(quote.annualTotal, "de")}<span style="font-size:13px;color:#66645f;"> / Jahr</span></p>
+        <p style="margin:24px 0;">
+          <a href="${poUrl}" style="background:#111417;color:#fffdf9;padding:12px 22px;text-decoration:none;border-radius:4px;display:inline-block;">Bestellung ansehen</a>
+        </p>
+      </div>
+    `,
+    });
+    return { ok: true, poUrl };
+  }
 
   await sendTransactionalEmail({
     to: tenant.contactEmail,
@@ -88,7 +108,7 @@ export async function requoteLockscreenPlan(
     html: `
       <div style="font-family:Georgia,'Times New Roman',serif;color:#111417;max-width:520px;">
         <p style="font-size:18px;">Updated purchase order ${escapeHtml(poNumber)} for ${escapeHtml(tenant.orgName)}.</p>
-        <p style="margin:20px 0;font-size:22px;">${formatUsd(quote.annualTotal)}<span style="font-size:13px;color:#66645f;"> / year</span></p>
+        <p style="margin:20px 0;font-size:22px;">${formatMoney(quote.annualTotal)}<span style="font-size:13px;color:#66645f;"> / year</span></p>
         <p style="margin:24px 0;">
           <a href="${poUrl}" style="background:#111417;color:#fffdf9;padding:12px 22px;text-decoration:none;border-radius:4px;display:inline-block;">View purchase order</a>
         </p>

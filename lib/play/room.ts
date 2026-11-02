@@ -40,12 +40,14 @@ const fail = (error: PlayError): Fail => ({ ok: false, error });
 
 // ---- deck ----------------------------------------------------------------
 
-async function pickPartyDeck(): Promise<string[]> {
-  // Play-with-friends has no locale-aware UI yet (host/join/reveal chrome is
-  // English-only) — pin the pool to English so a room never silently mixes in
-  // German cards (data/scenarios-de) once other editions grow a German bank.
+export type PlayLang = "en" | "de";
+
+async function pickPartyDeck(lang: PlayLang): Promise<string[]> {
+  // A room is single-language: the deck is drawn from one scenario pool when the
+  // room is created, and the room's language is read back off its first card
+  // (see getRoomState), so English and German cards never mix.
   const pool = await prisma.scenario.findMany({
-    where: { active: true, scored: true, lang: "en", hackKey: { in: ["H", "A", "C", "K"] } },
+    where: { active: true, scored: true, lang, hackKey: { in: ["H", "A", "C", "K"] } },
     select: { id: true, hackKey: true },
   });
   if (pool.length === 0) return [];
@@ -84,11 +86,12 @@ function shuffle<T>(arr: T[]): T[] {
 export async function createRoom(
   hostName: string,
   accountId: string | null,
+  lang: PlayLang = "en",
 ): Promise<{ ok: true; code: string; playerId: string } | Fail> {
   const name = cleanName(hostName);
   if (name.length < 1) return fail("bad_name");
 
-  const deck = await pickPartyDeck();
+  const deck = await pickPartyDeck(lang);
   if (deck.length < DECK_SIZE) return fail("no_scenarios");
 
   // Retry on the (unlikely) code collision.
@@ -240,6 +243,7 @@ export async function touchPlayer(playerId: string): Promise<void> {
 
 export type RoomStateView = {
   code: string;
+  lang: PlayLang;
   status: "lobby" | "playing" | "revealed" | "finished";
   index: number;
   total: number;
@@ -312,8 +316,13 @@ export async function getRoomState(code: string, playerId: string | null): Promi
     }
   }
 
+  const first = room.scenarioIds[0]
+    ? await prisma.scenario.findUnique({ where: { id: room.scenarioIds[0] }, select: { lang: true } })
+    : null;
+
   return {
     code: room.code,
+    lang: first?.lang === "de" ? "de" : "en",
     status: room.status as RoomStateView["status"],
     index: room.currentIndex,
     total: room.scenarioIds.length,

@@ -67,6 +67,7 @@ export async function POST(request: NextRequest) {
       cadence,
       sequence,
       notes,
+      lang: body.lang === "de" ? "de" : "en",
     });
 
     return NextResponse.json(result);

@@ -29,6 +29,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE}/lockscreens/security-awareness-posters`, changeFrequency: "monthly", priority: 0.7 },
     { url: `${BASE}/lockscreens/phishing-awareness-between-trainings`, changeFrequency: "monthly", priority: 0.7 },
     { url: `${BASE}/lockscreens/family-scam-protection`, changeFrequency: "monthly", priority: 0.7 },
+    { url: `${BASE}/play`, changeFrequency: "monthly", priority: 0.6 },
     { url: `${BASE}/lockscreens/workplace/order`, changeFrequency: "monthly", priority: 0.6 },
     { url: `${BASE}/lockscreens/school/order`, changeFrequency: "monthly", priority: 0.6 },
     { url: `${BASE}/free-scam-safety-pack`, changeFrequency: "monthly", priority: 0.8 },
@@ -78,6 +79,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE}/de/lockscreens/sicherheitsplakate`, changeFrequency: "monthly", priority: 0.7 },
     { url: `${BASE}/de/lockscreens/phishing-sensibilisierung-zwischen-schulungen`, changeFrequency: "monthly", priority: 0.7 },
     { url: `${BASE}/de/lockscreens/familie-betrugsschutz`, changeFrequency: "monthly", priority: 0.7 },
+    { url: `${BASE}/de/lockscreens/school/order`, changeFrequency: "monthly", priority: 0.6 },
+    { url: `${BASE}/de/lockscreens/workplace/order`, changeFrequency: "monthly", priority: 0.6 },
+    { url: `${BASE}/de/spielen`, changeFrequency: "monthly", priority: 0.6 },
     { url: `${BASE}/de/countries`, changeFrequency: "monthly", priority: 0.7 },
   ];
 

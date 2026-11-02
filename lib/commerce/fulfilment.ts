@@ -10,6 +10,7 @@
 import { prisma } from "@/lib/prisma";
 import { generateGiftCode } from "@/lib/gift";
 import { sendTransactionalEmail, escapeHtml } from "@/lib/email";
+import { EDITION_LABELS_DE } from "@/lib/challenge/uiStrings";
 
 export type ChallengeTier = "single" | "unlimited" | "team";
 
@@ -79,6 +80,8 @@ export type IssueGiftInput = {
   fromName?: string | null;
   fromEmail?: string | null;
   message?: string | null;
+  /** Language of the gift buyer's checkout; the recipient's email follows it. */
+  lang?: "en" | "de";
 };
 
 /** Idempotent on sourceOrderId (GiftCode.shopifyOrderId is @unique). */
@@ -120,12 +123,35 @@ export async function issueGiftCode(input: IssueGiftInput): Promise<"issued" | "
   });
 
   const appUrl = process.env.NEXT_PUBLIC_APP_URL || "https://konfydence.com";
-  const redeemUrl = `${appUrl}/gift/redeem?code=${encodeURIComponent(code)}`;
+  const de = input.lang === "de";
+  const redeemUrl = `${appUrl}${de ? "/de/geschenk/einloesen" : "/gift/redeem"}?code=${encodeURIComponent(code)}`;
   const editionLabel = tier === "unlimited" ? "all five Konfydence Challenges" : `the ${edition} Konfydence Challenge`;
   const fromLine = input.fromName ? `${escapeHtml(input.fromName)} has sent you a gift.` : "Someone has sent you a gift.";
   const note = input.message
     ? `<p style="margin:16px 0;padding:12px 16px;border-left:3px solid #af8752;background:#f7f4ee;">${escapeHtml(input.message)}</p>`
     : "";
+
+  if (de) {
+    const editionLabelDe = tier === "unlimited" ? "alle fünf Konfydence Challenges" : `die ${EDITION_LABELS_DE[edition ?? ""] ?? edition} der Konfydence Challenge`;
+    await sendTransactionalEmail({
+      to: toEmail,
+      subject: "Du hast eine Konfydence Challenge geschenkt bekommen",
+      replyTo: input.fromEmail || undefined,
+      tags: ["gift", "de"],
+      html: `
+      <div style="font-family:Georgia,'Times New Roman',serif;color:#111417;max-width:520px;">
+        <p style="font-size:18px;">${input.fromName ? `${escapeHtml(input.fromName)} hat dir etwas geschenkt.` : "Jemand hat dir etwas geschenkt."}</p>
+        <p>Du hast jetzt Zugang zu <strong>${escapeHtml(editionLabelDe)}</strong> – ein kurzer, klarer Weg, um bei Betrugsversuchen sicherer zu entscheiden.</p>
+        ${note}
+        <p style="margin:24px 0;">
+          <a href="${redeemUrl}" style="background:#111417;color:#fffdf9;padding:12px 22px;text-decoration:none;border-radius:4px;display:inline-block;">Geschenk einlösen</a>
+        </p>
+        <p style="font-size:13px;color:#66645f;">Oder gib diesen Code unter ${appUrl}/de/geschenk/einloesen ein – <strong>${code}</strong></p>
+      </div>
+    `,
+    });
+    return "issued";
+  }
 
   await sendTransactionalEmail({
     to: toEmail,

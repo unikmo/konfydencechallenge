@@ -137,6 +137,7 @@ async function handleCheckoutCompleted(session: Stripe.Checkout.Session) {
       fromName: md.giftFromName || null,
       fromEmail: customerEmail,
       message: md.giftMessage || null,
+      lang: md.giftLang === "de" ? "de" : "en",
     });
     return;
   }

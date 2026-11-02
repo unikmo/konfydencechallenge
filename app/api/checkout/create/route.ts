@@ -149,7 +149,7 @@ export async function POST(request: NextRequest) {
         ],
         subscription_data: { metadata },
         metadata,
-        success_url: `${appUrl}/teams?welcome=1`,
+        success_url: `${appUrl}${consentLang === "de" ? "/de" : ""}/teams?welcome=1`,
         allow_promotion_codes: true,
         consent_collection: { terms_of_service: "required" },
         custom_text: { terms_of_service_acceptance: { message: orgPurchaseConsentText(appUrl, consentLang) } },
@@ -157,7 +157,7 @@ export async function POST(request: NextRequest) {
     } else if (isSubscriptionSku(sku)) {
       const entry = SUBSCRIPTION_CATALOG[sku];
       const prices = await resolvePriceIds([entry.lookupKey, entry.firstYearLookupKey]);
-      const metadata = { konfydenceUserId: kfUid, sku, track: entry.track };
+      const metadata = { konfydenceUserId: kfUid, sku, track: entry.track, lang: consentLang };
       session = await stripe.checkout.sessions.create({
         ...common,
         mode: "subscription",
@@ -170,8 +170,8 @@ export async function POST(request: NextRequest) {
           metadata,
         },
         metadata,
-        success_url: `${appUrl}/lockscreens/thank-you`,
-        cancel_url: `${appUrl}/lockscreens`,
+        success_url: `${appUrl}${consentLang === "de" ? "/de/lockscreens/danke" : "/lockscreens/thank-you"}`,
+        cancel_url: `${appUrl}${consentLang === "de" ? "/de/lockscreens" : "/lockscreens"}`,
         consent_collection: { terms_of_service: "required" },
         custom_text: { terms_of_service_acceptance: { message: digitalAccessConsentText(appUrl, consentLang) } },
       });
@@ -195,6 +195,7 @@ export async function POST(request: NextRequest) {
         metadata.giftToEmail = giftAttrs.toEmail;
         metadata.giftFromName = giftAttrs.fromName;
         metadata.giftMessage = giftAttrs.message;
+        metadata.giftLang = consentLang;
         session = await stripe.checkout.sessions.create({
           ...common,
           mode: "payment",

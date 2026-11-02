@@ -16,7 +16,7 @@
 import type Stripe from "stripe";
 import { getStripe, stripeConfigured } from "@/lib/stripe/client";
 import { LOCKSCREEN_B2B_TAX_CODE } from "@/lib/stripe/catalog";
-import { TIER_CONFIG, type Tier } from "@/lib/lockscreens/pricing";
+import { TIER_CONFIG, UNIT_LABELS_DE, type Tier, type LsLang } from "@/lib/lockscreens/pricing";
 import { prisma } from "@/lib/prisma";
 
 const REVERSE_CHARGE_FOOTER =
@@ -24,6 +24,12 @@ const REVERSE_CHARGE_FOOTER =
   "established in the EU, VAT is not charged — the reverse charge applies and the " +
   "recipient accounts for VAT (Steuerschuldnerschaft des Leistungsempfängers). " +
   "Konfydence is an educational scam-readiness product and does not guarantee protection from fraud.";
+
+const REVERSE_CHARGE_FOOTER_DE =
+  "Konfydence ist ein Produkt von PlanetHike. Umsatzsteuer: Ist der Kunde ein in der EU ansässiges Unternehmen, " +
+  "wird keine Umsatzsteuer berechnet – die Steuerschuldnerschaft des Leistungsempfängers (Reverse Charge) greift, " +
+  "der Leistungsempfänger schuldet die Umsatzsteuer. " +
+  "Konfydence ist ein Bildungsprodukt zur Betrugsprävention und garantiert keinen Schutz vor Betrug.";
 
 type OrderForInvoice = {
   id: string;
@@ -67,6 +73,7 @@ export async function createInvoiceForOrder(
   order: OrderForInvoice,
   tier: Tier,
   autoSend: boolean,
+  lang: LsLang = "en",
 ): Promise<InvoiceResult> {
   if (!stripeConfigured()) {
     console.warn(`Stripe not configured — no invoice raised for ${order.poNumber}`);
@@ -75,7 +82,9 @@ export async function createInvoiceForOrder(
 
   const stripe = getStripe();
   const config = TIER_CONFIG[tier];
-  const tierLabel = tier === "school" ? "Schools" : "Workplace";
+  const de = lang === "de";
+  const tierLabel = de ? (tier === "school" ? "Schulen" : "Unternehmen") : tier === "school" ? "Schools" : "Workplace";
+  const unitPlural = de ? UNIT_LABELS_DE[tier].plural : config.unitLabelPlural;
   const amountCents = Math.round((order.overrideAnnualTotal ?? order.annualTotal) * 100);
   const currency = (order.currency || "USD").toLowerCase();
   const daysUntilDue = tier === "school" ? 45 : 30;
@@ -90,9 +99,11 @@ export async function createInvoiceForOrder(
       days_until_due: daysUntilDue,
       auto_advance: false,
       currency,
-      description: `Konfydence Lockscreens — ${tierLabel} annual licence · ${order.employeeCount.toLocaleString()} ${config.unitLabelPlural} · ${order.screenCount} screens · ${order.cadence}`,
-      footer: REVERSE_CHARGE_FOOTER,
-      custom_fields: [{ name: "PO number", value: order.poNumber }],
+      description: de
+        ? `Konfydence Lockscreens – Jahreslizenz ${tierLabel} · ${order.employeeCount.toLocaleString("de-DE")} ${unitPlural} · ${order.screenCount} Screens · ${order.cadence === "weekly" ? "wöchentlich" : "alle zwei Wochen"}`
+        : `Konfydence Lockscreens — ${tierLabel} annual licence · ${order.employeeCount.toLocaleString()} ${unitPlural} · ${order.screenCount} screens · ${order.cadence}`,
+      footer: de ? REVERSE_CHARGE_FOOTER_DE : REVERSE_CHARGE_FOOTER,
+      custom_fields: [{ name: de ? "Bestellnummer" : "PO number", value: order.poNumber }],
       metadata: { lockscreen_order_id: order.id, po_number: order.poNumber, tier },
       ...(withAutomaticTax ? { automatic_tax: { enabled: true } } : {}),
     });
@@ -114,7 +125,9 @@ export async function createInvoiceForOrder(
     invoice: invoice.id,
     amount: amountCents,
     currency,
-    description: `Konfydence Lockscreens — ${tierLabel} licence, ${order.employeeCount.toLocaleString()} ${config.unitLabelPlural} @ ${currency.toUpperCase()} ${(amountCents / 100 / Math.max(order.employeeCount, 1)).toFixed(2)}/yr`,
+    description: de
+      ? `Konfydence Lockscreens – Lizenz ${tierLabel}, ${order.employeeCount.toLocaleString("de-DE")} ${unitPlural} à ${currency.toUpperCase()} ${(amountCents / 100 / Math.max(order.employeeCount, 1)).toFixed(2)}/Jahr`
+      : `Konfydence Lockscreens — ${tierLabel} licence, ${order.employeeCount.toLocaleString()} ${unitPlural} @ ${currency.toUpperCase()} ${(amountCents / 100 / Math.max(order.employeeCount, 1)).toFixed(2)}/yr`,
     ...(taxEnabled ? { tax_code: LOCKSCREEN_B2B_TAX_CODE } : {}),
   });
 

@@ -74,7 +74,8 @@ export default function GermanChallengePage(props: { searchParams: Promise<{ bal
         ))}
 
         <p style={{ fontSize: 12, opacity: 0.6, marginTop: 8 }}>
-          Team-Zugang für Schulen und Unternehmen? <Link href="/pricing?team=1" className="k-lang-switch" style={{ padding: "3px 8px" }}>Team-Kauf (auf Englisch) →</Link>
+          Team-Zugang für Schulen und Unternehmen? <Link href="/de/pricing?team=1" className="k-lang-switch" style={{ padding: "3px 8px" }}>Team-Kauf →</Link>
+          {" "}Lieber gemeinsam spielen? <Link href="/de/spielen" className="k-lang-switch" style={{ padding: "3px 8px" }}>Mit Freunden spielen →</Link>
         </p>
       </section>
     </PremiumPageDe>

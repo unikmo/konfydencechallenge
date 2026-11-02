@@ -65,7 +65,7 @@ const tiers: Tier[] = [
     renew: "Für geteilte und MDM-verwaltete Geräte ausgelegt",
     copy: "Eine Lizenz pro verwaltetem Computer. Ausgerollt auf Labor-, Bibliotheks- und Klassenzimmer-Rechner über eure Geräteverwaltung.",
     cta: "Sofort-Angebot erhalten",
-    href: "/lockscreens/school/order",
+    href: "/de/lockscreens/school/order",
   },
   {
     name: "Arbeitsplatz",
@@ -74,7 +74,7 @@ const tiers: Tier[] = [
     renew: "300 € Mindestjahreslizenz",
     copy: "Lizenzierung pro Mitarbeitendem für Firmengeräte. Lässt sich mit einem CoMaSy-Pilotprojekt kombinieren, wenn ihr auch Verhalten messen wollt.",
     cta: "Sofort-Angebot erhalten",
-    href: "/lockscreens/workplace/order",
+    href: "/de/lockscreens/workplace/order",
   },
 ];
 

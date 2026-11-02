@@ -24,6 +24,6 @@ export async function POST(request: NextRequest) {
     .slice(0, 100);
   if (emails.length === 0) return NextResponse.json({ error: "Enter at least one email." }, { status: 400 });
 
-  const report = await inviteToSeats(org, emails);
+  const report = await inviteToSeats(org, emails, body.lang === "de" ? "de" : "en");
   return NextResponse.json({ ok: true, ...report });
 }

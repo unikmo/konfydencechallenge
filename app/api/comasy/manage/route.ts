@@ -9,12 +9,13 @@ const text = (form: FormData, key: string) => String(form.get(key) ?? "").trim()
 const optional = (form: FormData, key: string) => text(form, key) || null;
 
 function redirect(request: NextRequest, view: string) {
-  return NextResponse.redirect(new URL(`/comasy/dashboard?view=${encodeURIComponent(view)}`, request.url), 303);
+  const lang = request.cookies.get("kf_lang")?.value === "de" ? "&lang=de" : "";
+  return NextResponse.redirect(new URL(`/comasy/dashboard?view=${encodeURIComponent(view)}${lang}`, request.url), 303);
 }
 
 export async function POST(request: NextRequest) {
   const organizationId = await getCustomerOrganizationId();
-  if (!organizationId) return NextResponse.redirect(new URL("/comasy/dashboard/login", request.url), 303);
+  if (!organizationId) return NextResponse.redirect(new URL(`/comasy/dashboard/login${request.cookies.get("kf_lang")?.value === "de" ? "?lang=de" : ""}`, request.url), 303);
   const form = await request.formData();
   const action = text(form, "action");
 

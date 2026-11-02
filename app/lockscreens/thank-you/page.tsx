@@ -6,7 +6,10 @@ export const metadata: Metadata = {
   title: { absolute: "Thank you | Konfydence Lockscreens" },
   description: "Your Konfydence Lockscreens subscription is active — protect your first device.",
   robots: { index: false, follow: false },
-  alternates: { canonical: "/lockscreens/thank-you" },
+  alternates: {
+    canonical: "/lockscreens/thank-you",
+    languages: { en: "https://konfydence.com/lockscreens/thank-you", de: "https://konfydence.com/de/lockscreens/danke" },
+  },
 };
 
 export default function LockscreensThankYouPage() {

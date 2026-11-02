@@ -72,6 +72,7 @@ export async function handleSubscriptionCheckout(session: Stripe.Checkout.Sessio
     contactEmail: email,
     contactName: session.customer_details?.name ?? null,
     isRenewal: false,
+    lang: session.metadata?.lang === "de" ? "de" : "en",
   });
 
   // Make it portable: a recoverable account keyed on the checkout email, with
@@ -108,6 +109,7 @@ export async function handleSubscriptionRenewal(invoice: Stripe.Invoice): Promis
     contactEmail: email,
     contactName: null,
     isRenewal: true,
+    lang: sub.metadata?.lang === "de" ? "de" : undefined,
   });
 }
 

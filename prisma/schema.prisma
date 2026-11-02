@@ -594,6 +594,9 @@ model LockscreenTenant {
   termStart     DateTime?
   termEnd       DateTime?
   createdAt     DateTime          @default(now())
+  // Language of the buyer's order flow ("en" | "de"): picks the language of the
+  // emails, the admin/PO pages they are sent to, and (for German orders) EUR.
+  lang          String            @default("en")
   plan          LockscreenPlan?
   orders        LockscreenOrder[]
 

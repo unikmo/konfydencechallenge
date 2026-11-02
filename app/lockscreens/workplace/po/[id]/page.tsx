@@ -1,7 +1,5 @@
-import { notFound } from "next/navigation";
 import type { Metadata } from "next";
-import { prisma } from "@/lib/prisma";
-import { PurchaseOrderDocument } from "@/components/lockscreens/PurchaseOrderDocument";
+import { PoPageView } from "@/components/lockscreens/PoPageView";
 
 export const metadata: Metadata = {
   title: "Purchase order | Konfydence Lockscreens",
@@ -10,7 +8,5 @@ export const metadata: Metadata = {
 
 export default async function WorkplaceLockscreenPurchaseOrderPage({ params }: { params: Promise<{ id: string }> }) {
   const { id } = await params;
-  const order = await prisma.lockscreenOrder.findUnique({ where: { id }, include: { tenant: true } });
-  if (!order) notFound();
-  return <PurchaseOrderDocument tier="workplace" order={order} />;
+  return <PoPageView tier="workplace" id={id} lang="en" />;
 }

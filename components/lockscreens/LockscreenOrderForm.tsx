@@ -5,10 +5,12 @@ import { useRouter } from "next/navigation";
 import Image from "next/image";
 import {
   screenCountOptionsFor,
-  CADENCE_OPTIONS,
+  cadenceOptionsFor,
   computeQuote,
-  formatUsd,
+  formatMoney,
   TIER_CONFIG,
+  UNIT_LABELS_DE,
+  type LsLang,
   type Tier,
   type ScreenCount,
   type Cadence,
@@ -18,10 +20,72 @@ type Asset = { number: number; category: string; hook: string; body: string; act
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-export function LockscreenOrderForm({ tier }: { tier: Tier }) {
+const T = {
+  en: {
+    poBase: "/lockscreens",
+    org: (tier: Tier) => (tier === "school" ? "School" : "Organisation"),
+    orgName: (tier: Tier) => (tier === "school" ? "School name" : "Organisation name"),
+    unitsToLicence: (plural: string) => `${plural[0].toUpperCase() + plural.slice(1)} to licence`,
+    contactName: "Contact name",
+    contactEmail: "Contact email",
+    billing: "Billing address (optional)",
+    plan: "Plan",
+    screenPackage: "Screen package",
+    cadence: "Cadence",
+    weeklyNote: "Weekly cadence isn’t self-serve priced yet, and it can miss half its flips on MDM fleets that only refresh fortnightly. ",
+    extendedNote: "The extended library isn’t self-serve priced yet for this tier. ",
+    reviewNote: "Your PO will be issued at the standard rate, and a rep will follow up to confirm the final number.",
+    customMode: (n: number) => <>Choose specific screens instead of the standard 1&ndash;{n} sequence</>,
+    selectedOf: (a: number, b: number) => `Selected ${a} / ${b}`,
+    loadingLib: "Loading library…",
+    notes: "Notes (optional)",
+    estimated: "Estimated annual total",
+    minApplied: (m: string) => ` — ${m} minimum applied`,
+    generating: "Generating purchase order…",
+    generate: "Generate purchase order",
+    errOrg: (tier: Tier) => `Enter your ${tier === "school" ? "school" : "organisation"} name.`,
+    errEmail: "Enter a valid contact email.",
+    errCount: (plural: string) => `Enter the number of ${plural} to licence.`,
+    errSelect: (n: number) => `Select exactly ${n} screens, or switch back to the standard sequence.`,
+    errGeneric: "Something went wrong. Please try again.",
+  },
+  de: {
+    poBase: "/de/lockscreens",
+    org: (tier: Tier) => (tier === "school" ? "Schule" : "Organisation"),
+    orgName: (tier: Tier) => (tier === "school" ? "Name der Schule" : "Name der Organisation"),
+    unitsToLicence: (plural: string) => `Zu lizenzierende ${plural[0].toUpperCase() + plural.slice(1)}`,
+    contactName: "Ansprechperson",
+    contactEmail: "E-Mail-Adresse der Ansprechperson",
+    billing: "Rechnungsadresse (optional)",
+    plan: "Paket",
+    screenPackage: "Screen-Paket",
+    cadence: "Wechselrhythmus",
+    weeklyNote: "Der wöchentliche Wechsel ist noch nicht als Selbstbedienungspreis hinterlegt. Bei Geräteflotten, die sich nur alle zwei Wochen aktualisieren, kann außerdem jeder zweite Wechsel ausfallen. ",
+    extendedNote: "Die erweiterte Bibliothek ist für diese Zielgruppe noch nicht als Selbstbedienungspreis hinterlegt. ",
+    reviewNote: "Eure Bestellung wird zum Standardpreis ausgestellt; wir melden uns, um den endgültigen Betrag zu bestätigen.",
+    customMode: (n: number) => <>Eigene Screens auswählen statt der Standardfolge 1&ndash;{n}</>,
+    selectedOf: (a: number, b: number) => `${a} von ${b} ausgewählt`,
+    loadingLib: "Bibliothek wird geladen …",
+    notes: "Anmerkungen (optional)",
+    estimated: "Voraussichtliche Jahressumme",
+    minApplied: (m: string) => ` – Mindestbetrag von ${m} angewendet`,
+    generating: "Bestellung wird erstellt …",
+    generate: "Bestellung erstellen",
+    errOrg: (tier: Tier) => `Bitte gib den Namen der ${tier === "school" ? "Schule" : "Organisation"} an.`,
+    errEmail: "Bitte gib eine gültige E-Mail-Adresse an.",
+    errCount: (plural: string) => `Bitte gib an, wie viele ${plural} lizenziert werden sollen.`,
+    errSelect: (n: number) => `Wähle genau ${n} Screens aus oder wechsle zurück zur Standardfolge.`,
+    errGeneric: "Etwas ist schiefgelaufen. Bitte versuch es noch einmal.",
+  },
+} as const;
+
+export function LockscreenOrderForm({ tier, lang = "en" }: { tier: Tier; lang?: LsLang }) {
   const router = useRouter();
+  const t = T[lang];
   const config = TIER_CONFIG[tier];
-  const screenCountOptions = useMemo(() => screenCountOptionsFor(tier), [tier]);
+  const unitPlural = lang === "de" ? UNIT_LABELS_DE[tier].plural : config.unitLabelPlural;
+  const screenCountOptions = useMemo(() => screenCountOptionsFor(tier, lang), [tier, lang]);
+  const cadenceOptions = useMemo(() => cadenceOptionsFor(lang), [lang]);
 
   const [assets, setAssets] = useState<Asset[]>([]);
   const [assetsLoading, setAssetsLoading] = useState(true);
@@ -75,11 +139,11 @@ export function LockscreenOrderForm({ tier }: { tier: Tier }) {
     e.preventDefault();
     setError(null);
 
-    if (!orgName.trim()) return setError(`Enter your ${tier === "school" ? "school" : "organisation"} name.`);
-    if (!EMAIL_RE.test(contactEmail.trim())) return setError("Enter a valid contact email.");
-    if (!unitCount || Number(unitCount) < 1) return setError(`Enter the number of ${config.unitLabelPlural} to licence.`);
+    if (!orgName.trim()) return setError(t.errOrg(tier));
+    if (!EMAIL_RE.test(contactEmail.trim())) return setError(t.errEmail);
+    if (!unitCount || Number(unitCount) < 1) return setError(t.errCount(unitPlural));
     if (customMode && selected.length !== screenCount) {
-      return setError(`Select exactly ${screenCount} screens, or switch back to the standard sequence.`);
+      return setError(t.errSelect(screenCount));
     }
 
     setLoading(true);
@@ -98,17 +162,18 @@ export function LockscreenOrderForm({ tier }: { tier: Tier }) {
           cadence,
           sequence: customMode ? selected : undefined,
           notes: notes.trim(),
+          lang,
         }),
       });
       const data = await response.json();
       if (!response.ok) {
-        setError(data.error || "Something went wrong. Please try again.");
+        setError((lang === "en" && data.error) || t.errGeneric);
         setLoading(false);
         return;
       }
-      router.push(`/lockscreens/${tier}/po/${data.id}`);
+      router.push(`${t.poBase}/${tier}/po/${data.id}`);
     } catch {
-      setError("Something went wrong. Please try again.");
+      setError(t.errGeneric);
       setLoading(false);
     }
   }
@@ -116,14 +181,14 @@ export function LockscreenOrderForm({ tier }: { tier: Tier }) {
   return (
     <form onSubmit={handleSubmit} style={{ display: "grid", gap: 28, maxWidth: 720 }}>
       <fieldset style={fieldsetStyle}>
-        <legend style={legendStyle}>{tier === "school" ? "School" : "Organisation"}</legend>
-        <div style={{ display: "grid", gap: 16, gridTemplateColumns: "1fr 1fr" }}>
+        <legend style={legendStyle}>{t.org(tier)}</legend>
+        <div style={{ display: "grid", gap: 16, gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))" }}>
           <label style={labelStyle}>
-            <span className="k-kicker">{tier === "school" ? "School name" : "Organisation name"}</span>
+            <span className="k-kicker">{t.orgName(tier)}</span>
             <input style={inputStyle} value={orgName} onChange={(e) => setOrgName(e.target.value)} required />
           </label>
           <label style={labelStyle}>
-            <span className="k-kicker">{config.unitLabelPlural[0].toUpperCase() + config.unitLabelPlural.slice(1)} to licence</span>
+            <span className="k-kicker">{t.unitsToLicence(unitPlural)}</span>
             <input
               style={inputStyle}
               type="number"
@@ -135,25 +200,25 @@ export function LockscreenOrderForm({ tier }: { tier: Tier }) {
             />
           </label>
           <label style={labelStyle}>
-            <span className="k-kicker">Contact name</span>
+            <span className="k-kicker">{t.contactName}</span>
             <input style={inputStyle} value={contactName} onChange={(e) => setContactName(e.target.value)} />
           </label>
           <label style={labelStyle}>
-            <span className="k-kicker">Contact email</span>
+            <span className="k-kicker">{t.contactEmail}</span>
             <input style={inputStyle} type="email" value={contactEmail} onChange={(e) => setContactEmail(e.target.value)} required />
           </label>
         </div>
         <label style={{ ...labelStyle, marginTop: 16 }}>
-          <span className="k-kicker">Billing address (optional)</span>
+          <span className="k-kicker">{t.billing}</span>
           <textarea style={{ ...inputStyle, resize: "vertical" }} rows={2} value={billingAddress} onChange={(e) => setBillingAddress(e.target.value)} />
         </label>
       </fieldset>
 
       <fieldset style={fieldsetStyle}>
-        <legend style={legendStyle}>Plan</legend>
-        <div style={{ display: "grid", gap: 16, gridTemplateColumns: "1fr 1fr" }}>
+        <legend style={legendStyle}>{t.plan}</legend>
+        <div style={{ display: "grid", gap: 16, gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))" }}>
           <label style={labelStyle}>
-            <span className="k-kicker">Screen package</span>
+            <span className="k-kicker">{t.screenPackage}</span>
             <select style={inputStyle} value={screenCount} onChange={(e) => handleScreenCountChange(Number(e.target.value) as ScreenCount)}>
               {screenCountOptions.map((o) => (
                 <option key={o.value} value={o.value}>{o.label}</option>
@@ -161,9 +226,9 @@ export function LockscreenOrderForm({ tier }: { tier: Tier }) {
             </select>
           </label>
           <label style={labelStyle}>
-            <span className="k-kicker">Cadence</span>
+            <span className="k-kicker">{t.cadence}</span>
             <select style={inputStyle} value={cadence} onChange={(e) => setCadence(e.target.value as Cadence)}>
-              {CADENCE_OPTIONS.map((o) => (
+              {cadenceOptions.map((o) => (
                 <option key={o.value} value={o.value}>{o.label}</option>
               ))}
             </select>
@@ -171,30 +236,26 @@ export function LockscreenOrderForm({ tier }: { tier: Tier }) {
         </div>
         {quote.needsSalesReview ? (
           <p style={{ fontSize: 12, color: "#a66d00", marginTop: 10 }}>
-            {cadence !== "fortnightly"
-              ? "Weekly cadence isn’t self-serve priced yet, and it can miss half its flips on MDM fleets that only refresh fortnightly. "
-              : ""}
-            {screenCount !== 27 && config.extendedLibrarySurchargePerUnit == null
-              ? "The extended library isn’t self-serve priced yet for this tier. "
-              : ""}
-            Your PO will be issued at the standard rate, and a rep will follow up to confirm the final number.
+            {cadence !== "fortnightly" ? t.weeklyNote : ""}
+            {screenCount !== 27 && config.extendedLibrarySurchargePerUnit == null ? t.extendedNote : ""}
+            {t.reviewNote}
           </p>
         ) : null}
 
         <div style={{ marginTop: 18 }}>
           <label style={{ display: "flex", alignItems: "center", gap: 8, fontSize: 13 }}>
             <input type="checkbox" checked={customMode} onChange={(e) => handleCustomModeChange(e.target.checked)} />
-            Choose specific screens instead of the standard 1&ndash;{screenCount} sequence
+            {t.customMode(screenCount)}
           </label>
         </div>
 
         {customMode ? (
           <div style={{ marginTop: 16 }}>
             <p className="k-copy" style={{ fontSize: 13 }}>
-              Selected {selected.length} / {screenCount}
+              {t.selectedOf(selected.length, screenCount)}
             </p>
             {assetsLoading ? (
-              <p className="k-copy">Loading library…</p>
+              <p className="k-copy">{t.loadingLib}</p>
             ) : (
               <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(110px, 1fr))", gap: 10, maxHeight: 480, overflowY: "auto", padding: 4 }}>
                 {assets.map((a) => {
@@ -229,19 +290,19 @@ export function LockscreenOrderForm({ tier }: { tier: Tier }) {
       </fieldset>
 
       <label style={labelStyle}>
-        <span className="k-kicker">Notes (optional)</span>
+        <span className="k-kicker">{t.notes}</span>
         <textarea style={{ ...inputStyle, resize: "vertical" }} rows={3} value={notes} onChange={(e) => setNotes(e.target.value)} />
       </label>
 
       <div className="conversion" style={{ background: "var(--k-deep, #12191f)", color: "#fff", borderRadius: 16, padding: 24 }}>
-        <p style={{ margin: 0, fontSize: 12, letterSpacing: ".08em", textTransform: "uppercase", color: "#af8752" }}>Estimated annual total</p>
-        <p style={{ margin: "8px 0 4px", fontSize: 34, fontFamily: "var(--k-display)", fontWeight: 400 }}>{formatUsd(quote.annualTotal)}</p>
+        <p style={{ margin: 0, fontSize: 12, letterSpacing: ".08em", textTransform: "uppercase", color: "#af8752" }}>{t.estimated}</p>
+        <p style={{ margin: "8px 0 4px", fontSize: 34, fontFamily: "var(--k-display)", fontWeight: 400 }}>{formatMoney(quote.annualTotal, lang)}</p>
         <p style={{ margin: 0, fontSize: 13, color: "rgba(255,255,255,.7)" }}>
-          {unitCount || 0} {config.unitLabelPlural} &times; {formatUsd(quote.ratePerUnit)}
-          {quote.minimumApplied ? ` — ${formatUsd(config.minimumAnnual)} minimum applied` : ""}
+          {unitCount || 0} {unitPlural} &times; {formatMoney(quote.ratePerUnit, lang)}
+          {quote.minimumApplied ? t.minApplied(formatMoney(config.minimumAnnual, lang)) : ""}
         </p>
         <button type="submit" disabled={loading} style={{ marginTop: 18, width: "100%", minHeight: 48, borderRadius: 999, border: "none", background: "#fff", color: "#111417", fontWeight: 650, cursor: loading ? "not-allowed" : "pointer" }}>
-          {loading ? "Generating purchase order…" : "Generate purchase order"}
+          {loading ? t.generating : t.generate}
         </button>
         {error ? <p role="alert" style={{ color: "#f2b8a0", fontSize: 13, marginTop: 10 }}>{error}</p> : null}
       </div>
@@ -249,10 +310,13 @@ export function LockscreenOrderForm({ tier }: { tier: Tier }) {
   );
 }
 
-const fieldsetStyle: React.CSSProperties = { border: "1px solid rgba(17,20,23,.12)", borderRadius: 12, padding: 20 };
+const fieldsetStyle: React.CSSProperties = { minWidth: 0, border: "1px solid rgba(17,20,23,.12)", borderRadius: 12, padding: 20 };
 const legendStyle: React.CSSProperties = { fontSize: 11, letterSpacing: ".08em", textTransform: "uppercase", color: "#8d8980", padding: "0 6px" };
 const labelStyle: React.CSSProperties = { display: "grid", gap: 6 };
 const inputStyle: React.CSSProperties = {
+  width: "100%",
+  minWidth: 0,
+  boxSizing: "border-box",
   padding: "11px 14px",
   borderRadius: 10,
   border: "1px solid rgba(17,20,23,.22)",

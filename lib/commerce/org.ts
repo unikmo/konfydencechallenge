@@ -188,7 +188,7 @@ export async function removeSeatMember(org: Org, seatId: string): Promise<void> 
 export type InviteReport = { invited: string[]; skipped: string[]; noCapacity: string[] };
 
 /** Owner invites people by email — each takes an open seat and gets a mail. */
-export async function inviteToSeats(org: Org, rawEmails: string[]): Promise<InviteReport> {
+export async function inviteToSeats(org: Org, rawEmails: string[], lang: "en" | "de" = "en"): Promise<InviteReport> {
   const report: InviteReport = { invited: [], skipped: [], noCapacity: [] };
   const seen = new Set<string>();
 
@@ -222,15 +222,35 @@ export async function inviteToSeats(org: Org, rawEmails: string[]): Promise<Invi
       where: { id: open.id },
       data: { status: "invited", inviteEmail: email },
     });
-    await sendInviteEmail(org, email);
+    await sendInviteEmail(org, email, lang);
     report.invited.push(email);
   }
 
   return report;
 }
 
-async function sendInviteEmail(org: Org, to: string): Promise<void> {
-  const joinUrl = `${APP_URL}/teams/join?code=${encodeURIComponent(org.inviteCode)}`;
+async function sendInviteEmail(org: Org, to: string, lang: "en" | "de"): Promise<void> {
+  const prefix = lang === "de" ? "/de" : "";
+  const joinUrl = `${APP_URL}${prefix}/teams/join?code=${encodeURIComponent(org.inviteCode)}`;
+  if (lang === "de") {
+    await sendTransactionalEmail({
+      to,
+      subject: `Du wurdest zu ${org.name} bei Konfydence hinzugefügt`,
+      tags: ["teams", "invite", "de"],
+      html: `
+      <div style="font-family:Georgia,'Times New Roman',serif;color:#111417;max-width:520px;">
+        <p style="font-size:18px;">${escapeHtml(org.name)} hat dir einen Platz in der Konfydence Challenge freigeschaltet.</p>
+        <p>Alle fünf Editionen, unbegrenzte Runden – ein kurzer, klarer Weg, um im Ernstfall sicherer zu entscheiden.
+        Dein Fortschritt bleibt privat; dein Team-Admin sieht nur, was abgeschlossen ist, nicht deine Antworten.</p>
+        <p style="margin:24px 0;">
+          <a href="${joinUrl}" style="background:#111417;color:#fffdf9;padding:12px 22px;text-decoration:none;border-radius:4px;display:inline-block;">Platz übernehmen</a>
+        </p>
+        <p style="font-size:13px;color:#66645f;">Oder öffne ${APP_URL}/de/teams/join und gib den Code <strong>${escapeHtml(org.inviteCode)}</strong> ein.</p>
+      </div>
+    `,
+    });
+    return;
+  }
   await sendTransactionalEmail({
     to,
     subject: `You've been added to ${org.name} on Konfydence`,

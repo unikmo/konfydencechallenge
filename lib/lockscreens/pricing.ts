@@ -23,6 +23,7 @@
 // digest cron (app/api/cron/lockscreens-personal-digest, vercel.json) emails
 // the customer their new screen.
 export type Tier = "workplace" | "school";
+export type LsLang = "en" | "de";
 export type ScreenCount = 27 | 54 | 60;
 export type Cadence = "fortnightly" | "weekly";
 
@@ -52,8 +53,23 @@ export const TIER_CONFIG: Record<Tier, TierConfig> = {
   },
 };
 
-export function screenCountOptionsFor(tier: Tier): { value: ScreenCount; label: string; standard: boolean }[] {
+/** German unit nouns. German orders are priced in EUR at the same nominal rates (see the /de/lockscreens price cards). */
+export const UNIT_LABELS_DE: Record<Tier, { singular: string; plural: string; perUnit: string; pluralNominative: string }> = {
+  workplace: { singular: "Mitarbeitende", plural: "Mitarbeitende", perUnit: "Mitarbeitenden", pluralNominative: "Mitarbeitende" },
+  school: { singular: "verwalteter Computer", plural: "verwaltete Computer", perUnit: "verwaltetem Computer", pluralNominative: "verwaltete Computer" },
+};
+
+export function screenCountOptionsFor(tier: Tier, lang: LsLang = "en"): { value: ScreenCount; label: string; standard: boolean }[] {
   const surcharge = TIER_CONFIG[tier].extendedLibrarySurchargePerUnit;
+  if (lang === "de") {
+    const unit = UNIT_LABELS_DE[tier].singular;
+    const extra = surcharge != null ? `+${formatMoney(surcharge, "de")} pro ${unit} und Jahr` : "Preis auf Anfrage";
+    return [
+      { value: 27, label: "27 Screens (Standard)", standard: true },
+      { value: 54, label: `54 Screens (erweitert – ${extra})`, standard: false },
+      { value: 60, label: `60 Screens (gesamte Bibliothek – ${extra})`, standard: false },
+    ];
+  }
   const extendedLabel = (count: number) =>
     surcharge != null
       ? `${count} screens (extended — +${formatUsd(surcharge)}/${TIER_CONFIG[tier].unitLabel}/year)`
@@ -63,6 +79,16 @@ export function screenCountOptionsFor(tier: Tier): { value: ScreenCount; label: 
     { value: 54, label: extendedLabel(54), standard: false },
     { value: 60, label: `60 screens (full library — ${surcharge != null ? `+${formatUsd(surcharge)}/${TIER_CONFIG[tier].unitLabel}/year` : "priced separately"})`, standard: false },
   ];
+}
+
+export function cadenceOptionsFor(lang: LsLang): { value: Cadence; label: string; standard: boolean }[] {
+  if (lang === "de") {
+    return [
+      { value: "fortnightly", label: "Alle zwei Wochen (Standard)", standard: true },
+      { value: "weekly", label: "Wöchentlich (Preis auf Anfrage – Einschränkungen bei der Geräteverwaltung)", standard: false },
+    ];
+  }
+  return CADENCE_OPTIONS;
 }
 
 export const CADENCE_OPTIONS: { value: Cadence; label: string; standard: boolean }[] = [
@@ -120,6 +146,14 @@ export function computeWorkplaceQuote(unitCount: number, screenCount: ScreenCoun
 /** @deprecated use computeQuote("school", ...) */
 export function computeSchoolQuote(unitCount: number, screenCount: ScreenCount = 27, cadence: Cadence = "fortnightly") {
   return computeQuote("school", unitCount, screenCount, cadence);
+}
+
+/** EN: US dollars. DE: euros in German number format ("1.234,50 €"). */
+export function formatMoney(amount: number, lang: LsLang = "en"): string {
+  if (lang === "de") {
+    return amount.toLocaleString("de-DE", { style: "currency", currency: "EUR", maximumFractionDigits: 2 });
+  }
+  return formatUsd(amount);
 }
 
 export function formatUsd(amount: number): string {

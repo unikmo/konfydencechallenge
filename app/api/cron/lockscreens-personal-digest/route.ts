@@ -57,11 +57,22 @@ export async function GET(request: NextRequest) {
 
     const screenUrl = `${appUrl}/lockscreens/screen/${tenant.token}`;
     const trackLabel = TRACK_LABEL[tenant.kind] || tenant.kind;
+    const de = tenant.lang === "de";
     const sent = await sendTransactionalEmail({
       to: tenant.contactEmail,
-      subject: `Your new Konfydence ${trackLabel} screen is ready`,
+      subject: de ? `Dein neuer Konfydence-${trackLabel}-Screen ist da` : `Your new Konfydence ${trackLabel} screen is ready`,
       tags: ["lockscreens", `${tenant.kind}-digest`],
-      html: `
+      html: de
+        ? `
+        <div style="font-family:Georgia,'Times New Roman',serif;color:#111417;max-width:520px;">
+          <p style="font-size:18px;">Ein neuer Screen ist online.</p>
+          <p>Betrugsmaschen ändern sich, und deine Erinnerung ändert sich mit. Hol dir den neuen Screen und aktualisiere deinen Sperrbildschirm:</p>
+          <p style="margin:24px 0;">
+            <a href="${screenUrl}" style="background:#111417;color:#fffdf9;padding:12px 22px;text-decoration:none;border-radius:4px;display:inline-block;">Neuen Screen ansehen</a>
+          </p>
+        </div>
+      `
+        : `
         <div style="font-family:Georgia,'Times New Roman',serif;color:#111417;max-width:520px;">
           <p style="font-size:18px;">A new screen just went live.</p>
           <p>Scam patterns shift, so does your reminder. Grab the new one and update your lock screen:</p>

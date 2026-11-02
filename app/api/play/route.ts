@@ -15,7 +15,7 @@ export async function POST(request: NextRequest) {
   const account = await getAccount();
   const name = String(body.name ?? "").trim() || account?.email?.split("@")[0] || "Host";
 
-  const result = await createRoom(name, account?.id ?? null);
+  const result = await createRoom(name, account?.id ?? null, body.lang === "de" ? "de" : "en");
   if (!result.ok) {
     return NextResponse.json({ error: result.error }, { status: result.error === "no_scenarios" ? 503 : 400 });
   }
