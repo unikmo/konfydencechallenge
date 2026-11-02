@@ -17,11 +17,11 @@ import type { UiLang } from "@/lib/challenge/uiStrings";
 // --- 2. Translations of scoringEngine-generated English vocabulary --------
 
 const LEVEL_DE: Record<string, string> = {
-  "Sharp Spotter": "Scharfer Blick",
+  "Sharp Spotter": "Betrugsversuche gut erkannt",
   "Nearly Ready": "Fast bereit",
-  "Pressure-Prone": "Druckanfällig",
+  "Pressure-Prone": "Unter Druck unsicher",
   "Needs Practice": "Braucht Übung",
-  "Scam-Strong": "Betrugssicher",
+  "Scam-Strong": "Gut vorbereitet",
   "On Track": "Auf gutem Weg",
   "High Risk": "Hohes Risiko",
 };
@@ -32,9 +32,9 @@ export function localizeLevel(level: string, lang: UiLang): string {
 }
 
 const SIGNAL_LABEL_DE: Record<string, string> = {
-  "Strong reflex": "Starker Reflex",
+  "Strong reflex": "Sichere Reaktion",
   "Watch this": "Beobachten",
-  "Priority to train": "Priorität zum Üben",
+  "Priority to train": "Hier solltest du weiter üben",
 };
 
 export function localizeSignalLabel(label: string, lang: UiLang): string {
