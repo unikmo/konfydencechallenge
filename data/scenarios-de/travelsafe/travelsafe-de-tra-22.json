@@ -1,7 +1,7 @@
 {
   "id": "travelsafe-de-tra-22",
   "lang": "de",
-  "title": "Der Mann mit dem Flughafenausweis",
+  "title": "Angeblich offizielles Taxi am Flughafenausgang",
   "edition": "travelsafe",
   "cardType": "scenario",
   "scored": true,
@@ -20,8 +20,8 @@
   "safeActions": [
     "C"
   ],
-  "explanation": "Ein Ausweis lässt sich leicht nachmachen oder gehört zu einer anderen Tätigkeit — echte, sichere Taxis erkennt man am offiziellen Stand oder der geprüften App, nicht an einer Ansprache am Ausgang.",
-  "proTip": "Ein Ausweis am Ausgang ist kein Taxischein.",
+  "explanation": "Ein Flughafenausweis allein sagt nichts darüber aus, ob jemand zur Personenbeförderung berechtigt ist. Nutze den offiziellen Taxistand oder einen überprüften Fahrdienst.",
+  "proTip": "Taxifahrten am Flughafen über offizielle Halteplätze oder geprüfte Apps buchen.",
   "hackKey": "A",
   "hackTrigger": "Autorität",
   "tags": [
