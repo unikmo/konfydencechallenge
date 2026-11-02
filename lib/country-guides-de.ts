@@ -24,8 +24,8 @@ export const HACK_LABEL_DE: Record<HackKey, string> = {
 export const HACK_DEF_DE: Record<HackKey, string> = {
   H: "Zeitdruck. Eine Frist, ein Countdown oder ein „jetzt sofort“, das keine Zeit zum Prüfen lässt.",
   A: "Amtston. Ein Ausweis, ein Titel, eine Uniform oder eine offiziell klingende Bitte, die du nicht zu hinterfragen wagst.",
-  C: "Vertrautheit. Eine freundlicher Einheimischer, eine Routine oder eine Emotion, die die Bitte sicherer wirken lässt, als sie ist.",
-  K: "Der Punkt ohne Rückweg. Der Moment, in dem du gedrängt wirst zu zahlen, zu klicken, ein Dokument herzugeben oder jemandem zu folgen — bevor du prüfen kannst.",
+  C: "Vertrautheit. Eine freundlich wirkende Person, ein vertrauter Ablauf oder ein gutes Gefühl, durch das eine Bitte glaubwürdiger erscheint.",
+  K: "Der entscheidende Moment: Du sollst Geld überweisen, auf einen Link klicken oder persönliche Daten preisgeben, bevor du die Forderung prüfen kannst.",
 };
 
 /** German display name for every country with a finished guide translation. */
@@ -75,6 +75,35 @@ export const CONTINENT_DE: Record<string, string> = {
   "North America": "Nordamerika",
   "South America": "Südamerika",
   Oceania: "Ozeanien",
+};
+
+export const REGION_DE: Record<string, string> = {
+  "Australasia": "Australien und Neuseeland",
+  "Caribbean": "Karibik",
+  "Central Africa": "Zentralafrika",
+  "Central America": "Mittelamerika",
+  "Central Asia": "Zentralasien",
+  "Central Europe": "Mitteleuropa",
+  "East Africa": "Ostafrika",
+  "East Asia": "Ostasien",
+  "Eastern Europe": "Osteuropa",
+  "Eastern Mediterranean": "Östlicher Mittelmeerraum",
+  "Gulf": "Golfregion",
+  "Melanesia": "Melanesien",
+  "Micronesia": "Mikronesien",
+  "North Africa": "Nordafrika",
+  "North America": "Nordamerika",
+  "Northern Europe": "Nordeuropa",
+  "Polynesia": "Polynesien",
+  "South America": "Südamerika",
+  "South Asia": "Südasien",
+  "Southeast Asia": "Südostasien",
+  "Southeastern Europe": "Südosteuropa",
+  "Southern Africa": "Südliches Afrika",
+  "Southern Europe": "Südeuropa",
+  "West Africa": "Westafrika",
+  "West Asia": "Westasien",
+  "Western Europe": "Westeuropa",
 };
 
 export const COUNTRY_GUIDES_DE: Record<string, CountryGuide> = {
