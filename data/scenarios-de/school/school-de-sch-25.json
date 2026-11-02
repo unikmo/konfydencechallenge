@@ -1,7 +1,7 @@
 {
   "id": "school-de-sch-25",
   "lang": "de",
-  "title": "Dein bester Freund braucht einen winzigen Gefallen",
+  "title": "Freund bittet um dein Instagram-Passwort",
   "edition": "school",
   "cardType": "scenario",
   "scored": true,
@@ -21,8 +21,8 @@
     "C",
     "B"
   ],
-  "explanation": "Ein enges Freundschaftsverhältnis ist kein Grund, Zugangsdaten weiterzugeben — dein Account bleibt deine Verantwortung, egal wer fragt. Und ein Account kann selbst gekapert worden sein.",
-  "proTip": "Ein guter Freund fragt nie nach deinem Passwort, nur nach Hilfe.",
+  "explanation": "Auch bei engen Freunden bleiben Passwörter privat. Das Konto deines Freundes könnte außerdem übernommen worden sein. Biete an, beim offiziellen Wiederherstellen seines Zugangs zu helfen.",
+  "proTip": "Freundschaft heißt helfen – nicht Passwörter teilen.",
   "hackKey": "C",
   "hackTrigger": "Vertrautheit",
   "tags": [
