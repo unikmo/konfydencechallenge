@@ -53,8 +53,8 @@ export default function Page() {
       howCopy="Ihr verwaltet kein Artwork und keinen Druckplan. Konfydence erstellt und aktualisiert die Motive; ihr richtet eure Flotte einmal darauf aus."
       howSteps={[
         "Kauft eine Arbeitsplatz-Lizenz — 4 € pro Mitarbeitendem pro Jahr, 300 € Minimum.",
-        "Verteilt das aktuelle Motiv über Intune, Jamf oder Google Admin aus.",
-        "Ein neues Motiv ersetzt das bisherige alle zwei Wochen automatisch.",
+        "Verteilt das aktuelle Motiv über Intune, Jamf oder Google Admin.",
+        "Alle zwei Wochen wird das bisherige Motiv durch ein neues ersetzt.",
         "Der Wortlaut verfolgt aktuelle Betrugsmuster und die Anhalten-Abklären-Ansprechen-Methode über das Jahr hinweg.",
       ]}
       orgValue={{
