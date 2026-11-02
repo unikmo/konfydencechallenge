@@ -4,7 +4,7 @@ import { LockscreenIntentPage } from "@/components/LockscreenIntentPage";
 export const metadata: Metadata = {
   title: { absolute: "Security-Awareness-Hintergrundbild für Microsoft Intune | Konfydence Lockscreens" },
   description:
-    "Rollt einen rotierenden Security-Awareness-Sperrbildschirm und ein Desktop-Hintergrundbild über Microsoft Intune aus. Eine Richtlinie, eine URL, alle zwei Wochen ein frischer Anhalten · Abklären · Ansprechen-Hinweis — kein erneutes Ausrollen.",
+    "Verteilt einen regelmäßig wechselnden Security-Awareness-Sperrbildschirm und ein Desktop-Hintergrundbild über Microsoft Intune aus. Eine Richtlinie, eine URL, alle zwei Wochen ein neuer Hinweis zur Methode „Anhalten, Abklären, Ansprechen“ — kein erneutes Ausrollen.",
   alternates: {
     canonical: "/de/lockscreens/intune",
     languages: { en: "https://konfydence.com/lockscreens/intune", de: "https://konfydence.com/de/lockscreens/intune" },
@@ -25,8 +25,8 @@ export default function Page() {
       slug="intune"
       breadcrumbName="Microsoft Intune"
       eyebrow="MICROSOFT INTUNE"
-      title="Security-Awareness-Hintergrundbild, das ihr einmal in Intune einrichtet."
-      intro="Ihr könnt mit Intune bereits ein Desktop-Hintergrundbild und ein Sperrbildschirmbild ausrollen. Das Problem ist, es sehenswert zu halten — ein statisches Bild wird schnell alt, und alle zwei Wochen ein neues zu verpacken, will niemand machen. Konfydence gibt euch eine stabile URL, die immer zum aktuellen Screen führt, damit eure Intune-Richtlinie ohne weiteres Zutun frisch bleibt."
+      title="Sicherheitshinweise über Microsoft Intune auf den Geräten anzeigen."
+      intro="Ihr könnt mit Intune bereits ein Desktop-Hintergrundbild und ein Sperrbildschirmbild ausrollen. Schwieriger ist es, den Inhalt regelmäßig aktuell zu halten — ein statisches Bild wird schnell alt, und alle zwei Wochen ein neues zu verpacken, will niemand machen. Konfydence gibt euch eine stabile URL, die immer zum aktuellen Screen führt, damit eure Intune-Richtlinie ohne weiteres Zutun frisch bleibt."
       primaryCtaHref="/de/lockscreens#pricing"
       primaryCtaLabel="Sofort-Angebot erhalten"
       heroImage={{
