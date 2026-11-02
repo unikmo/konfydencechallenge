@@ -61,12 +61,12 @@ export default function Page() {
         title: "Sicherheit auch zwischen den Schulungen präsent halten.",
         copy: "Regelmäßige Hinweise sollen an sicheres Verhalten erinnern – auch wenn die letzte Schulung schon länger zurückliegt. Wechselnde Sperrbildschirm-Hinweise können dafür sorgen, dass zentrale Sicherheitsregeln auch zwischen den Schulungen präsent bleiben.",
         points: [
-          "Fortlaufende Cyber-Hygiene-Verstärkung — NIS2 (Artikel 21) erwartet kontinuierliche Sensibilisierung für IT-Sicherheit und eine Aufsicht durch die Leitungsorgane. Ein rotierender Hinweis ist sichtbare Aktivität zwischen den formalen Schulungen.",
-          "Beitrag zum Human Risk Management — verschiebt Sicherheitsbewusstsein von einem Wissenstest zu einem regelmäßigen Denkanstoß im Moment der Entscheidung, genau der Punkt, den NIST- und ISO/IEC-27001-Kontrollen betonen.",
-          "Ein leichtes Prüfprotokoll — die zuständige Verwaltungsperson erfasst die Screen-Sequenz und die Änderungsdaten, damit ihr für jeden Prüfzeitraum zeigen könnt, was den Mitarbeitenden gezeigt wurde.",
-          "Kombiniert sich mit Messung — führt einen begrenzten CoMaSy-Piloten daneben durch, für definierte Verhaltenssignale — Innehalten, Überprüfung, Eskalation — statt Abschlussquoten.",
+          "Regelmäßige Sicherheitskommunikation — wechselnde Hinweise können das Bewusstsein für Betrugsversuche zwischen den Schulungen stärken. Welche Maßnahmen zur Erfüllung von NIS2 erforderlich sind, muss jede Organisation gesondert beurteilen.",
+          "Erinnerung im Arbeitsalltag — die Hinweise greifen konkrete Betrugsmaschen auf und erinnern an das unabhängige Überprüfen verdächtiger Aufforderungen.",
+          "Nachvollziehbare Aktualisierungen — die zuständige Person kann festhalten, welche Motive in welchem Zeitraum eingesetzt wurden.",
+          "Mit CoMaSy kombinierbar — in einem Pilotprojekt könnt ihr zusätzlich untersuchen, wie Mitarbeitende in realistischen Übungssituationen entscheiden.",
         ],
-        note: "Konfydence Lockscreens unterstützt die menschliche Seite eines Schulungsprogramms zur IT-Sicherheits. Es macht eine Organisation allein nicht NIS2-, ISO/IEC-27001- oder anderweitig konform — die umfassenderen rechtlichen, governance- und technischen Pflichten bleiben Aufgabe der Organisation.",
+        note: "Die Sperrbildschirm-Hinweise ergänzen bestehende Sicherheitsschulungen. Sie ersetzen weder technische Schutzmaßnahmen noch die organisatorischen Pflichten eines Unternehmens.",
       }}
       faq={[
         {
@@ -75,9 +75,9 @@ export default function Page() {
             "Nein. Simulationen testen Menschen; dieser Dienst verstärkt sie zwischen den Tests. Beides funktioniert gut zusammen — der Sperrbildschirm hält die Gewohnheit warm, sodass sich Simulationsergebnisse über die Zeit verbessern.",
         },
         {
-          question: "Wie ist das besser als eine monatliche Sicherheitsbewusstsein-E-Mail?",
+          question: "Was ist der Vorteil gegenüber einer monatlichen Sicherheitsmail?",
           answer:
-            "Eine E-Mail wird einmal geöffnet, wenn überhaupt. Ein Sperrbildschirm wird dutzende Male am Tag gesehen und kann nicht in einem ungelesenen Ordner liegen bleiben. Er erreicht auch Handys, wo inzwischen viel Phishing landet.",
+            "Eine E-Mail kann im Posteingang untergehen. Ein Hinweis auf dem Sperrbildschirm ist beim täglichen Entsperren sichtbar – ersetzt aber keine ausführliche Schulung. Er erreicht auch Handys, wo inzwischen viel Phishing landet.",
         },
         {
           question: "Welche Belege gibt es dafür, dass ein Sperrbildschirm-Hinweis Verhalten ändert?",
@@ -90,7 +90,7 @@ export default function Page() {
             "Die Arbeitsplatz-Bestellung ist selbstbedient — ihr erhaltet sofort eine Lizenz, eine Bestellnummer und eine Auslieferungs-URL, dann setzt ihr die Richtlinie in eurem MDM.",
         },
       ]}
-      calloutTitle="Füllt die elf Monate, die euer Training nicht abdeckt."
+      calloutTitle="Haltet wichtige Sicherheitsregeln auch zwischen den Schulungen präsent."
     />
   );
 }
