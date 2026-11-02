@@ -16,7 +16,7 @@ const metrics = [
   ["Pause Adoption", "Die teilnehmende Person unterbricht die unmittelbare Handlungskette, bevor sie sich auf einen folgenreichen Schritt festlegt.", "Ob die gewählte Antwort ausdrücklich Zeit oder Raum schafft, um die Bitte vor dem Handeln zu prüfen."],
   ["Verification Rate", "Die teilnehmende Person verifiziert über einen unabhängigen, bekannten Kanal — statt sich auf den Kanal zu verlassen, über den die Bitte kam.", "Ob die gewählte Antwort eine separate vertrauenswürdige Quelle, einen Prozess oder Kontaktweg nutzt."],
   ["Impulse Rate", "Die teilnehmende Person wählt eine unmittelbare, risikoreichere Handlung ohne ausreichende unabhängige Überprüfung.", "Ob die gewählte Antwort die verlangte Handlung, Zugangsdaten, Zahlung, Freigabe oder Offenlegung zu früh festlegt."],
-  ["H.A.C.K.-Profil", "Das Muster der Antworten über die Druckmechaniken Hetze, Autorität, Vertrautheit und Notbremse hinweg.", "Welcher Druckmechanismus wiederholt schwächere Entscheidungen über das Auswahl von Übungssituationen hinweg erzeugt."],
+  ["H.A.C.K.-Profil", "Das Muster der Antworten über die Druckmechaniken Hetze, Autorität, Vertrautheit und Notbremse hinweg.", "Welcher Druckmechanismus wiederholt schwächere Entscheidungen über verschiedene Übungssituationen hinweg erzeugt."],
 ];
 
 const principles = [
