@@ -1,17 +1,17 @@
 {
   "id": "university-de-wild-uni-w2",
   "lang": "de",
-  "title": "Uni-Kanalwechsel",
+  "title": "Hochschul-Blitzrunde: Sicher nachprüfen",
   "edition": "university",
   "cardType": "wild",
   "scored": false,
   "category": "Online-Spiel",
-  "scenario": "Uni-Onlinerunde: Ersetze den riskanten Kanal aus der letzten Uni-Karte durch den sichersten passenden Prüfkanal.",
+  "scenario": "Spielrunde: Überlege dir für die vorherige Karte einen sicheren, unabhängigen Weg, die verdächtige Nachricht oder Aufforderung zu überprüfen.",
   "answers": {
-    "A": "Einen konkreten, sichereren Kanal nennen.",
-    "B": "Nur „sei vorsichtig“ sagen.",
-    "C": "Den ursprünglichen riskanten Kanal wiederholen.",
-    "D": "Den Gastgeber bitten, die Karte zu überspringen."
+    "A": "Eine konkrete, unabhängige Möglichkeit zur Überprüfung nennen.",
+    "B": "Nur sagen: „Sei vorsichtig.“",
+    "C": "Die verdächtige Nachricht als einzige Informationsquelle nutzen.",
+    "D": "Die Spielleitung bitten, die Frage zu überspringen."
   },
   "scores": {
     "A": 4,
@@ -22,8 +22,8 @@
   "safeActions": [
     "A"
   ],
-  "explanation": "Uni-Kanalwechsel: Ziel ist es, die letzte Szenariokarte in aktives Erinnern zu verwandeln statt nur zu lesen. Eine gute Antwort nennt den konkreten Kanal.",
-  "proTip": "Gute Antworten nennen den genauen Kanal: Uni-Portal, Studierendenwerk-Hotline, offizielle App, ein Anruf bei der echten Person, Sekretariat.",
+  "explanation": "Eine gute Antwort benennt einen konkreten Weg zur Überprüfung, der nicht auf den Angaben der verdächtigen Nachricht beruht.",
+  "proTip": "Zum Beispiel direkt in einer offiziellen App nachsehen, eine bekannte Telefonnummer wählen oder persönlich bei der zuständigen Stelle nachfragen.",
   "hackKey": null,
   "hackTrigger": null,
   "tags": [
