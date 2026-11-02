@@ -5,7 +5,7 @@ import { PremiumPageDe } from "@/components/PremiumSiteChrome";
 export const metadata: Metadata = {
   title: { absolute: "CoMaSy-Pilotprojekt anfragen | Sicherheits-Entscheidungssimulation" },
   description:
-    "Starte ein definiertes CoMaSy-Pilotprojekt mit ausgewählter Kohorte, Baseline, gezieltem Entscheidungstraining, Post-Messung und einer Skalierungsentscheidung für die Führungsebene.",
+    "Starte ein definiertes CoMaSy-Pilotprojekt mit ausgewählter Teilnehmergruppe, Ausgangsmessung, gezieltem Entscheidungstraining, Post-Messung und einer Skalierungsentscheidung für die Führungsebene.",
   alternates: {
     canonical: "/de/comasy/pilotprojekt",
     languages: { en: "https://konfydence.com/comasy/pilot", de: "https://konfydence.com/de/comasy/pilotprojekt" },
@@ -17,9 +17,9 @@ const sizes = ["<250", "250–999", "1.000–4.999", "5.000–9.999", "10.000+"]
 const objectives = ["Security Awareness verbessern", "Verhalten messen", "NIS2", "Management-Training", "Phishing / Social Engineering", "Compliance-Nachweis", "CoMaSy evaluieren", "Sonstiges"];
 
 const proof = [
-  ["Was wir feststellen", "Baseline", "Wie die gewählte Kohorte vor dem gezielten Training reagiert."],
+  ["Was wir feststellen", "Ausgangsmessung", "Wie die gewählte Teilnehmergruppe vor dem gezielten Training reagiert."],
   ["Was Mitarbeitende erleben", "Training", "Kurze, realistische Social-Engineering-Entscheidungen statt eines weiteren langen Kurses."],
-  ["Was wir vergleichen", "Veränderung", "Definierte Entscheidungssignale zwischen Baseline und deutlich unterschiedlichen Post-Szenarien."],
+  ["Was wir vergleichen", "Veränderung", "Definierte Entscheidungssignale zwischen Ausgangsmessung und deutlich unterschiedlichen Post-Szenarien."],
   ["Was die Führungsebene erhält", "Beleg", "Eine Auswertung, was sich verändert hat, was nicht — und ob eine Skalierung gerechtfertigt ist."],
 ];
 
@@ -34,17 +34,17 @@ export default async function PilotPageDe({ searchParams }: { searchParams: Prom
             Teste die Entscheidungssimulation in eurer Organisation, bevor ihr skaliert.
           </h1>
           <p className="k-lede">
-            Startet mit einer definierten Kohorte, einem definierten Risikofokus und einem definierten Entscheidungspunkt. Der Pilot läuft neben eurem bestehenden Awareness-Programm — statt eine Plattformablösung zu erzwingen.
+            Startet mit einer definierten Teilnehmergruppe, einem definierten Risikofokus und einem definierten Entscheidungspunkt. Der Pilot läuft neben eurem bestehenden Awareness-Programm — statt eine Plattformablösung zu erzwingen.
           </p>
           <div className="kg-promise">
-            <span>Begrenzter Umfang</span><span>Kein LMS-Ersatz</span><span>Definierte Messung</span><span>Skalieren-/Anpassen-/Stoppen-Auswertung</span>
+            <span>Begrenzter Umfang</span><span>Kein LMS-Ersatz</span><span>Definierte Messung</span><span>Ausweiten-/Anpassen-/Stoppen-Auswertung</span>
           </div>
           <ol className="kc-flow">
-            <li><b>01 · Kohorte</b><span>Kohorte und Risikofokus vereinbaren.</span></li>
-            <li><b>02 · Baseline</b><span>Feststellen, wie die Kohorte heute entscheidet.</span></li>
+            <li><b>01 · Teilnehmergruppe</b><span>Teilnehmergruppe und Risikofokus vereinbaren.</span></li>
+            <li><b>02 · Ausgangsmessung</b><span>Feststellen, wie die Teilnehmergruppe heute entscheidet.</span></li>
             <li><b>03 · Training</b><span>Gezieltes Entscheidungstraining.</span></li>
-            <li><b>04 · Post-Variante</b><span>Deutlich unterschiedliche Szenarien und Auswertung.</span></li>
-            <li><b>05 · Entscheidung</b><span>Skalieren, anpassen oder stoppen.</span></li>
+            <li><b>04 · Abschlussmessung</b><span>Deutlich unterschiedliche Szenarien und Auswertung.</span></li>
+            <li><b>05 · Entscheidung</b><span>Ausweiten, anpassen oder stoppen.</span></li>
           </ol>
         </div>
 
@@ -52,7 +52,7 @@ export default async function PilotPageDe({ searchParams }: { searchParams: Prom
           <p className="k-kicker">Pilotprojekt anfragen</p>
           <h2 className="k-display-sm" style={{ fontSize: "28px", margin: "0 0 10px" }}>Sag uns, was ihr herausfinden wollt.</h2>
           <p className="kc-form-intro">
-            Das ist eine Qualifizierungsanfrage, keine Kaufverpflichtung. Wir nutzen die Angaben, um den Anwendungsfall zu verstehen und einen passenden Pilotumfang vorzuschlagen.
+            Das ist eine Qualifizierungsanfrage, keine Kaufverpflichtung. Wir nutzen die Angaben, um den Anwendungsfall zu verstehen und einen passenden Umfang des Pilotprojekts vorzuschlagen.
           </p>
           {q.error && (
             <div className="kc-form-error">
@@ -84,7 +84,7 @@ export default async function PilotPageDe({ searchParams }: { searchParams: Prom
           <button className="k-button" type="submit">Pilotprojekt anfragen</button>
           <p className="kc-form-privacy">
             Lies <Link href="/de/comasy/sicherheit">Sicherheit &amp; Datenschutz</Link> und die <Link href="/de/datenschutz">Datenschutzerklärung</Link>.
-            Pilotanfragedaten und Enterprise-Programmdaten werden getrennt von der Aktivität im Verbraucher-Challenge gehalten.
+            Pilotanfragedaten und Unternehmens-Programmdaten werden getrennt von der Aktivität im Verbraucher-Challenge gehalten.
           </p>
         </form>
       </section>
@@ -102,8 +102,8 @@ export default async function PilotPageDe({ searchParams }: { searchParams: Prom
             <div>
               <h3 style={{ fontFamily: "var(--k-display)", fontWeight: 400, fontSize: 20, margin: "0 0 8px", color: "#fff" }}>Enthalten</h3>
               <ul className="kc-list">
-                <li>Definierte Kohorte und Risikofokus</li>
-                <li>Baseline-Szenario-Set</li>
+                <li>Definierte Teilnehmergruppe und Risikofokus</li>
+                <li>Ausgangsmessung-Szenario-Set</li>
                 <li>Gezieltes Entscheidungstraining</li>
                 <li>Deutlich unterschiedliche Post-Szenarien</li>
                 <li>Auswertung für die Führungsebene</li>
@@ -113,7 +113,7 @@ export default async function PilotPageDe({ searchParams }: { searchParams: Prom
               <h3 style={{ fontFamily: "var(--k-display)", fontWeight: 400, fontSize: 20, margin: "0 0 8px", color: "#fff" }}>Zum Start nicht erforderlich</h3>
               <ul className="kc-list">
                 <li>LMS-Ersatz</li>
-                <li>Breite Enterprise-Integrationen</li>
+                <li>Breite Unternehmens-Integrationen</li>
                 <li>Mehrspieler-Rollout</li>
                 <li>KI-gesteuerte offene Simulation</li>
                 <li>Langfristige Plattformbindung</li>
@@ -136,7 +136,7 @@ export default async function PilotPageDe({ searchParams }: { searchParams: Prom
           <p className="k-kicker">Bevor Teilnehmerdaten genutzt werden</p>
           <h2 className="k-display-sm">Datenmodell und Prüfprozess vereinbaren.</h2>
           <p className="k-copy">
-            Der Pilotumfang sollte Teilnehmer-Identifikatoren, Reporting-Granularität, Zugriff, Aufbewahrungs-/Löschfristen, Subunternehmer und etwaige Anforderungen von Betriebsrat oder Arbeitnehmervertretung dokumentieren.
+            Der Umfang des Pilotprojekts sollte Teilnehmer-Identifikatoren, Reporting-Granularität, Zugriff, Aufbewahrungs-/Löschfristen, Subunternehmer und etwaige Anforderungen von Betriebsrat oder Arbeitnehmervertretung dokumentieren.
           </p>
         </div>
         <div className="k-actions">
