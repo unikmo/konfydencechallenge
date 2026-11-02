@@ -137,3 +137,9 @@ button,input,textarea,select{font:inherit}
  .k-nav .k-nav-actions .k-button{max-width:110px;font-size:10px}
  .k-footer nav{grid-template-columns:1fr}
 }
+
+/* Keep the collapsed menu inside the viewport at every responsive width. */
+@media(max-width:1120px){
+  .k-mobile-menu nav{position:fixed;left:max(14px,calc((100vw - 340px)/2));right:auto;top:76px;width:min(340px,calc(100vw - 28px));max-height:calc(100vh - 92px);overflow-y:auto}
+}
+@media(max-width:640px){.k-mobile-menu nav{top:66px;max-height:calc(100vh - 80px)}}
