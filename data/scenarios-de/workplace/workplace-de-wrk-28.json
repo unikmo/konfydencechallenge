@@ -1,7 +1,7 @@
 {
   "id": "workplace-de-wrk-28",
   "lang": "de",
-  "title": "Der Partner verlegt das Geschäft auf WhatsApp",
+  "title": "Geschäftspartner verlagert Zahlungsdetails plötzlich auf WhatsApp",
   "edition": "workplace",
   "cardType": "scenario",
   "scored": true,
@@ -20,8 +20,8 @@
   "safeActions": [
     "A"
   ],
-  "explanation": "Ein plötzlicher Kanalwechsel weg von dokumentierten, offiziellen Systemen — gerade bei Zahlungsdetails — ist ein bekanntes Muster, um Spuren zu verwischen oder ein übernommenes Konto zu nutzen.",
-  "proTip": "Zahlungsdetails bleiben auf dem offiziellen, dokumentierten Kanal.",
+  "explanation": "Ein Wechsel auf einen anderen Kommunikationskanal kann legitim sein. Bei Zahlungsdetails sollten jedoch die vereinbarten Freigabe- und Dokumentationswege erhalten bleiben.",
+  "proTip": "Zahlungsabsprachen über nachvollziehbare, freigegebene Kanäle bestätigen.",
   "hackKey": "C",
   "hackTrigger": "Vertrautheit",
   "tags": [
