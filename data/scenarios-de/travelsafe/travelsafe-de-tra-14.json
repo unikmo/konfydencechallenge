@@ -1,7 +1,7 @@
 {
   "id": "travelsafe-de-tra-14",
   "lang": "de",
-  "title": "„Grenzpolizei“ will eine mobile Geldbuße",
+  "title": "Grenzübergang: angebliche Geldbuße sofort per Karte",
   "edition": "travelsafe",
   "cardType": "scenario",
   "scored": true,
@@ -20,8 +20,8 @@
   "safeActions": [
     "C"
   ],
-  "explanation": "Echte Grenzbehörden erheben Bußgelder über einen offiziellen, schriftlichen Bescheid, nicht über ein mobiles Kartenlesegerät direkt am Grenzübergang.",
-  "proTip": "Ein Bußgeld ohne schriftlichen Bescheid ist kein echtes Bußgeld.",
+  "explanation": "Bei einer Kontrolle kann es tatsächlich behördliche Zahlungsaufforderungen geben. Unklare Forderungen ohne nachvollziehbare Unterlagen solltest du jedoch nicht ungeprüft bezahlen. Bitte um eine offizielle Dokumentation und kläre den Vorgang bei der zuständigen Stelle.",
+  "proTip": "Bei behördlichen Gebühren und Bußgeldern nach einem offiziellen Beleg fragen.",
   "hackKey": "A",
   "hackTrigger": "Autorität",
   "tags": [
