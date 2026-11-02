@@ -2,15 +2,15 @@ import type { Metadata } from "next";
 import { LockscreenIntentPage } from "@/components/LockscreenIntentPage";
 
 export const metadata: Metadata = {
-  title: { absolute: "IT-Sicherheit-Sperrbildschirm für Jamf-verwaltete Macs & iPads | Konfydence Lockscreens" },
+  title: { absolute: "Sicherheitshinweise auf Apple-Geräten für Jamf-verwaltete Macs & iPads | Konfydence Lockscreens" },
   description:
-    "Ein rotierender IT-Sicherheit-Sperrbildschirm für Apple-Flotten unter Jamf Pro oder Jamf School. Ein Konfigurationsprofil, alle zwei Wochen ein neuer Hinweis zur Methode „Anhalten, Abklären, Ansprechen“.",
+    "Ein rotierender Sicherheitshinweise auf Apple-Geräten für Apple-Flotten unter Jamf Pro oder Jamf School. Ein Konfigurationsprofil, alle zwei Wochen ein neuer Hinweis zur Methode „Anhalten, Abklären, Ansprechen“.",
   alternates: {
     canonical: "/de/lockscreens/jamf",
     languages: { en: "https://konfydence.com/lockscreens/jamf", de: "https://konfydence.com/de/lockscreens/jamf" },
   },
   openGraph: {
-    title: "IT-Sicherheit-Sperrbildschirm für Jamf | Konfydence",
+    title: "Sicherheitshinweise auf Apple-Geräten für Jamf | Konfydence",
     description: "Einmal mit einem Jamf-Profil ausrollen; die Botschaft bleibt das ganze Jahr aktuell.",
     url: "https://konfydence.com/de/lockscreens/jamf",
     siteName: "Konfydence",
@@ -37,11 +37,11 @@ export default function Page() {
       problemCopy="Jamfs Login-Window- und Sperrbildschirm-Fußzeilentext oder ein ausgerolltes Hintergrundbild sind leicht einzurichten und leicht auszublenden. Der Hinweis behält seinen Wert nur, wenn sich der Wortlaut ändert und tatsächlich etwas sagt — über die Hetze, die falsche Autorität, die überhastete Übergabe, die ein echter Betrug nutzt."
       sections={[
         {
-          title: "macOS- und iPadOS-Renderings",
+          title: "Bildformate für Mac und iPad",
           copy: "Notebook 16:10 für MacBooks, Tablet-Querformat und -Hochformat für iPad. Jeder Screen ist für das Gerät zugeschnitten, damit der Text hinter Uhr und Bedienelementen lesbar bleibt.",
         },
         {
-          title: "Rotiert ohne erneutes Ausrollen",
+          title: "Regelmäßig aktualisiert",
           copy: "Richtet die Hintergrundbild-Richtlinie auf die Konfydence-Resolver-URL. Das dahinterliegende Bild ändert sich alle zwei Wochen; verwaltete Geräte übernehmen es beim nächsten Check-in.",
         },
         {
@@ -59,7 +59,7 @@ export default function Page() {
       ]}
       orgValue={{
         title: "Sicherheit auch zwischen den Schulungen präsent halten.",
-        copy: "Ein Jamf-Profil macht aus Sicherheitsbewusstsein eine fortlaufende Kontrolle statt eines Abschlussdatums. Ein Hinweis, der sich alle zwei Wochen ändert, auf jedem verwalteten Mac und iPad, ist sichtbare Aktivität zwischen den formalen Schulungen.",
+        copy: "Über Jamf lassen sich Sicherheitshinweise ergänzend zu den regelmäßigen Schulungen auf verwalteten Geräten bereitstellen. Ein Hinweis, der sich alle zwei Wochen ändert, auf jedem verwalteten Mac und iPad, ist sichtbare Aktivität zwischen den formalen Schulungen.",
         points: [
           "Fortlaufende Cyber-Hygiene-Verstärkung — NIS2 (Artikel 21) erwartet kontinuierliche Sicherheitsbewusstsein und eine Aufsicht durch die Leitungsorgane. Ein rotierender Hinweis ist sichtbare Aktivität zwischen den formalen Schulungen.",
           "Beitrag zum Human Risk Management — verschiebt Sicherheitsbewusstsein von einem Wissenstest zu einem Gewohnheits-Cue im Moment der Entscheidung, genau der Punkt, den NIST- und ISO/IEC-27001-Kontrollen betonen.",
