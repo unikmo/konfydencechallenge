@@ -8,7 +8,7 @@
   "category": "Lohnbuchhaltung",
   "scenario": "Eine E-Mail, angeblich von der Personalabteilung, behauptet, das System für Änderungen der Gehaltsdaten schließe in 20 Minuten. Du sollst deine Bankverbindung vorsorglich über einen Link bestätigen.",
   "answers": {
-    "A": "Die Mail ignorieren und die eigene Bankverbindung nur direkt im offiziellen HR-Portal des Unternehmens prüfen oder ändern.",
+    "A": "Den Link nicht öffnen und die eigenen Gehaltsdaten bei Bedarf über das bekannte interne Personalportal prüfen.",
     "B": "Die Bankverbindung sofort über den Link bestätigen, um die Frist nicht zu verpassen.",
     "C": "Bei der im Link genannten Nummer anrufen, um nachzufragen."
   },
