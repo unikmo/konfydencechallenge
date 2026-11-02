@@ -1,7 +1,7 @@
 {
   "id": "travelsafe-de-tra-16",
   "lang": "de",
-  "title": "Die Sicherheitskontrolle hat dein Tablet gefunden",
+  "title": "Sicherheitskontrolle: angeblich Handy zur Identitätsprüfung entsperren",
   "edition": "travelsafe",
   "cardType": "scenario",
   "scored": true,
@@ -20,8 +20,8 @@
   "safeActions": [
     "A"
   ],
-  "explanation": "Ein Ausweis beweist keine echte Berechtigung, dein entsperrtes Handy zu sehen — das offizielle Fundbüro braucht das nie, um ein gefundenes Gerät zurückzugeben.",
-  "proTip": "Ein gefundenes Tablet braucht nie dein entsperrtes Handy als Gegenleistung.",
+  "explanation": "Ein Ausweis oder eine Uniform allein beweist nicht, dass die Bitte berechtigt ist. Erkundige dich bei der offiziellen Fundstelle oder beim Flughafenpersonal, welche Angaben für die Rückgabe benötigt werden.",
+  "proTip": "Bei unerwarteten Aufforderungen zur Geräteentsperrung erst die Berechtigung prüfen.",
   "hackKey": "A",
   "hackTrigger": "Autorität",
   "tags": [
