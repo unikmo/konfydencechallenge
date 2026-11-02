@@ -1,7 +1,7 @@
 {
   "id": "workplace-de-wrk-16",
   "lang": "de",
-  "title": "Die Personalabteilung braucht deinen Login",
+  "title": "HR-E-Mail: angebliche Bestätigung neuer Leistungen",
   "edition": "workplace",
   "cardType": "scenario",
   "scored": true,
@@ -20,8 +20,8 @@
   "safeActions": [
     "C"
   ],
-  "explanation": "Die Personalabteilung verschickt Login-Aufforderungen nie über einen externen Link — das bekannte HR-Portal ist immer der richtige Ort für solche Informationen.",
-  "proTip": "Ein HR-Login gehört nur ins bekannte, interne Portal.",
+  "explanation": "Eine E-Mail mit Unternehmenslogo kann gefälscht sein. Prüfe Hinweise zu Sozialleistungen direkt im bekannten Personalportal oder bei deiner Personalabteilung, statt über einen unerwarteten Link.",
+  "proTip": "Personal- und Zugangsdaten nur über freigegebene HR-Systeme eingeben.",
   "hackKey": "A",
   "hackTrigger": "Autorität",
   "tags": [
