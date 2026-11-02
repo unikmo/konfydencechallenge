@@ -7,7 +7,7 @@ import { ScreenGallery, type GalleryTier } from "@/components/lockscreens/Screen
 export const metadata: Metadata = {
   title: { absolute: "Konfydence Lockscreens | Anhalten. Abklären. Ansprechen." },
   description:
-    "Ein Sperrbildschirm-Dienst gegen Betrug. Gerät wählen, den ersten Screen einrichten, alle zwei Wochen ein neuer Anhalten · Abklären · Ansprechen-Hinweis.",
+    "Regelmäßige Sicherheitshinweise für den Sperrbildschirm. Gerät wählen, den ersten Hinweis einrichten, alle zwei Wochen ein neuer Anhalten · Abklären · Ansprechen-Hinweis.",
   alternates: {
     canonical: "/de/lockscreens",
     languages: { en: "https://konfydence.com/lockscreens", de: "https://konfydence.com/de/lockscreens" },
@@ -22,10 +22,10 @@ export const metadata: Metadata = {
 };
 
 const howItWorks = [
-  ["Auf konfydence.com kaufen", "Ein Checkout. Danach landest du auf einer Seite, die sagt: schütze dein erstes Gerät."],
-  ["Gerät wählen", "iPhone, Android, Windows, Mac oder iPad. Wir zeigen automatisch das passende Format — kein Rätselraten, kein ZIP."],
-  ["Screen eins einrichten", "Lade den ersten Hinweis herunter und folge ein paar kurzen, gerätespezifischen Schritten. Weitere Geräte kannst du ergänzen."],
-  ["Alle zwei Wochen ein neuer Screen", "„Dein nächster Konfydence-Screen ist da.“ Ein Klick, ein Download. Wortlaut und Betrugsmuster bleiben aktuell."],
+  ["Auf konfydence.com kaufen", "Nach dem Kauf zeigen wir dir, wie du dein erstes Gerät einrichtest."],
+  ["Gerät wählen", "iPhone, Android, Windows, Mac oder iPad. Wir zeigen automatisch das passende Format — einfach und ohne umständliche Dateisuche."],
+  ["Ersten Hinweis einrichten", "Lade den ersten Hinweis herunter und folge ein paar kurzen, gerätespezifischen Schritten. Weitere Geräte kannst du ergänzen."],
+  ["Alle zwei Wochen ein neuer Hinweis", "„Dein nächster Konfydence-Screen ist da.“ Ein Klick, ein Download. Wortlaut und Betrugsmuster bleiben aktuell."],
 ];
 
 type Tier = {
