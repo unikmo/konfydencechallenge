@@ -1,7 +1,7 @@
 {
   "id": "travelsafe-de-tra-08",
   "lang": "de",
-  "title": "Das Schiff legt ab. Der Link läuft ab.",
+  "title": "Landausflug: letzter Platz über privaten Zahlungslink",
   "edition": "travelsafe",
   "cardType": "scenario",
   "scored": true,
@@ -20,8 +20,8 @@
   "safeActions": [
     "B"
   ],
-  "explanation": "Ein „letzter Platz“ unter Zeitdruck am Hafen soll verhindern, dass du die offizielle, geprüfte Buchungsstelle des Reiseveranstalters nutzt.",
-  "proTip": "Landausflüge bucht man an Bord oder offiziell — nie am Hafenstand unter Zeitdruck.",
+  "explanation": "Ein Hafenstand kann seriös sein. Ein privater Zahlungslink unter großem Zeitdruck ist jedoch ein Warnzeichen. Prüfe den Anbieter und seine Bedingungen, bevor du buchst oder bezahlst.",
+  "proTip": "Buche Landausflüge nur bei überprüfbaren Anbietern über sichere Zahlungswege.",
   "hackKey": "H",
   "hackTrigger": "Hetze",
   "tags": [
