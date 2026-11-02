@@ -1,7 +1,7 @@
 {
   "id": "school-de-sch-20",
   "lang": "de",
-  "title": "Du hast ein „Stipendium“ gewonnen",
+  "title": "Schülerstipendium: angeblicher Gewinn ohne Bewerbung",
   "edition": "school",
   "cardType": "scenario",
   "scored": true,
@@ -20,8 +20,8 @@
   "safeActions": [
     "B"
   ],
-  "explanation": "Ein Gewinn, für den man sich nie beworben hat, ist ein klassisches Warnsignal. Echte Stipendien verlangen keine Ausweiskopie per E-Mail, um Geld auszuzahlen.",
-  "proTip": "Ein Stipendium, das du nie beantragt hast, hast du auch nicht gewonnen.",
+  "explanation": "Eine überraschende Stipendienzusage mit der Bitte um Ausweis- und Kontodaten ist verdächtig. Prüfe, ob die Förderstelle und das Programm existieren. Sensible Dokumente nur über einen bestätigten Antragsweg übermitteln.",
+  "proTip": "Unbekannte Förderangebote unabhängig bei der Vergabestelle prüfen.",
   "hackKey": "A",
   "hackTrigger": "Autorität",
   "tags": [
