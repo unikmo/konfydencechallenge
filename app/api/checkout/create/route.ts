@@ -210,7 +210,7 @@ export async function POST(request: NextRequest) {
           customer_creation: "always",
           metadata,
           payment_intent_data: { metadata, statement_descriptor_suffix: "KONFYDENCE" },
-          success_url: `${appUrl}/gift/thank-you`,
+          success_url: `${appUrl}${consentLang === "de" ? "/de/geschenk/danke" : "/gift/thank-you"}`,
           allow_promotion_codes: true,
           consent_collection: { terms_of_service: "required" },
           custom_text: { terms_of_service_acceptance: { message: digitalAccessConsentText(appUrl, consentLang) } },

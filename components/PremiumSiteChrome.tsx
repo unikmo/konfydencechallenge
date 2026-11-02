@@ -1,7 +1,50 @@
 "use client";
 
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import type { ReactNode } from "react";
+
+// Language switch: go to the equivalent page, not just the other home page.
+const EN_TO_DE: Record<string, string> = {
+  "/": "/de",
+  "/pilot": "/de/pilot",
+  "/pilot/schools": "/de/pilot/schulen",
+  "/comasy": "/de/comasy",
+  "/comasy/pilot": "/de/comasy/pilotprojekt",
+  "/comasy/pilot/thank-you": "/de/comasy/pilotprojekt",
+  "/comasy/security": "/de/comasy/sicherheit",
+  "/comasy/methodology": "/de/comasy/methodik",
+  "/comasy/nis2-security-awareness": "/de/comasy/nis2-sicherheitsbewusstsein",
+  "/privacy-policy": "/de/datenschutz",
+  "/cookie-policy": "/de/cookie-richtlinie",
+  "/terms-of-service": "/de/agb",
+  "/imprint": "/de/impressum",
+  "/pricing": "/de/pricing",
+  "/challenge": "/de/challenge",
+  "/challenge/register": "/de/challenge/registrieren",
+  "/lockscreens": "/de/lockscreens",
+  "/hack-method": "/de/hack-method",
+  "/countries": "/de/countries",
+  "/country-alerts": "/de/laender-warnungen",
+  "/contact": "/de/kontakt",
+  "/gift": "/de/geschenk",
+  "/gift/redeem": "/de/geschenk/einloesen",
+  "/gift/thank-you": "/de/geschenk/danke",
+  "/free-scam-safety-pack": "/de/gratis-sicherheitspaket",
+  "/travelsafe": "/de/travelsafe",
+  "/family": "/de/family",
+  "/school": "/de/school",
+  "/university": "/de/university",
+  "/workplace": "/de/workplace",
+  "/security-awareness-training": "/de/sicherheitsbewusstsein-schulung",
+  "/cybersecurity-awareness-training-for-employees": "/de/cybersicherheit-schulung-mitarbeiter",
+  "/social-engineering-training": "/de/social-engineering-schulung",
+  "/security-decision-simulation": "/de/entscheidungssimulation-sicherheit",
+};
+const DE_TO_EN: Record<string, string> = Object.fromEntries(
+  Object.entries(EN_TO_DE).filter(([en]) => en !== "/comasy/pilot/thank-you").map(([en, de]) => [de, en])
+);
+const trim = (path: string) => (path.length > 1 ? path.replace(/[/]+$/, "") : path);
 
 function KonfydenceLogo() {
   return <span className="k-brand-logo" aria-hidden="true" />;
@@ -14,6 +57,7 @@ export function PremiumHeader({
   ctaHref?: string;
   ctaLabel?: string;
 }) {
+  const deHref = EN_TO_DE[trim(usePathname() ?? "/")] ?? "/de";
   return (
     <header className="k-shell k-nav">
       <Link href="/" className="k-brand" aria-label="Konfydence home">
@@ -28,7 +72,7 @@ export function PremiumHeader({
         <Link href="/free-scam-safety-pack">Resources</Link>
       </nav>
       <div className="k-nav-actions">
-        <Link href="/de" className="k-lang-switch" aria-label="Auf Deutsch ansehen">DE</Link>
+        <Link href={deHref} className="k-lang-switch" aria-label="Auf Deutsch ansehen">DE</Link>
         <Link href={ctaHref} className="k-button">{ctaLabel}</Link>
       </div>
     </header>
@@ -95,6 +139,7 @@ export function PremiumHeaderDe({
   ctaHref?: string;
   ctaLabel?: string;
 }) {
+  const enHref = DE_TO_EN[trim(usePathname() ?? "/de")] ?? "/";
   return (
     <header className="k-shell k-nav">
       <Link href="/de" className="k-brand" aria-label="Konfydence Startseite">
@@ -107,7 +152,7 @@ export function PremiumHeaderDe({
         <Link href="/de/pilot">Schulen &amp; Teams</Link>
       </nav>
       <div className="k-nav-actions">
-        <Link href="/" className="k-lang-switch" aria-label="View in English">EN</Link>
+        <Link href={enHref} className="k-lang-switch" aria-label="View in English">EN</Link>
         <Link href={ctaHref} className="k-button">{ctaLabel}</Link>
       </div>
     </header>
@@ -131,6 +176,9 @@ export function PremiumFooterDe() {
           <Link href="/de/comasy/sicherheit">CoMaSy Sicherheit</Link>
           <Link href="/de/hack-method">Methode</Link>
           <Link href="/de/countries">Länder-Betrugswarnungen</Link>
+          <Link href="/de/kontakt">Kontakt</Link>
+          <Link href="/de/geschenk">Challenge verschenken</Link>
+          <Link href="/de/gratis-sicherheitspaket">Kostenloses Merkblatt</Link>
           <Link href="/de/impressum">Impressum</Link>
           <Link href="/de/datenschutz">Datenschutz</Link>
           <Link href="/de/agb">AGB</Link>

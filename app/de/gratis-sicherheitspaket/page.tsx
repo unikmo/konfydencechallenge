@@ -1,0 +1,90 @@
+import type { Metadata } from "next";
+import Link from "next/link";
+import { PremiumPageDe } from "@/components/PremiumSiteChrome";
+import { PortfolioStrip } from "@/components/PortfolioStrip";
+
+const PDF_PATH = "/resources/emergency-scam-protocol?lang=de";
+
+export const metadata: Metadata = {
+  title: { absolute: "Kostenloses Notfall-Protokoll bei Betrug | Konfydence" },
+  description:
+    "Lade das kostenlose Konfydence-Notfall-Protokoll herunter: ein druckbares Merkblatt mit Anhalten · Abklären · Ansprechen für den Haushalt. Ohne E-Mail-Adresse.",
+  alternates: {
+    canonical: "/de/gratis-sicherheitspaket",
+    languages: { en: "https://konfydence.com/free-scam-safety-pack", de: "https://konfydence.com/de/gratis-sicherheitspaket" },
+  },
+  openGraph: {
+    title: "Kostenloses Konfydence-Notfall-Protokoll bei Betrug",
+    description: "Ein druckbares Merkblatt mit Anhalten · Abklären · Ansprechen für den Haushalt. Kostenlos, ohne Anmeldung.",
+    url: "https://konfydence.com/de/gratis-sicherheitspaket",
+    siteName: "Konfydence",
+    type: "website",
+  },
+};
+
+const steps = [
+  ["Anhalten", "Noch nicht antworten, klicken, zahlen oder Daten preisgeben."],
+  ["Abklären", "Was will es wirklich – Geld, einen Code, ein Login, eine Freigabe? Dann ist es Druck, kein Beweis."],
+  ["Ansprechen", "Sprich die Forderung laut vor einer vertrauten Person aus oder ruf deine Bank unter der Nummer von deiner Karte an."],
+] as const;
+
+export default function GratisSicherheitspaketPage() {
+  return (
+    <PremiumPageDe ctaHref={PDF_PATH} ctaLabel="Kostenloses PDF laden">
+      <section className="k-shell k-free-dl">
+        <div className="k-free-dl-copy">
+          <p className="k-breadcrumb">Kostenlose Ressource · Betrugsschutz im Haushalt</p>
+          <p className="k-kicker">Für den Ernstfall</p>
+          <h1 className="k-display">Eine Seite. Am Kühlschrank. Bevor du sie brauchst.</h1>
+          <p className="k-lede">
+            Das Notfall-Protokoll ist ein kostenloses, druckbares Merkblatt mit <strong>Anhalten · Abklären · Ansprechen</strong> für
+            den Moment, in dem eine Nachricht, ein Anruf oder eine Zahlungsaufforderung dringend wirkt. Ohne E-Mail-Adresse, ohne Anmeldung – das PDF lädt mit einem Klick.
+          </p>
+          <div className="k-free-dl-actions">
+            <a className="k-button" href={PDF_PATH} download>PDF herunterladen</a>
+            <a className="k-button-quiet" href={PDF_PATH} target="_blank" rel="noopener">In neuem Tab öffnen</a>
+          </div>
+          <ol className="k-free-dl-steps">
+            {steps.map(([name, copy]) => (
+              <li key={name}>
+                <b>{name}</b>
+                <span>{copy}</span>
+              </li>
+            ))}
+          </ol>
+        </div>
+        <div className="k-free-dl-preview">
+          <a href={PDF_PATH} download aria-label="Notfall-Protokoll als PDF herunterladen">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src="/resources/konfydence-notfall-protokoll.svg" alt="Das Konfydence-Notfall-Protokoll: ein einseitiges Merkblatt mit Anhalten, Abklären, Ansprechen." />
+          </a>
+        </div>
+      </section>
+
+      <section className="k-section-dark" aria-labelledby="immer-da">
+        <div className="k-shell k-free-dl-lockscreen">
+          <div className="k-free-dl-lockscreen-shot" aria-hidden="true">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src="/lockscreens/home/phone/21.png" alt="" />
+          </div>
+          <div>
+            <p className="k-kicker">Die Erinnerung, die bleibt</p>
+            <h2 id="immer-da" className="k-display-sm">Ein Ausdruck hilft einmal. Ein Sperrbildschirm hilft jedes Mal, wenn du zum Handy greifst.</h2>
+            <p className="k-copy">
+              Das Protokoll ist das Blatt für den Ernstfall. <strong>Konfydence Lockscreens</strong> zeigt dieselbe ruhige
+              Aufforderung dort, wo du sie wirklich siehst – auf dem Sperrbildschirm von Handy oder Rechner – und tauscht
+              sie alle zwei Wochen gegen eine neue aus, weil sich die Maschen ändern. Die Pläne für Zuhause und Teens sind
+              sofort buchbar; Schulen und Unternehmen bekommen einen lizenzierten Rollout für verwaltete Geräte.
+            </p>
+            <div className="k-actions">
+              <Link className="k-button" href="/de/lockscreens">Konfydence Lockscreens ansehen</Link>
+              <Link className="k-button-quiet" href="/de/lockscreens#pricing">Preise</Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <PortfolioStrip lang="de" kicker="Außerdem von Konfydence" heading="Übe die Entscheidung, nicht nur die Erinnerung." exclude={["lockscreens"]} />
+    </PremiumPageDe>
+  );
+}

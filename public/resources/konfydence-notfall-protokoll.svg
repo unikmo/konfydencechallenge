@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1240" height="1754" viewBox="0 0 1240 1754" role="img" aria-labelledby="title desc">
+  <title id="title">Konfydence Emergency Scam Protocol</title>
+  <desc id="desc">A printable Pause, Assess, Talk response guide for urgent or threatening scam messages.</desc>
+  <rect width="1240" height="1754" fill="#f7f4ee"/>
+  <rect x="54" y="54" width="1132" height="1646" rx="28" fill="#fffdf9" stroke="#ded8cf" stroke-width="4"/>
+  <text x="620" y="184" text-anchor="middle" font-family="Iowan Old Style, Palatino, Georgia, serif" font-size="56" letter-spacing="2" fill="#111417">Konfydence</text>
+  <text x="620" y="270" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="30" font-weight="700" letter-spacing="6" fill="#af8752">NOTFALL-PROTOKOLL BEI BETRUG</text>
+  <text x="620" y="352" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="29" fill="#5e5b56">Wirkt es dringend, emotional oder bedrohlich: erst anhalten.</text>
+
+  <g font-family="Arial, Helvetica, sans-serif">
+    <text x="150" y="562" font-family="Iowan Old Style, Palatino, Georgia, serif" font-size="72" fill="#af8752">1</text>
+    <text x="270" y="552" font-size="56" font-weight="700" letter-spacing="2" fill="#111417">ANHALTEN</text>
+    <text x="270" y="612" font-size="29" fill="#5e5b56">Noch nicht antworten, klicken, zahlen oder Daten preisgeben.</text>
+
+    <text x="150" y="847" font-family="Iowan Old Style, Palatino, Georgia, serif" font-size="72" fill="#af8752">2</text>
+    <text x="270" y="837" font-size="56" font-weight="700" letter-spacing="2" fill="#111417">ABKLÄREN</text>
+    <text x="270" y="897" font-size="29" fill="#5e5b56">Was will es wirklich – Geld, einen Code, ein Login,</text>
+    <text x="270" y="936" font-size="29" fill="#5e5b56">eine Freigabe? Dann ist es Druck, kein Beweis.</text>
+
+    <text x="150" y="1152" font-family="Iowan Old Style, Palatino, Georgia, serif" font-size="72" fill="#af8752">3</text>
+    <text x="270" y="1142" font-size="56" font-weight="700" letter-spacing="2" fill="#111417">ANSPRECHEN</text>
+    <text x="270" y="1202" font-size="29" fill="#5e5b56">Sprich die Forderung laut vor einer vertrauten Person aus</text>
+    <text x="270" y="1241" font-size="29" fill="#5e5b56">oder ruf deine Bank unter der Nummer von deiner Karte an.</text>
+  </g>
+
+  <rect x="112" y="1360" width="1016" height="214" rx="24" fill="#12191f"/>
+  <text x="620" y="1442" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="32" font-weight="700" letter-spacing="2" fill="#fff">DRUCK IST EIN SIGNAL, LANGSAMER ZU WERDEN</text>
+  <text x="620" y="1504" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="26" fill="#cdbfa8">Eine echte Anfrage übersteht es, wenn du sie mit jemandem prüfst.</text>
+  <text x="620" y="1648" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="700" fill="#111417">konfydence.com</text>
+</svg>
