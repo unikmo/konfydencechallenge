@@ -4,16 +4,16 @@ import type { Metadata } from "next";
 import { PremiumPageDe } from "@/components/PremiumSiteChrome";
 
 export const metadata: Metadata = {
-  title: { absolute: "CoMaSy | Sicherheits-Entscheidungssimulation von Konfydence" },
+  title: { absolute: "CoMaSy | Training für sichere Entscheidungen von Konfydence" },
   description:
-    "CoMaSy ergänzt Security-Awareness-Programme um realistische Entscheidungssimulationen, die Innehalten, Verifizierung und Eskalationsverhalten unter Druck messen.",
+    "CoMaSy ergänzt Schulungen zur IT-Sicherheit um realistische Entscheidungssimulationen, die Innehalten, Verifizierung und Eskalationsverhalten unter Druck messen.",
   alternates: {
     canonical: "/de/comasy",
     languages: { en: "https://konfydence.com/comasy", de: "https://konfydence.com/de/comasy" },
   },
   openGraph: {
-    title: "CoMaSy | Sicherheits-Entscheidungssimulation",
-    description: "Übe die Momente, in denen vertraute Identitäten, Hetze und unvollständige Beweise das Urteilsvermögen unter Druck setzen — und miss, wie Menschen reagieren.",
+    title: "CoMaSy | Training für sichere Entscheidungen",
+    description: "Trainiert den Umgang mit Zeitdruck, vorgetäuschter Autorität und unklaren Informationen. Vergleicht anschließend, wie Mitarbeitende in solchen Situationen entscheiden.",
     url: "https://konfydence.com/de/comasy",
     siteName: "Konfydence",
     type: "website",
@@ -27,15 +27,15 @@ const faqs = [
   ],
   [
     "Was misst CoMaSy?",
-    "CoMaSy misst Trainingsergebnisse aus Szenario-Entscheidungen — darunter Innehalten, unabhängige Verifizierung, risikoreichere Impulshandlungen und Reaktionen auf H.A.C.K.-Druckmuster. Das sind Lernsignale, keine Garantie für reales Sicherheitsverhalten.",
+    "CoMaSy misst Trainingsergebnisse aus Szenario-Entscheidungen — darunter Innehalten, unabhängige Verifizierung, risikoreichere Impulshandlungen und Reaktionen auf H.A.C.K.-Druckmuster. Das sind Trainingsergebnisse, keine Garantie für reales Sicherheitsverhalten.",
   ],
   [
     "Ist CoMaSy ein Phishing-Simulator?",
-    "Phishing kann ein Szenariotyp sein, aber der Kernanwendungsfall ist breiter: Chef-Betrug, Lieferantenwechsel, Zahlungsanfragen, Account-Kompromittierung und andere Geschäftsentscheidungen, bei denen eine Bitte legitim wirken kann.",
+    "Phishing kann ein Szenariotyp sein, aber der Kernanwendungsfall ist breiter: Chef-Betrug, Lieferantenwechsel, Zahlungsanfragen, übernommene Benutzerkonten und andere Geschäftsentscheidungen, bei denen eine Bitte legitim wirken kann.",
   ],
   [
     "Macht CoMaSy eine Organisation NIS2-konform?",
-    "Nein. CoMaSy kann wiederholte Cybersicherheits-Awareness-Aktivität und definierte Wirksamkeitsbelege unterstützen, stellt aber allein keine regulatorische Konformität her.",
+    "Nein. CoMaSy ergänzt regelmäßige Sicherheitsschulungen. Das Training allein ist jedoch kein Nachweis dafür, dass alle gesetzlichen Anforderungen erfüllt sind.",
   ],
 ];
 
@@ -46,11 +46,11 @@ const schema = {
       "@type": "Service",
       "@id": "https://konfydence.com/de/comasy#service",
       name: "CoMaSy",
-      serviceType: "Sicherheits-Entscheidungssimulation",
+      serviceType: "Training für sichere Entscheidungen",
       provider: { "@type": "Organization", name: "Konfydence", url: "https://konfydence.com" },
       url: "https://konfydence.com/de/comasy",
       description:
-        "Eine Entscheidungssimulations-Ebene, die Organisationen hilft, realistische Social-Engineering-Entscheidungen zu üben und beobachtbares Verifizierungsverhalten zu messen.",
+        "Realistische Übungen zu Betrugsversuchen im Berufsalltag. Ihr seht, ob Mitarbeitende verdächtige Aufforderungen erkennen, unabhängig nachprüfen und richtig reagieren.",
       areaServed: ["Europe", "North America"],
     },
     {
@@ -73,7 +73,7 @@ export default function ComasyPageDe() {
         <div className="k-comasy-copy">
           <p className="k-breadcrumb">Für Organisationen · CoMaSy</p>
           <p className="k-kicker">Die Human-Firewall-Simulationsplattform</p>
-          <h1 className="k-display">Auch Sicherheitsentscheidungen verdienen Übung.</h1>
+          <h1 className="k-display">Sicher handeln, wenn es darauf ankommt.</h1>
           <p className="k-lede">
             CoMaSy versetzt Mitarbeitende in realistische Vorfälle, in denen Hetze, Autorität, kompromittierte Identitäten und unvollständige Beweise Druck erzeugen — und misst, wie sie innehalten, prüfen und handeln.
           </p>
@@ -99,17 +99,17 @@ export default function ComasyPageDe() {
       </section>
 
       <section className="k-comasy-pillars k-shell">
-        <article><span>01</span><h3>Realistische Simulationen</h3><p>Realistische Übungssituationen rund um Entscheidungen, die Menschen wirklich treffen müssen.</p></article>
-        <article><span>02</span><h3>Beobachtungen zum Entscheidungsverhalten</h3><p>Beobachte Innehalten, Verifizierung, Eskalation und risikoreichere Impulsentscheidungen.</p></article>
-        <article><span>03</span><h3>Team & Unternehmen</h3><p>Starte mit einer begrenzten Kohorte und erweitere nur, wenn sich das Signal als nützlich erweist.</p></article>
-        <article><span>04</span><h3>Messbare Veränderung</h3><p>Vergleiche Baseline- und Entscheidungen nach dem Training, statt dich allein auf Abschlussquoten zu verlassen.</p></article>
+        <article><span>01</span><h3>Realistische Simulationen</h3><p>Betrugsversuche im Arbeitsalltag – von geänderten Bankdaten bis zu gefälschten Nachrichten der Geschäftsführung.</p></article>
+        <article><span>02</span><h3>Nachvollziehbare Entscheidungen</h3><p>Erkennt, wann Mitarbeitende innehalten, Angaben unabhängig prüfen oder eine verdächtige Anfrage weiterleiten.</p></article>
+        <article><span>03</span><h3>Team & Unternehmen</h3><p>Beginnt mit einer kleinen Gruppe. Entscheidet anhand der Ergebnisse, ob und wie ihr das Training ausweiten möchtet.</p></article>
+        <article><span>04</span><h3>Messbare Veränderung</h3><p>Vergleicht die Entscheidungen vor und nach dem Training – nicht nur die Zahl abgeschlossener Kurse.</p></article>
       </section>
 
       <section className="k-shell k-section">
         <div className="k-section-head">
           <div>
             <p className="k-kicker">In CoMaSy</p>
-            <h2 className="k-display-sm">Entscheidungen sehen. Treiber verstehen. Ergebnisse verbessern.</h2>
+            <h2 className="k-display-sm">Verstehen, wie Mitarbeitende entscheiden.</h2>
           </div>
           <p className="k-copy">
             Die Oberfläche ist um Beweise herum gestaltet, nicht um Verdacht. Eine vertraute Person kann echt sein, während eine bestimmte Nachricht, ein Kanal oder eine Handlung kompromittiert ist. CoMaSy trainiert Verifizierung, ohne pauschales Misstrauen zu lehren.
@@ -141,7 +141,7 @@ export default function ComasyPageDe() {
       <section className="k-shell k-section">
         <div className="k-section-head">
           <div>
-            <p className="k-kicker">Von Awareness zu Verhaltensänderung</p>
+            <p className="k-kicker">Mehr als reine Wissensvermittlung</p>
             <h2 className="k-display-sm">Ein Vorfall. Vier entscheidende Momente.</h2>
           </div>
           <p className="k-copy">
@@ -149,10 +149,10 @@ export default function ComasyPageDe() {
           </p>
         </div>
         <div className="k-simulation">
-          <article><b>01</b><h3>Simulieren</h3><p>Ein realistischer Vorfall mit Druck, Mehrdeutigkeit und konkurrierenden Prioritäten.</p></article>
+          <article><b>01</b><h3>Simulieren</h3><p>Eine realistische Situation mit Zeitdruck, unklaren Angaben und schwierigen Entscheidungen.</p></article>
           <article><b>02</b><h3>Entscheiden</h3><p>Mitarbeitende wählen eine Handlung, statt nur die richtige Antwort zu lesen.</p></article>
-          <article><b>03</b><h3>Auswerten</h3><p>Beweise, Druckmuster und der stärkere Verifizierungsweg werden offengelegt.</p></article>
-          <article><b>04</b><h3>Verbessern</h3><p>Gezielte Übung wiederholen und definierte Beobachtungen zum Entscheidungsverhalten über die Zeit vergleichen.</p></article>
+          <article><b>03</b><h3>Auswerten</h3><p>Die Auswertung zeigt die Warnzeichen, das Druckmuster und einen sicheren Weg zur Überprüfung.</p></article>
+          <article><b>04</b><h3>Verbessern</h3><p>Gezielte Übung wiederholen und definierte Nachvollziehbare Entscheidungen über die Zeit vergleichen.</p></article>
         </div>
       </section>
 
@@ -182,7 +182,7 @@ export default function ComasyPageDe() {
       <section className="k-shell k-section">
         <div className="k-section-head">
           <div>
-            <p className="k-kicker">Fragen von Einkäufern</p>
+            <p className="k-kicker">Häufige Fragen für Unternehmen</p>
             <h2 className="k-display-sm">Was CoMaSy ist — und was nicht.</h2>
           </div>
           <p className="k-copy">Klare Grenzen sind Teil des Produkts: CoMaSy ergänzt bestehende Awareness-Programme und gibt keine eigenständigen Compliance-Garantien.</p>
@@ -192,15 +192,15 @@ export default function ComasyPageDe() {
             <div className="k-path-copy" style={{top: "30px", bottom: "auto"}}>
               <small>Methodik</small>
               <h3>Definierte Trainingsergebnisse verantwortungsvoll messen.</h3>
-              <p>Sieh, was gemessen wird, wie Beispielwerte behandelt werden und wo die Interpretation aufhören sollte.</p>
+              <p>Erfahrt, welche Ergebnisse gemessen werden, wie Beispielwerte gekennzeichnet sind und was sich daraus tatsächlich ableiten lässt.</p>
               <Link href="/de/comasy/methodik">Methodik lesen →</Link>
             </div>
           </article>
           <article className="k-path" style={{minHeight: "420px"}}>
             <div className="k-path-copy" style={{top: "30px", bottom: "auto"}}>
               <small>Sicherheit & Datenschutz</small>
-              <h3>Dem Einkauf früher klarere Antworten geben.</h3>
-              <p>Prüfe aktuelle Datenverarbeitung, Schutzmaßnahmen und Enterprise-Sicherheitshinweise vor einem Piloten.</p>
+              <h3>Sicherheit und Datenschutz vorab klären.</h3>
+              <p>Prüfe aktuelle Datenverarbeitung, Schutzmaßnahmen und Sicherheitsinformationen für Unternehmen vor einem Piloten.</p>
               <Link href="/de/comasy/sicherheit">Sicherheit prüfen →</Link>
             </div>
           </article>
