@@ -6,7 +6,7 @@ import CountryDirectory from "./CountryDirectory";
 import styles from "./countries.module.css";
 
 export const metadata: Metadata = {
-  alternates: { languages: { en: "https://konfydence.com/countries", de: "https://konfydence.com/de/countries" } },
+  alternates: { canonical: "/countries", languages: { en: "https://konfydence.com/countries", de: "https://konfydence.com/de/countries" } },
 };
 
 export default function CountriesPage() {
