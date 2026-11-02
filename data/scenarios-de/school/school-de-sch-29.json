@@ -1,7 +1,7 @@
 {
   "id": "school-de-sch-29",
   "lang": "de",
-  "title": "Stimm für unsere Klasse ab — ein Login",
+  "title": "Schulwettbewerb: Abstimmung über Google-Login",
   "edition": "school",
   "cardType": "scenario",
   "scored": true,
@@ -20,8 +20,8 @@
   "safeActions": [
     "B"
   ],
-  "explanation": "Eine echte Abstimmung braucht nie deinen vollen Google-Login über einen fremden Link — das ist eine Login-Phishing-Masche, die sich Gruppendruck zunutze macht.",
-  "proTip": "Abstimmen geht ohne deinen Account-Login — such die echte Seite selbst.",
+  "explanation": "Eine Abstimmung über einen unbekannten Link kann eine gefälschte Anmeldeseite enthalten. Prüfe den Wettbewerb über die Schule und melde dich nur auf der offiziellen Website an, falls das überhaupt nötig ist.",
+  "proTip": "Keine Google-Zugangsdaten auf unbekannten Abstimmungsseiten eingeben.",
   "hackKey": "C",
   "hackTrigger": "Vertrautheit",
   "tags": [
