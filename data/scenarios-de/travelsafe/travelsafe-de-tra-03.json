@@ -8,7 +8,7 @@
   "category": "Visa & Einreise",
   "scenario": "Kurz vor einer Fernreise erhältst du eine E-Mail: Dein Visum sei fast fertig, es fehle aber noch eine sofortige Zahlung über einen Link. Ohne diese Zahlung könne die Reise nicht stattfinden.",
   "answers": {
-    "A": "Den Visumstatus ausschließlich über das offizielle Portal der Botschaft oder des Konsulats prüfen, statt über den Link zu zahlen.",
+    "A": "Den Visumstatus direkt beim zuständigen offiziellen Portal oder der Auslandsvertretung prüfen, statt über den Link zu zahlen.",
     "B": "Über den Link sofort zahlen, um die Reise nicht zu gefährden.",
     "C": "Bei der im Link genannten Nummer anrufen, um nachzufragen."
   },
