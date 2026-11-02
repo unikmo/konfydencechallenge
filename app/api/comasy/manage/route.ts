@@ -6,7 +6,8 @@ import { getCustomerOrganizationId } from "@/lib/comasyAuth";
 import { STUDENT_ALIAS_DOMAIN } from "@/lib/comasyStudents";
 import {
   CUSTOM_EDITION,
-  MAX_CUSTOM_SCENARIOS_PER_ORG,
+  MAX_CUSTOM_SCENARIO_ROWS,
+  customScenarioLimit,
   parseScenarioForm,
   profileKeys,
   scenarioColumns,
@@ -103,8 +104,12 @@ export async function POST(request: NextRequest) {
   if (action === "create_scenario") {
     const parsed = parseScenarioForm(form);
     if (!parsed.ok) return redirect(request, "practice", `scenario-invalid:${parsed.error}`);
-    const existing = await prisma.scenario.count({ where: { organizationId } });
-    if (existing >= MAX_CUSTOM_SCENARIOS_PER_ORG) return redirect(request, "practice", "scenario-limit");
+    const [org, activeCount, rowCount] = await Promise.all([
+      prisma.comasyOrganization.findUniqueOrThrow({ where: { id: organizationId }, select: { stage: true, arr: true } }),
+      prisma.scenario.count({ where: { organizationId, active: true } }),
+      prisma.scenario.count({ where: { organizationId } }),
+    ]);
+    if (activeCount >= customScenarioLimit(org) || rowCount >= MAX_CUSTOM_SCENARIO_ROWS) return redirect(request, "practice", "scenario-limit");
     const columns = scenarioColumns(parsed.value);
     const keys = profileKeys(parsed.value.kinds);
     const created = await prisma.scenario.create({
@@ -156,6 +161,13 @@ export async function POST(request: NextRequest) {
     const scenario = await prisma.scenario.findFirst({ where: { id: scenarioId, organizationId }, select: { id: true } });
     if (!scenario) return redirect(request, "practice");
     const archive = action === "archive_scenario";
+    if (!archive) {
+      const [org, activeCount] = await Promise.all([
+        prisma.comasyOrganization.findUniqueOrThrow({ where: { id: organizationId }, select: { stage: true, arr: true } }),
+        prisma.scenario.count({ where: { organizationId, active: true } }),
+      ]);
+      if (activeCount >= customScenarioLimit(org)) return redirect(request, "practice", "scenario-limit");
+    }
     if (archive) {
       // A campaign that is scheduled or live would break mid-run without it.
       const inUse = await prisma.comasyCampaign.count({

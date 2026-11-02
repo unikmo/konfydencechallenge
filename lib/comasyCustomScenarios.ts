@@ -7,7 +7,18 @@
 // editions, so custom rows are never touched by it.
 
 export const CUSTOM_EDITION = "custom";
-export const MAX_CUSTOM_SCENARIOS_PER_ORG = 100;
+// Active custom scenarios allowed per organisation: a pilot gets 10, a paying
+// customer 40. "Paying" matches the dashboard's own definition (ARR above zero,
+// or stage WON / EXPANSION). Archived scenarios do not count toward the limit.
+export const PILOT_CUSTOM_SCENARIO_LIMIT = 10;
+export const CUSTOMER_CUSTOM_SCENARIO_LIMIT = 40;
+// Hard ceiling on rows kept per organisation, archived ones included.
+export const MAX_CUSTOM_SCENARIO_ROWS = 200;
+
+export function customScenarioLimit(org: { stage: string; arr: number }): number {
+  const paying = org.arr > 0 || org.stage === "WON" || org.stage === "EXPANSION";
+  return paying ? CUSTOMER_CUSTOM_SCENARIO_LIMIT : PILOT_CUSTOM_SCENARIO_LIMIT;
+}
 
 export type AnswerKind = "strong" | "partial" | "weak";
 

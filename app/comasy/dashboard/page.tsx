@@ -5,6 +5,7 @@ import { getCustomerOrganizationId } from "@/lib/comasyAuth";
 import { getOrganizationMetrics } from "@/lib/comasyMetrics";
 import { isStudentAlias } from "@/lib/comasyStudents";
 import { ScenarioCreateForm, ScenarioList, type CustomScenarioRow } from "./ScenarioEditor";
+import { customScenarioLimit } from "@/lib/comasyCustomScenarios";
 
 const views = [
   ["overview", "Overview"], ["people", "People"], ["practice", "Practice"], ["measure", "Measure"], ["reports", "Reports"], ["settings", "Settings"],
@@ -57,6 +58,8 @@ export default async function CoMaSyDashboard({ searchParams }: { searchParams: 
   }));
   const pickerScenarios = [...ownScenarios.filter((x) => x.active), ...scenarios];
   const noticeText = noticeMessage(notice);
+  const scenarioLimit = customScenarioLimit({ stage: org.stage, arr: org.arr });
+  const activeOwn = ownScenarios.filter((x) => x.active).length;
 
   const activeCampaign = campaigns.find((c) => c.status === "ACTIVE");
   const completedParticipants = new Set((await prisma.comasyResponse.findMany({ where: { organizationId }, select: { participantId: true } })).map((r) => r.participantId)).size;
@@ -114,7 +117,7 @@ export default async function CoMaSyDashboard({ searchParams }: { searchParams: 
           {noticeText ? <p className={noticeText.startsWith("Saved") ? "notice ok" : "notice"} role="status">{noticeText}</p> : null}
           <div className="twoCol topAlign">
             <Card title="Write your own scenario" eyebrow="YOUR QUESTIONS"><ScenarioCreateForm /></Card>
-            <Card title="Your scenarios" eyebrow={`${ownRows.length} WRITTEN`}><ScenarioList scenarios={ownRows} /></Card>
+            <Card title="Your scenarios" eyebrow={`${activeOwn} OF ${scenarioLimit} IN USE`}><ScenarioList scenarios={ownRows} /></Card>
           </div>
           <Card title="Campaigns" eyebrow="LIVE OPERATIONS"><div className="tableWrap"><table><thead><tr><th>Campaign</th><th>Cohort</th><th>Type</th><th>Status</th><th>Responses</th><th>Control</th></tr></thead><tbody>{campaigns.map((c) => <tr key={c.id}><td><b>{c.name}</b><small>{c.roleFocus || "General"}</small></td><td>{c.cohort?.name || "All"}</td><td>{c.designation}</td><td><Status value={c.status} /></td><td>{c._count.responses}</td><td><form action="/api/comasy/manage" method="post" className="inline"><input type="hidden" name="action" value="campaign_status"/><input type="hidden" name="campaignId" value={c.id}/><select name="status" defaultValue={c.status}><option>DRAFT</option><option>SCHEDULED</option><option>ACTIVE</option><option>PAUSED</option><option>COMPLETED</option></select><button>Save</button></form></td></tr>)}</tbody></table></div></Card>
         </>}
@@ -147,7 +150,7 @@ function noticeMessage(notice?: string): string | null {
   if (notice === "scenario-saved") return "Saved. Your scenario is in the library for new campaigns.";
   if (notice === "scenario-locked") return "That scenario has already been answered, so it can no longer be edited. Archive it and write a new version.";
   if (notice === "scenario-in-use") return "That scenario is in a scheduled or active campaign. Pause or complete the campaign first.";
-  if (notice === "scenario-limit") return "You have reached the limit of scenarios for this workspace. Archive one you no longer use.";
+  if (notice === "scenario-limit") return "You have reached the number of own scenarios included in your plan. Archive one you no longer use, or ask us about a larger allowance.";
   if (notice.startsWith("scenario-invalid:")) return notice.slice("scenario-invalid:".length);
   return null;
 }
