@@ -1,7 +1,7 @@
 {
   "id": "family-de-fam-19",
   "lang": "de",
-  "title": "Die Notaranweisungen haben sich geändert",
+  "title": "Notariat meldet angeblich neue Kontoverbindung",
   "edition": "family",
   "cardType": "scenario",
   "scored": true,
@@ -20,8 +20,8 @@
   "safeActions": [
     "C"
   ],
-  "explanation": "E-Mail-Konten von Notariaten werden gezielt kompromittiert, gerade weil hohe Summen fließen. Eine geänderte Kontoverbindung wird ausschließlich telefonisch über eine unabhängig bekannte Nummer bestätigt — nie per Antwort auf dieselbe E-Mail.",
-  "proTip": "Bei großen Summen zählt nur ein Anruf auf einer Nummer, die du schon vorher hattest.",
+  "explanation": "Beim Immobilienkauf können hohe Summen betroffen sein. Bestätige eine unerwartete Änderung der Bankverbindung unabhängig über die zuvor bekannten Kontaktdaten des Notariats und prüfe die Zahlungsunterlagen sorgfältig.",
+  "proTip": "Neue Kontodaten vor großen Überweisungen immer über unabhängige Wege überprüfen.",
   "hackKey": "A",
   "hackTrigger": "Autorität",
   "tags": [
