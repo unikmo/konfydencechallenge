@@ -20,7 +20,7 @@
   "safeActions": [
     "A"
   ],
-  "explanation": "Ein exportierter Passwort-Tresor enthält alle Zugangsdaten im Klartext — kein legitimer Wiederherstellungsprozess verlangt, ihn an ein externes Formular zu schicken.",
+  "explanation": "Ein Export aus dem Passwortmanager kann hochsensible Zugangsdaten enthalten, unter Umständen unverschlüsselt. Lade eine solche Datei niemals auf eine unbekannte Website hoch. Prüfe Wiederherstellungsanfragen über den offiziellen IT-Support.",
   "proTip": "Ein Passwort-Tresor verlässt nie das eigene Gerät als Export an Dritte.",
   "hackKey": "K",
   "hackTrigger": "Notbremse",
@@ -30,5 +30,6 @@
     "password-managers",
     "data-exfiltration"
   ],
-  "active": true
+  "active": true,
+  "tip": "Passwortexporte nur nach freigegebenem Verfahren erstellen und niemals an unbekannte Empfänger senden."
 }
