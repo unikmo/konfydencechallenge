@@ -20,7 +20,7 @@
   "safeActions": [
     "B"
   ],
-  "explanation": "Ein QR-Code an einem unbeaufsichtigten Plakat, der eine App-Installation und persönliche Daten verlangt, ist eine bekannte Masche („Quishing“) — die App kann Schadsoftware sein. Die Schulleitung kennt echte Aktionen.",
+  "explanation": "Ein QR-Code auf einem frei zugänglichen Plakat kann auf eine unsichere Seite führen. Besonders eine unbekannte App-Installation und die Abfrage persönlicher Daten sind Warnzeichen. Frage in der Schule nach, ob es die Aktion tatsächlich gibt.",
   "proTip": "Kostenlose Pizza braucht keine App-Installation.",
   "hackKey": "K",
   "hackTrigger": "Notbremse",
@@ -31,5 +31,6 @@
     "quishing",
     "diagnostic"
   ],
-  "active": true
+  "active": true,
+  "tip": "Bei QR-Codes mit Gratisangeboten erst prüfen, bevor du Daten eingibst oder Apps installierst."
 }
