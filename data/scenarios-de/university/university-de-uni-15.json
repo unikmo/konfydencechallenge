@@ -8,7 +8,7 @@
   "category": "Campus-Sicherheit",
   "scenario": "Eine Person in Uniform am Campus-Eingang behauptet, du hättest unerlaubt im Sperrbereich geparkt, und verlangt ein Bußgeld von 80 € sofort in bar, sonst werde dein Fahrzeug abgeschleppt.",
   "answers": {
-    "B": "Nach einem offiziellen, nummerierten Bußgeldbescheid fragen und das Bußgeld nur über den regulären, bekannten Weg der Uni-Verwaltung zahlen — nicht bar am Ort.",
+    "B": "Nicht sofort bar zahlen. Stattdessen einen offiziellen Bescheid und einen nachvollziehbaren Zahlungsweg verlangen und den Vorgang bei der zuständigen Stelle prüfen.",
     "A": "Die 80 € sofort bar zahlen, um das Abschleppen zu vermeiden.",
     "C": "Um eine Quittung mit Dienstnummer bitten und dann bar zahlen."
   },
@@ -20,7 +20,7 @@
   "safeActions": [
     "B"
   ],
-  "explanation": "Eine unbekannte Person, die am Campus sofort Bargeld fordert, solltest du nicht ungeprüft bezahlen. Lass dir die Rechtsgrundlage und einen offiziellen Zahlungsweg nennen und kontaktiere gegebenenfalls die Campusverwaltung.",
+  "explanation": "Eine unbekannte Person, die auf dem Campus sofort Bargeld fordert, solltest du nicht ungeprüft bezahlen. Bitte um eine nachvollziehbare schriftliche Grundlage und überprüfe die Forderung bei der zuständigen Stelle. Ob eine Geldbuße oder andere Maßnahme zulässig ist, hängt vom konkreten Fall ab.",
   "proTip": "Geldforderungen an öffentlichen Orten nicht allein wegen einer Uniform akzeptieren.",
   "hackKey": "A",
   "hackTrigger": "Autorität",
