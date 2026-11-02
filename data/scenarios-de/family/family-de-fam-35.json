@@ -1,7 +1,7 @@
 {
   "id": "family-de-fam-35",
   "lang": "de",
-  "title": "Der Tierschutzverein kennt deinen Hund",
+  "title": "Tierschutzverein meldet angeblich deinen entlaufenen Hund",
   "edition": "family",
   "cardType": "scenario",
   "scored": true,
@@ -20,8 +20,8 @@
   "safeActions": [
     "A"
   ],
-  "explanation": "Öffentlich geteilte Fotos früherer Spenden lassen sich leicht wiederverwenden, um Panik zu erzeugen. Der erste, einfachste Check — ist der eigene Hund gerade zu Hause — entlarvt die Masche sofort.",
-  "proTip": "Bevor du zahlst, schau nach, ob das Problem überhaupt existiert.",
+  "explanation": "Eine Nachricht kann öffentlich verfügbare Informationen nutzen, um glaubwürdig zu wirken. Prüfe zuerst, ob dein Tier tatsächlich vermisst wird, und kontaktiere den Verein über offizielle Kontaktdaten.",
+  "proTip": "Erst den angeblichen Notfall überprüfen, dann über mögliche Gebühren sprechen.",
   "hackKey": "C",
   "hackTrigger": "Vertrautheit",
   "tags": [
