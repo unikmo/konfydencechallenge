@@ -20,7 +20,7 @@
   "safeActions": [
     "A"
   ],
-  "explanation": "Freundlichkeit und Ortskenntnis sind kein Sicherheitsnachweis — inoffizielle Geldwechsler nutzen oft Falschgeld oder Ablenkungstricks beim Zählen.",
+  "explanation": "Eine freundliche Ansprache und ein günstiger Kurs garantieren keinen sicheren Geldwechsel. Bei nicht autorisierten Anbietern drohen Falschgeld, versteckte Gebühren oder Betrug beim Abzählen.",
   "proTip": "Der beste Kurs auf der Straße kostet meist mehr, nicht weniger.",
   "hackKey": "C",
   "hackTrigger": "Vertrautheit",
@@ -30,5 +30,6 @@
     "currency-exchange",
     "street-scam"
   ],
-  "active": true
+  "active": true,
+  "tip": "Wechsle Geld bei überprüfbaren, zugelassenen Anbietern und vergleiche die Gebühren."
 }
