@@ -36,7 +36,7 @@
     "title": "Fortnite-Konto angeblich in neun Minuten gesperrt",
     "scenario": "Eine E-Mail, die angeblich von Epic Games stammt, behauptet, dein Fortnite-Konto werde wegen eines Regelverstoßes in neun Minuten gelöscht. Nur wenn du dich sofort über einen Link mit E-Mail-Adresse und Passwort anmeldest, könne das verhindert werden.",
     "answers": {
-      "A": "Auf den Link klicken und dich sofort verifizieren, bevor der Account gelöscht wird.",
+      "A": "Auf den Link klicken und sofort deine Anmeldedaten eingeben, damit das Konto nicht gelöscht wird.",
       "B": "Den Link nicht öffnen. Stattdessen die offizielle Fortnite-App oder die selbst eingegebene Epic-Games-Website nutzen und dort den Kontostatus prüfen.",
       "C": "Nur die E-Mail-Adresse eingeben, aber nicht das Passwort."
     },
@@ -47,7 +47,7 @@
     "title": "Angebliche Klausurfragen gegen fünf Euro",
     "scenario": "In eurem Klassenchat wird ein Link zu angeblichen Fragen für die Mathearbeit morgen geteilt. Der Zugang kostet fünf Euro Handyguthaben und soll um Mitternacht geschlossen werden.",
     "answers": {
-      "A": "Den Link nicht öffnen und kein Geld bezahlen. Stattdessen ganz normal auf die Mathearbeit vorbereiten.",
+      "A": "Den Link nicht öffnen und nichts bezahlen. Bereite dich stattdessen wie gewohnt auf die Mathearbeit vor.",
       "B": "Zahlen und die Liste noch schnell ansehen, bevor der Zugang schließt.",
       "C": "Erst eine Freundin fragen, ob die Liste echt aussieht."
     },
@@ -529,7 +529,7 @@
   },
   "school-de-sch-10": {
     "title": "Klassenfahrt: plötzlich ein neuer Spendenlink",
-    "scenario": "Eine Nachricht in der Eltern-/Schüler-WhatsApp-Gruppe sagt, der Spendenlink für die Klassenfahrtkasse schließe heute Abend und bittet um sofortige Überweisung über einen neuen, unbekannten Zahlungsdienst.",
+    "scenario": "In eurem Klassenchat behauptet jemand, der Zahlungslink für die Klassenfahrt gelte nur noch bis heute Abend. Das Geld soll plötzlich über einen unbekannten Zahlungsdienst überwiesen werden.",
     "answers": {
       "A": "Sofort über den neuen Dienst spenden, damit die Frist nicht verstreicht.",
       "B": "Nur einen kleinen Betrag über den Link schicken.",
@@ -542,11 +542,11 @@
     "title": "Discord Nitro: kostenloses Jahresabo per Link?",
     "scenario": "Eine Nachricht in einem Discord-Server verspricht kostenloses Nitro für ein Jahr, wenn du dich „noch heute Nacht“ über einen Link mit deinem Discord-Login anmeldest.",
     "answers": {
-      "A": "Den Link ignorieren; Discord verschenkt Nitro nicht über Links in Server-Nachrichten mit Fristen.",
+      "A": "Die Nachricht ignorieren und mögliche Nitro-Angebote direkt in Discord oder auf der offiziellen Website überprüfen.",
       "B": "Sich sofort über den Link anmelden, um das kostenlose Nitro zu sichern.",
       "C": "Den Link öffnen, aber ein anderes Passwort als sonst benutzen."
     },
-    "explanation": "Kostenlose Angebote können gefälscht sein, besonders wenn du dich über eine fremde Website anmelden sollst. Prüfe Aktionen direkt in Discord oder auf offiziellen Seiten und gib deine Zugangsdaten nicht auf unbekannten Websites ein.",
+    "explanation": "Hinter einem angeblichen Gratisabo kann eine gefälschte Anmeldeseite stecken. Prüfe Angebote direkt in Discord oder auf der offiziellen Website. Gib dein Passwort nicht auf einer unbekannten Seite ein.",
     "proTip": "Discord-Anmeldedaten niemals auf einer unbekannten Geschenkseite eingeben."
   },
   "school-de-sch-12": {
@@ -694,10 +694,10 @@
   },
   "school-de-sch-13": {
     "title": "Angeblicher Discord-Moderator verlangt Anmeldung",
-    "scenario": "Jemand mit dem Titel „Moderator“ schreibt dir auf Discord, dein Account sei wegen eines Berichts „vorübergehend eingeschränkt“ — du müsstest dich über einen Link „verifizieren“, sonst folge ein permanenter Bann.",
+    "scenario": "Jemand mit dem Profilnamen „Moderator“ schreibt dir auf Discord, dein Konto sei wegen einer Meldung vorübergehend eingeschränkt. Du müsstest dich über einen Link anmelden und deine Identität bestätigen, sonst werde dein Konto dauerhaft gesperrt.",
     "answers": {
-      "A": "Sich sofort über den Link verifizieren, um den Bann zu vermeiden.",
-      "B": "Dem „Mod“ per DM Fragen stellen, um die Geschichte zu prüfen.",
+      "A": "Dich sofort über den Link anmelden und deine Identität bestätigen, damit dein Konto nicht gesperrt wird.",
+      "B": "Der Person eine private Nachricht schicken und nach weiteren Angaben fragen.",
       "C": "Den Link nicht öffnen und den Vorfall über die offiziellen Discord-Support-Kanäle prüfen."
     },
     "explanation": "Der Titel in einem Discord-Profil beweist nicht, dass die Person berechtigt ist. Öffne keine fremden Links zur vermeintlichen Kontoprüfung und kontrolliere Hinweise direkt in Discord.",
