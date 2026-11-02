@@ -158,8 +158,7 @@ export default function LockscreensPageDe() {
             <h2 id="see-the-screens" className="k-display-sm">Sicherheitshinweise statt austauschbarer Werbemotive.</h2>
           </div>
           <p className="k-copy">
-            Jeder Hinweis zeigt eine typische Betrugsmasche und einen sicheren nächsten Schritt. Beispiele aus den verschiedenen Themenbereichen:
-            die vollständigen Sets wechseln alle zwei Wochen auf eurem Gerät.
+            Jeder Hinweis zeigt eine typische Betrugsmasche und einen sicheren nächsten Schritt. Hier siehst du Beispiele aus den verschiedenen Themenbereichen. Neue Motive erscheinen alle zwei Wochen.
           </p>
         </div>
         <ScreenGallery tiers={screenGalleries} />
