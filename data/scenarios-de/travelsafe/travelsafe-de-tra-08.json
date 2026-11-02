@@ -8,7 +8,7 @@
   "category": "Kreuzfahrt & Ausflüge",
   "scenario": "Kurz vor dem Ablegen bewirbt ein Stand am Hafen einen „letzten Platz“ für einen Landausflug — Buchung nur über einen privaten Zahlungslink, „bevor das Schiff ablegt“.",
   "answers": {
-    "B": "Landausflüge nur über die offizielle Buchungsstelle des Reiseveranstalters oder an Bord buchen, nicht über einen privaten Link am Hafen.",
+    "B": "Den Anbieter, die Leistungen und die Zahlungsbedingungen überprüfen. Nur über einen nachvollziehbaren, sicheren Zahlungsweg buchen.",
     "A": "Über den privaten Link sofort buchen und zahlen.",
     "C": "Nur eine Anzahlung über den Link leisten."
   },
@@ -20,7 +20,7 @@
   "safeActions": [
     "B"
   ],
-  "explanation": "Ein Hafenstand kann seriös sein. Ein privater Zahlungslink unter großem Zeitdruck ist jedoch ein Warnzeichen. Prüfe den Anbieter und seine Bedingungen, bevor du buchst oder bezahlst.",
+  "explanation": "Auch unabhängige Ausflugsanbieter am Hafen können seriös sein. Eine Buchung unter starkem Zeitdruck über einen privaten Zahlungslink solltest du jedoch erst nach Prüfung des Anbieters und seiner Bedingungen vornehmen.",
   "proTip": "Buche Landausflüge nur bei überprüfbaren Anbietern über sichere Zahlungswege.",
   "hackKey": "H",
   "hackTrigger": "Hetze",
