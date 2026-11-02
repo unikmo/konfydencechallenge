@@ -1,7 +1,7 @@
 {
   "id": "family-de-fam-31",
   "lang": "de",
-  "title": "Dein Freund schickt einen „Stimm für mich“-Link",
+  "title": "Freund bittet um Stimme bei einem Gewinnspiel",
   "edition": "family",
   "cardType": "scenario",
   "scored": true,
@@ -21,8 +21,8 @@
     "A",
     "B"
   ],
-  "explanation": "Übernommene Konten erben den echten Schreibstil und die Kontakthistorie ihres Opfers. Eine Rückfrage über einen zweiten Kanal zeigt, ob dein Freund noch selbst am Drücker ist.",
-  "proTip": "Ein vertrautes Konto kann eine unbekannte Person dahinter haben.",
+  "explanation": "Ein vertrauter Instagram-Account kann übernommen worden sein. Prüfe die Bitte bei deinem Freund über einen zweiten Kontaktweg und gib keine Zugangsdaten auf einer unbekannten Abstimmungsseite ein.",
+  "proTip": "Bei ungewöhnlichen Links auch vertraute Absender unabhängig fragen.",
   "hackKey": "C",
   "hackTrigger": "Vertrautheit",
   "tags": [
