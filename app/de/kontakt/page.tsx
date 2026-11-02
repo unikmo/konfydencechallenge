@@ -7,7 +7,7 @@ import { PremiumPageDe } from "@/components/PremiumSiteChrome";
 
 export default function KontaktPage() {
   return (
-    <Suspense fallback={null}>
+    <Suspense fallback={<PremiumPageDe ctaHref="/de/challenge/family/start?mode=diagnostic" ctaLabel="Kostenlos starten"><section className="kg-shell kc-hero"><h1>Kontakt zu Konfydence</h1><p>Fragen zu den Challenges oder einem Pilotprojekt? Hier erreichst du uns.</p></section></PremiumPageDe>}>
       <KontaktForm />
     </Suspense>
   );
