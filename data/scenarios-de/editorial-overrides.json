@@ -1587,11 +1587,11 @@
     "title": "Teams-Datei von Kollegen fordert erneut Firmen-Login",
     "scenario": "Ein Kollege, mit dem du regelmäßig zusammenarbeitest, schickt über Teams einen Link zu einer „wichtigen Datei“ — der Link verlangt aber, dich erneut mit deinem vollen Unternehmens-Login anzumelden.",
     "answers": {
-      "B": "Den Kollegen kurz fragen, ob er die Datei wirklich geschickt hat, bevor du dich über den Link erneut anmeldest — normale geteilte Dateien verlangen das nicht.",
+      "B": "Den Link nicht direkt zur Anmeldung verwenden. Stattdessen die Datei über die bekannte Microsoft-365-Umgebung öffnen und bei Bedarf den Kollegen oder die IT unabhängig kontaktieren.",
       "A": "Sich sofort über den Link erneut anmelden, um die Datei zu öffnen.",
       "C": "Den Link öffnen, aber ein anderes Passwort verwenden."
     },
-    "explanation": "Auch ein vertrauter Chat kann einen manipulierten Link enthalten. Prüfe die Freigabe über die offiziellen Microsoft-365-Anwendungen und bestätige unerwartete Anmeldeaufforderungen bei Bedarf über die IT.",
+    "explanation": "Auch eine echte Teams-Nachricht kann auf eine gefälschte Anmeldeseite verweisen. Eine erneute Anmeldung ist nicht automatisch verdächtig; entscheidend ist, ob sie über die bekannte, offizielle Microsoft-365-Umgebung erfolgt.",
     "proTip": "Anmeldelinks in Chats kritisch prüfen – besonders bei unerwarteten Logins."
   },
   "workplace-de-wrk-27": {
@@ -1791,5 +1791,60 @@
     },
     "explanation": "Je nach Land und Anbieter kann eine Identitätsprüfung mit Ausweis und Foto vorgeschrieben sein. Wichtig ist, dass du einen überprüfbaren Anbieter und einen sicheren Registrierungsweg nutzt. Sende solche Aufnahmen nicht ungeprüft an unbekannte Personen.",
     "proTip": "Ausweis plus Selfie zusammen gehören nur zu einem vertrauenswürdigen, bekannten Anbieter."
+  },
+  "workplace-de-wrk-31": {
+    "title": "Die Einladung der Assistentin hat einen Login-Button",
+    "scenario": "Eine Kalendereinladung, die aussieht, als käme sie von der Assistentin eines wichtigen Kontakts, enthält einen Button „Anmelden, um am Meeting teilzunehmen“, der nach dem vollen Unternehmens-Login fragt.",
+    "answers": {
+      "A": "Die Einladung über das bekannte Kalendersystem öffnen und bei einer erneuten Anmeldeaufforderung die Zieladresse prüfen. Im Zweifel die Absenderin unabhängig kontaktieren.",
+      "B": "Sich über den Button in der Einladung mit dem vollen Login anmelden.",
+      "C": "Den Button öffnen, aber ein anderes Passwort verwenden."
+    },
+    "explanation": "Bei Videokonferenzen kann eine erneute Anmeldung erforderlich sein. Ein Button in einer unerwarteten Einladung ist aber kein Beweis dafür, dass die verlinkte Seite echt ist. Öffne das Meeting über den bekannten Kalender und prüfe den Anmeldeweg.",
+    "proTip": "Ein Meeting öffnest du im eigenen Kalender, nicht über einen Login-Button in der Einladung."
+  },
+  "workplace-de-wrk-34": {
+    "title": "Dein Kollege hat eine neue Nummer",
+    "scenario": "Ein Kollege schreibt von einer neuen Handynummer auf WhatsApp und bittet dringend, ihm bei einer „vertraulichen Zahlungsangelegenheit“ für die Abteilung zu helfen, während er „gerade unterwegs“ ist.",
+    "answers": {
+      "A": "Ihn über die alte, im Firmenverzeichnis bekannte Nummer oder E-Mail-Adresse erreichen, bevor irgendetwas in einer „vertraulichen Zahlungsangelegenheit“ unternommen wird.",
+      "B": "Der Bitte auf der neuen Nummer sofort folgen, weil es wie der Kollege klingt.",
+      "C": "Im Team fragen, ob jemand die neue Nummer schon kennt."
+    },
+    "explanation": "Eine neue, unbekannte Handynummer und eine ungewöhnliche Zahlungsbitte sind Warnzeichen. Frage den Kollegen über einen bereits bekannten Kontaktweg, ob die Nachricht tatsächlich von ihm stammt.",
+    "proTip": "Eine neue Nummer bestätigst du über die alte, bekannte — nie umgekehrt."
+  },
+  "workplace-de-wrk-36": {
+    "title": "Der Kunde sagt: „Nutz heute meine private Gmail“",
+    "scenario": "Ein Bestandskunde schreibt aus einer neuen, privaten E-Mail-Adresse, sein Geschäftskonto sei „gerade gesperrt“, und bittet, die aktuelle Bestellung samt Zahlungsdetails an diese neue Adresse zu schicken.",
+    "answers": {
+      "B": "Vertrauliche Bestell- und Zahlungsdetails nicht an die neue Adresse schicken, sondern die Bitte telefonisch beim bekannten Ansprechpartner des Kunden bestätigen.",
+      "A": "Die Bestellung sofort an die neue Adresse schicken, um den Kunden nicht zu verlieren.",
+      "C": "Nur einen Teil der Bestellung an die neue Adresse schicken."
+    },
+    "explanation": "Ein Wechsel auf eine private E-Mail-Adresse kann einen legitimen Grund haben, erhöht bei vertraulichen Bestell- und Zahlungsdaten aber das Risiko. Bestätige die Bitte über den bisher bekannten Ansprechpartner und halte die internen Freigabeprozesse ein.",
+    "proTip": "Eine „gesperrte“ Adresse bestätigst du telefonisch, bevor du auf die neue reagierst."
+  },
+  "workplace-de-wrk-37": {
+    "title": "Ständige Bestätigungsanfragen zur Zwei-Faktor-Anmeldung",
+    "scenario": "Noch vor Arbeitsbeginn erhältst du mehrere Bestätigungsanfragen für dein Firmenkonto auf dem Handy, obwohl du dich gar nicht angemeldet hast. Immer wieder erscheint eine neue Anfrage.",
+    "answers": {
+      "C": "Keine der Anfragen bestätigen, den IT-Service-Desk sofort informieren und nach den internen Vorgaben das Passwort ändern und das Konto absichern.",
+      "A": "Eine der Anfragen bestätigen, damit die Flut aufhört.",
+      "B": "Eine Anfrage bestätigen und danach das Passwort ändern."
+    },
+    "explanation": "Bei diesem Angriffsmuster versuchen Kriminelle, durch viele Anfragen eine unbedachte Bestätigung zu erzwingen. Bestätige niemals eine Anmeldung, die du nicht selbst ausgelöst hast, und melde den Vorfall der IT.",
+    "proTip": "Viele Anfragen hintereinander sind ein Angriff, keine Ausrede zum Bestätigen."
+  },
+  "workplace-de-wrk-38": {
+    "title": "Die Login-Seite ist echt; die App ist es nicht",
+    "scenario": "Ein Link zu einer neuen Produktivitäts-App führt zur echten, offiziellen Microsoft-Login-Seite — nach der Anmeldung fragt aber eine unbekannte App nach weitreichender OAuth-Zustimmung für E-Mail und Dateien.",
+    "answers": {
+      "B": "Die Zustimmung für die unbekannte App verweigern, auch wenn die vorherige Login-Seite echt aussah, und die App bei der IT-Abteilung melden.",
+      "A": "Die Zustimmung erteilen, weil die Login-Seite davor eindeutig echt war.",
+      "C": "Die Zustimmung mit eingeschränkten Rechten erteilen."
+    },
+    "explanation": "Eine echte Login-Seite garantiert nicht, dass die App danach vertrauenswürdig ist — genau dieser Zwei-Schritt-Trick nutzt das Vertrauen in die echte Microsoft-Seite aus.",
+    "proTip": "Eine echte Login-Seite macht die App danach nicht automatisch echt."
   }
 }
