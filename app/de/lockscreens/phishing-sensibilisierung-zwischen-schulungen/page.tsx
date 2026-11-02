@@ -42,7 +42,7 @@ export default function Page() {
         },
         {
           title: "Regelmäßig wechselnde Betrugsmaschen",
-          copy: "Alle zwei Wochen ein neuer Screen, geschrieben um die Druckmuster, die gerade auftauchen — QR-Code-Phishing, Rückruf-Betrug, KI-Stimmen, Lieferantenwechsel-Betrug.",
+          copy: "Alle zwei Wochen ein neuer Hinweis zu aktuellen Betrugsmaschen — QR-Code-Phishing, Rückruf-Betrug, KI-Stimmen, Lieferantenwechsel-Betrug.",
         },
         {
           title: "Bei Bedarf messen",
@@ -53,7 +53,7 @@ export default function Page() {
       howCopy="Konfydence schreibt und rotiert die Hinweise. Euer Team rollt es einmal über die Geräteverwaltung aus und lässt es neben der Trainingsplattform laufen, die ihr bereits nutzt."
       howSteps={[
         "Kauft eine Arbeitsplatz-Lizenz — 4 € pro Mitarbeitendem pro Jahr, 300 € Minimum.",
-        "Rollt den aktuellen Screen über Intune, Jamf oder Google Admin aus.",
+        "Verteilt das aktuelle Motiv über Intune, Jamf oder Google Admin aus.",
         "Führt euer bestehendes jährliches Training und die Phishing-Simulationen weiter — das hier läuft darunter.",
         "Alle zwei Wochen passt sich der Hinweis an, was tatsächlich in den Postfächern ankommt.",
       ]}
