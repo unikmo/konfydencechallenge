@@ -6,7 +6,7 @@
   "cardType": "scenario",
   "scored": true,
   "category": "Stipendien",
-  "scenario": "Eine E-Mail gratuliert dir zu einem 500-€-Schülerstipendium, an das du dich nie beworben hast, und bittet um Kontodaten und eine Ausweiskopie, um die Auszahlung „zu verifizieren“.",
+  "scenario": "Du bekommst eine E-Mail mit Glückwünschen zu einem Schülerstipendium über 500 €. Du hast dich dafür aber nie beworben. Für die Auszahlung sollst du deine Kontodaten und eine Ausweiskopie schicken.",
   "answers": {
     "A": "Die Daten schicken, um das Geld nicht zu verpassen.",
     "B": "Die Stiftung unabhängig recherchieren und bei deiner Schule nachfragen, ob sie das Stipendium kennt, bevor du irgendetwas schickst.",
