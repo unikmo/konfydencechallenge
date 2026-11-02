@@ -24,9 +24,7 @@ cards (12/12/12/12 H·A·C·K, 2 diagnostic per trigger) + 2 wild cards:
   Geschäftsführung, IT-Support-Impostoren, DSGVO-Auskunftsanfragen,
   Lohnbuchhaltung, Wirtschaftsprüfer, OAuth-/Cloud-Admin-Phishing.
 
-Edit the generator script and re-run it rather than hand-editing the JSON —
-each script asserts the H/A/C/K/diagnostic counts (12/12/12/12, 2 diagnostic
-per trigger) and the 16/16/16 answer-position balance before writing files.
+**Editorial source of truth:** The checked-in JSON files in `data/scenarios-de/` are the reviewed, production-seeded German cards. `prisma/seed.ts` reads these JSON files directly. Do **not** re-run the historical draft generators over this directory without first reconciling their output against the reviewed JSON: the draft scripts may contain older wording and can overwrite editorial changes. When changing a card, preserve `id`, `lang`, `edition`, `cardType`, `scored`, `hackKey`, `scores`, `safeActions`, and the answer-position balance. Validate the full German bank before release.
 
 **Voice decisions every deck follows** (approved by Tichi, 2026-09-10/11,
 reinforced 2026-09-11 as a standing rule for every future edition —
