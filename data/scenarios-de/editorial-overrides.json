@@ -1747,5 +1747,49 @@
     },
     "explanation": "Auch seriöse Unternehmen können unterschiedliche Videoplattformen nutzen. Eine unbekannte Anwendung mit weitreichenden Geräteberechtigungen solltest du jedoch erst nach Prüfung des Anbieters und der Berechtigungen installieren.",
     "proTip": "Ein echtes Interview braucht kein Programm mit Vollzugriff auf dein Gerät."
+  },
+  "travelsafe-de-tra-33": {
+    "title": "Dein Urlaubsflirt hat eine „einfache Investition“",
+    "scenario": "Eine Urlaubsbekanntschaft, mit der du seit der Reise täglich schreibst, erzählt begeistert von einer Trading-App, in die ihr „gemeinsam“ investieren könntet, um „die nächste Reise zu finanzieren“.",
+    "answers": {
+      "B": "Die Plattform unabhängig recherchieren und mit niemandem, den du erst aus dem Urlaub kennst, gemeinsam über eine Geldanlage entscheiden.",
+      "A": "Gemeinsam investieren, weil die Verbindung sich echt anfühlt.",
+      "C": "Nur einen kleinen Betrag investieren, um es zu testen."
+    },
+    "explanation": "Manche Betrugsversuche beginnen mit einer scheinbar persönlichen oder romantischen Beziehung. Wenn dich eine neue Bekanntschaft zu einer Geldanlage drängt, solltest du den Anbieter und die Risiken unabhängig prüfen.",
+    "proTip": "Wer dich zuerst verliebt und dann investieren lässt, will dein Geld, nicht dein Herz."
+  },
+  "travelsafe-de-tra-35": {
+    "title": "Ein Ortsansässiger bietet an, Geld zu wechseln",
+    "scenario": "Auf dem Markt bietet dir eine freundliche, ortskundig wirkende Person an, deine Euro „zum besten Kurs der Stadt“ in bar zu wechseln, statt zur offiziellen Wechselstube zu gehen.",
+    "answers": {
+      "A": "Nur bei einer offiziellen Wechselstube oder Bank wechseln, auch wenn der inoffizielle Kurs besser klingt.",
+      "B": "Bei der Person auf dem Markt wechseln, weil sie freundlich und ortskundig wirkt.",
+      "C": "Nur einen kleinen Betrag bei der Person testweise wechseln."
+    },
+    "explanation": "Eine freundliche Ansprache und ein günstiger Kurs garantieren keinen sicheren Geldwechsel. Bei nicht autorisierten Anbietern drohen Falschgeld, versteckte Gebühren oder Betrug beim Abzählen.",
+    "proTip": "Der beste Kurs auf der Straße kostet meist mehr, nicht weniger."
+  },
+  "travelsafe-de-tra-36": {
+    "title": "Der Gastgeber empfiehlt seinen Cousin als Fahrer",
+    "scenario": "Der Gastgeber deiner Ferienwohnung empfiehlt herzlich seinen „Cousin“ als privaten Fahrer für Flughafentransfers, deutlich günstiger als ein reguläres Taxi oder eine App.",
+    "answers": {
+      "C": "Prüfen, ob der empfohlene Fahrdienst zugelassen und versichert ist, und Preis sowie Fahrtbedingungen vorab klären. Andernfalls einen regulären Taxidienst nutzen.",
+      "A": "Den Cousin nehmen, weil die Empfehlung vom Gastgeber persönlich kommt.",
+      "B": "Nach dem Preis fragen und dann trotzdem mitfahren."
+    },
+    "explanation": "Eine persönliche Empfehlung kann hilfreich sein, ersetzt aber keine Prüfung des Fahrdienstes. Informiere dich über Zulassung, Versicherung, Preis und Buchungsbedingungen, bevor du mitfährst.",
+    "proTip": "Eine herzliche Empfehlung ersetzt keine Taxi-Lizenz."
+  },
+  "travelsafe-de-tra-38": {
+    "title": "Der SIM-Kiosk will zwei Fotos",
+    "scenario": "Ein SIM-Kartenkiosk am Bahnhof verlangt für die Aktivierung einer Prepaid-Karte ein Foto deines Ausweises UND ein Selfie mit dem Ausweis in der Hand, angeblich „zur gesetzlichen Registrierung“.",
+    "answers": {
+      "A": "Beim offiziellen Mobilfunkanbieter nachfragen, welche Ausweisdokumente und Identitätsprüfungen für die Registrierung tatsächlich notwendig sind, bevor du Fotos herausgibst.",
+      "B": "Beide Fotos machen und dem Kiosk geben, um die SIM-Karte zu aktivieren.",
+      "C": "Nur das Ausweisfoto geben, aber kein Selfie."
+    },
+    "explanation": "Je nach Land und Anbieter kann eine Identitätsprüfung mit Ausweis und Foto vorgeschrieben sein. Wichtig ist, dass du einen überprüfbaren Anbieter und einen sicheren Registrierungsweg nutzt. Sende solche Aufnahmen nicht ungeprüft an unbekannte Personen.",
+    "proTip": "Ausweis plus Selfie zusammen gehören nur zu einem vertrauenswürdigen, bekannten Anbieter."
   }
 }
