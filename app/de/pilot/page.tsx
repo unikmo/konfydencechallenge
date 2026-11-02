@@ -22,9 +22,9 @@ const steps = [
 
 const gets = [
   ["Umfang", "Klar abgegrenzt", "Eine benannte Gruppe, ein Risikofokus, Start- und Enddatum – schriftlich festgehalten, bevor es losgeht."],
-  ["Ergebnisse", "Beobachtbares Verhalten", "Innehalten, eigenständiges Überprüfen und vorschnelles Handeln in riskanten Situationen – verglichen zwischen Ausgangs- und Abschlussmessung."],
-  ["Auswertung", "Belastbare Ergebnisse", "Was sich verändert hat, was nicht, und ob sich ein Ausbau lohnt. Die Ergebnisse beziehen sich auf das Training; sie sind kein Nachweis für die Einhaltung gesetzlicher Vorgaben."],
-  ["Datenschutz", "Erst das Datenmodell", "Kennungen, Zugriff, Berichtsebene und Speicherdauer werden geklärt, bevor Daten von Teilnehmenden verwendet werden."],
+  ["Ergebnisse", "Nachvollziehbare Entscheidungen", "Innehalten, eigenständiges Überprüfen und vorschnelles Handeln in riskanten Situationen – verglichen zwischen Ausgangs- und Abschlussmessung."],
+  ["Auswertung", "Ergebnisse richtig einordnen", "Was sich verändert hat, was nicht, und ob sich ein Ausbau lohnt. Die Ergebnisse beziehen sich auf das Training; sie sind kein Nachweis für die Einhaltung gesetzlicher Vorgaben."],
+  ["Datenschutz", "Datenschutz vor dem Start", "Kennungen, Zugriff, Berichtsebene und Speicherdauer werden geklärt, bevor Daten von Teilnehmenden verwendet werden."],
 ];
 
 export default function PilotHubPageDe() {
@@ -32,13 +32,12 @@ export default function PilotHubPageDe() {
     <PremiumPageDe ctaHref="#wege" ctaLabel="Pilotprojekt anfragen">
       <section className="kg-shell kc-hero">
         <p className="k-kicker">Pilotprojekte im kleinen Rahmen</p>
-        <h1>Probiert das Entscheidungstraining aus, bevor ihr es breit einführt.</h1>
+        <h1>Entscheidungstraining erst testen. Dann über den Einsatz entscheiden.</h1>
         <p>
-          Klein anfangen, beobachtbares Verhalten messen und anhand klarer Ergebnisse entscheiden: ausweiten, anpassen
-          oder beenden. Ab sofort nehmen wir Pilotanfragen von Schulen und Unternehmen entgegen.
+          In einem überschaubaren Pilotprojekt übt eine ausgewählte Gruppe typische Betrugssituationen. Eine Messung vor und nach dem Training zeigt, ob sich die Entscheidungen verbessern. Schulen und Unternehmen können jetzt ein Pilotprojekt anfragen.
         </p>
         <div className="kg-promise" style={{ marginTop: 22 }}>
-          <span>Klar abgegrenzter Umfang</span><span>Kein Ersatz für euer LMS</span><span>Datenschutz vorab geklärt</span><span>Ausweiten, anpassen oder beenden</span>
+          <span>Klar abgegrenzter Umfang</span><span>Ergänzt bestehende Lernsysteme</span><span>Datenschutz vorab geklärt</span><span>Ausweiten, anpassen oder beenden</span>
         </div>
       </section>
 
@@ -54,7 +53,7 @@ export default function PilotHubPageDe() {
             <b>Schulen · 12 bis 18 Jahre</b>
             <h3 style={{ fontFamily: "var(--k-display)", fontWeight: 400, fontSize: 26, margin: "10px 0 8px" }}>Entscheidungstraining für den Unterricht</h3>
             <p>
-              Gaming-Belohnungen, Fake-Gewinnspiele, Druck im Klassenchat und gekaperte Accounts. Die Schule behält die
+              Falsche Gewinnspiele, Betrugsversuche beim Gaming, Druck im Klassenchat und übernommene Benutzerkonten. Die Schule behält die
               Hoheit über die Schülerdaten, und das Datenmodell wird geklärt, bevor die erste Schülerin oder der erste
               Schüler teilnimmt.
             </p>
@@ -67,7 +66,7 @@ export default function PilotHubPageDe() {
             <h3 style={{ fontFamily: "var(--k-display)", fontWeight: 400, fontSize: 26, margin: "10px 0 8px" }}>CoMaSy: Simulation für Sicherheitsentscheidungen</h3>
             <p>
               Realistische Social-Engineering-Situationen für eine klar definierte Gruppe: Ausgangsmessung, gezieltes
-              Training, Abschlussmessung. Läuft neben eurem bestehenden Awareness-Programm.
+              Training, Abschlussmessung. Ergänzt eure bestehenden Sicherheitsschulungen.
             </p>
             <div className="k-actions" style={{ marginTop: 20 }}>
               <Link className="k-button" href="/de/comasy/pilotprojekt">Pilotprojekt anfragen</Link>
@@ -101,10 +100,10 @@ export default function PilotHubPageDe() {
 
       <section className="kg-shell k-callout">
         <div>
-          <p className="k-kicker">Bevor Daten von Teilnehmenden fließen</p>
-          <h2 className="k-display-sm">Schaut euch zuerst das Datenschutzmodell an.</h2>
+          <p className="k-kicker">Datenschutz vor der ersten Übung</p>
+          <h2 className="k-display-sm">Klären wir zuerst, welche Daten wirklich gebraucht werden.</h2>
           <p className="k-copy">
-            Eine Pilotanfrage ist ein unverbindliches Erstgespräch, kein Kauf. Dafür müsst ihr keine Daten von
+            Mit einer Anfrage vereinbart ihr zunächst ein unverbindliches Gespräch. Eine Buchung ist damit nicht verbunden. Dafür müsst ihr keine Daten von
             Teilnehmenden angeben.
           </p>
         </div>
