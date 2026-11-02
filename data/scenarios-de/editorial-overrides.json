@@ -1098,5 +1098,170 @@
     },
     "explanation": "Eine persönliche Nachricht aus der Geschäftsführung eines Lieferanten ersetzt keine Prüfung der Kontodaten und Konditionen. Bestätige die Anfrage über bekannte Kontakte und halte die Einkaufsfreigaben ein.",
     "proTip": "Auch bei langjährigen Lieferanten ungewöhnliche Zahlungsänderungen unabhängig bestätigen."
+  },
+  "family-de-fam-21": {
+    "title": "Gerichtsschreiben: angebliches Bußgeld per Telefonnummer",
+    "scenario": "Ein Brief mit Gerichtssiegel-Optik droht ein Bußgeld von 500 €, weil du angeblich eine Zeugenladung ignoriert hast. Eine beigelegte Nummer soll die Sache „außergerichtlich“ gegen sofortige Zahlung klären.",
+    "answers": {
+      "A": "Beim zuständigen Amtsgericht über die im Telefonbuch oder online verifizierte Nummer nachfragen, ob eine solche Ladung existiert.",
+      "B": "Einen Anwalt aus der eigenen Familie um Rat fragen, bevor du reagierst.",
+      "C": "Die Nummer aus dem Brief anrufen und die 500 € zahlen, um ein Gerichtsverfahren zu vermeiden."
+    },
+    "explanation": "Ein Brief mit Gerichtssiegel kann gefälscht sein. Prüfe Aktenzeichen und Forderung über die offiziell veröffentlichte Telefonnummer des Gerichts. Zahle nicht über Kontaktdaten, die ausschließlich im verdächtigen Schreiben stehen.",
+    "proTip": "Gerichtliche Zahlungsaufforderungen unabhängig beim zuständigen Gericht prüfen."
+  },
+  "family-de-fam-22": {
+    "title": "Rentenversicherung: angeblich droht Zahlungsausfall",
+    "scenario": "Ein Anruf im Namen der Deutschen Rentenversicherung sagt, dein Konto sei wegen eines „Datenabgleichs“ eingefroren, und deine nächste Rentenzahlung gehe verloren, wenn du nicht sofort deine Versicherungsnummer und Kontodaten bestätigst.",
+    "answers": {
+      "A": "Nur die Versicherungsnummer bestätigen, aber keine Kontodaten.",
+      "B": "Die Daten am Telefon bestätigen, damit die Zahlung nicht verloren geht.",
+      "C": "Auflegen und über die offizielle Servicenummer der Deutschen Rentenversicherung selbst nachfragen."
+    },
+    "explanation": "Ein überraschender Anruf mit der Forderung nach Versicherungsnummer und Bankdaten ist verdächtig. Prüfe offene Fragen über den offiziellen Kontakt der Deutschen Rentenversicherung.",
+    "proTip": "Rentenangelegenheiten über die offiziellen Beratungs- und Kontaktstellen klären."
+  },
+  "family-de-fam-23": {
+    "title": "Hausverwaltung: Miete angeblich auf neues Konto",
+    "scenario": "Eine E-Mail „von der Hausverwaltung“ informiert alle Mieter, dass die Miete ab sofort auf ein neues Konto überwiesen werden soll — angeblich wegen eines Bankwechsels. Absenderadresse und Layout sehen gewohnt aus.",
+    "answers": {
+      "A": "Ab sofort auf das neue Konto überweisen, wie in der Mail beschrieben.",
+      "B": "Die Hausverwaltung über die bekannte Telefonnummer oder persönlich im Büro nach dem angeblichen Bankwechsel fragen, bevor du die erste Miete auf das neue Konto schickst.",
+      "C": "Erst mit den Nachbarn sprechen, ob sie dieselbe Mail bekommen haben."
+    },
+    "explanation": "Auch eine E-Mail mit korrekter Absenderadresse und bekanntem Layout kann gefälscht sein. Lass dir die neue Kontoverbindung unabhängig von der Hausverwaltung bestätigen, bevor du zahlst.",
+    "proTip": "Neue Kontoverbindungen nicht allein aufgrund einer E-Mail übernehmen."
+  },
+  "family-de-fam-24": {
+    "title": "Mobilfunk-Support will deinen SMS-Code",
+    "scenario": "Ein Anrufer gibt sich als Support deines Mobilfunkanbieters aus und sagt, deine Nummer solle in wenigen Minuten „aus Sicherheitsgründen“ zu einem anderen Anbieter portiert werden — außer du bestätigst sofort den PIN-Code, den du gerade per SMS bekommst, um das zu verhindern.",
+    "answers": {
+      "A": "Auflegen, die eigene SIM-Karte nicht anfassen und den Anbieter über die offizielle Hotline oder App kontaktieren.",
+      "B": "Den Code notieren, aber erst später weitergeben.",
+      "C": "Den PIN-Code sofort am Telefon vorlesen, um die Portierung zu stoppen."
+    },
+    "explanation": "Ein Bestätigungscode kann beispielsweise eine Anmeldung oder Vertragsänderung auslösen. Teile ihn nicht mit einer Person, die dich unerwartet anruft. Erkundige dich direkt beim Mobilfunkanbieter.",
+    "proTip": "Einmalcodes niemals an Anrufende weitergeben."
+  },
+  "family-de-fam-25": {
+    "title": "„Hallo Mama“: angeblich neues Handy und dringende Rechnung",
+    "scenario": "Eine unbekannte Nummer schreibt dir auf WhatsApp: „Hallo Mama, mein Handy ist kaputt, das ist meine neue Nummer.“ Kurz darauf: „Kannst du mir schnell eine Rechnung über 980 € überweisen? Ich komme gerade nicht ans Online-Banking, ich zahl's dir morgen zurück.“ Der Ton klingt wie dein Kind.",
+    "answers": {
+      "A": "Eine kleine Kontrollfrage stellen, die nur dein Kind beantworten kann, und bei richtiger Antwort überweisen.",
+      "B": "Überweisen, weil die Formulierungen und Emojis genau wie bei deinem Kind klingen.",
+      "C": "Über die alte, gespeicherte Nummer anrufen oder eine Sprachnachricht verlangen, bevor du irgendetwas überweist."
+    },
+    "explanation": "Ein vertrauter Schreibstil beweist nicht, dass wirklich dein Kind schreibt. Rufe über die bisher bekannte Nummer an oder nutze einen anderen unabhängigen Kontaktweg, bevor du Geld überweist.",
+    "proTip": "Neue Nummer und Geldforderung? Erst die Identität unabhängig bestätigen."
+  },
+  "school-de-sch-21": {
+    "title": "App-Store: angebliche Abbuchung stornieren",
+    "scenario": "Eine Nachricht im Namen des App-Store-Supports meldet eine ungewöhnliche Abbuchung auf deinem Konto und bittet, dich über einen Link anzumelden, um sie „zu stornieren“.",
+    "answers": {
+      "A": "Sich über den Link anmelden, um die Abbuchung sofort zu stornieren.",
+      "B": "Den Link öffnen, aber die Anmeldung abbrechen, sobald nach dem Passwort gefragt wird.",
+      "C": "Den Link ignorieren und den Kauf- und Abo-Verlauf direkt in den App-Store-Einstellungen prüfen."
+    },
+    "explanation": "Eine Nachricht über eine unbekannte Abbuchung kann dich auf eine gefälschte Anmeldeseite locken. Prüfe deine Käufe direkt im offiziellen Store-Konto und wende dich bei Bedarf an den Anbieter.",
+    "proTip": "Käufe direkt im Store kontrollieren, nicht über Links aus Nachrichten."
+  },
+  "school-de-sch-22": {
+    "title": "Verein: plötzlich neue Bankdaten im Anmeldeformular",
+    "scenario": "Eine E-Mail, angeblich vom Trainer deines Vereins, verlangt, dass deine Eltern ein „neues Anmeldeformular“ mit Bankdaten für die Vereinsbeiträge über einen Link ausfüllen, sonst dürftest du nicht mehr mitspielen.",
+    "answers": {
+      "A": "Die Bankdaten der Eltern sofort über den Link eingeben, damit du weiter mitspielen darfst.",
+      "B": "Den Trainer persönlich oder über den Verein direkt fragen, ob dieses Formular wirklich von ihm kommt.",
+      "C": "Nur den Namen ausfüllen, aber keine Bankdaten."
+    },
+    "explanation": "Eine unerwartete Nachricht mit neuer Zahlungsseite und Drohung mit dem Ausschluss ist verdächtig. Frage den Trainer oder die Vereinsverwaltung über einen bekannten Kontaktweg nach.",
+    "proTip": "Bankverbindungen für Vereinsbeiträge bei Änderungen direkt bestätigen lassen."
+  },
+  "school-de-sch-23": {
+    "title": "Schulleitung bittet angeblich um Gutscheinkarten",
+    "scenario": "Eine E-Mail im Namen der Schulleitung bittet die Klassensprecherin, für ein Abschiedsgeschenk an eine Lehrkraft Gutscheinkarten zu kaufen und die Codes per Antwort-Mail zu schicken, da die Schulleitung „gerade in einer Konferenz“ sei.",
+    "answers": {
+      "A": "Die Karten kaufen und die Codes wie gewünscht per Mail schicken.",
+      "B": "Die Anfrage im Sekretariat oder direkt bei der Schulleitung persönlich bestätigen lassen, bevor irgendetwas gekauft wird.",
+      "C": "Erst in der Klasse fragen, ob das normal ist."
+    },
+    "explanation": "Eine Nachricht mit dem Namen der Schulleitung kann gefälscht sein. Bestätige ungewöhnliche Kaufaufträge persönlich im Sekretariat, bevor du Gutscheine kaufst oder Codes verschickst.",
+    "proTip": "Gutscheincodes nicht allein aufgrund einer E-Mail weitergeben."
+  },
+  "school-de-sch-24": {
+    "title": "Schulcloud: angebliche Umstellung verlangt Passwort",
+    "scenario": "Eine Mail im Design von IServ/Schulcloud kündigt eine „Systemmigration“ an und bittet alle Schüler, ihre Zugangsdaten über ein verlinktes Formular „zur Sicherung der Daten“ erneut einzugeben.",
+    "answers": {
+      "A": "Das Formular ignorieren und sich wie gewohnt direkt im Schulportal einloggen; eine echte Migration verlangt keine externe Dateneingabe.",
+      "B": "Die Zugangsdaten über das Formular erneut eingeben, um die Daten zu sichern.",
+      "C": "Ein neues, unbekanntes Passwort im Formular verwenden."
+    },
+    "explanation": "Eine technische Umstellung kann eine Anmeldung erfordern. Einen unerwarteten Link solltest du trotzdem nicht verwenden. Prüfe die Aufforderung im offiziellen Schulportal oder bei der Schul-IT.",
+    "proTip": "Passwörter nur über die bekannte offizielle Schulplattform eingeben."
+  },
+  "school-de-sch-25": {
+    "title": "Freund bittet um dein Instagram-Passwort",
+    "scenario": "Dein bester Freund schreibt dir auf Snapchat: „Kannst du mir kurz deinen Insta-Login geben, meiner ist gesperrt und ich muss was für die Schule posten, dauert nur 2 Minuten.“",
+    "answers": {
+      "A": "Den Login schicken, weil es dein bester Freund ist und es schnell gehen soll.",
+      "B": "Ihn anrufen, um zu verstehen, warum sein Account gesperrt ist, bevor du irgendetwas gibst.",
+      "C": "Anbieten, das gewünschte Ding selbst für ihn zu posten, statt den eigenen Login weiterzugeben."
+    },
+    "explanation": "Auch bei engen Freunden bleiben Passwörter privat. Das Konto deines Freundes könnte außerdem übernommen worden sein. Biete an, beim offiziellen Wiederherstellen seines Zugangs zu helfen.",
+    "proTip": "Freundschaft heißt helfen – nicht Passwörter teilen."
+  },
+  "university-de-uni-21": {
+    "title": "Praktikumsangebot: Recruiterin fordert sofort Dokumente",
+    "scenario": "Eine Nachricht auf LinkedIn, angeblich von einer Recruiterin eines bekannten Konzerns, bietet dir ein Praktikum an, wenn du „noch heute“ eine Ausweiskopie und deine IBAN für die „Vertragsvorbereitung“ schickst.",
+    "answers": {
+      "A": "Die Anfrage über die offizielle Karriereseite des Unternehmens verifizieren und keine IBAN oder Ausweiskopie vor einem echten, unterschriebenen Vertrag schicken.",
+      "B": "Die Unterlagen sofort schicken, um das Praktikum nicht zu verlieren.",
+      "C": "Nur die Ausweiskopie schicken, aber nicht die IBAN."
+    },
+    "explanation": "Ein bekannter Firmenname im Profil beweist noch nicht, dass die Anfrage echt ist. Prüfe das Angebot über die offizielle Karriereseite oder einen bekannten Unternehmenskontakt. Übermittle sensible Dokumente erst über bestätigte Wege.",
+    "proTip": "Unverlangte Ausweiskopien und Bankdaten bei Jobangeboten sind ein Warnzeichen."
+  },
+  "university-de-uni-22": {
+    "title": "Krankenkasse: Versicherungsschutz endet angeblich morgen",
+    "scenario": "Eine Mail im Namen deiner studentischen Krankenkasse sagt, dein Versicherungsschutz laufe morgen ab, wenn du nicht sofort über einen Link deine Kontodaten zur „Beitragsbestätigung“ eingibst.",
+    "answers": {
+      "A": "Die Mail ignorieren und direkt im Kundenportal der Krankenkasse oder über die bekannte Servicenummer nachfragen, ob wirklich etwas offen ist.",
+      "B": "Die Kontodaten sofort über den Link eingeben, um den Versicherungsschutz zu sichern.",
+      "C": "Bei der Nummer aus der Mail anrufen, um nachzufragen."
+    },
+    "explanation": "Eine unerwartete Nachricht mit kurzer Frist und Link zur Eingabe von Kontodaten kann gefälscht sein. Prüfe den Versicherungsschutz über die offizielle App oder telefonisch bei der Kasse.",
+    "proTip": "Versicherungsstatus und Beitragszahlungen direkt bei der Krankenkasse überprüfen."
+  },
+  "university-de-uni-23": {
+    "title": "Prüfungsausschuss: angebliches Fehlverhalten gemeldet",
+    "scenario": "Eine E-Mail im Namen des Prüfungsausschusses beschuldigt dich wissenschaftlichen Fehlverhaltens in einer Hausarbeit und verlangt, innerhalb von 24 Stunden über einen Link eine „Stellungnahme mit Login-Bestätigung“ einzureichen, sonst drohe die Exmatrikulation.",
+    "answers": {
+      "B": "Direkt beim Prüfungsausschuss oder Studierendensekretariat über die offizielle Nummer der Uni nachfragen, ob dieses Verfahren wirklich läuft, statt über den Link zu reagieren.",
+      "A": "Über den Link sofort eine Stellungnahme mit Login einreichen, um die Exmatrikulation zu vermeiden.",
+      "C": "Direkt auf die E-Mail antworten und sich verteidigen."
+    },
+    "explanation": "Eine ernste Anschuldigung kann Angst auslösen. Gib Zugangsdaten nicht über einen unbekannten Link ein. Erkundige dich beim Prüfungsausschuss über die offiziellen Hochschulwege, ob ein Verfahren besteht.",
+    "proTip": "Bei angeblichen Prüfungsverfahren zuerst die Echtheit des Schreibens prüfen."
+  },
+  "university-de-uni-24": {
+    "title": "Uni-WLAN: angeblich neues Verwaltungsprofil nötig",
+    "scenario": "Eine Mail im Namen der Uni-IT sagt, dein Laptop erfülle nicht die „Sicherheitsanforderungen“ für den WLAN-Zugang und verlangt die Installation eines Verwaltungsprofils von einer externen Seite, bevor du weiter das Uni-WLAN nutzen darfst.",
+    "answers": {
+      "B": "Das Profil nicht von der externen Seite installieren und die Uni-IT über den offiziellen Helpdesk-Kanal fragen, ob eine solche Anforderung wirklich existiert.",
+      "A": "Das Profil sofort installieren, um den WLAN-Zugang nicht zu verlieren.",
+      "C": "Das Profil installieren, aber danach die Berechtigungen prüfen."
+    },
+    "explanation": "Verwaltungsprofile können weitreichende Berechtigungen erhalten. Installiere daher kein Profil von einer unbekannten Website. Prüfe die WLAN-Anleitung beim offiziellen Hochschulrechenzentrum.",
+    "proTip": "Geräteprofile nur nach Prüfung über die offizielle Hochschul-IT installieren."
+  },
+  "university-de-uni-25": {
+    "title": "Mitbewohner: Nebenkosten plötzlich an neue Adresse",
+    "scenario": "Dein WG-Mitbewohner schreibt in der Haushaltskasse-Gruppe, sein PayPal sei gesperrt, und bittet, deinen Anteil für die Nebenkosten diesmal an eine „neue“ PayPal-Adresse zu schicken.",
+    "answers": {
+      "A": "Ihn persönlich oder per Anruf fragen, ob die neue Adresse wirklich seine ist, bevor du dorthin etwas schickst.",
+      "B": "Sofort an die neue Adresse zahlen, weil es aus der WG-Gruppe kommt.",
+      "C": "In der Gruppe fragen, ob andere die Nachricht auch bekommen haben."
+    },
+    "explanation": "Auch in einer vertrauten WG-Gruppe kann das Konto einer Person übernommen werden. Bestätige ungewöhnliche Zahlungsänderungen persönlich oder über einen bekannten Kontaktweg.",
+    "proTip": "Neue Zahlungsadresse in der WG erst persönlich bestätigen lassen."
   }
 }
