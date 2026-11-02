@@ -20,7 +20,7 @@
   "safeActions": [
     "C"
   ],
-  "explanation": "„Bist du das im Video“ ist eine der ältesten Neugier-Fallen und verbreitet sich über gekaperte Konten weiter, sobald jemand sich „einloggt“. Neugier ist hier kein guter Ratgeber, eine Rückfrage schon.",
+  "explanation": "Solche Nachrichten nutzen deine Neugier aus und können über übernommene Konten verbreitet werden. Frage die Person auf einem anderen, bekannten Weg, ob sie dir den Link wirklich geschickt hat. Gib auf der verlinkten Seite keine Zugangsdaten ein.",
   "proTip": "Neugier ist der Köder — eine Rückfrage ist der Haken, den du nicht schluckst.",
   "hackKey": "C",
   "hackTrigger": "Vertrautheit",
@@ -30,5 +30,6 @@
     "social-media",
     "phishing"
   ],
-  "active": true
+  "active": true,
+  "tip": "Bei überraschenden Videolinks erst nachfragen, statt sich auf unbekannten Seiten anzumelden."
 }
