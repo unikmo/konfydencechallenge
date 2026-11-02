@@ -20,7 +20,7 @@
   "safeActions": [
     "C"
   ],
-  "explanation": "Eine „versehentliche Überzahlung“, die man selbst per Überweisung korrigieren soll, ist eine bekannte Masche — der ursprüngliche Betrag verschwindet später oft wieder, und die Rücküberweisung ist dann echter Verlust.",
+  "explanation": "Eine unerwartete Überzahlung kann ein echter Fehler oder ein Betrugsversuch sein. Überweise die Differenz nicht allein aufgrund einer E-Mail zurück. Kläre den Vorgang mit der zuständigen Förderstelle über ihre offiziellen Kontaktdaten.",
   "proTip": "Ein Systemfehler wird vom System korrigiert, nicht von einer hastigen Rücküberweisung.",
   "hackKey": "K",
   "hackTrigger": "Notbremse",
@@ -30,5 +30,6 @@
     "financial-aid",
     "overpayment"
   ],
-  "active": true
+  "active": true,
+  "tip": "Ungewöhnliche Rückforderungen immer direkt bei der Förderstelle prüfen."
 }
