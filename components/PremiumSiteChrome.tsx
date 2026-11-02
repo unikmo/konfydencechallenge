@@ -139,10 +139,7 @@ export function PremiumPage({
 }
 
 // --- German (/de) chrome ---------------------------------------------------
-// Deliberately a separate, smaller nav rather than a translated copy of the
-// English one: only the pages that actually exist in German so far (Stage 4,
-// in progress — see data/scenarios-de/README.md). Points back to the English
-// site via the "EN" switch and the German-labelled Impressum/Datenschutz/AGB.
+// German navigation and footer, with links to published German pages.
 
 export function PremiumHeaderDe({
   ctaHref = "/de/challenge/family/start?mode=diagnostic",
@@ -158,10 +155,10 @@ export function PremiumHeaderDe({
         <KonfydenceLogo />
       </Link>
       <nav className="k-nav-links" aria-label="Hauptnavigation">
-        <Link href="/de/challenge">Challenge</Link>
+        <Link href="/de/challenge">Challenges</Link>
         <Link href="/de/lockscreens">Lockscreens</Link>
         <Link href="/de/pricing">Preise</Link>
-        <Link href="/de/pilot">Schulen &amp; Teams</Link>
+        <Link href="/de/pilot">Für Schulen &amp; Unternehmen</Link>
       </nav>
       <div className="k-nav-actions">
         <Link href={enHref} className="k-lang-switch" aria-label="View in English">EN</Link>
@@ -177,23 +174,24 @@ export function PremiumFooterDe() {
       <div className="k-shell k-footer-inner">
         <div>
           <Link href="/de" className="k-brand" aria-label="Konfydence Startseite"><KonfydenceLogo /></Link>
-          <p>Vertrauen unter Druck.</p>
+          <p>Betrugsmaschen erkennen. Sicher reagieren.</p>
         </div>
         <nav aria-label="Fußzeilen-Navigation">
-          <Link href="/de/challenge">Challenge</Link>
+          <Link href="/de/challenge">Challenges</Link>
           <Link href="/de/lockscreens">Lockscreens</Link>
           <Link href="/de/pricing">Preise</Link>
-          <Link href="/de/pilot">Schulen &amp; Teams Pilotprojekte</Link>
+          <Link href="/de/pilot">Pilotprojekte für Schulen und Unternehmen</Link>
           <Link href="/de/comasy">CoMaSy</Link>
-          <Link href="/de/comasy/sicherheit">CoMaSy Sicherheit</Link>
+          <Link href="/de/comasy/sicherheit">CoMaSy: Sicherheit &amp; Datenschutz</Link>
           <Link href="/de/hack-method">Methode</Link>
-          <Link href="/de/countries">Länder-Betrugswarnungen</Link>
+          <Link href="/de/countries">Betrugswarnungen nach Ländern</Link>
           <Link href="/de/kontakt">Kontakt</Link>
           <Link href="/de/geschenk">Challenge verschenken</Link>
           <Link href="/de/gratis-sicherheitspaket">Kostenloses Merkblatt</Link>
           <Link href="/de/impressum">Impressum</Link>
           <Link href="/de/datenschutz">Datenschutz</Link>
           <Link href="/de/agb">AGB</Link>
+          <Link href="/de/cookie-richtlinie">Cookie-Richtlinie</Link>
         </nav>
       </div>
     </footer>
