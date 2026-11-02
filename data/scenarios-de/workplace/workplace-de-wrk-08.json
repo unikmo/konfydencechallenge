@@ -1,7 +1,7 @@
 {
   "id": "workplace-de-wrk-08",
   "lang": "de",
-  "title": "Erstatte diesen Kunden, bevor er eskaliert",
+  "title": "Kundenerstattung: angebliche Eskalation auf Social Media",
   "edition": "workplace",
   "cardType": "scenario",
   "scored": true,
@@ -20,8 +20,8 @@
   "safeActions": [
     "A"
   ],
-  "explanation": "Die Angst vor öffentlicher Eskalation wird gezielt genutzt, um Kontrollprozesse zu umgehen — eine kurze Rückfrage beim echten Vorgesetzten kostet keine zusätzliche Eskalation.",
-  "proTip": "Reputationsangst ist kein Grund, eine Prüfung zu überspringen.",
+  "explanation": "Die mögliche öffentliche Beschwerde erzeugt Zeitdruck. Bestätige ungewöhnliche Anweisungen unabhängig und halte die vereinbarten Prüf- und Freigabeschritte ein, bevor Geld ausgezahlt wird.",
+  "proTip": "Reputationsdruck ersetzt keine Prüfung der Forderung.",
   "hackKey": "H",
   "hackTrigger": "Hetze",
   "tags": [
