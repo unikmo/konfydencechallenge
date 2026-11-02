@@ -1,7 +1,7 @@
 {
   "id": "workplace-de-wrk-11",
   "lang": "de",
-  "title": "Registriere dein neues MFA-Gerät, bevor du ausgesperrt wirst",
+  "title": "MFA-Gerät: angeblich nur noch eine Stunde zur Registrierung",
   "edition": "workplace",
   "cardType": "scenario",
   "scored": true,
@@ -20,8 +20,8 @@
   "safeActions": [
     "B"
   ],
-  "explanation": "Ein unternehmensweiter MFA-Reset mit Stundenfrist über einen externen Link ist ein bekanntes Massen-Phishing-Muster — die interne IT-Seite ist immer der sichere Weg.",
-  "proTip": "MFA-Geräte registrierst du nur über die interne IT-Seite.",
+  "explanation": "Eine unerwartete Aufforderung zur erneuten Anmeldung der Zwei-Faktor-Authentifizierung kann ein Phishing-Versuch sein. Prüfe den Vorgang über das bekannte IT-Portal oder direkt beim internen IT-Support.",
+  "proTip": "MFA-Änderungen nur über die offiziell freigegebenen IT-Verfahren durchführen.",
   "hackKey": "H",
   "hackTrigger": "Hetze",
   "tags": [
