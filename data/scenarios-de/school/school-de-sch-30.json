@@ -1,7 +1,7 @@
 {
   "id": "school-de-sch-30",
   "lang": "de",
-  "title": "Ein Creator will dich im Team haben",
+  "title": "Bekannter Creator bietet angeblich einen Teamplatz",
   "edition": "school",
   "cardType": "scenario",
   "scored": true,
@@ -20,8 +20,8 @@
   "safeActions": [
     "A"
   ],
-  "explanation": "Große, bekannte Creator holen niemanden über eine private Login-Bestätigungsseite ins Team — das ist Autoritäts-Camouflage über einen vertrauten Namen, der Account kann selbst gekapert sein.",
-  "proTip": "Eine große Chance, die einen Login-Check verlangt, ist keine echte Chance.",
+  "explanation": "Auch Profile bekannter Personen können gefälscht oder übernommen werden. Prüfe das Angebot über offizielle Kontaktwege. Zugangsdaten gehören nicht auf eine fremde Bewerbungsseite.",
+  "proTip": "Auch attraktive Angebote nicht mit der Weitergabe deines Passworts bezahlen.",
   "hackKey": "C",
   "hackTrigger": "Vertrautheit",
   "tags": [
