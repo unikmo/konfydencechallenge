@@ -1,7 +1,7 @@
 {
   "id": "university-de-uni-17",
   "lang": "de",
-  "title": "„BAföG-Rückzahlungserleichterung“ kennt deinen Saldo",
+  "title": "BAföG-Rückzahlung: angeblicher Sondererlass gegen Gebühr",
   "edition": "university",
   "cardType": "scenario",
   "scored": true,
@@ -20,8 +20,8 @@
   "safeActions": [
     "B"
   ],
-  "explanation": "Die richtige Kenntnis deines Saldos kann aus einem Datenleck stammen und ist kein Echtheitsbeweis. Echte Erlassregelungen kosten keine vorab zu zahlende „Bearbeitungsgebühr“.",
-  "proTip": "Den richtigen Betrag zu kennen macht einen Anrufer nicht echt.",
+  "explanation": "Auch die korrekte Nennung eines offenen Betrags belegt nicht, dass die Person am Telefon berechtigt ist. Erkundige dich direkt bei der zuständigen offiziellen BAföG-Rückzahlungsstelle, ob es die Regelung gibt.",
+  "proTip": "Eine angebliche Ermäßigung mit sofortiger Bearbeitungsgebühr unabhängig überprüfen.",
   "hackKey": "A",
   "hackTrigger": "Autorität",
   "tags": [
