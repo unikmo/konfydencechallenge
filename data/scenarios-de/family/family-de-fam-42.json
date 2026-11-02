@@ -6,7 +6,7 @@
   "cardType": "scenario",
   "scored": true,
   "category": "Smart-Geräte",
-  "scenario": "Beim Einrichten eines neuen Streaming-Kontos auf dem Fernseher erscheint ein Anruf angeblich vom Streaminganbieter: Man müsse den gerade angezeigten 6-stelligen Kopplungscode am Telefon durchgeben, um „ein Sicherheitsproblem mit dem Konto zu beheben“.",
+  "scenario": "Während du einen Streamingdienst auf dem Fernseher einrichtest, erhältst du einen Anruf von einem angeblichen Mitarbeiter des Anbieters. Du sollst den gerade angezeigten sechsstelligen Kopplungscode vorlesen, um ein angebliches Sicherheitsproblem zu lösen.",
   "answers": {
     "A": "Auflegen, den Code für niemanden vorlesen, und das Konto direkt über die offizielle App oder Webseite prüfen.",
     "B": "Den Fernseher ausschalten und es später erneut versuchen.",
@@ -20,7 +20,7 @@
   "safeActions": [
     "A"
   ],
-  "explanation": "Ein Kopplungscode auf dem Bildschirm dient dazu, ein Gerät mit einem Konto zu verbinden — wer ihn vorliest, verknüpft das Konto mit dem Gerät der Täter. Streaminganbieter rufen dafür nie an.",
+  "explanation": "Ein Kopplungscode verbindet Geräte mit einem Konto. Teile ihn nicht mit unbekannten Anrufenden. Prüfe das Konto und die Geräteverknüpfung ausschließlich über die offizielle Anwendung des Streamingdienstes.",
   "proTip": "Ein Code auf deinem Bildschirm ist für dein Gerät bestimmt, für niemandes Ohr.",
   "hackKey": "K",
   "hackTrigger": "Notbremse",
@@ -30,5 +30,6 @@
     "smart-devices",
     "account-takeover"
   ],
-  "active": true
+  "active": true,
+  "tip": "Kopplungscodes nicht am Telefon weitergeben."
 }
