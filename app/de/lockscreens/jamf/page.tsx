@@ -2,15 +2,15 @@ import type { Metadata } from "next";
 import { LockscreenIntentPage } from "@/components/LockscreenIntentPage";
 
 export const metadata: Metadata = {
-  title: { absolute: "Security-Awareness-Sperrbildschirm für Jamf-verwaltete Macs & iPads | Konfydence Lockscreens" },
+  title: { absolute: "IT-Sicherheit-Sperrbildschirm für Jamf-verwaltete Macs & iPads | Konfydence Lockscreens" },
   description:
-    "Ein rotierender Security-Awareness-Sperrbildschirm für Apple-Flotten unter Jamf Pro oder Jamf School. Ein Konfigurationsprofil, alle zwei Wochen ein neuer Hinweis zur Methode „Anhalten, Abklären, Ansprechen“.",
+    "Ein rotierender IT-Sicherheit-Sperrbildschirm für Apple-Flotten unter Jamf Pro oder Jamf School. Ein Konfigurationsprofil, alle zwei Wochen ein neuer Hinweis zur Methode „Anhalten, Abklären, Ansprechen“.",
   alternates: {
     canonical: "/de/lockscreens/jamf",
     languages: { en: "https://konfydence.com/lockscreens/jamf", de: "https://konfydence.com/de/lockscreens/jamf" },
   },
   openGraph: {
-    title: "Security-Awareness-Sperrbildschirm für Jamf | Konfydence",
+    title: "IT-Sicherheit-Sperrbildschirm für Jamf | Konfydence",
     description: "Einmal mit einem Jamf-Profil ausrollen; die Botschaft bleibt das ganze Jahr aktuell.",
     url: "https://konfydence.com/de/lockscreens/jamf",
     siteName: "Konfydence",
@@ -58,15 +58,15 @@ export default function Page() {
         "Alle zwei Wochen ändert sich das ausgelieferte Bild — kein neues Paket, keine erneute Zuweisung.",
       ]}
       orgValue={{
-        title: "Kontinuierliche Awareness, kein Test-und-vergessen.",
-        copy: "Ein Jamf-Profil macht aus Awareness eine fortlaufende Kontrolle statt eines Abschlussdatums. Ein Hinweis, der sich alle zwei Wochen ändert, auf jedem verwalteten Mac und iPad, ist sichtbare Aktivität zwischen den formalen Schulungen.",
+        title: "Sicherheit auch zwischen den Schulungen präsent halten.",
+        copy: "Ein Jamf-Profil macht aus Sicherheitsbewusstsein eine fortlaufende Kontrolle statt eines Abschlussdatums. Ein Hinweis, der sich alle zwei Wochen ändert, auf jedem verwalteten Mac und iPad, ist sichtbare Aktivität zwischen den formalen Schulungen.",
         points: [
-          "Fortlaufende Cyber-Hygiene-Verstärkung — NIS2 (Artikel 21) erwartet kontinuierliche Awareness und eine Aufsicht durch die Leitungsorgane. Ein rotierender Hinweis ist sichtbare Aktivität zwischen den formalen Schulungen.",
-          "Beitrag zum Human Risk Management — verschiebt Awareness von einem Wissenstest zu einem Gewohnheits-Cue im Moment der Entscheidung, genau der Punkt, den NIST- und ISO/IEC-27001-Kontrollen betonen.",
+          "Fortlaufende Cyber-Hygiene-Verstärkung — NIS2 (Artikel 21) erwartet kontinuierliche Sicherheitsbewusstsein und eine Aufsicht durch die Leitungsorgane. Ein rotierender Hinweis ist sichtbare Aktivität zwischen den formalen Schulungen.",
+          "Beitrag zum Human Risk Management — verschiebt Sicherheitsbewusstsein von einem Wissenstest zu einem Gewohnheits-Cue im Moment der Entscheidung, genau der Punkt, den NIST- und ISO/IEC-27001-Kontrollen betonen.",
           "Ein leichtes Prüfprotokoll — der Arbeitsplatz-Admin erfasst die Screen-Sequenz und die Änderungsdaten, damit ihr für jeden Prüfzeitraum zeigen könnt, was den Mitarbeitenden gezeigt wurde.",
           "Erreicht die gesamte Flotte — jedes Gerät in eurem Jamf-Scope erhält denselben Hinweis nach demselben Zeitplan, Remote- und Frontline-Mitarbeitende eingeschlossen, ohne Abschlüsse nachzuverfolgen.",
         ],
-        note: "Konfydence Lockscreens unterstützt die menschliche Seite eines Awareness-Programms. Es macht eine Organisation allein nicht NIS2-, ISO/IEC-27001- oder anderweitig konform — die umfassenderen rechtlichen, governance- und technischen Pflichten bleiben Aufgabe der Organisation.",
+        note: "Konfydence Lockscreens unterstützt die menschliche Seite eines Schulungsprogramm zur IT-Sicherheits. Es macht eine Organisation allein nicht NIS2-, ISO/IEC-27001- oder anderweitig konform — die umfassenderen rechtlichen, governance- und technischen Pflichten bleiben Aufgabe der Organisation.",
       }}
       faq={[
         {
