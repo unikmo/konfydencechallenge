@@ -6,7 +6,7 @@ import GermanCountryDirectory from "./GermanCountryDirectory";
 import styles from "../../countries/countries.module.css";
 
 export const metadata: Metadata = {
-  title: { absolute: "Länder-Betrugswarnungen | Konfydence" },
+  title: { absolute: "Betrugswarnungen für Reiseländer | Konfydence" },
   description: "Offizielle Reiseinformationen und die Betrugsmaschen, auf die Reisende in jedem Land tatsächlich treffen.",
   alternates: {
     canonical: "/de/countries",
@@ -21,13 +21,13 @@ export default function CountriesPageDe() {
     <PremiumPageDe ctaHref="/de/challenge/travelsafe/start?mode=diagnostic" ctaLabel="TravelSafe kostenlos testen">
       <div className={styles.shell}>
         <section className={styles.hero}>
-          <p className={styles.eyebrow}>Länder-Betrugswarnungen</p>
-          <h1>Offizielle Reiseinformationen.<br />Betrug und Abzocke erkennen.</h1>
+          <p className={styles.eyebrow}>Betrugswarnungen für Reiseländer</p>
+          <h1>Reiseinformationen: Betrugsmaschen frühzeitig erkennen.</h1>
         </section>
 
         <section className={styles.sourceNotice} aria-label="Offizielle Länderinformationsquellen">
           <p className={styles.eyebrow}>Offizielle Quellen</p>
-          <p>Länderinformationen stammen aus offiziellen kanadischen und neuseeländischen Reisehinweisen. Wir zeigen die dort veröffentlichten Betrugs- und Abzocke-Hinweise (auf Englisch, im Original) und verlinken dich zu den Originalseiten. Nutz staatliche Quellen für aktuelle Reiseentscheidungen.</p>
+          <p>Länderinformationen stammen aus offiziellen kanadischen und neuseeländischen Reisehinweisen. Wir zeigen die dort veröffentlichten Betrugs- und Abzocke-Hinweise (auf Englisch, im Original) und verlinken dich zu den Originalseiten. Informiere dich vor der Reise zusätzlich bei offiziellen staatlichen Stellen.</p>
         </section>
 
         <section className={styles.sourceNotice} aria-label="Sprachhinweis">
