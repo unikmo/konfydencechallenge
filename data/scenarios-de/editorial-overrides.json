@@ -1527,5 +1527,115 @@
     },
     "explanation": "Auch Vereins- und Fachschaftskonten können übernommen werden. Frage beim zuständigen Vorstand über einen bekannten Kontaktweg nach und prüfe, ob die Änderung offiziell beschlossen wurde.",
     "proTip": "Neue Vereinskonto-Daten unabhängig bei der zuständigen Stelle bestätigen."
+  },
+  "travelsafe-de-tra-26": {
+    "title": "Anruf mit der Stimme deiner Schwester: dringende Geldforderung",
+    "scenario": "Ein Anruf klingt wie deine Schwester, die gerade im Ausland unterwegs ist: Sie habe einen Unfall gehabt und brauche sofort 500 € per Überweisung an ein „Krankenhauskonto“, könne aber gerade „nicht lange reden“.",
+    "answers": {
+      "C": "Auflegen und deine Schwester über die gespeicherte Nummer oder einen Videoanruf direkt erreichen, bevor irgendetwas überwiesen wird.",
+      "A": "Sofort überweisen, weil die Stimme genau wie deine Schwester klingt.",
+      "B": "In der Familiengruppe fragen, ob schon jemand mit ihr gesprochen hat."
+    },
+    "explanation": "Auch vertraut klingende Stimmen können nachgeahmt werden. Beende das Gespräch und kontaktiere deine Schwester über eine bekannte Nummer oder einen anderen unabhängigen Weg.",
+    "proTip": "Bei ungewöhnlichen Geldforderungen die Person unabhängig zurückrufen."
+  },
+  "travelsafe-de-tra-27": {
+    "title": "Reiseleiter nennt plötzlich ein anderes Zahlungskonto",
+    "scenario": "Mitten in einer gebuchten Gruppenreise teilt der Reiseleiter mit, das Zahlungskonto für die Resttagesausflüge habe sich geändert — Zahlung jetzt an ein neues, privates Konto statt an den Reiseveranstalter.",
+    "answers": {
+      "A": "Beim Reiseveranstalter direkt über die offizielle Nummer nachfragen, ob der Kontowechsel wirklich stimmt, bevor Geld an das neue Konto geht.",
+      "B": "Sofort an das neue Konto zahlen, weil der Reiseleiter es persönlich vor Ort sagt.",
+      "C": "Mit anderen Mitreisenden besprechen, ob sie dasselbe gehört haben."
+    },
+    "explanation": "Auch eine Ansage vor Ort kann missverständlich oder unberechtigt sein. Prüfe neue Kontodaten über den offiziellen Reiseveranstalter, bevor du bezahlst.",
+    "proTip": "Neue Bankverbindungen bei einer Reise über den Veranstalter bestätigen lassen."
+  },
+  "travelsafe-de-tra-28": {
+    "title": "Bonusmeilen-Aktion über fremden Login-Link",
+    "scenario": "Ein Link zu angeblich 40 % Bonusmeilen beim Vielfliegerprogramm verbreitet sich gerade in einer Reise-Facebook-Gruppe — er verlangt, sich mit dem Programm-Login auf einer externen Seite anzumelden.",
+    "answers": {
+      "B": "Den Link ignorieren und Bonusaktionen nur direkt in der offiziellen App oder Website des Vielfliegerprogramms prüfen.",
+      "A": "Sich über den externen Link anmelden, weil viele in der Gruppe es schon gemacht haben.",
+      "C": "Den Login auf der externen Seite mit einem anderen Passwort testen."
+    },
+    "explanation": "Viele geteilte Beiträge machen ein Angebot nicht seriös. Prüfe Bonusaktionen direkt beim Vielfliegerprogramm und gib Zugangsdaten nicht über unbekannte Links ein.",
+    "proTip": "Bonusaktionen über die offizielle Website oder App des Programms prüfen."
+  },
+  "travelsafe-de-tra-29": {
+    "title": "Influencer bewirbt Luxusreise mit sofortiger Überweisung",
+    "scenario": "Ein Reise-Influencer, dem du seit Jahren folgst, bewirbt einen „geheimen“ Rabattcode für ein Luxushotel — Buchung nur über einen externen Link mit sofortiger Vollzahlung per Überweisung.",
+    "answers": {
+      "A": "Das Hotel unabhängig über die offizielle Website oder eine bekannte Buchungsplattform prüfen und dort buchen, statt über den externen Link mit Vorkasse.",
+      "B": "Über den externen Link sofort per Überweisung buchen, weil der Creator vertrauenswürdig wirkt.",
+      "C": "Nur eine Anzahlung über den Link leisten."
+    },
+    "explanation": "Auch bekannte Personen können unseriöse Angebote bewerben oder selbst Opfer von Kontoübernahmen werden. Prüfe den Reiseanbieter und nutze sichere, nachvollziehbare Zahlungswege.",
+    "proTip": "Bekanntheit eines Influencers ersetzt keine Prüfung der Buchung."
+  },
+  "travelsafe-de-tra-30": {
+    "title": "Ferienwohnung: Gastgeber fordert zusätzliche Kaution",
+    "scenario": "Kurz nach der bestätigten Buchung schreibt der Gastgeber der Ferienwohnung, es sei „noch eine zusätzliche Kaution“ nötig, diesmal per Überweisung direkt an ihn statt über die Buchungsplattform.",
+    "answers": {
+      "A": "Die Zahlung ausschließlich über die Buchungsplattform abwickeln und eine Zahlungsaufforderung außerhalb der Plattform ablehnen oder beim Support der Plattform melden.",
+      "B": "Die zusätzliche Kaution direkt an den Gastgeber überweisen.",
+      "C": "Nur die Hälfte der zusätzlichen Kaution überweisen."
+    },
+    "explanation": "Eine überraschende Kaution außerhalb des vereinbarten Buchungswegs ist ein Warnzeichen. Prüfe den Vertrag und wende dich direkt an die Buchungsplattform, bevor du Geld überweist.",
+    "proTip": "Zusätzliche Zahlungen nur nach Prüfung der Buchungsbedingungen leisten."
+  },
+  "workplace-de-wrk-26": {
+    "title": "Teams-Datei von Kollegen fordert erneut Firmen-Login",
+    "scenario": "Ein Kollege, mit dem du regelmäßig zusammenarbeitest, schickt über Teams einen Link zu einer „wichtigen Datei“ — der Link verlangt aber, dich erneut mit deinem vollen Unternehmens-Login anzumelden.",
+    "answers": {
+      "B": "Den Kollegen kurz fragen, ob er die Datei wirklich geschickt hat, bevor du dich über den Link erneut anmeldest — normale geteilte Dateien verlangen das nicht.",
+      "A": "Sich sofort über den Link erneut anmelden, um die Datei zu öffnen.",
+      "C": "Den Link öffnen, aber ein anderes Passwort verwenden."
+    },
+    "explanation": "Auch ein vertrauter Chat kann einen manipulierten Link enthalten. Prüfe die Freigabe über die offiziellen Microsoft-365-Anwendungen und bestätige unerwartete Anmeldeaufforderungen bei Bedarf über die IT.",
+    "proTip": "Anmeldelinks in Chats kritisch prüfen – besonders bei unerwarteten Logins."
+  },
+  "workplace-de-wrk-27": {
+    "title": "Externer Berater verlangt weitreichenden E-Mail-Zugriff",
+    "scenario": "Ein externer Berater, mit dem das Unternehmen seit Jahren zusammenarbeitet, bittet um eine OAuth-Zustimmung mit weitreichendem Zugriff auf das Firmen-E-Mail-System, „um die Analyse zu automatisieren“.",
+    "answers": {
+      "A": "Nur den minimal nötigen, zeitlich begrenzten Zugriff über die IT-Abteilung einrichten lassen, statt eine weitreichende OAuth-Zustimmung direkt zu erteilen.",
+      "B": "Die weitreichende OAuth-Zustimmung direkt erteilen, weil der Berater seit Jahren vertrauenswürdig ist.",
+      "C": "Die Zustimmung erteilen, aber sie nach dem Projekt wieder entziehen."
+    },
+    "explanation": "Eine lange Zusammenarbeit rechtfertigt keine unkontrollierten Zugriffsrechte. Prüfe die Anfrage mit der IT und vergib nur die tatsächlich benötigten Berechtigungen.",
+    "proTip": "Externe Zugriffe nur nach Prüfung und mit minimal notwendigen Rechten freigeben."
+  },
+  "workplace-de-wrk-28": {
+    "title": "Geschäftspartner verlagert Zahlungsdetails plötzlich auf WhatsApp",
+    "scenario": "Mitten in einer offiziellen Vertragsverhandlung per E-Mail schlägt der Geschäftspartner plötzlich vor, „der Einfachheit halber“ auf WhatsApp zu wechseln, um Zahlungsdetails zu besprechen.",
+    "answers": {
+      "A": "Beim offiziellen E-Mail-Kanal und den dokumentierten Prozessen bleiben; einen plötzlichen Wechsel zu einem privaten Messenger für Zahlungsdetails ablehnen oder hinterfragen.",
+      "B": "Auf WhatsApp wechseln, um es dem Partner einfacher zu machen.",
+      "C": "Auf WhatsApp wechseln, aber alle Nachrichten zusätzlich per E-Mail bestätigen lassen."
+    },
+    "explanation": "Ein Wechsel auf einen anderen Kommunikationskanal kann legitim sein. Bei Zahlungsdetails sollten jedoch die vereinbarten Freigabe- und Dokumentationswege erhalten bleiben.",
+    "proTip": "Zahlungsabsprachen über nachvollziehbare, freigegebene Kanäle bestätigen."
+  },
+  "workplace-de-wrk-29": {
+    "title": "Projektleiter schickt Laufwerk-Link mit App-Installation",
+    "scenario": "Der Projektleiter, den du gut kennst, teilt einen Link zu einem „aktualisierten“ gemeinsamen Laufwerk — der Link verlangt aber eine App-Installation, bevor der Ordner sichtbar wird.",
+    "answers": {
+      "B": "Den Projektleiter fragen, ob die App-Installation wirklich nötig und von der IT freigegeben ist, bevor irgendetwas installiert wird.",
+      "A": "Die App sofort installieren, um auf das Laufwerk zuzugreifen.",
+      "C": "Die App installieren, aber die Berechtigungen danach einschränken."
+    },
+    "explanation": "Eine unerwartete Installation zum Öffnen einer Datei kann ein Sicherheitsrisiko sein. Prüfe den Link und die Anwendung über die zuständige IT, bevor du Software installierst.",
+    "proTip": "Unbekannte Anwendungen nicht allein wegen einer Datei-Freigabe installieren."
+  },
+  "workplace-de-wrk-30": {
+    "title": "Kunde bittet um vertrauliche Dokumente an private Gmail-Adresse",
+    "scenario": "Ein wichtiger Kunde schreibt, sein Firmen-E-Mail-Postfach funktioniere gerade nicht, und bittet, vertrauliche Vertragsunterlagen stattdessen an seine private Gmail-Adresse zu schicken.",
+    "answers": {
+      "C": "Vertrauliche Unterlagen nicht an eine private Adresse schicken, sondern anbieten, zu warten oder einen anderen offiziellen Kanal zu nutzen, und die Bitte telefonisch beim Kunden bestätigen.",
+      "A": "Die Unterlagen sofort an die private Gmail-Adresse schicken, um dem Kunden zu helfen.",
+      "B": "Nur einen Teil der Unterlagen an die private Adresse schicken."
+    },
+    "explanation": "Ein privates E-Mail-Konto kann für vertrauliche Unterlagen ungeeignet sein. Bestätige die Anfrage unabhängig und nutze die vereinbarten sicheren Übertragungswege.",
+    "proTip": "Vertrauliche Vertragsunterlagen nur über freigegebene Kanäle versenden."
   }
 }
