@@ -1,7 +1,7 @@
 {
   "id": "family-de-fam-32",
   "lang": "de",
-  "title": "Der Spendenaufruf in der Familien-Chatgruppe",
+  "title": "Spendenaufruf in der Familiengruppe",
   "edition": "family",
   "cardType": "scenario",
   "scored": true,
@@ -20,8 +20,8 @@
   "safeActions": [
     "C"
   ],
-  "explanation": "Ein gehacktes Konto in der eigenen Familiengruppe wirkt besonders glaubwürdig, gerade weil andere schon reagiert haben. Eine echte Person kann die Bitte in einem kurzen Anruf bestätigen.",
-  "proTip": "Auch in der eigenen Familiengruppe gilt: erst fragen, dann zahlen.",
+  "explanation": "Auch in einer vertrauten Gruppe kann eine Spendenbitte gefälscht sein. Prüfe den Anlass und den Empfänger über einen bekannten Kontaktweg und nutze nachvollziehbare Zahlungswege.",
+  "proTip": "Spendenziel und Empfänger vor der Zahlung unabhängig bestätigen.",
   "hackKey": "C",
   "hackTrigger": "Vertrautheit",
   "tags": [
