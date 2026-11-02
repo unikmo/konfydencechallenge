@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import { PremiumPageDe } from "@/components/PremiumSiteChrome";
 
 export const metadata: Metadata = {
-  title: { absolute: "CoMaSy-Methodik | Verhaltensbasierte Sicherheitskennzahlen" },
+  title: { absolute: "CoMaSy-Methodik | Entscheidungsverhalten messen" },
   description:
     "Wie CoMaSy Pause Adoption, Verification Rate, Impulse Rate und H.A.C.K.-Druckmuster-Signale definiert und interpretiert.",
   alternates: {
@@ -38,7 +38,7 @@ export default function MethodologyPageDe() {
     <PremiumPageDe ctaHref="/de/comasy/pilotprojekt" ctaLabel="Pilotprojekt anfragen">
       <section className="kg-shell kc-hero">
         <p className="k-kicker">Methodik</p>
-        <h1>Den Entscheidungsprozess messen, nicht nur den Kursabschluss.</h1>
+        <h1>Nicht nur Schulungen abhaken. Entscheidungen verstehen.</h1>
         <p>
           CoMaSy verwandelt Szenario-Entscheidungen in definierte Trainingsergebnisse. Ziel ist, praktisches Training
           beobachtbar zu machen — ohne vorzugeben, dass ein Simulationsergebnis eine Garantie für reales Sicherheitsverhalten ist.
@@ -76,7 +76,7 @@ export default function MethodologyPageDe() {
         <div className="kg-shell kc-split">
           <div>
             <p className="k-kicker">Pilot-Messablauf</p>
-            <h2 className="k-display-sm">Ausgangsmessung → Training → ungesehene Variante → Auswertung.</h2>
+            <h2 className="k-display-sm">Ausgangsmessung → Training → neue Übungssituationen → Auswertung.</h2>
           </div>
           <ol className="kc-flow">
             {flow.map(([step, copy]) => (
@@ -98,20 +98,20 @@ export default function MethodologyPageDe() {
             <h3 style={{ fontFamily: "var(--k-display)", fontWeight: 400, fontSize: 22, margin: "0 0 8px" }}>Was CoMaSy unterstützen kann</h3>
             <ul className="kc-list">
               <li>Wiederholtes Entscheidungstraining</li>
-              <li>Definierte Verhaltens-Trainingsergebnisse</li>
-              <li>Teilnehmergruppenvergleich über die Zeit</li>
-              <li>Diagnostik zu Druckmustern</li>
-              <li>Managementtaugliche Belege aus dem Piloten</li>
+              <li>Nachvollziehbare Ergebnisse aus den Übungen</li>
+              <li>Vergleich von Teilnehmergruppen im Zeitverlauf</li>
+              <li>Auswertung typischer Druckmuster</li>
+              <li>Verständliche Auswertung für die Geschäftsleitung</li>
             </ul>
           </div>
           <div>
             <h3 style={{ fontFamily: "var(--k-display)", fontWeight: 400, fontSize: 22, margin: "0 0 8px" }}>Was CoMaSy nicht behauptet</h3>
             <ul className="kc-list">
               <li>Eine Garantie, dass eine Mitarbeiterin oder ein Mitarbeiter einem echten Angriff entgeht</li>
-              <li>Eine klinische oder psychometrische Beurteilung</li>
-              <li>Einen Ersatz für Incident Response, technische Kontrollen oder Richtlinien</li>
-              <li>Einen Beweis regulatorischer Konformität allein</li>
-              <li>Eine verifizierte Kundenverbesserungsquote, sofern kein echter Pilot sie erzeugt hat</li>
+              <li>Eine medizinische oder psychologische Diagnostik</li>
+              <li>Einen Ersatz für Vorfallmanagement, technische Schutzmaßnahmen oder interne Richtlinien</li>
+              <li>Einen eigenständigen Nachweis für die Erfüllung gesetzlicher Anforderungen</li>
+              <li>Eine belegte Verbesserung bei Kunden, solange sie nicht in einem tatsächlichen Pilotprojekt gemessen wurde</li>
             </ul>
           </div>
         </div>
@@ -120,7 +120,7 @@ export default function MethodologyPageDe() {
       <section className="kg-shell k-callout">
         <div>
           <p className="k-kicker">Nächster Schritt</p>
-          <h2 className="k-display-sm">Teste die Methodik mit einem begrenzten Piloten.</h2>
+          <h2 className="k-display-sm">Die Methodik in einem überschaubaren Pilotprojekt prüfen.</h2>
           <p className="k-copy">Vereinbart Teilnehmergruppe, Risikofokus, Szenario-Set und Entscheidungskriterien, bevor ihr skaliert.</p>
         </div>
         <div className="k-actions">
