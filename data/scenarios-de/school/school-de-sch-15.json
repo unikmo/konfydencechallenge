@@ -1,7 +1,7 @@
 {
   "id": "school-de-sch-15",
   "lang": "de",
-  "title": "Die IT-Abteilung braucht deine MFA-Freigabe",
+  "title": "Schul-IT fordert deinen Bestätigungscode",
   "edition": "school",
   "cardType": "scenario",
   "scored": true,
@@ -20,8 +20,8 @@
   "safeActions": [
     "B"
   ],
-  "explanation": "Ein Bestätigungscode, der gerade auf deinem Gerät erscheint, bestätigt einen Login-Versuch — meist den der Angreifer, nicht deinen eigenen. Echte IT-Abteilungen fragen nie danach.",
-  "proTip": "Ein MFA-Code ist ein Nein, das du nie am Telefon in ein Ja verwandelst.",
+  "explanation": "Ein Einmalcode ist häufig dazu gedacht, einen Anmeldeversuch oder eine Änderung zu bestätigen. Teile ihn nicht am Telefon. Frage die Schul-IT über einen bekannten Kontaktweg nach.",
+  "proTip": "Bestätigungscodes niemals an Anrufende weitergeben.",
   "hackKey": "A",
   "hackTrigger": "Autorität",
   "tags": [
