@@ -2,6 +2,7 @@ import Link from "next/link";
 import { tokens } from "@/lib/theme/tokens";
 
 export const metadata = {
+  alternates: { canonical: "/privacy-policy" },
   title: { absolute: "Privacy Policy - Konfydence" },
   description: "Konfydence Privacy Policy - How we protect your data",
 };
