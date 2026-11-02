@@ -1,7 +1,7 @@
 {
   "id": "school-de-sch-04",
   "lang": "de",
-  "title": "Dein Passwort „läuft heute ab“",
+  "title": "Schulportal: dein Passwort läuft angeblich ab",
   "edition": "school",
   "cardType": "scenario",
   "scored": true,
@@ -20,8 +20,8 @@
   "safeActions": [
     "B"
   ],
-  "explanation": "Schulportale wie IServ setzen keine Mitternachtsfristen für Passwortänderungen per externem Link. Ein direktes Login über die bekannte Schulseite zeigt sofort, ob überhaupt etwas zu tun ist.",
-  "proTip": "Ein „Passwort läuft ab“-Timer in einer Mail ist fast immer Phishing.",
+  "explanation": "Die Nachricht kann dich auf eine gefälschte Anmeldeseite führen. Öffne das Schulportal über die bekannte Adresse und frage bei Bedarf die Schul-IT nach. Nutze nicht den Link aus der E-Mail.",
+  "proTip": "Passwortänderungen nur über das offizielle Schulportal vornehmen.",
   "hackKey": "H",
   "hackTrigger": "Hetze",
   "tags": [
