@@ -25,11 +25,43 @@ export type AnswerKind = "strong" | "partial" | "weak";
 /** Score per kind. Metrics treat score >= 3 as a pause and score <= 1 as an impulse. */
 export const ANSWER_SCORE: Record<AnswerKind, number> = { strong: 3, partial: 2, weak: 0 };
 
-export const ANSWER_KIND_LABEL: Record<AnswerKind, string> = {
-  strong: "Strong: pauses and verifies independently",
-  partial: "Partly safe: some caution, but still exposed",
-  weak: "Weak: acts on the pressure",
+export type UiLang = "en" | "de";
+
+export const ANSWER_KIND_LABEL: Record<UiLang, Record<AnswerKind, string>> = {
+  en: {
+    strong: "Strong: pauses and verifies independently",
+    partial: "Partly safe: some caution, but still exposed",
+    weak: "Weak: acts on the pressure",
+  },
+  de: {
+    strong: "Stark: hält inne und prüft unabhängig nach",
+    partial: "Teils sicher: etwas Vorsicht, aber noch angreifbar",
+    weak: "Schwach: gibt dem Druck nach",
+  },
 };
+
+const ERRORS = {
+  en: {
+    title: (n: number) => `Give the scenario a title (up to ${n} characters).`,
+    prompt: (n: number) => `Describe the situation in 20 to ${n} characters.`,
+    hack: "Choose the pressure pattern the scenario is built around.",
+    answers: (n: number) => `Each response needs 3 to ${n} characters.`,
+    kinds: "Say what each response amounts to.",
+    noStrong: "At least one response must be the strong one.",
+    noWeaker: "Include at least one response that is weaker than the strong one.",
+    distinct: "The three responses must be different.",
+  },
+  de: {
+    title: (n: number) => `Gebt dem Szenario einen Titel (bis zu ${n} Zeichen).`,
+    prompt: (n: number) => `Beschreibt die Situation in 20 bis ${n} Zeichen.`,
+    hack: "Wählt das Druckmuster, um das das Szenario aufgebaut ist.",
+    answers: (n: number) => `Jede Reaktion braucht 3 bis ${n} Zeichen.`,
+    kinds: "Legt fest, was jede Reaktion bedeutet.",
+    noStrong: "Mindestens eine Reaktion muss die starke sein.",
+    noWeaker: "Nehmt mindestens eine Reaktion auf, die schwächer ist als die starke.",
+    distinct: "Die drei Reaktionen müssen sich unterscheiden.",
+  },
+} as const;
 
 const LIMITS = { title: 120, prompt: 1200, answer: 400, explanation: 700, proTip: 300 };
 
@@ -54,6 +86,7 @@ const text = (form: FormData, key: string) => String(form.get(key) ?? "").replac
 const isKind = (value: string): value is AnswerKind => value === "strong" || value === "partial" || value === "weak";
 
 export function parseScenarioForm(form: FormData): ParsedScenario {
+  const e = ERRORS[text(form, "uiLang") === "de" ? "de" : "en"];
   const title = text(form, "title");
   const prompt = text(form, "prompt");
   const lang = text(form, "lang") === "de" ? "de" : "en";
@@ -61,15 +94,15 @@ export function parseScenarioForm(form: FormData): ParsedScenario {
   const answers = ["answerA", "answerB", "answerC"].map((k) => text(form, k)) as [string, string, string];
   const kindValues = ["kindA", "kindB", "kindC"].map((k) => text(form, k));
 
-  if (!title || title.length > LIMITS.title) return { ok: false, error: `Give the scenario a title (up to ${LIMITS.title} characters).` };
-  if (prompt.length < 20 || prompt.length > LIMITS.prompt) return { ok: false, error: `Describe the situation in 20 to ${LIMITS.prompt} characters.` };
-  if (!["H", "A", "C", "K"].includes(hack)) return { ok: false, error: "Choose the pressure pattern the scenario is built around." };
-  if (answers.some((a) => a.length < 3 || a.length > LIMITS.answer)) return { ok: false, error: `Each response needs 3 to ${LIMITS.answer} characters.` };
-  if (!kindValues.every(isKind)) return { ok: false, error: "Say what each response amounts to." };
+  if (!title || title.length > LIMITS.title) return { ok: false, error: e.title(LIMITS.title) };
+  if (prompt.length < 20 || prompt.length > LIMITS.prompt) return { ok: false, error: e.prompt(LIMITS.prompt) };
+  if (!["H", "A", "C", "K"].includes(hack)) return { ok: false, error: e.hack };
+  if (answers.some((a) => a.length < 3 || a.length > LIMITS.answer)) return { ok: false, error: e.answers(LIMITS.answer) };
+  if (!kindValues.every(isKind)) return { ok: false, error: e.kinds };
   const kinds = kindValues as [AnswerKind, AnswerKind, AnswerKind];
-  if (!kinds.includes("strong")) return { ok: false, error: "At least one response must be the strong one." };
-  if (!kinds.includes("weak") && !kinds.includes("partial")) return { ok: false, error: "Include at least one response that is weaker than the strong one." };
-  if (new Set(answers.map((a) => a.toLowerCase())).size < 3) return { ok: false, error: "The three responses must be different." };
+  if (!kinds.includes("strong")) return { ok: false, error: e.noStrong };
+  if (!kinds.includes("weak") && !kinds.includes("partial")) return { ok: false, error: e.noWeaker };
+  if (new Set(answers.map((a) => a.toLowerCase())).size < 3) return { ok: false, error: e.distinct };
 
   const explanation = text(form, "explanation").slice(0, LIMITS.explanation) || null;
   const proTip = text(form, "proTip").slice(0, LIMITS.proTip) || null;
