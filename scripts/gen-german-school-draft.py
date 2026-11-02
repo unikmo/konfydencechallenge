@@ -630,7 +630,12 @@ for key in ("H", "A", "C", "K"):
     d = sum(1 for c in CARDS if c["hackKey"] == key and "diagnostic" in c["tags"])
     assert d == 2, f"{key} diagnostic: expected 2, got {d}"
 
+with open(os.path.join("data", "scenarios-de", "editorial-overrides.json"), encoding="utf-8") as editorial_file:
+    EDITORIAL_OVERRIDES = json.load(editorial_file)
+
 for c in CARDS:
+    # Human-reviewed wording must survive subsequent regeneration.
+    c.update(EDITORIAL_OVERRIDES.get(c["id"], {}))
     with open(os.path.join(OUT_DIR, f"{c['id']}.json"), "w", encoding="utf-8") as f:
         json.dump(c, f, ensure_ascii=False, indent=2)
         f.write("\n")
