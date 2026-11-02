@@ -5,7 +5,7 @@ import { legalStyles as s } from "@/lib/theme/legalPageStyles";
 export const metadata: Metadata = {
   title: { absolute: "Impressum | Konfydence" },
   description: "Impressum und Angaben zum Anbieter von Konfydence.",
-  alternates: { languages: { en: "https://konfydence.com/imprint", de: "https://konfydence.com/de/impressum" } },
+  alternates: { canonical: "/de/impressum", languages: { en: "https://konfydence.com/imprint", de: "https://konfydence.com/de/impressum" } },
 };
 
 export default function ImpressumPage() {
