@@ -20,7 +20,7 @@
   "safeActions": [
     "C"
   ],
-  "explanation": "Eine bekannte, sympathische Person zu sein, macht eine Trading-App nicht seriöser — „erst selbst investieren, um authentisch zu wirken“ ist ein bekanntes Werbe-für-Betrug-Muster.",
+  "explanation": "Die Bekanntheit einer Person sagt wenig über die Seriosität eines Anlageangebots aus. Wenn ein vermeintlicher Job voraussetzt, dass du zunächst eigenes Geld investierst, ist besondere Vorsicht geboten. Prüfe Anbieter und Bedingungen unabhängig.",
   "proTip": "Bekanntheit ist kein Beweis für eine seriöse Geldanlage.",
   "hackKey": "C",
   "hackTrigger": "Vertrautheit",
@@ -30,5 +30,6 @@
     "investments",
     "affiliate-scam"
   ],
-  "active": true
+  "active": true,
+  "tip": "Für ein vermeintliches Jobangebot nicht ungeprüft eigenes Geld investieren."
 }
