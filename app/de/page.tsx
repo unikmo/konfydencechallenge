@@ -32,9 +32,7 @@ export default function GermanHomePage() {
             <span className="k-home-hero-alert">Und plötzlich soll alles ganz schnell gehen.</span>
           </h1>
           <p style={{ maxWidth: 620, marginTop: 18, fontSize: 16, lineHeight: 1.6, opacity: 0.85 }}>
-            Erkenne typische Betrugsversuche und übe, im entscheidenden Moment richtig zu reagieren: den Enkeltrick am Telefon, eine
-            gefälschte Bank-SMS oder eine WhatsApp-Nachricht von einer angeblich neuen Nummer. Mit 48 Alltagssituationen und einem kostenlosen Sicherheitscheck
-            zum Einstieg.
+            Trainiere mit 48 realistischen Alltagssituationen, typische Betrugsmaschen zu erkennen – etwa den Enkeltrick, gefälschte Bank-SMS oder WhatsApp-Nachrichten von angeblich neuen Nummern. Mit einem kostenlosen Sicherheitscheck kannst du sofort loslegen.
           </p>
         </div>
       </section>
