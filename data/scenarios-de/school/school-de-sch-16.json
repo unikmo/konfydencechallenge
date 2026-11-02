@@ -1,7 +1,7 @@
 {
   "id": "school-de-sch-16",
   "lang": "de",
-  "title": "Der „Spieladmin“ kann deinen Gegenstand wiederherstellen",
+  "title": "Angeblicher Spiel-Support will dein Konto prüfen",
   "edition": "school",
   "cardType": "scenario",
   "scored": true,
@@ -20,8 +20,8 @@
   "safeActions": [
     "A"
   ],
-  "explanation": "Echte Spiele-Admins reparieren Accounts nie, indem sie dich auf eine externe Login-Seite schicken — sie arbeiten über das offizielle Support-System. Ein „[Admin]“ im Namen ist leicht zu fälschen.",
-  "proTip": "Ein Name mit „Admin“ drin macht aus einem Link kein offizielles Tool.",
+  "explanation": "Ein Nutzername mit „Admin“ beweist nicht, dass die Person zum Spiele-Support gehört. Nutze die offizielle Supportseite und melde verdächtige Links, statt deine Zugangsdaten weiterzugeben.",
+  "proTip": "Supportanfragen über die offiziellen Spieleportale stellen.",
   "hackKey": "A",
   "hackTrigger": "Autorität",
   "tags": [
