@@ -2044,5 +2044,27 @@
     },
     "explanation": "Auch bei echten Buchungen können Zahlungsprobleme auftreten. Ein neuer, unerwarteter Link zur Eingabe von Kartendaten sollte aber unabhängig überprüft werden. Kontaktiere den Support direkt über die bekannte Buchungsplattform.",
     "proTip": "Bereits bezahlt heißt bereits bezahlt — keine erneute Karteneingabe nötig."
+  },
+  "workplace-de-wrk-41": {
+    "title": "„Exportier deinen Passwort-Tresor zur Wiederherstellung“",
+    "scenario": "Eine Mail im Namen des Passwort-Manager-Anbieters des Unternehmens bittet, den gesamten Passwort-Tresor als Datei zu exportieren und über ein Formular „zur Kontowiederherstellung“ hochzuladen.",
+    "answers": {
+      "A": "Den Tresor nicht exportieren; eine echte Kontowiederherstellung beim Passwort-Manager läuft nie über den Export und Upload des gesamten Tresors an Dritte.",
+      "B": "Den Tresor exportieren und über das Formular hochladen.",
+      "C": "Nur einen Teil der Passwörter exportieren."
+    },
+    "explanation": "Ein Export aus dem Passwortmanager kann hochsensible Zugangsdaten enthalten, unter Umständen unverschlüsselt. Lade eine solche Datei niemals auf eine unbekannte Website hoch. Prüfe Wiederherstellungsanfragen über den offiziellen IT-Support.",
+    "proTip": "Ein Passwort-Tresor verlässt nie das eigene Gerät als Export an Dritte."
+  },
+  "workplace-de-wrk-47": {
+    "title": "Facilities: erneuere hier deine Zugangskartendaten",
+    "scenario": "Eine Mail, angeblich von der Haustechnik/Facilities, verlangt, die Zugangskartendaten über ein externes Formular zu „erneuern“, da sonst die Karte am nächsten Morgen nicht mehr funktioniere.",
+    "answers": {
+      "C": "Die Aufforderung über den bekannten Empfang oder die zuständige interne Stelle überprüfen und keine Kartendaten auf der unbekannten Seite eingeben.",
+      "A": "Die Daten über das externe Formular erneuern.",
+      "B": "Nur einen Teil der Daten über das Formular erneuern."
+    },
+    "explanation": "Unternehmen können Zugangskarten sowohl vor Ort als auch digital verwalten. Ein unerwarteter externer Link zur Änderung von Kartendaten sollte dennoch über einen bekannten internen Kontakt bestätigt werden.",
+    "proTip": "Zugangskarten verwaltest du persönlich vor Ort, nie über ein externes Formular."
   }
 }
