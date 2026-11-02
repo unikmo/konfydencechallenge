@@ -223,7 +223,7 @@ function GermanPricingContent() {
 
 export default function GermanPricingPage() {
   return (
-    <Suspense fallback={null}>
+    <Suspense fallback={<PremiumPageDe ctaHref="/de/challenge/family/start?mode=diagnostic" ctaLabel="Kostenlos starten"><section className="kg-shell kc-hero"><h1>Kostenlos testen. Weiterüben, wenn es für dich passt.</h1><p>Entdecke den kostenlosen Sicherheitscheck und die verschiedenen Challenges.</p></section></PremiumPageDe>}>
       <GermanPricingContent />
     </Suspense>
   );
