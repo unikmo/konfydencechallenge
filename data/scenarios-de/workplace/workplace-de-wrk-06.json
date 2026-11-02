@@ -1,7 +1,7 @@
 {
   "id": "workplace-de-wrk-06",
   "lang": "de",
-  "title": "„Jetzt zurücksetzen“ während eines echten Ausfalls",
+  "title": "IT-Ausfall: angeblich sofort Passwort zurücksetzen",
   "edition": "workplace",
   "cardType": "scenario",
   "scored": true,
@@ -20,8 +20,8 @@
   "safeActions": [
     "C"
   ],
-  "explanation": "Ein echter Ausfall ist der perfekte Deckmantel für Phishing — echte IT-Teams schicken Reset-Links nie während eines Vorfalls über einen externen Link, sondern über bekannte interne Systeme.",
-  "proTip": "Gerade während eines echten Vorfalls ist besondere Vorsicht bei „schnell zurücksetzen“ nötig.",
+  "explanation": "Betrüger können echte IT-Störungen ausnutzen und passende Nachrichten fälschen. Prüfe die Aufforderung über den bekannten IT-Service-Desk oder das offizielle interne System, bevor du dein Passwort änderst.",
+  "proTip": "Gerade bei einer echten IT-Störung sollten Passwortänderungen nur über bekannte interne Wege erfolgen.",
   "hackKey": "H",
   "hackTrigger": "Hetze",
   "tags": [
