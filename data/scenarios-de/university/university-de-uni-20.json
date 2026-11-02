@@ -1,7 +1,7 @@
 {
   "id": "university-de-uni-20",
   "lang": "de",
-  "title": "Der Vermieter hat das Mietkonto geändert",
+  "title": "WG-Miete: angeblich neues Konto des Vermieters",
   "edition": "university",
   "cardType": "scenario",
   "scored": true,
@@ -20,8 +20,8 @@
   "safeActions": [
     "B"
   ],
-  "explanation": "E-Mail-Konten von Vermietern werden gezielt übernommen, gerade weil regelmäßig Miete fließt. Eine geänderte Kontoverbindung wird immer telefonisch über eine unabhängig bekannte Nummer bestätigt.",
-  "proTip": "Miete geht nur auf ein Konto, das dir am Telefon bestätigt wurde.",
+  "explanation": "Eine unerwartete Änderung der Bankverbindung kann gefälscht sein. Bestätige die Daten unabhängig bei der vermietenden Person, bevor du die nächste Miete überweist.",
+  "proTip": "Geänderte Mietkonten immer über einen bereits bekannten Kontakt bestätigen lassen.",
   "hackKey": "A",
   "hackTrigger": "Autorität",
   "tags": [
