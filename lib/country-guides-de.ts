@@ -123,7 +123,7 @@ export const COUNTRY_GUIDES_DE: Record<string, CountryGuide> = {
         name: "Jetski- und Motorrad-„Schadenersatz“",
         how: "Du mietest einen Jetski oder einen Roller, hinterlegst deinen Pass als Kaution, und bei der Rückgabe zeigt der Vermieter auf vorhandene Kratzer und verlangt hunderte Dollar — und behält deinen Pass, bis du zahlst.",
         hack: "K",
-        move: "Hinterlege möglichst nicht deinen Reisepass als Kaution. Frage nach einer anderen Sicherheit, etwa einer Barkaution, und dokumentiere den Zustand des Fahrzeugs. Film das Fahrzeug vor der Fahrt von allen Seiten, mit dem Vermieter im Bild.",
+        move: "Hinterlege möglichst nicht deinen Reisepass als Kaution. Frage nach einer anderen Sicherheit, etwa einer Barkaution, und dokumentiere den Zustand des Fahrzeugs. Filme das Fahrzeug vor der Fahrt von allen Seiten, mit dem Vermieter im Bild.",
       },
       {
         name: "Manipuliertes Taxameter / „Taxameter kaputt“",
@@ -561,7 +561,7 @@ export const COUNTRY_GUIDES_DE: Record<string, CountryGuide> = {
         name: "Motorrad-Verleih-Schaden und Pass-Einbehalt",
         how: "Du mietest einen Roller, hinterlegst deinen Pass als Kaution, und bei Rückgabe findet der Laden „neue“ Schäden oder behauptet, das Motorrad sei von deinem Parkplatz gestohlen worden — und behält den Pass, bis du zahlst.",
         hack: "K",
-        move: "Hinterlege nach Möglichkeit nicht deinen Reisepass. Frage stattdessen nach einer Barkaution und lass dir die Vereinbarung schriftlich bestätigen. Film das Motorrad vor der Fahrt im Detail und nutz dein eigenes Schloss.",
+        move: "Hinterlege nach Möglichkeit nicht deinen Reisepass. Frage stattdessen nach einer Barkaution und lass dir die Vereinbarung schriftlich bestätigen. Filme das Motorrad vor der Fahrt sorgfältig und nutz dein eigenes Schloss.",
       },
       {
         name: "Scheinverwechslung (20.000 vs. 500.000 Dong)",
@@ -692,7 +692,7 @@ export const COUNTRY_GUIDES_DE: Record<string, CountryGuide> = {
         move: "Vereinbare den Preis laut vor jedem Foto, oder lass dich gar nicht erst darauf ein. Ist dir schon ein Tier aufgesetzt worden, gib einen kleinen Schein und tritt zurück.",
       },
       {
-        name: "Teppich- und Argan-Öl-Hartverkauf",
+        name: "Aufdringlicher Verkauf von Teppichen und Arganöl",
         how: "Minztee und Gastfreundschaft gehen einer langen, druckvollen Verkaufsrunde voraus, in der Weggehen ohne Kauf als Beleidigung dargestellt wird, und Preise beim Fünf- bis Zehnfachen des fairen Werts starten.",
         hack: "C",
         move: "Du kannst Tee annehmen und trotzdem Nein sagen. Leg deine Obergrenze fest, bevor du reingehst, und sei bereit, mitten im Verkaufsgespräch zu gehen.",
@@ -700,7 +700,7 @@ export const COUNTRY_GUIDES_DE: Record<string, CountryGuide> = {
     ],
     faqs: [
       {
-        q: "Brauch ich einen Guide für die Medina von Marrakesch?",
+        q: "Brauche ich für die Medina von Marrakesch einen Reiseführer?",
         a: "Zum Bummeln nicht — die Karte auf deinem Handy funktioniert. Willst du einen Guide, buch einen lizenzierten über dein Riad oder eine registrierte Agentur. Die Männer, die dich auf der Straße ansprechen, sind nicht lizenziert und verlangen am Ende eine hohe Gebühr.",
       },
       {
@@ -1127,7 +1127,7 @@ export const COUNTRY_GUIDES_DE: Record<string, CountryGuide> = {
         move: "Buch ein offizielles Flughafentaxi an den Schaltern hinter dem Zoll (Green Taxi, Taxi Directo) oder eine App-Abholung. Steig nicht in ein Auto, das dich angesprochen hat.",
       },
       {
-        name: "„Bremscheck“- / Würgeraub im Verkehr",
+        name: "Überfall nach vorgetäuschter Panne im Verkehr",
         how: "Im langsamen Limaer Verkehr greift jemand durchs offene Fenster, oder ein Komplize „tippt“ dein Taxi von hinten an, sodass du anhältst, und beraubt dich dann.",
         hack: "K",
         move: "Fahr mit geschlossenen Fenstern und verriegelten Türen, Tasche auf dem Boden statt auf dem Sitz, Handy weggepackt. Wähl App-Fahrten statt Straßentaxis.",
