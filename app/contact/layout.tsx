@@ -4,6 +4,7 @@ import type { ReactNode } from "react";
 // See app/pricing/layout.tsx for why this file exists — contact/page.tsx is
 // "use client" and can't export metadata directly.
 export const metadata: Metadata = {
+  alternates: { canonical: "/contact" },
   // absolute: stops root layout's title template from double-appending " | Konfydence".
   title: { absolute: "Contact | Konfydence" },
   description:
