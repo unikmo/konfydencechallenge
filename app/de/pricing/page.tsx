@@ -213,8 +213,7 @@ function GermanPricingContent() {
 
       <section className="kg-shell" style={{ paddingBottom: 40 }}>
         <p className="k-copy" style={{ marginBottom: 12, fontSize: 12 }}>
-          Die angezeigten Preise gelten in Euro — €6,99 bei uns entspricht genau $6,99. Beim Bezahlvorgang zeigt
-          Stripe automatisch deine Landeswährung. Jeder Plan ist ein Jahresabo und wird sofort nach dem Bezahlvorgang
+          Die angegebenen Beträge dienen der Preisübersicht. Der verbindliche Betrag und die Zahlungswährung werden vor dem Kauf auf der Bezahlseite angezeigt. Jeder Plan ist ein Jahresabo und wird sofort nach dem Bezahlvorgang
           freigeschaltet; dein Konfydence-Konto speichert Fortschritt und Zugang geräteübergreifend. Konfydence dient dem Training sicherer Entscheidungen. Das Angebot kann keinen vollständigen Schutz vor Betrug oder finanziellen Schäden garantieren.
         </p>
       </section>
