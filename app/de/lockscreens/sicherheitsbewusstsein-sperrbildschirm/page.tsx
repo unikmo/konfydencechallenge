@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { LockscreenIntentPage } from "@/components/LockscreenIntentPage";
 
 export const metadata: Metadata = {
-  title: { absolute: "IT-Sicherheit-Sperrbildschirme | Konfydence Lockscreens" },
+  title: { absolute: "Sicherheitshinweise auf dem Sperrbildschirm | Konfydence Lockscreens" },
   description:
     "Ein verwalteter IT-Sicherheit-Sperrbildschirm: ein kurzer Hinweis zur Methode „Anhalten, Abklären, Ansprechen“ auf jedem Gerät, alle zwei Wochen aktualisiert. Für Arbeitsplatz, Schulen und Familien.",
   alternates: {
@@ -10,7 +10,7 @@ export const metadata: Metadata = {
     languages: { en: "https://konfydence.com/lockscreens/security-awareness-lock-screens", de: "https://konfydence.com/de/lockscreens/sicherheitsbewusstsein-sperrbildschirm" },
   },
   openGraph: {
-    title: "IT-Sicherheit-Sperrbildschirme | Konfydence",
+    title: "Sicherheitshinweise auf dem Sperrbildschirm | Konfydence",
     description: "Der Hinweis, den man wirklich sieht — alle zwei Wochen aktualisiert, statt einer Sammlung statischer Hintergrundbilder.",
     url: "https://konfydence.com/de/lockscreens/sicherheitsbewusstsein-sperrbildschirm",
     siteName: "Konfydence",
@@ -23,8 +23,8 @@ export default function Page() {
     <LockscreenIntentPage
       lang="de"
       slug="sicherheitsbewusstsein-sperrbildschirm"
-      breadcrumbName="IT-Sicherheit-Sperrbildschirme"
-      eyebrow="SECURITY-AWARENESS-SPERRBILDSCHIRME"
+      breadcrumbName="Sicherheitshinweise auf dem Sperrbildschirm"
+      eyebrow="SICHERHEITSHINWEISE AUF SPERRBILDSCHIRMEN"
       title="Sicherheitshinweise dort anzeigen, wo Mitarbeitende täglich hinschauen."
       intro="Viele Hinweise zur IT-Sicherheit gehen im Arbeitsalltag schnell unter. Ein Sperrbildschirm bringt einen kurzen Hinweis — Anhalten, Abklären, Ansprechen — genau in dem Moment vor jemanden, in dem er zum Handy greift oder den Laptop aufweckt, in den Sekunden vor dem Klick, der Antwort oder der Zahlung. Konfydence schreibt die Hinweise, hält sie aktuell und liefert alle zwei Wochen einen neuen."
       primaryCtaHref="/de/lockscreens"
@@ -38,19 +38,19 @@ export default function Page() {
       sections={[
         {
           title: "Ein Hinweis, keine Plakatwand",
-          copy: "Jeder Screen macht in klarer Sprache einen einzigen Punkt und zeigt das dahinterliegende H.A.C.K.-Druckmuster. Kein Durcheinander, kein Logo-Wirrwarr, nichts zum Wegklicken.",
+          copy: "Jeder Hinweis vermittelt einen konkreten Gedanken: Welche Betrugsmasche steckt dahinter, und wie reagierst du richtig? Ohne unnötige Ablenkung.",
         },
         {
           title: "Alle zwei Wochen aktualisiert",
-          copy: "Betrugstaktiken bewegen sich. Der Wortlaut bewegt sich mit. Alle zwei Wochen landet ein neuer Screen, damit der Hinweis nie zur Tapete wird, die niemand mehr sieht.",
+          copy: "Alle zwei Wochen kommt ein neuer Hinweis hinzu. So bleiben verschiedene Betrugsmaschen im Alltag präsent.",
         },
         {
           title: "Jedes Gerät, das richtige Format",
           copy: "Handy, Tablet, Notebook und Desktop erhalten jeweils ein passend zugeschnittenes Bild — ausgerollt über eure Geräteverwaltung oder zu Hause in unter einer Minute eingerichtet.",
         },
       ]}
-      howTitle="Ein Dienst, kein ZIP voller Bilder."
-      howCopy="Ihr verwaltet keine Dateibibliothek und müsst niemandem hinterherlaufen, der das Hintergrundbild aktualisieren soll. Konfydence hält den aktuellen Screen aktuell; ihr richtet eure Flotte — oder eure Familie — einmal darauf aus."
+      howTitle="Regelmäßig neue Sicherheitshinweise für eure Geräte."
+      howCopy="Ihr verwaltet keine Dateibibliothek und müsst niemandem hinterherlaufen, der das Hintergrundbild aktualisieren soll. Konfydence stellt regelmäßig neue Motive bereit. Ihr richtet die Verteilung passend zu euren Geräten ein."
       howSteps={[
         "Wählt eure Stufe — Arbeitsplatz, Schulen oder Home — und erhaltet eine Lizenz.",
         "Rollt den aktuellen Screen aus: über Intune, Jamf oder Google Admin für eine Flotte, oder eine einminütige Einrichtung zu Hause.",
@@ -58,8 +58,8 @@ export default function Page() {
         "Der Wortlaut verfolgt aktuelle Betrugsmuster und die Anhalten-Abklären-Ansprechen-Methode das ganze Jahr.",
       ]}
       orgValue={{
-        title: "Sicherheit auch zwischen den Schulungen präsent halten.",
-        copy: "Jährliches Training gibt euch ein Abschlussdatum. Boards und Regulierungsbehörden erwarten zunehmend Belege dafür, dass Sicherheitsbewusstsein eine fortlaufende Aktivität ist, kein Ereignis einmal im Jahr. Ein Sperrbildschirm, der sich alle zwei Wochen ändert, ist eine kostengünstige, permanente Kontrolle — und der Admin behält ein Protokoll darüber, was wann lief.",
+        title: "Sicherheitsbewusstsein im Alltag stärken.",
+        copy: "Jährliches Training gibt euch ein Abschlussdatum. Geschäftsleitungen und Aufsichtsstellen erwarten zunehmend Belege dafür, dass Sicherheitsbewusstsein eine fortlaufende Aktivität ist, kein Ereignis einmal im Jahr. Ein Sperrbildschirm, der sich alle zwei Wochen ändert, ist eine kostengünstige, permanente Kontrolle — und der Admin behält ein Protokoll darüber, was wann lief.",
         points: [
           "Fortlaufende Cyber-Hygiene-Verstärkung — NIS2 (Artikel 21) erwartet kontinuierliche Sicherheitsbewusstsein und eine Aufsicht durch die Leitungsorgane. Ein rotierender Hinweis ist sichtbare Aktivität zwischen den formalen Schulungen.",
           "Beitrag zum Human Risk Management — verschiebt Sicherheitsbewusstsein von einem Wissenstest zu einem Gewohnheits-Cue im Moment der Entscheidung, genau der Punkt, den NIST- und ISO/IEC-27001-Kontrollen betonen.",
