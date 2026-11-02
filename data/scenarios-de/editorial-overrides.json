@@ -2,90 +2,165 @@
   "family-de-fam-01": {
     "title": "Anruf von der Bank: Geld angeblich in Gefahr",
     "scenario": "Du bekommst eine SMS, die angeblich von deiner Sparkasse stammt: Eine Überweisung über 2.340 € sei nicht autorisiert. Kurz darauf ruft jemand an, kennt deinen Namen und fordert dich auf, dein Geld sofort per pushTAN auf ein „Sicherheitskonto“ zu überweisen.",
+    "answers": {
+      "A": "Auflegen und deine Bank über eine selbst gewählte offizielle Telefonnummer kontaktieren. Weder Geld überweisen noch eine TAN auf telefonische Aufforderung freigeben.",
+      "B": "In der Banking-App zuerst die Karte sperren, dann die Bank über einen bekannten Weg kontaktieren.",
+      "C": "Eine push-TAN nur für die eine „Sicherheitsüberweisung“ freigeben und den Rest danach in Ruhe prüfen."
+    },
     "explanation": "Die SMS und der Anruf können gefälscht sein. Banken fordern dich nicht auf, dein Guthaben auf ein angebliches Sicherheitskonto zu überweisen. Beende das Gespräch und kontaktiere deine Bank über einen selbst gewählten, offiziellen Kontaktweg.",
     "proTip": "Überweise niemals Geld auf ein angebliches Sicherheitskonto, das dir jemand am Telefon nennt."
   },
   "family-de-fam-02": {
     "title": "Stromsperre in 30 Minuten?",
     "scenario": "Am Telefon behauptet jemand, du hättest deine Stromrechnung nicht bezahlt. In 30 Minuten werde der Strom abgestellt. Der genannte Betrag klingt plausibel. Die Sperre lasse sich angeblich nur durch eine sofortige Überweisung oder Zahlung mit einer Guthabenkarte verhindern.",
+    "answers": {
+      "A": "Nach Kundennummer und offenem Betrag fragen und beides mit deiner letzten Rechnung abgleichen, bevor du irgendetwas tust.",
+      "B": "Zahlen, wenn der Betrag zu deinem üblichen Monatsabschlag passt, und notfalls später widersprechen.",
+      "C": "Auflegen und die Forderung im offiziellen Kundenkonto oder über die Telefonnummer auf deiner Stromrechnung überprüfen."
+    },
     "explanation": "Eine Stromsperre wird nicht einfach telefonisch mit 30 Minuten Vorlauf angekündigt. Die Zahlungsforderung unter Zeitdruck ist ein Warnzeichen. Prüfe unabhängig beim Versorger, ob tatsächlich ein Betrag offen ist.",
     "proTip": "Prüfe offene Stromrechnungen über dein Kundenkonto oder die Kontaktdaten auf deiner Rechnung."
   },
   "family-de-fam-03": {
     "title": "Kita-Ausflug: plötzlich ein neues Konto",
     "scenario": "Im Elternchat erscheint eine Nachricht, angeblich von der Kita-Leitung: Für den Ausflug morgen müsse das Geld bis 20 Uhr auf ein neues Konto überwiesen werden, sonst verliere dein Kind seinen Platz. Der Name der Erzieherin stimmt, die Bankverbindung ist jedoch neu.",
+    "answers": {
+      "A": "Sofort überweisen, damit der Platz für dein Kind nicht verloren geht.",
+      "B": "In der Elternschaft nachfragen, ob noch jemand die Nachricht bekommen hat.",
+      "C": "Vor der Überweisung die Kita-Leitung über die bekannte Telefonnummer oder persönlich fragen, ob das neue Konto tatsächlich stimmt."
+    },
     "explanation": "Auch das Konto einer bekannten Person kann übernommen werden. Wenn sich eine Bankverbindung kurzfristig ändert, solltest du die Information über die bekannte Telefonnummer der Kita oder persönlich bestätigen lassen.",
     "proTip": "Bekannter Name, neue Bankverbindung? Erst auf einem zweiten Weg nachfragen."
   },
   "school-de-sch-01": {
     "title": "Fortnite-Konto angeblich in neun Minuten gesperrt",
     "scenario": "Eine E-Mail, die angeblich von Epic Games stammt, behauptet, dein Fortnite-Konto werde wegen eines Regelverstoßes in neun Minuten gelöscht. Nur wenn du dich sofort über einen Link mit E-Mail-Adresse und Passwort anmeldest, könne das verhindert werden.",
+    "answers": {
+      "A": "Auf den Link klicken und dich sofort verifizieren, bevor der Account gelöscht wird.",
+      "B": "Den Link nicht öffnen. Stattdessen die offizielle Fortnite-App oder die selbst eingegebene Epic-Games-Website nutzen und dort den Kontostatus prüfen.",
+      "C": "Nur die E-Mail-Adresse eingeben, aber nicht das Passwort."
+    },
     "explanation": "Die Nachricht setzt dich mit einer extrem kurzen Frist unter Druck. Öffne die offizielle App oder gib die bekannte Website selbst ein, statt den Link aus der E-Mail zu verwenden. Dort kannst du prüfen, ob es wirklich ein Problem mit deinem Konto gibt.",
     "proTip": "Ein Countdown in einer E-Mail ist kein Grund, dein Passwort über einen Link einzugeben."
   },
   "school-de-sch-02": {
     "title": "Angebliche Klausurfragen gegen fünf Euro",
     "scenario": "In eurem Klassenchat wird ein Link zu angeblichen Fragen für die Mathearbeit morgen geteilt. Der Zugang kostet fünf Euro Handyguthaben und soll um Mitternacht geschlossen werden.",
+    "answers": {
+      "A": "Den Link nicht öffnen und kein Geld bezahlen. Stattdessen ganz normal auf die Mathearbeit vorbereiten.",
+      "B": "Zahlen und die Liste noch schnell ansehen, bevor der Zugang schließt.",
+      "C": "Erst eine Freundin fragen, ob die Liste echt aussieht."
+    },
     "explanation": "Niemand kann allein durch eine Nachricht im Klassenchat belegen, dass die Fragen echt sind. Das Angebot kann eine Betrugsmasche sein. Außerdem wäre die Nutzung tatsächlich gestohlener Prüfungsfragen ein Problem in der Schule.",
     "proTip": "Lass dich nicht von einer angeblichen Mitternachtsfrist zu einer Zahlung drängen."
   },
   "school-de-sch-03": {
     "title": "Konzerttickets: nur noch fünf Minuten Zeit",
     "scenario": "In einer Telegram-Gruppe bietet jemand zwei Konzerttickets zum Originalpreis an. Angeblich bleiben sie nur fünf Minuten für dich reserviert. Bezahlen sollst du vorab per Überweisung auf ein privates Konto.",
+    "answers": {
+      "A": "Sofort überweisen, um die Tickets nicht zu verpassen.",
+      "B": "Die Hälfte anzahlen, um Interesse zu zeigen.",
+      "C": "Nur über eine seriöse Ticketplattform mit geeigneten Schutzmechanismen kaufen oder Tickets bei einer persönlichen Übergabe prüfen."
+    },
     "explanation": "Bei einer Überweisung an eine unbekannte Person hast du oft kaum Möglichkeiten, das Geld zurückzubekommen. Nutze möglichst offizielle Weiterverkaufsangebote mit Käuferschutz und überprüfe, ob die Tickets tatsächlich übertragen werden können.",
     "proTip": "Zeitdruck ist kein Ersatz für Käuferschutz und eine überprüfbare Ticketübertragung."
   },
   "university-de-uni-01": {
     "title": "WG-Zimmer: Kaution noch vor der Besichtigung",
     "scenario": "Auf WG-Gesucht meldet sich jemand wegen eines günstigen Zimmers in Uninähe. Eine Besichtigung soll angeblich nicht möglich sein. Stattdessen verlangt die Person bis mittags 600 € Kaution, sonst werde das Zimmer anderweitig vergeben.",
+    "answers": {
+      "C": "Kein Geld überweisen, bevor du das Zimmer besichtigt und geprüft hast, dass die vermietende Person es tatsächlich anbieten darf.",
+      "A": "Nur die halbe Kaution überweisen, um vorsichtig zu bleiben.",
+      "B": "Die Kaution überweisen, weil so viele andere Interessent:innen Druck machen."
+    },
     "explanation": "Wer vor einer Besichtigung Geld verlangt und gleichzeitig Druck macht, könnte versuchen, dich zu betrügen. Eine Videobesichtigung allein beweist allerdings noch nicht, dass die Person das Zimmer tatsächlich vermieten darf. Prüfe die Identität und Berechtigung der vermietenden Person, bevor du Geld überweist.",
     "proTip": "Zahle keine Kaution, bevor du das Angebot und die vermietende Person zuverlässig überprüft hast."
   },
   "university-de-uni-02": {
     "title": "BAföG-Nachzahlung angeblich nur noch heute",
     "scenario": "Du bekommst eine SMS, angeblich vom Studierendenwerk. Eine BAföG-Nachzahlung über 340 € verfalle um Mitternacht, wenn du deine IBAN nicht sofort über den Link in der Nachricht bestätigst.",
+    "answers": {
+      "C": "Den Link nicht öffnen und über das offizielle BAföG-Portal oder die zuständige Stelle unabhängig nachfragen.",
+      "A": "Die IBAN sofort über den Link bestätigen, um die Nachzahlung nicht zu verlieren.",
+      "B": "Bei der im Link angegebenen Nummer zurückrufen."
+    },
     "explanation": "Die knappe Frist soll dich zu einer unüberlegten Eingabe bewegen. Prüfe deinen BAföG-Bescheid und frage über das offizielle Portal oder bekannte Kontaktdaten bei der zuständigen Stelle nach. Verwende weder den Link noch eine Telefonnummer aus der verdächtigen Nachricht.",
     "proTip": "Eine angebliche Frist bis Mitternacht solltest du unabhängig überprüfen."
   },
   "university-de-uni-03": {
     "title": "Nebenjob mit sofortiger Ausweiskontrolle",
     "scenario": "In einer WhatsApp-Gruppe der Fachschaft wird ein Nebenjob angeboten: 25 € pro Stunde für Produkttests von zu Hause. Du sollst noch heute anfangen können, musst aber vorher sofort deinen Ausweis und deine Kontodaten hochladen.",
+    "answers": {
+      "C": "Das Unternehmen und das Stellenangebot unabhängig prüfen. Ausweis- und Kontodaten nicht vorschnell hochladen.",
+      "A": "Dich sofort registrieren, um den Job noch heute zu bekommen.",
+      "B": "Nur den Ausweis hochladen, aber die Kontodaten weglassen."
+    },
     "explanation": "Ein unbekannter Anbieter, hohe Verdienstversprechen und die sofortige Forderung nach sensiblen Daten sind Warnzeichen. Prüfe Unternehmen und Jobangebot über unabhängige Quellen. Lade keine Ausweis- oder Bankdaten hoch, bevor du den Anbieter verifiziert hast.",
     "proTip": "Gute Bezahlung allein ist kein Betrugsbeweis. Entscheidend ist, ob das Angebot überprüfbar ist."
   },
   "workplace-de-wrk-01": {
     "title": "Lieferant meldet kurz vor Buchungsschluss eine neue IBAN",
     "scenario": "Kurz vor dem monatlichen Buchungsschluss kommt eine E-Mail, angeblich von einem bekannten Lieferanten: Für eine offene Rechnung über 12.400 € gelte ab sofort eine neue Bankverbindung. Die Zahlung solle noch heute angewiesen werden.",
+    "answers": {
+      "A": "Die neue IBAN über einen bereits bekannten Kontakt des Lieferanten unabhängig bestätigen lassen und die üblichen Freigabeschritte einhalten.",
+      "B": "Die Zahlung sofort auf das neue Konto anweisen, um den Buchungsschluss nicht zu verpassen.",
+      "C": "Nur einen Teilbetrag auf das neue Konto anweisen."
+    },
     "explanation": "Gefälschte Änderungsmitteilungen zu Bankverbindungen sind eine bekannte Form des Rechnungsbetrugs. Bestätige neue Kontodaten über einen bereits bekannten, unabhängigen Kontaktweg und halte die internen Freigaberegeln ein.",
     "proTip": "Änderungen von Bankverbindungen immer unabhängig prüfen – nicht über die Kontaktdaten aus derselben E-Mail."
   },
   "workplace-de-wrk-02": {
     "title": "Gehaltsdaten: angebliche Frist in 20 Minuten",
     "scenario": "Eine E-Mail, angeblich von der Personalabteilung, behauptet, das System für Änderungen der Gehaltsdaten schließe in 20 Minuten. Du sollst deine Bankverbindung vorsorglich über einen Link bestätigen.",
+    "answers": {
+      "A": "Den Link nicht öffnen und die eigenen Gehaltsdaten bei Bedarf über das bekannte interne Personalportal prüfen.",
+      "B": "Die Bankverbindung sofort über den Link bestätigen, um die Frist nicht zu verpassen.",
+      "C": "Bei der im Link genannten Nummer anrufen, um nachzufragen."
+    },
     "explanation": "Ein Link in einer unerwarteten Nachricht kann zu einer gefälschten Anmeldeseite führen. Öffne das bekannte Personalportal selbst oder frage über interne, bereits bekannte Kontaktwege nach. Gib keine Bankdaten über den Link aus der Nachricht ein.",
     "proTip": "Gehalts- und Bankdaten nur über die offiziell vorgesehenen internen Wege prüfen oder ändern."
   },
   "workplace-de-wrk-03": {
     "title": "Angebliche Nachricht der Geschäftsführung: Gutscheine kaufen",
     "scenario": "Du erhältst eine SMS, angeblich von der Geschäftsführung auf Dienstreise. Für ein Kundengeschenk sollen dringend Gutscheinkarten gekauft werden. Die Codes sollst du sofort fotografieren und per Nachricht schicken.",
+    "answers": {
+      "B": "Den ungewöhnlichen Auftrag erst über einen bekannten Kontaktweg mit der Geschäftsführung oder einer zuständigen Person im Büro bestätigen.",
+      "A": "Die Gutscheinkarten sofort kaufen und die Codes fotografieren und schicken.",
+      "C": "Erst im Sekretariat fragen, ob die Geschäftsführung wirklich gerade reist."
+    },
     "explanation": "Gutscheincodes können nach der Weitergabe schnell eingelöst werden. Die angebliche Reise und die Eile sollen verhindern, dass du die Bitte prüfst. Bestätige ungewöhnliche Aufträge über einen unabhängigen, bekannten Kontaktweg.",
     "proTip": "Auch dringende Wünsche der Geschäftsführung müssen den normalen Freigabeprozess einhalten."
   },
   "travelsafe-de-tra-01": {
     "title": "Flughafen: angebliche Gepäckfrist von zwölf Minuten",
     "scenario": "Am Flughafen Frankfurt erhältst du eine SMS: Dein aufgegebener Koffer sei falsch zugeordnet worden. Angeblich wird er in zwölf Minuten endgültig aussortiert, wenn du deine Buchungsdaten und Kreditkartendaten nicht sofort über einen Link bestätigst.",
+    "answers": {
+      "A": "Den Link nicht öffnen und direkt bei der Fluggesellschaft über die offizielle App, Website oder am Serviceschalter nachfragen.",
+      "B": "Sofort über den Link die Daten bestätigen, um das Gepäck zu retten.",
+      "C": "Nur die Buchungsnummer eingeben, aber keine Kartendaten."
+    },
     "explanation": "Die SMS könnte gefälscht sein. Prüfe bei der Fluggesellschaft über die offizielle App, Website oder am Serviceschalter, ob es tatsächlich ein Problem mit deinem Gepäck gibt. Gib deine Kartendaten nicht über den Link aus der Nachricht ein.",
     "proTip": "Bei Gepäckproblemen fragst du direkt bei der Fluggesellschaft nach, nicht über einen unbekannten SMS-Link."
   },
   "travelsafe-de-tra-02": {
     "title": "Ferienwohnung auf Mallorca: nur gegen sofortige Überweisung",
     "scenario": "Auf einem Ferienwohnungsportal findest du ein günstiges Apartment auf Mallorca. Die angebliche Vermieterin behauptet, du bekommst es nur, wenn du innerhalb weniger Minuten außerhalb der Plattform auf ihr Privatkonto überweist.",
+    "answers": {
+      "A": "Nur über den vorgesehenen Zahlungsweg der Buchungsplattform bezahlen und die Bedingungen für Käuferschutz prüfen.",
+      "B": "Sofort per Überweisung an die Vermieterin zahlen, um die Wohnung zu sichern.",
+      "C": "Nur eine kleine Anzahlung per Überweisung leisten."
+    },
     "explanation": "Eine Zahlungsaufforderung außerhalb der Buchungsplattform ist ein deutliches Warnzeichen. Prüfe die Buchung über dein Plattformkonto und nutze nur die dort vorgesehenen Zahlungswege. Achte zusätzlich auf die jeweiligen Bedingungen für Käuferschutz und Rückerstattungen.",
     "proTip": "Verlasse für die Bezahlung nicht einfach den offiziellen Buchungs- und Zahlungsweg der Plattform."
   },
   "travelsafe-de-tra-03": {
     "title": "Visum: angeblich fehlt kurz vor Abflug noch eine Zahlung",
     "scenario": "Kurz vor einer Fernreise erhältst du eine E-Mail: Dein Visum sei fast fertig, es fehle aber noch eine sofortige Zahlung über einen Link. Ohne diese Zahlung könne die Reise nicht stattfinden.",
+    "answers": {
+      "A": "Den Visumstatus direkt beim zuständigen offiziellen Portal oder der Auslandsvertretung prüfen, statt über den Link zu zahlen.",
+      "B": "Über den Link sofort zahlen, um die Reise nicht zu gefährden.",
+      "C": "Bei der im Link genannten Nummer anrufen, um nachzufragen."
+    },
     "explanation": "Visa-Verfahren und Gebühren unterscheiden sich je nach Reiseland. Prüfe den tatsächlichen Stand deines Antrags über das offizielle Portal oder die zuständige Auslandsvertretung. Bezahle nicht über einen unerwarteten Link in einer dringlichen E-Mail.",
     "proTip": "Prüfe Visa-Gebühren und Zahlungswege immer direkt bei der zuständigen offiziellen Stelle."
   }
