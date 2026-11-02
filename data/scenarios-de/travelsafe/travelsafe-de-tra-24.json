@@ -1,7 +1,7 @@
 {
   "id": "travelsafe-de-tra-24",
   "lang": "de",
-  "title": "Touristenpolizei — nur Karte",
+  "title": "Angebliche Touristenpolizei verlangt sofort Kartenzahlung",
   "edition": "travelsafe",
   "cardType": "scenario",
   "scored": true,
@@ -20,8 +20,8 @@
   "safeActions": [
     "C"
   ],
-  "explanation": "„Nur mit Karte an diesem Gerät“ ist ein starkes Warnsignal — echte Behörden bieten immer einen offiziellen, überprüfbaren Zahlungsweg mit schriftlichem Beleg.",
-  "proTip": "Ein Bußgeld nur per Karte an einem tragbaren Gerät ist meist kein echtes Bußgeld.",
+  "explanation": "Eine Kontrolle durch echte Behörden ist möglich. Lass dir bei einer unerwarteten Geldforderung jedoch die offizielle Grundlage, Zuständigkeit und einen Zahlungsbeleg nennen.",
+  "proTip": "Bei Geldforderungen an Urlaubsorten den offiziellen Zahlungsweg überprüfen.",
   "hackKey": "A",
   "hackTrigger": "Autorität",
   "tags": [
