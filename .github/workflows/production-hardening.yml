@@ -18,7 +18,7 @@ concurrency:
 
 jobs:
   harden-production:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     timeout-minutes: 35
     env:
       BASE_URL: https://konfydence.com
