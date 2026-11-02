@@ -9,7 +9,7 @@
   "scenario": "Kurz vor dem monatlichen Buchungsschluss kommt eine E-Mail, angeblich von einem bekannten Lieferanten: Für eine offene Rechnung über 12.400 € gelte ab sofort eine neue Bankverbindung. Die Zahlung solle noch heute angewiesen werden.",
   "answers": {
     "A": "Die neue IBAN über einen bereits bekannten Kontakt des Lieferanten unabhängig bestätigen lassen und die üblichen Freigabeschritte einhalten.",
-    "B": "Die Zahlung sofort auf das neue Konto anweisen, um den Buchungsschluss nicht zu verpassen.",
+    "B": "Die Zahlung sofort auf die neue Bankverbindung anweisen, damit sie noch vor Buchungsschluss ausgeführt wird.",
     "C": "Nur einen Teilbetrag auf das neue Konto anweisen."
   },
   "scores": {
