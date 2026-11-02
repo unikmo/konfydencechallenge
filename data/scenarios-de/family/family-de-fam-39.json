@@ -10,7 +10,7 @@
   "answers": {
     "A": "Die Software installieren, aber das Online-Banking-Fenster vorher schließen.",
     "B": "Die Software installieren und dem Techniker beim Banking-Test zusehen lassen.",
-    "C": "Auflegen; ein Internetproblem wird nie durch einen Blick ins Online-Banking gelöst — nötigenfalls über die offizielle Hotline neu anfragen."
+    "C": "Den Fernzugriff und den Einblick ins Online-Banking ablehnen. Den Vorgang beenden und bei Bedarf erneut über die offizielle Hotline des Anbieters Kontakt aufnehmen."
   },
   "scores": {
     "A": 1,
@@ -20,7 +20,7 @@
   "safeActions": [
     "C"
   ],
-  "explanation": "Ein Internetproblem hat nichts mit deinem Bankkonto zu tun — der Wunsch, „kurz reinzuschauen“, ist der eigentliche Zweck des Anrufs. Fernwartungssoftware gibt vollen Zugriff auf alles, was gerade offen ist.",
+  "explanation": "Auch echter Kundensupport kann Fernwartung anbieten. Die Aufforderung, dabei dein Online-Banking zu öffnen, ist jedoch ein deutliches Warnzeichen. Erlaube keinen Einblick in vertrauliche Kontodaten.",
   "proTip": "Ein Internet-Techniker braucht dein Online-Banking nie zu sehen.",
   "hackKey": "K",
   "hackTrigger": "Notbremse",
@@ -30,5 +30,6 @@
     "remote-access",
     "tech-support"
   ],
-  "active": true
+  "active": true,
+  "tip": "Bei einer Internetstörung braucht der Support keinen Einblick in dein Online-Banking."
 }
