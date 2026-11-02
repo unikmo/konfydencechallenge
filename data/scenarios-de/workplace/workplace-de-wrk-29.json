@@ -1,7 +1,7 @@
 {
   "id": "workplace-de-wrk-29",
   "lang": "de",
-  "title": "Der Link zum geteilten Laufwerk kommt vom Projektleiter",
+  "title": "Projektleiter schickt Laufwerk-Link mit App-Installation",
   "edition": "workplace",
   "cardType": "scenario",
   "scored": true,
@@ -20,8 +20,8 @@
   "safeActions": [
     "B"
   ],
-  "explanation": "Ein bekannter Name im Absender macht eine ungewöhnliche App-Installationsanforderung nicht sicherer — sein Konto kann kompromittiert sein.",
-  "proTip": "Eine App-Installation für ein Laufwerk braucht immer eine IT-Freigabe.",
+  "explanation": "Eine unerwartete Installation zum Öffnen einer Datei kann ein Sicherheitsrisiko sein. Prüfe den Link und die Anwendung über die zuständige IT, bevor du Software installierst.",
+  "proTip": "Unbekannte Anwendungen nicht allein wegen einer Datei-Freigabe installieren.",
   "hackKey": "C",
   "hackTrigger": "Vertrautheit",
   "tags": [
