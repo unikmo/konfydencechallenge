@@ -25,6 +25,7 @@ const PRINZIPIEN: [string, string, string][] = [
 export default function GermanHomePage() {
   return (
     <PremiumPageDe ctaHref="/de/challenge/family/start?mode=diagnostic" ctaLabel="Kostenlosen Check starten">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: "{\"@context\":\"https://schema.org\",\"@type\":\"WebSite\",\"name\":\"Konfydence\",\"url\":\"https://konfydence.com/de\",\"inLanguage\":\"de\",\"description\":\"Realistische Übungen, um Betrugsmaschen zu erkennen und sicher zu reagieren.\"}" }} />
       <section className="k-home-hero" aria-labelledby="de-home-hero-title">
         <div className="k-shell k-home-hero-copy">
           <h1 id="de-home-hero-title" className="k-home-hero-title">
