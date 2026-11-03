@@ -157,3 +157,7 @@ button,input,textarea,select{font:inherit}
 .k-site .k-copy{color:#57534c}
 .k-site .k-section-dark .k-copy{color:#d0cdc7}
 .k-site .k-section-dark .k-button-quiet{color:#fff;border-color:rgba(255,255,255,.55)}
+
+/* Stable WCAG contrast for small supporting copy on light sections. */
+.k-site .k-section.kg-shell > .k-copy{color:#57534c!important}
+.k-site .k-section-dark .k-copy{color:#d0cdc7!important}
