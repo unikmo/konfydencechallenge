@@ -208,7 +208,7 @@ export function LockscreenIntentPage({
             ))}
           </ul>
           {orgValue.note ? (
-            <p className="k-copy" style={{ marginTop: 16, fontSize: 12, opacity: 0.75 }}>{orgValue.note}</p>
+            <p className="k-copy" style={{ marginTop: 16, fontSize: 12, color: "#57534c" }}>{orgValue.note}</p>
           ) : null}
         </section>
       ) : null}
