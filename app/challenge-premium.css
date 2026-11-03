@@ -425,3 +425,6 @@
  .kc-price{padding:24px 20px}
  .kc-price-grid{gap:12px}
 }
+
+/* Readable labels on dark purchase cards. */
+.kg-buy-card .kg-buy-name,.kg-buy-card.is-featured .kg-buy-name{color:#e7c99a}
