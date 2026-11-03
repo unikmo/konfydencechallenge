@@ -47,7 +47,7 @@ async function analyticsAndJourneys() {
   const page = await context.newPage();
 
   await page.goto(`${BASE_URL}/`, { waitUntil: 'domcontentloaded', timeout: 30000 });
-  await page.waitForTimeout(800);
+  await page.waitForFunction(() => document.documentElement.dataset.konfydenceAnalyticsReady === "true", { timeout: 10000 });
 
   const analyticsBootstrap = await page.evaluate(() => {
     const scriptLoaded = Boolean(document.querySelector('script[src*="googletagmanager.com/gtag/js"]'));
@@ -98,6 +98,7 @@ async function analyticsAndJourneys() {
       add('Analytics', 'high', 'cta-event', 'CTA click did not emit a measurable analytics event after consent');
     }
     await page.goto(`${BASE_URL}/comasy`, { waitUntil: 'domcontentloaded', timeout: 30000 });
+    await page.waitForFunction(() => document.documentElement.dataset.konfydenceAnalyticsReady === 'true', { timeout: 10000 });
   }
 
   const pilotLink = page.locator('a[href="/comasy/pilot"]:visible').first();
@@ -106,6 +107,7 @@ async function analyticsAndJourneys() {
     await Promise.all([page.waitForURL('**/comasy/pilot', { timeout: 15000 }), pilotLink.click({ timeout: 15000 })]);
   }
 
+  await page.waitForFunction(() => document.documentElement.dataset.konfydenceAnalyticsReady === 'true', { timeout: 10000 });
   const form = page.locator('form').first();
   if (!(await form.count())) {
     add('Lead Journey', 'critical', 'pilot-form', 'Pilot form is missing');
