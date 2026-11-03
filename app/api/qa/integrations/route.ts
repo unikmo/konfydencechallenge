@@ -106,6 +106,37 @@ async function checkResend(): Promise<Result> {
   }
 }
 
+async function checkBrevo(): Promise<Result> {
+  const key = process.env.BREVO_API_KEY;
+  const from = process.env.BREVO_SENDER_EMAIL || "concierge@konfydence.com";
+  const to = process.env.CONTACT_TO_EMAIL;
+  if (!key || !to) return { state: "not_configured", detail: "brevo_key_or_qa_recipient_missing" };
+  try {
+    const response = await fetch("https://api.brevo.com/v3/smtp/email", {
+      method: "POST",
+      headers: { "api-key": key, "Content-Type": "application/json", Accept: "application/json" },
+      body: JSON.stringify({
+        sender: { email: from, name: "Konfydence QA" },
+        to: [{ email: to }],
+        subject: "Konfydence production QA probe",
+        htmlContent: "<p>Automated transactional email verification. No action required.</p>",
+        tags: ["konfydence", "qa"],
+      }),
+      cache: "no-store",
+    });
+    return response.ok
+      ? { state: "ok", status: response.status, detail: "brevo_test_delivery_accepted" }
+      : { state: "failed", status: response.status, detail: "brevo_test_delivery_rejected" };
+  } catch {
+    return { state: "failed", detail: "brevo_network_failed" };
+  }
+}
+
+async function checkEmail(): Promise<Result> {
+  if (process.env.RESEND_API_KEY && process.env.CONTACT_FROM_EMAIL) return checkResend();
+  return checkBrevo();
+}
+
 async function checkStripe(): Promise<Result> {
   const key = process.env.STRIPE_SECRET_KEY;
   if (!key) return { state: "not_configured" };
@@ -135,7 +166,7 @@ export async function POST(request: NextRequest) {
   const [database, crm, email, commerceStripe] = await Promise.all([
     checkDatabase(),
     checkCrmWrite(),
-    checkResend(),
+    checkEmail(),
     checkStripe(),
   ]);
 
