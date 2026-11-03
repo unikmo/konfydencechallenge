@@ -144,8 +144,13 @@ for (const [browserName, browserType] of Object.entries(browserTypes)) {
   const browser = await browserType.launch({ headless: true });
   for (const [viewportName, viewport] of Object.entries(viewports)) {
     const context = await browser.newContext({ viewport, locale: 'en-GB' });
-    for (const url of routes) {
-      await inspectPage(context, browserName, viewportName, url, browserName === 'chromium' && viewportName === 'desktop');
+    // Bound concurrency so the complete sitemap runs without exhausting the CI job.
+    // Each inspection owns its page, while the browser context is shared safely.
+    const concurrency = 4;
+    for (let start = 0; start < routes.length; start += concurrency) {
+      await Promise.all(routes.slice(start, start + concurrency).map((url) =>
+        inspectPage(context, browserName, viewportName, url, browserName === 'chromium' && viewportName === 'desktop')
+      ));
     }
     await context.close();
   }
