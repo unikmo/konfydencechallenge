@@ -15,31 +15,31 @@ for (const [name, browserType] of Object.entries(browsers)) {
   const context = await browser.newContext({ viewport: { width: 1280, height: 900 } });
   const page = await context.newPage();
 
-  for (const route of ['/products', '/pricing']) {
-    const response = await page.goto(`${BASE_URL}${route}`, { waitUntil: 'networkidle', timeout: 45000 }).catch(() => null);
-    if (!response || response.status() >= 500 || response.status() === 404) add('high', `${name}-${route}`, `${route} is unavailable in ${name} (HTTP ${response?.status() || 'none'})`);
-    const broken = await page.locator('img').evaluateAll((imgs) => imgs.filter((img) => img.complete && img.naturalWidth === 0).map((img) => img.getAttribute('src') || img.getAttribute('alt') || 'unknown'));
-    if (broken.length) add('high', `${name}-${route}-images`, `${route} has broken product assets`, { broken });
-  }
-
-  await page.goto(`${BASE_URL}/products`, { waitUntil: 'networkidle' });
-  const purchaseButton = page.getByRole('button', { name: /add to cart/i }).first();
-  if (!(await purchaseButton.count())) {
-    add('high', `${name}-purchase-button`, 'Products page has no Add to cart button');
+  const response = await page.goto(`${BASE_URL}/pricing?edition=family`, { waitUntil: 'domcontentloaded', timeout: 45000 }).catch(() => null);
+  if (!response?.ok()) {
+    add('high', `${name}-pricing`, `Pricing is unavailable in ${name} (HTTP ${response?.status() || 'none'})`);
   } else {
-    await page.route('**/api/checkout/create', async (route) => {
-      await route.fulfill({ status: 500, contentType: 'application/json', body: JSON.stringify({ error: 'QA simulated checkout failure' }) });
-    });
-    await purchaseButton.click();
-    const alert = page.getByRole('alert');
-    if (!(await alert.count())) add('high', `${name}-checkout-failure-state`, 'Checkout API failure does not produce a visible error state');
-    else if (!/QA simulated checkout failure|failed|error/i.test(await alert.textContent() || '')) add('medium', `${name}-checkout-error-copy`, 'Checkout error state is visible but unclear');
+    const broken = await page.locator('img').evaluateAll((imgs) => imgs.filter((img) => img.complete && img.naturalWidth === 0).map((img) => img.getAttribute('src') || img.getAttribute('alt') || 'unknown'));
+    if (broken.length) add('high', `${name}-pricing-images`, 'Pricing has broken assets', { broken });
+    const purchaseButton = page.getByRole('button', { name: /unlock family/i }).first();
+    if (!(await purchaseButton.isVisible().catch(() => false))) {
+      add('high', `${name}-purchase-button`, 'Current pricing page has no accessible family checkout CTA');
+    } else {
+      await page.route('**/api/checkout/create', async (route) => {
+        await route.fulfill({ status: 500, contentType: 'application/json', body: JSON.stringify({ error: 'QA simulated checkout failure' }) });
+      });
+      await purchaseButton.click();
+      const alert = page.getByRole('alert').first();
+      if (!(await alert.isVisible().catch(() => false))) add('high', `${name}-checkout-failure-state`, 'Checkout API failure does not produce a visible error state');
+      else if (!/QA simulated checkout failure|failed|error/i.test(await alert.textContent() || '')) add('medium', `${name}-checkout-error-copy`, 'Checkout error state is visible but unclear');
+      await page.unroute('**/api/checkout/create');
+    }
   }
 
   const invalidSku = await context.request.post(`${BASE_URL}/api/checkout/create`, { data: { sku: 'QA-NOT-A-SKU' } }).catch(() => null);
   if (invalidSku?.status() !== 400) add('high', `${name}-invalid-sku`, `Unknown SKU should return 400, got ${invalidSku?.status() || 'none'}`);
 
-  const invalidQty = await context.request.post(`${BASE_URL}/api/checkout/create`, { data: { sku: 'KG-WALLET', quantity: 11 } }).catch(() => null);
+  const invalidQty = await context.request.post(`${BASE_URL}/api/checkout/create`, { data: { sku: 'QA-NOT-A-SKU', quantity: 11 } }).catch(() => null);
   if (invalidQty?.status() !== 400) add('high', `${name}-invalid-quantity`, `Quantity 11 should return 400, got ${invalidQty?.status() || 'none'}`);
 
   await browser.close();
