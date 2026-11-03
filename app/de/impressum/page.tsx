@@ -29,7 +29,7 @@ export default function ImpressumPage() {
               <strong>Gesetzlicher Vertreter / Gründer:</strong> Tichi Mbanwie
               <br />
               <strong>E-Mail:</strong>{" "}
-              <a href="mailto:hello@planethike.org" style={s.link}>hello@planethike.org</a>
+              <a href="mailto:hello@konfydence.com" style={s.link}>hello@konfydence.com</a>
               <br />
               <strong>Telefon:</strong> +49 (0)1634668380
               <br />
@@ -83,7 +83,7 @@ export default function ImpressumPage() {
             Teilnahme an den Challenges hinaus — insbesondere Vervielfältigung, Verbreitung, Bearbeitung, öffentliche
             Wiedergabe oder kommerzielle Verwertung — bedarf der vorherigen ausdrücklichen schriftlichen Zustimmung von
             PlanetHike OÜ. Anfragen bitte an{" "}
-            <a href="mailto:hello@planethike.org" style={s.link}>hello@planethike.org</a>.
+            <a href="mailto:hello@konfydence.com" style={s.link}>hello@konfydence.com</a>.
           </p>
         </div>
 
