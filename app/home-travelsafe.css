@@ -32,7 +32,7 @@
 .k-home-phone-message strong{display:block;font-size:16px;line-height:1.14;letter-spacing:-.02em;margin:14px 0 12px}
 .k-home-phone-message p{font-size:10.5px;line-height:1.45;margin:0 0 10px;color:#373a3d}
 .k-home-phone-message p b{color:#a4573a}
-.k-home-phone-message button{display:block;width:100%;border:0;border-radius:999px;background:#0d3159;color:#fff;padding:10px 12px;margin:14px 0 11px;font:inherit;font-size:10px;font-weight:700;pointer-events:none}
+.k-home-phone-message .k-home-scam-payment-demo{display:block;width:100%;text-align:center;border:0;border-radius:999px;background:#0d3159;color:#fff;padding:10px 12px;margin:14px 0 11px;font:inherit;font-size:10px;font-weight:700}
 .k-home-phone-message em{display:block;font-size:8.5px;line-height:1.4;font-style:normal;color:#77716a}
 .k-home-example-label{position:absolute;z-index:3;left:18px;bottom:18px;padding:7px 10px;border-radius:999px;background:rgba(255,253,249,.9);backdrop-filter:blur(10px);font-size:8px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#514b44}
 .k-home-hook-lede{max-width:590px;margin:26px auto 0;font-size:14px;line-height:1.7;color:var(--k-muted)}
