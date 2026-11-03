@@ -55,8 +55,8 @@ async function inspectPage(context, browserName, viewportName, url, runAxe) {
   page.on('pageerror', (error) => errors.push(`pageerror: ${error.message}`));
 
   const response = await page.goto(url, { waitUntil: 'domcontentloaded', timeout: 35000 }).catch(() => null);
-  await page.waitForLoadState('networkidle', { timeout: 5000 }).catch(() => undefined);
-  await page.waitForTimeout(150);
+  // SSR content is available at DOM readiness; analytics/polling can keep network idle indefinitely.
+  await page.locator('body').waitFor({ state: 'attached', timeout: 5000 }).catch(() => undefined);
   const status = response?.status() || 0;
   const route = new URL(url).pathname || '/';
   const key = `${browserName}-${viewportName}-${route}`;
