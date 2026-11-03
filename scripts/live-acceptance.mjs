@@ -46,7 +46,7 @@ async function analyticsAndJourneys() {
   });
   const page = await context.newPage();
 
-  await page.goto(`${BASE_URL}/`, { waitUntil: 'networkidle' });
+  await page.goto(`${BASE_URL}/`, { waitUntil: 'domcontentloaded', timeout: 30000 });
   await page.waitForTimeout(800);
 
   const analyticsBootstrap = await page.evaluate(() => {
@@ -97,7 +97,7 @@ async function analyticsAndJourneys() {
     if (!events.some((event) => ['cta_click', 'pilot_cta_click', 'challenge_cta_click'].includes(event[0]))) {
       add('Analytics', 'high', 'cta-event', 'CTA click did not emit a measurable analytics event after consent');
     }
-    await page.goto(`${BASE_URL}/comasy`, { waitUntil: 'networkidle' });
+    await page.goto(`${BASE_URL}/comasy`, { waitUntil: 'domcontentloaded', timeout: 30000 });
   }
 
   const pilotLink = page.locator('a[href="/comasy/pilot"]').first();
@@ -128,7 +128,7 @@ async function analyticsAndJourneys() {
   }
 
   const productPage = await context.newPage();
-  const productResponse = await productPage.goto(`${BASE_URL}/pricing`, { waitUntil: 'networkidle' }).catch(() => null);
+  const productResponse = await productPage.goto(`${BASE_URL}/pricing`, { waitUntil: 'domcontentloaded', timeout: 30000 }).catch(() => null);
   if (!productResponse?.ok()) add('Commerce', 'high', 'products-page', `Pricing page unavailable (HTTP ${productResponse?.status() || 'none'})`);
   const checkout = await context.request.post(`${BASE_URL}/api/checkout/create`, {
     data: { sku: 'CHAL-SINGLE-FAMILY', locale: 'en' },
