@@ -132,7 +132,7 @@ export default function ComasyPage() {
               <div className="k-metric"><strong>18%</strong><span>Higher-risk impulse example</span></div>
               <div className="k-metric"><strong>4</strong><span>Pressure-pattern dimensions</span></div>
             </div>
-            <div className="k-linechart" aria-label="Illustrative behavioural trend line" />
+            <div className="k-linechart" role="img" aria-label="Illustrative behavioural trend line" />
           </article>
         </div>
       </section>
