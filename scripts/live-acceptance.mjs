@@ -61,8 +61,9 @@ async function analyticsAndJourneys() {
   });
   measurements.analyticsRequestsBeforeConsent = analyticsRequests.length;
   measurements.analyticsBootstrap = analyticsBootstrap;
-  if (!analyticsBootstrap.scriptLoaded || !analyticsBootstrap.gtagAvailable) {
-    add('Analytics', 'high', 'ga-not-loaded', 'Google Analytics is not loaded on initial page view');
+  // Consent-first loading: bootstrap the denied default without fetching analytics.
+  if (!analyticsBootstrap.gtagAvailable || analyticsBootstrap.scriptLoaded || measurements.analyticsRequestsBeforeConsent > 0) {
+    add('Analytics', 'high', 'ga-before-consent', 'Analytics must remain unloaded until the visitor opts in');
   }
   if (!analyticsBootstrap.defaultDenied) {
     add('Compliance', 'high', 'consent-default', 'Google Consent Mode did not default analytics_storage to denied before user choice');
@@ -73,6 +74,9 @@ async function analyticsAndJourneys() {
     await accept.click();
     await page.waitForTimeout(1200);
   }
+  await page.waitForFunction(() => Boolean(document.querySelector('script[data-konfydence-analytics="true"]')), { timeout: 10000 }).catch(() => {
+    add('Analytics', 'high', 'ga-after-consent', 'Analytics script was not loaded after consent');
+  });
   const consent = await page.evaluate(() => localStorage.getItem('analytics-consent'));
   if (consent !== 'true') add('Analytics', 'high', 'consent-state', 'Accept All did not persist analytics consent');
 
