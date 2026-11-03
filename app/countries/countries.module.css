@@ -209,3 +209,7 @@
 .hackDefs dt b { display: inline-grid; place-items: center; width: 26px; height: 26px; border-radius: 50%; border: 1px solid currentColor; font-family: var(--k-sans); font-size: 11px; font-weight: 700; margin-right: 8px; vertical-align: middle; }
 .hackDefs dd { margin: 0; font-size: 13px; line-height: 1.6; color: var(--k-muted); }
 @media (max-width: 720px) { .hackDefs { grid-template-columns: 1fr; } }
+
+/* Country directory dark CTA labels must remain readable. */
+.practice .eyebrow{color:#e7c99a!important}
+.practice .sourceNote,.practice .sourceNote a{color:#e7c99a}
