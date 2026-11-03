@@ -94,7 +94,7 @@ export default function HomePage() {
               <strong>Payment required to confirm your booking</strong>
               <p>Hi Amelia,</p>
               <p>Your reservation is almost complete. A secure payment of €620 is required within <b>12 hours</b> to confirm your booking.</p>
-              <button type="button">Secure payment</button>
+              <span className="k-home-scam-payment-demo">Secure payment</span>
               <em>If you did not make this booking, contact us immediately.</em>
             </div>
           </div>
