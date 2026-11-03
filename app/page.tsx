@@ -40,6 +40,7 @@ export default function HomePage() {
           {/* Real licensed travel photography for premium hero fidelity. */}
           <Image
             src="/hero/konfydence-travelsafe-vacation.jpg"
+            unoptimized
             alt="A mother and daughter travelling together through an airport with luggage"
             width={920}
             height={575}
