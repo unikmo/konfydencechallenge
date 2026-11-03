@@ -39,7 +39,7 @@ export default function GermanHomePage() {
         </div>
         <div className="k-home-hero-media k-home-hero-media-photo">
           <Image
-            src="/hero/konfydence-travelsafe-vacation.jpg"
+            src="/hero/travelsafe-care-airport.jpg"
             unoptimized
             alt="Reisende in einer Alltagssituation, in der besonnenes Entscheiden wichtig ist"
             width={920}
