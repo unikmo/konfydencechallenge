@@ -70,7 +70,7 @@ export default function GermanHomePage() {
         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))", gap: 20 }}>
           {PRINZIPIEN.map(([num, label, text]) => (
             <div key={num} style={{ borderTop: "1px solid var(--k-line)", paddingTop: 14 }}>
-              <div style={{ fontSize: 12, opacity: 0.5, marginBottom: 6 }}>{num}</div>
+              <div style={{ fontSize: 12, color: "#57534c", marginBottom: 6 }}>{num}</div>
               <div style={{ fontWeight: 800, marginBottom: 6 }}>{label}</div>
               <p style={{ fontSize: 14, lineHeight: 1.55, opacity: 0.8 }}>{text}</p>
             </div>
