@@ -39,11 +39,12 @@ export default function HomePage() {
         <div className="k-home-hero-media k-home-hero-media-photo">
           {/* Real licensed travel photography for premium hero fidelity. */}
           <Image
-            src="https://images.pexels.com/photos/4173213/pexels-photo-4173213.jpeg?auto=compress&cs=tinysrgb&w=1600&q=75"
+            src="/hero/konfydence-travelsafe-vacation.jpg"
             alt="A mother and daughter travelling together through an airport with luggage"
-            width={1600}
-            height={1050}
+            width={920}
+            height={575}
             priority
+            quality={75}
             sizes="(max-width: 980px) 100vw, 90vw"
           />
         </div>
