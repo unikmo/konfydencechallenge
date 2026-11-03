@@ -55,7 +55,6 @@ function labelFor(target: Element | null) {
 
 export function AnalyticsInstrumentation() {
   useEffect(() => {
-    document.documentElement.dataset.konfydenceAnalyticsReady = "true";
     ensureGaLoaded();
 
     const onConsentChanged = () => ensureGaLoaded();
@@ -135,6 +134,7 @@ export function AnalyticsInstrumentation() {
     document.addEventListener("submit", onSubmit);
     document.addEventListener("click", onClick);
     window.addEventListener("pagehide", onPageHide);
+    document.documentElement.dataset.konfydenceAnalyticsReady = "true";
 
     return () => {
       delete document.documentElement.dataset.konfydenceAnalyticsReady;
