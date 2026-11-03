@@ -116,6 +116,13 @@ async function inspectPage(context, browserName, viewportName, url, runAxe) {
       if (result) {
         const serious = result.violations.filter((violation) => violation.impact === 'critical' || violation.impact === 'serious');
         if (serious.length) {
+          if (findings.filter((item) => item.area === 'Accessibility' && String(item.id).startsWith('axe-')).length < 12) {
+            console.log('Axe diagnosis', route, JSON.stringify(serious.map((v) => ({
+              id: v.id, impact: v.impact, help: v.help,
+              targets: v.nodes.slice(0, 3).map((node) => node.target),
+              failureSummary: v.nodes[0]?.failureSummary,
+            }))));
+          }
           add('Accessibility', 'high', `axe-${slug(route)}`, `${route} has ${serious.length} serious/critical accessibility violations`, {
             violations: serious.map((violation) => ({ id: violation.id, impact: violation.impact, help: violation.help, nodes: violation.nodes.length })),
           });
