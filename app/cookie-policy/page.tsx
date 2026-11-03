@@ -30,7 +30,7 @@ export default function CookiePolicyPage() {
 
   const updateStyle: React.CSSProperties = {
     fontSize: 13,
-    color: tokens.textMuted,
+    color: "#B8C6D8",
     marginBottom: 32,
   };
 
@@ -48,7 +48,7 @@ export default function CookiePolicyPage() {
   const paragraphStyle: React.CSSProperties = {
     fontSize: 15,
     lineHeight: 1.7,
-    color: tokens.textMuted,
+    color: "#B8C6D8",
     marginBottom: 12,
   };
 
@@ -292,7 +292,7 @@ export default function CookiePolicyPage() {
           <Link href="/privacy-policy" style={linkStyle}>
             Privacy Policy
           </Link>
-          <span style={{ margin: "0 12px", color: tokens.textMuted }}>•</span>
+          <span style={{ margin: "0 12px", color: "#B8C6D8" }}>•</span>
           <Link href="/" style={linkStyle}>
             Back to Home
           </Link>
