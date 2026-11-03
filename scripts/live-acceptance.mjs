@@ -93,8 +93,8 @@ async function analyticsAndJourneys() {
     await comasy.evaluate((node) => node.addEventListener('click', (event) => event.preventDefault(), { once: true }));
     await comasy.click();
     const events = await page.evaluate(() => window.__qaAnalyticsEvents || []);
-    measurements.homeCtaEvents = events.map((event) => event[0]);
-    if (!events.some((event) => ['cta_click', 'pilot_cta_click', 'challenge_cta_click'].includes(event[0]))) {
+    measurements.homeCtaEvents = events.map((event) => event[0] === 'event' ? event[1] : event[0]);
+    if (!events.some((event) => event[0] === 'event' && ['cta_click', 'pilot_cta_click', 'challenge_cta_click'].includes(event[1]))) {
       add('Analytics', 'high', 'cta-event', 'CTA click did not emit a measurable analytics event after consent');
     }
     await page.goto(`${BASE_URL}/comasy`, { waitUntil: 'domcontentloaded', timeout: 30000 });
@@ -123,7 +123,7 @@ async function analyticsAndJourneys() {
     await page.locator('input[name="firstName"]').focus();
     await page.waitForTimeout(100);
     const events = await page.evaluate(() => window.__qaAnalyticsEvents || []);
-    if (!events.some((event) => event[0] === 'form_start')) add('Analytics', 'high', 'form-start-event', 'Pilot form start is not instrumented');
+    if (!events.some((event) => event[0] === 'event' && event[1] === 'form_start')) add('Analytics', 'high', 'form-start-event', 'Pilot form start is not instrumented');
     const validWhenEmpty = await form.evaluate((node) => node.checkValidity());
     if (validWhenEmpty) add('Lead Journey', 'high', 'empty-form', 'Pilot form is valid while empty');
   }
