@@ -78,8 +78,9 @@ export default function HomePage() {
           {/* Licensed airport photography provides context; the phone UI is real HTML so the pressure cues stay crisp and readable. */}
           <Image
             className="k-home-scam-backdrop"
-            src="https://images.pexels.com/photos/8704693/pexels-photo-8704693.jpeg?auto=compress&cs=tinysrgb&w=1200&q=70"
+            src="/hero/travelsafe-care-airport.jpg"
             alt=""
+            unoptimized
             width={1200}
             height={800}
             sizes="(max-width: 980px) 100vw, 80vw"
