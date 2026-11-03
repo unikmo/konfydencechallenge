@@ -80,8 +80,8 @@ export default function ImprintPage() {
               <strong>Legal Representative / Founder:</strong> Tichi Mbanwie
               <br />
               <strong>Email:</strong>{" "}
-              <a href="mailto:hello@planethike.org" style={linkStyle}>
-                hello@planethike.org
+              <a href="mailto:hello@konfydence.com" style={linkStyle}>
+                hello@konfydence.com
               </a>
               <br />
               <strong>Phone:</strong> +49 (0)1634668380
@@ -133,8 +133,8 @@ export default function ImprintPage() {
             Any use of Konfydence's original materials beyond personal, non-commercial viewing and participation in the
             challenges—such as reproduction, distribution, modification, public display, or commercial exploitation—requires
             the express prior written consent of PlanetHike OÜ. For permission requests, please contact{" "}
-            <a href="mailto:hello@planethike.org" style={linkStyle}>
-              hello@planethike.org
+            <a href="mailto:hello@konfydence.com" style={linkStyle}>
+              hello@konfydence.com
             </a>
             .
           </p>
@@ -207,8 +207,8 @@ export default function ImprintPage() {
           <div style={infoBoxStyle}>
             <p style={paragraphStyle}>
               <strong>Email:</strong>{" "}
-              <a href="mailto:hello@planethike.org" style={linkStyle}>
-                hello@planethike.org
+              <a href="mailto:hello@konfydence.com" style={linkStyle}>
+                hello@konfydence.com
               </a>
               <br />
               <strong>Phone:</strong> +49 (0)1634668380
