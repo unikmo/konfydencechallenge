@@ -152,3 +152,8 @@ button,input,textarea,select{font:inherit}
 /* Dark-surface editorial markers use light amber rather than the light-surface ink gold. */
 .k-section-dark .kc-flow b,.k-section-dark .kc-note b,.k-section-dark .kc-cards .kc-obs,.k-section-dark .kc-pillars b{color:#e7c99a}
 .k-section-dark .k-copy,.k-section-dark .kc-flow span{color:#d0cdc7}
+
+/* WCAG legibility for descriptive text on bright marketing surfaces. */
+.k-site .k-copy{color:#57534c}
+.k-site .k-section-dark .k-copy{color:#d0cdc7}
+.k-site .k-section-dark .k-button-quiet{color:#fff;border-color:rgba(255,255,255,.55)}
