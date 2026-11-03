@@ -90,7 +90,7 @@ export function CookieConsent() {
   const textStyle: React.CSSProperties = {
     fontSize: 12,
     lineHeight: 1.35,
-    color: tokens.textMuted,
+    color: "#E0E7F1", // WCAG-readable light text on dark navy cookie banner
   };
 
   const linkStyle: React.CSSProperties = {
