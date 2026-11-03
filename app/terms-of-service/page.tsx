@@ -11,11 +11,11 @@ export default function TermsOfServicePage() {
   const containerStyle: React.CSSProperties = { minHeight: "100vh", background: tokens.bgCanvas, color: tokens.textOnDark, padding: "60px 20px 40px", fontFamily: 'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif' };
   const contentStyle: React.CSSProperties = { maxWidth: 800, margin: "0 auto" };
   const titleStyle: React.CSSProperties = { fontSize: 42, fontWeight: 900, marginBottom: 12 };
-  const updateStyle: React.CSSProperties = { fontSize: 13, color: tokens.textMuted, marginBottom: 32 };
+  const updateStyle: React.CSSProperties = { fontSize: 13, color: "#B8C6D8", marginBottom: 32 };
   const sectionStyle: React.CSSProperties = { marginBottom: 32 };
   const headingStyle: React.CSSProperties = { fontSize: 20, fontWeight: 900, marginBottom: 12, marginTop: 24 };
-  const paragraphStyle: React.CSSProperties = { fontSize: 15, lineHeight: 1.7, color: tokens.textMuted, marginBottom: 12 };
-  const listStyle: React.CSSProperties = { fontSize: 15, lineHeight: 1.7, color: tokens.textMuted, marginLeft: 20, marginBottom: 12 };
+  const paragraphStyle: React.CSSProperties = { fontSize: 15, lineHeight: 1.7, color: "#B8C6D8", marginBottom: 12 };
+  const listStyle: React.CSSProperties = { fontSize: 15, lineHeight: 1.7, color: "#B8C6D8", marginLeft: 20, marginBottom: 12 };
   const linkStyle: React.CSSProperties = { color: tokens.accentAmber, textDecoration: "none", borderBottom: `1px solid ${tokens.accentAmber}` };
 
   return (
@@ -84,7 +84,7 @@ export default function TermsOfServicePage() {
 
       <div style={sectionStyle}><h2 style={headingStyle}>14. Contact Information</h2><p style={paragraphStyle}><strong>Operator:</strong> PlanetHike OÜ<br/><strong>Email:</strong> support@konfydence.com<br/>See the <Link href="/imprint" style={linkStyle}>Imprint</Link> for registered company and contact information.</p></div>
 
-      <div style={{ ...paragraphStyle, marginTop: 40, borderTop: `1px solid rgba(255,255,255,0.1)`, paddingTop: 20 }}><Link href="/privacy-policy" style={linkStyle}>Privacy Policy</Link><span style={{ margin: "0 12px", color: tokens.textMuted }}>•</span><Link href="/cookie-policy" style={linkStyle}>Cookie Policy</Link><span style={{ margin: "0 12px", color: tokens.textMuted }}>•</span><Link href="/imprint" style={linkStyle}>Imprint</Link><span style={{ margin: "0 12px", color: tokens.textMuted }}>•</span><Link href="/" style={linkStyle}>Back to Home</Link></div>
+      <div style={{ ...paragraphStyle, marginTop: 40, borderTop: `1px solid rgba(255,255,255,0.1)`, paddingTop: 20 }}><Link href="/privacy-policy" style={linkStyle}>Privacy Policy</Link><span style={{ margin: "0 12px", color: "#B8C6D8" }}>•</span><Link href="/cookie-policy" style={linkStyle}>Cookie Policy</Link><span style={{ margin: "0 12px", color: "#B8C6D8" }}>•</span><Link href="/imprint" style={linkStyle}>Imprint</Link><span style={{ margin: "0 12px", color: "#B8C6D8" }}>•</span><Link href="/" style={linkStyle}>Back to Home</Link></div>
     </div></div>
   );
 }
