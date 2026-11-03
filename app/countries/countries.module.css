@@ -6,7 +6,7 @@
 .navLinks, .footer { display: flex; align-items: center; gap: 20px; flex-wrap: wrap; }
 .navLinks a, .footer a, .back { font-size: 13px; font-weight: 800; color: #66645f; text-decoration: none; }
 .hero { padding: 64px 0 42px; max-width: 780px; }
-.eyebrow { font-size: 12px; text-transform: uppercase; letter-spacing: .08em; font-weight: 900; color: #af8752; margin: 0 0 12px; }
+.eyebrow { font-size: 12px; text-transform: uppercase; letter-spacing: .08em; font-weight: 900; color: #806039; margin: 0 0 12px; }
 .hero h1 { font-family: var(--k-display); font-weight: 400; font-size: clamp(34px, 4.4vw, 54px); line-height: 1.05; letter-spacing: -.03em; margin: 0 0 20px; }
 .hero h1, .section h2, .sourceHeading h2, .riskSection h2, .practice h2, .affiliate h2, .checkinSection h2, .countryCard h3, .sourceCard h3, .scamGuidance h3, .researchGate strong { font-family: var(--k-display); font-weight: 400; letter-spacing: -.03em; }
 .eyebrow { color: var(--k-gold) !important; }
@@ -16,14 +16,14 @@
 .sourceNotice h2 { font-size: 24px; margin: 0 0 8px; }
 .sourceNotice p:not(.eyebrow) { color: #66645f; line-height: 1.55; margin: 0; }
 .continentNav { display: flex; gap: 10px; flex-wrap: wrap; border-top: 1px solid #e8e2d8; border-bottom: 1px solid #e8e2d8; padding: 16px 0; }
-.continentNav a { color: #af8752; background: #f6efe3; border: 1px solid #e8e2d8; border-radius: 999px; padding: 8px 12px; text-decoration: none; font-size: 13px; font-weight: 800; }
+.continentNav a { color: #806039; background: #f6efe3; border: 1px solid #e8e2d8; border-radius: 999px; padding: 8px 12px; text-decoration: none; font-size: 13px; font-weight: 800; }
 .section { padding: 46px 0 12px; }
 .section h2, .sourceHeading h2, .riskSection h2, .practice h2, .affiliate h2 { font-size: 30px; margin: 0 0 10px; }
 .countryGrid, .sourceGrid, .riskGrid { display: grid; gap: 16px; }
 .countryGrid { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
 .countryCard, .sourceCard { background: #fff; border: 1px solid #e8e2d8; border-radius: 10px; padding: 22px; box-shadow: 0 8px 20px rgba(16,35,68,.05); }
 .countryCard { min-height: 230px; display: flex; flex-direction: column; justify-content: space-between; }
-.countryRegion, .sourceAuthority { font-size: 12px; font-weight: 900; text-transform: uppercase; color: #af8752; margin: 0 0 8px; }
+.countryRegion, .sourceAuthority { font-size: 12px; font-weight: 900; text-transform: uppercase; color: #806039; margin: 0 0 8px; }
 .countryCard h3 { font-size: 28px; margin: 0 0 10px; }
 .countryCard p, .sourceCard p, .empty, .affiliate p { color: #66645f; line-height: 1.55; margin: 0; }
 
@@ -41,18 +41,18 @@
 .sourceCard { min-height: 220px; display: flex; flex-direction: column; }
 .sourceCard h3 { font-size: 21px; margin: 0 0 12px; }
 .sourceCard p:not(.sourceAuthority) { margin-bottom: 20px; }
-.sourceCard a { color: #af8752; font-weight: 900; text-decoration: none; margin-top: auto; }
+.sourceCard a { color: #806039; font-weight: 900; text-decoration: none; margin-top: auto; }
 .riskSection { padding: 48px 0 14px; }
-.sourceNote { color: #8d8980; font-size: 12px; line-height: 1.5; margin: 4px 0 0; }
-.sourceNote a { color: #af8752; font-weight: 800; }
+.sourceNote { color: #615c54; font-size: 12px; line-height: 1.5; margin: 4px 0 0; }
+.sourceNote a { color: #806039; font-weight: 800; }
 .officialRiskSection { padding: 42px 0 14px; }
 .officialRiskSection h2 { font-size: 30px; margin: 0 0 18px; }
 .officialRiskGrid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
 .officialRiskCard { background: #fff; border: 1px solid #e8e2d8; border-radius: 10px; padding: 20px; min-height: 190px; display: flex; flex-direction: column; }
 .officialRiskLevel { color: #111417; font-size: 21px; line-height: 1.25; }
-.officialRiskMeta, .officialRiskChecked { color: #8d8980; font-size: 12px; line-height: 1.5; }
+.officialRiskMeta, .officialRiskChecked { color: #615c54; font-size: 12px; line-height: 1.5; }
 .officialRiskMeta { margin: 12px 0 0; }
-.officialRiskCard a { color: #af8752; font-weight: 900; text-decoration: none; margin-top: auto; padding-top: 18px; }
+.officialRiskCard a { color: #806039; font-weight: 900; text-decoration: none; margin-top: auto; padding-top: 18px; }
 .officialRiskChecked { margin: 12px 0 0; }
 .officialRiskLoading, .officialRiskError { color: #66645f; line-height: 1.55; margin: 0; }
 .officialRiskError { color: #a4573a; }
@@ -70,14 +70,14 @@
 .riskItem h3, .riskItem p { margin: 0; }
 .riskItem h3 { font-size: 18px; color: #111417; }
 .riskItem p { font-size: 14px; font-weight: 500; color: #66645f; line-height: 1.45; }
-.riskItem small { color: #8d8980; font-size: 11px; margin-top: auto; }
+.riskItem small { color: #615c54; font-size: 11px; margin-top: auto; }
 .productSection { padding: 42px 0 14px; border-top: 1px solid #e8e2d8; }
 .productGrid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; }
 .productCard { background: #fff; border: 1px solid #e8e2d8; border-radius: 10px; padding: 18px; min-height: 205px; display: flex; flex-direction: column; }
-.productType { color: #af8752 !important; font-size: 11px !important; font-weight: 900 !important; text-transform: uppercase; letter-spacing: .06em; margin: 0 0 10px !important; }
+.productType { color: #806039 !important; font-size: 11px !important; font-weight: 900 !important; text-transform: uppercase; letter-spacing: .06em; margin: 0 0 10px !important; }
 .productCard h3 { font-size: 18px; margin: 0 0 10px; }
 .productCard p:not(.productType) { color: #66645f; line-height: 1.45; font-size: 14px; margin: 0 0 18px; }
-.productCard a { color: #af8752; font-weight: 900; text-decoration: none; margin-top: auto; }
+.productCard a { color: #806039; font-weight: 900; text-decoration: none; margin-top: auto; }
 @media (max-width: 960px) { .productGrid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (max-width: 520px) { .productGrid { grid-template-columns: 1fr; } }
 
@@ -85,29 +85,29 @@
 .landmarkFrame { aspect-ratio: 16 / 7; background: #efe9dd; border: 1px solid #e8e2d8; border-radius: 12px; overflow: hidden; }
 .landmarkImage { display: block; width: 100%; height: 100%; object-fit: cover; }
 .landmarkFallback { display: flex; height: 100%; flex-direction: column; justify-content: center; padding: 28px; background: #efe9dd; color: #111417; }
-.landmarkFallback span { color: #af8752; font-size: 12px; font-weight: 900; letter-spacing: .08em; text-transform: uppercase; }
+.landmarkFallback span { color: #806039; font-size: 12px; font-weight: 900; letter-spacing: .08em; text-transform: uppercase; }
 .landmarkFallback strong { font-family: var(--k-display); font-weight: 400; font-size: clamp(30px, 4vw, 46px); letter-spacing: -.03em; margin-top: 10px; }
-.landmarkFigure figcaption { color: #8d8980; font-size: 11px; line-height: 1.45; margin-top: 8px; }
-.landmarkFigure figcaption a { color: #af8752; font-weight: 800; }
+.landmarkFigure figcaption { color: #615c54; font-size: 11px; line-height: 1.45; margin-top: 8px; }
+.landmarkFigure figcaption a { color: #806039; font-weight: 800; }
 @media (max-width: 720px) { .landmarkFrame { aspect-ratio: 4 / 3; } }
 
-.sourceStatus { display: flex; align-items: center; gap: 8px; color: #8d8980 !important; font-size: 12px !important; margin-top: 14px !important; }
+.sourceStatus { display: flex; align-items: center; gap: 8px; color: #615c54 !important; font-size: 12px !important; margin-top: 14px !important; }
 .statusDotLive, .statusDotWarning { width: 8px; height: 8px; flex: 0 0 8px; border-radius: 50%; display: inline-block; }
 .statusDotLive { background: #42ad62; }
-.statusDotWarning { background: #af8752; }
+.statusDotWarning { background: #806039; }
 
 .directoryTools { border-top: 1px solid #e8e2d8; border-bottom: 1px solid #e8e2d8; padding: 20px 0 14px; }
 .filterRow { display: grid; grid-template-columns: minmax(0, 2fr) minmax(190px, 1fr) auto; align-items: end; gap: 14px; }
 .filterLabel { display: flex; flex-direction: column; gap: 7px; color: #66645f; font-size: 12px; font-weight: 900; }
 .searchInput, .continentSelect { width: 100%; min-height: 44px; border: 1px solid #d8cfc0; border-radius: 8px; background: #fff; color: #111417; font: inherit; padding: 0 12px; }
-.searchInput:focus, .continentSelect:focus { outline: 3px solid #e5d4b9; outline-offset: 1px; border-color: #af8752; }
-.clearButton { min-height: 44px; border: 1px solid #d8cfc0; border-radius: 8px; background: #fff; color: #af8752; cursor: pointer; font: inherit; font-size: 12px; font-weight: 900; padding: 0 14px; }
+.searchInput:focus, .continentSelect:focus { outline: 3px solid #e5d4b9; outline-offset: 1px; border-color: #806039; }
+.clearButton { min-height: 44px; border: 1px solid #d8cfc0; border-radius: 8px; background: #fff; color: #806039; cursor: pointer; font: inherit; font-size: 12px; font-weight: 900; padding: 0 14px; }
 .clearButton:hover { background: #f6efe3; }
-.resultCount { color: #8d8980; font-size: 12px; margin: 12px 0 0; }
+.resultCount { color: #615c54; font-size: 12px; margin: 12px 0 0; }
 .flowSection { border-top: 1px solid #e8e2d8; margin-top: 42px; padding-top: 34px; }
 .flowGrid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
 .flowGrid > div { display: grid; grid-template-columns: 34px 1fr; column-gap: 10px; align-items: center; }
-.flowGrid span { grid-row: span 2; display: grid; place-items: center; width: 30px; height: 30px; border-radius: 50%; background: #af8752; color: #fff; font-size: 13px; font-weight: 900; }
+.flowGrid span { grid-row: span 2; display: grid; place-items: center; width: 30px; height: 30px; border-radius: 50%; background: #806039; color: #fff; font-size: 13px; font-weight: 900; }
 .flowGrid strong { font-size: 16px; }
 .flowGrid p { grid-column: 2; color: #66645f; font-size: 13px; line-height: 1.45; margin: 2px 0 0; }
 @media (max-width: 720px) {
@@ -122,15 +122,15 @@
 @media (max-width: 720px) { .checkinSection .primaryLink { width: 100%; } }
 
 @media (max-width: 720px) { .officialRiskGrid { grid-template-columns: 1fr; } }
-.officialRiskNumber { display: inline-flex; align-self: flex-start; background: #111417; color: #111417; border-radius: 999px; padding: 6px 10px; font-size: 12px; font-weight: 900; margin: 10px 0 10px; }.scamGuidance { margin: 30px 0 0; background: #f6efe3; border: 1px solid #e8e2d8; border-radius: 10px; padding: 26px; }.scamGuidance h3 { font-size: 26px; margin: 0 0 8px; }.scamIntro { color: #66645f; line-height: 1.55; margin: 0 0 20px; }.scamGuidanceGrid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }.scamGuidanceCard { background: #fff; border: 1px solid #e8e2d8; border-radius: 10px; padding: 18px; display: flex; flex-direction: column; }.scamGuidanceCard ul { color: #66645f; line-height: 1.55; padding-left: 20px; margin: 0 0 18px; }.scamGuidanceCard li + li { margin-top: 10px; }.scamGuidanceCard a { color: #af8752; font-weight: 900; text-decoration: none; margin-top: auto; }.scamEmpty { color: #66645f; line-height: 1.55; margin: 0 0 18px; } @media (max-width: 720px) { .scamGuidanceGrid { grid-template-columns: 1fr; } }.countryCard { overflow: hidden; padding: 0; }
+.officialRiskNumber { display: inline-flex; align-self: flex-start; background: #111417; color: #111417; border-radius: 999px; padding: 6px 10px; font-size: 12px; font-weight: 900; margin: 10px 0 10px; }.scamGuidance { margin: 30px 0 0; background: #f6efe3; border: 1px solid #e8e2d8; border-radius: 10px; padding: 26px; }.scamGuidance h3 { font-size: 26px; margin: 0 0 8px; }.scamIntro { color: #66645f; line-height: 1.55; margin: 0 0 20px; }.scamGuidanceGrid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }.scamGuidanceCard { background: #fff; border: 1px solid #e8e2d8; border-radius: 10px; padding: 18px; display: flex; flex-direction: column; }.scamGuidanceCard ul { color: #66645f; line-height: 1.55; padding-left: 20px; margin: 0 0 18px; }.scamGuidanceCard li + li { margin-top: 10px; }.scamGuidanceCard a { color: #806039; font-weight: 900; text-decoration: none; margin-top: auto; }.scamEmpty { color: #66645f; line-height: 1.55; margin: 0 0 18px; } @media (max-width: 720px) { .scamGuidanceGrid { grid-template-columns: 1fr; } }.countryCard { overflow: hidden; padding: 0; }
 .countryCardImage { display: block; width: 100%; height: 120px; object-fit: cover; }
 .countryCard > div { padding: 18px 22px 0; }
 .countryCard > .countryLink { margin: 0 22px 22px; }
 .countryCardMedia { height: 120px; background: #efe9dd; overflow: hidden; }
 .countryCardMediaFallback { display: flex; height: 100%; flex-direction: column; justify-content: flex-end; padding: 14px 18px; color: #111417; }
-.countryCardMediaFallback span { color: #af8752; font-size: 10px; font-weight: 900; letter-spacing: .08em; text-transform: uppercase; }
+.countryCardMediaFallback span { color: #806039; font-size: 10px; font-weight: 900; letter-spacing: .08em; text-transform: uppercase; }
 .countryCardMediaFallback strong { font-size: 17px; line-height: 1.15; margin-top: 4px; }
-.countryCardMediaFallback small { color: #8d8980; font-size: 10px; margin-top: 5px; }
+.countryCardMediaFallback small { color: #615c54; font-size: 10px; margin-top: 5px; }
 .countryCard { overflow: visible; padding: 22px; }
 .countryCard > div { padding: 0; }
 .countryCard > .countryLink { margin: 24px 0 0; }
