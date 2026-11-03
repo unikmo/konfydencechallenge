@@ -154,7 +154,7 @@ jobs:
               [ -n "$finding" ] && description="$finding"
             fi
             if [ "$description" = 'Production live acceptance found blocking defects' ] && [ -f qa-artifacts/integrations.json ]; then
-              integration=$(jq -r '.integrations | to_entries | map(select(.key != "commerceStripe" and .key != "cms" and .value.state != "ok")) | .[0] | if . then "\(.key) integration state is \(.value.state): \(.value.detail // \"no detail\")" else empty end' qa-artifacts/integrations.json)
+              integration=$(jq -r '.integrations | to_entries | map(select(.key != "commerceStripe" and .key != "cms" and .value.state != "ok")) | .[0] | if . then (.key + " integration state is " + (.value.state // "missing") + ": " + (.value.detail // "no detail")) else empty end' qa-artifacts/integrations.json)
               [ -n "$integration" ] && description="$integration"
             fi
           fi
