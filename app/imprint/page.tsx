@@ -42,7 +42,7 @@ export default function ImprintPage() {
   const paragraphStyle: React.CSSProperties = {
     fontSize: 15,
     lineHeight: 1.7,
-    color: tokens.textMuted,
+    color: "#B8C6D8",
     marginBottom: 12,
   };
 
@@ -222,15 +222,15 @@ export default function ImprintPage() {
           <Link href="/privacy-policy" style={linkStyle}>
             Privacy Policy
           </Link>
-          <span style={{ margin: "0 12px", color: tokens.textMuted }}>•</span>
+          <span style={{ margin: "0 12px", color: "#B8C6D8" }}>•</span>
           <Link href="/cookie-policy" style={linkStyle}>
             Cookie Policy
           </Link>
-          <span style={{ margin: "0 12px", color: tokens.textMuted }}>•</span>
+          <span style={{ margin: "0 12px", color: "#B8C6D8" }}>•</span>
           <Link href="/terms-of-service" style={linkStyle}>
             Terms of Service
           </Link>
-          <span style={{ margin: "0 12px", color: tokens.textMuted }}>•</span>
+          <span style={{ margin: "0 12px", color: "#B8C6D8" }}>•</span>
           <Link href="/" style={linkStyle}>
             Back to Home
           </Link>
