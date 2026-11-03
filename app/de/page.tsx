@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import type { Metadata } from "next";
 import { PremiumPageDe } from "@/components/PremiumSiteChrome";
 
@@ -34,6 +35,27 @@ export default function GermanHomePage() {
           </h1>
           <p style={{ maxWidth: 620, marginTop: 18, fontSize: 16, lineHeight: 1.6, opacity: 0.85 }}>
             Trainiere mit 48 realistischen Alltagssituationen, typische Betrugsmaschen zu erkennen – etwa den Enkeltrick, gefälschte Bank-SMS oder WhatsApp-Nachrichten von angeblich neuen Nummern. Mit einem kostenlosen Sicherheitscheck kannst du sofort loslegen.
+          </p>
+        </div>
+        <div className="k-home-hero-media k-home-hero-media-photo">
+          <Image
+            src="/hero/konfydence-travelsafe-vacation.jpg"
+            alt="Reisende in einer Alltagssituation, in der besonnenes Entscheiden wichtig ist"
+            width={920}
+            height={575}
+            priority
+            quality={75}
+            sizes="(max-width: 980px) 100vw, 90vw"
+          />
+        </div>
+        <div className="k-shell k-home-hero-after">
+          <p>Erkenne den Druck. Prüfe die Anfrage. Entscheide in Ruhe.</p>
+          <div className="k-home-hero-actions">
+            <Link className="k-button k-home-primary" href="/de/challenge/family/start?mode=diagnostic">Kostenlosen Check starten</Link>
+            <Link className="k-button-quiet k-home-secondary" href="/de/comasy">Für Unternehmen: CoMaSy</Link>
+          </div>
+          <p className="k-home-hero-pilot">
+            Für Schulen und Teams: <Link href="/de/comasy/pilotprojekt">Pilotprojekt anfragen <span aria-hidden="true">→</span></Link>
           </p>
         </div>
       </section>
