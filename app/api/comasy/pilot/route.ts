@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
 import { rateLimit, getClientIp } from "@/lib/rateLimit";
+import { sendTransactionalEmail } from "@/lib/email";
 
 const RESEND_API_KEY = process.env.RESEND_API_KEY;
 const CONTACT_TO_EMAIL = process.env.CONTACT_TO_EMAIL;
@@ -13,14 +14,24 @@ const validEmail = (email: string) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 const personalDomains = new Set(["gmail.com","googlemail.com","yahoo.com","outlook.com","hotmail.com","icloud.com","aol.com","proton.me","protonmail.com"]);
 
 async function sendEmail(to: string, subject: string, html: string, replyTo?: string) {
-  if (!RESEND_API_KEY || !CONTACT_FROM_EMAIL) return false;
-  const res = await fetch("https://api.resend.com/emails", {
-    method: "POST",
-    headers: { Authorization: `Bearer ${RESEND_API_KEY}`, "Content-Type": "application/json" },
-    body: JSON.stringify({ from: CONTACT_FROM_EMAIL, to, subject, html, ...(replyTo ? { reply_to: replyTo } : {}) }),
-  });
-  if (!res.ok) console.error("CoMaSy pilot email failed", res.status, await res.text());
-  return res.ok;
+  if (RESEND_API_KEY && CONTACT_FROM_EMAIL) {
+    try {
+      const res = await fetch("https://api.resend.com/emails", {
+        method: "POST",
+        headers: { Authorization: `Bearer ${RESEND_API_KEY}`, "Content-Type": "application/json" },
+        body: JSON.stringify({ from: CONTACT_FROM_EMAIL, to, subject, html, ...(replyTo ? { reply_to: replyTo } : {}) }),
+      });
+      if (res.ok) return true;
+      console.error("CoMaSy pilot Resend delivery failed", res.status);
+      return false;
+    } catch (error) {
+      console.error("CoMaSy pilot Resend network error", error);
+      return false;
+    }
+  }
+  // The application already supports Brevo transactional email; use it when
+  // the Resend-specific configuration is not present.
+  return sendTransactionalEmail({ to, subject, html, replyTo, tags: ["konfydence", "comasy-pilot"] });
 }
 
 export async function POST(request: NextRequest) {
@@ -79,6 +90,6 @@ export async function POST(request: NextRequest) {
     CONTACT_TO_EMAIL ? sendEmail(CONTACT_TO_EMAIL,`${isSchool?"School":"CoMaSy"} pilot request — ${organizationName}`,internalHtml,workEmail):Promise.resolve(false),
     sendEmail(workEmail, lang === "de" ? (isSchool ? "Deine Schul-Pilotanfrage ist da" : "Deine CoMaSy-Pilotanfrage ist da") : isSchool ? "Your school pilot request is in" : "Your CoMaSy pilot request is in", customerHtml),
   ]);
-  console.log("CoMaSy pilot request recorded", { leadId: lead.id, organizationId: organization.id, emailConfigured: Boolean(RESEND_API_KEY&&CONTACT_FROM_EMAIL) });
+  console.log("CoMaSy pilot request recorded", { leadId: lead.id, organizationId: organization.id, emailConfigured: Boolean((RESEND_API_KEY && CONTACT_FROM_EMAIL) || process.env.BREVO_API_KEY) });
   return NextResponse.redirect(new URL(`/comasy/pilot/thank-you?org=${encodeURIComponent(organizationName)}${lang === "de" ? "&lang=de" : ""}`, request.url),303);
 }
