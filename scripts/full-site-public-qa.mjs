@@ -85,10 +85,21 @@ async function inspectPage(context, browserName, viewportName, url, runAxe) {
     await screenshot(page, `overflow-${key}`);
   }
 
-  const brokenImages = await page.locator('img').evaluateAll((imgs) => imgs
-    .filter((img) => img instanceof HTMLImageElement && img.complete && img.naturalWidth === 0)
-    .map((img) => img.getAttribute('src') || img.getAttribute('alt') || 'unknown'));
+  // Wait for image decoding (especially Gecko) before assessing paint readiness.
+  // Any image that genuinely fails decoding is still a blocking defect.
+  const brokenImages = await page.locator('img').evaluateAll(async (imgs) => {
+    await Promise.all(imgs.map(async (img) => {
+      if (!(img instanceof HTMLImageElement)) return;
+      if (!img.complete) await Promise.race([
+        new Promise((resolve) => { img.addEventListener('load', resolve, { once: true }); img.addEventListener('error', resolve, { once: true }); }),
+        new Promise((resolve) => setTimeout(resolve, 4000)),
+      ]);
+    }));
+    return imgs.filter((img) => img instanceof HTMLImageElement && img.complete && img.naturalWidth === 0)
+      .map((img) => img.currentSrc || img.getAttribute('src') || img.getAttribute('alt') || 'unknown');
+  });
   if (brokenImages.length) {
+    console.error('Broken image details', key, JSON.stringify(brokenImages));
     add('Content', 'high', `images-${slug(key)}`, `${route} has broken images in ${browserName}/${viewportName}`, { brokenImages });
     await screenshot(page, `broken-images-${key}`);
   }
