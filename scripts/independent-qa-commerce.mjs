@@ -21,7 +21,9 @@ for (const [name, browserType] of Object.entries(browsers)) {
   } else {
     const broken = await page.locator('img').evaluateAll((imgs) => imgs.filter((img) => img.complete && img.naturalWidth === 0).map((img) => img.getAttribute('src') || img.getAttribute('alt') || 'unknown'));
     if (broken.length) add('high', `${name}-pricing-images`, 'Pricing has broken assets', { broken });
+    // Wait for the Next.js client-side edition selection to hydrate on slower engines.
     const purchaseButton = page.getByRole('button', { name: /unlock family/i }).first();
+    await purchaseButton.waitFor({ state: 'visible', timeout: 12000 }).catch(() => undefined);
     if (!(await purchaseButton.isVisible().catch(() => false))) {
       add('high', `${name}-purchase-button`, 'Current pricing page has no accessible family checkout CTA');
     } else {
