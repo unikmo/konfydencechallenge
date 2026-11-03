@@ -295,7 +295,7 @@ export function LockscreenOrderForm({ tier, lang = "en" }: { tier: Tier; lang?: 
       </label>
 
       <div className="conversion" style={{ background: "var(--k-deep, #12191f)", color: "#fff", borderRadius: 16, padding: 24 }}>
-        <p style={{ margin: 0, fontSize: 12, letterSpacing: ".08em", textTransform: "uppercase", color: "#af8752" }}>{t.estimated}</p>
+        <p style={{ margin: 0, fontSize: 12, letterSpacing: ".08em", textTransform: "uppercase", color: "#e7c99a" }}>{t.estimated}</p>
         <p style={{ margin: "8px 0 4px", fontSize: 34, fontFamily: "var(--k-display)", fontWeight: 400 }}>{formatMoney(quote.annualTotal, lang)}</p>
         <p style={{ margin: 0, fontSize: 13, color: "rgba(255,255,255,.7)" }}>
           {unitCount || 0} {unitPlural} &times; {formatMoney(quote.ratePerUnit, lang)}
@@ -311,7 +311,7 @@ export function LockscreenOrderForm({ tier, lang = "en" }: { tier: Tier; lang?: 
 }
 
 const fieldsetStyle: React.CSSProperties = { minWidth: 0, border: "1px solid rgba(17,20,23,.12)", borderRadius: 12, padding: 20 };
-const legendStyle: React.CSSProperties = { fontSize: 11, letterSpacing: ".08em", textTransform: "uppercase", color: "#8d8980", padding: "0 6px" };
+const legendStyle: React.CSSProperties = { fontSize: 11, letterSpacing: ".08em", textTransform: "uppercase", color: "#57534c", padding: "0 6px" };
 const labelStyle: React.CSSProperties = { display: "grid", gap: 6 };
 const inputStyle: React.CSSProperties = {
   width: "100%",
