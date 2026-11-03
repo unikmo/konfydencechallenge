@@ -167,7 +167,7 @@ jobs:
       - name: Publish Independent QA Gate
         if: always()
         run: |
-          if [ '${{ steps.qa.outcome }}' = 'success' ] && [ '${{ steps.fullsite.outcome }}' = 'success' ] && [ '${{ steps.commerce.outcome }}' = 'success' ]; then
+          if [ '${{ steps.qa.outcome }}' = 'success' ] && [ '${{ steps.enterprise.outcome }}' = 'success' ] && [ '${{ steps.fullsite.outcome }}' = 'success' ] && [ '${{ steps.commerce.outcome }}' = 'success' ]; then
             state=success
             description='Independent QA passed full public site: zero critical/high defects'
           else
