@@ -86,7 +86,7 @@ async function analyticsAndJourneys() {
     };
   });
 
-  const comasy = page.locator('a[href="/comasy"]').first();
+  const comasy = page.locator('a[href="/comasy"]:visible').first();
   if (!(await comasy.count())) {
     add('Navigation', 'high', 'home-comasy-nav', 'Home page has no CoMaSy navigation link');
   } else {
@@ -100,11 +100,10 @@ async function analyticsAndJourneys() {
     await page.goto(`${BASE_URL}/comasy`, { waitUntil: 'domcontentloaded', timeout: 30000 });
   }
 
-  const pilotLink = page.locator('a[href="/comasy/pilot"]').first();
+  const pilotLink = page.locator('a[href="/comasy/pilot"]:visible').first();
   if (!(await pilotLink.count())) add('Lead Journey', 'high', 'pilot-cta', 'CoMaSy page has no pilot CTA');
   else {
-    await pilotLink.click();
-    await page.waitForURL('**/comasy/pilot');
+    await Promise.all([page.waitForURL('**/comasy/pilot', { timeout: 15000 }), pilotLink.click({ timeout: 15000 })]);
   }
 
   const form = page.locator('form').first();
