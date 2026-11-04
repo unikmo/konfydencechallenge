@@ -39,7 +39,7 @@ export default function HomePage() {
         <div className="k-home-hero-media k-home-hero-media-photo">
           {/* Real licensed travel photography for premium hero fidelity. */}
           <Image
-            src="/hero/travelsafe-care-airport.jpg"
+            src="/hero/konfydence-travelsafe-vacation.jpg"
             unoptimized
             alt="A mother and daughter travelling together through an airport with luggage"
             width={920}
@@ -78,7 +78,7 @@ export default function HomePage() {
           {/* Licensed airport photography provides context; the phone UI is real HTML so the pressure cues stay crisp and readable. */}
           <Image
             className="k-home-scam-backdrop"
-            src="/hero/travelsafe-care-airport.jpg"
+            src="/hero/konfydence-travelsafe-vacation.jpg"
             alt=""
             unoptimized
             width={1200}
