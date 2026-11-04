@@ -39,11 +39,11 @@ export default function HomePage() {
         <div className="k-home-hero-media k-home-hero-media-photo">
           {/* Real licensed travel photography for premium hero fidelity. */}
           <Image
-            src="/hero/konfydence-travelsafe-vacation.jpg"
+            src="/hero/konfydence-hero-mother-daughter.jpg"
             unoptimized
             alt="A mother and daughter travelling together through an airport with luggage"
-            width={920}
-            height={575}
+            width={1920}
+            height={1280}
             priority
             quality={75}
             sizes="(max-width: 980px) 100vw, 90vw"
