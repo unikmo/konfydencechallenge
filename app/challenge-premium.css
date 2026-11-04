@@ -470,3 +470,6 @@
   .kg-page .kg-submit button{width:100%;justify-content:center}
   .kg-page .kg-rule{display:none}
 }
+
+.kg-page .kg-submit{justify-content:flex-end;background:#fffefc;border-top:0;padding-top:4px}
+@media (max-width:640px){.kg-page .kg-submit{padding:2px 12px 12px}}

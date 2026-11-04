@@ -123,7 +123,6 @@ export default async function SessionPage(props: { params: Promise<{ sessionId: 
             <input type="hidden" name="scenarioId" value={scenario.id} />
 
             <div className="kg-submit">
-              <div className="kg-submit-hint"><span>{t.submitHintLabel}</span><p>{t.submitHintText}</p></div>
               <button type="submit"><span>{t.submitButton}</span><b aria-hidden="true">→</b></button>
             </div>
           </AnswerTrackerForm>
