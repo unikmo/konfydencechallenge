@@ -78,7 +78,7 @@ export default function HomePage() {
           {/* Licensed airport photography provides context; the phone UI is real HTML so the pressure cues stay crisp and readable. */}
           <Image
             className="k-home-scam-backdrop"
-            src="/hero/konfydence-travelsafe-vacation.jpg"
+            src="/hero/konfydence-airport-backdrop.jpg"
             alt=""
             unoptimized
             width={1200}
