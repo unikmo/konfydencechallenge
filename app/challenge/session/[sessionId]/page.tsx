@@ -79,20 +79,14 @@ export default async function SessionPage(props: { params: Promise<{ sessionId: 
         <div className="kg-progress">
           <span className="kg-progress-label">{t.scenarioLabel} <b>{String(questionNumber).padStart(2, "0")}</b> / {String(totalCards).padStart(2, "0")}</span>
           <span className="kg-progress-track" aria-label={`${progressPercent}%`}><span style={{ width: `${progressPercent}%` }} /></span>
-          <span className="kg-progress-pct">{progressPercent}%</span>
         </div>
 
         <section className="kg-card">
-          <div className="kg-card-chrome">
-            <span className="kg-live"><span className="kg-dot" /> {t.liveDecision}</span>
-            <span>{t.threeMoves}</span>
-          </div>
-
           <div className="kg-scenario">
             <p className="k-kicker">{t.kicker}</p>
             <h1>{title}</h1>
             <p className="kg-prompt">{scenario.prompt}</p>
-            <div className="kg-rule"><span>{t.ruleLabel}</span><p>{t.ruleText}</p></div>
+            {current.currentIndex === 0 ? <div className="kg-rule"><span>{t.ruleLabel}</span><p>{t.ruleText}</p></div> : null}
           </div>
 
           <SessionEventHooks
@@ -113,7 +107,6 @@ export default async function SessionPage(props: { params: Promise<{ sessionId: 
                     <input type="radio" name="selectedAnswerKey" value={key} required />
                     <span className="kg-answer-key">{key}</span>
                     <span className="kg-answer-text">{text}</span>
-                    <span className="kg-answer-pick" aria-hidden="true">{t.select}</span>
                   </label>
                 ))}
               </div>
@@ -128,7 +121,6 @@ export default async function SessionPage(props: { params: Promise<{ sessionId: 
           </AnswerTrackerForm>
         </section>
 
-        <footer className="kg-game-footer"><span>{t.footerBrand}</span><span>{t.footerFramework}</span></footer>
       </div>
 
       <style>{`

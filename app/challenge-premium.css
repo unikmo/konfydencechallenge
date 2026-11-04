@@ -473,3 +473,8 @@
 
 .kg-page .kg-submit{justify-content:flex-end;background:#fffefc;border-top:0;padding-top:4px}
 @media (max-width:640px){.kg-page .kg-submit{padding:2px 12px 12px}}
+
+.kg-page .kg-answer{grid-template-columns:34px 1fr}
+.kg-page .kg-answer-text{font-family:var(--k-sans);font-size:15px;line-height:1.45;color:var(--k-ink)}
+.kg-page .kg-scenario{padding-top:24px}
+@media (max-width:640px){.kg-page .kg-answer{grid-template-columns:28px 1fr}}
