@@ -45,9 +45,9 @@ export const SIGNIN_STRINGS: Record<UiLang, {
     totpLabel: "Authenticator or recovery code",
     totpSubmit: "Verify",
     emailHeading: "Sign in with a code.",
-    emailBody: "No password. Enter your email and we'll send a one-time code. The same account holds your Challenge results and any Lockscreens subscription.",
+    emailBody: "No password. We'll email you a one-time code.",
     emailLabel: "Email address",
-    consentText: "Send me my sign-in code and occasional Konfydence updates. Unsubscribe anytime.",
+    consentText: "Email me the code, plus occasional updates. Unsubscribe anytime.",
     emailSubmit: "Email me a code",
     passkeyInstead: "Use a passkey instead",
     passkeyBusy: "Waiting for your device…",
@@ -72,9 +72,9 @@ export const SIGNIN_STRINGS: Record<UiLang, {
     totpLabel: "Authenticator- oder Wiederherstellungscode",
     totpSubmit: "Bestätigen",
     emailHeading: "Mit Code anmelden.",
-    emailBody: "Kein Passwort nötig. Gib deine E-Mail-Adresse ein, wir schicken dir einen einmaligen Code. Im selben Konto liegen deine Challenge-Ergebnisse und ein eventuelles Lockscreens-Abo.",
+    emailBody: "Kein Passwort nötig. Wir schicken dir einen einmaligen Code per E-Mail.",
     emailLabel: "E-Mail-Adresse",
-    consentText: "Schick mir meinen Anmeldecode und gelegentliche Konfydence-Updates. Jederzeit abbestellbar.",
+    consentText: "Schick mir den Code, dazu gelegentlich Neuigkeiten. Jederzeit abbestellbar.",
     emailSubmit: "Code per E-Mail schicken",
     passkeyInstead: "Stattdessen Passkey nutzen",
     passkeyBusy: "Warte auf dein Gerät…",
@@ -95,14 +95,14 @@ export const SIGNIN_STRINGS: Record<UiLang, {
 
 export const SIGNIN_REASONS: Record<UiLang, Record<string, string>> = {
   en: {
-    "free-round-2": "Your second free round saves to an account so your Readiness Score history follows you.",
-    "full-challenge": "The full challenge needs an account — your progress, results and purchase stay with you on any device.",
-    "team-invite": "Sign in to claim your team seat — your progress stays private to you; your admin sees completion only.",
+    "free-round-2": "Your second round is saved to your account.",
+    "full-challenge": "The full challenge needs an account, so your progress follows you.",
+    "team-invite": "Sign in to claim your team seat. Your admin sees completion only.",
   },
   de: {
-    "free-round-2": "Deine zweite kostenlose Runde wird in einem Konto gespeichert, damit dein Readiness-Score-Verlauf erhalten bleibt.",
-    "full-challenge": "Die volle Challenge braucht ein Konto — dein Fortschritt, deine Ergebnisse und dein Kauf bleiben auf jedem Gerät erhalten.",
-    "team-invite": "Melde dich an, um deinen Teamplatz zu übernehmen — dein Fortschritt bleibt privat, dein Admin sieht nur den Abschluss.",
+    "free-round-2": "Deine zweite Runde wird in deinem Konto gespeichert.",
+    "full-challenge": "Die volle Challenge braucht ein Konto, damit dein Fortschritt dich begleitet.",
+    "team-invite": "Melde dich an, um deinen Teamplatz zu übernehmen. Dein Admin sieht nur den Abschluss.",
   },
 };
 
