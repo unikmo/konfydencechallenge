@@ -428,3 +428,45 @@
 
 /* Readable labels on dark purchase cards. */
 .kg-buy-card .kg-buy-name,.kg-buy-card.is-featured .kg-buy-name{color:#e7c99a}
+
+/* Question card: one screen, everything visible. The card reads as a card (lifted, framed),
+   the three answers are tappable tiles, and the whole thing fits a laptop viewport. */
+.kg-page .kg-top{height:54px}
+.kg-page .kg-game{padding:6px 0 28px;width:min(760px,calc(100% - 32px))}
+.kg-page .kg-progress{margin:14px 0 12px}
+.kg-page .kg-card{border-radius:22px;background:#fffefc;border:1px solid rgba(17,20,23,.1);
+  box-shadow:0 1px 0 rgba(255,255,255,.9) inset,0 2px 6px rgba(40,30,10,.06),0 34px 70px -34px rgba(40,30,10,.38)}
+.kg-page .kg-card-chrome{padding:10px 22px;background:#faf7f1}
+.kg-page .kg-scenario{padding:20px 26px 16px;border-bottom:0}
+.kg-page .kg-scenario .k-kicker{margin:0 0 8px}
+.kg-page .kg-scenario h1{font-size:clamp(21px,2.4vw,27px);margin:0 0 10px;max-width:none}
+.kg-page .kg-prompt{font-size:15px;line-height:1.55;max-width:none}
+.kg-page .kg-rule{margin-top:12px;padding-top:10px;max-width:none}
+.kg-page .kg-answers{padding:4px 18px 16px;gap:8px}
+.kg-page .kg-answer{grid-template-columns:34px 1fr auto;gap:14px;padding:12px 16px;border:1px solid var(--k-line);border-radius:14px;background:#fff;
+  transition:background .16s ease,border-color .16s ease,box-shadow .16s ease}
+.kg-page .kg-answer:hover{background:#faf7f1;border-color:rgba(175,135,82,.55)}
+.kg-page .kg-answer-key{width:32px;height:32px}
+.kg-page .kg-answer-text{font-size:15.5px;line-height:1.38}
+.kg-page .kg-answer:has(input:checked){background:#f6efe3;border-color:var(--k-gold);box-shadow:0 0 0 1px var(--k-gold)}
+.kg-page .kg-submit{padding:12px 18px 12px 26px;border-top:1px solid var(--k-line)}
+.kg-page .kg-submit-hint p{margin:3px 0 0;max-width:340px}
+.kg-page .kg-submit button{min-height:44px}
+.kg-page .kg-game-footer{padding-top:14px}
+@media (max-height:760px){
+  .kg-page .kg-rule,.kg-page .kg-game-footer{display:none}
+}
+@media (max-width:640px){
+  .kg-page .kg-game{width:calc(100% - 20px)}
+  .kg-page .kg-scenario{padding:16px 16px 10px}
+  .kg-page .kg-card-chrome{padding:9px 16px}
+  .kg-page .kg-answers{padding:2px 10px 12px;gap:6px}
+  .kg-page .kg-answer{grid-template-columns:28px 1fr;padding:10px 12px;gap:10px}
+  .kg-page .kg-answer-key{width:28px;height:28px}
+  .kg-page .kg-answer-pick{display:none}
+  .kg-page .kg-answer-text{font-size:14.5px}
+  .kg-page .kg-submit{padding:10px 12px;gap:12px}
+  .kg-page .kg-submit-hint{display:none}
+  .kg-page .kg-submit button{width:100%;justify-content:center}
+  .kg-page .kg-rule{display:none}
+}
