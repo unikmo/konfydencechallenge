@@ -28,10 +28,10 @@ export default function HackMethodPage() {
     <PremiumPage ctaHref="/challenge/travelsafe/start?mode=diagnostic" ctaLabel="Try a free check">
       <section className="kg-shell k-section" style={{ borderTop: 0, paddingTop: 72, maxWidth: 820 }}>
         <p className="k-kicker">The method</p>
-        <h1 className="k-display">Spot the pressure. Then Pause, Assess, Talk.</h1>
+        <h1 className="k-display">Why did that message almost work?</h1>
         <p className="k-lede">
           Konfydence runs on two small frameworks. <strong>H.A.C.K.</strong> names what a scam is doing to you.
-          <strong> P.A.T.</strong> is what you do about it. You practise both until the moment feels familiar instead of frightening.
+          <strong> P.A.T.</strong> gives you a calmer next move. Here is what you can recognise—and rehearse.
         </p>
         <div className="k-actions">
           <Link className="k-button" href="/challenge/travelsafe/start?mode=diagnostic">Take the free check</Link>
@@ -42,7 +42,7 @@ export default function HackMethodPage() {
         <div className="k-section-head">
           <div>
             <p className="k-kicker">H.A.C.K. — spot it</p>
-            <h2 className="k-display-sm">The four pressure patterns behind almost every scam.</h2>
+            <h2 className="k-display-sm">Four ways a message tries to take control.</h2>
           </div>
           <p className="k-copy">
             You do not need to recognise every scam. You need to recognise the pressure. Almost all of it is one of these four.
@@ -85,7 +85,7 @@ export default function HackMethodPage() {
       <section className="kg-shell k-callout">
         <div>
           <p className="k-kicker">Knowledge is useful. Rehearsal changes the next move.</p>
-          <h2 className="k-display-sm">Practise it inside a realistic scenario.</h2>
+          <h2 className="k-display-sm">Think you would spot it? Try the moment for yourself.</h2>
           <p className="k-copy">
             Konfydence places these mechanics inside Family, School, University, Workplace and TravelSafe scenarios. Every decision is followed by an explanation and a rule you keep.
           </p>
