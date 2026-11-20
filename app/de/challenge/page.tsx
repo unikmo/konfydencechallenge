@@ -77,6 +77,7 @@ export default function GermanChallengePage(props: { searchParams: Promise<{ bal
           {" "}Lieber gemeinsam spielen? <Link href="/de/spielen" className="k-lang-switch" style={{ padding: "3px 8px" }}>Mit Freunden spielen →</Link>
         </p>
       </section>
+      <p className="k-shell k-copy" style={{ marginBottom: 36 }}>Wie funktioniert die Bewertung? Wann brauchst du eine E-Mail-Adresse? <Link href="/de/faq">Die Antworten findest du im FAQ</Link>.</p>
     </PremiumPageDe>
   );
 }
