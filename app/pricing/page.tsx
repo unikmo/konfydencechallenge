@@ -130,16 +130,15 @@ function PricingContent() {
     <PremiumPage ctaHref="/challenge" ctaLabel="Start a free check">
       <section className="kg-shell kc-hero is-narrow" style={{ paddingBottom: 40 }}>
         <p className="k-kicker">Pricing</p>
-        <h1>Start free. Pay only when you want the full challenge.</h1>
+        <h1>Curious what you would do next? There is more to try.</h1>
         <p>
-          The free readiness check gives you a real result — your Konfydence Readiness Score and the
-          H.A.C.K. pressure pattern most likely to move you. Unlock an edition, or take the set. Each is an annual plan.
+          Your first check is free. Discover your pressure pattern, then practise the moments that challenge your decisions. The full challenges are optional annual subscriptions.
         </p>
       </section>
 
       <section className="kg-shell kc-price-grid">
         <PriceCard
-          kicker="Free readiness check"
+          kicker="Find your pattern · Free readiness check"
           price="Free"
           includes={[
             "A quick scored check, balanced across the pressure patterns",
@@ -148,11 +147,11 @@ function PricingContent() {
             "Feedback and a rule after every decision",
           ]}
         >
-          <Link className="k-button" href="/challenge">Start free</Link>
+          <Link className="k-button" href="/challenge">Find out how I would react →</Link>
         </PriceCard>
 
         <PriceCard
-          kicker="Full challenge"
+          kicker="Turn insight into practice · Full challenge"
           price="$6.99"
           sub="/ year · one edition"
           includes={[
@@ -182,7 +181,7 @@ function PricingContent() {
         </PriceCard>
 
         <PriceCard
-          kicker="Complete pack"
+          kicker="Different situations. One stronger habit. · All five editions"
           price="$24.99"
           sub="/ year · all five editions"
           featured
@@ -194,11 +193,11 @@ function PricingContent() {
             "Best value",
           ]}
         >
-          <CheckoutRedirectButton sku="CHAL-UNLIMITED" label="Get all five — $24.99/yr" />
+          <CheckoutRedirectButton sku="CHAL-UNLIMITED" label="Unlock all five — $24.99/year" />
         </PriceCard>
 
         <PriceCard
-          kicker="Schools & workplaces"
+          kicker="Give your team better decisions to rehearse"
           price="$4.99"
           sub="/ seat · year"
           includes={[
@@ -223,6 +222,7 @@ function PricingContent() {
         </p>
       </section>
 
+      <p className="kg-shell k-copy" style={{ paddingBottom: 36 }}>Need details about the free result, annual billing, scenarios or privacy? <Link href="/faq">Find the answers in our FAQ</Link>.</p>
       <PortfolioStrip kicker="More from Konfydence" heading="Also on the shelf." />
     </PremiumPage>
   );

@@ -21,6 +21,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE}/security-decision-simulation`, changeFrequency: "monthly", priority: 0.9 },
     { url: `${BASE}/hack-method`, changeFrequency: "monthly", priority: 0.8 },
     { url: `${BASE}/challenge`, changeFrequency: "weekly", priority: 0.8 },
+    { url: `${BASE}/faq`, changeFrequency: "monthly", priority: 0.7 },
     { url: `${BASE}/travelsafe`, changeFrequency: "monthly", priority: 0.7 },
     { url: `${BASE}/lockscreens`, changeFrequency: "monthly", priority: 0.7 },
     { url: `${BASE}/lockscreens/security-awareness-lock-screens`, changeFrequency: "monthly", priority: 0.8 },
@@ -46,6 +47,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     // cluster added afterward (CoMaSy, Lockscreens, hack-method).
     { url: `${BASE}/de`, changeFrequency: "weekly", priority: 0.9 },
     { url: `${BASE}/de/challenge`, changeFrequency: "weekly", priority: 0.8 },
+    { url: `${BASE}/de/faq`, changeFrequency: "monthly", priority: 0.7 },
     { url: `${BASE}/de/pricing`, changeFrequency: "monthly", priority: 0.6 },
     { url: `${BASE}/de/impressum`, changeFrequency: "yearly", priority: 0.4 },
     { url: `${BASE}/de/datenschutz`, changeFrequency: "yearly", priority: 0.4 },

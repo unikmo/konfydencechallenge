@@ -13,7 +13,7 @@ const VERFUEGBAR = [
   {
     key: "family",
     label: "Familien-Edition",
-    text: "Enkeltrick, „Hallo Mama“-Betrug, falsche Polizei, Finanzamt-Phishing, Kleinanzeigen-Fallen und mehr — 48 Szenarien, auf typische Situationen in Deutschland zugeschnitten.",
+    text: "Enkeltrick, „Hallo Mama“-Betrug, falsche Polizei, Finanzamt-Phishing, Kleinanzeigen-Fallen und mehr — über 40 Szenarien, auf typische Situationen in Deutschland zugeschnitten.",
   },
   {
     key: "school",
@@ -45,11 +45,10 @@ export default function GermanChallengePage(props: { searchParams: Promise<{ bal
       <section className="k-shell" style={{ padding: "40px 0" }}>
         <p className="k-kicker">Konfydence Challenge</p>
         <h1 style={{ fontSize: 32, fontWeight: 900, marginBottom: 12 }}>
-          Übe die Entscheidung, bevor der Druck echt ist.
+          Glaubst du, du würdest es erkennen? Finde es heraus.
         </h1>
         <p style={{ maxWidth: 640, opacity: 0.8, marginBottom: 32 }}>
-          Jede Edition hat 40+ reale Szenarien — ausgewogen über Hetze, Autorität, Vertrautheit und Notbremse. Probier
-          es kostenlos, oder schalte die volle Edition frei und spiel das ganze Set in kurzen Runden.
+          Fünf Lebenswelten. Fünf Arten von Druck. Wähle die Situation, die dir am nächsten ist, und finde heraus, wie du wirklich reagieren würdest. Der erste Check ist kostenlos.
         </p>
 
         {VERFUEGBAR.map((e) => (
@@ -67,7 +66,7 @@ export default function GermanChallengePage(props: { searchParams: Promise<{ bal
             <h2 style={{ fontSize: 22, fontWeight: 900, marginBottom: 8 }}>{e.label}</h2>
             <p style={{ opacity: 0.8, marginBottom: 18, lineHeight: 1.6 }}>{e.text}</p>
             <div style={{ display: "flex", gap: 12, flexWrap: "wrap" }}>
-              <Link href={`/de/challenge/${e.key}/start?mode=diagnostic`} className="k-button">Kostenlos probieren</Link>
+              <Link href={`/de/challenge/${e.key}/start?mode=diagnostic`} className="k-button">Meine Reaktion testen →</Link>
               <Link href={`/de/pricing?edition=${e.key}`} className="k-button-quiet">Volle Edition — €6,99/Jahr</Link>
             </div>
           </article>
@@ -78,6 +77,7 @@ export default function GermanChallengePage(props: { searchParams: Promise<{ bal
           {" "}Lieber gemeinsam spielen? <Link href="/de/spielen" className="k-lang-switch" style={{ padding: "3px 8px" }}>Mit Freunden spielen →</Link>
         </p>
       </section>
+      <p className="k-shell k-copy" style={{ marginBottom: 36 }}>Wie funktioniert die Bewertung? Wann brauchst du eine E-Mail-Adresse? <Link href="/de/faq">Die Antworten findest du im FAQ</Link>.</p>
     </PremiumPageDe>
   );
 }

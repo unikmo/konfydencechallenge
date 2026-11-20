@@ -34,7 +34,7 @@ export default function GermanHomePage() {
             <span className="k-home-hero-alert">Und plötzlich soll alles ganz schnell gehen.</span>
           </h1>
           <p style={{ maxWidth: 620, marginTop: 18, fontSize: 16, lineHeight: 1.6, opacity: 0.85 }}>
-            Trainiere mit 48 realistischen Alltagssituationen, typische Betrugsmaschen zu erkennen – etwa den Enkeltrick, gefälschte Bank-SMS oder WhatsApp-Nachrichten von angeblich neuen Nummern. Mit einem kostenlosen Sicherheitscheck kannst du sofort loslegen.
+            Du kennst die Warnzeichen. Aber wie würdest du entscheiden, wenn eine Nachricht plötzlich echt wirkt? Probier es aus – bevor der Druck real wird.
           </p>
         </div>
         <div className="k-home-hero-media k-home-hero-media-photo">
@@ -50,7 +50,7 @@ export default function GermanHomePage() {
           />
         </div>
         <div className="k-shell k-home-hero-after">
-          <p>Erkenne den Druck. Prüfe die Anfrage. Entscheide in Ruhe.</p>
+          <p>Du bist dran. Wie würdest du reagieren?</p>
           <div className="k-home-hero-actions">
             <Link className="k-button k-home-primary" href="/de/challenge/family/start?mode=diagnostic">Kostenlosen Check starten</Link>
             <Link className="k-button-quiet k-home-secondary" href="/de/comasy">Für Unternehmen: CoMaSy</Link>
@@ -63,9 +63,9 @@ export default function GermanHomePage() {
 
       <section className="k-shell" style={{ padding: "40px 0" }}>
         <p className="k-kicker">Die H.A.C.K.-Methode</p>
-        <h2 style={{ fontSize: 28, fontWeight: 900, marginBottom: 8 }}>Vier typische Tricks, die du kennen solltest.</h2>
+        <h2 style={{ fontSize: 28, fontWeight: 900, marginBottom: 8 }}>Warum hätte diese Nachricht fast funktioniert?</h2>
         <p style={{ maxWidth: 640, opacity: 0.8, marginBottom: 28 }}>
-          Viele Betrugsversuche setzen auf Zeitdruck, angebliche Autorität oder vertraute Absender. Hier lernst du, diese Muster rechtzeitig zu erkennen.
+          Zeitdruck, vermeintliche Autorität und Vertrautheit verändern manchmal unsere Entscheidungen. Finde heraus, welches Muster dich besonders fordert.
         </p>
         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))", gap: 20 }}>
           {PRINZIPIEN.map(([num, label, text]) => (
@@ -86,11 +86,10 @@ export default function GermanHomePage() {
         <div style={{ background: "var(--k-ink,#111)", color: "#fff", borderRadius: 18, padding: "36px 28px" }}>
           <p style={{ fontSize: 12, letterSpacing: ".08em", opacity: 0.7, marginBottom: 8 }}>FAMILIEN-EDITION</p>
           <h2 style={{ fontSize: 24, fontWeight: 900, marginBottom: 10 }}>
-            Erst kostenlos ausprobieren. Danach gezielt weiterüben.
+            Du hast dein Muster erkannt. Jetzt kannst du weiterüben.
           </h2>
           <p style={{ maxWidth: 560, opacity: 0.85, marginBottom: 20, fontSize: 15, lineHeight: 1.6 }}>
-            Mit dem kostenlosen Check kannst du sofort anfangen. Die vollständige Challenge enthält 48 Alltagssituationen in kurzen Runden. Dafür erstellst du
-            ein Konto, damit du deinen Fortschritt auf verschiedenen Geräten wiederfindest.
+            Die erste Übung ist kostenlos. Danach kannst du selbst entscheiden, ob du mit der vollständigen Challenge tiefer einsteigst. Für bezahlte Challenges ist ein Konto erforderlich.
           </p>
           <div style={{ display: "flex", gap: 12, flexWrap: "wrap" }}>
             <Link href="/de/challenge/family/start?mode=diagnostic" className="k-button">
@@ -116,6 +115,7 @@ export default function GermanHomePage() {
           </div>
         </div>
       </section>
+      <p className="k-shell k-copy" style={{ paddingBottom: 32 }}>Fragen zu Ergebnissen, Datenschutz oder Abos? <Link href="/de/faq">Alle wichtigen Antworten im FAQ</Link>.</p>
     </PremiumPageDe>
   );
 }

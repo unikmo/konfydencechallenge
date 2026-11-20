@@ -18,35 +18,35 @@ const editions = [
     key: "family",
     eyebrow: "Home & family",
     title: "Family",
-    copy: "Bank alerts, deliveries, relatives, marketplace messages and everyday requests that exploit familiarity.",
+    copy: "“Mom, it’s me. I need money.” What if that one message was not from your child?",
     signal: "Best for households and mixed-age families",
   },
   {
     key: "school",
     eyebrow: "Students",
     title: "School",
-    copy: "Gaming, social accounts, fake giveaways, school messages and pressure that targets younger decision-makers.",
+    copy: "“You just won. Claim it now.” Free stuff. Urgent links. What would you do?",
     signal: "Best for school-age learners",
   },
   {
     key: "university",
     eyebrow: "Campus life",
     title: "University",
-    copy: "Housing, student jobs, account access, ticketing, payments and scams built around independence and urgency.",
+    copy: "“Great apartment. One deposit away.” Everything looks perfect. Have you checked the one thing that matters?",
     signal: "Best for students living and transacting independently",
   },
   {
     key: "workplace",
     eyebrow: "Professional",
     title: "Workplace",
-    copy: "Executive impersonation, invoice changes, HR requests, credentials and authority pressure inside real work flows.",
+    copy: "“The CEO needs this approved. Immediately.” The message looks official. Would you question it?",
     signal: "Best for employees and teams",
   },
   {
     key: "travelsafe",
     eyebrow: "On the move",
     title: "TravelSafe",
-    copy: "Bookings, transport, Wi-Fi, payment, accommodation and urgent travel problems where verification is harder.",
+    copy: "“Your booking needs attention. Right now.” You are far from home. What is your next move?",
     signal: "Best before or during travel",
   },
 ] as const;
@@ -62,15 +62,15 @@ export default function ChallengeLanding() {
   return (
     <PremiumPage ctaHref="/challenge/family/start?mode=diagnostic" ctaLabel="Start free check">
       <section className="k-shell k-section" style={{ borderTop: 0, paddingTop: 72 }}>
-        <p className="k-kicker">Free scam-pressure diagnostic</p>
+        <p className="k-kicker">Your move. Your result.</p>
         <h1 className="k-display">
-          Scams do not test what you know. <span style={{ color: "var(--k-gold)" }}>They test what you do under pressure.</span>
+          Think you would spot it? <span style={{ color: "var(--k-gold)" }}>There is one way to find out.</span>
         </h1>
         <p className="k-lede">
-          Choose the version closest to your real life. You will face a short run of decisions — balanced across the four H.A.C.K. pressure patterns — and get a personal readiness profile at the end.
+          You know the warning signs. But what would you actually do when the message feels real? Choose your world. Make the call. Discover your pressure pattern.
         </p>
         <div className="kg-promise">
-          <span>Quick scored check</span><span>About 4 minutes</span><span>No account for round one</span><span>Immediate H.A.C.K. profile</span>
+          <span>First check free</span><span>Short, realistic decisions</span><span>No account to begin</span><span>Practical feedback after every move</span>
         </div>
         <p className="k-copy" style={{ marginTop: 18 }}>
           Rather do it with people? <Link href="/play" style={{ fontWeight: 700 }}>Play with friends</Link> — same scenarios, same room, running leaderboard.
@@ -81,10 +81,10 @@ export default function ChallengeLanding() {
         <div className="k-section-head">
           <div>
             <p className="k-kicker">Choose your pressure test</p>
-            <h2 id="choose-edition" className="k-display-sm">Where are you most likely to be targeted?</h2>
+            <h2 id="choose-edition" className="k-display-sm">Which message would make you hesitate?</h2>
           </div>
           <p className="k-copy">
-            Each edition has 40+ real-life scenarios — balanced across Hurry, Authority, Comfort and Kill-Switch, and added to regularly. Try it free, or unlock the full edition for $6.99/year and play the whole set in short rounds.
+            Five familiar worlds. Five different kinds of pressure. Pick the situation that feels closest to your life. Your first check is free; deeper practice is optional.
           </p>
         </div>
         <div className="kg-edition-grid">
@@ -95,7 +95,7 @@ export default function ChallengeLanding() {
               <p>{edition.copy}</p>
               <small>{edition.signal}</small>
               <div className="kg-edition-actions">
-                <Link href={`/challenge/${edition.key}/start?mode=diagnostic`}>Try free check <span aria-hidden="true">→</span></Link>
+                <Link href={`/challenge/${edition.key}/start?mode=diagnostic`}>See what I would do <span aria-hidden="true">→</span></Link>
                 <Link className="kg-edition-buy" href={`/pricing?edition=${edition.key}`}>Buy — $6.99/yr</Link>
               </div>
             </article>
@@ -118,7 +118,7 @@ export default function ChallengeLanding() {
             <div className="kg-buy-card">
               <p className="kg-buy-name">One edition</p>
               <p className="kg-buy-price"><strong>$6.99</strong> / year · per edition</p>
-              <p className="kg-buy-copy">Pick the version closest to your life and unlock the whole scenario bank.</p>
+              <p className="kg-buy-copy">Pick the version closest to your life and practise 40+ real-life scenarios, added to regularly.</p>
               <Link className="k-button-quiet" href="/pricing">Choose an edition</Link>
             </div>
             <div className="kg-buy-card is-featured">
@@ -138,11 +138,11 @@ export default function ChallengeLanding() {
         <div className="k-shell">
           <div className="k-section-head">
             <div>
-              <p className="k-kicker">What the result measures</p>
-              <h2 className="k-display-sm">Your H.A.C.K. pressure profile.</h2>
+              <p className="k-kicker">The surprise after the score</p>
+              <h2 className="k-display-sm">Your score tells one story. Your pressure pattern tells another.</h2>
             </div>
             <p className="k-copy">
-              Not a personality label. A practical signal showing which kind of pressure most changes your decisions — and which reflex to practise next.
+              Find out whether urgency, authority, familiarity or the final action moment changed your choices. Then see the move worth practising. This is training feedback, not a protection guarantee.
             </p>
           </div>
           <div className="k-principles k-principles-four" style={{ borderColor: "rgba(255,255,255,.14)" }}>
@@ -157,16 +157,17 @@ export default function ChallengeLanding() {
         </div>
       </section>
 
+      <p className="k-shell k-copy" style={{ marginTop: 32, marginBottom: 32 }}>Looking for the details on scoring, privacy, subscriptions or the editions? <Link href="/faq">Read the straight answers in our FAQ</Link>. For adult guests, the completed free result is delivered by email.</p>
       <PortfolioStrip kicker="Also from Konfydence" heading="Beyond the free check." />
 
       <section className="k-shell k-callout">
         <div>
           <p className="k-kicker">Start where the risk is real</p>
-          <h2 className="k-display-sm">You do not need to study first.</h2>
-          <p className="k-copy">Make the decisions you would make today, then use the result to train the reflex that needs work.</p>
+          <h2 className="k-display-sm">You are up. What is your move?</h2>
+          <p className="k-copy">No studying first. Decide as you would today; discover what you noticed and what you missed.</p>
         </div>
         <div className="k-actions">
-          <Link className="k-button" href="/challenge/family/start?mode=diagnostic">Start the Family check</Link>
+          <Link className="k-button" href="/challenge/family/start?mode=diagnostic">Find out how I would react →</Link>
         </div>
       </section>
     </PremiumPage>

@@ -43,12 +43,12 @@ export default function TravelSafePageDe() {
         <div className="k-travel-copy">
           <p className="k-breadcrumb">Für Privatpersonen · TravelSafe</p>
           <p className="k-kicker">TravelSafe von Konfydence</p>
-          <h1 className="k-display">Lerne, Betrugsversuche auf Reisen rechtzeitig zu erkennen.</h1>
+          <h1 className="k-display">„Deine Buchung muss sofort bestätigt werden.“</h1>
           <p className="k-lede">
-            Kurze, realistische Szenarien helfen dir, dir anzugewöhnen, innezuhalten, nachzuprüfen und gut zu entscheiden, wenn ungewohnte Abläufe und Zeitdruck zusammenkommen.
+            Du bist weit weg von zu Hause. Die Nachricht sieht echt aus. Was würdest du jetzt tun?
           </p>
           <div className="k-actions">
-            <Link className="k-button" href="/de/challenge/travelsafe/start?mode=diagnostic">Kostenlosen TravelSafe-Check starten</Link>
+            <Link className="k-button" href="/de/challenge/travelsafe/start?mode=diagnostic">Meine Reaktion testen →</Link>
             <Link className="k-button-quiet" href="/de/hack-method">So funktioniert die Methode</Link>
           </div>
         </div>
@@ -81,10 +81,10 @@ export default function TravelSafePageDe() {
           <div className="k-section-head">
             <div>
               <p className="k-kicker">So funktioniert TravelSafe</p>
-              <h2 className="k-display-sm">Situation auswählen. Entscheiden. Daraus lernen.</h2>
+              <h2 className="k-display-sm">Du bist dran. Was ist dein nächster Schritt?</h2>
             </div>
             <p className="k-copy">
-              Du musst keine Checkliste auswendig lernen. Du entscheidest, siehst, was die Situation getestet hat, und lernst die sicherere Regel dahinter.
+              Eine Buchung, eine Zahlung, eine überraschende Frist. Entscheide erst. Danach erfährst du, welche Druckmittel im Spiel waren.
             </p>
           </div>
           <div className="k-flow">
@@ -101,12 +101,13 @@ export default function TravelSafePageDe() {
         <cite>Entscheidungsprinzip von Konfydence</cite>
       </section>
 
+      <p className="k-shell k-copy" style={{ paddingTop: 28 }}>Fragen zu Ergebnis, Methode oder Preisen? <Link href="/de/faq">Zum FAQ</Link>.</p>
       <PortfolioStrip lang="de" exclude={["travelsafe"]} />
 
       <section className="k-shell k-callout">
         <div>
           <p className="k-kicker">Bereit?</p>
-          <h2 className="k-display-sm">Drei Minuten üben. Beim nächsten Betrugsversuch besser vorbereitet sein.</h2>
+          <h2 className="k-display-sm">Würdest du es erkennen? Probier es aus.</h2>
         </div>
         <div className="k-actions">
           <Link className="k-button-gold" href="/de/challenge/travelsafe/start?mode=diagnostic">Kostenlosen Check starten</Link>

@@ -128,17 +128,15 @@ function GermanPricingContent() {
     <PremiumPageDe ctaHref="/de/challenge/family/start?mode=diagnostic" ctaLabel="Kostenlos starten">
       <section className="kg-shell kc-hero is-narrow" style={{ paddingBottom: 40 }}>
         <p className="k-kicker">Preise</p>
-        <h1>Kostenlos testen. Weiterüben, wenn es für dich passt.</h1>
+        <h1>Neugierig auf deine nächste Entscheidung? Es gibt noch mehr zu entdecken.</h1>
         <p>
-          Der kostenlose Sicherheitscheck zeigt dir, wie du in typischen Betrugssituationen reagierst und welches
-          H.A.C.K.-Druckmuster dir besonders schwerfällt. Du kannst eine einzelne Edition freischalten
-          oder alle fünf zusammen wählen. Die kostenpflichtigen Zugänge gelten jeweils für ein Jahr.
+          Dein erster Check ist kostenlos. Finde heraus, welches Druckmuster deine Entscheidungen beeinflusst, und übe dann genau diese Momente. Alle kostenpflichtigen Angebote sind freiwillige Jahresabos.
         </p>
       </section>
 
       <section className="kg-shell kc-price-grid">
         <PreisKarte
-          kicker="Kostenloser Check"
+          kicker="Finde dein Muster · Kostenloser Check"
           price="Kostenlos"
           includes={[
             "Ein kurzer Sicherheitscheck zu den vier Druckmustern",
@@ -151,7 +149,7 @@ function GermanPricingContent() {
         </PreisKarte>
 
         <PreisKarte
-          kicker="Volle Challenge"
+          kicker="Erkenntnisse vertiefen · Volle Challenge"
           price="€6,99"
           sub="/ Jahr"
           includes={[
@@ -183,7 +181,7 @@ function GermanPricingContent() {
         </PreisKarte>
 
         <PreisKarte
-          kicker="Komplettpaket"
+          kicker="Fünf Lebenswelten. Ein sichererer nächster Schritt."
           price="€24,99"
           sub="/ Jahr · alle fünf Editionen"
           includes={[
@@ -197,7 +195,7 @@ function GermanPricingContent() {
         </PreisKarte>
 
         <PreisKarte
-          kicker="Schulen & Unternehmen"
+          kicker="Bessere Entscheidungen im Team üben"
           price="€4,99"
           sub="/ Platz · Jahr"
           includes={[
@@ -217,13 +215,14 @@ function GermanPricingContent() {
           freigeschaltet; dein Konfydence-Konto speichert Fortschritt und Zugang geräteübergreifend. Konfydence dient dem Training sicherer Entscheidungen. Das Angebot kann keinen vollständigen Schutz vor Betrug oder finanziellen Schäden garantieren.
         </p>
       </section>
+      <p className="kg-shell k-copy" style={{ paddingBottom: 30 }}>Mehr zu Jahresabos, Kündigung, Ergebnissen oder Datenschutz? <Link href="/de/faq">Alle Antworten im FAQ</Link>.</p>
     </PremiumPageDe>
   );
 }
 
 export default function GermanPricingPage() {
   return (
-    <Suspense fallback={<PremiumPageDe ctaHref="/de/challenge/family/start?mode=diagnostic" ctaLabel="Kostenlos starten"><section className="kg-shell kc-hero"><h1>Kostenlos testen. Weiterüben, wenn es für dich passt.</h1><p>Entdecke den kostenlosen Sicherheitscheck und die verschiedenen Challenges.</p></section></PremiumPageDe>}>
+    <Suspense fallback={<PremiumPageDe ctaHref="/de/challenge/family/start?mode=diagnostic" ctaLabel="Kostenlos starten"><section className="kg-shell kc-hero"><h1>Neugierig auf deine nächste Entscheidung? Es gibt noch mehr zu entdecken.</h1><p>Entdecke den kostenlosen Sicherheitscheck und die verschiedenen Challenges.</p></section></PremiumPageDe>}>
       <GermanPricingContent />
     </Suspense>
   );

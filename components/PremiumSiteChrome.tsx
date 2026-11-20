@@ -20,6 +20,7 @@ const EN_TO_DE: Record<string, string> = {
   "/terms-of-service": "/de/agb",
   "/imprint": "/de/impressum",
   "/pricing": "/de/pricing",
+  "/faq": "/de/faq",
   "/challenge": "/de/challenge",
   "/challenge/register": "/de/challenge/registrieren",
   "/lockscreens": "/de/lockscreens",
@@ -81,6 +82,7 @@ export function PremiumHeader({
         <Link href="/lockscreens">Lockscreens</Link>
         <Link href="/comasy">For business</Link>
         <Link href="/pricing">Pricing</Link>
+        <Link href="/faq">FAQ</Link>
         <Link href="/pilot">Schools &amp; Teams</Link>
         <Link href="/free-scam-safety-pack">Resources</Link>
       </nav>
@@ -93,6 +95,7 @@ export function PremiumHeader({
           <Link href="/comasy">CoMaSy for business</Link>
           <Link href="/comasy/pilot">Request a pilot</Link>
           <Link href="/pricing">Pricing</Link>
+          <Link href="/faq">FAQ</Link>
           <Link href="/contact">Contact</Link>
         </nav>
       </details>
@@ -123,6 +126,7 @@ export function PremiumFooter() {
           <Link href="/gift">Gift a challenge</Link>
           <Link href="/free-scam-safety-pack">Free safety resources</Link>
           <Link href="/hack-method">Method</Link>
+          <Link href="/faq">FAQ</Link>
           <Link href="/contact">Contact</Link>
           <Link href="/imprint">Imprint</Link>
           <Link href="/privacy-policy">Privacy</Link>
@@ -172,6 +176,7 @@ export function PremiumHeaderDe({
         <Link href="/de/comasy">Für Unternehmen</Link>
         <Link href="/de/lockscreens">Lockscreens</Link>
         <Link href="/de/pricing">Preise</Link>
+        <Link href="/de/faq">FAQ</Link>
         <Link href="/de/pilot">Für Schulen &amp; Unternehmen</Link>
       </nav>
       <details className="k-mobile-menu">
@@ -183,6 +188,7 @@ export function PremiumHeaderDe({
           <Link href="/de/challenge">Challenges</Link>
           <Link href="/de/lockscreens">Lockscreens</Link>
           <Link href="/de/pricing">Preise</Link>
+          <Link href="/de/faq">FAQ</Link>
           <Link href="/de/kontakt">Kontakt</Link>
         </nav>
       </details>
@@ -210,6 +216,7 @@ export function PremiumFooterDe() {
           <Link href="/de/comasy">CoMaSy</Link>
           <Link href="/de/comasy/sicherheit">CoMaSy: Sicherheit &amp; Datenschutz</Link>
           <Link href="/de/hack-method">Methode</Link>
+          <Link href="/de/faq">FAQ</Link>
           <Link href="/de/countries">Betrugswarnungen nach Ländern</Link>
           <Link href="/de/kontakt">Kontakt</Link>
           <Link href="/de/geschenk">Challenge verschenken</Link>

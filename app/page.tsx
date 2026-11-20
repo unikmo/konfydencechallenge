@@ -60,7 +60,7 @@ export default function HomePage() {
             For schools and teams: <Link href="/pilot">request a pilot <span aria-hidden="true">→</span></Link>
           </p>
           <a className="k-home-scroll-cue" href="#inside-it" aria-label="Continue to learn why scam messages are difficult to recognise">
-            <span>See why this matters</span>
+            <span>Would you make the right move?</span>
             <b aria-hidden="true">↓</b>
           </a>
         </div>
@@ -68,7 +68,7 @@ export default function HomePage() {
 
       <section id="inside-it" className="k-shell k-home-hook k-home-narrow">
         <p className="k-kicker">The moment that matters</p>
-        <h2>It rarely looks like a scam<br />when you&apos;re inside it.</h2>
+        <h2>It looks legitimate.<br />Until it doesn&apos;t.</h2>
 
         <div
           className="k-home-scam-scene"
@@ -102,22 +102,23 @@ export default function HomePage() {
           <span className="k-home-example-label">Illustrative message</span>
         </div>
 
-        <p className="k-home-hook-lede">TravelSafe turns that uncertain moment into something you can practise calmly before you travel.</p>
+        <p className="k-home-hook-lede">That hotel message could arrive at exactly the wrong moment. Would you spot what matters? Try the decision before the pressure is real.</p>
+        <p className="k-copy" style={{ margin: "0 0 24px" }}><Link className="k-button" href="/challenge/travelsafe/start?mode=diagnostic">Find out how you would react →</Link></p>
         <div className="k-home-benefits">
           <article>
             <span aria-hidden="true">01</span>
-            <h3>Real-world scenarios</h3>
-            <p>Practise with messages that look and feel real—so the habit is there when it counts.</p>
+            <h3>Your move first.</h3>
+            <p>A message lands. You decide. Then you discover what it was really asking of you.</p>
           </article>
           <article>
             <span aria-hidden="true">02</span>
-            <h3>Confident decisions</h3>
-            <p>Learn a calm, repeatable process to pause, verify independently and decide.</p>
+            <h3>The pattern you missed.</h3>
+            <p>See which pressure changed your choice—and the calmer move to try next time.</p>
           </article>
           <article>
             <span aria-hidden="true">03</span>
-            <h3>Protection you can share</h3>
-            <p>Give useful confidence to the people you care about before they travel.</p>
+            <h3>A habit worth sharing.</h3>
+            <p>Share a practical pause-and-verify habit with someone you care about.</p>
           </article>
         </div>
       </section>
@@ -142,10 +143,10 @@ export default function HomePage() {
         <div className="k-section-head">
           <div>
             <p className="k-kicker">Pressure has patterns</p>
-            <h2 className="k-display-sm">Recognise what the message is trying to make you do.</h2>
+            <h2 className="k-display-sm">Why did that message almost work?</h2>
           </div>
           <p className="k-copy">
-            TravelSafe does not ask people to memorise a blacklist. It teaches them to notice the pressure pattern, create decision space, and check the request with someone they trust.
+            Urgency, authority, familiarity and the moment you are asked to act can change your choices. See which pattern makes you move.
           </p>
         </div>
         <div className="k-principles k-principles-four">
@@ -163,11 +164,11 @@ export default function HomePage() {
         <div className="k-shell k-home-narrow">
           <div className="k-section-head">
             <div>
-              <p className="k-kicker">Two frameworks, one habit</p>
-              <h2 className="k-display-sm">Spot the pressure. Then Pause, Assess, Talk.</h2>
+              <p className="k-kicker">What makes your next move safer?</p>
+              <h2 className="k-display-sm">The pause might be the best move you make.</h2>
             </div>
             <p className="k-copy">
-              H.A.C.K. names what a scam is doing to you. P.A.T. is what you do about it. Together they turn a stressful moment into a decision you have already rehearsed.
+              Name the pressure. Make space to think. Check independently. H.A.C.K. and P.A.T. give that pause a practical shape.
             </p>
           </div>
           <div className="k-method-grid">
@@ -207,6 +208,7 @@ export default function HomePage() {
         </div>
       </section>
 
+      <p className="k-shell k-copy" style={{ marginTop: 28, marginBottom: 28 }}>Want the method, scoring rules, privacy or purchase details? <Link href="/faq">Explore the FAQ</Link>.</p>
       <PortfolioStrip
         exclude={["travelsafe"]}
         lead={["school", "comasy"]}
@@ -217,7 +219,7 @@ export default function HomePage() {
       <section className="k-shell k-callout k-home-final-cta">
         <div>
           <p className="k-kicker">Start here</p>
-          <h2 className="k-display-sm">Practise the decision before the pressure is real.</h2>
+          <h2 className="k-display-sm">Think you would spot it? Prove it to yourself.</h2>
         </div>
         <div className="k-actions">
           <Link className="k-button" href="/challenge/travelsafe/start?mode=diagnostic">Try TravelSafe free</Link>
