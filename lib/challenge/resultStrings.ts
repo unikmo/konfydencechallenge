@@ -192,7 +192,7 @@ export const RESULTS_STRINGS: Record<UiLang, {
     conversionBankNote: "Jede Runde bevorzugt Szenarien, die du noch nicht gesehen hast — so misst das Training Entscheidungsqualität statt Erinnerung an die letzte Runde.",
     startHere: "Fang hier an:",
     unlockFull: "Diese Edition üben — €6,99/Jahr",
-    unlockAll: "Alle fünf entdecken — €24,99/Jahr",
+    unlockAll: "Alle fünf freischalten — €24,99/Jahr",
     playSecondFree: "Meinen zweiten kostenlosen Check spielen",
     registerSecondFree: "Registrieren, um den zweiten kostenlosen Check freizuschalten",
     limitReached: "Deine zwei kostenlosen Checks sind aufgebraucht.",
