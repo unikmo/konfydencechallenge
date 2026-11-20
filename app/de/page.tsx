@@ -115,6 +115,7 @@ export default function GermanHomePage() {
           </div>
         </div>
       </section>
+      <p className="k-shell k-copy" style={{ paddingBottom: 32 }}>Fragen zu Ergebnissen, Datenschutz oder Abos? <Link href="/de/faq">Alle wichtigen Antworten im FAQ</Link>.</p>
     </PremiumPageDe>
   );
 }
