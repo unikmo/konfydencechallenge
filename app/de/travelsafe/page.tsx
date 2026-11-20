@@ -101,6 +101,7 @@ export default function TravelSafePageDe() {
         <cite>Entscheidungsprinzip von Konfydence</cite>
       </section>
 
+      <p className="k-shell k-copy" style={{ paddingTop: 28 }}>Fragen zu Ergebnis, Methode oder Preisen? <Link href="/de/faq">Zum FAQ</Link>.</p>
       <PortfolioStrip lang="de" exclude={["travelsafe"]} />
 
       <section className="k-shell k-callout">
