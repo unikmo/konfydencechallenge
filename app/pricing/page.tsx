@@ -193,7 +193,7 @@ function PricingContent() {
             "Best value",
           ]}
         >
-          <CheckoutRedirectButton sku="CHAL-UNLIMITED" label="Explore all five — $24.99/yr" />
+          <CheckoutRedirectButton sku="CHAL-UNLIMITED" label="Unlock all five — $24.99/year" />
         </PriceCard>
 
         <PriceCard
