@@ -215,6 +215,7 @@ function GermanPricingContent() {
           freigeschaltet; dein Konfydence-Konto speichert Fortschritt und Zugang geräteübergreifend. Konfydence dient dem Training sicherer Entscheidungen. Das Angebot kann keinen vollständigen Schutz vor Betrug oder finanziellen Schäden garantieren.
         </p>
       </section>
+      <p className="kg-shell k-copy" style={{ paddingBottom: 30 }}>Mehr zu Jahresabos, Kündigung, Ergebnissen oder Datenschutz? <Link href="/de/faq">Alle Antworten im FAQ</Link>.</p>
     </PremiumPageDe>
   );
 }
