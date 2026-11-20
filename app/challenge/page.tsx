@@ -118,7 +118,7 @@ export default function ChallengeLanding() {
             <div className="kg-buy-card">
               <p className="kg-buy-name">One edition</p>
               <p className="kg-buy-price"><strong>$6.99</strong> / year · per edition</p>
-              <p className="kg-buy-copy">Pick the version closest to your life and unlock the whole scenario bank.</p>
+              <p className="kg-buy-copy">Pick the version closest to your life and practise 40+ real-life scenarios, added to regularly.</p>
               <Link className="k-button-quiet" href="/pricing">Choose an edition</Link>
             </div>
             <div className="kg-buy-card is-featured">
