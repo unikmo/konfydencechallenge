@@ -157,7 +157,7 @@ export const RESULTS_STRINGS: Record<UiLang, {
     conversionBankNote: "Each round prioritises scenarios you have not seen, so practice measures decision quality rather than memory of the previous round.",
     startHere: "Your next useful move:",
     unlockFull: "Practise this edition — $6.99/year",
-    unlockAll: "Explore all five — $24.99/year",
+    unlockAll: "Unlock all five — $24.99/year",
     playSecondFree: "Play my second free check",
     registerSecondFree: "Register to unlock my second free check",
     limitReached: "Your two free readiness checks are complete.",
