@@ -17,11 +17,11 @@ const pressureLesson: Record<HackTrigger, { question: string; reflex: string }> 
 };
 
 const feedbackEn = {
-  4: { label: "STRONG MOVE", title: "You broke the pressure chain.", body: "You took control of the next step away from the requester and put verification back in your hands.", tone: "strong", mark: "✓" },
-  3: { label: "SAFE MOVE", title: "Protected — but not the cleanest move.", body: "You reduced the risk. One option verified the situation with even less dependence on the original request.", tone: "safe", mark: "↗" },
-  2: { label: "PARTLY PROTECTED", title: "Cautious, but the door stayed open.", body: "You added friction, but one important part still depended on a claim, channel or person you had not independently verified.", tone: "caution", mark: "!" },
-  1: { label: "RISK REMAINS", title: "It felt careful. It was not proof.", body: "The move sounded sensible but still left the requester in control of what happened next.", tone: "risk", mark: "!" },
-  0: { label: "PRESSURE WON", title: "That is the move the scam needed.", body: "The request still controlled the link, payment, credential or next action. That is where the risk compounds.", tone: "risk", mark: "×" },
+  4: { label: "STRONG MOVE", title: "Good catch. You kept the next move yours.", body: "You took control of the next step away from the requester and put verification back in your hands.", tone: "strong", mark: "✓" },
+  3: { label: "SAFE MOVE", title: "Good instincts. There was an even clearer move.", body: "You reduced the risk. One option verified the situation with even less dependence on the original request.", tone: "safe", mark: "↗" },
+  2: { label: "PARTLY PROTECTED", title: "You paused. One detail still mattered.", body: "You added friction, but one important part still depended on a claim, channel or person you had not independently verified.", tone: "caution", mark: "!" },
+  1: { label: "RISK REMAINS", title: "It sounded safe. Here is what was missing.", body: "The move sounded sensible but still left the requester in control of what happened next.", tone: "risk", mark: "!" },
+  0: { label: "A MOMENT TO PRACTISE", title: "That choice gave the request control.", body: "You can change this next time: pause, leave the original request and verify independently.", tone: "risk", mark: "×" },
 } as const;
 
 export default async function FeedbackPage(props: { params: Promise<{ sessionId: string }> }) {
