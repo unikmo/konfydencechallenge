@@ -198,6 +198,7 @@ export default async function ResultsPage({
           </section>
         )}
 
+        <p style={{ fontSize: 13, color: "var(--k-muted)", marginBottom: 22 }}> {lang === "de" ? <>Mehr über die Bewertung, Jahresabos und ihre Grenzen? <Link href="/de/faq">Zum FAQ</Link>.</> : <>Curious about your score, annual plans or their limitations? <Link href="/faq">Get the straight answers</Link>.</>} </p>
         {completedAll ? <section style={styles.card}><ShareButtons url={`/challenge/session/${sessionId}/results`} title={t.shareTitle} text={t.shareText(deckName)} /></section> : null}
       </div>
 
