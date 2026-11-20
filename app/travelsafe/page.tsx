@@ -40,13 +40,13 @@ export default function TravelSafePage() {
         <div className="k-travel-copy">
           <p className="k-breadcrumb">For people · TravelSafe</p>
           <p className="k-kicker">TravelSafe by Konfydence</p>
-          <h1 className="k-display">Practise safer decisions before the trip makes them real.</h1>
+          <h1 className="k-display">“Your booking needs attention. Right now.”</h1>
           <p className="k-lede">
-            Short, realistic scenarios help you build the habit to pause, verify and choose well when unfamiliar systems and time pressure collide.
+            You are miles from home. The message looks real. What is your next move?
           </p>
           <div className="k-actions">
-            <Link className="k-button" href="/challenge/travelsafe/start?mode=diagnostic">Start the free TravelSafe check</Link>
-            <Link className="k-button-quiet" href="/hack-method">How the method works</Link>
+            <Link className="k-button" href="/challenge/travelsafe/start?mode=diagnostic">Find out what I would do →</Link>
+            <Link className="k-button-quiet" href="/hack-method">Why does the pressure work?</Link>
           </div>
         </div>
         <div className="k-travel-media">
@@ -78,17 +78,17 @@ export default function TravelSafePage() {
           <div className="k-section-head">
             <div>
               <p className="k-kicker">How TravelSafe works</p>
-              <h2 className="k-display-sm">Choose. Experience. Learn. Improve.</h2>
+              <h2 className="k-display-sm">You are up. What is your move?</h2>
             </div>
             <p className="k-copy">
-              You are not asked to memorise a checklist. You make a decision, see what the situation was testing and learn the safer rule behind it.
+              A booking, a payment request, a surprise deadline. Decide first. Then see what the pressure was trying to change.
             </p>
           </div>
           <div className="k-flow">
-            <article><span>01</span><h3>Choose</h3><p>Pick a short scenario that fits your world.</p></article>
-            <article><span>02</span><h3>Experience</h3><p>Make a decision in a realistic situation.</p></article>
-            <article><span>03</span><h3>Learn</h3><p>See what happened, why and which pressure pattern was active.</p></article>
-            <article><span>04</span><h3>Improve</h3><p>Repeat until Pause, Assess, Talk is the automatic next move.</p></article>
+            <article><span>01</span><h3>See the moment.</h3><p>Pick a short scenario that fits your world.</p></article>
+            <article><span>02</span><h3>Make the call.</h3><p>Make a decision in a realistic situation.</p></article>
+            <article><span>03</span><h3>Spot what you missed.</h3><p>See what happened, why and which pressure pattern was active.</p></article>
+            <article><span>04</span><h3>Try a better next move.</h3><p>Repeat until Pause, Assess, Talk is the automatic next move.</p></article>
           </div>
         </div>
       </section>
@@ -98,12 +98,13 @@ export default function TravelSafePage() {
         <cite>Konfydence decision principle</cite>
       </section>
 
+      <p className="k-shell k-copy" style={{ marginTop: 24, marginBottom: 24 }}>Want the rules, prices or privacy details? <Link href="/faq">See the FAQ</Link>.</p>
       <PortfolioStrip exclude={["travelsafe"]} />
 
       <section className="k-shell k-callout">
         <div>
           <p className="k-kicker">Ready?</p>
-          <h2 className="k-display-sm">Three minutes now. A stronger instinct later.</h2>
+          <h2 className="k-display-sm">Think you would spot it? Prove it to yourself.</h2>
         </div>
         <div className="k-actions">
           <Link className="k-button-gold" href="/challenge/travelsafe/start?mode=diagnostic">Start the free check</Link>
