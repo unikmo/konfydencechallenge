@@ -1,15 +1,24 @@
 import { NextRequest, NextResponse } from "next/server";
+import nodemailer from "nodemailer";
 import { rateLimit, getClientIp } from "@/lib/rateLimit";
 
-// Submissions previously only ever hit console.log on Vercel — every
-// school/university/workplace inquiry through this form was going nowhere.
-// Guarded by env vars (same pattern as GA4 in app/layout.tsx): if Resend
-// isn't configured yet, this quietly falls back to the old console.log
-// behavior instead of throwing, so the form still "works" from the visitor's
-// point of view while you finish setting up email.
-const RESEND_API_KEY = process.env.RESEND_API_KEY;
-const CONTACT_TO_EMAIL = process.env.CONTACT_TO_EMAIL;
-const CONTACT_FROM_EMAIL = process.env.CONTACT_FROM_EMAIL;
+export const runtime = "nodejs";
+
+// Messages are sent through the team@konfydence.com mailbox over SMTP (port 465)
+// and delivered to that same mailbox. The recipient is fixed by configuration,
+// never by the visitor. If delivery is not configured or fails, the visitor
+// sees an error instead of a false "message received".
+const emailPattern = /^[^\s@<>\r\n]+@[^\s@<>\r\n]+\.[^\s@<>\r\n]+$/;
+
+function mailConfig() {
+  const user = process.env.CONTACT_SMTP_USER?.trim() || "";
+  return {
+    host: process.env.CONTACT_SMTP_HOST?.trim() || "",
+    user,
+    pass: process.env.CONTACT_SMTP_PASSWORD?.replace(/\s/g, "") || "",
+    to: process.env.CONTACT_TO_EMAIL?.trim() || user,
+  };
+}
 
 function escapeHtml(value: string): string {
   return value
@@ -27,8 +36,9 @@ async function sendContactEmail(payload: {
   seatCount?: string;
   message: string;
   topic?: string;
-}): Promise<boolean> {
-  if (!RESEND_API_KEY || !CONTACT_TO_EMAIL || !CONTACT_FROM_EMAIL) return false;
+}): Promise<"sent" | "not-configured" | "failed"> {
+  const c = mailConfig();
+  if (!c.host || !c.user || !c.pass || !emailPattern.test(c.to)) return "not-configured";
 
   // All fields are attacker-controlled input landing in an HTML email body —
   // escape before interpolating to avoid HTML/content injection in the inbox.
@@ -50,26 +60,33 @@ async function sendContactEmail(payload: {
     <p><strong>Message:</strong><br/>${safe.message}</p>
   `;
 
-  const res = await fetch("https://api.resend.com/emails", {
-    method: "POST",
-    headers: {
-      Authorization: `Bearer ${RESEND_API_KEY}`,
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({
-      from: CONTACT_FROM_EMAIL,
-      to: CONTACT_TO_EMAIL,
-      reply_to: payload.email,
-      subject: `New ${safe.topic} inquiry from ${payload.name}`,
+  try {
+    const transport = nodemailer.createTransport({
+      host: c.host,
+      port: 465,
+      secure: true,
+      auth: { user: c.user, pass: c.pass },
+      connectionTimeout: 10000,
+      greetingTimeout: 10000,
+      socketTimeout: 15000,
+      disableFileAccess: true,
+      disableUrlAccess: true,
+    });
+    const subjectTopic = (payload.topic || "general").replace(/[\r\n]+/g, " ").slice(0, 60);
+    const result = await transport.sendMail({
+      from: { name: "Konfydence contact form", address: c.user },
+      to: c.to,
+      replyTo: { name: payload.name.replace(/[<>"\r\n]/g, "").slice(0, 100), address: payload.email },
+      subject: `New ${subjectTopic} inquiry from ${payload.name.replace(/[\r\n]+/g, " ").slice(0, 100)}`,
       html,
-    }),
-  });
-
-  if (!res.ok) {
-    console.error("Resend send failed:", res.status, await res.text());
-    return false;
+    });
+    if (!result.accepted?.length || result.rejected?.length) throw new Error("Delivery not accepted");
+    return "sent";
+  } catch (error) {
+    const code = (error as { code?: unknown })?.code;
+    console.error("contact-mail-failed", typeof code === "string" ? code : "UNKNOWN");
+    return "failed";
   }
-  return true;
 }
 
 export async function POST(request: NextRequest) {
@@ -92,20 +109,31 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    const sent = await sendContactEmail({ name, email, organization: organization || "Not provided", seatCount, message, topic });
+    if (typeof email !== "string" || !emailPattern.test(email.trim())) {
+      return NextResponse.json({ error: "Please enter a valid email address." }, { status: 400 });
+    }
 
-    if (!sent) {
-      // Fallback so submissions are still visible somewhere (Vercel logs)
-      // until RESEND_API_KEY / CONTACT_TO_EMAIL / CONTACT_FROM_EMAIL are set.
-      console.log("Contact form submission (email not configured):", {
-        name,
-        email,
-        organization,
-        seatCount,
-        message,
-        topic,
-        timestamp: new Date().toISOString(),
-      });
+    const outcome = await sendContactEmail({
+      name: String(name).slice(0, 100),
+      email: email.trim().slice(0, 254),
+      organization: String(organization || "Not provided").slice(0, 200),
+      seatCount: seatCount ? String(seatCount).slice(0, 20) : undefined,
+      message: String(message).slice(0, 5000),
+      topic: typeof topic === "string" ? topic : undefined,
+    });
+
+    if (outcome === "not-configured") {
+      console.error("contact-mail-not-configured");
+      return NextResponse.json(
+        { error: "Message delivery is temporarily unavailable. Please email team@konfydence.com." },
+        { status: 503 }
+      );
+    }
+    if (outcome === "failed") {
+      return NextResponse.json(
+        { error: "Your message could not be sent. Please try again or email team@konfydence.com." },
+        { status: 502 }
+      );
     }
 
     return NextResponse.json({ success: true });

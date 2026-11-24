@@ -99,8 +99,8 @@ function ContactForm() {
 
         {submitted ? (
           <div className="kc-note">
-            <b>Message received</b>
-            <p>Thank you. We&apos;ll review your message and reply as soon as possible.</p>
+            <b>Thank you. Your message is with us.</b>
+            <p>We will reply by email, usually within two working days. If you do not hear from us, check your spam folder or write to <a href="mailto:team@konfydence.com">team@konfydence.com</a>.</p>
           </div>
         ) : (
           <form onSubmit={handleSubmit} className="kc-form" style={{ boxShadow: "none" }}>
