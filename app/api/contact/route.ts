@@ -4,7 +4,7 @@ import { rateLimit, getClientIp } from "@/lib/rateLimit";
 
 export const runtime = "nodejs";
 
-// Messages are sent through the team@konfydence.com mailbox over SMTP (port 465)
+// Messages are sent through the hello@konfydence.com mailbox over SMTP (port 465)
 // and delivered to that same mailbox. The recipient is fixed by configuration,
 // never by the visitor. If delivery is not configured or fails, the visitor
 // sees an error instead of a false "message received".
@@ -125,13 +125,13 @@ export async function POST(request: NextRequest) {
     if (outcome === "not-configured") {
       console.error("contact-mail-not-configured");
       return NextResponse.json(
-        { error: "Message delivery is temporarily unavailable. Please email team@konfydence.com." },
+        { error: "Message delivery is temporarily unavailable. Please email hello@konfydence.com." },
         { status: 503 }
       );
     }
     if (outcome === "failed") {
       return NextResponse.json(
-        { error: "Your message could not be sent. Please try again or email team@konfydence.com." },
+        { error: "Your message could not be sent. Please try again or email hello@konfydence.com." },
         { status: 502 }
       );
     }
